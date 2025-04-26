@@ -101,6 +101,8 @@ namespace SaltsEnemies_Reseasoned
 
             //CH6 Enemies
             Delusion.Add();
+            FakeAngel.Add();
+            RBYPFlowers.Add();
 
             //CH1 Encounters
             LostSheepEncounters.Add();
