@@ -7,7 +7,7 @@ using UnityEngine;
 
 
 
-namespace SaltsEnemies_Reseasoned.CustomEffects
+namespace SaltsEnemies_Reseasoned
 {
     public class CasterRootActionEffect : EffectSO
     {

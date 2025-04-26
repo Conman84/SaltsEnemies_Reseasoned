@@ -61,6 +61,13 @@
 	  <None Remove="Chapter4\RusticJumbleGuts\GJumbDead.png" />
 	  <None Remove="Chapter4\RusticJumbleGuts\GJumbIcon.png" />
 	  <None Remove="Chapter4\RusticJumbleGuts\GJumbIconB.png" />
+	  <None Remove="Chapter6\Delusion\IllusionDead.png" />
+	  <None Remove="Chapter6\Delusion\IllusionIcon.png" />
+	  <None Remove="Chapter6\Delusion\IllusionPassive.png" />
+	  <None Remove="Chapter6\Delusion\IllusionWorld.png" />
+	  <None Remove="Chapter6\FakeAngel\AngelDead.png" />
+	  <None Remove="Chapter6\FakeAngel\AngelIcon.png" />
+	  <None Remove="Chapter6\FakeAngel\AngelWorld.png" />
 	  <None Remove="CustomPassives\Chapter2\Decay.png" />
 	  <None Remove="CustomPassives\Chapter3\DontTouchMe.png" />
 	  <None Remove="CustomPassives\Chapter3\StarPassive.png" />
@@ -74,6 +81,9 @@
 	  <None Remove="CustomPassives\Unmasking.png" />
 	  <None Remove="CustomStatuses\Anesthetics.png" />
 	  <None Remove="CustomStatuses\Chapter4\Favor.png" />
+	  <None Remove="CustomStatuses\Chapter6\MutedIcon.png" />
+	  <None Remove="CustomStatuses\Chapter6\PhotoIcon.png" />
+	  <None Remove="CustomStatuses\Chapter6\RootsIcon.png" />
 	  <None Remove="CustomStatuses\Determined.png" />
 	  <None Remove="CustomStatuses\Inverted.png" />
 	  <None Remove="CustomStatuses\Left.png" />
@@ -81,6 +91,7 @@
 	  <None Remove="CustomStatuses\Power.png" />
 	  <None Remove="SpecialIcons\counticon.png" />
 	  <None Remove="SpecialIcons\FavoritePicture.png" />
+	  <None Remove="SpecialIcons\idk.png" />
 	  <None Remove="SpecialIcons\UnlockingIntent.png" />
 	  <None Remove="SpecialIcons\waiticon.png" />
 	</ItemGroup>
@@ -140,6 +151,13 @@
 	  <EmbeddedResource Include="Chapter4\RusticJumbleGuts\GJumbDead.png" />
 	  <EmbeddedResource Include="Chapter4\RusticJumbleGuts\GJumbIcon.png" />
 	  <EmbeddedResource Include="Chapter4\RusticJumbleGuts\GJumbIconB.png" />
+	  <EmbeddedResource Include="Chapter6\Delusion\IllusionDead.png" />
+	  <EmbeddedResource Include="Chapter6\Delusion\IllusionIcon.png" />
+	  <EmbeddedResource Include="Chapter6\Delusion\IllusionPassive.png" />
+	  <EmbeddedResource Include="Chapter6\Delusion\IllusionWorld.png" />
+	  <EmbeddedResource Include="Chapter6\FakeAngel\AngelDead.png" />
+	  <EmbeddedResource Include="Chapter6\FakeAngel\AngelIcon.png" />
+	  <EmbeddedResource Include="Chapter6\FakeAngel\AngelWorld.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter1\Desperate.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter2\Decay.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter2\Fishing.png" />
@@ -159,8 +177,12 @@
 	  <EmbeddedResource Include="CustomStatuses\Chapter1\Pale.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter1\Power.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter4\Favor.png" />
+	  <EmbeddedResource Include="CustomStatuses\Chapter6\MutedIcon.png" />
+	  <EmbeddedResource Include="CustomStatuses\Chapter6\PhotoIcon.png" />
+	  <EmbeddedResource Include="CustomStatuses\Chapter6\RootsIcon.png" />
 	  <EmbeddedResource Include="SpecialIcons\counticon.png" />
 	  <EmbeddedResource Include="SpecialIcons\FavoritePicture.png" />
+	  <EmbeddedResource Include="SpecialIcons\idk.png" />
 	  <EmbeddedResource Include="SpecialIcons\UnlockingIntent.png" />
 	  <EmbeddedResource Include="SpecialIcons\waiticon.png" />
 	</ItemGroup>
@@ -451,6 +473,10 @@
 	  <Reference Include="UnityEngine.XRModule">
 	    <HintPath>..\REFERENCES\UnityEngine.XRModule.dll</HintPath>
 	  </Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="CustomEffects\Chapter6\" />
 	</ItemGroup>
 
 

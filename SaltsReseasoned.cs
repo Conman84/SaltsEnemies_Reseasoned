@@ -69,6 +69,9 @@ namespace SaltsEnemies_Reseasoned
             Determined.Add();
             DivineSacrifice.Add();
             Favor.Add();
+            Muted.Add();
+            Roots.Add();
+            Photo.Add();
 
             //CH1 Enemies
             LostSheep.Add();
@@ -95,6 +98,9 @@ namespace SaltsEnemies_Reseasoned
             RusticJumbleGuts.Add();
             MortalSpoggle.Add();
             CoinHunter.Add();
+
+            //CH6 Enemies
+            Delusion.Add();
 
             //CH1 Encounters
             LostSheepEncounters.Add();
