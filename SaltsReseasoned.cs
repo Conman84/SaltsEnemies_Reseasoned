@@ -72,6 +72,10 @@ namespace SaltsEnemies_Reseasoned
             Muted.Add();
             Roots.Add();
             Photo.Add();
+            Dodge.Add();
+            Entropy.Add();
+            Haste.Add();
+            Hollow.Add();
 
             //CH1 Enemies
             LostSheep.Add();
@@ -103,6 +107,13 @@ namespace SaltsEnemies_Reseasoned
             Delusion.Add();
             FakeAngel.Add();
             RBYPFlowers.Add();
+
+            //CH8 Enemies
+            Sigil.Add();
+            Solvent.Add();
+            WindSong.Add();
+            TheEndOfTime.Add();
+            SemiRealisticTank.Add();
 
             //CH1 Encounters
             LostSheepEncounters.Add();

@@ -82,6 +82,28 @@
 	  <None Remove="Chapter6\RBYPFlowers\YellowFlowerDead.png" />
 	  <None Remove="Chapter6\RBYPFlowers\YellowFlowerIcon.png" />
 	  <None Remove="Chapter6\RBYPFlowers\YellowFlowerWorld.png" />
+	  <None Remove="Chapter8\ClockTower\ClockTowerDead.png" />
+	  <None Remove="Chapter8\ClockTower\ClockTowerIcon.png" />
+	  <None Remove="Chapter8\ClockTower\ClockTowerPortal.png" />
+	  <None Remove="Chapter8\RealisticTank\cold.png" />
+	  <None Remove="Chapter8\RealisticTank\TankDead.png" />
+	  <None Remove="Chapter8\RealisticTank\TankIcon.png" />
+	  <None Remove="Chapter8\RealisticTank\TankWorld.png" />
+	  <None Remove="Chapter8\RealisticTank\WarningPassive.png" />
+	  <None Remove="Chapter8\Sigil\SigilDead.png" />
+	  <None Remove="Chapter8\Sigil\SigilIcon.png" />
+	  <None Remove="Chapter8\Sigil\sigilPassive.png" />
+	  <None Remove="Chapter8\Sigil\SigilWorld.png" />
+	  <None Remove="Chapter8\Solvent\intimidated.png" />
+	  <None Remove="Chapter8\Solvent\SolventIcon.png" />
+	  <None Remove="Chapter8\Solvent\SolventPortal.png" />
+	  <None Remove="Chapter8\Solvent\SolventWorld.png" />
+	  <None Remove="Chapter8\Solvent\survival.png" />
+	  <None Remove="Chapter8\WindSong\CodaIcon.png" />
+	  <None Remove="Chapter8\WindSong\intentcoda.png" />
+	  <None Remove="Chapter8\WindSong\WindSongDead.png" />
+	  <None Remove="Chapter8\WindSong\WindSongIcon.png" />
+	  <None Remove="Chapter8\WindSong\WindSongWorld.png" />
 	  <None Remove="CustomPassives\Chapter2\Decay.png" />
 	  <None Remove="CustomPassives\Chapter3\DontTouchMe.png" />
 	  <None Remove="CustomPassives\Chapter3\StarPassive.png" />
@@ -98,6 +120,8 @@
 	  <None Remove="CustomStatuses\Chapter6\MutedIcon.png" />
 	  <None Remove="CustomStatuses\Chapter6\PhotoIcon.png" />
 	  <None Remove="CustomStatuses\Chapter6\RootsIcon.png" />
+	  <None Remove="CustomStatuses\Chapter8\HollowIcon.png" />
+	  <None Remove="CustomStatuses\Chapter9\Acid.png" />
 	  <None Remove="CustomStatuses\Determined.png" />
 	  <None Remove="CustomStatuses\Inverted.png" />
 	  <None Remove="CustomStatuses\Left.png" />
@@ -186,6 +210,28 @@
 	  <EmbeddedResource Include="Chapter6\RBYPFlowers\YellowFlowerDead.png" />
 	  <EmbeddedResource Include="Chapter6\RBYPFlowers\YellowFlowerIcon.png" />
 	  <EmbeddedResource Include="Chapter6\RBYPFlowers\YellowFlowerWorld.png" />
+	  <EmbeddedResource Include="Chapter8\ClockTower\ClockTowerDead.png" />
+	  <EmbeddedResource Include="Chapter8\ClockTower\ClockTowerIcon.png" />
+	  <EmbeddedResource Include="Chapter8\ClockTower\ClockTowerPortal.png" />
+	  <EmbeddedResource Include="Chapter8\RealisticTank\cold.png" />
+	  <EmbeddedResource Include="Chapter8\RealisticTank\TankDead.png" />
+	  <EmbeddedResource Include="Chapter8\RealisticTank\TankIcon.png" />
+	  <EmbeddedResource Include="Chapter8\RealisticTank\TankWorld.png" />
+	  <EmbeddedResource Include="Chapter8\RealisticTank\WarningPassive.png" />
+	  <EmbeddedResource Include="Chapter8\Sigil\SigilDead.png" />
+	  <EmbeddedResource Include="Chapter8\Sigil\SigilIcon.png" />
+	  <EmbeddedResource Include="Chapter8\Sigil\sigilPassive.png" />
+	  <EmbeddedResource Include="Chapter8\Sigil\SigilWorld.png" />
+	  <EmbeddedResource Include="Chapter8\Solvent\intimidated.png" />
+	  <EmbeddedResource Include="Chapter8\Solvent\SolventIcon.png" />
+	  <EmbeddedResource Include="Chapter8\Solvent\SolventPortal.png" />
+	  <EmbeddedResource Include="Chapter8\Solvent\SolventWorld.png" />
+	  <EmbeddedResource Include="Chapter8\Solvent\survival.png" />
+	  <EmbeddedResource Include="Chapter8\WindSong\CodaIcon.png" />
+	  <EmbeddedResource Include="Chapter8\WindSong\intentcoda.png" />
+	  <EmbeddedResource Include="Chapter8\WindSong\WindSongDead.png" />
+	  <EmbeddedResource Include="Chapter8\WindSong\WindSongIcon.png" />
+	  <EmbeddedResource Include="Chapter8\WindSong\WindSongWorld.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter1\Desperate.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter2\Decay.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter2\Fishing.png" />
@@ -208,6 +254,8 @@
 	  <EmbeddedResource Include="CustomStatuses\Chapter6\MutedIcon.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter6\PhotoIcon.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter6\RootsIcon.png" />
+	  <EmbeddedResource Include="CustomStatuses\Chapter8\HollowIcon.png" />
+	  <EmbeddedResource Include="CustomStatuses\Chapter9\Acid.png" />
 	  <EmbeddedResource Include="SpecialIcons\counticon.png" />
 	  <EmbeddedResource Include="SpecialIcons\FavoritePicture.png" />
 	  <EmbeddedResource Include="SpecialIcons\idk.png" />
@@ -233,6 +281,9 @@
 	  </Reference>
 	  <Reference Include="BrutalAPI">
 	    <HintPath>..\REFERENCES\BrutalAPI.dll</HintPath>
+	  </Reference>
+	  <Reference Include="DOTween">
+	    <HintPath>..\REFERENCES\DOTween.dll</HintPath>
 	  </Reference>
 	  <Reference Include="FMODUnity">
 	    <HintPath>..\REFERENCES\FMODUnity.dll</HintPath>
@@ -500,6 +551,15 @@
 	  </Reference>
 	  <Reference Include="UnityEngine.XRModule">
 	    <HintPath>..\REFERENCES\UnityEngine.XRModule.dll</HintPath>
+	  </Reference>
+	  <Reference Include="YarnSpinner">
+	    <HintPath>..\REFERENCES\YarnSpinner.dll</HintPath>
+	  </Reference>
+	  <Reference Include="YarnSpinner.Compiler">
+	    <HintPath>..\REFERENCES\YarnSpinner.Compiler.dll</HintPath>
+	  </Reference>
+	  <Reference Include="YarnSpinner.Unity">
+	    <HintPath>..\REFERENCES\YarnSpinner.Unity.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
 
