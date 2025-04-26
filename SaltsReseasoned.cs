@@ -29,7 +29,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Logger.LogInfo("they salt on my enemies till i season?");
 
-            SaltsReseasoned.saltsAssetBundle = AssetBundle.LoadFromMemory(ResourceLoader.ResourceBinary("hawthorneBundle"));//changed because i think repeatedly renaming it is a waste
+            SaltsReseasoned.saltsAssetBundle = AssetBundle.LoadFromMemory(ResourceLoader.ResourceBinary("hawthorne"));//changed because i think repeatedly renaming it is a waste
             SaltsReseasoned.Meow = AssetBundle.LoadFromMemory(ResourceLoader.ResourceBinary("meowy"));
 
             //Setup
