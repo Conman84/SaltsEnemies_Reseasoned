@@ -88,7 +88,7 @@ namespace SaltEnemies_Reseasoned
         }
         public static void Setup()
         {
-            IDetour dodgeHook = new Hook(typeof(EffectInfo).GetMethod(nameof(EffectInfo.StartEffect), ~BindingFlags.Default), typeof(Dodge).GetMethod(nameof(StartEffect), ~BindingFlags.Default));
+            IDetour dodgeHook = new Hook(typeof(EffectInfo).GetMethod(nameof(EffectInfo.StartEffect), ~BindingFlags.Default), typeof(DodgeHandler).GetMethod(nameof(StartEffect), ~BindingFlags.Default));
         }
     }
     public class DodgeSE_SO : StatusEffect_SO
