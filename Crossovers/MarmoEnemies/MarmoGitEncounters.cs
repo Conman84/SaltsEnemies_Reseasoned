@@ -19,7 +19,7 @@ namespace SaltsEnemies_Reseasoned
                     {
                         "Git_EN",
                         "LittleAngel_EN",
-                        "Romantic_EN",
+                        "NextOfKin_EN"
                     }));
                     ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("Marmo_Git_Easy_Bundle"))._enemyBundles = list1;
                 }
@@ -31,8 +31,8 @@ namespace SaltsEnemies_Reseasoned
                     {
                         "Git_EN",
                         "Git_EN",
+                        "Git_EN",
                         "LittleAngel_EN",
-                        "Romantic_EN",
                     }));
                     ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("Marmo_Git_Medium_Bundle"))._enemyBundles = list2;
                 }
