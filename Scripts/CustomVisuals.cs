@@ -26,11 +26,12 @@ namespace SaltsEnemies_Reseasoned
                 if (!Visuals.ContainsKey(name)) Visuals.Add(name, ret);
                 else Debug.LogWarning("animation for " + name + " already exists!");
             }
-            catch
+            catch (Exception ex)
             {
                 Debug.LogError("visuals failed to load: " + name);
                 Debug.LogError("asset path: " + path);
                 Debug.LogError("audio path: " + sound);
+                Debug.LogError(ex.ToString());
             }
         }
         public static AttackVisualsSO GetVisuals(string name)
