@@ -29,7 +29,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Logger.LogInfo("they salt on my enemies till i season?");
 
-            SaltsReseasoned.saltsAssetBundle = AssetBundle.LoadFromMemory(ResourceLoader.ResourceBinary("reseasonedHawthorne"));
+            SaltsReseasoned.saltsAssetBundle = AssetBundle.LoadFromMemory(ResourceLoader.ResourceBinary("hawthorne"));//changed because i think repeatedly renaming it is a waste
             SaltsReseasoned.Meow = AssetBundle.LoadFromMemory(ResourceLoader.ResourceBinary("meowy"));
 
             //Setup
@@ -116,6 +116,8 @@ namespace SaltsEnemies_Reseasoned
             MechanicalLensEncounters.Add();
             MortalSpoggleEncounters.Add();
             RusticJumbleGutsEncounter.Add();
+
+            Logger.LogInfo("Seasons greasons");
         }
 
         public static void PCall(Action call)

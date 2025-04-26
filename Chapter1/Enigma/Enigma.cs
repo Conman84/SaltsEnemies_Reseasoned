@@ -46,10 +46,10 @@ namespace SaltsEnemies_Reseasoned
 
             //Terrorize
             AnimationVisualsEffect talons = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
-            talons._animationTarget = Targeting.Slot_OpponentRight;
+            talons._animationTarget = Targeting.GenerateSlotTarget(new int[] { 1, -4 }, false);
             talons._visuals = LoadedAssetsHandler.GetEnemyAbility("Talons_A").visuals;
             AnimationVisualsEffect talons2 = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
-            talons2._animationTarget = Targeting.Slot_OpponentLeft;
+            talons2._animationTarget = Targeting.GenerateSlotTarget(new int[] { -1, 4 }, false);
             talons2._visuals = LoadedAssetsHandler.GetEnemyAbility("Talons_A").visuals;
             
             PreviousEffectCondition didThat = ScriptableObject.CreateInstance<PreviousEffectCondition>();
@@ -59,32 +59,32 @@ namespace SaltsEnemies_Reseasoned
             didnt2That.previousAmount = 2;
 
             Ability terrorize = new Ability("Terrorize", "Salt_Terrorize_A");
-            terrorize.Description = "Deal a painful amount of damage to either the left or right party members.";
+            terrorize.Description = "Deal a painful amount of damage to either the left or right party members.\nThis ability assumes the grid loops around.";
             terrorize.Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity3", 3);
             terrorize.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(talons, 1, Targeting.Slot_OpponentRight, Effects.ChanceCondition(50)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Targeting.Slot_OpponentRight, didThat),
-                Effects.GenerateEffect(talons2, 1, Targeting.Slot_OpponentLeft, didnt2That),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Targeting.Slot_OpponentLeft, didThat),
+                Effects.GenerateEffect(talons, 1, Targeting.GenerateSlotTarget(new int[]{1, -4}, false), Effects.ChanceCondition(50)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Targeting.GenerateSlotTarget(new int[]{1, -4}, false), didThat),
+                Effects.GenerateEffect(talons2, 1, Targeting.GenerateSlotTarget(new int[]{-1, 4}, false), didnt2That),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Targeting.GenerateSlotTarget(new int[]{-1, 4}, false), didThat),
             };
             terrorize.Visuals = null;
             terrorize.AnimationTarget = Targeting.Slot_SelfSlot;
-            terrorize.AddIntentsToTarget(Targeting.Slot_OpponentLeft, new string[]
+            terrorize.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[] { -1, 4 }, false), new string[]
             {
                 "Damage_3_6"
             });
-            terrorize.AddIntentsToTarget(Targeting.Slot_OpponentRight, new string[]
+            terrorize.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[] { 1, -4 }, false), new string[]
             {
                 "Damage_3_6"
             });
 
             //Paranoia
             AnimationVisualsEffect headshot = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
-            headshot._animationTarget = Targeting.Slot_OpponentRight;
+            headshot._animationTarget = Targeting.GenerateSlotTarget(new int[] { 1, -4 }, false);
             headshot._visuals = CustomVisuals.GetVisuals("Salt/Gaze");
             AnimationVisualsEffect headshot2 = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
-            headshot2._animationTarget = Targeting.Slot_OpponentLeft;
+            headshot2._animationTarget = Targeting.GenerateSlotTarget(new int[] { -1, 4 }, false);
             headshot2._visuals = CustomVisuals.GetVisuals("Salt/Gaze");
 
             Targetting_ByUnit_Side allAlly = ScriptableObject.CreateInstance<Targetting_ByUnit_Side>();
@@ -92,22 +92,22 @@ namespace SaltsEnemies_Reseasoned
             allAlly.getAllies = true;
 
             Ability paranoia = new Ability("Paranoia", "Paranoia_A");
-            paranoia.Description = "Apply 6 Frail to either the left or right party members.";
+            paranoia.Description = "Apply 6 Frail to either the left or right party members.\nThis ability assumes the grid loops around.";
             paranoia.Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity6", 6);
             paranoia.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(headshot, 1, Targeting.Slot_OpponentRight, Effects.ChanceCondition(50)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 6, Targeting.Slot_OpponentRight, didThat),
-                Effects.GenerateEffect(headshot2, 1, Targeting.Slot_OpponentLeft, didnt2That),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 6, Targeting.Slot_OpponentLeft, didThat),
+                Effects.GenerateEffect(headshot, 1, Targeting.GenerateSlotTarget(new int[]{1, -4}, false), Effects.ChanceCondition(50)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 6, Targeting.GenerateSlotTarget(new int[]{1, -4}, false), didThat),
+                Effects.GenerateEffect(headshot2, 1, Targeting.GenerateSlotTarget(new int[]{-1, 4}, false), didnt2That),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 6, Targeting.GenerateSlotTarget(new int[]{-1, 4}, false), didThat),
             };
             paranoia.Visuals = null;
             paranoia.AnimationTarget = Targeting.Slot_SelfSlot;
-            paranoia.AddIntentsToTarget(Targeting.Slot_OpponentLeft, new string[]
+            paranoia.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[] { -1, 4 }, false), new string[]
             {
                 "Status_Frail"
             });
-            paranoia.AddIntentsToTarget(Targeting.Slot_OpponentRight, new string[]
+            paranoia.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[] { 1, -4 }, false), new string[]
             {
                 "Status_Frail"
             });

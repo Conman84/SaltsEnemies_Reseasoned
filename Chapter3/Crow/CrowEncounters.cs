@@ -52,7 +52,7 @@ namespace SaltsEnemies_Reseasoned
                 "Enigma_EN",
             }, null);
             mainEncounters.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Crow_Easy_EnemyBundle", 3, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Easy);
+            //EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Crow_Easy_EnemyBundle", 3, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Easy);
 
             EnemyEncounter_API mainEncounters2 = new EnemyEncounter_API(0, "H_Zone02_Crow_Medium_EnemyBundle", "Salt_CrowEncounters_Sign");
             mainEncounters2.MusicEvent = "event:/Hawthorne/CrowSong";

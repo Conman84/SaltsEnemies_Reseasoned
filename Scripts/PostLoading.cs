@@ -2,6 +2,7 @@
 using SaltsEnemies_Reseasoned;
 using System;
 using System.Reflection;
+using static SaltsEnemies_Reseasoned.SaltsReseasoned;
 
 namespace SaltEnemies_Reseasoned
 {
@@ -27,15 +28,28 @@ namespace SaltEnemies_Reseasoned
             SaltMechanicalLensEncounters.Add();
 
             //Crossovers
-            SaltsReseasoned.PCall(MarmoSnaurceEncounters.Add);
-            SaltsReseasoned.PCall(MarmoSurimiEncounters.Add);
-            SaltsReseasoned.PCall(MarmoRomanticEncounters.Add);
-            SaltsReseasoned.PCall(MarmoSurrogateEncounters.Add);
-            SaltsReseasoned.PCall(MarmoErrantEncounters.Add);
-            SaltsReseasoned.PCall(MarmoGungrotEncounters.Add);
-            SaltsReseasoned.PCall(MarmoGitEncounters.Add);
-            SaltsReseasoned.PCall(MarmoAttritionEncounters.Add);
-            SaltsReseasoned.PCall(MinichibisEggkeeperEncounters.Add);
+
+            //marmo
+            PCall(MarmoSnaurceEncounters.Add);
+            PCall(MarmoSurimiEncounters.Add);
+            PCall(MarmoRomanticEncounters.Add);
+            PCall(MarmoSurrogateEncounters.Add);
+            PCall(MarmoErrantEncounters.Add);
+            PCall(MarmoGungrotEncounters.Add);
+            PCall(MarmoGitEncounters.Add);
+            PCall(MarmoAttritionEncounters.Add);
+            PCall(Marmo_Grey_Crossovers.Add);
+
+            //eggkeeper
+            PCall(MinichibisEggkeeperEncounters.Add);
+
+            //Round
+            PCall(RoundCrossovers.Shufflers_1_4);
+
+            //HIF
+            PCall(HIF_Crossovers.Add_1_4);
+
+
         }
     }
 }

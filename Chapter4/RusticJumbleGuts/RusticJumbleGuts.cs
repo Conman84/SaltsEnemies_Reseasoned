@@ -25,6 +25,9 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = "event:/Hawthorne/Nois2/RusticDeath",
             };
             RusticJumbleGuts.PrepareEnemyPrefab("assets/greyShit/GreyGuts_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/greyShit/GreyGuts_Gibs.prefab").GetComponent<ParticleSystem>());
+            
+            RusticJumbleGuts.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("skullFront").GetComponent<SpriteRenderer>();
+
             RusticJumbleGuts.AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_GreyJumble>();
 
             RusticJumbleGuts.AddPassives(new BasePassiveAbilitySO[]

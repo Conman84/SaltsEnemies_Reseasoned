@@ -63,7 +63,7 @@ namespace SaltsEnemies_Reseasoned
                 "SingingStone_EN",
             }, null);
             mainEncounters.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Freud_Easy_EnemyBundle", 2, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Easy);
+            //EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Freud_Easy_EnemyBundle", 2, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Easy);
 
             EnemyEncounter_API mainEncounters2 = new EnemyEncounter_API(0, "H_Zone02_Freud_Medium_EnemyBundle", "Salt_FreudEncounters_Sign");
             mainEncounters2.MusicEvent = "event:/Hawthorne/DontTouchMeTheme";
@@ -145,7 +145,7 @@ namespace SaltsEnemies_Reseasoned
                 "SingingStone_EN",
             }, null);
             mainEncounters2.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Freud_Medium_EnemyBundle", 10, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Freud_Medium_EnemyBundle", 15, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
 
             //Secondary
             if (SaltsReseasoned.silly < 25)

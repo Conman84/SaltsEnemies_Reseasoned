@@ -9,6 +9,9 @@ using System.Reflection;
 using System.Text;
 using UnityEngine;
 
+//Call EnemyRefresher.Setup(); in awake
+//Call ModCamera.Setup(); in awake
+
 namespace SaltEnemies_Reseasoned
 {
     public static class CameraEffects
@@ -100,7 +103,7 @@ namespace SaltEnemies_Reseasoned
             if (DefaultPassiveAdding == null) DefaultPassiveAdding = new Dictionary<string, BasePassiveAbilitySO>();
             if (passive == null || passive.Equals(null)) passive = ScriptableObject.Instantiate(DefaultPassive);
             if (!passive.Equals(null) && passive != null) passive._enemyDescription = enemyDesc;
-            DefaultPassiveAdding.Add(id, passive);
+            if (!DefaultPassiveAdding.ContainsKey(id)) DefaultPassiveAdding.Add(id, passive);
         }
         public static void CopyPassiveDetails(this BasePassiveAbilitySO to, BasePassiveAbilitySO from)
         {
@@ -309,7 +312,7 @@ namespace SaltEnemies_Reseasoned
                 instance1._characterDescription = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._characterDescription;
                 instance1._triggerOn = new TriggerCalls[]
                 {
-                (TriggerCalls) 889532
+                (TriggerCalls) 889532//old zensuke trigger
                 };
                 enemy.AddPassiveAbility(instance1);
             }
@@ -358,7 +361,7 @@ namespace SaltEnemies_Reseasoned
                     {
                         action(passives, character, enemy);
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         Debug.LogError("CameraEffects AddPassive action fail");
                         Debug.LogError(ex.ToString());
@@ -890,7 +893,7 @@ namespace SaltEnemies_Reseasoned
                     else hasVar = check;
                 }
             }
-            
+
             IDetour hook5 = new Hook(noVar, typeof(EnemyRefresher).GetMethod(nameof(TryPerformRandomAbility), ~BindingFlags.Default));
             IDetour hook6 = new Hook(hasVar, typeof(EnemyRefresher).GetMethod(nameof(TryPerformRandomGivenAbility), ~BindingFlags.Default));
 
@@ -932,9 +935,12 @@ namespace SaltEnemies_Reseasoned
     {
         public static ExtraAbilityInfo GetRandomItemAbility()
         {
-            CasterAddRandomExtraAbilityEffect effect = (LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0] as Connection_PerformEffectPassiveAbility).connectionEffects[1].effect as CasterAddRandomExtraAbilityEffect;
-            List<BasicAbilityChange_Wearable_SMS> changeWearableSmsList = new List<BasicAbilityChange_Wearable_SMS>((IEnumerable<BasicAbilityChange_Wearable_SMS>)effect._slapData);
-            List<ExtraAbility_Wearable_SMS> abilityWearableSmsList = new List<ExtraAbility_Wearable_SMS>((IEnumerable<ExtraAbility_Wearable_SMS>)effect._extraData);
+            //LoadedDBsHandler
+            //CasterAddRandomExtraAbilityEffect effect = (LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0] as Connection_PerformEffectPassiveAbility).connectionEffects[1].effect as CasterAddRandomExtraAbilityEffect;
+            Connection_PerformEffectPassiveAbility connection_PerformEffectPassiveAbility = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0] as Connection_PerformEffectPassiveAbility;
+            CasterAddRandomExtraAbilityEffect effect = connection_PerformEffectPassiveAbility.connectionEffects[1].effect as CasterAddRandomExtraAbilityEffect;
+            List<BasicAbilityChange_Wearable_SMS> changeWearableSmsList = new List<BasicAbilityChange_Wearable_SMS>(effect._slapData);
+            List<ExtraAbility_Wearable_SMS> abilityWearableSmsList = new List<ExtraAbility_Wearable_SMS>(effect._extraData);
             int count1 = changeWearableSmsList.Count;
             int count2 = abilityWearableSmsList.Count;
             int index1 = UnityEngine.Random.Range(0, count1 + count2);
@@ -986,7 +992,7 @@ namespace SaltEnemies_Reseasoned
                 this.extraAbilities = new Dictionary<IUnit, ExtraAbilityInfo>();
             ExtraAbilityInfo randomItemAbility = GetRandomItemAbility();
             this.extraAbilities.Add(unit, randomItemAbility);
-            unit.AddExtraAbility(this.extraAbilities[unit]); EnemyCombat e;
+            unit.AddExtraAbility(this.extraAbilities[unit]); //EnemyCombat e;
         }
 
         public override void OnPassiveDisconnected(IUnit unit)

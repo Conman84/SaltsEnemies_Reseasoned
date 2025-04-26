@@ -3,6 +3,7 @@ using SaltEnemies_Reseasoned;
 using SaltsEnemies_Reseasoned.CustomEffects;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -43,8 +44,15 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetEnemy("ShiveringHomunculus_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ShiveringHomunculus_EN").deathSound,
             };
-            LostSheep.PrepareEnemyPrefab("assets/PissShitFartCum/CNS_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/PissShitFartCum/CNS_Gibs_Prefab.prefab").GetComponent<ParticleSystem>());
+            LostSheep.PrepareMultiEnemyPrefab("assets/PissShitFartCum/CNS_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/PissShitFartCum/CNS_Gibs_Prefab.prefab").GetComponent<ParticleSystem>());
             LostSheep.enemy.enemyTemplate.m_Data.m_Renderer = LostSheep.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").GetComponent<SpriteRenderer>();
+
+            (LostSheep.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
+            {
+                LostSheep.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Outline").GetComponent<SpriteRenderer>(),
+                LostSheep.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Eye").Find("Outline").GetComponent<SpriteRenderer>(),
+                LostSheep.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("DeathEye").Find("Outline").GetComponent<SpriteRenderer>(),
+            };
 
             LostSheep.AddPassives(new BasePassiveAbilitySO[]
             {
