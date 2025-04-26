@@ -8,6 +8,7 @@
 
 	<ItemGroup>
 	  <None Remove="assets\group4" />
+	  <None Remove="assets\hawthorne" />
 	  <None Remove="assets\meowy" />
 	  <None Remove="Chapter1\DeadGod\DeadGodDead.png" />
 	  <None Remove="Chapter1\DeadGod\DeadGodIcon.png" />
@@ -86,6 +87,7 @@
 
 	<ItemGroup>
 	  <EmbeddedResource Include="assets\group4" />
+	  <EmbeddedResource Include="assets\hawthorne" />
 	  <EmbeddedResource Include="assets\meowy" />
 	  <EmbeddedResource Include="Chapter1\DeadGod\DeadGodDead.png" />
 	  <EmbeddedResource Include="Chapter1\DeadGod\DeadGodIcon.png" />
