@@ -23,6 +23,7 @@ namespace SaltsEnemies_Reseasoned
         public static int rando => UnityEngine.Random.Range(0, 100);
 
         public static AssetBundle saltsAssetBundle;
+        public static AssetBundle Group4;
         public static AssetBundle Meow;
 
         public void Awake()
@@ -30,6 +31,7 @@ namespace SaltsEnemies_Reseasoned
             Logger.LogInfo("they salt on my enemies till i season?");
 
             SaltsReseasoned.saltsAssetBundle = AssetBundle.LoadFromMemory(ResourceLoader.ResourceBinary("hawthorne"));//changed because i think repeatedly renaming it is a waste
+            SaltsReseasoned.Group4 = AssetBundle.LoadFromMemory(ResourceLoader.ResourceBinary("group4"));
             SaltsReseasoned.Meow = AssetBundle.LoadFromMemory(ResourceLoader.ResourceBinary("meowy"));
 
             //Setup
