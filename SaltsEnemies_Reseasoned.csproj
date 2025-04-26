@@ -86,7 +86,6 @@
 
 	<ItemGroup>
 	  <EmbeddedResource Include="assets\group4" />
-	  <EmbeddedResource Include="assets\reseasonedHawthorne" />
 	  <EmbeddedResource Include="assets\meowy" />
 	  <EmbeddedResource Include="Chapter1\DeadGod\DeadGodDead.png" />
 	  <EmbeddedResource Include="Chapter1\DeadGod\DeadGodIcon.png" />
