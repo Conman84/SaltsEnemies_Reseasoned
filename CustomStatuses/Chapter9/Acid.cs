@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using SaltsEnemies_Reseasoned;
 
 namespace SaltEnemies_Reseasoned
 {
@@ -64,7 +65,7 @@ namespace SaltEnemies_Reseasoned
             if (CombatManager.Instance._stats.IsPlayerTurn && caller.IsStatusEffectorCharacter)
             {
                 (caller as IUnit).SimpleSetStoredValue(SkipTick, 1);
-                CombatManager.Instance.AddRootAction(new AcidSkipTickAction());
+                CombatManager.Instance.AddRootAction(new RootActionAction(new AcidSkipTickAction()));
             }
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, TriggerCalls.OnTurnFinished.ToString(), caller);

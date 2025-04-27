@@ -64,7 +64,7 @@ namespace SaltEnemies_Reseasoned
                     CombatManager.Instance.AddUIAction(new PlaySoundUIAction("event:/Hawthorne/Boowomp", loc));
                 }
                 catch { }
-                StringReference args = new StringReference(ability.GetAbilityLocData().text);
+                StringReference args = new StringReference(ability.name);
                 CombatManager.Instance.PostNotification(TriggerCalls.OnAbilityWillBeUsed.ToString(), self, args);
                 CombatManager.Instance.AddRootAction(new StartAbilityCostAction(self.ID, filledCost));
                 Debug.Log("is muted, used not slap");
@@ -103,10 +103,11 @@ namespace SaltEnemies_Reseasoned
                 }
                 catch { }
                 Debug.Log("is muted, used not slap");
-                StringReference args = new StringReference("Slap");
+                StringReference args = new StringReference(LoadedDBsHandler.AbilityDB._BasicSlapAbility.ability.name);
                 CombatManager.Instance.PostNotification(TriggerCalls.OnAbilityWillBeUsed.ToString(), self, args);
                 EffectInfo slap = Effects.GenerateEffect(ScriptableObject.CreateInstance<SlapEffect>(), 1, Targeting.Slot_SelfSlot);
                 CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { slap }, self));
+                CombatManager.Instance.AddRootAction(new EndAbilityAction(self.ID, self.IsUnitCharacter));
                 //self.EndTurn();
                 return;
             }
