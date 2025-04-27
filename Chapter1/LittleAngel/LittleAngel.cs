@@ -109,7 +109,7 @@ namespace SaltsEnemies_Reseasoned
 
             //Devotion
             AnimationVisualsEffect homonDomin = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
-            homonDomin._animationTarget = Targeting.Slot_SelfSlot;
+            homonDomin._animationTarget = Targeting.Slot_Front;
             homonDomin._visuals = LoadedAssetsHandler.GetCharacterAbility("Expire_1_A").visuals;
             Ability devotion = new Ability("Devotion", "Salt_Devotion_A");
             devotion.Description = "Move Left or Right. Apply 30 Pale to the Opposing party member and 30 Pale to self.";
