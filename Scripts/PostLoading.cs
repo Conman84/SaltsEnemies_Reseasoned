@@ -49,7 +49,8 @@ namespace SaltEnemies_Reseasoned
             //HIF
             PCall(HIF_Crossovers.Add_1_4);
 
-
+            //giltch freakazoids
+            PCall(GlitchCrossovers_1_4.Add);
         }
     }
 }
