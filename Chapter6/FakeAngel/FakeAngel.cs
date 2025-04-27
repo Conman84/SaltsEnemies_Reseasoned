@@ -12,8 +12,6 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Debug.LogError("Make sure to load the group4 assetbundle!");
-
             Enemy angel = new Enemy("Fake Angel", "FakeAngel_EN")
             {
                 Health = 20,

@@ -45,7 +45,7 @@ namespace SaltsEnemies_Reseasoned
             acceleration.specialStoredData = UnitStoreData.GetCustom_UnitStoreData(ClockTowerManager.Acceleration);
 
             //ADDPASSIVES
-            clock.AddPassives(new BasePassiveAbilitySO[] { Passives.OverexertGenerator(12) });
+            clock.AddPassives(new BasePassiveAbilitySO[] { Passives.OverexertGenerator(12), acceleration });
             clock.CombatExitEffects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<ClockTowerExitEffect>(), 1, Targeting.Slot_SelfSlot) };
 
             //CRIPPLE

@@ -21,10 +21,10 @@ namespace SaltEnemies_Reseasoned
         {
             StatusEffectInfoSO DodgeInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             DodgeInfo.icon = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Dodge.Add. put the right sprite here");
+            Debug.LogWarning("Dodge.Add. put the right sprite here");
             DodgeInfo._statusName = "Dodge";
             DodgeInfo._description = "Get the description";
-            Debug.LogError("Dodge.Add. get the status description");
+            Debug.LogWarning("Dodge.Add. get the status description");
             DodgeInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Ruptured_ID.ToString()]._EffectInfo.AppliedSoundEvent;
             DodgeInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Ruptured_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             DodgeInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Ruptured_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
@@ -39,7 +39,7 @@ namespace SaltEnemies_Reseasoned
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
             intentinfo._sprite = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Dodge.Add. set the right sprite for the intent also");
+            Debug.LogWarning("Dodge.Add. set the right sprite for the intent also");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
 

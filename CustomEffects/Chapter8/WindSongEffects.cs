@@ -118,12 +118,10 @@ namespace SaltEnemies_Reseasoned
         public static void Setup()
         {
             string ID = "WindSong";
-            Debug.LogError("WindSongManager.Setup: MAKE SURE THESE ARE PULLING FROM ASSETBUNDLES THAT EXIST");
             MainEffect = SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/" + ID + "/" + ID + "_Effect.prefab").GetComponent<ParticleSystem>();
             SideEffectOne = SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/" + ID + "/" + ID + "_Burst.prefab").GetComponent<ParticleSystem>();
             SideEffectTwo = SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/" + ID + "/" + ID + "_Blast.prefab").GetComponent<ParticleSystem>();
             IDetour hook = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.Damage), ~BindingFlags.Default), typeof(WindSongManager).GetMethod(nameof(Damage), ~BindingFlags.Default));
-            Debug.LogError("WindSongManager.Setup: MAKE SURE THIS IS LOADING A SPRITE THAT EXISTS");
             Intents.CreateAndAddCustom_Damage_IntentToPool(Intent, ResourceLoader.LoadSprite("intentcoda.png"), (Intents.GetInGame_IntentInfo(IntentType_GameIDs.Damage_3_6) as IntentInfoDamage).GetColor(true), ResourceLoader.LoadSprite("intentcoda.png"), (Intents.GetInGame_IntentInfo(IntentType_GameIDs.Damage_3_6) as IntentInfoDamage).GetColor(false));
         }
     }

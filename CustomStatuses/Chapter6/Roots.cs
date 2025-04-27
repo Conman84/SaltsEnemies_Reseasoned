@@ -35,14 +35,13 @@ namespace SaltEnemies_Reseasoned
 
             SlotStatusEffectInfoSO RootsInfo = ScriptableObject.CreateInstance<SlotStatusEffectInfoSO>();
             RootsInfo.icon = ResourceLoader.LoadSprite("RootsIcon.png");
-            Debug.LogError("Roots.Add. put the right sprite here");
+            Debug.LogWarning("Roots.Add. put the right sprite here");
             RootsInfo._fieldName = "Roots";
             RootsInfo._description = "Get the description";
-            Debug.LogError("Roots.Add. get the status description");
+            Debug.LogWarning("Roots.Add. get the status description");
             RootsInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Scars_ID.ToString()]._EffectInfo._applied_SE_Event;
             RootsInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Scars_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             RootsInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Scars_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
-            Debug.LogError("Roots.Add. MAKE SURE THESE ARE PULLING FROM THE RIGHT ASSETBUDNLE");
             GameObject Fool = SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Roots/RootsCharacter.prefab");
             GameObject_CFE_Layout LayoutFool = Fool.AddComponent<GameObject_CFE_Layout>();
             LayoutFool.m_Front = new RectTransform[] { Fool.GetComponent<RectTransform>() };
@@ -63,7 +62,7 @@ namespace SaltEnemies_Reseasoned
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
             intentinfo._sprite = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Roots.Add. set the right sprite for the intent also");
+            Debug.LogWarning("Roots.Add. set the right sprite for the intent also");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
         }
@@ -240,10 +239,10 @@ namespace SaltEnemies_Reseasoned
         {
             StatusEffectInfoSO PhotoInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             PhotoInfo.icon = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Photo.Add. put the right sprite here");
+            Debug.LogWarning("Photo.Add. put the right sprite here");
             PhotoInfo._statusName = "Photosynthesis";
             PhotoInfo._description = "Get the description";
-            Debug.LogError("Photo.Add. get the status description");
+            Debug.LogWarning("Photo.Add. get the status description");
             PhotoInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.AppliedSoundEvent;
             PhotoInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             PhotoInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
@@ -258,7 +257,7 @@ namespace SaltEnemies_Reseasoned
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
             intentinfo._sprite = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Photo.Add. set the right sprite for the intent also");
+            Debug.LogWarning("Photo.Add. set the right sprite for the intent also");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
         }

@@ -19,10 +19,10 @@ namespace SaltEnemies_Reseasoned
         {
             StatusEffectInfoSO EntropyInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             EntropyInfo.icon = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Entropy.Add. put the right sprite here");
+            Debug.LogWarning("Entropy.Add. put the right sprite here");
             EntropyInfo._statusName = "Entropy";
             EntropyInfo._description = "Get the description";
-            Debug.LogError("Entropy.Add. get the status description");
+            Debug.LogWarning("Entropy.Add. get the status description");
             EntropyInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Gutted_ID.ToString()]._EffectInfo.AppliedSoundEvent;
             EntropyInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Gutted_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             EntropyInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Gutted_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
@@ -37,7 +37,7 @@ namespace SaltEnemies_Reseasoned
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
             intentinfo._sprite = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Entropy.Add. set the right sprite for the intent also");
+            Debug.LogWarning("Entropy.Add. set the right sprite for the intent also");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
         }

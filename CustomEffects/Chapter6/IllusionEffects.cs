@@ -240,7 +240,6 @@ namespace SaltEnemies_Reseasoned
                 {
                     IllusionStatePassiveAbility fake = ScriptableObject.CreateInstance<IllusionStatePassiveAbility>();
                     fake._passiveName = "Delirium";
-                    Debug.LogError("PLEASE SET THE CORRECT PASSIVE SPRITE FOR IllusionHandler.Illusion");
                     fake.passiveIcon = ResourceLoader.LoadSprite("IllusionPassive.png");
                     fake._enemyDescription = "This enemy has an Offense and a Supportive State and randomly picks between the two on entering battle.";
                     fake._characterDescription = "yurghle";

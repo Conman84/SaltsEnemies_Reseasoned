@@ -8,8 +8,6 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Debug.LogError("Make sure to load the group4 assetbundle!");
-
             Enemy illusion = new Enemy("Delusion", "Delusion_EN")
             {
                 Health = 20,

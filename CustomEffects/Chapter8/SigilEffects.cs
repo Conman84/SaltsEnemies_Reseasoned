@@ -77,6 +77,7 @@ namespace SaltEnemies_Reseasoned
             Set = true;
             NotificationHook.AddAction(NotificationCheck);
             UnitStoreData_SigilStateSO sigil_value = ScriptableObject.CreateInstance<UnitStoreData_SigilStateSO>();
+            sigil_value._UnitStoreDataID = Sigil;
             if (LoadedDBsHandler.MiscDB.m_UnitStoreDataPool.ContainsKey(Sigil))
                 LoadedDBsHandler.MiscDB.m_UnitStoreDataPool[Sigil] = sigil_value;
             else
@@ -84,6 +85,7 @@ namespace SaltEnemies_Reseasoned
         }
         public static void Add()
         {
+            Setup();
             Debug.LogError("SigilManager.Add: MAKE SURE THESE ARE LOADING THE CORRECT SPRITES");
             Intents.CreateAndAddCustom_Basic_IntentToPool(DefTxt, ResourceLoader.LoadSprite("defenseicon.png"), Color.white);
             Intents.CreateAndAddCustom_Basic_IntentToPool(AtkTxt, ResourceLoader.LoadSprite("atkicon.png"), Color.white);
@@ -91,7 +93,6 @@ namespace SaltEnemies_Reseasoned
             Intents.CreateAndAddCustom_Basic_IntentToPool(DownArrow, ResourceLoader.LoadSprite("downicon.png"), Color.white);
             Intents.CreateAndAddCustom_Basic_IntentToPool(OtherUpAlt, ResourceLoader.LoadSprite("upicon.png"), Color.white);
             Intents.CreateAndAddCustom_Basic_IntentToPool(Spectral, ResourceLoader.LoadSprite("spectralicon.png"), Color.white);
-            Setup();
         }
     }
     public class UnitStoreData_SigilStateSO : UnitStoreData_BasicSO

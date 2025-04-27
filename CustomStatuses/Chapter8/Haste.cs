@@ -17,10 +17,10 @@ namespace SaltEnemies_Reseasoned
         {
             StatusEffectInfoSO HasteInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             HasteInfo.icon = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Haste.Add. put the right sprite here");
+            Debug.LogWarning("Haste.Add. put the right sprite here");
             HasteInfo._statusName = "Haste";
             HasteInfo._description = "Get the description";
-            Debug.LogError("Haste.Add. get the status description");
+            Debug.LogWarning("Haste.Add. get the status description");
             HasteInfo._applied_SE_Event = "event:/Hawthorne/Misc/Haste";
             HasteInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             HasteInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
@@ -35,7 +35,7 @@ namespace SaltEnemies_Reseasoned
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
             intentinfo._sprite = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Haste.Add. set the right sprite for the intent also");
+            Debug.LogWarning("Haste.Add. set the right sprite for the intent also");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
         }

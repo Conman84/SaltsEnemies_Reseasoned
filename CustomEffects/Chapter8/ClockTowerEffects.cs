@@ -112,6 +112,7 @@ namespace SaltEnemies_Reseasoned
             IDetour TurnStart = new Hook(typeof(CombatStats).GetMethod(nameof(CombatStats.PlayerTurnStart), ~BindingFlags.Default), typeof(ClockTowerManager).GetMethod(nameof(PlayerTurnStart), ~BindingFlags.Default));
             IDetour TurnEnd = new Hook(typeof(CombatStats).GetMethod(nameof(CombatStats.PlayerTurnEnd), ~BindingFlags.Default), typeof(ClockTowerManager).GetMethod(nameof(PlayerTurnEnd), ~BindingFlags.Default));
             UnitStoreData_ClockTowerTimeSO value_clock = ScriptableObject.CreateInstance<UnitStoreData_ClockTowerTimeSO>();
+            value_clock._UnitStoreDataID = Acceleration;
             if (LoadedDBsHandler.MiscDB.m_UnitStoreDataPool.ContainsKey(Acceleration))
                 LoadedDBsHandler.MiscDB.m_UnitStoreDataPool[Acceleration] = value_clock;
             else
@@ -223,6 +224,7 @@ namespace SaltEnemies_Reseasoned
         {
             Debug.LogError("CrackingHandler.Setup: MAKE SURE PUBLIC STATIC SPRITE \"Face\' IS LOADING THE CORRECT SPRITE");
             UnitStoreData_CrackingTimeSO value_clock = ScriptableObject.CreateInstance<UnitStoreData_CrackingTimeSO>();
+            value_clock._UnitStoreDataID = Cracking;
             if (LoadedDBsHandler.MiscDB.m_UnitStoreDataPool.ContainsKey(Cracking))
                 LoadedDBsHandler.MiscDB.m_UnitStoreDataPool[Cracking] = value_clock;
             else

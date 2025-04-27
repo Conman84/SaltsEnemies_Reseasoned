@@ -1057,42 +1057,55 @@ namespace SaltEnemies_Reseasoned
 
         public static void SetInformation(Action<TimelineIntentListLayout, Sprite[], Color[]> orig, TimelineIntentListLayout self, Sprite[] icons, Color[] colors)
         {
-            if (colors.Contains(new Color(28f, 78f, 128f)))
+            try
             {
-                if (self._intents.Count <= 0) self.GenerateNewIntent();
-                for (int index = 0; index < self._intents.Count; ++index)
+                if (colors == null || icons == null)
                 {
-                    if (index == 0)
+                    orig(self, icons, colors);
+                    return;
+                }
+                if (colors.Contains(new Color(28f, 78f, 128f)))
+                {
+                    if (self._intents.Count <= 0) self.GenerateNewIntent();
+                    for (int index = 0; index < self._intents.Count; ++index)
                     {
-                        self._intents[index].SetInformation(icons[index], colors[index]);
-                        self._intents[index].SetActivation(true);
-                        IntentLayoutAnimator grah = self._intents[index].gameObject.AddComponent<IntentLayoutAnimator>();
-                        grah.animate = self._intents[index];
-                        grah.icons = icons;
-                        grah.colors = colors;
-                        grah.IsActive = true;
-                        grah.limit = 0.1f;
-                        //Debug.Log("mhm");
+                        if (index == 0)
+                        {
+                            self._intents[index].SetInformation(icons[index], colors[index]);
+                            self._intents[index].SetActivation(true);
+                            IntentLayoutAnimator grah = self._intents[index].gameObject.AddComponent<IntentLayoutAnimator>();
+                            grah.animate = self._intents[index];
+                            grah.icons = icons;
+                            grah.colors = colors;
+                            grah.IsActive = true;
+                            grah.limit = 0.1f;
+                            //Debug.Log("mhm");
+                        }
+                        else
+                        {
+                            self._intents[index].SetActivation(false);
+                            //Debug.Log("uh uh.");
+                        }
                     }
-                    else
+                }
+                else
+                {
+                    orig(self, icons, colors);
+                    foreach (TimelineIntentLayout lay in self._intents)
                     {
-                        self._intents[index].SetActivation(false);
-                        //Debug.Log("uh uh.");
+                        IntentLayoutAnimator[] array = lay.gameObject.GetComponents<IntentLayoutAnimator>();
+                        foreach (IntentLayoutAnimator ain in array)
+                        {
+                            ain.enabled = false;
+                            ain.IsActive = false;
+                        }
                     }
                 }
             }
-            else
+            catch (Exception ex)
             {
-                orig(self, icons, colors);
-                foreach (TimelineIntentLayout lay in self._intents)
-                {
-                    IntentLayoutAnimator[] array = lay.gameObject.GetComponents<IntentLayoutAnimator>();
-                    foreach (IntentLayoutAnimator ain in array)
-                    {
-                        ain.enabled = false;
-                        ain.IsActive = false;
-                    }
-                }
+                UnityEngine.Debug.LogWarning("FallImageryHandler");
+                UnityEngine.Debug.LogWarning(ex.ToString());
             }
         }
         public static void AddInformation(Action<TargetIntentListLayout, Sprite[], Color[]> orig, TargetIntentListLayout self, Sprite[] icons, Color[] colors)
