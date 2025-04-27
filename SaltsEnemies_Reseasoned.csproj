@@ -95,6 +95,7 @@
 	  <None Remove="Chapter7\Postmodern\WarDead.png" />
 	  <None Remove="Chapter7\Postmodern\WarIcon.png" />
 	  <None Remove="Chapter7\Postmodern\WarWorld.png" />
+	  <None Remove="Chapter8\ClockTower\ClockFace.png" />
 	  <None Remove="Chapter8\ClockTower\ClockTowerDead.png" />
 	  <None Remove="Chapter8\ClockTower\ClockTowerIcon.png" />
 	  <None Remove="Chapter8\ClockTower\ClockTowerPortal.png" />
@@ -133,6 +134,9 @@
 	  <None Remove="CustomStatuses\Chapter6\MutedIcon.png" />
 	  <None Remove="CustomStatuses\Chapter6\PhotoIcon.png" />
 	  <None Remove="CustomStatuses\Chapter6\RootsIcon.png" />
+	  <None Remove="CustomStatuses\Chapter8\Dodge.png" />
+	  <None Remove="CustomStatuses\Chapter8\EntropyIcon.png" />
+	  <None Remove="CustomStatuses\Chapter8\Haste.png" />
 	  <None Remove="CustomStatuses\Chapter8\HollowIcon.png" />
 	  <None Remove="CustomStatuses\Chapter9\Acid.png" />
 	  <None Remove="CustomStatuses\Determined.png" />
@@ -140,10 +144,16 @@
 	  <None Remove="CustomStatuses\Left.png" />
 	  <None Remove="CustomStatuses\Pale.png" />
 	  <None Remove="CustomStatuses\Power.png" />
+	  <None Remove="SpecialIcons\atkicon.png" />
+	  <None Remove="SpecialIcons\blueUpIcon.png" />
 	  <None Remove="SpecialIcons\counticon.png" />
+	  <None Remove="SpecialIcons\defenseicon.png" />
+	  <None Remove="SpecialIcons\downicon.png" />
 	  <None Remove="SpecialIcons\FavoritePicture.png" />
 	  <None Remove="SpecialIcons\idk.png" />
+	  <None Remove="SpecialIcons\spectralicon.png" />
 	  <None Remove="SpecialIcons\UnlockingIntent.png" />
+	  <None Remove="SpecialIcons\upicon.png" />
 	  <None Remove="SpecialIcons\waiticon.png" />
 	</ItemGroup>
 
@@ -236,6 +246,7 @@
 	  <EmbeddedResource Include="Chapter7\Postmodern\WarDead.png" />
 	  <EmbeddedResource Include="Chapter7\Postmodern\WarIcon.png" />
 	  <EmbeddedResource Include="Chapter7\Postmodern\WarWorld.png" />
+	  <EmbeddedResource Include="Chapter8\ClockTower\ClockFace.png" />
 	  <EmbeddedResource Include="Chapter8\ClockTower\ClockTowerDead.png" />
 	  <EmbeddedResource Include="Chapter8\ClockTower\ClockTowerIcon.png" />
 	  <EmbeddedResource Include="Chapter8\ClockTower\ClockTowerPortal.png" />
@@ -280,12 +291,21 @@
 	  <EmbeddedResource Include="CustomStatuses\Chapter6\MutedIcon.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter6\PhotoIcon.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter6\RootsIcon.png" />
+	  <EmbeddedResource Include="CustomStatuses\Chapter8\Dodge.png" />
+	  <EmbeddedResource Include="CustomStatuses\Chapter8\EntropyIcon.png" />
+	  <EmbeddedResource Include="CustomStatuses\Chapter8\Haste.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter8\HollowIcon.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter9\Acid.png" />
+	  <EmbeddedResource Include="SpecialIcons\atkicon.png" />
+	  <EmbeddedResource Include="SpecialIcons\blueUpIcon.png" />
 	  <EmbeddedResource Include="SpecialIcons\counticon.png" />
+	  <EmbeddedResource Include="SpecialIcons\defenseicon.png" />
+	  <EmbeddedResource Include="SpecialIcons\downicon.png" />
 	  <EmbeddedResource Include="SpecialIcons\FavoritePicture.png" />
 	  <EmbeddedResource Include="SpecialIcons\idk.png" />
+	  <EmbeddedResource Include="SpecialIcons\spectralicon.png" />
 	  <EmbeddedResource Include="SpecialIcons\UnlockingIntent.png" />
+	  <EmbeddedResource Include="SpecialIcons\upicon.png" />
 	  <EmbeddedResource Include="SpecialIcons\waiticon.png" />
 	</ItemGroup>
 
