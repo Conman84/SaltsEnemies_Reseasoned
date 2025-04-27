@@ -465,8 +465,9 @@ namespace SaltEnemies_Reseasoned
 
             room._npcSelectable._renderers[0].material = SpriteMat;
 
-            if (!LoadedAssetsHandler.LoadedRoomPrefabs.Keys.Contains(PathUtils.encounterRoomsResPath + RoomPrefab)) LoadedAssetsHandler.LoadedRoomPrefabs.Add(PathUtils.encounterRoomsResPath + RoomPrefab, room);
-            else LoadedAssetsHandler.LoadedRoomPrefabs[PathUtils.encounterRoomsResPath + RoomPrefab] = room;
+            LoadedAssetsHandler.TryAddExternalOWRoom(RoomPrefab, room);
+            //if (!LoadedAssetsHandler.LoadedRoomPrefabs.Keys.Contains(PathUtils.encounterRoomsResPath + RoomPrefab)) LoadedAssetsHandler.LoadedRoomPrefabs.Add(PathUtils.encounterRoomsResPath + RoomPrefab, room);
+            //else LoadedAssetsHandler.LoadedRoomPrefabs[PathUtils.encounterRoomsResPath + RoomPrefab] = room;
 
             YarnProgram prog = Script;
             DialogueSO log = ScriptableObject.CreateInstance<DialogueSO>();
@@ -505,6 +506,7 @@ namespace SaltEnemies_Reseasoned
             card._percentage = 15;
             card._usePercentage = true;
 
+            //RunDataSO.PopulateRoomInstance
 
             /*if (!gardE._FlavourPool.Contains(encounterName))
             {
