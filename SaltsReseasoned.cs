@@ -109,6 +109,11 @@ namespace SaltsEnemies_Reseasoned
             FakeAngel.Add();
             RBYPFlowers.Add();
 
+            //CH7 Enemies
+            PCall(Deep.Add);
+            PCall(War.Add);
+            PCall(Postmodern.Add);
+
             //CH8 Enemies
             Sigil.Add();
             Solvent.Add();
