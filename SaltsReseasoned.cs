@@ -76,6 +76,7 @@ namespace SaltsEnemies_Reseasoned
             Entropy.Add();
             Haste.Add();
             Hollow.Add();
+            Acid.Add();
 
             //CH1 Enemies
             LostSheep.Add();

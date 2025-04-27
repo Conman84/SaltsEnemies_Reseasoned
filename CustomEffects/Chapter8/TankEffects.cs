@@ -270,9 +270,6 @@ namespace SaltEnemies_Reseasoned
                 EffectSO second = list[choosing];
                 first.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, 1, out int exiting);
                 exitAmount += exiting;
-                if (UnityEngine.Random.Range(0, 100) < 50) continue;
-                second.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, 1, out int grah);
-                exitAmount += grah;
             }
             return exitAmount > 0;
         }

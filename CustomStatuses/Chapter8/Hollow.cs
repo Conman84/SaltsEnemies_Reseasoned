@@ -39,11 +39,11 @@ namespace SaltEnemies_Reseasoned
     public class HollowSE_SO : StatusEffect_SO
     {
         public static bool Loading;
-        public bool SkipTick;
+        public static string SkipTick => "Hollow_SkipTick_SE";
         public override bool IsPositive => true;
         public override void OnTriggerAttached(StatusEffect_Holder holder, IStatusEffector caller)
         {
-            if (!caller.IsStatusEffectorCharacter && !CombatManager.Instance._stats.IsPlayerTurn) SkipTick = true;
+            if (!caller.IsStatusEffectorCharacter && !CombatManager.Instance._stats.IsPlayerTurn) (caller as IUnit).SimpleSetStoredValue(SkipTick, 1);
             else if (!caller.IsStatusEffectorCharacter & !Loading)
             {
                 Loading = true;
@@ -57,13 +57,10 @@ namespace SaltEnemies_Reseasoned
         {
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.CanTurnShowInTimeline.ToString(), caller);
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, TriggerCalls.OnRoundFinished.ToString(), caller);
-            if (CombatManager.Instance._stats.IsPlayerTurn)
+            if (!caller.IsStatusEffectorCharacter & !Loading)
             {
-                if (!caller.IsStatusEffectorCharacter & !Loading)
-                {
-                    Loading = true;
-                    CombatManager.Instance.AddRootAction(new HollowAction());
-                }
+                Loading = true;
+                CombatManager.Instance.AddRootAction(new HollowAction());
             }
         }
 
@@ -73,7 +70,7 @@ namespace SaltEnemies_Reseasoned
         }
         public override void OnEventCall_02(StatusEffect_Holder holder, object sender, object args)
         {
-            if (SkipTick) SkipTick = false;
+            if ((sender as IUnit).SimpleGetStoredValue(SkipTick) > 0) (sender as IUnit).SimpleSetStoredValue(SkipTick, 0);
             else ReduceDuration(holder, sender as IStatusEffector);
         }
     }

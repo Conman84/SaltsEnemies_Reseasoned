@@ -40,7 +40,7 @@ namespace SaltsEnemies_Reseasoned
             allEnemy.getAllUnitSlots = false;
             DeathReferenceDetectionEffectorCondition noWither = ScriptableObject.CreateInstance<DeathReferenceDetectionEffectorCondition>();
             noWither._useWithering = true;
-            noWither._witheringDeath = true;
+            noWither._witheringDeath = false;
             survival.conditions = new EffectorConditionSO[]
             {
                 noWither

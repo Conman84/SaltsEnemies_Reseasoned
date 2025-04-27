@@ -58,8 +58,14 @@ namespace SaltEnemies_Reseasoned
     public class AcidSE_SO : StatusEffect_SO
     {
         public override bool IsPositive => false;
+        public static string SkipTick => "Acid_SkipTick_SE";
         public override void OnTriggerAttached(StatusEffect_Holder holder, IStatusEffector caller)
         {
+            if (CombatManager.Instance._stats.IsPlayerTurn && caller.IsStatusEffectorCharacter)
+            {
+                (caller as IUnit).SimpleSetStoredValue(SkipTick, 1);
+                CombatManager.Instance.AddRootAction(new AcidSkipTickAction());
+            }
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, TriggerCalls.OnTurnFinished.ToString(), caller);
         }
@@ -72,6 +78,11 @@ namespace SaltEnemies_Reseasoned
 
         public override void OnEventCall_01(StatusEffect_Holder holder, object sender, object args)
         {
+            if ((sender as IUnit).SimpleGetStoredValue(SkipTick) > 0)
+            {
+                (sender as IUnit).SimpleSetStoredValue(SkipTick, 0);
+                return;
+            }
             CombatManager.Instance.AddSubAction(new AcidDamageAction(sender as IUnit));
         }
         public override void OnEventCall_02(StatusEffect_Holder holder, object sender, object args)
@@ -89,6 +100,15 @@ namespace SaltEnemies_Reseasoned
         public override IEnumerator Execute(CombatStats stats)
         {
             victim.Damage(3, null, DeathType_GameIDs.Basic.ToString(), -1, false, false, true, Acid.DamageType);
+            yield return null;
+        }
+    }
+    public class AcidSkipTickAction : CombatAction
+    {
+        public override IEnumerator Execute(CombatStats stats)
+        {
+            foreach (CharacterCombat chara in stats.CharactersOnField.Values) chara.SimpleSetStoredValue(AcidSE_SO.SkipTick, 0);
+            foreach (EnemyCombat enemy in stats.EnemiesOnField.Values) enemy.SimpleSetStoredValue(AcidSE_SO.SkipTick, 0);
             yield return null;
         }
     }
