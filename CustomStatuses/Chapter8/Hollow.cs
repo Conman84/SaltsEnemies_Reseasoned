@@ -57,6 +57,14 @@ namespace SaltEnemies_Reseasoned
         {
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.CanTurnShowInTimeline.ToString(), caller);
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, TriggerCalls.OnRoundFinished.ToString(), caller);
+            if (CombatManager.Instance._stats.IsPlayerTurn)
+            {
+                if (!caller.IsStatusEffectorCharacter & !Loading)
+                {
+                    Loading = true;
+                    CombatManager.Instance.AddRootAction(new HollowAction());
+                }
+            }
         }
 
         public override void OnEventCall_01(StatusEffect_Holder holder, object sender, object args)
