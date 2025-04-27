@@ -616,8 +616,7 @@ namespace SaltEnemies_Reseasoned
         public static List<int> Enemy;
         public static void Clear()
         {
-            Chara.Clear();
-            Enemy.Clear();
+            Setup();
         }
         public static void NotifCheck(string notificationName, object sender, object args)
         {
