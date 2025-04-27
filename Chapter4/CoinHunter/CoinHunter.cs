@@ -68,8 +68,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("ShinyIcon.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("ShinyDead.png", new Vector2(0.5f, 0f), 32),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("ShinyIcon.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("Scrungie_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("Scrungie_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Nois2/CrowHurt",
+                DeathSound = "event:/Hawthorne/Nois2/CrowDie",
             };
             CoinHunter.PrepareEnemyPrefab("assets/Blunder/Shiny_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/Blunder/Shiny_Gibs.prefab").GetComponent<ParticleSystem>());
 
