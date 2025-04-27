@@ -9,6 +9,7 @@ namespace SaltEnemies_Reseasoned
 {
     public static class FleetingValue
     {
+        public static string Intent => "Passive_Fleeting";
         public static BasePassiveAbilitySO Fleeting(int amount)
         {
             FleetingPassiveAbility baseParent = Passives.Fleeting3 as FleetingPassiveAbility;
@@ -39,6 +40,8 @@ namespace SaltEnemies_Reseasoned
             {
                 Debug.LogError(ex.ToString());
             }
+
+            Intents.CreateAndAddCustom_Basic_IntentToPool(Intent, Passives.Fleeting1.passiveIcon, Color.white);
         }
         public static void InstantiateFleeting(string notificationName, object sender, object args)
         {
