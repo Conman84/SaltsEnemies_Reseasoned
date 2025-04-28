@@ -19,8 +19,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 30,
                 HealthColor = Pigments.Grey,
                 CombatSprite = ResourceLoader.LoadSprite("SigilIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("SigilWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("SigilDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("SigilDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("SigilWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("HeavensGateRed_BOSS").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("HeavensGateRed_BOSS").deathSound,
                 Priority = Priority.VeryFast

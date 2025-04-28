@@ -17,8 +17,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 20,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("AngelIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("AngelWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("AngelDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("AngelDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("AngelWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
             };

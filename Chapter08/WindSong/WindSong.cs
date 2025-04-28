@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 42,
                 HealthColor = Pigments.Blue,
                 CombatSprite = ResourceLoader.LoadSprite("WindSongIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("WindSongWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("WindSongDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("WindSongDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("WindSongWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Hurt/BirdSound",
                 DeathSound = "event:/Hawthorne/Hurt/BirdSound",
             };

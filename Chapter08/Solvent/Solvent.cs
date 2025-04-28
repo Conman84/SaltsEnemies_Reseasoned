@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 12,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("SolventIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("SolventWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("SolventDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("SolventDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("SolventWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("WrigglingSacrifice_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("WrigglingSacrifice_EN").deathSound,
             };

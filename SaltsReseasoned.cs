@@ -36,7 +36,7 @@ namespace SaltsEnemies_Reseasoned
 
             //Setup
             #region Setup
-            PCall(ResourceLoaderHook.Setup);
+            //PCall(ResourceLoaderHook.Setup);
             CustomVisuals.Setup();
             FleetingValue.Setup();
             AnglerHandler.Setup();
@@ -162,6 +162,7 @@ namespace SaltsEnemies_Reseasoned
 
             //CH6 Encounters
             DelusionEncounters.Add();
+            BlueFlowerEncounters.Add();
 
             Logger.LogInfo("Seasons greasons");
         }

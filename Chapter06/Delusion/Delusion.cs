@@ -13,8 +13,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 20,
                 HealthColor = Pigments.Grey,
                 CombatSprite = ResourceLoader.LoadSprite("IllusionIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("IllusionWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("IllusionDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("IllusionDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("IllusionWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("ShiveringHomunculus_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ShiveringHomunculus_EN").deathSound,
             };

@@ -17,8 +17,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 50,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("TrainIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("TrainWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("TrainDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("TrainDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("TrainWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").deathSound,
             };

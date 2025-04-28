@@ -19,8 +19,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 10000,
                 HealthColor = Pigments.Purple,
                 CombatSprite = ResourceLoader.LoadSprite("PostmodernIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("PostmodernWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("PostmodernDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("PostmodernDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("PostmodernWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Hurt/PhoneSound",
                 DeathSound = LoadedAssetsHandler.GetCharacter("Rags_CH").deathSound,
             };

@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 44,
                 HealthColor = Pigments.Grey,
                 CombatSprite = ResourceLoader.LoadSprite("ClockTowerIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("ClockTowerWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("ClockTowerDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("ClockTowerDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("ClockTowerWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetCharacter("Gospel_CH").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("Gospel_CH").deathSound,
                 AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_ClockTower>()

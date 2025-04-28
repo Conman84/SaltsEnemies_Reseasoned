@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 Size = 3,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("DeepIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("DeepWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("DeepDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("DeepDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("DeepWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("Flarb_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("Flarb_EN").deathSound,
             };

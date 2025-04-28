@@ -14,8 +14,8 @@ namespace SaltsEnemies_Reseasoned
                 HealthColor = Pigments.Red,
                 Size = 2,
                 CombatSprite = ResourceLoader.LoadSprite("TankIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("TankWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("TankDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("TankDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("TankWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Hurt/TankHit",
                 DeathSound = "event:/Hawthorne/Die/TankDie",
             };

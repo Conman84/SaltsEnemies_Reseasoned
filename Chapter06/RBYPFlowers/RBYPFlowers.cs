@@ -85,8 +85,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 32,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("RedFlowerIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("RedFlowerWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("RedFlowerDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("RedFlowerDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("RedFlowerWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("GigglingMinister_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("GigglingMinister_EN").deathSound,
             };
@@ -129,8 +129,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 32,
                 HealthColor = Pigments.Blue,
                 CombatSprite = ResourceLoader.LoadSprite("BlueFlowerIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("BlueFlowerWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("BlueFlowerDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("BlueFlowerDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("BlueFlowerWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("Mung_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("Mung_EN").deathSound,
             };
@@ -173,8 +173,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 24,
                 HealthColor = Pigments.Yellow,
                 CombatSprite = ResourceLoader.LoadSprite("YellowFlowerIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("YellowFlowerWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("YellowFlowerDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("YellowFlowerDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("YellowFlowerWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("Spoggle_Resonant_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("Spoggle_Resonant_EN").deathSound,
             };
@@ -221,8 +221,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 24,
                 HealthColor = Pigments.Purple,
                 CombatSprite = ResourceLoader.LoadSprite("PurpleFlowerIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("PurpleFlowerWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("PurpleFlowerDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("PurpleFlowerDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("PurpleFlowerWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("TaintedYolk_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("TaintedYolk_EN").deathSound,
             };

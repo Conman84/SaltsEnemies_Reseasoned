@@ -354,7 +354,7 @@ namespace SaltEnemies_Reseasoned
                     {
                         Name = "Divination",
                         Description = "Apply Focused to this enemy. Generate 3 random pigment and apply 5 Shield to the Left and Right enemy positions.",
-                        Rarity = Rarity.CreateAndAddCustomRarityToPool("Delusion_5", 5),
+                        Rarity = Rarity.GetCustomRarity("Delusion_5"),
                         Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Targeting.Slot_SelfSlot),
