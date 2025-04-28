@@ -17,6 +17,7 @@ namespace SaltEnemies_Reseasoned
             CameraEffects.AddPassive("Coda_PA");
             CameraEffects.AddPassive(ClockTowerManager.Acceleration);
             CameraEffects.AddPassive("MissFaced_PA");
+            CameraEffects.AddPassive("Unmasking_PA");
             //Add Every single passive ID you've made for all salt enemies thus far. and also do this in the future too. unless it shares a passiveID with a base game passive. or if its like a unique passive to the enemy or something. or a bonus attack
             //Specifically:
             /*
@@ -39,7 +40,7 @@ namespace SaltEnemies_Reseasoned
             Evasive
             Well Preserved
             Ethereal
-            Unmasking
+            Unmasking DONE
             Asphyxiation DONE
             Salinity DONE
             Locked In DONE
