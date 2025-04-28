@@ -87,7 +87,7 @@ namespace SaltsEnemies_Reseasoned
             red.AddIntentsToTarget(allAlly, new string[] { IntentType_GameIDs.Misc.ToString() });
             red.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
             red.AnimationTarget = targettingCasterColor;
-            red.Priority = Priority.VeryFast;
+            red.Priority = Priority.Fast;
 
             //PINCH
             ChangeCasterHealthColorBetweenColorsEffect effect = ScriptableObject.CreateInstance<ChangeCasterHealthColorBetweenColorsEffect>();
@@ -108,6 +108,7 @@ namespace SaltsEnemies_Reseasoned
             };
             pinch.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Damage_3_6.ToString() });
             pinch.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Mana_Modify.ToString() });
+            pinch.Priority = Priority.Slow;
 
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
