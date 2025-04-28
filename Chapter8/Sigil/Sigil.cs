@@ -38,7 +38,7 @@ namespace SaltsEnemies_Reseasoned
             sigil.doesPassiveTriggerInformationPanel = false;
             sigil._triggerOn = new TriggerCalls[] { TriggerCalls.OnTurnStart };
 
-            monolith.AddPassives(new BasePassiveAbilitySO[] { Passives.Leaky1, Passives.Withering });
+            monolith.AddPassives(new BasePassiveAbilitySO[] { sigil, Passives.Formless, Passives.Withering });
 
             //OFFENSE
             Targetting_ByUnit_Side allAlly = ScriptableObject.CreateInstance<Targetting_ByUnit_Side>();
