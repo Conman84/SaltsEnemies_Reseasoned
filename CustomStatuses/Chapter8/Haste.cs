@@ -18,8 +18,7 @@ namespace SaltEnemies_Reseasoned
             StatusEffectInfoSO HasteInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             HasteInfo.icon = ResourceLoader.LoadSprite("Haste.png");
             HasteInfo._statusName = "Haste";
-            HasteInfo._description = "Get the description";
-            Debug.LogWarning("Haste.Add. get the status description");
+            HasteInfo._description = "On enemies: Give this enemy an extra action per turn. Decreases by 1 at the start of each round.\nOn Party Members: On performing an ability, refresh this party member and decrease Haste by 1.";
             HasteInfo._applied_SE_Event = "event:/Hawthorne/Misc/Haste";
             HasteInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             HasteInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.UpdatedSoundEvent;

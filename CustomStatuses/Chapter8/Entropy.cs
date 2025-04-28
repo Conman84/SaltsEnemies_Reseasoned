@@ -20,8 +20,7 @@ namespace SaltEnemies_Reseasoned
             StatusEffectInfoSO EntropyInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             EntropyInfo.icon = ResourceLoader.LoadSprite("EntropyIcon.png");
             EntropyInfo._statusName = "Entropy";
-            EntropyInfo._description = "Get the description";
-            Debug.LogWarning("Entropy.Add. get the status description");
+            EntropyInfo._description = "Every 30 seconds, this unit receives 1 indirect damage. \nUpon activation, reduce the time required by 3-9 seconds and decrease Entropy by 1. Cannot reduce below 1 second.";
             EntropyInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Gutted_ID.ToString()]._EffectInfo.AppliedSoundEvent;
             EntropyInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Gutted_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             EntropyInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Gutted_ID.ToString()]._EffectInfo.UpdatedSoundEvent;

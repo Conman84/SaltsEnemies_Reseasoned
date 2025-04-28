@@ -16,7 +16,7 @@ namespace SaltEnemies_Reseasoned
             StatusEffectInfoSO AnestheticsInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             AnestheticsInfo.icon = ResourceLoader.LoadSprite("Anesthetics.png");
             AnestheticsInfo._statusName = "Anesthetics";
-            AnestheticsInfo._description = "All damage received will be decreased by 1 for each Anesthetic, this applies to both direct and indirect damage. This effect cannot decrease damage to levels below zero. Decreases by 1 at the start of each turn.";
+            AnestheticsInfo._description = "All damage received will be decreased by 1 for each Anesthetic. Decreases by 1 at the start of each turn.";
             AnestheticsInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Scars_ID.ToString()]._EffectInfo._applied_SE_Event;
             AnestheticsInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Scars_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             AnestheticsInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Scars_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
