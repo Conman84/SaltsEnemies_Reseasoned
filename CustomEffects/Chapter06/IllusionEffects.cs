@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using UnityEngine;
 using SaltsEnemies_Reseasoned;
+using UnityEngine.UI;
 
 
 /*--------------------------I DID ALL THESE-------------------------------*/
@@ -247,6 +248,7 @@ namespace SaltEnemies_Reseasoned
                     fake.doesPassiveTriggerInformationPanel = false;
                     fake._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
                     _illusion = fake;
+                    AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("IllusionPassive.png"), "Delirium", fake._enemyDescription);
                 }
                 return _illusion;
             }

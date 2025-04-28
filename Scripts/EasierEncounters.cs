@@ -47,7 +47,7 @@ namespace SaltsEnemies_Reseasoned
         public void AddRandomGroup_Internal(RandomEnemyGroup group)
         {
             if (!BundleExist(bundle)) return;
-            if (BundleStatic(bundle)) return;
+            if (!BundleRandom(bundle)) return;
             List<RandomEnemyGroup> list2 = new List<RandomEnemyGroup>(((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle(bundle))._enemyBundles);
             list2.Add(group);
             ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle(bundle))._enemyBundles = list2;
@@ -111,10 +111,10 @@ namespace SaltsEnemies_Reseasoned
     }
     public static class Flower
     {
-        public static string Yellow => "YellowFlower";
-        public static string Purple => "PurpleFlower";
-        public static string Red => "RedFlower";
-        public static string Blue => "BlueFlower";
+        public static string Yellow => "YellowFlower_EN";
+        public static string Purple => "PurpleFlower_EN";
+        public static string Red => "RedFlower_EN";
+        public static string Blue => "BlueFlower_EN";
     }
     public static class Noses
     {

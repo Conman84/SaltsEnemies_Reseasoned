@@ -87,6 +87,7 @@ namespace SaltsEnemies_Reseasoned
             DeadPixel.Add();
             LittleAngel.Add();
             DeadGod.Add();
+            Debug.Log("chapter 1");
 
             //CH2 Enemies
             ManFish.Add();
@@ -94,12 +95,14 @@ namespace SaltsEnemies_Reseasoned
             Denial.Add();
             Derogatory.Add();
             Something.Add();
+            Debug.Log("chapter 2");
 
             //CH3 Enemies
             AFlower.Add();
             StarGazer.Add();
             Freud.Add();
             Crow.Add();
+            Debug.Log("chapter 3");
 
             //CH4 Enemies
             MechanicalLens.Add(); //ADD MOD EFFECTS
@@ -156,6 +159,9 @@ namespace SaltsEnemies_Reseasoned
             MechanicalLensEncounters.Add();
             MortalSpoggleEncounters.Add();
             RusticJumbleGutsEncounter.Add();
+
+            //CH6 Encounters
+            DelusionEncounters.Add();
 
             Logger.LogInfo("Seasons greasons");
         }

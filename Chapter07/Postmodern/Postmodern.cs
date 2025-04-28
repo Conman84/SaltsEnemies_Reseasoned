@@ -73,7 +73,7 @@ namespace SaltsEnemies_Reseasoned
             LockedInHandler.Setup();
             LockedInPassiveAbility lockedIn = ScriptableObject.CreateInstance<LockedInPassiveAbility>();
             lockedIn._passiveName = "Locked In";
-            lockedIn.passiveIcon = ResourceLoader.LoadSprite("NoMenu");
+            lockedIn.passiveIcon = ResourceLoader.LoadSprite("NoMenu.png");
             lockedIn._enemyDescription = "The Pause Menu can no longer be accessed.";
             lockedIn._characterDescription = "The Pause Menu can no longer be accessed.";
             lockedIn.m_PassiveID = "NoPause_PA";

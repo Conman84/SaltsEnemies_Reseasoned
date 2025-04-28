@@ -43,6 +43,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateColorManaStoreValueEffect>(), 1, Targeting.Slot_SelfSlot)
             };
             salinity.specialStoredData = UnitStoreData.GetCustom_UnitStoreData(DrowningManager.Saline);
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("saltwater.png"), "Salinity", "On receiving direct damage, produce a certain amount of Blue Pigment.");
 
             //ASPHYXIATION
             AsphyxiationManager.Setup();
@@ -55,6 +56,7 @@ namespace SaltsEnemies_Reseasoned
             noOver.doesPassiveTriggerInformationPanel = false;
             noOver._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
             noOver.ManaCap = 50;
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Joeverflow.png"), "Asphyxiation", "Overflow under a certain amount will not trigger.");
 
             //PRESSURE
             ExtraAttackPassiveAbility baseExtra = LoadedAssetsHandler.GetEnemy("Xiphactinus_EN").passiveAbilities[1] as ExtraAttackPassiveAbility;

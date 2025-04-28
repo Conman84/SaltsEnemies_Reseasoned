@@ -37,6 +37,7 @@ namespace SaltsEnemies_Reseasoned
             sigil.m_PassiveID = SigilManager.Sigil;
             sigil.doesPassiveTriggerInformationPanel = false;
             sigil._triggerOn = new TriggerCalls[] { TriggerCalls.OnTurnStart };
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("sigilPassive.png"), "Sigil", sigil._enemyDescription);
 
             monolith.AddPassives(new BasePassiveAbilitySO[] { sigil, Passives.Formless, Passives.Withering });
 

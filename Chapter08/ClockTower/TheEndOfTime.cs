@@ -28,7 +28,7 @@ namespace SaltsEnemies_Reseasoned
             ClockTowerManager.Setup();
             ClockTowerPassive acceleration = ScriptableObject.CreateInstance<ClockTowerPassive>();
             acceleration._passiveName = "Acceleration";
-            acceleration.passiveIcon = ResourceLoader.LoadSprite("ParanoidSpeed");
+            acceleration.passiveIcon = ResourceLoader.LoadSprite("ParanoidSpeed.png");
             acceleration._enemyDescription = "If the player's portion of the turn takes longer than 60 seconds, apply 6 Entropy to all party members.";
             acceleration._characterDescription = "Doesn't work. I didnt bother setting up the hooks for this.";
             acceleration.m_PassiveID = ClockTowerManager.Acceleration;
@@ -43,6 +43,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyEntropyEffect>(), 6, allEnemy)
             };
             acceleration.specialStoredData = UnitStoreData.GetCustom_UnitStoreData(ClockTowerManager.Acceleration);
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ParanoidSpeed.png"), "Acceleration", acceleration._enemyDescription);
 
             //ADDPASSIVES
             clock.AddPassives(new BasePassiveAbilitySO[] { Passives.OverexertGenerator(12), acceleration });

@@ -36,6 +36,7 @@ namespace SaltsEnemies_Reseasoned
                 ScriptableObject.CreateInstance<ColdHealCondition>()
             };
             cold.effects = new EffectInfo[0];
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("cold.png"), "Cold-Blooded", cold._enemyDescription);
 
             //WARNING
             PerformEffectPassiveAbility warn = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
@@ -48,6 +49,7 @@ namespace SaltsEnemies_Reseasoned
             warn.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomNegativeStatusEffect>(), 1, Targetting.AllEnemy) };
             warn._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
             warn.conditions = Passives.Slippery.conditions;
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WarningPassive.png"), "Warning", warn._enemyDescription);
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, Passives.Forgetful, cold, warn });
 

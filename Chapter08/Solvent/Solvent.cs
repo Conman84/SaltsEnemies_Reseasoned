@@ -50,6 +50,7 @@ namespace SaltsEnemies_Reseasoned
                         Effects.GenerateEffect(core, 1, Targeting.Slot_SelfSlot),
                         Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Targetting.LowestEnemy)
             };
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("survival.png"), "Survival Instinct", survival._enemyDescription);
 
             //INTIMIDATED
             DelayedAttackManager.Setup();
@@ -62,6 +63,7 @@ namespace SaltsEnemies_Reseasoned
             fear.doesPassiveTriggerInformationPanel = true;
             fear.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<ReRollTargetTimelineAbilityEffect>(), 1, Targeting.Slot_SelfSlot) };
             fear._triggerOn = new TriggerCalls[1] { (TriggerCalls)AmbushManager.Patiently };
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("intimidated.png"), "Intimidated", fear._enemyDescription);
 
             //ADD PASSIVES
             solvent.AddPassives(new BasePassiveAbilitySO[] { survival, fear, Passives.FleetingGenerator(5), Passives.Withering, Passives.Dying });
