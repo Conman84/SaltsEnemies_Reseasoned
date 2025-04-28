@@ -50,6 +50,21 @@ namespace SaltEnemies_Reseasoned
             return ret;
         }
     }
+    public class HasCasterHealthColorCondition : HasHealthColorCondition
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            color = caster.HealthColor;
+            return base.MeetCondition(caster, effects, currentIndex);
+        }
+        public static HasCasterHealthColorCondition Create(bool getChara, bool ifAll = false)
+        {
+            HasCasterHealthColorCondition ret = ScriptableObject.CreateInstance<HasCasterHealthColorCondition>();
+            ret.characters = getChara;
+            ret.all = ifAll;
+            return ret;
+        }
+    }
     public class Targetting_ByUnit_SideCasterColor : Targetting_ByUnit_Side
     {
         public ManaColorSO Color;

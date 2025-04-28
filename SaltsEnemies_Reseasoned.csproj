@@ -10,6 +10,10 @@
 	  <None Remove="assets\group4" />
 	  <None Remove="assets\hawthorne" />
 	  <None Remove="assets\meowy" />
+	  <None Remove="Chapter10\Medamaude\EyePalmDead.png" />
+	  <None Remove="Chapter10\Medamaude\EyePalmIcon.png" />
+	  <None Remove="Chapter10\Medamaude\EyePalmWorld.png" />
+	  <None Remove="Chapter10\Medamaude\MissFaced.png" />
 	  <None Remove="Chapter1\DeadGod\DeadGodDead.png" />
 	  <None Remove="Chapter1\DeadGod\DeadGodIcon.png" />
 	  <None Remove="Chapter1\DeadGod\DeadGodIconB.png" />
@@ -161,6 +165,10 @@
 	  <EmbeddedResource Include="assets\group4" />
 	  <EmbeddedResource Include="assets\hawthorne" />
 	  <EmbeddedResource Include="assets\meowy" />
+	  <EmbeddedResource Include="Chapter10\Medamaude\EyePalmDead.png" />
+	  <EmbeddedResource Include="Chapter10\Medamaude\EyePalmIcon.png" />
+	  <EmbeddedResource Include="Chapter10\Medamaude\EyePalmWorld.png" />
+	  <EmbeddedResource Include="Chapter10\Medamaude\MissFaced.png" />
 	  <EmbeddedResource Include="Chapter1\DeadGod\DeadGodDead.png" />
 	  <EmbeddedResource Include="Chapter1\DeadGod\DeadGodIcon.png" />
 	  <EmbeddedResource Include="Chapter1\DeadGod\DeadGodIconB.png" />

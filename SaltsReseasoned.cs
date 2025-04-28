@@ -49,6 +49,7 @@ namespace SaltsEnemies_Reseasoned
             SaltPassivesCamera.Setup();
             PostLoading.Setup();
             ShinyHandler.Setup();
+            HooksGeneral.Setup();
             #endregion
 
             //Add To Glossary

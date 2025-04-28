@@ -11,20 +11,26 @@ namespace SaltEnemies_Reseasoned
         {
             CameraEffects.AddPassive("FreakOut_PA");
             CameraEffects.AddPassive("Jumpy_PA");
+            CameraEffects.AddPassive("Lightweight_PA");
+            CameraEffects.AddPassive("DontTouchMe_PA");
+            CameraEffects.AddPassive("Revenge_PA");
+            CameraEffects.AddPassive("Coda_PA");
+            CameraEffects.AddPassive(ClockTowerManager.Acceleration);
+            CameraEffects.AddPassive("MissFaced_PA");
             //Add Every single passive ID you've made for all salt enemies thus far. and also do this in the future too. unless it shares a passiveID with a base game passive. or if its like a unique passive to the enemy or something. or a bonus attack
             //Specifically:
             /*
-            Lightweight
-            Dont Touch Me
-            Revenge
-            Splatter
-            Overgrowth
-            Survival Instinct
+            Lightweight DONE
+            Dont Touch Me DONE
+            Revenge DONE
+            Splatter DONE
+            Overgrowth DONE
+            Survival Instinct DONE
             Cowardice
-            Coda
-            Cold Blooded
-            Warning
-            Acceleration
+            Coda DONE
+            Cold Blooded DONE
+            Warning DONE
+            Acceleration DONE
             Heavily Armored
             Algophobia
             Unbreakable
@@ -34,9 +40,9 @@ namespace SaltEnemies_Reseasoned
             Well Preserved
             Ethereal
             Unmasking
-            Asphyxiation
-            Salinity
-            Locked In
+            Asphyxiation DONE
+            Salinity DONE
+            Locked In DONE
             Incomprehensible
             Hunter
             Rejuvination
@@ -44,7 +50,7 @@ namespace SaltEnemies_Reseasoned
             Nervous
             Repression
             Lazy
-            Miss-Faced
+            Miss-Faced DONE
             Turbulent
             Compulsory
             Bad Dog
