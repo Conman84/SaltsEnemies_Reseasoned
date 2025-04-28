@@ -26,7 +26,7 @@ namespace SaltsEnemies_Reseasoned
             //DECAY
             PerformEffectPassiveAbility decay = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             decay._passiveName = "Decay";
-            decay.passiveIcon = ResourceLoader.LoadSprite("DecayPassiveIcon");
+            decay.passiveIcon = Passives.Example_Decay_MudLung.passiveIcon;
             decay. m_PassiveID = Passives.Example_Decay_MudLung.m_PassiveID;
             decay._enemyDescription = "Upon dying, this enemy decays into itself.";
             decay._characterDescription = "On dying, nothing happens. This effect won't work on party members. Be glad it doesnt break the game.";

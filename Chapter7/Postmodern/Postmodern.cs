@@ -37,7 +37,7 @@ namespace SaltsEnemies_Reseasoned
             Debug.LogError("make sure these are the right passive sprites");
             PostModernPassiveAbility passive = ScriptableObject.CreateInstance<PostModernPassiveAbility>();
             passive._passiveName = "Post-Modern";
-            passive.passiveIcon = ResourceLoader.LoadSprite("PostModernIcon");
+            passive.passiveIcon = ResourceLoader.LoadSprite("PostmodernPassive.png");
             passive.m_PassiveID = "PostModern_PA";
             passive._enemyDescription = "All damage this enemy receives is set to 999.";
             passive._characterDescription = "why two kay";

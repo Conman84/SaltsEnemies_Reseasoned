@@ -36,6 +36,7 @@ namespace SaltsEnemies_Reseasoned
 
             //Setup
             #region Setup
+            PCall(ResourceLoaderHook.Setup);
             CustomVisuals.Setup();
             FleetingValue.Setup();
             AnglerHandler.Setup();
