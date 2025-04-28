@@ -104,16 +104,19 @@ namespace SaltsEnemies_Reseasoned
             RusticJumbleGuts.Add();
             MortalSpoggle.Add();
             CoinHunter.Add();
+            Debug.Log("chapter 4");
 
             //CH6 Enemies
             Delusion.Add();
             FakeAngel.Add();
             RBYPFlowers.Add();
+            Debug.Log("chapter 6");
 
             //CH7 Enemies
             PCall(Deep.Add);
             PCall(War.Add);
             PCall(Postmodern.Add);
+            Debug.Log("chapter 7");
 
             //CH8 Enemies
             Sigil.Add();
@@ -121,6 +124,7 @@ namespace SaltsEnemies_Reseasoned
             WindSong.Add();
             TheEndOfTime.Add();
             SemiRealisticTank.Add();
+            Debug.Log("chapter 8");
 
             //CH10 Enemies
             Medamaude.Add();

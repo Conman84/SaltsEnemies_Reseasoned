@@ -1004,6 +1004,10 @@ namespace SaltEnemies_Reseasoned
             List<TargetSlotInfo> ret = new List<TargetSlotInfo>();
             foreach (TargetSlotInfo target in orig)
             {
+                if (target.HasUnit)
+                {
+                    if (target.SlotID != target.Unit.SlotID) continue;
+                }
                 foreach (TargetSlotInfo add in Targeting.Slot_Front.GetTargets(slots, target.SlotID, target.IsTargetCharacterSlot))
                 {
                     ret.Add(add);

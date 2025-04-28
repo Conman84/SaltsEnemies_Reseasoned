@@ -131,6 +131,7 @@ namespace SaltEnemies_Reseasoned
         public static void PostNotification(Action<CombatManager, string, object, object> orig, CombatManager self, string call, object sender, object args)
         {
             orig(self, call, sender, args);
+            NotificationChecksIDGAF(call, sender, args);
         }
         public static IEnumerator EffectActionExecute(Func<EffectAction, CombatStats, IEnumerator> orig, EffectAction self, CombatStats stats)
         {
@@ -558,13 +559,13 @@ namespace SaltEnemies_Reseasoned
             {
                 if (CombatManager.Instance._combatUI._enemyZone._enemies.Length > value.FieldID)
                 {
-                    if (unit.HealthColor == Pigments.Red)
+                    if (unit.HealthColor.SharesPigmentColor(Pigments.Red))
                     {
-                        CombatManager.Instance._combatUI._enemyZone._enemies[value.FieldID].FieldEntity.transform.Find("Locator").Find("Sprite").GetChild(1).gameObject.SetActive(false);
+                        CombatManager.Instance._combatUI._enemyZone._enemies[value.FieldID].FieldEntity.m_Data.m_Locator.transform.Find("Sprite").GetChild(1).gameObject.SetActive(false);
                     }
                     else
                     {
-                        CombatManager.Instance._combatUI._enemyZone._enemies[value.FieldID].FieldEntity.transform.Find("Locator").Find("Sprite").GetChild(1).gameObject.SetActive(true);
+                        CombatManager.Instance._combatUI._enemyZone._enemies[value.FieldID].FieldEntity.m_Data.m_Locator.transform.Find("Sprite").GetChild(1).gameObject.SetActive(true);
                     }
                 }
             }

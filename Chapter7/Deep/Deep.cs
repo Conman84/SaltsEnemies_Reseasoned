@@ -30,7 +30,6 @@ namespace SaltsEnemies_Reseasoned
 
             //SALINITY
             DrowningManager.Setup();
-            Debug.LogError("make sure these are the right sprites");
             PerformEffectPassiveAbility salinity = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             salinity._passiveName = "Salinity (1)";
             salinity.passiveIcon = ResourceLoader.LoadSprite("saltwater.png");

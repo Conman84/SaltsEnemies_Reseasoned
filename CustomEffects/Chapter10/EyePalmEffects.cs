@@ -68,7 +68,7 @@ namespace SaltEnemies_Reseasoned
     public class Targetting_ByUnit_SideCasterColor : Targetting_ByUnit_Side
     {
         public ManaColorSO Color;
-
+        public bool SingleSize;
         public override bool AreTargetAllies => getAllies;
 
         public override bool AreTargetSlots => getAllUnitSlots;
@@ -85,7 +85,11 @@ namespace SaltEnemies_Reseasoned
             TargetSlotInfo[] source = base.GetTargets(slots, casterSlotID, isCasterCharacter);
             foreach (TargetSlotInfo target in source)
             {
-                if (target.HasUnit && target.Unit.HealthColor.SharesPigmentColor(Color)) ret.Add(target);
+                if (target.HasUnit && target.Unit.HealthColor.SharesPigmentColor(Color))
+                {
+                    if (!SingleSize || target.Unit.Size == 1)
+                    ret.Add(target);
+                }
             }
             return ret.ToArray();
         }
@@ -95,8 +99,8 @@ namespace SaltEnemies_Reseasoned
         public int MassEnemySwapSwapping(SlotsCombat self, List<int> slots)
         {
             int num = 0;
-            List<int> slots2 = new List<int>();
-            List<IUnit> list = new List<IUnit>();
+            List<int> foundSlots = new List<int>();
+            List<IUnit> foundUnits = new List<IUnit>();
             foreach (int i in slots)
             {
                 if (i < 0 || i >= 5) continue;
@@ -106,11 +110,12 @@ namespace SaltEnemies_Reseasoned
                 {
                     if (!self.EnemySlots[i].Unit.CanBeSwapped)
                     {
-                        return 0;
+                        //return 0;
+                        continue;
                     }
 
-                    list.Add(self.EnemySlots[i].Unit);
-                    slots2.Add(i);
+                    foundUnits.Add(self.EnemySlots[i].Unit);
+                    foundSlots.Add(i);
                     num++;
                 }
             }
@@ -120,43 +125,42 @@ namespace SaltEnemies_Reseasoned
                 return 0;
             }
 
-            int yoy = 0;
-            int num2 = slots2[yoy];
-            int num3 = 0;
-            int[] array = new int[list.Count];
-            int[] array2 = new int[list.Count];
-            List<int> list2 = new List<int>();
-            int index = ((list.Count > 1) ? UnityEngine.Random.Range(1, list.Count) : 0);
-            while (list.Count > 0)
+            int pointInArray = 0;
+            int newSlotID = foundSlots[pointInArray];
+            int[] ret_IDs = new int[foundUnits.Count];
+            int[] ret_Slots = new int[foundUnits.Count];
+            List<int> swappedSlots = new List<int>();
+            int index = (foundUnits.Count > 1) ? UnityEngine.Random.Range(0, foundUnits.Count) : 0;
+            while (foundUnits.Count > 0)
             {
-                IUnit unit = list[index];
-                list.RemoveAt(index);
-                index = UnityEngine.Random.Range(0, list.Count);
-                bool flag = unit != null && !unit.Equals(null);
-                int num4 = ((!flag) ? 1 : unit.Size);
-                for (int j = 0; j < num4; j++)
+                IUnit unit = foundUnits[index];
+                foundUnits.RemoveAt(index);
+                index = UnityEngine.Random.Range(0, foundUnits.Count);
+                bool hasUnit = unit != null && !unit.Equals(null);
+                int Size = ((!hasUnit) ? 1 : unit.Size);
+                for (int j = 0; j < Size; j++)
                 {
-                    self.EnemySlots[num2 + j].SetUnit(unit);
+                    self.EnemySlots[newSlotID + j].SetUnit(unit);
                 }
 
-                if (flag)
+                if (hasUnit)
                 {
-                    list2.Add(num2);
-                    array[num3] = unit.ID;
+                    swappedSlots.Add(newSlotID);
+                    ret_IDs[pointInArray] = unit.ID;
                 }
                 else
                 {
-                    array[num3] = -1;
+                    ret_IDs[pointInArray] = -1;
                 }
 
-                array2[num3] = num2;
-                num3++;
-                yoy++;
-                num2 = slots2[yoy];
+                ret_Slots[pointInArray] = newSlotID;
+                pointInArray++;
+                if (foundSlots.Count > pointInArray)
+                    newSlotID = foundSlots[pointInArray];
             }
 
-            CombatManager.Instance.AddUIAction(new EnemySlotsHaveSwappedUIAction(array, array2, CombatType_GameIDs.Swap_Mass.ToString()));
-            foreach (int item in list2)
+            CombatManager.Instance.AddUIAction(new EnemySlotsHaveSwappedUIAction(ret_IDs, ret_Slots, CombatType_GameIDs.Swap_Mass.ToString()));
+            foreach (int item in swappedSlots)
             {
                 self.EnemySlots[item].Unit.SwappedTo(item);
             }

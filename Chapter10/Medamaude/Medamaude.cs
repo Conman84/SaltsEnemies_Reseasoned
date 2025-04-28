@@ -53,12 +53,12 @@ namespace SaltsEnemies_Reseasoned
             Targetting_ByUnit_SideCasterColor targettingCasterColor = ScriptableObject.CreateInstance<Targetting_ByUnit_SideCasterColor>();
             targettingCasterColor.getAllies = true;
             targettingCasterColor.getAllUnitSlots = true;
-            Targetting_ByUnit_Side allEnemy = ScriptableObject.CreateInstance<Targetting_ByUnit_Side>();
-            allEnemy.getAllies = false;
-            allEnemy.getAllUnitSlots = true;
-            Targetting_ByUnit_Side allAlly = ScriptableObject.CreateInstance<Targetting_ByUnit_Side>();
-            allAlly.getAllies = true;
-            allAlly.getAllUnitSlots = true;
+            Targetting_ByUnit_SideCasterColor targettingSingleSizeColor = ScriptableObject.CreateInstance<Targetting_ByUnit_SideCasterColor>();
+            targettingSingleSizeColor.getAllies = true;
+            targettingSingleSizeColor.getAllUnitSlots = true;
+            targettingSingleSizeColor.SingleSize = true;
+            BaseCombatTargettingSO allEnemy = Targeting.GenerateSlotTarget(new int[] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, false);
+            BaseCombatTargettingSO allAlly = Targeting.GenerateSlotTarget(new int[] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, true);
 
             //pigs in blue
             Ability blue = new Ability("PigsInBlue_A");
@@ -81,12 +81,12 @@ namespace SaltsEnemies_Reseasoned
             red.Rarity = Rarity.GetCustomRarity("rarity5");
             red.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ShufflePositionsAmongTargetsEffect>(), 0, targettingCasterColor)
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ShufflePositionsAmongTargetsEffect>(), 0, targettingSingleSizeColor)
             };
-            red.AddIntentsToTarget(targettingCasterColor, new string[] { IntentType_GameIDs.Swap_Mass.ToString() });
+            red.AddIntentsToTarget(targettingSingleSizeColor, new string[] { IntentType_GameIDs.Swap_Mass.ToString() });
             red.AddIntentsToTarget(allAlly, new string[] { IntentType_GameIDs.Misc.ToString() });
             red.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
-            red.AnimationTarget = targettingCasterColor;
+            red.AnimationTarget = targettingSingleSizeColor;
             red.Priority = Priority.Fast;
 
             //PINCH
