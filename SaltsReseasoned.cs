@@ -122,6 +122,9 @@ namespace SaltsEnemies_Reseasoned
             TheEndOfTime.Add();
             SemiRealisticTank.Add();
 
+            //CH10 Enemies
+            Medamaude.Add();
+
             //CH1 Encounters
             LostSheepEncounters.Add();
             EnigmaEncounters.Add();
