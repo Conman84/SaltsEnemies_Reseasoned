@@ -274,16 +274,17 @@ namespace SaltEnemies_Reseasoned
                     _drain = new Ability("Salt_Drowse_A")
                     {
                         Name = "Drowse",
-                        Description = "Increase this enemy's maximum health by 2.",
+                        Description = "Increase this enemy's maximum health by 2. Consume 2 Pigment.",
                         Rarity = Rarity.CreateAndAddCustomRarityToPool("Delusion_6", 6),
                         Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(inc, 2, Targeting.Slot_SelfSlot),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeRandomManaEffect>(), 2, Slots.Self)
                         },
                         Visuals = CustomVisuals.GetVisuals("Salt/Pop"),
-                        AnimationTarget = Targeting.Slot_OpponentSides
+                        AnimationTarget = Targeting.Slot_SelfSlot
                     };
-                    _drain.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Other_MaxHealth.ToString() });
+                    _drain.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Other_MaxHealth.ToString(), IntentType_GameIDs.Mana_Consume.ToString() });
                 }
                 return _drain;
             }
@@ -399,7 +400,7 @@ namespace SaltEnemies_Reseasoned
                             Effects.GenerateEffect(abili, 1, Targeting.Slot_SelfSlot),
                             Effects.GenerateEffect(passi, 1, Targeting.Slot_SelfSlot),
                             Effects.GenerateEffect(BasicEffects.SetStoreValue(State), 2, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnEnemyCopySelfEffect>(), 1, Targeting.Slot_SelfSlot)
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnEnemyCopyBasedOffMissingHealth>(), 1, Targeting.Slot_SelfSlot)
                         },
                         Visuals = CustomVisuals.GetVisuals("Salt/Cube"),
                         AnimationTarget = Targeting.Slot_SelfSlot,
@@ -426,7 +427,7 @@ namespace SaltEnemies_Reseasoned
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ResetCasterAbilitiesToDefaultEffect>(), 1, Targeting.Slot_SelfSlot),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ResetCasterPassivesToDefaultEffect>(), 1, Targeting.Slot_SelfSlot),
                             Effects.GenerateEffect(BasicEffects.SetStoreValue(State), 1, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnEnemyCopySelfEffect>(), 1, Targeting.Slot_SelfSlot)
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnEnemyCopyBasedOffMissingHealth>(), 1, Targeting.Slot_SelfSlot)
                         },
                         Visuals = CustomVisuals.GetVisuals("Salt/Notif"),
                         AnimationTarget = Targeting.Slot_SelfSlot,

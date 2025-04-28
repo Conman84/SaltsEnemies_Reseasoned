@@ -32,11 +32,9 @@ namespace SaltEnemies_Reseasoned
             else LoadedDBsHandler.CombatDB.AddNewSound(DamageType, LoadedDBsHandler.CombatDB.m_SoundPool[CombatType_GameIDs.Dmg_Ruptured.ToString()]);
 
             StatusEffectInfoSO AcidInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
-            AcidInfo.icon = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Acid.Add. put the right sprite here");
+            AcidInfo.icon = ResourceLoader.LoadSprite("Acid.png");
             AcidInfo._statusName = "Acid";
             AcidInfo._description = "On using an ability, take 3 indirect damage. Reduce Acid by 1 at the end of each turn.";
-            Debug.LogError("Acid.Add. get the status description");
             AcidInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Ruptured_ID.ToString()]._EffectInfo._applied_SE_Event;
             AcidInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Ruptured_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             AcidInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Ruptured_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
@@ -50,8 +48,7 @@ namespace SaltEnemies_Reseasoned
 
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
-            intentinfo._sprite = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Acid.Add. set the right sprite for the intent also");
+            intentinfo._sprite = ResourceLoader.LoadSprite("Acid.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
         }

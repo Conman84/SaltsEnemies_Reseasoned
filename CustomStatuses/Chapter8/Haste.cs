@@ -17,7 +17,6 @@ namespace SaltEnemies_Reseasoned
         {
             StatusEffectInfoSO HasteInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             HasteInfo.icon = ResourceLoader.LoadSprite("Haste.png");
-            Debug.LogWarning("Haste.Add. put the right sprite here");
             HasteInfo._statusName = "Haste";
             HasteInfo._description = "Get the description";
             Debug.LogWarning("Haste.Add. get the status description");
@@ -35,7 +34,6 @@ namespace SaltEnemies_Reseasoned
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
             intentinfo._sprite = ResourceLoader.LoadSprite("Haste.png");
-            Debug.LogWarning("Haste.Add. set the right sprite for the intent also");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
         }

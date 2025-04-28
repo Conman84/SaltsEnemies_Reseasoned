@@ -35,7 +35,6 @@ namespace SaltEnemies_Reseasoned
 
             SlotStatusEffectInfoSO RootsInfo = ScriptableObject.CreateInstance<SlotStatusEffectInfoSO>();
             RootsInfo.icon = ResourceLoader.LoadSprite("RootsIcon.png");
-            Debug.LogWarning("Roots.Add. put the right sprite here");
             RootsInfo._fieldName = "Roots";
             RootsInfo._description = "Get the description";
             Debug.LogWarning("Roots.Add. get the status description");
@@ -62,7 +61,6 @@ namespace SaltEnemies_Reseasoned
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
             intentinfo._sprite = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogWarning("Roots.Add. set the right sprite for the intent also");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
         }
@@ -238,11 +236,9 @@ namespace SaltEnemies_Reseasoned
         public static void Add()
         {
             StatusEffectInfoSO PhotoInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
-            PhotoInfo.icon = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogWarning("Photo.Add. put the right sprite here");
+            PhotoInfo.icon = ResourceLoader.LoadSprite("PhotoIcon.png");
             PhotoInfo._statusName = "Photosynthesis";
-            PhotoInfo._description = "Get the description";
-            Debug.LogWarning("Photo.Add. get the status description");
+            PhotoInfo._description = "Multiply all healing received by the amount of Photosynthesis.";
             PhotoInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.AppliedSoundEvent;
             PhotoInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             PhotoInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
@@ -256,8 +252,7 @@ namespace SaltEnemies_Reseasoned
 
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
-            intentinfo._sprite = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogWarning("Photo.Add. set the right sprite for the intent also");
+            intentinfo._sprite = ResourceLoader.LoadSprite("PhotoIcon.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
         }

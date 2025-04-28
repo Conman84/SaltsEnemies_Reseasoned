@@ -50,6 +50,7 @@ namespace SaltsEnemies_Reseasoned
             PostLoading.Setup();
             ShinyHandler.Setup();
             HooksGeneral.Setup();
+            PCall(FallColor.Setup);
             #endregion
 
             //Add To Glossary
@@ -128,6 +129,9 @@ namespace SaltsEnemies_Reseasoned
 
             //CH10 Enemies
             Medamaude.Add();
+
+            //CH14 Enemies
+            PCall(MidnightTrafficLight.Add);
 
             //CH1 Encounters
             LostSheepEncounters.Add();

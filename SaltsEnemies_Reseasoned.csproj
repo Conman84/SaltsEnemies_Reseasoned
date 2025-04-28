@@ -14,6 +14,13 @@
 	  <None Remove="Chapter10\Medamaude\EyePalmIcon.png" />
 	  <None Remove="Chapter10\Medamaude\EyePalmWorld.png" />
 	  <None Remove="Chapter10\Medamaude\MissFaced.png" />
+	  <None Remove="Chapter14\MidnightTrafficLight\PracticalPassive.png" />
+	  <None Remove="Chapter14\MidnightTrafficLight\TrainDead.png" />
+	  <None Remove="Chapter14\MidnightTrafficLight\TrainDownIntent.png" />
+	  <None Remove="Chapter14\MidnightTrafficLight\TrainFlipIntent.png" />
+	  <None Remove="Chapter14\MidnightTrafficLight\TrainIcon.png" />
+	  <None Remove="Chapter14\MidnightTrafficLight\TrainUpIntent.png" />
+	  <None Remove="Chapter14\MidnightTrafficLight\TrainWorld.png" />
 	  <None Remove="Chapter1\DeadGod\DeadGodDead.png" />
 	  <None Remove="Chapter1\DeadGod\DeadGodIcon.png" />
 	  <None Remove="Chapter1\DeadGod\DeadGodIconB.png" />
@@ -169,6 +176,13 @@
 	  <EmbeddedResource Include="Chapter10\Medamaude\EyePalmIcon.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\EyePalmWorld.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\MissFaced.png" />
+	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\PracticalPassive.png" />
+	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\TrainDead.png" />
+	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\TrainDownIntent.png" />
+	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\TrainFlipIntent.png" />
+	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\TrainIcon.png" />
+	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\TrainUpIntent.png" />
+	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\TrainWorld.png" />
 	  <EmbeddedResource Include="Chapter1\DeadGod\DeadGodDead.png" />
 	  <EmbeddedResource Include="Chapter1\DeadGod\DeadGodIcon.png" />
 	  <EmbeddedResource Include="Chapter1\DeadGod\DeadGodIconB.png" />

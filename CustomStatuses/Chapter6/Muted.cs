@@ -19,10 +19,8 @@ namespace SaltEnemies_Reseasoned
         {
             StatusEffectInfoSO LeftInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             LeftInfo.icon = ResourceLoader.LoadSprite("MutedIcon.png");
-            Debug.LogWarning("Muted.Add. put the right sprite here");
             LeftInfo._statusName = "Muted";
-            LeftInfo._description = "Get the description";
-            Debug.LogWarning("Muted.Add. get the status description");
+            LeftInfo._description = "This unit cannot use any ability other than \"Slap\". \nMuted decreases by 1 at the end of each turn.";
             LeftInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.DivineProtection_ID.ToString()]._EffectInfo.AppliedSoundEvent;
             LeftInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.DivineProtection_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             LeftInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.DivineProtection_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
@@ -37,7 +35,6 @@ namespace SaltEnemies_Reseasoned
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
             intentinfo._sprite = ResourceLoader.LoadSprite("MutedIcon.png");
-            Debug.LogWarning("Muted.Add. set the right sprite for the intent also");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
 

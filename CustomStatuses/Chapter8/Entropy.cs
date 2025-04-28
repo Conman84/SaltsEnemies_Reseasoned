@@ -19,7 +19,6 @@ namespace SaltEnemies_Reseasoned
         {
             StatusEffectInfoSO EntropyInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             EntropyInfo.icon = ResourceLoader.LoadSprite("EntropyIcon.png");
-            Debug.LogWarning("Entropy.Add. put the right sprite here");
             EntropyInfo._statusName = "Entropy";
             EntropyInfo._description = "Get the description";
             Debug.LogWarning("Entropy.Add. get the status description");
@@ -37,7 +36,6 @@ namespace SaltEnemies_Reseasoned
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
             intentinfo._sprite = ResourceLoader.LoadSprite("EntropyIcon.png");
-            Debug.LogWarning("Entropy.Add. set the right sprite for the intent also");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
         }
