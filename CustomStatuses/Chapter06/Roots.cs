@@ -19,8 +19,11 @@ namespace SaltEnemies_Reseasoned
         public static string Trigger => "TriggerCalls_Roots";
         public static string Intent => "Field_Roots";
         public static RootsFE_SO Object;
+        public static bool[] IgnoreSet;
         public static void Add()
         {
+            IgnoreSet = new bool[5];
+
             TMP_ColorGradient RootsGradient = ScriptableObject.CreateInstance<TMP_ColorGradient>();
             Color32 rootsColor = new Color32(70, 172, 0, 255);
             RootsGradient.bottomLeft = rootsColor;
@@ -64,27 +67,27 @@ namespace SaltEnemies_Reseasoned
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
         }
+        public static void Clear() => IgnoreSet = new bool[5];
     }
     public class RootsFE_SO : FieldEffect_SO
     {
         public override bool IsPositive => false;
         public override void OnSlotEffectorTriggerAttached(FieldEffect_Holder holder)
         {
-            if (holder.Effector is CombatSlot slot && slot.HasUnit) ignoreSet = true;
+            if (holder.Effector is CombatSlot slot && slot.HasUnit) Roots.IgnoreSet[holder.SlotID] = true;
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, TriggerCalls.OnTurnFinished.ToString(), holder.Effector);
         }
         public override void OnSlotEffectorTriggerDettached(FieldEffect_Holder holder)
         {
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, TriggerCalls.OnTurnFinished.ToString(), holder.Effector);
         }
-        public bool ignoreSet;
         public override void OnTriggerAttached(FieldEffect_Holder holder, IUnit caller)
         {
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, Roots.Trigger, caller);
-            if (ignoreSet)
+            if (Roots.IgnoreSet[holder.SlotID])
             {
-                ignoreSet = false;
+                Roots.IgnoreSet[holder.SlotID] = false;
                 return;
             }
             CombatManager.Instance.AddSubAction(new PerformSlotStatusEffectAction(holder, caller, null, true));

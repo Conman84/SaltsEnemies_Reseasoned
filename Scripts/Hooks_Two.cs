@@ -113,6 +113,7 @@ namespace SaltEnemies_Reseasoned
             CopyLastAbilityEffect.LastAbility = null;
             YNLHandler2.Reset();
             YNLHandler2.Grody();
+            Roots.Clear();
             orig(self);
         }
         public static void PlayerTurnStart(Action<CombatStats> orig, CombatStats self)
