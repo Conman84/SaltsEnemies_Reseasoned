@@ -222,7 +222,6 @@ namespace SaltEnemies_Reseasoned
         public static string Cracking = "ClockTower_Cracking_A";
         public static void Setup()
         {
-            Debug.LogError("CrackingHandler.Setup: MAKE SURE PUBLIC STATIC SPRITE \"Face\' IS LOADING THE CORRECT SPRITE");
             UnitStoreData_CrackingTimeSO value_clock = ScriptableObject.CreateInstance<UnitStoreData_CrackingTimeSO>();
             value_clock._UnitStoreDataID = Cracking;
             if (LoadedDBsHandler.MiscDB.m_UnitStoreDataPool.ContainsKey(Cracking))

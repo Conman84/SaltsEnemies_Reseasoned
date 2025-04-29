@@ -86,7 +86,6 @@ namespace SaltEnemies_Reseasoned
         public static void Add()
         {
             Setup();
-            Debug.LogError("SigilManager.Add: MAKE SURE THESE ARE LOADING THE CORRECT SPRITES");
             Intents.CreateAndAddCustom_Basic_IntentToPool(DefTxt, ResourceLoader.LoadSprite("defenseicon.png"), Color.white);
             Intents.CreateAndAddCustom_Basic_IntentToPool(AtkTxt, ResourceLoader.LoadSprite("atkicon.png"), Color.white);
             Intents.CreateAndAddCustom_Basic_IntentToPool(UpArrow, ResourceLoader.LoadSprite("blueUpIcon.png"), Color.white);

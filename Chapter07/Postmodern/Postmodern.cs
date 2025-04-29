@@ -34,7 +34,6 @@ namespace SaltsEnemies_Reseasoned
             });
 
             //passive
-            Debug.LogError("make sure these are the right passive sprites");
             PostModernPassiveAbility passive = ScriptableObject.CreateInstance<PostModernPassiveAbility>();
             passive._passiveName = "Post-Modern";
             passive.passiveIcon = ResourceLoader.LoadSprite("PostmodernPassive.png");

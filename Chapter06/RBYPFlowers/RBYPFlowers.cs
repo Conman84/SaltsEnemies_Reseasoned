@@ -11,8 +11,6 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Debug.LogError("make sure the correct sprites are being loaded");
-
             PerformEffectPassiveAbility splatter = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             splatter._passiveName = "Splatter";
             splatter.passiveIcon = ResourceLoader.LoadSprite("splatter.png");

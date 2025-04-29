@@ -22,6 +22,8 @@ namespace SaltsEnemies_Reseasoned
 
             illusion.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, IllusionHandler.Illusion, Passives.Formless });
 
+            Rarity.CreateAndAddCustomRarityToPool("Delusion_5", 5);
+
             illusion.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 IllusionHandler.Drain.GenerateEnemyAbility(true),

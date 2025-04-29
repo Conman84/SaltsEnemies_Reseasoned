@@ -28,6 +28,12 @@ namespace SaltsEnemies_Reseasoned
                 train.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").GetComponent<SpriteRenderer>(),
             };
 
+            //ability selector
+            AbilitySelector_Heaven selector = ScriptableObject.CreateInstance<AbilitySelector_Heaven>();
+            selector._ComeHomeAbility = "Train_Flip_A";
+            selector._useAfterTurns = 2;
+            train.AbilitySelector = selector;
+
             //PRACTICAL
             PerformEffectPassiveAbility prac = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             prac._passiveName = "Practical";
@@ -110,7 +116,7 @@ namespace SaltsEnemies_Reseasoned
             Ability flip = new Ability("Train_Flip_A");
             flip.Name = "Flip";
             flip.Description = "If the Light phase is Green, shift the Light phase to Red and deal an Agonizing amount of damage to the Opposing party member.\nOtherwise, shift the Light phase to Green.";
-            flip.Rarity = Rarity.CreateAndAddCustomRarityToPool("Train_Low", 3);
+            flip.Rarity = Rarity.GetCustomRarity("rarity5");
             flip.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Sign", false, Slots.Front), 1, Slots.Self, ScriptableObject.CreateInstance<SecondTrainCondition>()),

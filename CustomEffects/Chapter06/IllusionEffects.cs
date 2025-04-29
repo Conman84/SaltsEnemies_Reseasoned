@@ -302,7 +302,7 @@ namespace SaltEnemies_Reseasoned
                     {
                         Name = "Haunting",
                         Description = "Apply 3 Muted to the Opposing party member.",
-                        Rarity = Rarity.CreateAndAddCustomRarityToPool("Delusion_5", 5),
+                        Rarity = Rarity.GetCustomRarity("Delusion_5"),
                         Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 3, Targeting.Slot_Front),
