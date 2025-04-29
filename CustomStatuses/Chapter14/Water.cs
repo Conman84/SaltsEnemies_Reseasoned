@@ -1,12 +1,11 @@
 ﻿using BrutalAPI;
 using FMODUnity;
 using MonoMod.RuntimeDetour;
+using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
-using TMPro;
 using UnityEngine;
 
 namespace SaltEnemies_Reseasoned
@@ -53,19 +52,18 @@ namespace SaltEnemies_Reseasoned
             WaterInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
             Debug.LogError("Water.Add. MAKE SURE THESE ARE PULLING FROM THE RIGHT ASSETBUDNLE");
 
-            GameObject Fool = new GameObject("Water_Fool");
+            GameObject Fool = SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Water/FishFoolWater.prefab").gameObject;
             GameObject[] FoolParts = new GameObject[]
             {
                 SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Water/FishFoolBack.prefab").gameObject,
                 SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Water/FishFoolJelly.prefab").gameObject,
                 SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Water/FishFoolFront.prefab").gameObject,
-                SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Water/FishFoolWater.prefab").gameObject,
             };
             foreach (GameObject child in FoolParts) child.transform.SetParent(Fool.transform);
             Animator_CFE_Layout LayoutFool = Fool.AddComponent<Water_CFE_Layout>();
-            LayoutFool.m_Front = new RectTransform[] { FoolParts[2].GetComponent<RectTransform>(), FoolParts[3].GetComponent<RectTransform>() };
+            LayoutFool.m_Front = new RectTransform[] { FoolParts[2].GetComponent<RectTransform>(), Fool.GetComponent<RectTransform>() };
             LayoutFool.m_Back = new RectTransform[] { FoolParts[0].GetComponent<RectTransform>(), FoolParts[1].GetComponent<RectTransform>() };
-            LayoutFool.m_Animators = new Animator[] { FoolParts[0].GetComponent<Animator>(), FoolParts[1].GetComponent<Animator>(), FoolParts[2].GetComponent<Animator>(), FoolParts[3].GetComponent<Animator>() };
+            LayoutFool.m_Animators = new Animator[] { FoolParts[0].GetComponent<Animator>(), FoolParts[1].GetComponent<Animator>(), FoolParts[2].GetComponent<Animator>(), Fool.GetComponent<Animator>() };
             WaterInfo.m_CharacterLayoutTemplate = LayoutFool;
 
             GameObject Enemy = SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Water/FishEnemy.prefab");

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using SaltsEnemies_Reseasoned;
 using UnityEngine;
 
 namespace SaltEnemies_Reseasoned

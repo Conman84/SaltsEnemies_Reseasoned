@@ -80,6 +80,8 @@ namespace SaltsEnemies_Reseasoned
             Haste.Add();
             Hollow.Add();
             Acid.Add();
+            Drowning.Add();
+            Water.Add();
 
             //CH1 Enemies
             LostSheep.Add();

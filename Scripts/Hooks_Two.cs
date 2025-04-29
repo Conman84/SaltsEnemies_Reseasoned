@@ -114,6 +114,7 @@ namespace SaltEnemies_Reseasoned
             YNLHandler2.Reset();
             YNLHandler2.Grody();
             Roots.Clear();
+            Water.Clear();
             orig(self);
         }
         public static void PlayerTurnStart(Action<CombatStats> orig, CombatStats self)
