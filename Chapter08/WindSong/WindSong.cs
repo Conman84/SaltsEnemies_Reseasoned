@@ -55,6 +55,8 @@ namespace SaltsEnemies_Reseasoned
 
             //ADDPASSIVES
             windsong.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, Passives.Formless, coda });
+            windsong.CombatExitEffects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<WindSongExitEffect>()) };
+            windsong.CombatEnterEffects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<WindSongEnterEffect>()) };
 
             //THROTTLE
             DamageEffect OnKill = ScriptableObject.CreateInstance<DamageEffect>();

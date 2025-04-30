@@ -209,4 +209,28 @@ namespace SaltEnemies_Reseasoned
             }
         }
     }
+    public class WindSongEnterEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            CombatManager.Instance._stats.audioController.MusicCombatEvent.setParameterByName("WindSong", 1);
+            return true;
+        }
+    }
+    public class WindSongExitEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
+            {
+                if (!Check.EnemyExist("WindSong_EN")) break;
+                if (!enemy.IsAlive) continue;
+                if (enemy.Enemy == LoadedAssetsHandler.GetEnemy("WindSong_EN")) return false;
+            }
+            CombatManager.Instance._stats.audioController.MusicCombatEvent.setParameterByName("WindSong", 0);
+            return true;
+        }
+    }
 }
