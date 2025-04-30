@@ -50,6 +50,26 @@ namespace SaltsEnemies_Reseasoned
                         Effects.GenerateEffect(core, 1, Targeting.Slot_SelfSlot),
                         Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Targetting.LowestEnemy)
             };
+
+            //FLITHERING
+            PerformEffectPassiveAbility flither = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            flither._passiveName = "Flithering";
+            flither.passiveIcon = ResourceLoader.LoadSprite("FlitheringIcon.png");
+            flither.m_PassiveID = FlitheringHandler.Flithering;
+            flither._enemyDescription = "On any enemy dying, if there are no other enemies without \"Withering\" or \"Flithering\" as passives, instantly flee.\n" +
+                "At the start and end of the enemies' turn, if there are no other enemies without \"Cowardice\" or \"Flithering\" as passives, instantly flee.";
+            flither._characterDescription = "doesnt work";
+            flither.doesPassiveTriggerInformationPanel = false;
+            flither.effects = new EffectInfo[] { Effects.GenerateEffect(RootActionEffect.Create(new EffectInfo[]
+            {
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<CowardEffect>(), 1, Slots.Self)
+            }), 1, Slots.Self) });
+            flither._triggerOn = new TriggerCalls[] { TriggerCalls.OnPlayerTurnEnd_ForEnemy, TriggerCalls.OnRoundFinished };
+            flither.conditions = new EffectorConditionSO[]
+            {
+                ScriptableObject.CreateInstance<CowardCondition>()
+            };
+
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("survival.png"), "Survival Instinct", survival._enemyDescription);
 
             //INTIMIDATED
@@ -66,7 +86,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("intimidated.png"), "Intimidated", fear._enemyDescription);
 
             //ADD PASSIVES
-            solvent.AddPassives(new BasePassiveAbilitySO[] { survival, fear, Passives.FleetingGenerator(5), Passives.Withering, Passives.Dying });
+            solvent.AddPassives(new BasePassiveAbilitySO[] { survival, fear, Passives.FleetingGenerator(5), flither, Passives.Dying });
 
             //BLOODLETTING
             Ability bloodletting = new Ability("Salt_Bloodletting_A")
