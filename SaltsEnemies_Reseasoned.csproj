@@ -643,6 +643,7 @@
 	  <Folder Include="CustomEffects\Chapter06\" />
 	  <Folder Include="CustomEffects\Chapter11\" />
 	  <Folder Include="CustomEffects\Chapter12\" />
+	  <Folder Include="CustomEffects\Chapter16\" />
 	</ItemGroup>
 
 
