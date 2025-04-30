@@ -860,6 +860,7 @@ namespace SaltEnemies_Reseasoned
         }
         public static void ClearBlueUsers()
         {
+            if (UsedYellow != null) UsedYellow.Clear();
             if (UsedBlue == null) return;
             UsedBlue.Clear();
         }
