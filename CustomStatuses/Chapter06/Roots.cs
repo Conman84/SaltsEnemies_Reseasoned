@@ -39,8 +39,7 @@ namespace SaltEnemies_Reseasoned
             SlotStatusEffectInfoSO RootsInfo = ScriptableObject.CreateInstance<SlotStatusEffectInfoSO>();
             RootsInfo.icon = ResourceLoader.LoadSprite("RootsIcon.png");
             RootsInfo._fieldName = "Roots";
-            RootsInfo._description = "Get the description";
-            Debug.LogWarning("Roots.Add. get the status description");
+            RootsInfo._description = "On using an ability in Roots, take 2-3 indirect damage and heal all units with Photosynthesis for the amount of damage taken.\nRoots decreases on moving into Roots, on turn end, and on activation.";
             RootsInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Scars_ID.ToString()]._EffectInfo._applied_SE_Event;
             RootsInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Scars_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             RootsInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Scars_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
@@ -63,7 +62,7 @@ namespace SaltEnemies_Reseasoned
 
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
-            intentinfo._sprite = ResourceLoader.LoadSprite("idk.png");
+            intentinfo._sprite = ResourceLoader.LoadSprite("RootsIcon.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
         }
