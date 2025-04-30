@@ -14,6 +14,12 @@
 	  <None Remove="Chapter10\Medamaude\EyePalmIcon.png" />
 	  <None Remove="Chapter10\Medamaude\EyePalmWorld.png" />
 	  <None Remove="Chapter10\Medamaude\MissFaced.png" />
+	  <None Remove="Chapter10\Skyloft\FlitheringIcon.png" />
+	  <None Remove="Chapter10\Skyloft\Lazy.png" />
+	  <None Remove="Chapter10\Skyloft\SkyloftDead.png" />
+	  <None Remove="Chapter10\Skyloft\SkyloftIcon.png" />
+	  <None Remove="Chapter10\Skyloft\SkyloftPortal.png" />
+	  <None Remove="Chapter10\Skyloft\SkyloftWorld.png" />
 	  <None Remove="Chapter14\MidnightTrafficLight\PracticalPassive.png" />
 	  <None Remove="Chapter14\MidnightTrafficLight\TrainDead.png" />
 	  <None Remove="Chapter14\MidnightTrafficLight\TrainDownIntent.png" />
@@ -180,6 +186,12 @@
 	  <EmbeddedResource Include="Chapter10\Medamaude\EyePalmIcon.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\EyePalmWorld.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\MissFaced.png" />
+	  <EmbeddedResource Include="Chapter10\Skyloft\FlitheringIcon.png" />
+	  <EmbeddedResource Include="Chapter10\Skyloft\Lazy.png" />
+	  <EmbeddedResource Include="Chapter10\Skyloft\SkyloftDead.png" />
+	  <EmbeddedResource Include="Chapter10\Skyloft\SkyloftIcon.png" />
+	  <EmbeddedResource Include="Chapter10\Skyloft\SkyloftPortal.png" />
+	  <EmbeddedResource Include="Chapter10\Skyloft\SkyloftWorld.png" />
 	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\PracticalPassive.png" />
 	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\TrainDead.png" />
 	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\TrainDownIntent.png" />
