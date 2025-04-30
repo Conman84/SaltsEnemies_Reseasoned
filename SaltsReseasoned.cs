@@ -98,21 +98,21 @@ namespace SaltsEnemies_Reseasoned
             Denial.Add();
             Derogatory.Add();
             Something.Add();
-            Debug.Log("chapter 2");
+            //Debug.Log("chapter 2");
 
             //CH3 Enemies
             AFlower.Add();
             StarGazer.Add();
             Freud.Add();
             Crow.Add();
-            Debug.Log("chapter 3");
+            //Debug.Log("chapter 3");
 
             //CH4 Enemies
             MechanicalLens.Add(); //ADD MOD EFFECTS
             RusticJumbleGuts.Add();
             MortalSpoggle.Add();
             CoinHunter.Add();
-            Debug.Log("chapter 4");
+            //Debug.Log("chapter 4");
 
             //CH6 Enemies
             Delusion.Add();
