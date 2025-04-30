@@ -5,6 +5,7 @@ using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
@@ -50,20 +51,22 @@ namespace SaltEnemies_Reseasoned
             WaterInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo._applied_SE_Event;
             WaterInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             WaterInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
+            
             Debug.LogError("Water.Add. MAKE SURE THESE ARE PULLING FROM THE RIGHT ASSETBUDNLE");
 
-            GameObject Fool = SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Water/FishFoolWater.prefab").gameObject;
+            GameObject Fool = SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Water/Test.prefab").gameObject;
             GameObject[] FoolParts = new GameObject[]
             {
                 SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Water/FishFoolBack.prefab").gameObject,
                 SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Water/FishFoolJelly.prefab").gameObject,
                 SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Water/FishFoolFront.prefab").gameObject,
+                SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Water/FishFoolWater.prefab").gameObject
             };
             foreach (GameObject child in FoolParts) child.transform.SetParent(Fool.transform);
             Animator_CFE_Layout LayoutFool = Fool.AddComponent<Water_CFE_Layout>();
-            LayoutFool.m_Front = new RectTransform[] { FoolParts[2].GetComponent<RectTransform>(), Fool.GetComponent<RectTransform>() };
+            LayoutFool.m_Front = new RectTransform[] { FoolParts[2].GetComponent<RectTransform>(), FoolParts[3].GetComponent<RectTransform>() };
             LayoutFool.m_Back = new RectTransform[] { FoolParts[0].GetComponent<RectTransform>(), FoolParts[1].GetComponent<RectTransform>() };
-            LayoutFool.m_Animators = new Animator[] { FoolParts[0].GetComponent<Animator>(), FoolParts[1].GetComponent<Animator>(), FoolParts[2].GetComponent<Animator>(), Fool.GetComponent<Animator>() };
+            LayoutFool.m_Animators = new Animator[] { FoolParts[0].GetComponent<Animator>(), FoolParts[1].GetComponent<Animator>(), FoolParts[2].GetComponent<Animator>(), FoolParts[3].GetComponent<Animator>() };
             WaterInfo.m_CharacterLayoutTemplate = LayoutFool;
 
             GameObject Enemy = SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Water/FishEnemy.prefab");
@@ -102,6 +105,7 @@ namespace SaltEnemies_Reseasoned
 
             IDetour hook0 = new Hook(typeof(CharacterSlotsHaveSwappedUIAction).GetMethod(nameof(CharacterSlotsHaveSwappedUIAction.Execute), ~BindingFlags.Default), typeof(Water).GetMethod(nameof(Water.Execute), ~BindingFlags.Default));
             IDetour hook1 = new Hook(typeof(EnemySlotsHaveSwappedUIAction).GetMethod(nameof(EnemySlotsHaveSwappedUIAction.Execute), ~BindingFlags.Default), typeof(Water).GetMethod(nameof(Water.Execute), ~BindingFlags.Default));
+            //IDetour hook2 = new Hook(typeof(CharacterFieldEffectLayout).GetMethod(nameof(CharacterFieldEffectLayout.InitializeLayout), ~BindingFlags.Default), typeof(Water).GetMethod(nameof(Water.InitializeLayout), ~BindingFlags.Default));
         }
         public static IEnumerator Execute(Func<CombatAction, CombatStats, IEnumerator> orig, CombatAction self, CombatStats stats)
         {
@@ -182,6 +186,15 @@ namespace SaltEnemies_Reseasoned
                 Debug.LogError("failed to play water sound.");
             }
         }
+        public static void InitializeLayout(Action<CharacterFieldEffectLayout, RectTransform, RectTransform, RectTransform> orig, CharacterFieldEffectLayout self, RectTransform frontHolder, RectTransform backHolder, RectTransform swapHolder)
+        {
+            if (self is Water_CFE_Layout water)
+            {
+                water.Parent = self.transform.GetComponentInParent<CharacterSlotLayout>();
+                Debug.Log(water.Parent);
+            }
+            orig(self, frontHolder, backHolder, swapHolder);
+        }
     }
     public class WaterFE_SO : FieldEffect_SO
     {
@@ -239,15 +252,30 @@ namespace SaltEnemies_Reseasoned
     }
     public class Water_CFE_Layout : Animator_CFE_Layout
     {
+        public CharacterSlotLayout Parent;
         public override void EnableLayout(bool hasUnit)
         {
             base.EnableLayout(hasUnit);
-            Water.HasWaterFool[transform.parent.GetComponent<EnemySlotLayout>().SlotID] = true;
+            if (Parent == null || Parent.Equals(null))
+            {
+                foreach (CharacterSlotLayout layout in CombatManager.Instance._stats.combatUI._characterZone._slots)
+                {
+                    if (layout._FieldInstances.Values.Contains(this)) Parent = layout;
+                }
+            }
+            Water.HasWaterFool[Parent.SlotID] = true;
         }
         public override void DisableLayout()
         {
             base.DisableLayout();
-            Water.HasWaterFool[transform.parent.GetComponent<EnemySlotLayout>().SlotID] = false;
+            if (Parent == null || Parent.Equals(null))
+            {
+                foreach (CharacterSlotLayout layout in CombatManager.Instance._stats.combatUI._characterZone._slots)
+                {
+                    if (layout._FieldInstances.Values.Contains(this)) Parent = layout;
+                }
+            }
+            Water.HasWaterFool[Parent.SlotID] = false;
         }
 
     }
