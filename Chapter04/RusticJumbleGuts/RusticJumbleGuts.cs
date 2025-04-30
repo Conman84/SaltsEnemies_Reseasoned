@@ -40,7 +40,7 @@ namespace SaltsEnemies_Reseasoned
 
             //Melt
             Ability melt = new Ability("Melting Point", "Salt_MeltingPoint_A");
-            melt.Description = "Deal 11 damage to the opposing enemy.";
+            melt.Description = "\"Deal 11 damage to the opposing enemy.\"\n(Deals a Deadly amount of damage to the Opposing party member.)";
             melt.Rarity = Rarity.GetCustomRarity("rarity5");
             melt.Effects = new EffectInfo[]
             {
