@@ -44,12 +44,14 @@ namespace SaltsEnemies_Reseasoned
             didThat.wasSuccessful = true;
             IfConstrictingAnimationVisualsEffect chomp = ScriptableObject.CreateInstance<IfConstrictingAnimationVisualsEffect>();
             chomp._visuals = LoadedAssetsHandler.GetEnemyAbility("Chomp_A").visuals;
+            chomp._animationTarget = Targeting.Slot_Front;
 
             Ability catching = new Ability("Catch", "Salt_Catch_A");
             catching.Description = "If the opposing party member is Constricted, deal an Agonizing damage to them. \nThen, move this enemy to a random position and apply 4 Stunned to itself. \nIf damage was dealt, reset this enemy's fleeting.";
-            catching.Rarity = Rarity.GetCustomRarity("rarity3");
+            catching.Rarity = Rarity.GetCustomRarity("rarity5");
             catching.Effects = new EffectInfo[]
             {
+                Effects.GenerateEffect(chomp, 1, Targeting.Slot_SelfSlot),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageIfConstrictedEffect>(), 8, Targeting.Slot_Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapRandomZoneEffectHideIntent>(), 1, Targeting.Slot_SelfSlot, didThat),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyStunnedEffect>(), 4, Targeting.Slot_SelfSlot, didThat),
