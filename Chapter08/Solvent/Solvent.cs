@@ -63,7 +63,7 @@ namespace SaltsEnemies_Reseasoned
             flither.effects = new EffectInfo[] { Effects.GenerateEffect(RootActionEffect.Create(new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<CowardEffect>(), 1, Slots.Self)
-            }), 1, Slots.Self) });
+            }), 1, Slots.Self) };
             flither._triggerOn = new TriggerCalls[] { TriggerCalls.OnPlayerTurnEnd_ForEnemy, TriggerCalls.OnRoundFinished };
             flither.conditions = new EffectorConditionSO[]
             {

@@ -89,7 +89,8 @@ namespace SaltsEnemies_Reseasoned
             DeadPixel.Add();
             LittleAngel.Add();
             DeadGod.Add();
-            Debug.Log("chapter 1");
+            //Debug.Log("chapter 1");
+            //NOTE: we don't need to debug every chapter, i only set these up to help find resource loader errors
 
             //CH2 Enemies
             ManFish.Add();
@@ -135,6 +136,7 @@ namespace SaltsEnemies_Reseasoned
 
             //CH10 Enemies
             Medamaude.Add();
+            PCall(Skyloft.Add);
 
             //CH14 Enemies
             PCall(MidnightTrafficLight.Add);
