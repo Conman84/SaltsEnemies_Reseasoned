@@ -77,7 +77,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Targeting.Slot_SelfSlot, BasicEffects.DidThat(true)),
             };
             CutsandScratches.Visuals = LoadedAssetsHandler.GetEnemyAbility("Talons_A").visuals;
-            CutsandScratches.AnimationTarget = Targeting.Slot_SelfSlot;
+            CutsandScratches.AnimationTarget = Targeting.Slot_Front;
             CutsandScratches.AddIntentsToTarget(Targeting.Slot_Front, new string[]
             {
                "Damage_1_2"
