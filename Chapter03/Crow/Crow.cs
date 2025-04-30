@@ -45,7 +45,7 @@ namespace SaltsEnemies_Reseasoned
             Crow.PrepareMultiEnemyPrefab("assets/Senis3/Crow_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/Senis3/Crow_Gibs.prefab").GetComponent<ParticleSystem>());
             (Crow.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
             {
-                Crow.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").GetComponent<SpriteRenderer>()
+                Crow.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").GetComponent<SpriteRenderer>()
             };
 
             Crow.AddPassives(new BasePassiveAbilitySO[]

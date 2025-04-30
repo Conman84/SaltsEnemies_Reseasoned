@@ -148,29 +148,7 @@ namespace SaltsEnemies_Reseasoned
                 "SilverSuckle_EN",
                 "SilverSuckle_EN",
             }, null);
-            mainEncounters2.CreateNewEnemyEncounterData(new string[]
-            {
-                "TheCrow_EN",
-                "TheCrow_EN",
-            }, null);
-            mainEncounters2.CreateNewEnemyEncounterData(new string[]
-            {
-                "TheCrow_EN",
-                "TheCrow_EN",
-                "MusicMan_EN",
-            }, null);
-            mainEncounters2.CreateNewEnemyEncounterData(new string[]
-            {
-                "TheCrow_EN",
-                "TheCrow_EN",
-                "Enigma_EN",
-            }, null);
-            mainEncounters2.CreateNewEnemyEncounterData(new string[]
-            {
-                "TheCrow_EN",
-                "TheCrow_EN",
-                "SingingStone_EN",
-            }, null);
+            //removed the double crow encounters
             mainEncounters2.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Crow_Medium_EnemyBundle", 15, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
 
