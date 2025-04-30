@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-namespace SaltEnemies_Reseasoned
+namespace SaltsEnemies_Reseasoned
 {
     public static class Template
     {
