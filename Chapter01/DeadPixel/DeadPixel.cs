@@ -154,7 +154,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomStatusEffect>(), 1, allEnemy),
             };
             interference.Visuals = CustomVisuals.GetVisuals("Salt/Class");
-            interference.AnimationTarget = Targeting.AllUnits;
+            interference.AnimationTarget = MultiTargetting.Create(Targeting.GenerateSlotTarget(new int[] {-4, -3, -2, -1, 0, 1, 2, 3, 4}, true), Targeting.GenerateSlotTarget(new int[] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, false));
             interference.AddIntentsToTarget(allAlly, new string[]
             {
                 "Misc",
