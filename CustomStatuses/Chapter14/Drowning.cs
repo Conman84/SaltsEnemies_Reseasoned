@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using static UnityEngine.UI.CanvasScaler;
 
 namespace SaltEnemies_Reseasoned
 {
@@ -57,7 +58,7 @@ namespace SaltEnemies_Reseasoned
         public override void OnEventCall_01(StatusEffect_Holder holder, object sender, object args)
         {
             int Amount = holder.m_ContentMain + holder.Restrictor;
-            if (args is IntValueChangeException healBy)
+            if (args is HealingReceivedValueChangeException healBy)
             {
                 healBy.AddModifier(new DrowningValueModifier(Amount));
                 return;
@@ -68,6 +69,15 @@ namespace SaltEnemies_Reseasoned
         {
             if (Water.InWater(CombatManager.Instance._stats, effector as IUnit)) return;
             base.ReduceDuration(holder, effector);
+            int Amount = holder.m_ContentMain + holder.Restrictor;
+            if (Amount >= 10 && effector is IUnit unit)
+            {
+                float c = unit.CurrentHealth;
+                c /= 2;
+                int r = (int)Math.Floor(c);
+                if (r > 0) unit.SetHealthTo(r);
+                else unit.DirectDeath(null);
+            }
         }
     }
     public class DrowningValueModifier : IntValueModifier
