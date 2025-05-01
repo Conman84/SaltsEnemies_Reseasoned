@@ -252,7 +252,43 @@ namespace SaltEnemies_Reseasoned
                 return _ds;
             }
         }
-        public static EffectSO[] Array => new EffectSO[] { Oil, Left, Frail, Scar, Cursed, Pale, Inverted, Rupture, Acid, Muted, DS };//drowning, terror, pimples,,, salted, paranoia
+        static ApplyDrowningEffect _drown;
+        public static ApplyDrowningEffect Drown
+        {
+            get
+            {
+                if (_drown == null)
+                {
+                    _drown = ScriptableObject.CreateInstance<ApplyDrowningEffect>();
+                }
+                return _drown;
+            }
+        }
+        static ApplyTerrorEffect _terror;
+        public static ApplyTerrorEffect Terror
+        {
+            get
+            {
+                if (_terror == null)
+                {
+                    _terror = ScriptableObject.CreateInstance<ApplyTerrorEffect>();
+                }
+                return _terror;
+            }
+        }
+        static ApplyPimplesEffect _pimples;
+        public static ApplyPimplesEffect Pimples
+        {
+            get
+            {
+                if (_pimples == null)
+                {
+                    _pimples = ScriptableObject.CreateInstance<ApplyPimplesEffect>();
+                }
+                return _pimples;
+            }
+        }
+        public static EffectSO[] Array => new EffectSO[] { Oil, Left, Frail, Scar, Cursed, Pale, Inverted, Rupture, Acid, Muted, DS, Drown, Terror, Pimples };//pimples,,, salted, paranoia
 
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {

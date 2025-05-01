@@ -1,7 +1,10 @@
-﻿using System;
+﻿using SaltsEnemies_Reseasoned;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+
+//call weaknesshandelr.setup in awake
 
 namespace SaltEnemies_Reseasoned
 {

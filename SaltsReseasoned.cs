@@ -82,6 +82,7 @@ namespace SaltsEnemies_Reseasoned
             Acid.Add();
             Drowning.Add();
             Water.Add();
+            PCall(Slip.Add);
 
             //CH1 Enemies
             LostSheep.Add();

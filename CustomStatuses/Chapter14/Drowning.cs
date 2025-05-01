@@ -96,4 +96,13 @@ namespace SaltEnemies_Reseasoned
             return Math.Max(0, value - toAdd);
         }
     }
+    public class ApplyDrowningEffect : StatusEffect_Apply_Effect
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            _Status = Drowning.Object;
+            if (Drowning.Object == null || Drowning.Object.Equals(null)) Debug.LogError("CALL \"Drowning.Add();\" IN YOUR AWAKE");
+            return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+        }
+    }
 }

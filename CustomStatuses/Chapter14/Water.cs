@@ -279,6 +279,15 @@ namespace SaltEnemies_Reseasoned
         }
 
     }
+    public class ApplyWaterSlotEffect : FieldEffect_Apply_Effect
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            _Field = Water.Object;
+            if (Water.Object == null || Water.Object.Equals(null)) Water.Add();
+            return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+        }
+    }
 
     public static class StatusExtensions
     {
