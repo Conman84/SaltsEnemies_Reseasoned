@@ -138,6 +138,7 @@ namespace SaltsEnemies_Reseasoned
             //CH10 Enemies
             Medamaude.Add();
             PCall(Skyloft.Add);
+            PCall(MiniReaper.Add);
 
             //CH14 Enemies
             PCall(MidnightTrafficLight.Add);

@@ -14,6 +14,9 @@
 	  <None Remove="Chapter10\Medamaude\EyePalmIcon.png" />
 	  <None Remove="Chapter10\Medamaude\EyePalmWorld.png" />
 	  <None Remove="Chapter10\Medamaude\MissFaced.png" />
+	  <None Remove="Chapter10\Reaper\ReaperDead.png" />
+	  <None Remove="Chapter10\Reaper\ReaperIcon.png" />
+	  <None Remove="Chapter10\Reaper\ReaperWorld.png" />
 	  <None Remove="Chapter10\Skyloft\FlitheringIcon.png" />
 	  <None Remove="Chapter10\Skyloft\Lazy.png" />
 	  <None Remove="Chapter10\Skyloft\SkyloftDead.png" />
@@ -193,6 +196,9 @@
 	  <EmbeddedResource Include="Chapter10\Medamaude\EyePalmIcon.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\EyePalmWorld.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\MissFaced.png" />
+	  <EmbeddedResource Include="Chapter10\Reaper\ReaperDead.png" />
+	  <EmbeddedResource Include="Chapter10\Reaper\ReaperIcon.png" />
+	  <EmbeddedResource Include="Chapter10\Reaper\ReaperWorld.png" />
 	  <EmbeddedResource Include="Chapter10\Skyloft\FlitheringIcon.png" />
 	  <EmbeddedResource Include="Chapter10\Skyloft\Lazy.png" />
 	  <EmbeddedResource Include="Chapter10\Skyloft\SkyloftDead.png" />
