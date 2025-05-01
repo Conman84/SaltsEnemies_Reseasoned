@@ -139,6 +139,13 @@
 	  <None Remove="Chapter08\WindSong\WindSongDead.png" />
 	  <None Remove="Chapter08\WindSong\WindSongIcon.png" />
 	  <None Remove="Chapter08\WindSong\WindSongWorld.png" />
+	  <None Remove="Chapter14\Pinano\MinanaDead.png" />
+	  <None Remove="Chapter14\Pinano\MinanaIcon.png" />
+	  <None Remove="Chapter14\Pinano\MinanaWorld.png" />
+	  <None Remove="Chapter14\Pinano\PinanoDead.png" />
+	  <None Remove="Chapter14\Pinano\PinanoIcon.png" />
+	  <None Remove="Chapter14\Pinano\PinanoWorld.png" />
+	  <None Remove="Chapter14\Pinano\ViolentPassive.png" />
 	  <None Remove="CustomPassives\Chapter02\Decay.png" />
 	  <None Remove="CustomPassives\Chapter03\DontTouchMe.png" />
 	  <None Remove="CustomPassives\Chapter03\StarPassive.png" />
@@ -311,6 +318,13 @@
 	  <EmbeddedResource Include="Chapter08\WindSong\WindSongDead.png" />
 	  <EmbeddedResource Include="Chapter08\WindSong\WindSongIcon.png" />
 	  <EmbeddedResource Include="Chapter08\WindSong\WindSongWorld.png" />
+	  <EmbeddedResource Include="Chapter14\Pinano\MinanaDead.png" />
+	  <EmbeddedResource Include="Chapter14\Pinano\MinanaIcon.png" />
+	  <EmbeddedResource Include="Chapter14\Pinano\MinanaWorld.png" />
+	  <EmbeddedResource Include="Chapter14\Pinano\PinanoDead.png" />
+	  <EmbeddedResource Include="Chapter14\Pinano\PinanoIcon.png" />
+	  <EmbeddedResource Include="Chapter14\Pinano\PinanoWorld.png" />
+	  <EmbeddedResource Include="Chapter14\Pinano\ViolentPassive.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter01\Desperate.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Decay.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Fishing.png" />

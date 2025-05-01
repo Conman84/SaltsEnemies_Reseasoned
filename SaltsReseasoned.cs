@@ -140,6 +140,8 @@ namespace SaltsEnemies_Reseasoned
 
             //CH14 Enemies
             PCall(MidnightTrafficLight.Add);
+            PCall(Pinano.Add);
+            PCall(Minana.Add);
 
             //CH1 Encounters
             LostSheepEncounters.Add();
