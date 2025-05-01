@@ -11,7 +11,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Enemy template = new Enemy("Death's Notice", "MiniReaper_EN")
+            Enemy template = new Enemy("Mini-Reaper", "MiniReaper_EN")
             {
                 Health = 30,
                 HealthColor = Pigments.Grey,
