@@ -21,7 +21,7 @@ namespace SaltEnemies_Reseasoned
             Called = true;
 
             SaltDeadPixelEncounters.Add();
-            SaltCrowEncounters.Add();
+            PCall(SaltCrowEncounters.Add);
             SaltFreudEncounters.Add();
             SaltRusticJumbleGutsEncounters.Add();
             SaltMortalSpoggleEncounters.Add();
