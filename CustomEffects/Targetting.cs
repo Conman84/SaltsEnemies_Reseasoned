@@ -1063,4 +1063,13 @@ namespace SaltEnemies_Reseasoned
             return list.ToArray();
         }
     }
+    public class EmptyTargetting : BaseCombatTargettingSO
+    {
+        public override bool AreTargetSlots => false;
+        public override bool AreTargetAllies => false;
+        public override TargetSlotInfo[] GetTargets(SlotsCombat slots, int casterSlotID, bool isCasterCharacter)
+        {
+            return new TargetSlotInfo[0];
+        }
+    }
 }

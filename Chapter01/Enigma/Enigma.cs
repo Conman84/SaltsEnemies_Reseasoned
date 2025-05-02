@@ -59,7 +59,7 @@ namespace SaltsEnemies_Reseasoned
             didnt2That.previousAmount = 2;
 
             Ability terrorize = new Ability("Terrorize", "Salt_Terrorize_A");
-            terrorize.Description = "Deal a painful amount of damage to either the left or right party members.\nThis ability assumes the grid loops around.";
+            terrorize.Description = "Deal a Painful amount of damage to either the Left or Right party members.\nThis ability assumes the grid loops around.";
             terrorize.Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity3", 3);
             terrorize.Effects = new EffectInfo[]
             {
@@ -92,7 +92,7 @@ namespace SaltsEnemies_Reseasoned
             allAlly.getAllies = true;
 
             Ability paranoia = new Ability("Paranoia", "Paranoia_A");
-            paranoia.Description = "Apply 6 Frail to either the left or right party members.\nThis ability assumes the grid loops around.";
+            paranoia.Description = "Apply 6 Frail to either the Left or Right party members.\nThis ability assumes the grid loops around.";
             paranoia.Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity6", 6);
             paranoia.Effects = new EffectInfo[]
             {
@@ -114,7 +114,7 @@ namespace SaltsEnemies_Reseasoned
 
             //Paradox
             Ability paradox = new Ability("Paradox", "Paradox_A");
-            paradox.Description = "If both the left and right party members are frailed, deal an agonizing amount of damage to the opposing party member. \nThis ability assumes the grid loops around.";
+            paradox.Description = "If both the Left and Right party members are frailed, deal an Agonizing amount of damage to the Opposing party member. \nThis ability assumes the grid loops around.";
             paradox.Rarity = Rarity.GetCustomRarity("rarity6");
             paradox.Effects = new EffectInfo[]
             {

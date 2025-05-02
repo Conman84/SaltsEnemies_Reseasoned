@@ -54,7 +54,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability sweet = new Ability("Sweet Flavour", "Salt_SweetFlavour_A");
             if (UnityEngine.Random.Range(0, 100) < 50) { sweet.Name = "Sweet Flavor"; }
-            sweet.Description = "Attempt to revive a dead enemy with a third of its maximum health. If successful, deal a mortal amount of indirect damage to self. Cannot revive Inanimate or Dying enemies.";
+            sweet.Description = "Attempt to revive a dead enemy with a third of its maximum health. If successful, deal a Mortal amount of indirect damage to this enemy. Cannot revive Inanimate or Dying enemies.";
             sweet.Rarity = Rarity.GetCustomRarity("rarity5");
             sweet.Effects = new EffectInfo[]
             {
@@ -66,8 +66,9 @@ namespace SaltsEnemies_Reseasoned
             sweet.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
                 "Misc",
-                "Damage_21",
             });
+            sweet.AddIntentsToTarget(ScriptableObject.CreateInstance<EmptyTargetting>(), IntentType_GameIDs.Other_MaxHealth.ToString().SelfArray());
+            sweet.AddIntentsToTarget(Slots.Self, "Damage_21".SelfArray());
 
             //Savory
             CustomChangeToRandomHealthColorEffect randomize = ScriptableObject.CreateInstance<CustomChangeToRandomHealthColorEffect>();
@@ -97,6 +98,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 "Misc",
             });
+            savory.AddIntentsToTarget(ScriptableObject.CreateInstance<EmptyTargetting>(), new string[] { IntentType_GameIDs.Status_DivineProtection.ToString(), IntentType_GameIDs.Damage_21.ToString() });
 
             //Sour
             IncreaseStatusEffectsEffect increaseAllStatus = ScriptableObject.CreateInstance<IncreaseStatusEffectsEffect>();
@@ -106,7 +108,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability sour = new Ability("Sour Flavour", "Salt_SourFlavour_A");
             if (UnityEngine.Random.Range(0, 100) < 50) { sour.Name = "Sour Flavor"; }
-            sour.Description = "Apply 7 Determined to the left and right enemies. If successful, deal a lethal amount of direct damage to the left and right enemies. This ability will never kill the target.";
+            sour.Description = "Apply 7 Determined to the Left and Right enemies. If successful, deal a Deadly amount of damage to the Left and Right enemies. This ability will never kill the target.";
             sour.Rarity = Rarity.GetCustomRarity("rarity5");
             sour.Effects = new EffectInfo[]
             {
@@ -131,7 +133,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability bitter = new Ability("Bitter Flavour", "Salt_BitterFlavour_A");
             if (UnityEngine.Random.Range(0, 100) < 50) { bitter.Name = "Bitter Flavor"; }
-            bitter.Description = "Instantly kill the opposing party member. If successful, give 1-2 Tainted Apples and instantly kill this enemy.";
+            bitter.Description = "Instantly kill the Opposing party member. If successful, give 1-2 Tainted Apples and instantly kill this enemy.";
             bitter.Rarity = Rarity.GetCustomRarity("rarity4");
             bitter.Effects = new EffectInfo[]
             {
@@ -146,6 +148,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 "Damage_Death",
             });
+            bitter.AddIntentsToTarget(Slots.Self, IntentType_GameIDs.Misc.ToString().SelfArray());
             bitter.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
                 "Damage_Death",
