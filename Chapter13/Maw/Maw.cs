@@ -107,7 +107,7 @@ namespace SaltsEnemies_Reseasoned
             Ability salivate = new Ability("Salivate", "BadDog_Salivate_A");
             salivate.Description = "Inflict 3 Oil-Slicked on all enemies and party members.";
             salivate.Rarity = Rarity.GetCustomRarity("rarity5");
-            salivate.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 2, Targeting.AllUnits).SelfArray();
+            salivate.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 3, Targeting.AllUnits).SelfArray();
             salivate.AddIntentsToTarget(Targeting.Unit_AllAllySlots, IntentType_GameIDs.Status_OilSlicked.ToString().SelfArray());
             salivate.AddIntentsToTarget(Targeting.Unit_AllOpponentSlots, IntentType_GameIDs.Status_OilSlicked.ToString().SelfArray());
             salivate.Visuals = LoadedAssetsHandler.GetEnemyAbility("Flood_A").visuals;
