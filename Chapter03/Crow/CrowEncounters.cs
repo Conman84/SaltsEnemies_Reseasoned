@@ -207,13 +207,14 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            List<RandomEnemyGroup> list1 = new List<RandomEnemyGroup>(((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone02_Something_Medium_EnemyBundle"))._enemyBundles);
+            List<RandomEnemyGroup> list1 = new List<RandomEnemyGroup>(((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone02_Freud_Medium_EnemyBundle"))._enemyBundles);
             list1.Add(new RandomEnemyGroup(new string[]
             {
-                    "Something_EN",
+                    "Freud_EN",
                     "TheCrow_EN",
+                    "Something_EN"
             }));
-            ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone02_Something_Medium_EnemyBundle"))._enemyBundles = list1;
+            ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone02_Freud_Medium_EnemyBundle"))._enemyBundles = list1;
         }
     }
 }
