@@ -88,7 +88,7 @@ namespace SaltsEnemies_Reseasoned
             };
             stay.AddIntentsToTarget(Slots.Front, new string[] { IntentType_GameIDs.Field_Constricted.ToString(), IntentType_GameIDs.Status_Ruptured.ToString() });
             stay.AnimationTarget = Slots.Front;
-            stay.Visuals = LoadedAssetsHandler.GetEnemy("OsmanSinnoks_BOSS").abilities[0].ability.visuals;
+            stay.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
 
             //Play
             Ability play = new Ability("Play!!", "BadDog_Play_A");
