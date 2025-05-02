@@ -109,7 +109,16 @@ namespace SaltEnemies_Reseasoned
         }
         public override void OnSubActionTrigger(FieldEffect_Holder holder, object sender, object args, bool stateCheck)
         {
-            ReduceDuration(holder);
+            ForceReduceDuration(holder);
+        }
+        public void ForceReduceDuration(FieldEffect_Holder holder)
+        {
+            int contentMain = holder.m_ContentMain;
+            holder.m_ContentMain = Mathf.Max(0, contentMain - 1);
+            if (!TryRemoveFieldEffect(holder) && contentMain != holder.m_ContentMain)
+            {
+                holder.Effector.FieldEffectValuesChanged(_FieldID, useSpecialSound: false, holder.m_ContentMain - contentMain);
+            }
         }
     }
     public class RootsDamageAction : CombatAction
