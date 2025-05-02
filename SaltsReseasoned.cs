@@ -135,6 +135,9 @@ namespace SaltsEnemies_Reseasoned
             SemiRealisticTank.Add();
             Debug.Log("chapter 8");
 
+            //CH9 enemies
+            PCall(Butterfly.Add);
+
             //CH10 Enemies
             Medamaude.Add();
             PCall(Skyloft.Add);
