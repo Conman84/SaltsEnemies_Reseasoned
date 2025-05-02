@@ -110,12 +110,16 @@ namespace SaltsEnemies_Reseasoned
             LoadVisuals("Salt/Unlock", SaltsReseasoned.saltsAssetBundle, "assets/Attack3/UnlockAnim.anim", "event:/Hawthorne/Attack3/Unlocking");
             LoadVisuals("Salt/Spotlight", SaltsReseasoned.saltsAssetBundle, "assets/Attack3/SpotlightAnim.anim", "event:/Hawthorne/Attack3/Spotlight");
             LoadVisuals("Salt/Scorch", SaltsReseasoned.saltsAssetBundle, "assets/16/ScorchAnim.anim", "event:/Hawthorne/Attack3/Scorch");
-            
             LoadVisuals("Salt/Curse", SaltsReseasoned.Meow, "assets/ani/thecurse.anim", LoadedAssetsHandler.GetEnemy("UnfinishedHeir_BOSS").abilities[2].ability.visuals.audioReference);
             LoadVisuals("Salt/Nailing", SaltsReseasoned.Meow, "Assets/ani/Nailing.anim", "event:/Hawthorne/Attack3/Nailing");
-
             LoadVisuals("Salt/Stop", SaltsReseasoned.saltsAssetBundle, "Assets/train/NewTrain/StopSignAnim.anim", "event:/Hawthorne/Attack3/Stop");
             LoadVisuals("Salt/Sign", SaltsReseasoned.saltsAssetBundle, "Assets/train/NewTrain/SignSlamAnim.anim", "event:/Hawthorne/Attack3/Sign");
+            LoadVisuals("Salt/Gears", SaltsReseasoned.Meow, "Assets/attacks3/Gears.anim", LoadedAssetsHandler.GetEnemyAbility("Crush_A").visuals.audioReference);
+            LoadVisuals("Salt/Reload", SaltsReseasoned.Meow, "Assets/attacks3/Reload.anim", "event:/Hawthorne/Attack4/Reload");
+            LoadVisuals("Salt/Gunshot", SaltsReseasoned.Meow, "Assets/attacks3/Gunshot.anim", "event:/Hawthorne/Attack4/Gunshot");
+            LoadVisuals("Salt/StarBomb", SaltsReseasoned.Meow, "Assets/attacks3/StarBomb.anim", "event:/Hawthorne/Attack4/StarBomb");
+            LoadVisuals("Salt/Call", SaltsReseasoned.Meow, "Assets/attacks3/Call.anim", "event:/Hawthorne/Attack2/WakeUp");
+            LoadVisuals("Salt/Drill", SaltsReseasoned.Meow, "Assets/attacks3/Drill.anim", "event:/Hawthorne/Attack3/Stop");
         }
     }
 }
