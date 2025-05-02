@@ -28,6 +28,10 @@
 	  <None Remove="Chapter10\Skyloft\SkyloftIcon.png" />
 	  <None Remove="Chapter10\Skyloft\SkyloftPortal.png" />
 	  <None Remove="Chapter10\Skyloft\SkyloftWorld.png" />
+	  <None Remove="Chapter13\Maw\MawDead.png" />
+	  <None Remove="Chapter13\Maw\MawIcon.png" />
+	  <None Remove="Chapter13\Maw\MawPassive.png" />
+	  <None Remove="Chapter13\Maw\MawWorld.png" />
 	  <None Remove="Chapter14\MidnightTrafficLight\PracticalPassive.png" />
 	  <None Remove="Chapter14\MidnightTrafficLight\TrainDead.png" />
 	  <None Remove="Chapter14\MidnightTrafficLight\TrainDownIntent.png" />
@@ -215,6 +219,10 @@
 	  <EmbeddedResource Include="Chapter10\Skyloft\SkyloftIcon.png" />
 	  <EmbeddedResource Include="Chapter10\Skyloft\SkyloftPortal.png" />
 	  <EmbeddedResource Include="Chapter10\Skyloft\SkyloftWorld.png" />
+	  <EmbeddedResource Include="Chapter13\Maw\MawDead.png" />
+	  <EmbeddedResource Include="Chapter13\Maw\MawIcon.png" />
+	  <EmbeddedResource Include="Chapter13\Maw\MawPassive.png" />
+	  <EmbeddedResource Include="Chapter13\Maw\MawWorld.png" />
 	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\PracticalPassive.png" />
 	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\TrainDead.png" />
 	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\TrainDownIntent.png" />

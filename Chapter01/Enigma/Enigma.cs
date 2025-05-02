@@ -40,7 +40,7 @@ namespace SaltsEnemies_Reseasoned
             /* SUPERBOSS DROP - DO WHEN READY
             gone.exitEffects = new Effect[1]
             {
-                new Effect(ScriptableObject.CreateInstance<LockedBoxEffect>(), 1, new IntentType?(), Slots.Self, Conditions.Chance(4))
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<LockedBoxEffect>(), 1, new IntentType?(), Slots.Self, Conditions.Chance(4))
             };
             */
 

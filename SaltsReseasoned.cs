@@ -144,6 +144,9 @@ namespace SaltsEnemies_Reseasoned
             PCall(Skyloft.Add);
             PCall(MiniReaper.Add);
 
+            //CH13 Enemies
+            PCall(Maw.Add);
+
             //CH14 Enemies
             PCall(MidnightTrafficLight.Add);
             PCall(Pinano.Add);

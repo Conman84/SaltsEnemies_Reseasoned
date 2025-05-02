@@ -39,7 +39,7 @@ namespace SaltEnemies_Reseasoned
     {
         [Header("Special Abilities")]
         [SerializeField]
-        public string replace = "Replacement";
+        public string Replace = "Replacement";
 
         public override bool UsesRarity => true;
 
@@ -84,7 +84,7 @@ namespace SaltEnemies_Reseasoned
         public bool ShouldBeIgnored(CombatAbility ability, IUnit unit)
         {
             string name = ability.ability._abilityName;
-            return CombatManager.Instance._stats.TurnsPassed < 1 && (name == this.replace);
+            return CombatManager.Instance._stats.TurnsPassed < 1 && (name == this.Replace);
         }
     }
     public class IsUnitEffect : EffectSO
