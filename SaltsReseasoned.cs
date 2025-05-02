@@ -152,6 +152,10 @@ namespace SaltsEnemies_Reseasoned
             PCall(Pinano.Add);
             PCall(Minana.Add);
 
+            //CH18 Enemies
+            PCall(Shooter.Add);
+            PCall(SkeletonHead.Add);
+
             //CH1 Encounters
             LostSheepEncounters.Add();
             EnigmaEncounters.Add();

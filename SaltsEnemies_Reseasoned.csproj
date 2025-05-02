@@ -158,6 +158,12 @@
 	  <None Remove="Chapter14\Pinano\PinanoIcon.png" />
 	  <None Remove="Chapter14\Pinano\PinanoWorld.png" />
 	  <None Remove="Chapter14\Pinano\ViolentPassive.png" />
+	  <None Remove="Chapter18\Shooter\HeadDead.png" />
+	  <None Remove="Chapter18\Shooter\HeadIcon.png" />
+	  <None Remove="Chapter18\Shooter\HeadWorld.png" />
+	  <None Remove="Chapter18\Shooter\ShooterDead.png" />
+	  <None Remove="Chapter18\Shooter\ShooterIcon.png" />
+	  <None Remove="Chapter18\Shooter\ShooterWorld.png" />
 	  <None Remove="CustomPassives\Chapter02\Decay.png" />
 	  <None Remove="CustomPassives\Chapter03\DontTouchMe.png" />
 	  <None Remove="CustomPassives\Chapter03\StarPassive.png" />
@@ -349,6 +355,12 @@
 	  <EmbeddedResource Include="Chapter14\Pinano\PinanoIcon.png" />
 	  <EmbeddedResource Include="Chapter14\Pinano\PinanoWorld.png" />
 	  <EmbeddedResource Include="Chapter14\Pinano\ViolentPassive.png" />
+	  <EmbeddedResource Include="Chapter18\Shooter\HeadDead.png" />
+	  <EmbeddedResource Include="Chapter18\Shooter\HeadIcon.png" />
+	  <EmbeddedResource Include="Chapter18\Shooter\HeadWorld.png" />
+	  <EmbeddedResource Include="Chapter18\Shooter\ShooterDead.png" />
+	  <EmbeddedResource Include="Chapter18\Shooter\ShooterIcon.png" />
+	  <EmbeddedResource Include="Chapter18\Shooter\ShooterWorld.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter01\Desperate.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Decay.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Fishing.png" />
