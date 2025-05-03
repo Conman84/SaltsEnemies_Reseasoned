@@ -74,15 +74,16 @@ namespace SaltsEnemies_Reseasoned
             Ability follow = new Ability("Follow", "Starless_Follow_A");
             follow.Description = "If there is a Far Right party member, move Right twice.\nDeal a Painful amount of damage to the Opposing party member position.";
             follow.Rarity = Rarity.GetCustomRarity("rarity5");
-            follow.Effects = new EffectInfo[4];
+            follow.Effects = new EffectInfo[5];
             follow.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<HasUnitEffect>(), 0, Targeting.Slot_OpponentFarRight);
             follow.Effects[1] = Effects.GenerateEffect(BasicEffects.GoRight, 1, Slots.Self, BasicEffects.DidThat(true));
             follow.Effects[2] = Effects.GenerateEffect(BasicEffects.GoRight, 1, Slots.Self, BasicEffects.DidThat(true, 2));
-            follow.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Front);
+            follow.Effects[3] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Wheel", false, Slots.Front));
+            follow.Effects[4] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Front);
             follow.AddIntentsToTarget(Targeting.Slot_OpponentFarRight, IntentType_GameIDs.Misc.ToString().SelfArray());
             follow.AddIntentsToTarget(Slots.Self, new string[] { IntentType_GameIDs.Swap_Right.ToString(), IntentType_GameIDs.Swap_Right.ToString() });
             follow.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Damage_3_6.ToString().SelfArray());
-            follow.Visuals = CustomVisuals.GetVisuals("Salt/Wheel");
+            follow.Visuals = null;
             follow.AnimationTarget = Targeting.Slot_OpponentFarRight;
 
             //stagger
