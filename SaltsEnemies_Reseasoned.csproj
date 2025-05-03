@@ -10,6 +10,8 @@
 	  <None Remove="assets\group4" />
 	  <None Remove="assets\hawthorne" />
 	  <None Remove="assets\meowy" />
+	  <None Remove="Chapter07\Postmodern\Passive_Silence.png" />
+	  <None Remove="Chapter08\RealisticTank\BacklashPassive.png" />
 	  <None Remove="Chapter09\Butterfly\ButterflyDead.png" />
 	  <None Remove="Chapter09\Butterfly\ButterflyIcon.png" />
 	  <None Remove="Chapter09\Butterfly\ButterflyWorld.png" />
@@ -256,6 +258,8 @@
 	  <EmbeddedResource Include="assets\group4" />
 	  <EmbeddedResource Include="assets\hawthorne" />
 	  <EmbeddedResource Include="assets\meowy" />
+	  <EmbeddedResource Include="Chapter07\Postmodern\Passive_Silence.png" />
+	  <EmbeddedResource Include="Chapter08\RealisticTank\BacklashPassive.png" />
 	  <EmbeddedResource Include="Chapter09\Butterfly\ButterflyDead.png" />
 	  <EmbeddedResource Include="Chapter09\Butterfly\ButterflyIcon.png" />
 	  <EmbeddedResource Include="Chapter09\Butterfly\ButterflyWorld.png" />

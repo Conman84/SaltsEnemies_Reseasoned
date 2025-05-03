@@ -55,4 +55,12 @@ namespace SaltEnemies_Reseasoned
             return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
         }
     }
+    public class ApplyLinkedEffect : StatusEffect_Apply_Effect
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            _Status = StatusField.Linked;
+            return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+        }
+    }
 }

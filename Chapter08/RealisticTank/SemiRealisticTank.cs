@@ -1,6 +1,7 @@
 ﻿using BrutalAPI;
 using UnityEngine;
 using SaltEnemies_Reseasoned;
+using System.Collections.Generic;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -36,54 +37,69 @@ namespace SaltsEnemies_Reseasoned
                 ScriptableObject.CreateInstance<ColdHealCondition>()
             };
             cold.effects = new EffectInfo[0];
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("cold.png"), "Cold-Blooded", cold._enemyDescription);
+            //AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("cold.png"), "Cold-Blooded", cold._enemyDescription);
 
             //WARNING
             PerformEffectPassiveAbility warn = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             warn._passiveName = "Warning";
             warn.m_PassiveID = "Tank_Warning_PA";
             warn.passiveIcon = ResourceLoader.LoadSprite("WarningPassive.png");
-            warn._enemyDescription = "On taking direct damage, inflict 1 random Negative Status Effect on all party members.";
-            warn._characterDescription = "On taking direct damage, inflict 1 random Negative Status Effect on all enemies.";
+            warn._enemyDescription = "On taking any damage, inflict 1 random Negative Status Effect on all party members.";
+            warn._characterDescription = "On taking any damage, inflict 1 random Negative Status Effect on all enemies.";
             warn.doesPassiveTriggerInformationPanel = true;
             warn.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomNegativeStatusEffect>(), 1, Targetting.AllEnemy) };
-            warn._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
+            warn._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDamaged };
             warn.conditions = Passives.Slippery.conditions;
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WarningPassive.png"), "Warning", warn._enemyDescription);
 
-            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, Passives.Forgetful, cold, warn });
+            //backlash
+            PerformEffectPassiveAbility backlash = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            backlash._passiveName = "Backlash";
+            backlash.m_PassiveID = "Backlash_PA";
+            backlash.passiveIcon = ResourceLoader.LoadSprite("BacklashPassive.png");
+            backlash._enemyDescription = "On taking direct damage, apply Shield to this unit's position for the amount of damage taken.";
+            backlash._characterDescription = backlash._enemyDescription;
+            backlash.doesPassiveTriggerInformationPanel = false;
+            backlash.conditions = new List<EffectorConditionSO>(Passives.Slippery.conditions) { ScriptableObject.CreateInstance<BacklashCondition>() }.ToArray();
+            backlash._triggerOn = TriggerCalls.OnDirectDamaged.SelfArray();
+            backlash.effects = new EffectInfo[0];
+            
+
+            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, Passives.Forgetful, warn, backlash });
 
             //BLOAT
             Ability bloat = new Ability("Salt_Bloat_A")
             {
                 Name = "Bloat",
-                Description = "Apply 10 Shield and 2 Fire to this enemy's position.",
+                Description = "Apply 6 Shield to this enemy's positions.\nReset the Fleeting counter on all enemies.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("Tank_10", 10),
                 Effects = new EffectInfo[]
-                        {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 10, Targetting.AllSelfSlots),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 2, Targetting.AllSelfSlots)
-                        },
+                {
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 6, Targeting.Slot_SelfAll),
+                    Effects.GenerateEffect(BasicEffects.SetStoreValue(UnitStoredValueNames_GameIDs.FleetingPA.ToString()), 0, Targetting.AllAlly),
+                },
                 Visuals = LoadedAssetsHandler.GetCharacterAbility("Entrenched_1_A").visuals,
-                AnimationTarget = Targetting.AllSelfSlots,
+                AnimationTarget = Targeting.Slot_SelfAll,
             };
-            bloat.AddIntentsToTarget(Targetting.AllSelfSlots, new string[] { IntentType_GameIDs.Field_Shield.ToString(), IntentType_GameIDs.Field_Fire.ToString() });
+            bloat.AddIntentsToTarget(Targeting.Slot_SelfAll, new string[] { IntentType_GameIDs.Field_Shield.ToString() });
+            bloat.AddIntentsToTarget(Targetting.AllAlly, new string[] { IntentType_GameIDs.PA_Fleeting.ToString() });
 
             //GROSS
             Ability gross = new Ability("Salt_Gross_A")
             {
                 Name = "Gross",
-                Description = "Deal an Agonizing amount of damage and apply 1 Fire to the left and right party member positions.",
+                Description = "Deal an Agonizing amount of damage to the left and right party member positions. \nInflict 1 Ruptured on the Opposing party members.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
-                        {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Targeting.Slot_OpponentSides),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 1, Targeting.Slot_OpponentSides)
-                        },
+                {
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Targeting.Slot_OpponentSides),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Targeting.Slot_OpponentSides),
+                },
                 Visuals = CustomVisuals.GetVisuals("Salt/Cannon"),
                 AnimationTarget = Targeting.Slot_OpponentSides,
             };
-            gross.AddIntentsToTarget(Targeting.Slot_OpponentSides, new string[] { IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Field_Fire.ToString() });
+            gross.AddIntentsToTarget(Targeting.Slot_OpponentSides, new string[] { IntentType_GameIDs.Damage_7_10.ToString() });
+            gross.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Status_Ruptured.ToString() });
 
             //COARSE
             DamageEffect ignore = ScriptableObject.CreateInstance<DamageEffect>();
@@ -94,7 +110,7 @@ namespace SaltsEnemies_Reseasoned
             Ability coarse = new Ability("Salt_Coarse_A")
             {
                 Name = "Coarse",
-                Description = "Deal a Painful amount of Shield-Piercing damage to this enemy. Apply 6 Oil-Slicked on all party members.",
+                Description = "Deal a Painful amount of Shield-Piercing damage to this enemy. Inflict 6 Oil-Slicked on all party members.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("Tank_1", 1),
                 Effects = new EffectInfo[]
                 {

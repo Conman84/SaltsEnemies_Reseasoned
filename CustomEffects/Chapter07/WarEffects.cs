@@ -82,4 +82,15 @@ namespace SaltEnemies_Reseasoned
             return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
         }
     }
+    public class SilenceCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is IUnit unit)
+            {
+                unit.SimpleSetStoredValue(NoiseHandler.Noise, unit.SimpleGetStoredValue(NoiseHandler.Noise) + 1);
+            }
+            return true;
+        }
+    }
 }

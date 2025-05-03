@@ -288,7 +288,19 @@ namespace SaltEnemies_Reseasoned
                 return _pimples;
             }
         }
-        public static EffectSO[] Array => new EffectSO[] { Oil, Left, Frail, Scar, Cursed, Pale, Inverted, Rupture, Acid, Muted, DS, Drown, Terror, Pimples };//pimples,,, salted, paranoia
+        static ApplyLinkedEffect _linked;
+        public static ApplyLinkedEffect Linked
+        {
+            get
+            {
+                if (_linked == null)
+                {
+                    _linked = ScriptableObject.CreateInstance<ApplyLinkedEffect>();
+                }
+                return _linked;
+            }
+        }
+        public static EffectSO[] Array => new EffectSO[] { Oil, Left, Frail, Scar, Cursed, Pale, Inverted, Rupture, Acid, Muted, DS, Drown, Terror, Pimples, Linked };//pimples,,, salted, paranoia
 
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
@@ -308,6 +320,30 @@ namespace SaltEnemies_Reseasoned
                 exitAmount += exiting;
             }
             return exitAmount > 0;
+        }
+    }
+    public class ShowBacklashPassiveEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, caster.IsUnitCharacter, "Backlash", ResourceLoader.LoadSprite("BacklashPassive.png")));
+            return true;
+        }
+    }
+    public class BacklashCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is IntegerReference reference)
+            {
+                CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[]
+                {
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ShowBacklashPassiveEffect>()),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), reference.value, Targeting.Slot_SelfAll)
+                }, effector as IUnit));
+            }
+            return false;
         }
     }
 }

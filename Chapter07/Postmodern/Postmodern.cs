@@ -56,13 +56,13 @@ namespace SaltsEnemies_Reseasoned
             pathetic._enemyDescription = "If an infantile enemy receives direct damage, this enemy will perform \"Pathetic Cry\" in retribution.";
             Ability parental = new Ability("Postmodern_Cry_A");
             parental.Name = "Pathetic Cry";
-            parental.Description = "Increase Noise on all party members by 1.";
+            parental.Description = "Produce 4 Blue Pigment.";
             Targetting_ByUnit_Side allEnemy = ScriptableObject.CreateInstance<Targetting_ByUnit_Side>();
             allEnemy.getAllies = false;
             allEnemy.getAllUnitSlots = false;
             parental.Effects = new EffectInfo[1];
-            parental.Effects[0] = Effects.GenerateEffect(incNoise, 1, allEnemy);
-            parental.AddIntentsToTarget(allEnemy, new string[] { IntentType_GameIDs.Misc.ToString() });
+            parental.Effects[0] = Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Blue), 4, Slots.Self);
+            parental.AddIntentsToTarget(Slots.Self, new string[] { IntentType_GameIDs.Mana_Generate.ToString() });
             parental.Visuals = LoadedAssetsHandler.GetEnemyAbility("Weep_A").visuals;
             parental.AnimationTarget = allEnemy;
             AbilitySO ability = parental.GenerateEnemyAbility(true).ability;
@@ -103,36 +103,37 @@ namespace SaltsEnemies_Reseasoned
             Ability split = new Ability("Split_Blood_A")
             {
                 Name = "Split Blood",
-                Description = "Move this enemy to the left or right, then increase the Noise on the Left and Right party members by 3.",
+                Description = "Move this enemy to the left or right, then increase the Noise on the Opposing party member by 2 and Curse them.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Targeting.Slot_SelfSlot),
                     Effects.GenerateEffect(BasicEffects.GetVisuals("InhumanRoar_A", false, Targeting.Slot_OpponentSides), 1, Targeting.Slot_SelfSlot),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetStoredValueChangeEffect>(), 3, Targeting.Slot_OpponentSides)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetStoredValueChangeEffect>(), 2, Targeting.Slot_Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Targeting.Slot_Front)
                 },
                 Visuals = null,
                 AnimationTarget = Targeting.Slot_SelfSlot,
             };
             split.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Swap_Sides.ToString() });
-            split.AddIntentsToTarget(Targeting.Slot_OpponentSides, new string[] { IntentType_GameIDs.Misc.ToString() });
+            split.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Misc.ToString(), IntentType_GameIDs.Status_Cursed.ToString() });
 
             //SPLATTER BLOOD
             Ability splatter = new Ability("Splatter_Blood_A")
             {
                 Name = "Splatter Blood",
-                Description = "Inflict 2 Ruptured on the Left, Right, and Opposing party members and increase their Noise by 1. Move this enemy to the left or right.",
+                Description = "Inflict 3 Ruptured on the Left and Right party members and increase their Noise by 2. Move this enemy to the left or right.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Targeting.Slot_FrontAndSides),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetStoredValueChangeEffect>(), 1, Targeting.Slot_FrontAndSides),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 3, Targeting.Slot_OpponentSides),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetStoredValueChangeEffect>(), 2, Targeting.Slot_OpponentSides),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Targeting.Slot_SelfSlot)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Class"),
-                AnimationTarget = Targeting.Slot_FrontAndSides,
+                AnimationTarget = Targeting.Slot_OpponentSides,
             };
-            splatter.AddIntentsToTarget(Targeting.Slot_FrontAndSides, new string[] { IntentType_GameIDs.Status_Ruptured.ToString(), IntentType_GameIDs.Misc.ToString() });
+            splatter.AddIntentsToTarget(Targeting.Slot_OpponentSides, new string[] { IntentType_GameIDs.Status_Ruptured.ToString(), IntentType_GameIDs.Misc.ToString() });
             splatter.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Swap_Sides.ToString() });
 
             //ADDENEMY
