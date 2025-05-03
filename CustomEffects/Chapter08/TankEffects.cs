@@ -346,4 +346,29 @@ namespace SaltEnemies_Reseasoned
             return false;
         }
     }
+    public class SetStoreValueTargetEffect : EffectSO
+    {
+        public string value;
+        public bool removeIfHasnt;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit)
+                {
+                    if (entryVariable == 0 && removeIfHasnt) if (!target.Unit.TryGetStoredData(value, out var holder, false)) continue;
+                    target.Unit.SimpleSetStoredValue(value, entryVariable);
+                }
+            }
+            return true;
+        }
+        public static SetStoreValueTargetEffect Create(string value, bool removeIfHasnt = false)
+        {
+            SetStoreValueTargetEffect ret = ScriptableObject.CreateInstance<SetStoreValueTargetEffect>();
+            ret.value = value;
+            ret.removeIfHasnt = removeIfHasnt;
+            return ret;
+        }
+    }
 }

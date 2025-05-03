@@ -76,7 +76,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 6, Targeting.Slot_SelfAll),
-                    Effects.GenerateEffect(BasicEffects.SetStoreValue(UnitStoredValueNames_GameIDs.FleetingPA.ToString()), 0, Targetting.AllAlly),
+                    Effects.GenerateEffect(SetStoreValueTargetEffect.Create(UnitStoredValueNames_GameIDs.FleetingPA.ToString(), true), 0, Targetting.AllAlly),
                 },
                 Visuals = LoadedAssetsHandler.GetCharacterAbility("Entrenched_1_A").visuals,
                 AnimationTarget = Targeting.Slot_SelfAll,
