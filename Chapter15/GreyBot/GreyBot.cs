@@ -28,7 +28,7 @@ namespace SaltsEnemies_Reseasoned
             cctv._passiveName = "C.C.T.V.";
             cctv.passiveIcon = ResourceLoader.LoadSprite("CCTVPassive.png");
             cctv._enemyDescription = "On any party member manually moving or using an ability, move 1 space closer to them.";
-            cctv._characterDescription = "Won't work as intended";
+            cctv._characterDescription = "On any enemy moving or using an ability, move 1 space closer to them.";
             cctv.conditions = ScriptableObject.CreateInstance<CCTVCondition>().SelfArray();
             cctv.doesPassiveTriggerInformationPanel = true;
             cctv._triggerOn = new TriggerCalls[] { CCTVHandler.Trigger, JitteryHandler.Call };
