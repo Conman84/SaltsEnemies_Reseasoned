@@ -42,4 +42,12 @@ namespace SaltEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
+    public class IsWitheringDeathCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is DeathReference reffe && reffe.witheringDeath == true) return true;
+            return false;
+        }
+    }
 }

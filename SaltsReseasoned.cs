@@ -26,6 +26,9 @@ namespace SaltsEnemies_Reseasoned
         public static AssetBundle Group4;
         public static AssetBundle Meow;
 
+        //change this to false when pushing public version
+        public static bool DebugVer = true;
+
         public void Awake()
         {
             Logger.LogInfo("they salt on my enemies till i season?");
@@ -80,11 +83,14 @@ namespace SaltsEnemies_Reseasoned
             Haste.Add();
             Hollow.Add();
             Acid.Add();
-            Drowning.Add();
-            Water.Add();
-            PCall(Slip.Add);
-            PCall(Mold.Add);
-            Pimples.Add();
+            if (DebugVer)
+            {
+                Drowning.Add();
+                Water.Add();
+                PCall(Slip.Add);
+                PCall(Mold.Add);
+                Pimples.Add();
+            }
 
             //CH1 Enemies
             LostSheep.Add();
@@ -150,6 +156,8 @@ namespace SaltsEnemies_Reseasoned
 
             //CH13 Enemies
             PCall(Maw.Add);
+            PCall(BlackStar.Add);
+            PCall(Singularity.Add);
 
             //CH14 Enemies
             PCall(MidnightTrafficLight.Add);
