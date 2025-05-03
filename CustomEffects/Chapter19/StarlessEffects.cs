@@ -1,5 +1,6 @@
 ﻿using BrutalAPI;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -65,6 +66,19 @@ namespace SaltEnemies_Reseasoned
             exitAmount = 0;
             if (caster.IsUnitCharacter || !caster.IsAlive) return false;
             if (stats.timeline.IsConfused) return false;
+            CombatManager.Instance.AddUIAction(new FixCasterTImelineIntentsUIAction(caster));
+            return true;
+        }
+    }
+    public class FixCasterTImelineIntentsUIAction : CombatAction
+    {
+        public IUnit caster;
+        public FixCasterTImelineIntentsUIAction(IUnit _caster)
+        {
+            caster = _caster;
+        }
+        public override IEnumerator Execute(CombatStats stats)
+        {
             for (int i = 0; i < stats.combatUI._TimelineHandler.TimelineSlotInfo.Count; i++)
             {
                 TimelineInfo timeline = stats.combatUI._TimelineHandler.TimelineSlotInfo[i];
@@ -85,8 +99,9 @@ namespace SaltEnemies_Reseasoned
                     }
                 }
             }
-            return true;
+            yield return null;
         }
+
     }
     public class CasterTransformByStringEffect : CasterTransformationEffect
     {
