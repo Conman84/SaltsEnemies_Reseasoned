@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BrutalAPI;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -28,12 +29,12 @@ namespace SaltEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
-    public class MoveByLastExitEffect : SwapToOneSideEffect
+    public class MoveCasterByLastExitEffect : SwapToOneSideEffect
     {
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             exitAmount = PreviousExitValue;
-            for (int i = 0; i < exitAmount; i++) base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+            for (int i = 0; i < exitAmount; i++) base.PerformEffect(stats, caster, Slots.Self.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter), Slots.Self.AreTargetSlots, entryVariable, out exitAmount);
             return exitAmount > 0;
         }
     }
@@ -49,7 +50,8 @@ namespace SaltEnemies_Reseasoned
                     float calc = (float)target.Unit.CurrentHealth / target.Unit.MaximumHealth;
                     if (calc * 100 < entryVariable)
                     {
-                        if (target.Unit.DirectDeath(caster)) exitAmount++;
+                        exitAmount++;
+                        target.Unit.DirectDeath(caster);
                     }
                 }
             }
@@ -83,6 +85,42 @@ namespace SaltEnemies_Reseasoned
                     }
                 }
             }
+            return true;
+        }
+    }
+    public class CasterTransformByStringEffect : CasterTransformationEffect
+    {
+        public string enemy;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            if (!caster.IsUnitCharacter) _enemyTransformation = LoadedAssetsHandler.GetEnemy(enemy);
+            return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+        }
+    }
+    public class StarlessPassiveAbility : PerformEffectPassiveAbility
+    {
+        public override void TriggerPassive(object sender, object args)
+        {
+            if (!(args is TurnFinishedReference))
+            {
+                CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[]
+                {
+                    Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self),
+                    Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self),
+                    Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self),
+                    Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self),
+                }, sender as IUnit));
+                return;
+            }
+            base.TriggerPassive(sender, args);
+        }
+    }
+    public class StarlessPassiveEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, caster.IsUnitCharacter, "All-Seeing", ResourceLoader.LoadSprite("AllSeeingPassive.png")));
+            exitAmount = 0;
             return true;
         }
     }

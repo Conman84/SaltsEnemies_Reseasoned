@@ -27,7 +27,7 @@ namespace SaltEnemies_Reseasoned
                 {
                     CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { Effects.GenerateEffect(PriorityRootActionEffect.Create(new EffectInfo[]
                     {
-                        Effects.GenerateEffect(ScriptableObject.CreateInstance<FlutteryPassiveEffect>(), 1, Slots.Self),
+                        Effects.GenerateEffect(ScriptableObject.CreateInstance<TraitorPassiveEffect>(), 1, Slots.Self),
                         Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Sides)
                     }), 1, Slots.Self) }, effector as IUnit));
                 }
@@ -35,7 +35,7 @@ namespace SaltEnemies_Reseasoned
                 {
                     CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { Effects.GenerateEffect(PriorityRootActionEffect.Create(new EffectInfo[]
                     {
-                        Effects.GenerateEffect(ScriptableObject.CreateInstance<FlutteryPassiveEffect>(), 1, Slots.Self),
+                        Effects.GenerateEffect(ScriptableObject.CreateInstance<TraitorPassiveEffect>(), 1, Slots.Self),
                         Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Front)
                     }), 1, Slots.Self) }, effector as IUnit));
                 }

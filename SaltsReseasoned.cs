@@ -179,6 +179,10 @@ namespace SaltsEnemies_Reseasoned
             PCall(Shooter.Add);
             PCall(SkeletonHead.Add);
 
+            //CH19 Enemies
+            PCall(Starless.Add);
+            PCall(Eyeless.Add);
+
             //CH1 Encounters
             LostSheepEncounters.Add();
             EnigmaEncounters.Add();
