@@ -80,7 +80,7 @@ namespace SaltsEnemies_Reseasoned
             follow.Effects[2] = Effects.GenerateEffect(BasicEffects.GoRight, 1, Slots.Self, BasicEffects.DidThat(true, 2));
             follow.Effects[3] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Wheel", false, Slots.Front));
             follow.Effects[4] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Front);
-            follow.AddIntentsToTarget(Targeting.Slot_OpponentFarRight, IntentType_GameIDs.Misc.ToString().SelfArray());
+            follow.AddIntentsToTarget(Targeting.Slot_OpponentFarRight, IntentType_GameIDs.Misc_Hidden.ToString().SelfArray());
             follow.AddIntentsToTarget(Slots.Self, new string[] { IntentType_GameIDs.Swap_Right.ToString(), IntentType_GameIDs.Swap_Right.ToString() });
             follow.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Damage_3_6.ToString().SelfArray());
             follow.Visuals = null;

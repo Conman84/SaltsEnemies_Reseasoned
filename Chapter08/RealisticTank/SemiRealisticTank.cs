@@ -61,8 +61,8 @@ namespace SaltsEnemies_Reseasoned
             backlash._characterDescription = backlash._enemyDescription;
             backlash.doesPassiveTriggerInformationPanel = false;
             backlash.conditions = new List<EffectorConditionSO>(Passives.Slippery.conditions) { ScriptableObject.CreateInstance<BacklashCondition>() }.ToArray();
-            backlash._triggerOn = TriggerCalls.OnDirectDamaged.SelfArray();
-            backlash.effects = new EffectInfo[0];
+            backlash._triggerOn = [TriggerCalls.OnDirectDamaged];
+            backlash.effects = [];
             
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, Passives.Forgetful, warn, backlash });
@@ -88,7 +88,7 @@ namespace SaltsEnemies_Reseasoned
             Ability gross = new Ability("Salt_Gross_A")
             {
                 Name = "Gross",
-                Description = "Deal an Agonizing amount of damage to the left and right party member positions. \nInflict 1 Ruptured on the Opposing party members.",
+                Description = "Deal an Agonizing amount of damage to the Left and Right party member positions. \nInflict 1 Ruptured on the Opposing party members.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
@@ -110,11 +110,11 @@ namespace SaltsEnemies_Reseasoned
             Ability coarse = new Ability("Salt_Coarse_A")
             {
                 Name = "Coarse",
-                Description = "Deal a Painful amount of Shield-Piercing damage to this enemy. Inflict 6 Oil-Slicked on all party members.",
+                Description = "Deal a Painful amount of damage to this enemy. Inflict 6 Oil-Slicked on all party members.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("Tank_1", 1),
                 Effects = new EffectInfo[]
                 {
-                            Effects.GenerateEffect(ignore, 6, Targeting.Slot_SelfSlot),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Targeting.Slot_SelfSlot),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 6, allEnemy)
                 },
                 Visuals = LoadedAssetsHandler.GetEnemyAbility("Flood_A").visuals,

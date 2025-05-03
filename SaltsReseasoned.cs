@@ -149,6 +149,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 //CH9 enemies
                 PCall(Butterfly.Add);
+                PCall(Grandfather.Add);
 
                 //CH10 Enemies
                 Medamaude.Add();
