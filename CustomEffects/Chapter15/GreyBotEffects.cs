@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BrutalAPI;
+using System;
+using UnityEngine;
 
 namespace SaltEnemies_Reseasoned
 {
@@ -17,7 +17,7 @@ namespace SaltEnemies_Reseasoned
                 int rightLim = 5;
                 for (int i = 0; i < 5; i++)
                 {
-                    if (i < caster.SlotID && stats.combatSlots.EnemySlots[i].HasUnit)
+                    if (i < caster.SlotID && stats.combatSlots.EnemySlots[i].HasUnit && stats.combatSlots.EnemySlots[i].Unit.Size - 1 + i < caster.SlotID)
                     {
                         int calc = Math.Abs(i - caster.SlotID);
                         if (calc < leftLim) leftLim = calc;
@@ -34,7 +34,7 @@ namespace SaltEnemies_Reseasoned
                     lim = leftLim;
                     _swapRight = false;
                 }
-                else if (rightLim > leftLim)
+                else if (rightLim < leftLim)
                 {
                     lim = rightLim;
                     _swapRight = true;
@@ -79,7 +79,7 @@ namespace SaltEnemies_Reseasoned
                     _swapRight = rightByRandom;
                 }
             }
-            for (int j = 9; j < entryVariable && j < lim; j++) base.PerformEffect(stats, caster, targets, areTargetSlots, 1, out exitAmount);
+            for (int j = 0; j < entryVariable && j < lim; j++) base.PerformEffect(stats, caster, targets, areTargetSlots, 1, out exitAmount);
             return lim > 0;
         }
     }
@@ -88,7 +88,6 @@ namespace SaltEnemies_Reseasoned
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             exitAmount = 0;
-
             if (caster.SlotID == 0) _swapRight = true;
             else if (caster.SlotID + (caster.Size - 1) >= 4) _swapRight = false;
             else
@@ -106,7 +105,49 @@ namespace SaltEnemies_Reseasoned
                     else _swapRight = UnityEngine.Random.Range(0f, 1f) < 0.5f;
                 }
             }
-            for (int i = 0; i < 4; i++) base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+            for (int i = 0; i < 4; i++)
+            {
+                base.PerformEffect(stats, caster, Slots.Self.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter), Slots.Self.AreTargetSlots, entryVariable, out exitAmount);
+            }
+            return true;
+        }
+    }
+    public static class CCTVHandler
+    {
+        public static TriggerCalls Trigger => (TriggerCalls)9992372;
+    }
+    public class CCTVCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is IUnit unit)
+            {
+                if (unit.SlotID + (unit.Size - 1) < effector.SlotID)
+                {
+                    CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[]
+                    {
+                        Effects.GenerateEffect(ScriptableObject.CreateInstance<ShowCCTVPassiveEffect>(), 1, Slots.Self),
+                        Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self),
+                    }, effector as IUnit));
+                }
+                else if (unit.SlotID > effector.SlotID + ((effector as IUnit).Size - 1))
+                {
+                    CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[]
+                    {
+                        Effects.GenerateEffect(ScriptableObject.CreateInstance<ShowCCTVPassiveEffect>(), 1, Slots.Self),
+                        Effects.GenerateEffect(BasicEffects.GoRight, 1, Slots.Self),
+                    }, effector as IUnit));
+                }
+            }
+            return false;
+        }
+    }
+    public class ShowCCTVPassiveEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, caster.IsUnitCharacter, "C.C.T.V.", ResourceLoader.LoadSprite("CCTVPassive.png")));
             return true;
         }
     }

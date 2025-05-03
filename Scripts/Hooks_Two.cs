@@ -180,6 +180,18 @@ namespace SaltEnemies_Reseasoned
                         foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values) CombatManager.Instance.PostNotification(JitteryHandler.Call.ToString(), chara, umnit);
                 }
             }
+            if (notificationName == TriggerCalls.OnAbilityUsed.ToString())
+            {
+                if (sender is IUnit umnit)
+                {
+                    if (umnit.IsUnitCharacter)
+                    {
+                        foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values) CombatManager.Instance.PostNotification(CCTVHandler.Trigger.ToString(), enemy, umnit);
+                    }
+                    else
+                        foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values) CombatManager.Instance.PostNotification(CCTVHandler.Trigger.ToString(), chara, umnit);
+                }
+            }
             if (notificationName == TriggerCalls.OnSwapTo.ToString())
             {
                 if (sender is CharacterCombat) foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values) CombatManager.Instance.PostNotification(JitteryHandler.Call.ToString(), enemy, sender);

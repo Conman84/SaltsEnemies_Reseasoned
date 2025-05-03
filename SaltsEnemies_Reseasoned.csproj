@@ -158,6 +158,7 @@
 	  <None Remove="Chapter14\Pinano\PinanoIcon.png" />
 	  <None Remove="Chapter14\Pinano\PinanoWorld.png" />
 	  <None Remove="Chapter14\Pinano\ViolentPassive.png" />
+	  <None Remove="Chapter15\GreyBot\CCTVPassive.png" />
 	  <None Remove="Chapter15\RBYPBots\Sprites\BlueBotDead.png" />
 	  <None Remove="Chapter15\RBYPBots\Sprites\BlueBotIcon.png" />
 	  <None Remove="Chapter15\RBYPBots\Sprites\BlueBotWorld.png" />
@@ -372,6 +373,7 @@
 	  <EmbeddedResource Include="Chapter14\Pinano\PinanoIcon.png" />
 	  <EmbeddedResource Include="Chapter14\Pinano\PinanoWorld.png" />
 	  <EmbeddedResource Include="Chapter14\Pinano\ViolentPassive.png" />
+	  <EmbeddedResource Include="Chapter15\GreyBot\CCTVPassive.png" />
 	  <EmbeddedResource Include="Chapter15\RBYPBots\Sprites\BlueBotDead.png" />
 	  <EmbeddedResource Include="Chapter15\RBYPBots\Sprites\BlueBotIcon.png" />
 	  <EmbeddedResource Include="Chapter15\RBYPBots\Sprites\BlueBotWorld.png" />

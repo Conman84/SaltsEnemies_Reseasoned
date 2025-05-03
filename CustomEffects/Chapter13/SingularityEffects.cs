@@ -11,4 +11,11 @@ namespace SaltEnemies_Reseasoned
             return CombatManager.Instance._stats.IsPlayerTurn;
         }
     }
+    public class IsPlayerTurnEffectorCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            return CombatManager.Instance._stats.IsPlayerTurn;
+        }
+    }
 }

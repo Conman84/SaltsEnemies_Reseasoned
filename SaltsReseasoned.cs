@@ -155,6 +155,7 @@ namespace SaltsEnemies_Reseasoned
 
             //CH15 Enemies
             PCall(YellowBot.Add);
+            PCall(GreyBot.Add);
 
             //CH18 Enemies
             PCall(Shooter.Add);
