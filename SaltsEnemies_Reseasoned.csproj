@@ -28,6 +28,10 @@
 	  <None Remove="Chapter10\Skyloft\SkyloftIcon.png" />
 	  <None Remove="Chapter10\Skyloft\SkyloftPortal.png" />
 	  <None Remove="Chapter10\Skyloft\SkyloftWorld.png" />
+	  <None Remove="Chapter12\Warbird\repression.png" />
+	  <None Remove="Chapter12\Warbird\ScarecrowDead.png" />
+	  <None Remove="Chapter12\Warbird\ScarecrowIcon.png" />
+	  <None Remove="Chapter12\Warbird\ScarecrowWorld.png" />
 	  <None Remove="Chapter13\Maw\MawDead.png" />
 	  <None Remove="Chapter13\Maw\MawIcon.png" />
 	  <None Remove="Chapter13\Maw\MawPassive.png" />
@@ -243,6 +247,10 @@
 	  <EmbeddedResource Include="Chapter10\Skyloft\SkyloftIcon.png" />
 	  <EmbeddedResource Include="Chapter10\Skyloft\SkyloftPortal.png" />
 	  <EmbeddedResource Include="Chapter10\Skyloft\SkyloftWorld.png" />
+	  <EmbeddedResource Include="Chapter12\Warbird\repression.png" />
+	  <EmbeddedResource Include="Chapter12\Warbird\ScarecrowDead.png" />
+	  <EmbeddedResource Include="Chapter12\Warbird\ScarecrowIcon.png" />
+	  <EmbeddedResource Include="Chapter12\Warbird\ScarecrowWorld.png" />
 	  <EmbeddedResource Include="Chapter13\Maw\MawDead.png" />
 	  <EmbeddedResource Include="Chapter13\Maw\MawIcon.png" />
 	  <EmbeddedResource Include="Chapter13\Maw\MawPassive.png" />
