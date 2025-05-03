@@ -17,6 +17,11 @@
 	  <None Remove="Chapter09\Butterfly\ButterflyWorld.png" />
 	  <None Remove="Chapter09\Butterfly\Ethereal.png" />
 	  <None Remove="Chapter09\Butterfly\Hemochromia.png" />
+	  <None Remove="Chapter09\Grandfather\CoffinDead.png" />
+	  <None Remove="Chapter09\Grandfather\CoffinIcon.png" />
+	  <None Remove="Chapter09\Grandfather\CoffinWorld.png" />
+	  <None Remove="Chapter09\Grandfather\DisabledIcon.png" />
+	  <None Remove="Chapter09\Grandfather\enrupture.png" />
 	  <None Remove="Chapter10\Medamaude\EyePalmDead.png" />
 	  <None Remove="Chapter10\Medamaude\EyePalmIcon.png" />
 	  <None Remove="Chapter10\Medamaude\EyePalmWorld.png" />
@@ -265,6 +270,11 @@
 	  <EmbeddedResource Include="Chapter09\Butterfly\ButterflyWorld.png" />
 	  <EmbeddedResource Include="Chapter09\Butterfly\Ethereal.png" />
 	  <EmbeddedResource Include="Chapter09\Butterfly\Hemochromia.png" />
+	  <EmbeddedResource Include="Chapter09\Grandfather\CoffinDead.png" />
+	  <EmbeddedResource Include="Chapter09\Grandfather\CoffinIcon.png" />
+	  <EmbeddedResource Include="Chapter09\Grandfather\CoffinWorld.png" />
+	  <EmbeddedResource Include="Chapter09\Grandfather\DisabledIcon.png" />
+	  <EmbeddedResource Include="Chapter09\Grandfather\enrupture.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\EyePalmDead.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\EyePalmIcon.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\EyePalmWorld.png" />
