@@ -145,44 +145,47 @@ namespace SaltsEnemies_Reseasoned
             SemiRealisticTank.Add();
             Debug.Log("chapter 8");
 
-            //CH9 enemies
-            PCall(Butterfly.Add);
+            if (DebugVer)
+            {
+                //CH9 enemies
+                PCall(Butterfly.Add);
 
-            //CH10 Enemies
-            Medamaude.Add();
-            PCall(Skyloft.Add);
-            PCall(MiniReaper.Add);
+                //CH10 Enemies
+                Medamaude.Add();
+                PCall(Skyloft.Add);
+                PCall(MiniReaper.Add);
 
-            //CH12 Enemies
-            PCall(Warbird.Add);
+                //CH12 Enemies
+                PCall(Warbird.Add);
 
-            //CH13 Enemies
-            PCall(Maw.Add);
-            PCall(BlackStar.Add);
-            PCall(Singularity.Add);
+                //CH13 Enemies
+                PCall(Maw.Add);
+                PCall(BlackStar.Add);
+                PCall(Singularity.Add);
 
-            //CH14 Enemies
-            PCall(MidnightTrafficLight.Add);
-            PCall(Pinano.Add);
-            PCall(Minana.Add);
+                //CH14 Enemies
+                PCall(MidnightTrafficLight.Add);
+                PCall(Pinano.Add);
+                PCall(Minana.Add);
 
-            //CH15 Enemies
-            PCall(YellowBot.Add);
-            PCall(GreyBot.Add);
+                //CH15 Enemies
+                PCall(YellowBot.Add);
+                PCall(GreyBot.Add);
 
-            //CH16 Enemies
-            PCall(Dragon.Add);
+                //CH16 Enemies
+                PCall(Dragon.Add);
 
-            //CH17 Enemies
-            PCall(Ufo.Add);
+                //CH17 Enemies
+                PCall(Ufo.Add);
 
-            //CH18 Enemies
-            PCall(Shooter.Add);
-            PCall(SkeletonHead.Add);
+                //CH18 Enemies
+                PCall(Shooter.Add);
+                PCall(SkeletonHead.Add);
 
-            //CH19 Enemies
-            PCall(Starless.Add);
-            PCall(Eyeless.Add);
+                //CH19 Enemies
+                PCall(Starless.Add);
+                PCall(Eyeless.Add);
+            }
 
             //CH1 Encounters
             LostSheepEncounters.Add();
