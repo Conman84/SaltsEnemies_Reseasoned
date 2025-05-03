@@ -1,5 +1,6 @@
 ﻿using FMODUnity;
 using MonoMod.RuntimeDetour;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -101,11 +102,32 @@ namespace SaltsEnemies_Reseasoned
             else yield return orig(self, fieldID, enemySound, exitType);
         }
         */
+
+        public static void DamageEnemy(Action<EnemyInFieldLayout> orig, EnemyInFieldLayout self)
+        {
+            orig(self);
+            if (CombatManager.Instance._stats.combatUI._enemiesInCombat.TryGetValue(self.EnemyID, out var value))
+            {
+                if (EnemyExist("2009_EN") && value.EnemyBase == LoadedAssetsHandler.GetEnemy("2009_EN"))
+                {
+                    foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+                    {
+                        if (enemy.ID != self.EnemyID) continue;
+                        if (enemy.SimpleGetStoredValue(TriggerOnlyOnceEffectCondition.Value) <= 0)
+                        {
+                            enemy.SimpleSetStoredValue(TriggerOnlyOnceEffectCondition.Value, 1);
+                            SetMusicParameterByStringEffect.Trigger("2009", 1);
+                        }
+                    }
+                }
+            }
+        }
         public static void Setup()
         {
             IDetour hook = new Hook(typeof(EnemyInFieldLayout).GetMethod(nameof(EnemyInFieldLayout.PlayEnemyDeathAnimation), ~BindingFlags.Default), typeof(GibsFix).GetMethod(nameof(PlayEnemyDeathAnimation), ~BindingFlags.Default));
             IDetour hack = new Hook(typeof(EnemyInFieldLayout).GetMethod(nameof(EnemyInFieldLayout.SpawnGibs), ~BindingFlags.Default), typeof(GibsFix).GetMethod(nameof(SpawnGibs), ~BindingFlags.Default));
             //IDetour rock = new Hook(typeof(EnemyZoneHandler).GetMethod(nameof(EnemyZoneHandler.PlayEnemyFleetingAnimation), ~BindingFlags.Default), typeof(GibsFix).GetMethod(nameof(PlayEnemyFleetingAnimation), ~BindingFlags.Default));
+            IDetour horse = new Hook(typeof(EnemyInFieldLayout).GetMethod(nameof(EnemyInFieldLayout.DamageEnemy), ~BindingFlags.Default), typeof(GibsFix).GetMethod(nameof(DamageEnemy), ~BindingFlags.Default));
         }
     }
 }
