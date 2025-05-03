@@ -40,7 +40,7 @@ namespace SaltsEnemies_Reseasoned
             cannon._enemyDescription = "This enemy will perforn the extra ability \"Sound Cannon\" each turn.";
             Ability bonus = new Ability("SoundCannon_A");
             bonus.Name = "Sound Cannon";
-            bonus.Description = "Deal an Agonizing amount of damage to the Opposing party member.";
+            bonus.Description = "Deal an Deadly amount of damage to the Opposing party member.";
             bonus.Priority = Priority.VeryFast;
             bonus.Effects = new EffectInfo[2];
             bonus.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ExtraVariableForNextEffect>(), 11, Slots.Self);
