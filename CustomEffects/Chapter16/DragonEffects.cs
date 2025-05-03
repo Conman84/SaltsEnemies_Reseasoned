@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 
 namespace SaltEnemies_Reseasoned
 {
@@ -72,6 +73,25 @@ namespace SaltEnemies_Reseasoned
                 }
             }
             return false;
+        }
+    }
+    public class TargettingSelf_NotSlot : Targetting_ByUnit_Side
+    {
+        public override TargetSlotInfo[] GetTargets(SlotsCombat slots, int casterSlotID, bool isCasterCharacter)
+        {
+            List<TargetSlotInfo> ret = new List<TargetSlotInfo>();
+            getAllies = true;
+            foreach (TargetSlotInfo target in base.GetTargets(slots, casterSlotID, isCasterCharacter))
+            {
+                if (target.HasUnit && target.Unit.SlotID == casterSlotID) ret.Add(target);
+            }
+            return ret.ToArray();
+        }
+        public static TargettingSelf_NotSlot Create()
+        {
+            TargettingSelf_NotSlot ret = ScriptableObject.CreateInstance<TargettingSelf_NotSlot>();
+            ret.getAllUnitSlots = false;
+            return ret;
         }
     }
 }

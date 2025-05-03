@@ -93,7 +93,7 @@ namespace SaltsEnemies_Reseasoned
                 Visuals = CustomVisuals.GetVisuals("Salt/Swirl"),
                 AnimationTarget = Targeting.Slot_SelfSlot,
             };
-            descent.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Mana_Generate.ToString(), IntentType_GameIDs.Misc.ToString() });
+            descent.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), new string[] { IntentType_GameIDs.Mana_Generate.ToString(), IntentType_GameIDs.Misc.ToString() });
 
             //PRESENCE
             Ability presence = new Ability("Deep_Presence_A")
@@ -110,7 +110,7 @@ namespace SaltsEnemies_Reseasoned
                 AnimationTarget = LoadedAssetsHandler.GetEnemy("Ouroborus_Tail_BOSS").abilities[0].ability.animationTarget,
             };
             presence.AddIntentsToTarget(Targetting.AllEnemy, new string[] { IntentType_GameIDs.Status_Frail.ToString() });
-            presence.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Misc.ToString() });
+            presence.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), new string[] { IntentType_GameIDs.Misc.ToString() });
 
             //ATTRACT
             PerformEffectPassiveAbility leaky = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
@@ -144,7 +144,7 @@ namespace SaltsEnemies_Reseasoned
                 Visuals = LoadedAssetsHandler.GetEnemyAbility("WrigglingWrath_A").visuals,
                 AnimationTarget = Targetting.AllSelfSlots,
             };
-            attract.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { "Passive_Leaky", IntentType_GameIDs.Misc.ToString() });
+            attract.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), new string[] { "Passive_Leaky", IntentType_GameIDs.Misc.ToString() });
 
             //ABYSS
             Ability abyss = new Ability("Deep_Abyss_A")
@@ -161,7 +161,7 @@ namespace SaltsEnemies_Reseasoned
                 AnimationTarget = ScriptableObject.CreateInstance<TargettingByFacingTarget>(),
             };
             abyss.AddIntentsToTarget(ScriptableObject.CreateInstance<TargettingByFacingTarget>(), new string[] { IntentType_GameIDs.Status_Stunned.ToString() });
-            abyss.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Misc.ToString() });
+            abyss.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), new string[] { IntentType_GameIDs.Misc.ToString() });
 
             //ADDENEMY
             deep.AddEnemyAbilities(new EnemyAbilityInfo[]

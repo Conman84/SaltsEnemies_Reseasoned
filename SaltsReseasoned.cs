@@ -55,6 +55,7 @@ namespace SaltsEnemies_Reseasoned
             ShinyHandler.Setup();
             HooksGeneral.Setup();
             PCall(FallColor.Setup);
+            PCall(GibsFix.Setup);
             #endregion
 
             //Add To Glossary
@@ -167,6 +168,9 @@ namespace SaltsEnemies_Reseasoned
             //CH15 Enemies
             PCall(YellowBot.Add);
             PCall(GreyBot.Add);
+
+            //CH16 Enemies
+            PCall(Dragon.Add);
 
             //CH18 Enemies
             PCall(Shooter.Add);
