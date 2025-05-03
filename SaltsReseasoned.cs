@@ -172,6 +172,9 @@ namespace SaltsEnemies_Reseasoned
             //CH16 Enemies
             PCall(Dragon.Add);
 
+            //CH17 Enemies
+            PCall(Ufo.Add);
+
             //CH18 Enemies
             PCall(Shooter.Add);
             PCall(SkeletonHead.Add);

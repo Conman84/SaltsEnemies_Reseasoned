@@ -193,6 +193,10 @@
 	  <None Remove="Chapter16\Dragon\DragonDead.png" />
 	  <None Remove="Chapter16\Dragon\DragonIcon.png" />
 	  <None Remove="Chapter16\Dragon\DragonWorld.png" />
+	  <None Remove="Chapter17\Ufo\JitteryPassive.png" />
+	  <None Remove="Chapter17\Ufo\UFODead.png" />
+	  <None Remove="Chapter17\Ufo\UFOIcon.png" />
+	  <None Remove="Chapter17\Ufo\UFOWorld.png" />
 	  <None Remove="Chapter18\Shooter\HeadDead.png" />
 	  <None Remove="Chapter18\Shooter\HeadIcon.png" />
 	  <None Remove="Chapter18\Shooter\HeadWorld.png" />
@@ -425,6 +429,10 @@
 	  <EmbeddedResource Include="Chapter16\Dragon\DragonDead.png" />
 	  <EmbeddedResource Include="Chapter16\Dragon\DragonIcon.png" />
 	  <EmbeddedResource Include="Chapter16\Dragon\DragonWorld.png" />
+	  <EmbeddedResource Include="Chapter17\Ufo\JitteryPassive.png" />
+	  <EmbeddedResource Include="Chapter17\Ufo\UFODead.png" />
+	  <EmbeddedResource Include="Chapter17\Ufo\UFOIcon.png" />
+	  <EmbeddedResource Include="Chapter17\Ufo\UFOWorld.png" />
 	  <EmbeddedResource Include="Chapter18\Shooter\HeadDead.png" />
 	  <EmbeddedResource Include="Chapter18\Shooter\HeadIcon.png" />
 	  <EmbeddedResource Include="Chapter18\Shooter\HeadWorld.png" />
