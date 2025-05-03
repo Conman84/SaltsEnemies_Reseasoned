@@ -59,6 +59,9 @@ namespace SaltsEnemies_Reseasoned
 
             eyeless.AddPassives(new BasePassiveAbilitySO[] { gluttony, leftmost });
 
+            eyeless.CombatEnterEffects = Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Starless"), 1).SelfArray();
+            eyeless.CombatExitEffects = Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Starless"), 0).SelfArray();
+
             Ability despair = new Ability("Despair", "Starless_Despair_A");
             despair.Description = "If the Opposing party member is below 50% of their maximum health, instantly kill them.\nOtherwise, inflict 50 Pale on them.";
             despair.Rarity = Rarity.GetCustomRarity("rarity5");

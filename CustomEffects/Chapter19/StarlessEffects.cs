@@ -139,4 +139,19 @@ namespace SaltEnemies_Reseasoned
             return true;
         }
     }
+    public class SetMusicParameterByStringEffect : EffectSO
+    {
+        public string Parameter;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            CombatManager.Instance._stats.audioController.MusicCombatEvent.setParameterByName(Parameter, entryVariable);
+            exitAmount = 0; return true;
+        }
+        public static SetMusicParameterByStringEffect Create(string parameter)
+        {
+            SetMusicParameterByStringEffect ret = ScriptableObject.CreateInstance<SetMusicParameterByStringEffect>();
+            ret.Parameter = parameter;
+            return ret;
+        }
+    }
 }
