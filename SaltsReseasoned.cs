@@ -56,7 +56,7 @@ namespace SaltsEnemies_Reseasoned
             HooksGeneral.Setup();
             PCall(FallColor.Setup);
             PCall(GibsFix.Setup);
-            PCall(ShieldPiercer.Setup);
+            //PCall(ShieldPiercer.Setup);
             #endregion
 
             //Add To Glossary
