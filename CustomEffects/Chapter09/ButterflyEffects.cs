@@ -838,7 +838,7 @@ namespace SaltEnemies_Reseasoned
             foreach (FilledManaCost filledManaCost in filledCost)
             {
                 lastUsed.Add(filledManaCost.Mana);
-                if (filledManaCost.Mana.SharesPigmentColor(Pigments.Red)) self.SimpleSetStoredValue(RedUsed, self.SimpleGetStoredValue(RedUsed) + 1);
+                //if (filledManaCost.Mana.SharesPigmentColor(Pigments.Red)) self.SimpleSetStoredValue(RedUsed, self.SimpleGetStoredValue(RedUsed) + 1);
             }
             if (lastUsed.Contains(Pigments.Blue))
             {

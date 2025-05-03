@@ -84,6 +84,7 @@ namespace SaltsEnemies_Reseasoned
             Water.Add();
             PCall(Slip.Add);
             PCall(Mold.Add);
+            Pimples.Add();
 
             //CH1 Enemies
             LostSheep.Add();
@@ -151,6 +152,9 @@ namespace SaltsEnemies_Reseasoned
             PCall(MidnightTrafficLight.Add);
             PCall(Pinano.Add);
             PCall(Minana.Add);
+
+            //CH15 Enemies
+            PCall(YellowBot.Add);
 
             //CH18 Enemies
             PCall(Shooter.Add);

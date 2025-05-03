@@ -15,7 +15,6 @@ namespace SaltEnemies_Reseasoned
         {
             StatusEffectInfoSO PimplesInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             PimplesInfo.icon = ResourceLoader.LoadSprite("PimplesIcon.png");
-            Debug.LogError("Pimples.Add. put the right sprite here");
             PimplesInfo._statusName = "Pimples";
             PimplesInfo._description = "On a unit moving in front of this unit, generate 1 pigment of this unit's health color.\nReduce by 1 on turn end.";
             PimplesInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Ruptured_ID.ToString()]._EffectInfo.AppliedSoundEvent;
@@ -32,7 +31,6 @@ namespace SaltEnemies_Reseasoned
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
             intentinfo._sprite = ResourceLoader.LoadSprite("PimplesIcon.png");
-            Debug.LogError("Drowning.Add. set the right sprite for the intent also");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
         }

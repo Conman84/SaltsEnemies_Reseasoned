@@ -211,9 +211,9 @@ namespace SaltEnemies_Reseasoned
             }
             return ret.ToArray();
         }
-        public static TargettingByUsedBlue Create(bool allies, bool allslots = false, bool ignorecast = false)
+        public static TargettingByUsedYellow Create(bool allies, bool allslots = false, bool ignorecast = false)
         {
-            TargettingByUsedBlue ret = ScriptableObject.CreateInstance<TargettingByUsedBlue>();
+            TargettingByUsedYellow ret = ScriptableObject.CreateInstance<TargettingByUsedYellow>();
             ret.getAllies = allies;
             ret.getAllUnitSlots = allslots;
             ret.ignoreCastSlot = ignorecast;
