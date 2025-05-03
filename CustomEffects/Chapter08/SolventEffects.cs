@@ -867,7 +867,7 @@ namespace SaltEnemies_Reseasoned
         public static void Add()
         {
             ImagesPierce();
-            ChoirsPierce();
+            //ChoirsPierce();
             ScreamingPierce();
             FixNowak();
         }
