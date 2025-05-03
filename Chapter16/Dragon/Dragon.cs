@@ -118,7 +118,7 @@ namespace SaltsEnemies_Reseasoned
                     Effects.GenerateEffect(add, 1, Slots.Self)
                 },
                 Visuals = LoadedAssetsHandler.GetCharacterAbility("Insult_1_A").visuals,
-                AnimationTarget = Slots.Self,
+                AnimationTarget = TargettingSelf_NotSlot.Create(),
             };
             norimimi.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, false), IntentType_GameIDs.Field_Fire.ToString().SelfArray());
             norimimi.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), "DragonAsleep_PA".SelfArray());
@@ -244,7 +244,7 @@ namespace SaltsEnemies_Reseasoned
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity2", 2),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(BasicEffects.GetVisuals("Scream_1_A", true, Slots.Self), 1, Slots.Self, Effects.ChanceCondition(50)),
+                    Effects.GenerateEffect(BasicEffects.GetVisuals("Scream_1_A", true, TargettingSelf_NotSlot.Create()), 1, Slots.Self, Effects.ChanceCondition(50)),
                     Effects.GenerateEffect(BasicEffects.Indirect, 1, Slots.Self, BasicEffects.DidThat(true)),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<WasteTimeEffect>(), 1, Slots.Self, BasicEffects.DidThat(false, 2))
                 },

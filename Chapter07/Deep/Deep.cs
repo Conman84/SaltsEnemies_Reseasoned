@@ -91,7 +91,7 @@ namespace SaltsEnemies_Reseasoned
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<IncreaseLuckyBluePercentageEffect>(), 15, Targeting.Slot_SelfSlot)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Swirl"),
-                AnimationTarget = Targeting.Slot_SelfSlot,
+                AnimationTarget = TargettingSelf_NotSlot.Create(),
             };
             descent.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), new string[] { IntentType_GameIDs.Mana_Generate.ToString(), IntentType_GameIDs.Misc.ToString() });
 
@@ -142,7 +142,7 @@ namespace SaltsEnemies_Reseasoned
                     Effects.GenerateEffect(BasicEffects.ChangeValue(DrowningManager.Saline, true), 1, Targeting.Slot_SelfSlot)
                 },
                 Visuals = LoadedAssetsHandler.GetEnemyAbility("WrigglingWrath_A").visuals,
-                AnimationTarget = Targetting.AllSelfSlots,
+                AnimationTarget = TargettingSelf_NotSlot.Create(),
             };
             attract.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), new string[] { "Passive_Leaky", IntentType_GameIDs.Misc.ToString() });
 

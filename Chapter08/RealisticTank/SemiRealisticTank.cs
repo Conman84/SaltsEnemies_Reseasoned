@@ -102,9 +102,9 @@ namespace SaltsEnemies_Reseasoned
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 6, allEnemy)
                 },
                 Visuals = LoadedAssetsHandler.GetEnemyAbility("Flood_A").visuals,
-                AnimationTarget = Targeting.Slot_SelfSlot,
+                AnimationTarget = TargettingSelf_NotSlot.Create(),
             };
-            coarse.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Damage_3_6.ToString() });
+            coarse.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), new string[] { IntentType_GameIDs.Damage_3_6.ToString() });
             coarse.AddIntentsToTarget(allEnemy, new string[] {IntentType_GameIDs.Status_OilSlicked.ToString() });
 
             //ADD ENEMY
