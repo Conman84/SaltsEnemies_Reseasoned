@@ -101,7 +101,7 @@ namespace SaltEnemies_Reseasoned
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             _Status = Drowning.Object;
-            if (Drowning.Object == null || Drowning.Object.Equals(null)) Debug.LogError("CALL \"Drowning.Add();\" IN YOUR AWAKE");
+            if (Drowning.Object == null || Drowning.Object.Equals(null)) Drowning.Add();
             return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
         }
     }
