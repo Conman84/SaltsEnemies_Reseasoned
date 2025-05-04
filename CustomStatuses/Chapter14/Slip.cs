@@ -17,8 +17,7 @@ namespace SaltEnemies_Reseasoned
         public static void Add()
         {
             SlotStatusEffectInfoSO SlipInfo = ScriptableObject.CreateInstance<SlotStatusEffectInfoSO>();
-            SlipInfo.icon = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Slip.Add. put the right sprite here");
+            SlipInfo.icon = ResourceLoader.LoadSprite("SlipIcon.png");
             SlipInfo._fieldName = "Slip";
             SlipInfo._description = "Get the description";
             Debug.LogError("Slip.Add. get the status description");
@@ -26,7 +25,6 @@ namespace SaltEnemies_Reseasoned
             SlipInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             SlipInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 
-            Debug.LogError("Slip.Add. MAKE SURE THESE ARE PULLING FROM THE RIGHT ASSETBUDNLE");
 
             GameObject Fool = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/SlipChara2.prefab").gameObject;
             GameObject FoolPart = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/SlipChara3.prefab").gameObject;
@@ -51,8 +49,7 @@ namespace SaltEnemies_Reseasoned
 
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
-            intentinfo._sprite = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Water.Add. set the right sprite for the intent also");
+            intentinfo._sprite = ResourceLoader.LoadSprite("SlipIcon.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
         }

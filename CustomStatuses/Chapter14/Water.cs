@@ -43,17 +43,13 @@ namespace SaltEnemies_Reseasoned
             Clear();
 
             SlotStatusEffectInfoSO WaterInfo = ScriptableObject.CreateInstance<SlotStatusEffectInfoSO>();
-            WaterInfo.icon = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Water.Add. put the right sprite here");
+            WaterInfo.icon = ResourceLoader.LoadSprite("DeepFieldIcon.png");
             WaterInfo._fieldName = "Deep Water";
-            WaterInfo._description = "Get the description";
-            Debug.LogError("Water.Add. get the status description");
+            WaterInfo._description = "On moving into Deep Water, inflict 1 Drowning on this unit. Double all Drowning on this unit at the end of each round. \nDecreases by 1 at the end of each turn.";
             WaterInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo._applied_SE_Event;
             WaterInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             WaterInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
             
-            Debug.LogError("Water.Add. MAKE SURE THESE ARE PULLING FROM THE RIGHT ASSETBUDNLE");
-
             GameObject Fool = SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Water/Test.prefab").gameObject;
             GameObject[] FoolParts = new GameObject[]
             {
@@ -91,15 +87,13 @@ namespace SaltEnemies_Reseasoned
 
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
-            intentinfo._sprite = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Water.Add. set the right sprite for the intent also");
+            intentinfo._sprite = ResourceLoader.LoadSprite("DeepFieldIcon.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
 
             IntentInfoBasic reminfo = new IntentInfoBasic();
-            reminfo._color = Color.white;
-            reminfo._sprite = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Water.Add. set the right sprite for the rem_intent also");
+            reminfo._color = Intents.GetInGame_IntentInfo(IntentType_GameIDs.Rem_Field_Shield)._color;
+            reminfo._sprite = ResourceLoader.LoadSprite("DeepFieldIcon.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Rem_Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Rem_Intent] = reminfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Rem_Intent, reminfo);
 

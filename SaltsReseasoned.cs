@@ -155,6 +155,7 @@ namespace SaltsEnemies_Reseasoned
                 Medamaude.Add();
                 PCall(Skyloft.Add);
                 PCall(MiniReaper.Add);
+                Pall(Shua.Add);
 
                 //CH11 Enemies
                 PCall(GlassFigurine.Add);

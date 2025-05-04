@@ -262,6 +262,10 @@
 	  <None Remove="CustomStatuses\Chapter08\Haste.png" />
 	  <None Remove="CustomStatuses\Chapter08\HollowIcon.png" />
 	  <None Remove="CustomStatuses\Chapter09\Acid.png" />
+	  <None Remove="CustomStatuses\Chapter14\DeepFieldIcon.png" />
+	  <None Remove="CustomStatuses\Chapter14\Drowning.png" />
+	  <None Remove="CustomStatuses\Chapter14\SlipIcon.png" />
+	  <None Remove="CustomStatuses\Chapter14\WaterRemove.png" />
 	  <None Remove="CustomStatuses\Determined.png" />
 	  <None Remove="CustomStatuses\Inverted.png" />
 	  <None Remove="CustomStatuses\Left.png" />
@@ -542,6 +546,10 @@
 	  <EmbeddedResource Include="CustomStatuses\Chapter08\Haste.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter08\HollowIcon.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter09\Acid.png" />
+	  <EmbeddedResource Include="CustomStatuses\Chapter14\DeepFieldIcon.png" />
+	  <EmbeddedResource Include="CustomStatuses\Chapter14\Drowning.png" />
+	  <EmbeddedResource Include="CustomStatuses\Chapter14\SlipIcon.png" />
+	  <EmbeddedResource Include="CustomStatuses\Chapter14\WaterRemove.png" />
 	  <EmbeddedResource Include="SpecialIcons\atkicon.png" />
 	  <EmbeddedResource Include="SpecialIcons\blueUpIcon.png" />
 	  <EmbeddedResource Include="SpecialIcons\counticon.png" />

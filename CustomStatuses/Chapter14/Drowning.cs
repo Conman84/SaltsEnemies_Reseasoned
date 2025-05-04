@@ -15,11 +15,9 @@ namespace SaltEnemies_Reseasoned
         public static void Add()
         {
             StatusEffectInfoSO DrowningInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
-            DrowningInfo.icon = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Drowning.Add. put the right sprite here");
+            DrowningInfo.icon = ResourceLoader.LoadSprite("Drowning.png");
             DrowningInfo._statusName = "Drowning";
-            DrowningInfo._description = "get description";
-            Debug.LogError("Drowning.Add. get the description here");
+            DrowningInfo._description = "All healing is reduced by the amount of Drowning. \nAt the end of each turn, if not in Deep Water decrease Drowning by 1. Afterwards, if Drowning is 10 or higher halve this unit's current health.";
             DrowningInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Cursed_ID.ToString()]._EffectInfo.AppliedSoundEvent;
             DrowningInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Cursed_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             DrowningInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Cursed_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
@@ -33,8 +31,7 @@ namespace SaltEnemies_Reseasoned
 
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
-            intentinfo._sprite = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Drowning.Add. set the right sprite for the intent also");
+            intentinfo._sprite = ResourceLoader.LoadSprite("Drowning.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
         }
