@@ -129,13 +129,13 @@ namespace SaltsEnemies_Reseasoned
             Delusion.Add();
             FakeAngel.Add();
             RBYPFlowers.Add();
-            Debug.Log("chapter 6");
+            //Debug.Log("chapter 6");
 
             //CH7 Enemies
             PCall(Deep.Add);
             PCall(War.Add);
             PCall(Postmodern.Add);
-            Debug.Log("chapter 7");
+            //Debug.Log("chapter 7");
 
             //CH8 Enemies
             Sigil.Add();
@@ -143,7 +143,7 @@ namespace SaltsEnemies_Reseasoned
             WindSong.Add();
             TheEndOfTime.Add();
             SemiRealisticTank.Add();
-            Debug.Log("chapter 8");
+            //Debug.Log("chapter 8");
 
             if (DebugVer)
             {
