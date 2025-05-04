@@ -18,10 +18,11 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("EyelessIcon.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("EyelessWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("EyelessDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("Conductor_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("Conductor_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Sound/EyelessHit",
+                DeathSound = "event:/Hawthorne/Sound/EyelessDie",
             };
             eyeless.PrepareEnemyPrefab("Assets/enem3/Eyeless_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/EyelessGibs.prefab").GetComponent<ParticleSystem>());
+            //use death soudn as roar
 
             //gluttony
             PerformEffectPassiveAbility gluttony = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();

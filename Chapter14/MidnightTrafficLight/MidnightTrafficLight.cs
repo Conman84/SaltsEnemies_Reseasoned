@@ -19,8 +19,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("TrainIcon.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("TrainDead.png", new Vector2(0.5f, 0f), 32),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("TrainWorld.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Sound/TrainHit",
+                DeathSound = "event:/Hawthorne/Sound/TrainDie",
             };
             train.PrepareMultiEnemyPrefab("assets/train/Train_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/train/Train_Gibs.prefab").GetComponent<ParticleSystem>());
             (train.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]

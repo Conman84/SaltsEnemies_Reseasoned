@@ -18,11 +18,13 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("ClockTowerIcon.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("ClockTowerDead.png", new Vector2(0.5f, 0f), 32),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("ClockTowerWorld.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetCharacter("Gospel_CH").damageSound,
-                DeathSound = LoadedAssetsHandler.GetCharacter("Gospel_CH").deathSound,
+                DamageSound = "event:/Hawthorne/Sound/ClockHit",
+                DeathSound = "event:/Hawthorne/Sound/ClockDie",
                 AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_ClockTower>()
             };
             clock.PrepareEnemyPrefab("assets/group4/ClockTower/ClockTower_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/ClockTower/ClockTower_Gibs.prefab").GetComponent<ParticleSystem>());
+            //roar: event:/Hawthorne/Noi3e/PawnRoar
+
 
             //ACCELERATION
             ClockTowerManager.Setup();

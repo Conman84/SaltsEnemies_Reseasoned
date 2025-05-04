@@ -15,7 +15,7 @@ namespace SaltsEnemies_Reseasoned
             //Orpheum
             EnemyEncounter_API mainEncounters = new EnemyEncounter_API(0, "H_Zone02_Freud_Easy_EnemyBundle", "Salt_FreudEncounters_Sign");
             mainEncounters.MusicEvent = "event:/Hawthorne/DontTouchMeTheme";
-            mainEncounters.RoarEvent = LoadedAssetsHandler.GetEnemyBundle("H_Zone03_SkinningHomunculus_Medium_EnemyBundle")._roarReference.roarEvent;
+            mainEncounters.RoarEvent = "event:/Hawthorne/Sound/FreudRoar";
 
             mainEncounters.CreateNewEnemyEncounterData(new string[]
             {
@@ -67,7 +67,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API mainEncounters2 = new EnemyEncounter_API(0, "H_Zone02_Freud_Medium_EnemyBundle", "Salt_FreudEncounters_Sign");
             mainEncounters2.MusicEvent = "event:/Hawthorne/DontTouchMeTheme";
-            mainEncounters2.RoarEvent = LoadedAssetsHandler.GetEnemyBundle("H_Zone03_SkinningHomunculus_Medium_EnemyBundle")._roarReference.roarEvent;
+            mainEncounters2.RoarEvent = "event:/Hawthorne/Sound/FreudRoar";
 
             mainEncounters2.CreateNewEnemyEncounterData(new string[]
             {

@@ -18,10 +18,11 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("StarlessIcon.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("StarlessWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("StarlessDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("Keko_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("Keko_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Sound/StarlessHit",
+                DeathSound = "event:/Hawthorne/Sound/StarlessDie",
             };
             starless.PrepareEnemyPrefab("Assets/enem3/Starless_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Starless_Gibs.prefab").GetComponent<ParticleSystem>());
+            //roar: event:/Hawthorne/Sound/StarlessRoar
 
             //melancholy
             PerformEffectPassiveAbility melancholy = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();

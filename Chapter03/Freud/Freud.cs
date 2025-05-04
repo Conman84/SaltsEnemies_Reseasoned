@@ -31,8 +31,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("TouchIconB.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("TouchDead.png", new Vector2(0.5f, 0f), 32),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("TouchIcon.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetCharacter("Gospel_CH").damageSound,
-                DeathSound = LoadedAssetsHandler.GetCharacter("Gospel_CH").deathSound,
+                DamageSound = "event:/Hawthorne/Sound/FreudHit",
+                DeathSound = "event:/Hawthorne/Sound/FreudDie",
             };
             Freud.PrepareEnemyPrefab("assets/DontTouchMe/DontTouchMe_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/DontTouchMe/DontTouchMe_Gibs.prefab").GetComponent<ParticleSystem>());
 
