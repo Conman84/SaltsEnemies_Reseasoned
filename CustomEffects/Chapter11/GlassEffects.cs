@@ -40,7 +40,7 @@ namespace SaltEnemies_Reseasoned
             exitAmount = 0;
             foreach (TargetSlotInfo target in targets)
             {
-                if (target.HasUnit && target.Unit.CurrentHealth <= 5)
+                if (target.HasUnit && target.Unit.CurrentHealth <= 9)
                 {
                     EnemySO thisGuy = enemy;
                     CombatManager.Instance.AddSubAction(new WoodChipsAction(thisGuy, -1, false, trySpawnAnyways: false, CombatType_GameIDs.Spawn_Basic.ToString(), new AddManaToManaBarAction(thisGuy.healthColor, 1, caster.IsUnitCharacter, caster.ID)));
@@ -153,6 +153,11 @@ namespace SaltEnemies_Reseasoned
                 if (enemy.Enemy != (caster as EnemyCombat).Enemy && enemy.Size == 1 && !enemies.Contains(enemy.Enemy) && Check(enemy)) enemies.Add(enemy.Enemy);
             }
             if (enemies.Count > 0) _enemyTransformation = enemies[UnityEngine.Random.Range(0, enemies.Count)];
+            else
+            {
+                caster.DirectDeath(null);
+                return false;
+            }
 
             return stats.TryTransformEnemy(caster.ID, _enemyTransformation, _fullyHeal, _maintainTimelineAbilities, _maintainMaxHealth, _currentToMaxHealth);
         }
@@ -246,6 +251,40 @@ namespace SaltEnemies_Reseasoned
             }
 
             return true;
+        }
+    }
+    public class DamageByMissingHealthEffect : DamageEffect
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable * (caster.MaximumHealth - caster.CurrentHealth), out exitAmount);
+        }
+    }
+    public class TargettingUnitsUnderHealth : Targetting_ByUnit_Side
+    {
+        public int boundaryInclusive;
+
+        public override TargetSlotInfo[] GetTargets(SlotsCombat slots, int casterSlotID, bool isCasterCharacter)
+        {
+            TargetSlotInfo[] source = base.GetTargets(slots, casterSlotID, isCasterCharacter);
+            List<TargetSlotInfo> ret = new List<TargetSlotInfo>();
+            foreach (TargetSlotInfo target in source)
+            {
+                if (target.HasUnit && target.Unit.CurrentHealth <= boundaryInclusive)
+                {
+                    ret.Add(target);
+                }
+            }
+            return ret.ToArray();
+        }
+
+        public static TargettingUnitsUnderHealth Create(int health, bool allies)
+        {
+            TargettingUnitsUnderHealth ret = ScriptableObject.CreateInstance<TargettingUnitsUnderHealth>();
+            ret.getAllies = allies;
+            ret.getAllUnitSlots = false;
+            ret.boundaryInclusive = health;
+            return ret;
         }
     }
 }
