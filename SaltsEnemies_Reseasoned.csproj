@@ -229,6 +229,11 @@
 	  <None Remove="Chapter17\Ufo\UFODead.png" />
 	  <None Remove="Chapter17\Ufo\UFOIcon.png" />
 	  <None Remove="Chapter17\Ufo\UFOWorld.png" />
+	  <None Remove="Chapter17\YellowAngel\FlutteryIcon.png" />
+	  <None Remove="Chapter17\YellowAngel\HarpoonDead.png" />
+	  <None Remove="Chapter17\YellowAngel\HarpoonIcon.png" />
+	  <None Remove="Chapter17\YellowAngel\HarpoonPortal.png" />
+	  <None Remove="Chapter17\YellowAngel\HarpoonWorld.png" />
 	  <None Remove="Chapter18\Shooter\HeadDead.png" />
 	  <None Remove="Chapter18\Shooter\HeadIcon.png" />
 	  <None Remove="Chapter18\Shooter\HeadWorld.png" />
@@ -511,6 +516,11 @@
 	  <EmbeddedResource Include="Chapter17\Ufo\UFODead.png" />
 	  <EmbeddedResource Include="Chapter17\Ufo\UFOIcon.png" />
 	  <EmbeddedResource Include="Chapter17\Ufo\UFOWorld.png" />
+	  <EmbeddedResource Include="Chapter17\YellowAngel\FlutteryIcon.png" />
+	  <EmbeddedResource Include="Chapter17\YellowAngel\HarpoonDead.png" />
+	  <EmbeddedResource Include="Chapter17\YellowAngel\HarpoonIcon.png" />
+	  <EmbeddedResource Include="Chapter17\YellowAngel\HarpoonPortal.png" />
+	  <EmbeddedResource Include="Chapter17\YellowAngel\HarpoonWorld.png" />
 	  <EmbeddedResource Include="Chapter18\Shooter\HeadDead.png" />
 	  <EmbeddedResource Include="Chapter18\Shooter\HeadIcon.png" />
 	  <EmbeddedResource Include="Chapter18\Shooter\HeadWorld.png" />

@@ -66,7 +66,6 @@ namespace SaltEnemies_Reseasoned
         }
         public override void OnTriggerAttached(FieldEffect_Holder holder, IUnit caller)
         {
-            if (holder.m_ContentMain + holder.Restrictor <= 0) return;
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnMoved.ToString(), caller);
         }
         public override void OnTriggerDettached(FieldEffect_Holder holder, IUnit caller)
