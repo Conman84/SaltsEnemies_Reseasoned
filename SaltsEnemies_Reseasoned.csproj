@@ -65,6 +65,10 @@
 	  <None Remove="Chapter13\Maw\MawIcon.png" />
 	  <None Remove="Chapter13\Maw\MawPassive.png" />
 	  <None Remove="Chapter13\Maw\MawWorld.png" />
+	  <None Remove="Chapter14\AbyssAngel\ClioneDead.png" />
+	  <None Remove="Chapter14\AbyssAngel\ClioneIcon.png" />
+	  <None Remove="Chapter14\AbyssAngel\ClioneWorld.png" />
+	  <None Remove="Chapter14\AbyssAngel\WavesPassive.png" />
 	  <None Remove="Chapter14\MidnightTrafficLight\PracticalPassive.png" />
 	  <None Remove="Chapter14\MidnightTrafficLight\TrainDead.png" />
 	  <None Remove="Chapter14\MidnightTrafficLight\TrainDownIntent.png" />
@@ -343,6 +347,10 @@
 	  <EmbeddedResource Include="Chapter13\Maw\MawIcon.png" />
 	  <EmbeddedResource Include="Chapter13\Maw\MawPassive.png" />
 	  <EmbeddedResource Include="Chapter13\Maw\MawWorld.png" />
+	  <EmbeddedResource Include="Chapter14\AbyssAngel\ClioneDead.png" />
+	  <EmbeddedResource Include="Chapter14\AbyssAngel\ClioneIcon.png" />
+	  <EmbeddedResource Include="Chapter14\AbyssAngel\ClioneWorld.png" />
+	  <EmbeddedResource Include="Chapter14\AbyssAngel\WavesPassive.png" />
 	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\PracticalPassive.png" />
 	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\TrainDead.png" />
 	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\TrainDownIntent.png" />

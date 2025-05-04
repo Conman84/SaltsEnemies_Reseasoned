@@ -11,7 +11,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Enemy template = new Enemy("Shua", "Shua_EN")
+            Enemy shua = new Enemy("Shua", "Shua_EN")
             {
                 Health = 28,
                 HealthColor = Pigments.Red,
@@ -22,7 +22,7 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = LoadedAssetsHandler.GetCharacter("Hans_CH").deathSound,
                 AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_Shua>()
             };
-            template.PrepareEnemyPrefab("assets/group4/Shua/Shua_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Shua/Shua_Gibs.prefab").GetComponent<ParticleSystem>());
+            shua.PrepareEnemyPrefab("assets/group4/Shua/Shua_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Shua/Shua_Gibs.prefab").GetComponent<ParticleSystem>());
 
             //INCOMPREHENSIBLE
             PerformEffectPassiveAbility incomprehend = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
@@ -48,7 +48,8 @@ namespace SaltsEnemies_Reseasoned
             combative._triggerOn = Passives.Fleeting4._triggerOn;
 
             //add pasives
-            template.AddPassives(new BasePassiveAbilitySO[] { incomprehend, combative });
+            shua.AddPassives(new BasePassiveAbilitySO[] { incomprehend, combative });
+            shua.UnitTypes = new List<string> { "FemaleID" };
 
             //whisper
             Ability whisper = new Ability("Whisperings_A")
@@ -117,13 +118,13 @@ namespace SaltsEnemies_Reseasoned
             waver.AddIntentsToTarget(Slots.Front, ["Swap_Sides", "Swap_Sides"]);
 
             //ADD ENEMY
-            template.AddEnemyAbilities(new EnemyAbilityInfo[]
+            shua.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 whisper.GenerateEnemyAbility(true),
                 wander.GenerateEnemyAbility(true),
                 waver.GenerateEnemyAbility(true)
             });
-            template.AddEnemy(true, true);
+            shua.AddEnemy(true, true);
         }
     }
 }

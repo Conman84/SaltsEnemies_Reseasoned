@@ -56,6 +56,7 @@ namespace SaltsEnemies_Reseasoned
             HooksGeneral.Setup();
             PCall(FallColor.Setup);
             PCall(GibsFix.Setup);
+            PCall(ShuaHandler.Setup);
             //PCall(ShieldPiercer.Setup);
             #endregion
 
@@ -155,7 +156,7 @@ namespace SaltsEnemies_Reseasoned
                 Medamaude.Add();
                 PCall(Skyloft.Add);
                 PCall(MiniReaper.Add);
-                Pall(Shua.Add);
+                PCall(Shua.Add);
 
                 //CH11 Enemies
                 PCall(GlassFigurine.Add);
@@ -173,6 +174,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(MidnightTrafficLight.Add);
                 PCall(Pinano.Add);
                 PCall(Minana.Add);
+                PCall(AbyssAngel.Add);
 
                 //CH15 Enemies
                 PCall(YellowBot.Add);

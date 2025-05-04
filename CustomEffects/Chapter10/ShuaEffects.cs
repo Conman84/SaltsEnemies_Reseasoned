@@ -1,6 +1,11 @@
 ﻿using BrutalAPI;
+using FMODUnity;
+using MonoMod.RuntimeDetour;
+using SaltsEnemies_Reseasoned;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using UnityEngine;
 
@@ -62,6 +67,79 @@ namespace SaltEnemies_Reseasoned
         {
             string name = ability.ability._abilityName;
             return unit.SimpleGetStoredValue(UnitStoredValueNames_GameIDs.DemonCoreW.ToString()) == 1 && name == this.wanderlust;
+        }
+    }
+    public static class ShuaHandler
+    {
+        static ParticleSystem hits;
+        public static ParticleSystem Hits
+        {
+            get
+            {
+                if (hits == null)
+                {
+                    hits = SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/group4/Shua/Shua_HitEffect.prefab").GetComponent<ParticleSystem>();
+                }
+                return hits;
+            }
+        }
+        public static void DamageEnemy(Action<EnemyInFieldLayout> orig, EnemyInFieldLayout self)
+        {
+            if (CombatManager.Instance._stats.combatUI._enemiesInCombat.TryGetValue(self.EnemyID, out var value))
+            {
+                if (Check.EnemyExist("Shua_EN") && value.EnemyBase == LoadedAssetsHandler.GetEnemy("Shua_EN"))
+                {
+                    UnityEngine.Object.Instantiate(Hits, self.transform.position, self.transform.rotation);
+                }
+            }
+            orig(self);
+        }
+        public static IEnumerator PlayEnemyDeathAnimation(Func<EnemyInFieldLayout, string, IEnumerator> orig, EnemyInFieldLayout self, string deathSound)
+        {
+            bool IS = false;
+            if (CombatManager.Instance._stats.combatUI._enemiesInCombat.TryGetValue(self.EnemyID, out var value))
+            {
+                if (Check.EnemyExist("BlackStar_EN") && value.EnemyBase == LoadedAssetsHandler.GetEnemy("BlackStar_EN"))
+                {
+                    IS = true;
+                }
+                else if (Check.EnemyExist("Singularity_EN") && value.EnemyBase == LoadedAssetsHandler.GetEnemy("Singularity_EN"))
+                {
+                    IS = true;
+                }
+            }
+            if (!IS)
+            {
+                yield return orig(self, deathSound);
+            }
+            else
+            {
+                self.FinishedAnimation = false;
+                self.m_Data.m_Animator.SetTrigger("Dying");
+                if (deathSound != "")
+                {
+                    RuntimeManager.PlayOneShot(deathSound, self.Position);
+                    RuntimeManager.PlayOneShot("event:/Hawthorne/Misc/RingingSound", self.Position);
+                }
+
+                float saveCounter = self.m_Data.m_SaveAnimationTime;
+                while (!self.FinishedAnimation)
+                {
+                    yield return null;
+                    saveCounter -= Time.deltaTime;
+                    if (saveCounter <= 0f)
+                    {
+                        break;
+                    }
+                }
+
+                self.FinishedAnimation = true;
+            }
+        }
+        public static void Setup()
+        {
+            IDetour hook = new Hook(typeof(EnemyInFieldLayout).GetMethod(nameof(EnemyInFieldLayout.DamageEnemy), ~BindingFlags.Default), typeof(ShuaHandler).GetMethod(nameof(DamageEnemy), ~BindingFlags.Default));
+            IDetour hack = new Hook(typeof(EnemyInFieldLayout).GetMethod(nameof(EnemyInFieldLayout.PlayEnemyDeathAnimation), ~BindingFlags.Default), typeof(ShuaHandler).GetMethod(nameof(PlayEnemyDeathAnimation), ~BindingFlags.Default));
         }
     }
 }
