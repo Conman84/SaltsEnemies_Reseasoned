@@ -226,16 +226,6 @@ namespace SaltEnemies_Reseasoned
             return ret;
         }
     }
-    public class ApplyBoneSpursByTwoCasterEffect : EffectSO
-    {
-        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
-        {
-            exitAmount = 0;
-            if (!caster.ContainsPassiveAbility(PassiveType_GameIDs.BoneSpurs.ToString())) caster.AddPassiveAbility(Passives.BoneSpurs2);
-            else caster.SimpleSetStoredValue(UnitStoredValueNames_GameIDs.BoneSpursPA.ToString(), caster.SimpleGetStoredValue(UnitStoredValueNames_GameIDs.BoneSpursPA.ToString()) + 2);
-            return true;
-        }
-    }
     public class CasterExtraAbilityEffect : EffectSO
     {
         public ExtraAbilityInfo _extraAbility;
