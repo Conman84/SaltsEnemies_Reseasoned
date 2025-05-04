@@ -35,6 +35,11 @@
 	  <None Remove="Chapter10\Skyloft\SkyloftIcon.png" />
 	  <None Remove="Chapter10\Skyloft\SkyloftPortal.png" />
 	  <None Remove="Chapter10\Skyloft\SkyloftWorld.png" />
+	  <None Remove="Chapter11\GlassFigurine\DisorientingPassive.png" />
+	  <None Remove="Chapter11\GlassFigurine\GlassDead.png" />
+	  <None Remove="Chapter11\GlassFigurine\GlassIcon.png" />
+	  <None Remove="Chapter11\GlassFigurine\GlassPortal.png" />
+	  <None Remove="Chapter11\GlassFigurine\GlassWorld.png" />
 	  <None Remove="Chapter12\LittleBeak\BeakDead.png" />
 	  <None Remove="Chapter12\LittleBeak\BeakIcon.png" />
 	  <None Remove="Chapter12\LittleBeak\BeakWorld.png" />
@@ -299,6 +304,11 @@
 	  <EmbeddedResource Include="Chapter10\Skyloft\SkyloftIcon.png" />
 	  <EmbeddedResource Include="Chapter10\Skyloft\SkyloftPortal.png" />
 	  <EmbeddedResource Include="Chapter10\Skyloft\SkyloftWorld.png" />
+	  <EmbeddedResource Include="Chapter11\GlassFigurine\DisorientingPassive.png" />
+	  <EmbeddedResource Include="Chapter11\GlassFigurine\GlassDead.png" />
+	  <EmbeddedResource Include="Chapter11\GlassFigurine\GlassIcon.png" />
+	  <EmbeddedResource Include="Chapter11\GlassFigurine\GlassPortal.png" />
+	  <EmbeddedResource Include="Chapter11\GlassFigurine\GlassWorld.png" />
 	  <EmbeddedResource Include="Chapter12\LittleBeak\BeakDead.png" />
 	  <EmbeddedResource Include="Chapter12\LittleBeak\BeakIcon.png" />
 	  <EmbeddedResource Include="Chapter12\LittleBeak\BeakWorld.png" />

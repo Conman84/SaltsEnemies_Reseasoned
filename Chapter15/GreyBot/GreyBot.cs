@@ -27,6 +27,7 @@ namespace SaltsEnemies_Reseasoned
             PerformEffectPassiveAbility cctv = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             cctv._passiveName = "C.C.T.V.";
             cctv.passiveIcon = ResourceLoader.LoadSprite("CCTVPassive.png");
+            cctv.m_PassiveID = "CCTV_PA";
             cctv._enemyDescription = "On any party member manually moving or using an ability, move 1 space closer to them.";
             cctv._characterDescription = "On any enemy moving or using an ability, move 1 space closer to them.";
             cctv.conditions = ScriptableObject.CreateInstance<CCTVCondition>().SelfArray();

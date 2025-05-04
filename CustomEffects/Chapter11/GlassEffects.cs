@@ -224,4 +224,28 @@ namespace SaltEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
+    public class CasterChangeNameEnemyEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+
+            if (caster is EnemyCombat enemy)
+            {
+                enemy._currentName = new string[]
+                {
+                    "Glass Figurine",
+                    "How You Move about the Scene",
+                    "How You Twist, How You Bend",
+                    "To a Song with No Beginning or End",
+                    "Pulled by the Strings",
+                    "Color Absent from the Scene",
+                    "But I Hear a Small Cry",
+                    "\"Just Let Me Die\""
+                }.GetRandom();
+            }
+
+            return true;
+        }
+    }
 }
