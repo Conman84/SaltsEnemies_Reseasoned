@@ -123,4 +123,34 @@ namespace SaltEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
+    public class AnyHasFrailEffectCondition : EffectConditionSO
+    {
+        public bool getAllies;
+        public bool returnHas;
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            if ((caster.IsUnitCharacter && getAllies) || (!caster.IsUnitCharacter && !getAllies))
+            {
+                foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
+                {
+                    if (chara.ContainsStatusEffect(StatusField_GameIDs.Frail_ID.ToString())) return returnHas;
+                }
+            }
+            else
+            {
+                foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+                {
+                    if (enemy.ContainsFieldEffect(StatusField_GameIDs.Frail_ID.ToString())) return returnHas;
+                }
+            }
+            return !returnHas;
+        }
+        public static AnyHasFrailEffectCondition Create(bool getAlly, bool has)
+        {
+            AnyHasFrailEffectCondition ret = ScriptableObject.CreateInstance<AnyHasFrailEffectCondition>();
+            ret.getAllies = getAlly;
+            ret.returnHas = has;
+            return ret;
+        }
+    }
 }

@@ -187,6 +187,7 @@ namespace SaltsEnemies_Reseasoned
 
                 //CH17 Enemies
                 PCall(Ufo.Add);
+                PCall(YellowAngel.Add);
 
                 //CH18 Enemies
                 PCall(Shooter.Add);
