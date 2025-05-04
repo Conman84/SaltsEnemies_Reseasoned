@@ -77,6 +77,7 @@ namespace SaltsEnemies_Reseasoned
 
             //ADD PASSIVES
             deep.AddPassives(new BasePassiveAbilitySO[] { salinity, noOver, pressure });
+            deep.UnitTypes = new List<string> { "Fish" };
 
             //DESCENT
             Ability descent = new Ability("Deep_Descent_A")

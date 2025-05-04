@@ -11,7 +11,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Enemy template = new Enemy("Abyss Angel", "Clione_EN")
+            Enemy cliome = new Enemy("Abyss Angel", "Clione_EN")
             {
                 Health = 20,
                 HealthColor = Pigments.Blue,
@@ -21,7 +21,7 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetEnemy("TaintedYolk_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("TaintedYolk_EN").deathSound,
             };
-            template.PrepareEnemyPrefab("assets/group4/Clione/Clione_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Clione/Clione_Gibs.prefab").GetComponent<ParticleSystem>());
+            cliome.PrepareEnemyPrefab("assets/group4/Clione/Clione_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Clione/Clione_Gibs.prefab").GetComponent<ParticleSystem>());
 
             PerformEffectPassiveAbility waves = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             waves._passiveName = "Waves";
@@ -33,7 +33,8 @@ namespace SaltsEnemies_Reseasoned
             waves.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyWaterSlotEffect>(), 2, Slots.Front).SelfArray();
             waves._triggerOn = new TriggerCalls[1] { TriggerCalls.OnMoved };
 
-            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, waves });
+            cliome.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, waves });
+            cliome.UnitTypes = new List<string> { "Fish" };
 
             Ability underwater = new Ability("HoldMeUnderwater_A")
             {
@@ -89,13 +90,13 @@ namespace SaltsEnemies_Reseasoned
             tail.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Swap_Sides.ToString().SelfArray());
 
             //ADD ENEMY
-            template.AddEnemyAbilities(new EnemyAbilityInfo[]
+            cliome.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 underwater.GenerateEnemyAbility(true),
                 love.GenerateEnemyAbility(true),
                 tail.GenerateEnemyAbility(true)
             });
-            template.AddEnemy(true, true);
+            cliome.AddEnemy(true, true);
         }
     }
 }

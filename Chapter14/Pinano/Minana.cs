@@ -29,6 +29,7 @@ namespace SaltsEnemies_Reseasoned
             };
 
             minana.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, Violent.Generate(1) });
+            minana.UnitTypes = new List<string> { "Fish" };
 
             //THRASH
             Ability thrash = new Ability("Pinano_Thrash_A")

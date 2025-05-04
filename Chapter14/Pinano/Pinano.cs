@@ -47,6 +47,7 @@ namespace SaltsEnemies_Reseasoned
 
             //add passives
             pinano.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, Violent.Generate(3), decay });
+            pinano.UnitTypes = new List<string> { "Fish" };
 
             Ability burp = new Ability("Pinano_Burp_A")
             {
