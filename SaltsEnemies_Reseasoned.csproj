@@ -35,6 +35,10 @@
 	  <None Remove="Chapter10\Skyloft\SkyloftIcon.png" />
 	  <None Remove="Chapter10\Skyloft\SkyloftPortal.png" />
 	  <None Remove="Chapter10\Skyloft\SkyloftWorld.png" />
+	  <None Remove="Chapter12\LittleBeak\BeakDead.png" />
+	  <None Remove="Chapter12\LittleBeak\BeakIcon.png" />
+	  <None Remove="Chapter12\LittleBeak\BeakWorld.png" />
+	  <None Remove="Chapter12\LittleBeak\panic.png" />
 	  <None Remove="Chapter12\Warbird\repression.png" />
 	  <None Remove="Chapter12\Warbird\ScarecrowDead.png" />
 	  <None Remove="Chapter12\Warbird\ScarecrowIcon.png" />
@@ -288,6 +292,10 @@
 	  <EmbeddedResource Include="Chapter10\Skyloft\SkyloftIcon.png" />
 	  <EmbeddedResource Include="Chapter10\Skyloft\SkyloftPortal.png" />
 	  <EmbeddedResource Include="Chapter10\Skyloft\SkyloftWorld.png" />
+	  <EmbeddedResource Include="Chapter12\LittleBeak\BeakDead.png" />
+	  <EmbeddedResource Include="Chapter12\LittleBeak\BeakIcon.png" />
+	  <EmbeddedResource Include="Chapter12\LittleBeak\BeakWorld.png" />
+	  <EmbeddedResource Include="Chapter12\LittleBeak\panic.png" />
 	  <EmbeddedResource Include="Chapter12\Warbird\repression.png" />
 	  <EmbeddedResource Include="Chapter12\Warbird\ScarecrowDead.png" />
 	  <EmbeddedResource Include="Chapter12\Warbird\ScarecrowIcon.png" />

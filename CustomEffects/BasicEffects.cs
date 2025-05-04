@@ -1,4 +1,5 @@
-﻿using FMODUnity;
+﻿using BrutalAPI;
+using FMODUnity;
 using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections;
@@ -34,6 +35,15 @@ namespace SaltEnemies_Reseasoned
             {
                 DamageEffect ret = ScriptableObject.CreateInstance<DamageEffect>();
                 ret._usePreviousExitValue = true;
+                return ret;
+            }
+        }
+        public static DamageFieldEffectBlockedEffect ShieldBlocked
+        {
+            get
+            {
+                DamageFieldEffectBlockedEffect ret = ScriptableObject.CreateInstance<DamageFieldEffectBlockedEffect>();
+                ret._Field = StatusField.Shield;
                 return ret;
             }
         }
