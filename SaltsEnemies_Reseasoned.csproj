@@ -199,6 +199,13 @@
 	  <None Remove="Chapter15\RBYPBots\Sprites\YellowBotDead.png" />
 	  <None Remove="Chapter15\RBYPBots\Sprites\YellowBotIcon.png" />
 	  <None Remove="Chapter15\RBYPBots\Sprites\YellowBotWorld.png" />
+	  <None Remove="Chapter16\Crystal\CrystalDead.png" />
+	  <None Remove="Chapter16\Crystal\CrystalIcon.png" />
+	  <None Remove="Chapter16\Crystal\CrystalWorld.png" />
+	  <None Remove="Chapter16\Crystal\StoneDead.png" />
+	  <None Remove="Chapter16\Crystal\StoneIcon.png" />
+	  <None Remove="Chapter16\Crystal\StoneWorld.png" />
+	  <None Remove="Chapter16\Crystal\SweetTooth.png" />
 	  <None Remove="Chapter16\Dragon\AsleepDragonPassive.png" />
 	  <None Remove="Chapter16\Dragon\AwakeDragonPassive.png" />
 	  <None Remove="Chapter16\Dragon\DragonDead.png" />
@@ -456,6 +463,13 @@
 	  <EmbeddedResource Include="Chapter15\RBYPBots\Sprites\YellowBotDead.png" />
 	  <EmbeddedResource Include="Chapter15\RBYPBots\Sprites\YellowBotIcon.png" />
 	  <EmbeddedResource Include="Chapter15\RBYPBots\Sprites\YellowBotWorld.png" />
+	  <EmbeddedResource Include="Chapter16\Crystal\CrystalDead.png" />
+	  <EmbeddedResource Include="Chapter16\Crystal\CrystalIcon.png" />
+	  <EmbeddedResource Include="Chapter16\Crystal\CrystalWorld.png" />
+	  <EmbeddedResource Include="Chapter16\Crystal\StoneDead.png" />
+	  <EmbeddedResource Include="Chapter16\Crystal\StoneIcon.png" />
+	  <EmbeddedResource Include="Chapter16\Crystal\StoneWorld.png" />
+	  <EmbeddedResource Include="Chapter16\Crystal\SweetTooth.png" />
 	  <EmbeddedResource Include="Chapter16\Dragon\AsleepDragonPassive.png" />
 	  <EmbeddedResource Include="Chapter16\Dragon\AwakeDragonPassive.png" />
 	  <EmbeddedResource Include="Chapter16\Dragon\DragonDead.png" />

@@ -28,6 +28,7 @@ namespace SaltEnemies_Reseasoned
     {
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
+            if (!CombatManager.Instance._stats.EnemiesAlive) return false;
             if (effector is IUnit unit)
             {
                 int amount = 0;
@@ -232,6 +233,27 @@ namespace SaltEnemies_Reseasoned
             exitAmount = 0;
             if (!caster.ContainsPassiveAbility(PassiveType_GameIDs.BoneSpurs.ToString())) caster.AddPassiveAbility(Passives.BoneSpurs2);
             else caster.SimpleSetStoredValue(UnitStoredValueNames_GameIDs.BoneSpursPA.ToString(), caster.SimpleGetStoredValue(UnitStoredValueNames_GameIDs.BoneSpursPA.ToString()) + 2);
+            return true;
+        }
+    }
+    public class CasterExtraAbilityEffect : EffectSO
+    {
+        public ExtraAbilityInfo _extraAbility;
+
+        public bool _removeExtraAbility;
+
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            if (_removeExtraAbility)
+            {
+                caster.TryRemoveExtraAbility(_extraAbility);
+            }
+            else
+            {
+                caster.AddExtraAbility(_extraAbility);
+            }
+
             return true;
         }
     }

@@ -31,7 +31,7 @@ namespace SaltEnemies_Reseasoned
             PerformEffectPassiveAbility vil = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             vil._passiveName = "Violent (" + amount.ToString() + ")";
             vil.passiveIcon = ResourceLoader.LoadSprite("ViolentPassive.png");
-            vil._enemyDescription = "On receiving direct damage, deal " + amount.ToString() + " damage to the Opposing position.";
+            vil._enemyDescription = "On receiving direct damage, deal " + amount.ToString() + " damage to the Opposing position.\nThis passive does not trigger if the damage received kills.";
             vil._characterDescription = vil._enemyDescription;
             vil.m_PassiveID = "Violent_PA";
             vil.doesPassiveTriggerInformationPanel = false;
