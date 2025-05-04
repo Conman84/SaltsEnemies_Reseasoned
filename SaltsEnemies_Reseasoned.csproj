@@ -29,6 +29,11 @@
 	  <None Remove="Chapter10\Reaper\ReaperDead.png" />
 	  <None Remove="Chapter10\Reaper\ReaperIcon.png" />
 	  <None Remove="Chapter10\Reaper\ReaperWorld.png" />
+	  <None Remove="Chapter10\Shua\CombativePassive.png" />
+	  <None Remove="Chapter10\Shua\Incomprehensible.png" />
+	  <None Remove="Chapter10\Shua\ShuaDead.png" />
+	  <None Remove="Chapter10\Shua\ShuaIcon.png" />
+	  <None Remove="Chapter10\Shua\ShuaWorld.png" />
 	  <None Remove="Chapter10\Skyloft\FlitheringIcon.png" />
 	  <None Remove="Chapter10\Skyloft\Lazy.png" />
 	  <None Remove="Chapter10\Skyloft\SkyloftDead.png" />
@@ -298,6 +303,11 @@
 	  <EmbeddedResource Include="Chapter10\Reaper\ReaperDead.png" />
 	  <EmbeddedResource Include="Chapter10\Reaper\ReaperIcon.png" />
 	  <EmbeddedResource Include="Chapter10\Reaper\ReaperWorld.png" />
+	  <EmbeddedResource Include="Chapter10\Shua\CombativePassive.png" />
+	  <EmbeddedResource Include="Chapter10\Shua\Incomprehensible.png" />
+	  <EmbeddedResource Include="Chapter10\Shua\ShuaDead.png" />
+	  <EmbeddedResource Include="Chapter10\Shua\ShuaIcon.png" />
+	  <EmbeddedResource Include="Chapter10\Shua\ShuaWorld.png" />
 	  <EmbeddedResource Include="Chapter10\Skyloft\FlitheringIcon.png" />
 	  <EmbeddedResource Include="Chapter10\Skyloft\Lazy.png" />
 	  <EmbeddedResource Include="Chapter10\Skyloft\SkyloftDead.png" />

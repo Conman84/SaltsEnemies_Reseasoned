@@ -80,20 +80,11 @@ namespace SaltEnemies_Reseasoned
                 if (unit.MaximumHealth > 4)
                 {
                     CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(unit.ID, unit.IsUnitCharacter, _passiveName, passiveIcon));
-                    if (GibsWithHeal(unit, unit.MaximumHealth - unit.CurrentHealth, null, true) > 0)
+                    if (unit is EnemyCombat enemy)
                     {
-                        booleanReference.value = false;
                         float gap = unit.MaximumHealth;
                         gap /= 2;
-                        unit.MaximizeHealth((int)Math.Floor(gap));
-                        if (unit.IsUnitCharacter)
-                        {
-                            ScriptableObject.CreateInstance<ApplyStunnedEffect>().PerformEffect(CombatManager.Instance._stats, unit, Slots.Self.GetTargets(CombatManager.Instance._stats.combatSlots, unit.SlotID, unit.IsUnitCharacter), Slots.Self.AreTargetSlots, 1, out int graggler);
-                        }
-                        else
-                        {
-                            CombatManager.Instance.ProcessImmediateAction(new OverexertTriggeredAction(unit.ID, unit.IsUnitCharacter));
-                        }
+                        CombatManager.Instance.AddSubAction(new SpawnEnemyAction(enemy.Enemy, enemy.SlotID, false, true, CombatType_GameIDs.Spawn_Basic.ToString(), (int)gap));
                     }
                 }
                 ScriptableObject.CreateInstance<ApplyFireSlotEffect>().PerformEffect(CombatManager.Instance._stats, unit, Slots.Self.GetTargets(CombatManager.Instance._stats.combatSlots, unit.SlotID, unit.IsUnitCharacter), Slots.Self.AreTargetSlots, 1, out int exit);
