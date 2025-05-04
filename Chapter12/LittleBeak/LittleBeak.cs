@@ -47,6 +47,7 @@ namespace SaltsEnemies_Reseasoned
 
             //addpassives
             beak.AddPassives(new BasePassiveAbilitySO[] { nervous });
+            beak.UnitTypes = new List<string> { "Bird" };
 
             //beak
             Ability point = new Ability("PointedBeak_A")

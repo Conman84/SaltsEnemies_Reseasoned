@@ -11,7 +11,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Enemy template = new Enemy("Warbird", "Warbird_EN")
+            Enemy scarecrow = new Enemy("Warbird", "Warbird_EN")
             {
                 Health = 20,
                 HealthColor = Pigments.Grey,
@@ -21,7 +21,7 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetEnemy("RealisticTank_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("RealisticTank_EN").deathSound,
             };
-            template.PrepareEnemyPrefab("assets/group4/Scarecrow/Scarecrow_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Scarecrow/Scarecrow_Gibs.prefab").GetComponent<ParticleSystem>());
+            scarecrow.PrepareEnemyPrefab("assets/group4/Scarecrow/Scarecrow_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Scarecrow/Scarecrow_Gibs.prefab").GetComponent<ParticleSystem>());
 
             //REPRESSION
             RepressionPassiveAbility.Setup();
@@ -38,7 +38,8 @@ namespace SaltsEnemies_Reseasoned
             repression._isItAdditive = ((IntegerSetterPassiveAbility)Passives.MultiAttack2)._isItAdditive;
             repression.integerValue = 1;
 
-            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Formless, repression });
+            scarecrow.AddPassives(new BasePassiveAbilitySO[] { Passives.Formless, repression });
+            scarecrow.UnitTypes = new List<string> { "Bird" };
 
             //statue
             Ability statue = new Ability("Scarecrow_Statue_A")
@@ -73,12 +74,12 @@ namespace SaltsEnemies_Reseasoned
             screech.AddIntentsToTarget(Targetting.AllEnemy, new string[] { IntentType_GameIDs.Damage_1_2.ToString(), IntentType_GameIDs.Status_Ruptured.ToString() });
 
             //ADD ENEMY
-            template.AddEnemyAbilities(new EnemyAbilityInfo[]
+            scarecrow.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 statue.GenerateEnemyAbility(true),
                 screech.GenerateEnemyAbility(true)
             });
-            template.AddEnemy(true, true);
+            scarecrow.AddEnemy(true, true);
         }
     }
 }
