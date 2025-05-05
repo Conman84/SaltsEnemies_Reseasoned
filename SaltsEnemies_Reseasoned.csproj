@@ -257,6 +257,10 @@
 	  <None Remove="Chapter18\Shooter\ShooterDead.png" />
 	  <None Remove="Chapter18\Shooter\ShooterIcon.png" />
 	  <None Remove="Chapter18\Shooter\ShooterWorld.png" />
+	  <None Remove="Chapter18\Sinker\LonelyIcon.png" />
+	  <None Remove="Chapter18\Sinker\SinkerDead.png" />
+	  <None Remove="Chapter18\Sinker\SinkerIcon.png" />
+	  <None Remove="Chapter18\Sinker\SinkerWorld.png" />
 	  <None Remove="Chapter19\Starless\AllKnowingPassive.png" />
 	  <None Remove="Chapter19\Starless\AllSeeingPassive.png" />
 	  <None Remove="Chapter19\Starless\EyelessDead.png" />
@@ -562,6 +566,10 @@
 	  <EmbeddedResource Include="Chapter18\Shooter\ShooterDead.png" />
 	  <EmbeddedResource Include="Chapter18\Shooter\ShooterIcon.png" />
 	  <EmbeddedResource Include="Chapter18\Shooter\ShooterWorld.png" />
+	  <EmbeddedResource Include="Chapter18\Sinker\LonelyIcon.png" />
+	  <EmbeddedResource Include="Chapter18\Sinker\SinkerDead.png" />
+	  <EmbeddedResource Include="Chapter18\Sinker\SinkerIcon.png" />
+	  <EmbeddedResource Include="Chapter18\Sinker\SinkerWorld.png" />
 	  <EmbeddedResource Include="Chapter19\Starless\AllKnowingPassive.png" />
 	  <EmbeddedResource Include="Chapter19\Starless\AllSeeingPassive.png" />
 	  <EmbeddedResource Include="Chapter19\Starless\EyelessDead.png" />
