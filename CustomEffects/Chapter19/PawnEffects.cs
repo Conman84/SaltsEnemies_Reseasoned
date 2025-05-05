@@ -50,7 +50,7 @@ namespace SaltEnemies_Reseasoned
         public static DamageInfo EnemyCombat_Damage(Func<EnemyCombat, int, IUnit, string, int, bool, bool, bool, string, DamageInfo> orig, EnemyCombat self, int amount, IUnit killer, string deathTypeID, int targetSlotOffset, bool addHealthMana, bool directDamage, bool ignoresShield, string specialDamage)
         {
             DamageInfo ret = orig(self, amount, killer, deathTypeID, targetSlotOffset, addHealthMana, directDamage, ignoresShield, specialDamage);
-            if (killer != null && ret.damageAmount > 0 && self.IsAlive)
+            if (killer != null && ret.damageAmount > 0 && self.CurrentHealth > 0)
             {
                 CombatManager.Instance.PostNotification(Call.ToString(), self, self.IsUnitCharacter == killer.IsUnitCharacter);
             }
