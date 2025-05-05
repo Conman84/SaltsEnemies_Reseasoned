@@ -26,6 +26,7 @@ namespace SaltsEnemies_Reseasoned
             pawn.PrepareEnemyPrefab("Assets/enem3/Pawn_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Pawn_Gibs.prefab").GetComponent<ParticleSystem>());
 
             //traitor
+            TraitorHandler.Setup();
             PerformEffectPassiveAbility traitor = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             traitor._passiveName = "Traitor";
             traitor.passiveIcon = ResourceLoader.LoadSprite("TraitorPassive.png");
