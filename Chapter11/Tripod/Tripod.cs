@@ -74,7 +74,7 @@ namespace SaltsEnemies_Reseasoned
             Ability shortStomp = new Ability("ShortStomp_A")
             {
                 Name = "Short Stomp",
-                Description = "If this enemy does not Confusion as a Passive, heal it a Moderate amount health. \nOtherwise, deal a Painful amount of damage to the Opposing party member and inflict 2 Ruptured upon them. Move this enemy 3 spaces Left or Right.",
+                Description = "If this enemy does not Confusion as a Passive, heal it a Moderate amount health. \nOtherwise, deal a Painful amount of damage to the Opposing party member and inflict 2 Ruptured upon them, then move this enemy 3 spaces Left or Right.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("Tripod8", 8),
                 Effects = new EffectInfo[]
                 {

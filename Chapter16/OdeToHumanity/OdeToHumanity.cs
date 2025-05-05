@@ -81,7 +81,7 @@ namespace SaltsEnemies_Reseasoned
             holdhands.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Mana_Modify.ToString()]);
             holdhands.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Sides.ToString()]);
             holdhands.Visuals = LoadedAssetsHandler.GetCharacterAbility("Weave_1_A").visuals;
-            holdhands.AnimationTarget = Slots.Self;
+            holdhands.AnimationTarget = Slots.Front;
 
             Ability lockfingers = new Ability("Lock Fingers", "LockFingers_A");
             lockfingers.Description = "Move to the Left or Right, then deal a Barely Painful amount of damage to the Opposing party member and change their health color to this enemy's.";
