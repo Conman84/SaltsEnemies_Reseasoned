@@ -19,7 +19,7 @@ namespace SaltEnemies_Reseasoned
             TerrorInfo.icon = ResourceLoader.LoadSprite("terror.png");
             Debug.LogError("Terror.Add. put the right sprite here");
             TerrorInfo._statusName = "Terror";
-            TerrorInfo._description = "This unit lives in fear. \nOnly one unit may have Terror at a time.";
+            TerrorInfo._description = "At the end of each turn, if this unit is facing another unit, decrease their maximum health by 1. \nOnly one unit may have Terror at a time.";
             TerrorInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Cursed_ID.ToString()]._EffectInfo.AppliedSoundEvent;
             TerrorInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Cursed_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             TerrorInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Cursed_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
@@ -90,11 +90,20 @@ namespace SaltEnemies_Reseasoned
         {
             CombatManager.Instance.PostNotification(Terror.Trigger, null, null);
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, Terror.Trigger, caller);
+            CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnFinished.ToString(), caller);
         }
 
         public override void OnTriggerDettached(StatusEffect_Holder holder, IStatusEffector caller)
         {
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, Terror.Trigger, caller);
+            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnFinished.ToString(), caller);
+        }
+        public override void OnEventCall_01(StatusEffect_Holder holder, object sender, object args)
+        {
+            if (sender is IUnit unit)
+            {
+                CombatManager.Instance.AddSubAction(new EffectAction(Effects.GenerateEffect(MaxHealth.Decrease, 1, Slots.Self, ScriptableObject.CreateInstance<IsFrontTargetCondition>()).SelfArray(), unit));
+            }
         }
         public override void OnEventCall_02(StatusEffect_Holder holder, object sender, object args)
         {

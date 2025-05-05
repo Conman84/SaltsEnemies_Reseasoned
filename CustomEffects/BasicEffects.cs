@@ -196,4 +196,25 @@ namespace SaltEnemies_Reseasoned
             return true;
         }
     }
+    public static class MaxHealth
+    {
+        public static ChangeMaxHealthEffect Increase
+        {
+            get
+            {
+                ChangeMaxHealthEffect ret = ScriptableObject.CreateInstance<ChangeMaxHealthEffect>();
+                ret._increase = true;
+                return ret;
+            }
+        }
+        public static ChangeMaxHealthEffect Decrease
+        {
+            get
+            {
+                ChangeMaxHealthEffect ret = ScriptableObject.CreateInstance<ChangeMaxHealthEffect>();
+                ret._increase = false;
+                return ret;
+            }
+        }
+    }
 }
