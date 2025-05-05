@@ -11,6 +11,7 @@ namespace SaltEnemies_Reseasoned.SendingOver17
 
         public override int GetNextAbilitySlotUsage(List<CombatAbility> abilities, IUnit unit)
         {
+            if (CombatManager.Instance._stats.IsPassiveLocked("Cyclical_PA")) return base.GetNextAbilitySlotUsage(abilities, unit);
             int ret = -1;
             if (unit is EnemyCombat enemy)
             {
