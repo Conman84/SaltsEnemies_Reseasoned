@@ -243,6 +243,11 @@
 	  <None Remove="Chapter16\Dragon\DragonDead.png" />
 	  <None Remove="Chapter16\Dragon\DragonIcon.png" />
 	  <None Remove="Chapter16\Dragon\DragonWorld.png" />
+	  <None Remove="Chapter16\OdeToHumanity\RewritePassive.png" />
+	  <None Remove="Chapter16\OdeToHumanity\VaseDead.png" />
+	  <None Remove="Chapter16\OdeToHumanity\VaseIcon.png" />
+	  <None Remove="Chapter16\OdeToHumanity\VaseWorld.png" />
+	  <None Remove="Chapter16\OdeToHumanity\WeaknessPassive.png" />
 	  <None Remove="Chapter17\EvilEye\CyclicalPassive.png" />
 	  <None Remove="Chapter17\EvilEye\EyeballDead.png" />
 	  <None Remove="Chapter17\EvilEye\EyeballIcon.png" />
@@ -569,6 +574,11 @@
 	  <EmbeddedResource Include="Chapter16\Dragon\DragonDead.png" />
 	  <EmbeddedResource Include="Chapter16\Dragon\DragonIcon.png" />
 	  <EmbeddedResource Include="Chapter16\Dragon\DragonWorld.png" />
+	  <EmbeddedResource Include="Chapter16\OdeToHumanity\RewritePassive.png" />
+	  <EmbeddedResource Include="Chapter16\OdeToHumanity\VaseDead.png" />
+	  <EmbeddedResource Include="Chapter16\OdeToHumanity\VaseIcon.png" />
+	  <EmbeddedResource Include="Chapter16\OdeToHumanity\VaseWorld.png" />
+	  <EmbeddedResource Include="Chapter16\OdeToHumanity\WeaknessPassive.png" />
 	  <EmbeddedResource Include="Chapter17\EvilEye\CyclicalPassive.png" />
 	  <EmbeddedResource Include="Chapter17\EvilEye\EyeballDead.png" />
 	  <EmbeddedResource Include="Chapter17\EvilEye\EyeballIcon.png" />

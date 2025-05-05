@@ -1,8 +1,10 @@
-﻿using SaltsEnemies_Reseasoned;
+﻿using BrutalAPI;
+using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using static UnityEngine.UI.CanvasScaler;
 
 //call weaknesshandelr.setup in awake
 
@@ -27,6 +29,7 @@ namespace SaltEnemies_Reseasoned
                 {
                     if (enemy.TryGetPassiveAbility(Passive, out BasePassiveAbilitySO ret))
                     {
+                        if (!enemy.HealthColor.SharesPigmentColor(unit.HealthColor)) continue;
                         mod *= 2;
                         ids.Add(enemy.ID);
                         charas.Add(false);
@@ -39,6 +42,7 @@ namespace SaltEnemies_Reseasoned
                 {
                     if (chara.TryGetPassiveAbility(Passive, out BasePassiveAbilitySO ret))
                     {
+                        if (!chara.HealthColor.SharesPigmentColor(unit.HealthColor)) continue;
                         mod *= 2;
                         ids.Add(chara.ID);
                         charas.Add(true);
@@ -55,5 +59,25 @@ namespace SaltEnemies_Reseasoned
             }
         }
         public static void Setup() => NotificationHook.AddAction(NotifCheck);
+    }
+    public class RandomizeTargetHealthColorEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit)
+                {
+                    IUnit unit = target.Unit;
+                    List<ManaColorSO> colors = new List<ManaColorSO>() { Pigments.Red, Pigments.Blue, Pigments.Yellow, Pigments.Purple, Pigments.Grey };
+                    if (unit is EnemyCombat enemy && !colors.Contains(enemy.Enemy.healthColor)) colors.Add(enemy.Enemy.healthColor);
+                    else if (unit is CharacterCombat chara && !colors.Contains(chara.Character.healthColor)) colors.Add(chara.Character.healthColor);
+                    if (colors.Contains(unit.HealthColor)) colors.Remove(unit.HealthColor);
+                    if (unit.ChangeHealthColor(colors.GetRandom())) exitAmount++;
+                }
+            }
+            return exitAmount > 0;
+        }
     }
 }
