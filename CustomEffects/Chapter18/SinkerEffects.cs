@@ -88,4 +88,14 @@ namespace SaltEnemies_Reseasoned
             return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
         }
     }
+    public class AlarmCondition : HasEnemySpaceEffectCondition
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            int pass = 30;
+            if (CombatManager.Instance._stats.EnemiesOnField.Count <= 1) pass *= 2;
+            if (UnityEngine.Random.Range(0, 100) > pass) return false;
+            return base.MeetCondition(caster, effects, currentIndex);
+        }
+    }
 }
