@@ -75,11 +75,11 @@ namespace SaltsEnemies_Reseasoned
             Ability hurdle = new Ability("Hurdle_A")
             {
                 Name = "Hurdle",
-                Description = "Deal damage to the Opposing party members by the amount of Shield on this enemy's positions. Move this enemy to the Left or Right.",
+                Description = "Deal damage to the Opposing party members by the double amount of Shield on this enemy's positions. Move this enemy to the Left or Right.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(DamageByFieldAmountEffect.Create(StatusField_GameIDs.Shield_ID.ToString(), true, true), 1, Slots.Front),
+                    Effects.GenerateEffect(DamageByFieldAmountEffect.Create(StatusField_GameIDs.Shield_ID.ToString(), true, true), 2, Slots.Front),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Targeting.Slot_SelfSlot),
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Crush"),

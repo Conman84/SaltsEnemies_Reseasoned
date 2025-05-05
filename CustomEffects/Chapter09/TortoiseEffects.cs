@@ -142,7 +142,7 @@ namespace SaltEnemies_Reseasoned
             foreach (TargetSlotInfo target in targets)
             {
                 int amount = StatusExtensions.GetFieldAmountFromID(target.SlotID, Opposing ? !target.IsTargetCharacterSlot : target.IsTargetCharacterSlot, FieldID, includeRestrictor);
-                if (base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable * amount, out int exi)) exitAmount += exi;
+                if (base.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, entryVariable * amount, out int exi)) exitAmount += exi;
             }
             return exitAmount > 0;
         }
