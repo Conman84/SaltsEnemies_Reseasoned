@@ -22,6 +22,11 @@
 	  <None Remove="Chapter09\Grandfather\CoffinWorld.png" />
 	  <None Remove="Chapter09\Grandfather\DisabledIcon.png" />
 	  <None Remove="Chapter09\Grandfather\enrupture.png" />
+	  <None Remove="Chapter09\StalwartTortoise\algophobia.png" />
+	  <None Remove="Chapter09\StalwartTortoise\heavily_armored.png" />
+	  <None Remove="Chapter09\StalwartTortoise\TortoiseDead.png" />
+	  <None Remove="Chapter09\StalwartTortoise\TortoiseIcon.png" />
+	  <None Remove="Chapter09\StalwartTortoise\TortoiseWorld.png" />
 	  <None Remove="Chapter10\Medamaude\EyePalmDead.png" />
 	  <None Remove="Chapter10\Medamaude\EyePalmIcon.png" />
 	  <None Remove="Chapter10\Medamaude\EyePalmWorld.png" />
@@ -322,6 +327,11 @@
 	  <EmbeddedResource Include="Chapter09\Grandfather\CoffinWorld.png" />
 	  <EmbeddedResource Include="Chapter09\Grandfather\DisabledIcon.png" />
 	  <EmbeddedResource Include="Chapter09\Grandfather\enrupture.png" />
+	  <EmbeddedResource Include="Chapter09\StalwartTortoise\algophobia.png" />
+	  <EmbeddedResource Include="Chapter09\StalwartTortoise\heavily_armored.png" />
+	  <EmbeddedResource Include="Chapter09\StalwartTortoise\TortoiseDead.png" />
+	  <EmbeddedResource Include="Chapter09\StalwartTortoise\TortoiseIcon.png" />
+	  <EmbeddedResource Include="Chapter09\StalwartTortoise\TortoiseWorld.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\EyePalmDead.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\EyePalmIcon.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\EyePalmWorld.png" />
