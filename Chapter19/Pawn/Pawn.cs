@@ -85,7 +85,7 @@ namespace SaltsEnemies_Reseasoned
             //murder
             Ability murder = new Ability("Murderer A", "Murderer_A");
             murder.Description = "Consume 2 random Pigment.\nMight deal an Agonizing amount of damage to the Opposing party member.";
-            murder.Rarity = Rarity.GetCustomRarity("rairty5");
+            murder.Rarity = Rarity.GetCustomRarity("rarity5");
             murder.Effects = new EffectInfo[2];
             murder.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeRandomManaEffect>(), 2, Slots.Self);
             murder.Effects[1] = Effects.GenerateEffect(ChanceZeroDamageEffect.Create(0.5f), 8, Slots.Front);
