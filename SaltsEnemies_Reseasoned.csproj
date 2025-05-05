@@ -50,6 +50,12 @@
 	  <None Remove="Chapter11\GlassFigurine\GlassIcon.png" />
 	  <None Remove="Chapter11\GlassFigurine\GlassPortal.png" />
 	  <None Remove="Chapter11\GlassFigurine\GlassWorld.png" />
+	  <None Remove="Chapter11\Rabies\RabiesDead.png" />
+	  <None Remove="Chapter11\Rabies\RabiesIcon.png" />
+	  <None Remove="Chapter11\Rabies\RabiesWorld.png" />
+	  <None Remove="Chapter11\Tripod\TripodDead.png" />
+	  <None Remove="Chapter11\Tripod\TripodIcon.png" />
+	  <None Remove="Chapter11\Tripod\TripodWorld.png" />
 	  <None Remove="Chapter12\Hunter\HunterDead.png" />
 	  <None Remove="Chapter12\Hunter\HunterIcon.png" />
 	  <None Remove="Chapter12\Hunter\hunterpassive.png" />
@@ -367,6 +373,12 @@
 	  <EmbeddedResource Include="Chapter11\GlassFigurine\GlassIcon.png" />
 	  <EmbeddedResource Include="Chapter11\GlassFigurine\GlassPortal.png" />
 	  <EmbeddedResource Include="Chapter11\GlassFigurine\GlassWorld.png" />
+	  <EmbeddedResource Include="Chapter11\Rabies\RabiesDead.png" />
+	  <EmbeddedResource Include="Chapter11\Rabies\RabiesIcon.png" />
+	  <EmbeddedResource Include="Chapter11\Rabies\RabiesWorld.png" />
+	  <EmbeddedResource Include="Chapter11\Tripod\TripodDead.png" />
+	  <EmbeddedResource Include="Chapter11\Tripod\TripodIcon.png" />
+	  <EmbeddedResource Include="Chapter11\Tripod\TripodWorld.png" />
 	  <EmbeddedResource Include="Chapter12\Hunter\HunterDead.png" />
 	  <EmbeddedResource Include="Chapter12\Hunter\HunterIcon.png" />
 	  <EmbeddedResource Include="Chapter12\Hunter\hunterpassive.png" />
