@@ -53,7 +53,7 @@ namespace SaltsEnemies_Reseasoned
             revenge._passiveName = "Revenge";
             revenge.m_PassiveID = "Revenge_PA";
             revenge.passiveIcon = ResourceLoader.LoadSprite("Revenge.png");
-            revenge._characterDescription = "On taking direct damage, give this enemy another ability.";
+            revenge._characterDescription = "NOTHING!!!!";
             revenge._enemyDescription = "On taking direct damage, give this enemy another ability.";
             revenge.doesPassiveTriggerInformationPanel = true;
             revenge.effects = new EffectInfo[]
