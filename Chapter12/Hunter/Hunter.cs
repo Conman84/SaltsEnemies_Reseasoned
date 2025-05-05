@@ -38,18 +38,19 @@ namespace SaltsEnemies_Reseasoned
 
             //nest
             Ability nest = new Ability("Nest", "Hunter_Nest_A");
-            nest.Description = "Apply 6 Shield to this enemy's position.\nDeal a Little damage to the Opposing party member and force them to move to the Left or Right 3 times.";
+            nest.Description = "Remove all Shield from this enemy's position and then apply 6 Shield to it.\nDeal a Little damage to the Opposing party member and force them to move to the Left or Right 3 times.";
             nest.Rarity = Rarity.GetCustomRarity("rarity5");
-            nest.Effects = new EffectInfo[3];
-            nest.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 6, Slots.Self);
-            nest.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Front);
-            nest.Effects[2] = Effects.GenerateEffect(SubActionEffect.Create(new EffectInfo[]
+            nest.Effects = new EffectInfo[4];
+            nest.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveAllShieldsEffect>(), 1, Slots.Self);
+            nest.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 6, Slots.Self);
+            nest.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Front);
+            nest.Effects[3] = Effects.GenerateEffect(SubActionEffect.Create(new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self),
             }), 1, Slots.Front);
-            nest.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Field_Shield.ToString()]);
+            nest.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Rem_Field_Shield.ToString(), IntentType_GameIDs.Field_Shield.ToString()]);
             nest.AddIntentsToTarget(Slots.Front, new string[]
             {
                 IntentType_GameIDs.Damage_1_2.ToString(),
