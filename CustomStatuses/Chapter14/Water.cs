@@ -283,25 +283,4 @@ namespace SaltEnemies_Reseasoned
         }
     }
 
-    public static class StatusExtensions
-    {
-        public static StatusEffect_Holder GetStatus(this IUnit self, string id)
-        {
-            if (!self.ContainsStatusEffect(id)) return null;
-            foreach (IStatusEffect holder in (self as IStatusEffector).StatusEffects)
-            {
-                if (holder.StatusID == id && holder is StatusEffect_Holder ret) return ret;
-            }
-            return null;
-        }
-        public static int GetStatusAmount(this IUnit self, string id, bool includeRestrictor = false)
-        {
-            if (!self.ContainsStatusEffect(id)) return 0;
-            foreach (IStatusEffect holder in (self as IStatusEffector).StatusEffects)
-            {
-                if (holder.StatusID == id) return includeRestrictor ? holder.StatusContent + holder.Restrictor : holder.StatusContent;
-            }
-            return 0;
-        }
-    }
 }
