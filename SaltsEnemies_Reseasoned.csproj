@@ -45,6 +45,10 @@
 	  <None Remove="Chapter11\GlassFigurine\GlassIcon.png" />
 	  <None Remove="Chapter11\GlassFigurine\GlassPortal.png" />
 	  <None Remove="Chapter11\GlassFigurine\GlassWorld.png" />
+	  <None Remove="Chapter12\Hunter\HunterDead.png" />
+	  <None Remove="Chapter12\Hunter\HunterIcon.png" />
+	  <None Remove="Chapter12\Hunter\hunterpassive.png" />
+	  <None Remove="Chapter12\Hunter\HunterWorld.png" />
 	  <None Remove="Chapter12\LittleBeak\BeakDead.png" />
 	  <None Remove="Chapter12\LittleBeak\BeakIcon.png" />
 	  <None Remove="Chapter12\LittleBeak\BeakWorld.png" />
@@ -279,6 +283,7 @@
 	  <None Remove="CustomStatuses\Chapter08\Haste.png" />
 	  <None Remove="CustomStatuses\Chapter08\HollowIcon.png" />
 	  <None Remove="CustomStatuses\Chapter09\Acid.png" />
+	  <None Remove="CustomStatuses\Chapter12\terror.png" />
 	  <None Remove="CustomStatuses\Chapter14\DeepFieldIcon.png" />
 	  <None Remove="CustomStatuses\Chapter14\Drowning.png" />
 	  <None Remove="CustomStatuses\Chapter14\SlipIcon.png" />
@@ -340,6 +345,10 @@
 	  <EmbeddedResource Include="Chapter11\GlassFigurine\GlassIcon.png" />
 	  <EmbeddedResource Include="Chapter11\GlassFigurine\GlassPortal.png" />
 	  <EmbeddedResource Include="Chapter11\GlassFigurine\GlassWorld.png" />
+	  <EmbeddedResource Include="Chapter12\Hunter\HunterDead.png" />
+	  <EmbeddedResource Include="Chapter12\Hunter\HunterIcon.png" />
+	  <EmbeddedResource Include="Chapter12\Hunter\hunterpassive.png" />
+	  <EmbeddedResource Include="Chapter12\Hunter\HunterWorld.png" />
 	  <EmbeddedResource Include="Chapter12\LittleBeak\BeakDead.png" />
 	  <EmbeddedResource Include="Chapter12\LittleBeak\BeakIcon.png" />
 	  <EmbeddedResource Include="Chapter12\LittleBeak\BeakWorld.png" />
@@ -580,6 +589,7 @@
 	  <EmbeddedResource Include="CustomStatuses\Chapter08\Haste.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter08\HollowIcon.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter09\Acid.png" />
+	  <EmbeddedResource Include="CustomStatuses\Chapter12\terror.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter14\DeepFieldIcon.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter14\Drowning.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter14\SlipIcon.png" />
