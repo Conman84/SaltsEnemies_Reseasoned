@@ -85,6 +85,7 @@ namespace SaltEnemies_Reseasoned
                         float gap = unit.MaximumHealth;
                         gap /= 2;
                         CombatManager.Instance.AddSubAction(new SpawnEnemyAction(enemy.Enemy, enemy.SlotID, false, true, CombatType_GameIDs.Spawn_Basic.ToString(), (int)gap));
+                        enemy.HasFled = true;
                     }
                 }
                 ScriptableObject.CreateInstance<ApplyFireSlotEffect>().PerformEffect(CombatManager.Instance._stats, unit, Slots.Self.GetTargets(CombatManager.Instance._stats.combatSlots, unit.SlotID, unit.IsUnitCharacter), Slots.Self.AreTargetSlots, 1, out int exit);
