@@ -16,6 +16,7 @@ namespace SaltEnemies_Reseasoned
             if (notifname != TriggerCalls.OnBeingDamaged.ToString()) return;
             if (sender is IUnit unit && args is DamageReceivedValueChangeException hitBy)
             {
+                if (unit.ContainsPassiveAbility(Passive)) return;
                 int mod = 1;
                 List<int> ids = new List<int>();
                 List<bool> charas = new List<bool>();
