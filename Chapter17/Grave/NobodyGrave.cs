@@ -35,6 +35,7 @@ namespace SaltsEnemies_Reseasoned
             bonus.Description = "Summon a Defender.";
             SpawnEnemyByStringNameEffect defender = ScriptableObject.CreateInstance<SpawnEnemyByStringNameEffect>();
             defender.enemyName = "Defender_EN";
+            defender._spawnTypeID = CombatType_GameIDs.Spawn_Basic.ToString();
             bonus.Effects = Effects.GenerateEffect(defender, 1, Slots.Self).SelfArray();
             bonus.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Other_Spawn.ToString()]);
             bonus.Visuals = LoadedAssetsHandler.GetEnemyAbility("UglyOnTheInside_A").visuals;
@@ -69,6 +70,7 @@ namespace SaltsEnemies_Reseasoned
             putrification.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMoldFieldEffect>(), 3, Targeting.Slot_OpponentSides);
             putrification.AddIntentsToTarget(Slots.Sides, [Mold.Intent]);
             putrification.AddIntentsToTarget(Slots.LeftRight, [Mold.Intent]);
+            putrification.AddIntentsToTarget(ScriptableObject.CreateInstance<EmptyTargetting>(), [Mold.Intent, Mold.Intent]);
             putrification.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
             putrification.AnimationTarget = MultiTargetting.Create(Slots.Sides, Slots.LeftRight);
 
@@ -80,6 +82,7 @@ namespace SaltsEnemies_Reseasoned
             under.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMoldFieldEffect>(), 1, MultiTargetting.Create(Targeting.GenerateGenericTarget([0, 1, 2, 3, 4], false), Targeting.GenerateGenericTarget([0, 1, 2, 3, 4], true))).SelfArray();
             under.AddIntentsToTarget(Targeting.GenerateGenericTarget([0, 1, 2, 3, 4], true), [Mold.Intent]);
             under.AddIntentsToTarget(Targeting.GenerateGenericTarget([0, 1, 2, 3, 4], false), [Mold.Intent]);
+            under.AddIntentsToTarget(ScriptableObject.CreateInstance<EmptyTargetting>(), [Mold.Intent, Mold.Intent, Mold.Intent]);
             under.Visuals = CustomVisuals.GetVisuals("Salt/Claws");
             under.AnimationTarget = MultiTargetting.Create(Targeting.GenerateGenericTarget([0, 1, 2, 3, 4], true), Targeting.GenerateGenericTarget([0, 1, 2, 3, 4], false));
 
