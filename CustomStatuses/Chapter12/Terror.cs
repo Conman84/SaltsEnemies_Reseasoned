@@ -17,7 +17,6 @@ namespace SaltEnemies_Reseasoned
         {
             StatusEffectInfoSO TerrorInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             TerrorInfo.icon = ResourceLoader.LoadSprite("terror.png");
-            Debug.LogError("Terror.Add. put the right sprite here");
             TerrorInfo._statusName = "Terror";
             TerrorInfo._description = "At the end of each turn, if this unit is facing another unit, decrease their maximum health by 1. \nOnly one unit may have Terror at a time.";
             TerrorInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Cursed_ID.ToString()]._EffectInfo.AppliedSoundEvent;
@@ -102,7 +101,7 @@ namespace SaltEnemies_Reseasoned
         {
             if (sender is IUnit unit)
             {
-                CombatManager.Instance.AddSubAction(new EffectAction(Effects.GenerateEffect(MaxHealth.Decrease, 1, Slots.Self, ScriptableObject.CreateInstance<IsFrontTargetCondition>()).SelfArray(), unit));
+                CombatManager.Instance.AddSubAction(new EffectAction(Effects.GenerateEffect(MaxHealth.Decrease, 1, Slots.Self, IsFrontTargetCondition.Create(true)).SelfArray(), unit));
             }
         }
         public override void OnEventCall_02(StatusEffect_Holder holder, object sender, object args)

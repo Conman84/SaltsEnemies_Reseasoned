@@ -9,6 +9,7 @@ using System.Text;
 using UnityEngine;
 using SaltsEnemies_Reseasoned;
 using EnemyPack.Effects;
+using FMOD;
 
 //To put it lightly, this is where it starts getting annoying
 
@@ -367,6 +368,12 @@ namespace SaltEnemies_Reseasoned
                 if (target.HasUnit) return returnTrue;
             }
             return !returnTrue;
+        }
+        public static IsFrontTargetCondition Create(bool should)
+        {
+            IsFrontTargetCondition ret = ScriptableObject.CreateInstance<IsFrontTargetCondition>();
+            ret.returnTrue = should;
+            return ret;
         }
     }
     public class CopyStatusOntoCasterEffect : StatusEffect_Apply_Effect
