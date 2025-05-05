@@ -93,7 +93,7 @@ namespace SaltEnemies_Reseasoned
             {
                 if (target.HasUnit)
                 {
-                    CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, caster.IsUnitCharacter, "Infestation", Passives.Infestation1.passiveIcon));
+                    CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(target.Unit.ID, target.Unit.IsUnitCharacter, "Infestation", Passives.Infestation1.passiveIcon));
                     if (target.Unit.ContainsPassiveAbility(PassiveType_GameIDs.Infestation.ToString())) target.Unit.SimpleSetStoredValue(UnitStoredValueNames_GameIDs.InfestationPA.ToString(), target.Unit.SimpleGetStoredValue(UnitStoredValueNames_GameIDs.InfestationPA.ToString()) + 1);
                     else target.Unit.AddPassiveAbility(Passives.Infestation1);
                     exitAmount++;
