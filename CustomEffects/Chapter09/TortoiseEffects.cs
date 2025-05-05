@@ -61,8 +61,7 @@ namespace SaltEnemies_Reseasoned
             {
                 if (!stats.combatSlots.UnitInSlotContainsFieldEffect(SlotID, character, StatusField_GameIDs.Shield_ID.ToString()))
                 {
-                    Debug.LogError("ArmorAction: MAKE SURE THIS IS LOADING THE RIGHT SPRITE");
-                    CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(UnitID, character, "Heavily Armored (10)", ResourceLoader.LoadSprite("heavily_armored")));
+                    CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(UnitID, character, "Heavily Armored (10)", ResourceLoader.LoadSprite("heavily_armored.png")));
                     stats.combatSlots.ApplyFieldEffect(SlotID, character, StatusField.Shield, 10);
                 }
             }

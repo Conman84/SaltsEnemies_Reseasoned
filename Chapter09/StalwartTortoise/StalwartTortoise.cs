@@ -50,7 +50,7 @@ namespace SaltsEnemies_Reseasoned
             painless.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<FleeTargetEffect>(), 1, Slots.Self).SelfArray();
             painless.specialStoredData = UnitStoreData.GetCustom_UnitStoreData(PainCondition.Modifier);
 
-            tortoise.AddPassives(new BasePassiveAbilitySO[] { armor, painless, Passives.Forgetful, Passives.FleetingGenerator(9) });
+            tortoise.AddPassives(new BasePassiveAbilitySO[] { armor, painless, Passives.Forgetful });
             tortoise.CombatEnterEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ArmorEffect>(), 1, Targetting.AllSelfSlots).SelfArray();
 
             //breath
