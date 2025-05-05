@@ -48,7 +48,21 @@ namespace SaltsEnemies_Reseasoned
             backlash._triggerOn = [TriggerCalls.OnDirectDamaged];
             backlash.effects = [];
 
-            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Withering, repression, backlash, Passives.Masochism1 });
+            //revenge
+            PerformEffectPassiveAbility revenge = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            revenge._passiveName = "Revenge";
+            revenge.m_PassiveID = "Revenge_PA";
+            revenge.passiveIcon = ResourceLoader.LoadSprite("Revenge.png");
+            revenge._characterDescription = "On taking direct damage, give this enemy another ability.";
+            revenge._enemyDescription = "On taking direct damage, give this enemy another ability.";
+            revenge.doesPassiveTriggerInformationPanel = true;
+            revenge.effects = new EffectInfo[]
+            {
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Targeting.Slot_SelfSlot),
+            };
+            revenge._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged };
+
+            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Withering, repression, backlash, revenge });
 
             Ability silentNight = new Ability("Silent Night", "SilentNight_A");
             silentNight.Description = "It's all quiet for now.";
