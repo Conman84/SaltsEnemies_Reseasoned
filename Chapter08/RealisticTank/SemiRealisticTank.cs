@@ -110,11 +110,11 @@ namespace SaltsEnemies_Reseasoned
             Ability coarse = new Ability("Salt_Coarse_A")
             {
                 Name = "Coarse",
-                Description = "Deal a Painful amount of damage to this enemy. Inflict 6 Oil-Slicked on all party members.",
+                Description = "Deal a Painful amount of Shield-ignoring damage to this enemy. Inflict 6 Oil-Slicked on all party members.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("Tank_1", 1),
                 Effects = new EffectInfo[]
                 {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Targeting.Slot_SelfSlot),
+                            Effects.GenerateEffect(BasicEffects.ShieldPierce, 6, Targeting.Slot_SelfSlot),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 6, allEnemy)
                 },
                 Visuals = LoadedAssetsHandler.GetEnemyAbility("Flood_A").visuals,
