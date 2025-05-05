@@ -65,10 +65,10 @@ namespace SaltsEnemies_Reseasoned
             //putrification
             Ability putrification = new Ability("Putrification", "Putrification_A");
             putrification.Rarity = weathering.Rarity;
-            putrification.Description = "Inflict 7 Mold to the Left and Right enemy positions. \nInflict 3 Mold on the Left and Right party member positions.";
+            putrification.Description = "Inflict 6 Mold to the Left and Right enemy positions. \nInflict 3 Mold on the Left and Right party member positions.";
             putrification.Priority = Priority.Fast;
             putrification.Effects = new EffectInfo[2];
-            putrification.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMoldFieldEffect>(), 7, Targeting.Slot_AllySides);
+            putrification.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMoldFieldEffect>(), 6, Targeting.Slot_AllySides);
             putrification.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMoldFieldEffect>(), 3, Targeting.Slot_OpponentSides);
             putrification.AddIntentsToTarget(Slots.Sides, [Mold.Intent]);
             putrification.AddIntentsToTarget(Slots.LeftRight, [Mold.Intent]);
