@@ -44,7 +44,7 @@ namespace SaltsEnemies_Reseasoned
             martyr._enemyDescription = "If an infantile enemy receives direct damage, this enemy will perform \"Martyr\" in retribution.";
             Ability parental = new Ability("Martyr_A");
             parental.Name = "Martyr A";
-            parental.Description = "Consume 1 random Pigment.\nGive this enemy \"Infestation (1)\" as a passive. If this enemy already had \"Infestation\" as a passive, increase \"Infestation\" on the Left and Right enemies by 1 instead.";
+            parental.Description = "Give this enemy \"Infestation (1)\" as a passive. If this enemy already had \"Infestation\" as a passive, increase \"Infestation\" on the Left and Right enemies by 1 instead.\nConsume 1 random Pigment.";
             parental.Effects = new EffectInfo[3];
             parental.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<AddInfestationEffect>(), 1, Targeting.Slot_AllySides, HasInfestationEffectCondition.Create(true));
             parental.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<AddInfestationEffect>(), 1, Targeting.Slot_SelfSlot, HasInfestationEffectCondition.Create(false));
@@ -60,7 +60,7 @@ namespace SaltsEnemies_Reseasoned
 
             //mercenary
             Ability merc = new Ability("Mercenary A", "Mercenary_A");
-            merc.Description = "Consume 1 random Pigment.\nDeal a Little damage to the lowest health enemy.";
+            merc.Description = "Deal a Little damage to the lowest health enemy.\nConsume 1 random Pigment.";
             merc.Rarity = Rarity.GetCustomRarity("rarity5");
             merc.Effects = new EffectInfo[2];
             merc.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Targetting.LowestAlly);
@@ -73,7 +73,7 @@ namespace SaltsEnemies_Reseasoned
 
             //merchant
             Ability merchant = new Ability("Merchant A", "Merchant_A");
-            merchant.Description = "Consume 1 random Pigment.\nTransfer all Status Effects from the Opposing party member to this enemy.";
+            merchant.Description = "Transfer all Status Effects from the Opposing party member to this enemy.\nConsume 1 random Pigment.";
             merchant.Rarity = Rarity.GetCustomRarity("rarity5");
             merchant.Effects = new EffectInfo[3];
             merchant.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<CopyStatusOntoCasterEffect>(), 1, Slots.Front);
@@ -86,7 +86,7 @@ namespace SaltsEnemies_Reseasoned
 
             //murder
             Ability murder = new Ability("Murderer A", "Murderer_A");
-            murder.Description = "Consume 1 random Pigment.\nMight deal an Agonizing amount of damage to the Opposing party member.";
+            murder.Description = "Might deal an Agonizing amount of damage to the Opposing party member.\nConsume 1 random Pigment.";
             murder.Rarity = Rarity.GetCustomRarity("rarity5");
             murder.Effects = new EffectInfo[2];
             murder.Effects[0] = Effects.GenerateEffect(ChanceZeroDamageEffect.Create(0.5f), 8, Slots.Front);
