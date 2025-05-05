@@ -21,7 +21,7 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = "event:/Combat/StatusEffects/SE_Cursed_Apl",
                 DeathSound = LoadedAssetsHandler.GetEnemy("SingingStone_EN").deathSound,
             };
-            vase.PrepareMultiEnemyPrefab("assets/16/Vase_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/16/Vase_Gibs.prefab").GetComponent<ParticleSystem>());
+            vase.PrepareMultiEnemyPrefab("assets/16/Vase_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/16/Vase_Gibs.prefab").GetComponent<ParticleSystem>());
             (vase.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
             {
                 vase.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Mouth").GetComponent<SpriteRenderer>(),
