@@ -66,8 +66,8 @@ namespace SaltsEnemies_Reseasoned
             merc.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Mana_Consume.ToString()]);
             merc.AddIntentsToTarget(Targeting.Unit_AllAllies, [IntentType_GameIDs.Misc_Hidden.ToString()]);
             merc.AddIntentsToTarget(Targetting.LowestAlly, [IntentType_GameIDs.Damage_1_2.ToString()]);
-            merc.Visuals = LoadedAssetsHandler.GetCharacterAbility("Shank_1_A").visuals;
-            merc.AnimationTarget = Targetting.LowestAlly;
+            merc.Visuals = CustomVisuals.GetVisuals("Salt/Reload");
+            merc.AnimationTarget = Targeting.GenerateGenericTarget([0, 1, 2, 3, 4], true);
 
             //merchant
             Ability merchant = new Ability("Merchant A", "Merchant_A");
@@ -91,6 +91,8 @@ namespace SaltsEnemies_Reseasoned
             murder.Effects[1] = Effects.GenerateEffect(ChanceZeroDamageEffect.Create(0.5f), 8, Slots.Front);
             murder.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Mana_Consume.ToString()]);
             murder.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Mana_Generate.ToString()]);
+            murder.Visuals = LoadedAssetsHandler.GetCharacterAbility("Shank_1_A").visuals;
+            murder.AnimationTarget = Slots.Front;
 
             //ADD ENEMY
             pawn.AddEnemyAbilities(new EnemyAbilityInfo[]
