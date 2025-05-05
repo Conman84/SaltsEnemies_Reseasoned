@@ -201,6 +201,7 @@ namespace SaltsEnemies_Reseasoned
                 //CH19 Enemies
                 PCall(Starless.Add);
                 PCall(Eyeless.Add);
+                PCall(Pawn.Add);
             }
 
             //CH1 Encounters
