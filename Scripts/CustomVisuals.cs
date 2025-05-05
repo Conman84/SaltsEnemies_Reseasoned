@@ -120,6 +120,7 @@ namespace SaltsEnemies_Reseasoned
             LoadVisuals("Salt/StarBomb", SaltsReseasoned.Meow, "Assets/attacks3/StarBomb.anim", "event:/Hawthorne/Attack4/StarBomb");
             LoadVisuals("Salt/Call", SaltsReseasoned.Meow, "Assets/attacks3/Call.anim", "event:/Hawthorne/Attack2/WakeUp");
             LoadVisuals("Salt/Drill", SaltsReseasoned.Meow, "Assets/attacks3/Drill.anim", "event:/Hawthorne/Attack3/Stop");
+            LoadVisuals("Salt/YinYang", SaltsReseasoned.Meow, "Assets/attacks3/YinYang.anim", "event:/Hawthorne/Attack2/Waves1");
         }
     }
 }
