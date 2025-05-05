@@ -1,6 +1,8 @@
 ﻿using BrutalAPI;
+using MonoMod.RuntimeDetour;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using UnityEngine;
 
@@ -13,17 +15,15 @@ namespace SaltEnemies_Reseasoned
         {
             get
             {
-                if (_icon == null) _icon = ResourceLoader.LoadSprite("idk.png");
-                Debug.LogWarning("get the traitor passive icon here: TraitorCondition.Sprite");
+                if (_icon == null) _icon = ResourceLoader.LoadSprite("TraitorPassive.png");
                 return _icon;
             }
         }
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
-            if (args is DamageReceivedValueChangeException hitBy)
+            if (args is bool allies)
             {
-                if (hitBy.possibleSourceUnit == null) return false;
-                if (hitBy.possibleSourceUnit.IsUnitCharacter != effector.IsUnitCharacter)
+                if (!allies)
                 {
                     CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { Effects.GenerateEffect(PriorityRootActionEffect.Create(new EffectInfo[]
                     {
@@ -41,6 +41,24 @@ namespace SaltEnemies_Reseasoned
                 }
             }
             return false;
+        }
+    }
+    public static class TraitorHandler
+    {
+        public static TriggerCalls Call => (TriggerCalls)7383904;
+        public static string Type => "Traitor_PA";
+        public static DamageInfo EnemyCombat_Damage(Func<EnemyCombat, int, IUnit, string, int, bool, bool, bool, string, DamageInfo> orig, EnemyCombat self, int amount, IUnit killer, string deathTypeID, int targetSlotOffset, bool addHealthMana, bool directDamage, bool ignoresShield, string specialDamage)
+        {
+            DamageInfo ret = orig(self, amount, killer, deathTypeID, targetSlotOffset, addHealthMana, directDamage, ignoresShield, specialDamage);
+            if (killer != null && ret.damageAmount > 0 && self.IsAlive)
+            {
+                CombatManager.Instance.PostNotification(Call.ToString(), self, self.IsUnitCharacter == killer.IsUnitCharacter);
+            }
+            return ret;
+        }
+        public static void Setup()
+        {
+            IDetour hook = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.Damage), ~BindingFlags.Default), typeof(TraitorHandler).GetMethod(nameof(EnemyCombat_Damage), ~BindingFlags.Default));
         }
     }
     public class TraitorPassiveEffect : EffectSO
@@ -75,6 +93,7 @@ namespace SaltEnemies_Reseasoned
             {
                 if (target.HasUnit)
                 {
+                    CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, caster.IsUnitCharacter, "Infestation", Passives.Infestation1.passiveIcon));
                     if (target.Unit.ContainsPassiveAbility(PassiveType_GameIDs.Infestation.ToString())) target.Unit.SimpleSetStoredValue(UnitStoredValueNames_GameIDs.InfestationPA.ToString(), target.Unit.SimpleGetStoredValue(UnitStoredValueNames_GameIDs.InfestationPA.ToString()) + 1);
                     else target.Unit.AddPassiveAbility(Passives.Infestation1);
                     exitAmount++;

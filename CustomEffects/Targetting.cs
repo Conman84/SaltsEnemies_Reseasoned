@@ -71,6 +71,17 @@ namespace SaltEnemies_Reseasoned
                 return highest;
             }
         }
+        public static TargettingByHealthUnits LowestAlly
+        {
+            get
+            {
+                TargettingByHealthUnits highest = ScriptableObject.CreateInstance<TargettingByHealthUnits>();
+                highest.Lowest = true;
+                highest.getAllies = true;
+                highest.ignoreCastSlot = false;
+                return highest;
+            }
+        }
         public static Targetting_BySlot_Index AllSelfSlots
         {
             get
