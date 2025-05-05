@@ -17,8 +17,8 @@ namespace SaltEnemies_Reseasoned
             {
                 if (!slot.HasUnit) continue;
                 if (slot.SlotID >= caster.SlotID && slot.SlotID < caster.SlotID + caster.Size) continue;
-                if (slot.SlotID < caster.SlotID) left = caster.SlotID - slot.SlotID;
-                else if (slot.SlotID >= caster.SlotID + caster.Size) right = slot.SlotID - (caster.SlotID + caster.Size - 1);
+                if (slot.SlotID < caster.SlotID) left = caster.SlotID - (slot.SlotID + 1);
+                else if (slot.SlotID >= caster.SlotID + caster.Size) right = slot.SlotID - (caster.SlotID + caster.Size);
             }
             if (left <= 1 && right <= 1) return false;
             if (left <= 1) left = 99;
