@@ -164,6 +164,7 @@ namespace SaltsEnemies_Reseasoned
                 //CH12 Enemies
                 PCall(Warbird.Add);
                 PCall(LittleBeak.Add);
+                PCall(Hunter.Add);
 
                 //CH13 Enemies
                 PCall(Maw.Add);

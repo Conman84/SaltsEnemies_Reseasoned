@@ -1,6 +1,7 @@
 ﻿using BrutalAPI;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 //nest rework: 2 damage front 3 times, thats it.
 
@@ -160,6 +161,59 @@ namespace SaltEnemies_Reseasoned
             {
                 CombatManager.Instance.AddSubAction(new EffectAction(disconnectionEffects, unit));
             }
+        }
+    }
+    public class HuntingPassiveAbility : PerformEffectPassiveAbility
+    {
+        public void OnSecondTriggered(object sender, object args)
+        {
+            CombatManager.Instance.AddSubAction(new EffectAction(Effects.GenerateEffect(ScriptableObject.CreateInstance<TerrorDeathEffect>(), 1, Slots.Front).SelfArray(), sender as IUnit));
+        }
+        public override void OnPassiveConnected(IUnit unit)
+        {
+            base.OnPassiveConnected(unit);
+            CombatManager.Instance.AddObserver(OnSecondTriggered, TriggerCalls.OnRoundFinished.ToString(), unit);
+        }
+        public override void OnPassiveDisconnected(IUnit unit)
+        {
+            CombatManager.Instance.RemoveObserver(OnSecondTriggered, TriggerCalls.OnRoundFinished.ToString(), unit);
+            base.OnPassiveDisconnected(unit);
+        }
+    }
+    public class LeftRightTargetting : Targetting_ByUnit_Side
+    {
+        public override TargetSlotInfo[] GetTargets(SlotsCombat slots, int casterSlotID, bool isCasterCharacter)
+        {
+            TargetSlotInfo[] source = base.GetTargets(slots, casterSlotID, isCasterCharacter);
+            List<TargetSlotInfo> ret = new List<TargetSlotInfo>();
+            int leftMod = 1;
+            int rightMod = 1;
+            int casterSize = 1;
+            if (!isCasterCharacter)
+            {
+                foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+                {
+                    if (enemy.SlotID == casterSlotID) casterSize = enemy.Size;
+                }
+                foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+                {
+                    if (enemy.SlotID + enemy.Size == casterSlotID) leftMod = enemy.Size;
+                    if (enemy.SlotID == casterSlotID + casterSize) rightMod = enemy.Size;
+                }
+            }
+            foreach (TargetSlotInfo target in source)
+            {
+                if (target.SlotID == casterSlotID - leftMod) ret.Add(target);
+                else if (target.SlotID == casterSlotID + rightMod) ret.Add(target);
+            }
+            return ret.ToArray();
+        }
+        public static LeftRightTargetting Create(bool getAllies, bool areSlots)
+        {
+            LeftRightTargetting ret = ScriptableObject.CreateInstance<LeftRightTargetting>();
+            ret.getAllies = getAllies;
+            ret.getAllUnitSlots = areSlots;
+            return ret;
         }
     }
 }
