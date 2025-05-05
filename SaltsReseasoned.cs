@@ -208,6 +208,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(Starless.Add);
                 PCall(Eyeless.Add);
                 PCall(Pawn.Add);
+                PCall(Wednesday.Add);
             }
 
             //CH1 Encounters
