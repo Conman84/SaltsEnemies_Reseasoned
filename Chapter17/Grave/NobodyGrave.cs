@@ -32,12 +32,14 @@ namespace SaltsEnemies_Reseasoned
             des.conditions = new List<EffectorConditionSO>(baseExtra.conditions != null ? baseExtra.conditions : new EffectorConditionSO[0]) { ScriptableObject.CreateInstance<DefenderCondition>() }.ToArray();
             Ability bonus = new Ability("Karma_Desecration_A");
             bonus.Name = "Desecration";
-            bonus.Description = "Summon a Defender.";
+            bonus.Description = "Summon a Defender. Deal a Barely Painful amount of damage to this enemy.";
             SpawnEnemyByStringNameEffect defender = ScriptableObject.CreateInstance<SpawnEnemyByStringNameEffect>();
             defender.enemyName = "Defender_EN";
             defender._spawnTypeID = CombatType_GameIDs.Spawn_Basic.ToString();
-            bonus.Effects = Effects.GenerateEffect(defender, 1, Slots.Self).SelfArray();
-            bonus.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Other_Spawn.ToString()]);
+            bonus.Effects = new EffectInfo[2];
+            bonus.Effects[0] = Effects.GenerateEffect(defender, 1, Slots.Self);
+            bonus.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 3, Targeting.Slot_SelfSlot);
+            bonus.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Other_Spawn.ToString(), IntentType_GameIDs.Damage_3_6.ToString()]);
             bonus.Visuals = LoadedAssetsHandler.GetEnemyAbility("UglyOnTheInside_A").visuals;
             bonus.AnimationTarget = Slots.Self;
             bonus.Rarity = Rarity.Impossible;
