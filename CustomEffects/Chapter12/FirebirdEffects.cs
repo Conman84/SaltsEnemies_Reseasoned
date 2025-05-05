@@ -16,7 +16,7 @@ namespace SaltEnemies_Reseasoned
     {
         [Header("Special Abilities")]
         [SerializeField]
-        public string trackDown = "Fiery Death";
+        public string trackDown = "FlamingDeath_A";
 
         public override bool UsesRarity => true;
 
@@ -62,7 +62,7 @@ namespace SaltEnemies_Reseasoned
         {
             int orig = 35;
             if (unit is EnemyCombat enemy) orig = enemy.Enemy.health;
-            string name = ability.ability._abilityName;
+            string name = ability.ability.name;
             return unit.CurrentHealth >= orig && name == this.trackDown;
         }
     }
