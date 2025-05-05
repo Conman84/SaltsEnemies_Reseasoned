@@ -20,9 +20,9 @@ namespace SaltEnemies_Reseasoned
                 if (slot.SlotID < caster.SlotID) left = caster.SlotID - (slot.SlotID + 1);
                 else if (slot.SlotID >= caster.SlotID + caster.Size) right = slot.SlotID - (caster.SlotID + caster.Size);
             }
-            if (left <= 1 && right <= 1) return false;
-            if (left <= 1) left = 99;
-            if (right <= 1) right = 99;
+            if (left <= 0 && right <= 0) return false;
+            if (left <= 0) left = 99;
+            if (right <= 0) right = 99;
             bool goLeft = (left < right) || (left == right && UnityEngine.Random.Range(0, 100) < 50);
             //caster.SetStoredValue(value, 1);
             if (goLeft)
