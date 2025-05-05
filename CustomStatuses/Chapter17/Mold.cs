@@ -15,15 +15,13 @@ namespace SaltEnemies_Reseasoned
         public static void Add()
         {
             SlotStatusEffectInfoSO MoldInfo = ScriptableObject.CreateInstance<SlotStatusEffectInfoSO>();
-            MoldInfo.icon = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Mold.Add. put the right sprite here");
+            MoldInfo.icon = ResourceLoader.LoadSprite("MoldIcon.png");
             MoldInfo._fieldName = "Mold";
-            MoldInfo._description = "While in mold, on being directly damaged or healed consume 1 pigment of this unit's health color and reduce Mold by the amount damaged or healed.\nOn using an ability while in Mold, randomize the unit's health color.\nMold decreases by half on turn end.";
+            MoldInfo._description = "While in mold, on being directly damaged or healed consume 1 pigment of this unit's health color and reduce Mold by the amount damaged or healed.\nOn using an ability while in Mold, randomize the unit's health color.";
             MoldInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Scars_ID.ToString()]._EffectInfo._applied_SE_Event;
             MoldInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Scars_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             MoldInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Scars_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 
-            Debug.LogError("Mold.Add. MAKE SURE THESE ARE PULLING FROM THE RIGHT ASSETBUDNLE");
 
             GameObject Fool = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/Moldy/SmokeChara.prefab").gameObject;
             GameObject FoolPart = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/Moldy/MoldChara.prefab").gameObject;
@@ -48,8 +46,7 @@ namespace SaltEnemies_Reseasoned
 
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
-            intentinfo._sprite = ResourceLoader.LoadSprite("idk.png");
-            Debug.LogError("Mold.Add. set the right sprite for the intent also");
+            intentinfo._sprite = ResourceLoader.LoadSprite("MoldIcon.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
         }
@@ -60,11 +57,11 @@ namespace SaltEnemies_Reseasoned
         public override bool IsPositive => false;
         public override void OnSlotEffectorTriggerAttached(FieldEffect_Holder holder)
         {
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_03, TriggerCalls.OnTurnFinished.ToString(), holder.Effector);
+            //CombatManager.Instance.AddObserver(holder.OnEventTriggered_03, TriggerCalls.OnTurnFinished.ToString(), holder.Effector);
         }
         public override void OnSlotEffectorTriggerDettached(FieldEffect_Holder holder)
         {
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_03, TriggerCalls.OnTurnFinished.ToString(), holder.Effector);
+            //CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_03, TriggerCalls.OnTurnFinished.ToString(), holder.Effector);
         }
         public override void OnTriggerAttached(FieldEffect_Holder holder, IUnit caller)
         {

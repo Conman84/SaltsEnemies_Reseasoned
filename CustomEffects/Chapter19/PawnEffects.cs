@@ -96,5 +96,11 @@ namespace SaltEnemies_Reseasoned
             }
             return exitAmount > 0;
         }
+        public static ChanceZeroDamageEffect Create(float chance)
+        {
+            ChanceZeroDamageEffect ret = ScriptableObject.CreateInstance<ChanceZeroDamageEffect>();
+            ret.Chance = chance;
+            return ret;
+        }
     }
 }
