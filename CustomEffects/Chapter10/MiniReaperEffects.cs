@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-//call WitheringFix.Setup() in awake
 
 namespace SaltEnemies_Reseasoned
 {

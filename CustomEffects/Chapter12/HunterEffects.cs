@@ -97,4 +97,69 @@ namespace SaltEnemies_Reseasoned
             }
         }
     }
+    public class AnyTargetsAtMaxHealthCondition : EffectConditionSO
+    {
+        public BaseCombatTargettingSO targeting;
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            foreach (TargetSlotInfo target in targeting.GetTargets(CombatManager.Instance._stats.combatSlots, caster.SlotID, caster.IsUnitCharacter))
+            {
+                if (target.HasUnit && target.Unit.CurrentHealth >= target.Unit.MaximumHealth) return true;
+            }
+            return false;
+        }
+        public static AnyTargetsAtMaxHealthCondition Create(BaseCombatTargettingSO targeting)
+        {
+            AnyTargetsAtMaxHealthCondition ret = ScriptableObject.CreateInstance<AnyTargetsAtMaxHealthCondition>();
+            ret.targeting = targeting;
+            return ret;
+        }
+    }
+    public class NormalAndConnection_PerformEffectPassiveAbility : BasePassiveAbilitySO
+    {
+        [Header("Passive Effects")]
+        public EffectInfo[] effects;
+
+        public bool immediateEffect = false;
+
+        public EffectInfo[] connectionEffects;
+
+        public EffectInfo[] disconnectionEffects;
+
+        public override bool IsPassiveImmediate => false;
+
+        public override bool DoesPassiveTrigger => true;
+
+        public override void TriggerPassive(object sender, object args)
+        {
+            IUnit caster = sender as IUnit;
+            CombatManager.Instance.AddSubAction(new EffectAction(effects, caster));
+        }
+
+        public override void OnPassiveConnected(IUnit unit)
+        {
+            if (connectionEffects == null) return;
+            if (immediateEffect)
+            {
+                CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(connectionEffects, unit), addToPreInit: true);
+            }
+            else
+            {
+                CombatManager.Instance.AddSubAction(new EffectAction(connectionEffects, unit));
+            }
+        }
+
+        public override void OnPassiveDisconnected(IUnit unit)
+        {
+            if (disconnectionEffects == null) return;
+            if (immediateEffect)
+            {
+                CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(disconnectionEffects, unit));
+            }
+            else
+            {
+                CombatManager.Instance.AddSubAction(new EffectAction(disconnectionEffects, unit));
+            }
+        }
+    }
 }
