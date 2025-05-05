@@ -62,8 +62,8 @@ namespace SaltsEnemies_Reseasoned
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 4, Targetting.AllSelfSlots),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 2, Slots.Self),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Slots.Self, Effects.ChanceCondition(50))
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 2, Targeting.Slot_SelfSlot),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Slot_SelfSlot, Effects.ChanceCondition(50))
                 },
                 Visuals = LoadedAssetsHandler.GetCharacterAbility("Entrenched_1_A").visuals,
                 AnimationTarget = Targetting.AllSelfSlots,
@@ -79,12 +79,14 @@ namespace SaltsEnemies_Reseasoned
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, IntentType.Damage_3_6, Slots.Front),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, IntentType.Swap_Sides, Slots.Self),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Targeting.Slot_SelfSlot),
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Crush"),
                 AnimationTarget = Slots.Front,
             };
+            hurdle.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_3_6.ToString()]);
+            hurdle.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), [IntentType_GameIDs.Swap_Sides.ToString()]);
 
             //disembowel
             Ability disembowel = new Ability("Disemboweling_A")
@@ -94,17 +96,21 @@ namespace SaltsEnemies_Reseasoned
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 6, IntentType.Field_Shield, Slots.Sides),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 3, IntentType.Status_Ruptured, Slots.Self),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 6, Slots.Sides),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 3, Targeting.Slot_SelfSlot),
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Shatter"),
                 AnimationTarget = Targetting.AllSelfSlots,
             };
+            disembowel.AddIntentsToTarget(Slots.Sides, [IntentType_GameIDs.Field_Shield.ToString()]);
+            disembowel.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), [IntentType_GameIDs.Status_Ruptured.ToString()]);
 
             //ADD ENEMY
             tortoise.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                test.GenerateEnemyAbility(true),
+                breath.GenerateEnemyAbility(true),
+                hurdle.GenerateEnemyAbility(true),
+                disembowel.GenerateEnemyAbility(true)
             });
             tortoise.AddEnemy(true, true);
         }
