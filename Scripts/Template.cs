@@ -50,6 +50,8 @@ namespace SaltsEnemies_Reseasoned
 //Assets/enem3/Pawn_Enemy.prefab
 //Assets/gib3/Pawn_Gibs.prefab
 
+//event:/Hawthorne/PawnSong
+
 //Assets/enem3/Yang_Enemy.prefab
 //Assets/gib3/Yang_Gibs.prefab
 

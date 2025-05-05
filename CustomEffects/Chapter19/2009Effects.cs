@@ -36,7 +36,6 @@ namespace SaltsEnemies_Reseasoned
             {
                 caster.SimpleSetStoredValue(Value, 1);
                 return true;
-                EnemyCombat c;
             }
             return false;
         }
