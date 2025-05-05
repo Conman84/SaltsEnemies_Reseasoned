@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Enemy pawn = new Enemy("Pawn", "Pawn_EN")
+            Enemy pawn = new Enemy("Pawn A", "PawnA_EN")
             {
                 Health = 20,
                 HealthColor = Pigments.Red,
