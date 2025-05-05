@@ -26,7 +26,7 @@ namespace SaltsEnemies_Reseasoned
             //Desecration
             ExtraAttackPassiveAbility baseExtra = LoadedAssetsHandler.GetEnemy("Xiphactinus_EN").passiveAbilities[1] as ExtraAttackPassiveAbility;
             ExtraAttackPassiveAbility des = ScriptableObject.Instantiate<ExtraAttackPassiveAbility>(baseExtra);
-            des._passiveName = "Desecration";
+            des._passiveName = "Desecration (12)";
             des.passiveIcon = ResourceLoader.LoadSprite("KarmaPassive.png");
             des._enemyDescription = "If this enemy has less than 12 health, it will perforn an extra ability \"Desecration\" each turn.";
             des.conditions = new List<EffectorConditionSO>(baseExtra.conditions != null ? baseExtra.conditions : new EffectorConditionSO[0]) { ScriptableObject.CreateInstance<DefenderCondition>() }.ToArray();
@@ -56,7 +56,7 @@ namespace SaltsEnemies_Reseasoned
             weathering.AddIntentsToTarget(Slots.Self, Mold.Intent.SelfArray());
             weathering.AddIntentsToTarget(Slots.Front, [Mold.Intent]);
             weathering.Visuals = LoadedAssetsHandler.GetEnemyAbility("Boil_A").visuals;
-            weathering.AnimationTarget = Slots.Self;
+            weathering.AnimationTarget = MultiTargetting.Create(Slots.Self, Slots.Front);
 
             //putrification
             Ability putrification = new Ability("Putrification", "Putrification_A");
@@ -79,7 +79,7 @@ namespace SaltsEnemies_Reseasoned
             under.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMoldFieldEffect>(), 1, MultiTargetting.Create(Targeting.GenerateGenericTarget([0, 1, 2, 3, 4], false), Targeting.GenerateGenericTarget([0, 1, 2, 3, 4], true))).SelfArray();
             under.AddIntentsToTarget(Targeting.GenerateGenericTarget([0, 1, 2, 3, 4], true), [Mold.Intent]);
             under.AddIntentsToTarget(Targeting.GenerateGenericTarget([0, 1, 2, 3, 4], false), [Mold.Intent]);
-            under.Visuals = CustomVisuals.GetVisuals("Salt/Claw");
+            under.Visuals = CustomVisuals.GetVisuals("Salt/Claws");
             under.AnimationTarget = MultiTargetting.Create(Targeting.GenerateGenericTarget([0, 1, 2, 3, 4], true), Targeting.GenerateGenericTarget([0, 1, 2, 3, 4], false));
 
             //ADD ENEMY
