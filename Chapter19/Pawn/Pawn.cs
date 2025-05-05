@@ -49,6 +49,7 @@ namespace SaltsEnemies_Reseasoned
             parental.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeRandomManaEffect>(), 2, Slots.Self);
             parental.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<AddInfestationEffect>(), 1, Targeting.Slot_AllySides, HasInfestationEffectCondition.Create(true));
             parental.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<AddInfestationEffect>(), 1, Targeting.Slot_SelfSlot, HasInfestationEffectCondition.Create(false));
+            parental.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Mana_Consume.ToString()]);
             parental.AddIntentsToTarget(Targeting.Slot_SelfAndSides, new string[] { IntentType_GameIDs.PA_Infestation.ToString() });
             parental.Visuals = LoadedAssetsHandler.GetEnemyAbility("RapturousReverberation_A").visuals;
             parental.AnimationTarget = Targeting.Slot_SelfSlot;
@@ -91,7 +92,7 @@ namespace SaltsEnemies_Reseasoned
             murder.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeRandomManaEffect>(), 2, Slots.Self);
             murder.Effects[1] = Effects.GenerateEffect(ChanceZeroDamageEffect.Create(0.5f), 8, Slots.Front);
             murder.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Mana_Consume.ToString()]);
-            murder.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Mana_Generate.ToString()]);
+            murder.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_7_10.ToString()]);
             murder.Visuals = LoadedAssetsHandler.GetCharacterAbility("Shank_1_A").visuals;
             murder.AnimationTarget = Slots.Front;
 
