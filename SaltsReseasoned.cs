@@ -190,6 +190,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(Dragon.Add);
                 PCall(Crystal.Add);
                 PCall(Candy.Add);
+                PCall(OdeToHumanity.Add);
 
                 //CH17 Enemies
                 PCall(Ufo.Add);
