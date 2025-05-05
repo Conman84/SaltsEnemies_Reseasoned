@@ -56,6 +56,8 @@ namespace SaltsEnemies_Reseasoned
 //Assets/enem3/Yin_Enemy.prefab
 //Assets/gib3/Yin_Gibs.prefab
 
+//event:/Hawthorne/BishopSong
+
 //Assets/enem3/2009_Enemy.prefab
 //m_Locator.Find("Sprite").Find("Face").GetComponent
 //Assets/gib3/2009_Gibs.prefab
