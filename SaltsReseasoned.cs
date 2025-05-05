@@ -181,6 +181,7 @@ namespace SaltsEnemies_Reseasoned
                 //CH15 Enemies
                 PCall(YellowBot.Add);
                 PCall(GreyBot.Add);
+                PCall(RedBot.Add);
 
                 //CH16 Enemies
                 PCall(Dragon.Add);
