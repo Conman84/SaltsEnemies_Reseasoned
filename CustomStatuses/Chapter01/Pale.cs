@@ -30,7 +30,7 @@ namespace SaltEnemies_Reseasoned
             StatusEffectInfoSO PaleInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             PaleInfo.icon = ResourceLoader.LoadSprite("Pale.png");
             PaleInfo._statusName = "Pale";
-            PaleInfo._description = "Upon taking indirect damage, deal stacks of Pale as a percent of maximum health damage. This damage ignores modifiers. This status is prevented from activating on character's if they take no damage. This is not the same for enemies.";
+            PaleInfo._description = "Upon receiving indirect damage, take damage equal to Pale% of this unit's maximum health, ignoring damage prevention. \nPale triggers on enemies even if indirect damage received was 0.";
             PaleInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo._applied_SE_Event;
             PaleInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             PaleInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
