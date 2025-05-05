@@ -10,7 +10,7 @@ namespace SaltsEnemies_Reseasoned
         public static void Add()
         {
             //Main
-            Portals.AddPortalSign("Salt_BlueFlowerEncounters_Sign", ResourceLoader.LoadSprite("BlueFlowerIcon.png", null, 32, null), Portals.EnemyIDColor);
+            Portals.AddPortalSign("Salt_BlueFlowerEncounters_Sign", ResourceLoader.LoadSprite("BlueFlowerWorld.png", null, 32, null), Portals.EnemyIDColor);
 
             //Garden
             //Easy

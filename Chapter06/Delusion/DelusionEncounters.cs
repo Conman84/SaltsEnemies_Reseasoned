@@ -10,7 +10,7 @@ namespace SaltsEnemies_Reseasoned
         public static void Add()
         {
             //Main
-            Portals.AddPortalSign("Salt_DelusionEncounters_Sign", ResourceLoader.LoadSprite("IllusionIcon.png", null, 32, null), Portals.EnemyIDColor);
+            Portals.AddPortalSign("Salt_DelusionEncounters_Sign", ResourceLoader.LoadSprite("IllusionWorld.png", null, 32, null), Portals.EnemyIDColor);
 
             //Orpheum
             //Easy
