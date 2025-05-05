@@ -59,6 +59,11 @@
 	  <None Remove="Chapter11\Tripod\TripodDead.png" />
 	  <None Remove="Chapter11\Tripod\TripodIcon.png" />
 	  <None Remove="Chapter11\Tripod\TripodWorld.png" />
+	  <None Remove="Chapter12\Firebird\burningIcon.png" />
+	  <None Remove="Chapter12\Firebird\FirebirdDead.png" />
+	  <None Remove="Chapter12\Firebird\FirebirdIcon.png" />
+	  <None Remove="Chapter12\Firebird\FirebirdWorld.png" />
+	  <None Remove="Chapter12\Firebird\rejuvination.png" />
 	  <None Remove="Chapter12\Hunter\HunterDead.png" />
 	  <None Remove="Chapter12\Hunter\HunterIcon.png" />
 	  <None Remove="Chapter12\Hunter\hunterpassive.png" />
@@ -393,6 +398,11 @@
 	  <EmbeddedResource Include="Chapter11\Tripod\TripodDead.png" />
 	  <EmbeddedResource Include="Chapter11\Tripod\TripodIcon.png" />
 	  <EmbeddedResource Include="Chapter11\Tripod\TripodWorld.png" />
+	  <EmbeddedResource Include="Chapter12\Firebird\burningIcon.png" />
+	  <EmbeddedResource Include="Chapter12\Firebird\FirebirdDead.png" />
+	  <EmbeddedResource Include="Chapter12\Firebird\FirebirdIcon.png" />
+	  <EmbeddedResource Include="Chapter12\Firebird\FirebirdWorld.png" />
+	  <EmbeddedResource Include="Chapter12\Firebird\rejuvination.png" />
 	  <EmbeddedResource Include="Chapter12\Hunter\HunterDead.png" />
 	  <EmbeddedResource Include="Chapter12\Hunter\HunterIcon.png" />
 	  <EmbeddedResource Include="Chapter12\Hunter\hunterpassive.png" />
