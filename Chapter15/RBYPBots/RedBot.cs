@@ -34,7 +34,7 @@ namespace SaltsEnemies_Reseasoned
             Ability test = new Ability("Please the Politics", "PleaseThePolitics_A");
             test.Description = "Deal a Painful amount of damage to all party members Opposing enemies sharing this enemy's health color.";
             test.Rarity = Rarity.GetCustomRarity("bot3");
-            test.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 1, Targetting.Reverse(targettingCasterColor)).SelfArray();
+            test.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Targetting.Reverse(targettingCasterColor)).SelfArray();
             test.AddIntentsToTarget(Targeting.Unit_AllAllySlots, [IntentType_GameIDs.Misc_Hidden.ToString()]);
             test.AddIntentsToTarget(Targetting.Reverse(targettingCasterColor), IntentType_GameIDs.Damage_3_6.ToString().SelfArray());
             test.Visuals = CustomVisuals.GetVisuals("Salt/Gears");
