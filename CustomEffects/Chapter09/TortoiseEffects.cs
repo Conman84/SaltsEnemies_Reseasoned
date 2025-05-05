@@ -93,7 +93,7 @@ namespace SaltEnemies_Reseasoned
             if (args is IntegerReference skinteger)
             {
                 (effector as IUnit).SimpleSetStoredValue(Pain, (effector as IUnit).SimpleGetStoredValue(Pain) + skinteger.value);
-                if ((effector as IUnit).SimpleGetStoredValue(Pain) < 20) return false;
+                if ((effector as IUnit).SimpleGetStoredValue(Pain) + (effector as IUnit).SimpleGetStoredValue(Modifier) < 20) return false;
 
             }
             else
@@ -105,20 +105,81 @@ namespace SaltEnemies_Reseasoned
             return true;
         }
         public static string Pain = "Algophobia_Value_PA";
+        public static string Modifier = "Algophobia_Threshold_PA";
         static bool Set;
         public static void Setup()
         {
             if (Set) return;
             Set = true;
-            UnitStoreData_ModIntSO value_count = ScriptableObject.CreateInstance<UnitStoreData_ModIntSO>();
-            value_count.m_Text = "Damage Taken This Turn: {0}";
-            value_count._UnitStoreDataID = Pain;
-            value_count.m_TextColor = (LoadedDBsHandler.MiscDB.GetUnitStoreData(UnitStoredValueNames_GameIDs.BusterA.ToString()) as UnitStoreData_IntSO).m_TextColor;
-            value_count.m_CompareDataToThis = 0;
+            UnitStoreData_ModIntSO value = ScriptableObject.CreateInstance<UnitStoreData_ModIntSO>();
+            value.m_Text = "Damage Taken This Turn: {0}";
+            value._UnitStoreDataID = Pain;
+            value.m_TextColor = (LoadedDBsHandler.MiscDB.GetUnitStoreData(UnitStoredValueNames_GameIDs.BusterA.ToString()) as UnitStoreData_IntSO).m_TextColor;
+            value.m_CompareDataToThis = 0;
             if (LoadedDBsHandler.MiscDB.m_UnitStoreDataPool.ContainsKey(Pain))
-                LoadedDBsHandler.MiscDB.m_UnitStoreDataPool[Pain] = value_count;
+                LoadedDBsHandler.MiscDB.m_UnitStoreDataPool[Pain] = value;
             else
-                LoadedDBsHandler.MiscDB.AddNewUnitStoreData(value_count._UnitStoreDataID, value_count);
+                LoadedDBsHandler.MiscDB.AddNewUnitStoreData(value._UnitStoreDataID, value);
+
+            UnitStoreData_ModIntSO threshold = ScriptableObject.CreateInstance<UnitStoreData_ModIntSO>();
+            threshold.m_Text = "Algophobia -{0}";
+            threshold._UnitStoreDataID = Modifier;
+            threshold.m_TextColor = (LoadedDBsHandler.MiscDB.GetUnitStoreData(UnitStoredValueNames_GameIDs.BusterA.ToString()) as UnitStoreData_IntSO).m_TextColor;
+            threshold.m_CompareDataToThis = 0;
+            if (LoadedDBsHandler.MiscDB.m_UnitStoreDataPool.ContainsKey(Modifier))
+                LoadedDBsHandler.MiscDB.m_UnitStoreDataPool[Modifier] = threshold;
+            else
+                LoadedDBsHandler.MiscDB.AddNewUnitStoreData(threshold._UnitStoreDataID, threshold);
+        }
+    }
+    public class DamageByFieldAmountEffect : DamageEffect
+    {
+        public string FieldID;
+        public bool Opposing;
+        public bool includeRestrictor;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (TargetSlotInfo target in targets)
+            {
+                int amount = StatusExtensions.GetFieldAmountFromID(target.SlotID, Opposing ? !target.IsTargetCharacterSlot : target.IsTargetCharacterSlot, FieldID, includeRestrictor);
+                if (base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable * amount, out int exi)) exitAmount += exi;
+            }
+            return exitAmount > 0;
+        }
+        public static DamageByFieldAmountEffect Create(string field, bool opposing, bool includerestrictor = false)
+        {
+            DamageByFieldAmountEffect ret = ScriptableObject.CreateInstance<DamageByFieldAmountEffect>();
+            ret.FieldID = field;
+            ret.Opposing = opposing;
+            ret.includeRestrictor = includerestrictor;
+            return ret;
+        }
+    }
+    public class HasFieldAmountEffectCondition : EffectConditionSO
+    {
+        public string FieldID;
+        public int AmountExclusive;
+        public bool Greater;
+        public bool includeRestrictor;
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            int ret = 0;
+            foreach (TargetSlotInfo target in Targeting.Slot_SelfAll.GetTargets(CombatManager.Instance._stats.combatSlots, caster.SlotID, caster.IsUnitCharacter))
+            {
+                ret += target.GetFieldAmount(FieldID, includeRestrictor);
+            }
+            if (ret > AmountExclusive) return Greater;
+            else return !Greater;
+        }
+        public static HasFieldAmountEffectCondition Create(string field, int amountexclusive, bool greater, bool includeRestrictor = false)
+        {
+            HasFieldAmountEffectCondition ret = ScriptableObject.CreateInstance<HasFieldAmountEffectCondition>();
+            ret.FieldID = field;
+            ret.AmountExclusive = amountexclusive;
+            ret.Greater = greater;
+            ret.includeRestrictor = includeRestrictor;
+            return ret;
         }
     }
 }

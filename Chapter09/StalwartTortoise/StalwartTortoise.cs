@@ -48,7 +48,7 @@ namespace SaltsEnemies_Reseasoned
             painless._triggerOn = new TriggerCalls[] { TriggerCalls.OnDamaged, TriggerCalls.OnPlayerTurnEnd_ForEnemy };
             painless.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<PainCondition>() };
             painless.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<FleeTargetEffect>(), 1, Slots.Self).SelfArray();
-            painless.specialStoredData = UnitStoreData.GetCustom_UnitStoreData(PainCondition.Pain);
+            painless.specialStoredData = UnitStoreData.GetCustom_UnitStoreData(PainCondition.Modifier);
 
             tortoise.AddPassives(new BasePassiveAbilitySO[] { armor, painless, Passives.Forgetful, Passives.FleetingGenerator(9) });
             tortoise.CombatEnterEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ArmorEffect>(), 1, Targetting.AllSelfSlots).SelfArray();
@@ -57,11 +57,11 @@ namespace SaltsEnemies_Reseasoned
             Ability breath = new Ability("DeepBreaths_A")
             {
                 Name = "Deep Breaths",
-                Description = "Apply 4 Shield to this enemy's positions. Inflict 2-3 Scars on this enemy.",
+                Description = "Apply 6 Shield to this enemy's positions. Inflict 2-3 Scars on this enemy.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 4, Targetting.AllSelfSlots),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 6, Targetting.AllSelfSlots),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 2, Targeting.Slot_SelfSlot),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Slot_SelfSlot, Effects.ChanceCondition(50))
                 },
@@ -75,35 +75,39 @@ namespace SaltsEnemies_Reseasoned
             Ability hurdle = new Ability("Hurdle_A")
             {
                 Name = "Hurdle",
-                Description = "Deal a Painful amount of damage to the Opposing party members. Move this enemy to the Left or Right.",
+                Description = "Deal damage to the Opposing party members by the amount of Shield on this enemy's positions. Move this enemy to the Left or Right.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Slots.Front),
+                    Effects.GenerateEffect(DamageByFieldAmountEffect.Create(StatusField_GameIDs.Shield_ID.ToString(), true, true), 1, Slots.Front),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Targeting.Slot_SelfSlot),
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Crush"),
                 AnimationTarget = Slots.Front,
             };
-            hurdle.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_3_6.ToString()]);
+            hurdle.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_7_10.ToString()]);
             hurdle.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), [IntentType_GameIDs.Swap_Sides.ToString()]);
 
             //disembowel
             Ability disembowel = new Ability("Disemboweling_A")
             {
                 Name = "Disemboweling",
-                Description = "Apply 6 Shield to the Left and Right enemy positions. Inflict 3 Ruptured on this enemy.",
+                Description = "If this enemy is defended by more than 8 Shield, deal a Painful amount of damage and inflict 2 Frail on all party members.\nOtherwise, decrease Algophobia's threshold by 5 and produce 3 Blue pigment.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 6, Slots.Sides),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 3, Targeting.Slot_SelfSlot),
+                    Effects.GenerateEffect(BasicEffects.GetVisuals("Weep_A", false, TargettingSelf_NotSlot.Create()), 1, Targeting.Slot_SelfSlot, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 8, false, true)),
+                    Effects.GenerateEffect(BasicEffects.ChangeValue(PainCondition.Modifier, true), 5, Targeting.Slot_SelfSlot, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 8, false, true)),
+                    Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Blue), 3, Targeting.Slot_SelfSlot, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 8, false, true)),
+                    Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Shatter", false, TargettingSelf_NotSlot.Create()), 1, Targeting.Slot_SelfSlot, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 8, true, true)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Targeting.Unit_AllOpponents, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 8, true, true)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 2, Targeting.Unit_AllOpponents, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 8, true, true)),
                 },
-                Visuals = CustomVisuals.GetVisuals("Salt/Shatter"),
+                Visuals = null,
                 AnimationTarget = Targetting.AllSelfSlots,
             };
-            disembowel.AddIntentsToTarget(Slots.Sides, [IntentType_GameIDs.Field_Shield.ToString()]);
-            disembowel.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), [IntentType_GameIDs.Status_Ruptured.ToString()]);
+            disembowel.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), [IntentType_GameIDs.Misc.ToString(), IntentType_GameIDs.Mana_Generate.ToString()]);
+            disembowel.AddIntentsToTarget(Targeting.Unit_AllOpponentSlots, [IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Status_Frail.ToString()]);
 
             //ADD ENEMY
             tortoise.AddEnemyAbilities(new EnemyAbilityInfo[]
