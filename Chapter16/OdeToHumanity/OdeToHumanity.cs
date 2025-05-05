@@ -48,7 +48,7 @@ namespace SaltsEnemies_Reseasoned
 
             PerformEffectPassiveAbility rewrite = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             rewrite._passiveName = "Rewrite";
-            rewrite.passiveIcon = ResourceLoader.LoadSprite("RewritePasive.png");
+            rewrite.passiveIcon = ResourceLoader.LoadSprite("RewritePassive.png");
             rewrite.m_PassiveID = "Rewrite_PA";
             rewrite._enemyDescription = "On receiving direct damage, randomize the health colors of all party members and enemies.";
             rewrite._characterDescription = rewrite._enemyDescription;
