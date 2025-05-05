@@ -55,8 +55,6 @@ namespace SaltsEnemies_Reseasoned
             {
                 IntentType_GameIDs.Damage_1_2.ToString(),
                 IntentType_GameIDs.Swap_Sides.ToString(),
-                IntentType_GameIDs.Swap_Sides.ToString(),
-                IntentType_GameIDs.Swap_Sides.ToString(),
             });
             nest.Visuals = CustomVisuals.GetVisuals("Salt/Ribbon");
             nest.AnimationTarget = MultiTargetting.Create(Slots.Self, Slots.Front);
