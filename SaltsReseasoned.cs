@@ -192,6 +192,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(YellowAngel.Add);
                 PCall(NobodyGrave.Add);
                 PCall(Defender.Add);
+                PCall(Evileye.Add);
 
                 //CH18 Enemies
                 PCall(Shooter.Add);
