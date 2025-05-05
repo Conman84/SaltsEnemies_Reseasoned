@@ -88,13 +88,13 @@ namespace SaltEnemies_Reseasoned
         public override void OnTriggerAttached(StatusEffect_Holder holder, IStatusEffector caller)
         {
             CombatManager.Instance.PostNotification(Terror.Trigger, null, null);
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, Terror.Trigger, caller);
+            CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, Terror.Trigger, null);
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnFinished.ToString(), caller);
         }
 
         public override void OnTriggerDettached(StatusEffect_Holder holder, IStatusEffector caller)
         {
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, Terror.Trigger, caller);
+            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, Terror.Trigger, null);
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnFinished.ToString(), caller);
         }
         public override void OnEventCall_01(StatusEffect_Holder holder, object sender, object args)
