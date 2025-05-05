@@ -36,6 +36,7 @@ namespace SaltsEnemies_Reseasoned
             SpawnEnemyByStringNameEffect defender = ScriptableObject.CreateInstance<SpawnEnemyByStringNameEffect>();
             defender.enemyName = "Defender_EN";
             bonus.Effects = Effects.GenerateEffect(defender, 1, Slots.Self).SelfArray();
+            bonus.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Other_Spawn.ToString()]);
             bonus.Visuals = LoadedAssetsHandler.GetEnemyAbility("UglyOnTheInside_A").visuals;
             bonus.AnimationTarget = Slots.Self;
             bonus.Rarity = Rarity.Impossible;
