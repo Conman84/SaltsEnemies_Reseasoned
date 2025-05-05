@@ -28,13 +28,13 @@ namespace SaltEnemies_Reseasoned
             if (goLeft)
             {
                 _swapRight = false;
-                for (int i = 0; i < left - 1; i++) base.PerformEffect(stats, caster, Slots.Self.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter), Slots.Self.AreTargetSlots, entryVariable, out exitAmount);
+                for (int i = 0; i < left; i++) base.PerformEffect(stats, caster, Slots.Self.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter), Slots.Self.AreTargetSlots, entryVariable, out exitAmount);
             }
             else
             {
 
                 _swapRight = true;
-                for (int i = 0; i < right - 1; i++) base.PerformEffect(stats, caster, Slots.Self.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter), Slots.Self.AreTargetSlots, entryVariable, out exitAmount);
+                for (int i = 0; i < right; i++) base.PerformEffect(stats, caster, Slots.Self.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter), Slots.Self.AreTargetSlots, entryVariable, out exitAmount);
             }
             //caster.SetStoredValue(value, 0);
             return left > 0 || right > 0;
