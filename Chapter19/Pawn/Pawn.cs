@@ -93,7 +93,7 @@ namespace SaltsEnemies_Reseasoned
             murder.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeRandomManaEffect>(), 1, Slots.Self);
             murder.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_7_10.ToString()]);
             murder.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Mana_Consume.ToString()]);
-            murder.Visuals = LoadedAssetsHandler.GetCharacterAbility("Shank_1_A").visuals;
+            murder.Visuals = CustomVisuals.GetVisuals("Salt/Reload");
             murder.AnimationTarget = Slots.Front;
 
             //ADD ENEMY
