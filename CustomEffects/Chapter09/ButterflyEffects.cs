@@ -566,22 +566,6 @@ namespace SaltEnemies_Reseasoned
                             self._tooltip.DelayShow(content, header, "");
                             return;
                         }
-                        if (abilityBySlotID._abilityName == "Nest")
-                        {
-                            StringPairData abilityLocData = abilityBySlotID.GetAbilityLocData();
-                            header = abilityLocData.text;
-                            content = "Apply 1 Constricted on the Left and Right party member positions. Reduce this enemy's Fleeting by 1 and inflict 2 Frail upon this enemy.";
-                            self._tooltip.DelayShow(content, header, "");
-                            return;
-                        }
-                        if (abilityBySlotID._abilityName == "Patience")
-                        {
-                            StringPairData abilityLocData = abilityBySlotID.GetAbilityLocData();
-                            header = abilityLocData.text;
-                            content = "Move all party members with Terror closer to this enemy. If there are no party members with Terror, apply it to the party member farthest from this enemy.";
-                            self._tooltip.DelayShow(content, header, "");
-                            return;
-                        }
                     }
                 }
             }
