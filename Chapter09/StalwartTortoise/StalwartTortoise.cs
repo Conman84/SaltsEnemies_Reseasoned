@@ -52,6 +52,10 @@ namespace SaltsEnemies_Reseasoned
 
             tortoise.AddPassives(new BasePassiveAbilitySO[] { armor, painless, Passives.Forgetful });
             tortoise.CombatEnterEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ArmorEffect>(), 1, Targetting.AllSelfSlots).SelfArray();
+            AbilitySelector_Heaven turn1 = ScriptableObject.CreateInstance<AbilitySelector_Heaven>();
+            turn1._useAfterTurns = 1;
+            turn1._ComeHomeAbility = "Disemboweling_A";
+            tortoise.AbilitySelector = turn1;
 
             //breath
             Ability breath = new Ability("DeepBreaths_A")
