@@ -34,7 +34,7 @@ namespace SaltEnemies_Reseasoned
         }
         public static void Setup()
         {
-            IDetour hook = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.WillApplyDamage), ~BindingFlags.Default), typeof(PreservedHandler).GetMethod(nameof(WillApplyDamage), ~BindingFlags.Default));
+            //IDetour hook = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.WillApplyDamage), ~BindingFlags.Default), typeof(PreservedHandler).GetMethod(nameof(WillApplyDamage), ~BindingFlags.Default));
         }
     }
     public class WellPreservedCondition : EffectorConditionSO
@@ -43,10 +43,21 @@ namespace SaltEnemies_Reseasoned
         {
             if (args is DamageReceivedValueChangeException hitBy)
             {
-                if (hitBy.directDamage) return false;
-                hitBy.AddModifier(new ImmZeroMod());
+                if (hitBy.possibleSourceUnit != null && hitBy.damagedUnit != null)
+                {
+                    if (hitBy.possibleSourceUnit.IsUnitCharacter == hitBy.damagedUnit.IsUnitCharacter)
+                    {
+                        hitBy.AddModifier(new ImmZeroMod());
+                        return true;
+                    }
+                }
+                if (!hitBy.directDamage)
+                {
+                    hitBy.AddModifier(new ImmZeroMod());
+                    return true;
+                }
             }
-            return true;
+            return false;
         }
     }
     public class DamageTargetsBySubTargetMissingHealthEffect : DamageEffect
@@ -490,6 +501,17 @@ namespace SaltEnemies_Reseasoned
                     RuntimeManager.PlayOneShot(CountFibonacci.click, characterPosition);
                     for (int j = 0; j < 6; j++) yield return null;
                 }
+        }
+    }
+    public class AliveFrontTargetCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            foreach (TargetSlotInfo target in Slots.Front.GetTargets(CombatManager.Instance._stats.combatSlots, caster.SlotID, caster.IsUnitCharacter))
+            {
+                if (target.HasUnit && target.Unit.CurrentHealth > 0) return true;
+            }
+            return false;
         }
     }
 }
