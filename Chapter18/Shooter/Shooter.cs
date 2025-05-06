@@ -11,7 +11,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Enemy template = new Enemy("Skeleton Shooter", "SkeletonShooter_EN")
+            Enemy skeleton = new Enemy("Skeleton Shooter", "SkeletonShooter_EN")
             {
                 Health = 20,
                 HealthColor = Pigments.Grey,
@@ -21,7 +21,7 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = "event:/Hawthorne/Noisy/Bone_Hit",
                 DeathSound = "event:/Hawthorne/Noisy/Bone_Death",
             };
-            template.PrepareEnemyPrefab("assets/enemie/Shooter_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("assets/giblets/Shooter_Gibs.prefab").GetComponent<ParticleSystem>());
+            skeleton.PrepareEnemyPrefab("assets/enemie/Shooter_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("assets/giblets/Shooter_Gibs.prefab").GetComponent<ParticleSystem>());
 
             //sniper
             ExtraAttackPassiveAbility baseExtra = LoadedAssetsHandler.GetEnemy("Xiphactinus_EN").passiveAbilities[1] as ExtraAttackPassiveAbility;
@@ -43,7 +43,7 @@ namespace SaltsEnemies_Reseasoned
             AbilitySO ability = bonus.GenerateEnemyAbility(true).ability;
             sniper._extraAbility.ability = ability;
 
-            template.AddPassives(new BasePassiveAbilitySO[] { sniper });
+            skeleton.AddPassives(new BasePassiveAbilitySO[] { sniper });
 
             //coward
             IsFrontTargetCondition front = ScriptableObject.CreateInstance<IsFrontTargetCondition>();
@@ -94,13 +94,13 @@ namespace SaltsEnemies_Reseasoned
             };
 
             //ADD ENEMY
-            template.AddEnemyAbilities(new EnemyAbilityInfo[]
+            skeleton.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 coward.GenerateEnemyAbility(true),
                 opportunist.GenerateEnemyAbility(true),
                 bash
             });
-            template.AddEnemy(true, true);
+            skeleton.AddEnemy(true, true);
         }
     }
 }
