@@ -1051,25 +1051,45 @@ namespace SaltEnemies_Reseasoned
                 }
                 if (colors.Contains(new Color(28f, 78f, 128f)))
                 {
-                    if (self._intents.Count <= 0) self.GenerateNewIntent();
+                    List<Sprite> animateSprites = new List<Sprite>();
+                    List<Color> animateColors = new List<Color>();
+                    bool animateThese = false;
+                    int upTo = colors.Length;
+                    for (int checkColor = 0; checkColor < colors.Length; checkColor++)
+                    {
+                        if (animateThese)
+                        {
+                            animateSprites.Add(icons[checkColor]);
+                            animateColors.Add(colors[checkColor]);
+                        }
+                        if (colors[checkColor] == new Color(28f, 78f, 128f) || colors[checkColor].Equals(new Color(28f, 78f, 128f)))
+                        {
+                            animateThese = true;
+                            upTo = checkColor;
+                        }
+                    }
+                    while (self._intents.Count < upTo) self.GenerateNewIntent();
                     for (int index = 0; index < self._intents.Count; ++index)
                     {
-                        if (index == 0)
+                        if (index < upTo - 1)
                         {
+                            self._intents[index].SetInformation(icons[index], colors[index]);
+                            self._intents[index].SetActivation(true);
+                        }
+                        else if (index >= upTo)
+                        {
+                            self._intents[index].SetActivation(false);
+                        }
+                        else 
+                        { 
                             self._intents[index].SetInformation(icons[index], colors[index]);
                             self._intents[index].SetActivation(true);
                             IntentLayoutAnimator grah = self._intents[index].gameObject.AddComponent<IntentLayoutAnimator>();
                             grah.animate = self._intents[index];
-                            grah.icons = icons;
-                            grah.colors = colors;
+                            grah.icons = animateSprites.ToArray();
+                            grah.colors = animateColors.ToArray();
                             grah.IsActive = true;
                             grah.limit = 0.1f;
-                            //Debug.Log("mhm");
-                        }
-                        else
-                        {
-                            self._intents[index].SetActivation(false);
-                            //Debug.Log("uh uh.");
                         }
                     }
                 }

@@ -28,7 +28,7 @@ namespace SaltsEnemies_Reseasoned
             //PreservedHandler.Setup();
             PerformEffectPassiveAbility preserve = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             preserve._passiveName = "Well Preserved";
-            preserve.passiveIcon = ResourceLoader.LoadSprite("preserve.png");
+            preserve.passiveIcon = ResourceLoader.LoadSprite("WellPreservedPassive.png");
             preserve._enemyDescription = "This enemy is immune to indirect damage and damage from other enemies.";
             preserve._characterDescription = "This party member is immune to indirect damage.";
             preserve.m_PassiveID = PreservedHandler.Type;
