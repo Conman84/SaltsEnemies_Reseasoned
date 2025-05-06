@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using BrutalAPI;
+using MonoMod.RuntimeDetour;
 using TMPro;
 using UnityEngine;
 
@@ -47,6 +48,18 @@ namespace SaltEnemies_Reseasoned
             intentinfo._sprite = ResourceLoader.LoadSprite("Pale.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
+
+            Setup();
+        }
+
+        public static int DamageReceivedValueChangeException_GetModifiedValue(Func<DamageReceivedValueChangeException, int> orig, DamageReceivedValueChangeException self)
+        {
+            if (self.damageTypeID == Pale.DamageType) return self.amount;
+            return orig(self);
+        }
+        public static void Setup()
+        {
+            IDetour hook = new Hook(typeof(DamageReceivedValueChangeException).GetMethod(nameof(DamageReceivedValueChangeException.GetModifiedValue), ~System.Reflection.BindingFlags.Default), typeof(Pale).GetMethod(nameof(DamageReceivedValueChangeException_GetModifiedValue), ~System.Reflection.BindingFlags.Default));
         }
     }
     public class PaleSE_SO : StatusEffect_SO
@@ -75,13 +88,14 @@ namespace SaltEnemies_Reseasoned
                         hitBy.AddModifier(new ImmZeroMod());
                         hitBy.AddModifier((IntValueModifier)new RemainSameTrigger(hitBy.amount));
 
-                        RemoveStatusEffectEffect removeSelf = ScriptableObject.CreateInstance<RemoveStatusEffectEffect>();
-                        removeSelf._status = this;
-                        EffectInfo removeSelfEffect = Effects.GenerateEffect(removeSelf, 1, Targeting.Slot_SelfAll);
-                        CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { removeSelfEffect }, unit));
+
+
+                        //RemoveStatusEffectEffect removeSelf = ScriptableObject.CreateInstance<RemoveStatusEffectEffect>();
+                        //removeSelf._status = this;
+                        //EffectInfo removeSelfEffect = Effects.GenerateEffect(removeSelf, 1, Targeting.Slot_SelfAll);
+                        //CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { removeSelfEffect }, unit));
                         return;
                     }
-
 
 
                     int maxHP = unit.MaximumHealth;
@@ -99,9 +113,10 @@ namespace SaltEnemies_Reseasoned
                         hitBy.AddModifier((IntValueModifier)new PaleTrigger(newHP, this, effector, Amount));
                     else
                     {
-                        PaleHarmEffect.DoPaleHarm(unit, Amount, out int exi);
-                        //EffectInfo soulHit = Effects.GenerateEffect(ScriptableObject.CreateInstance<PaleHarmEffect>(), Amount, Targeting.Slot_SelfAll);
-                        //CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { soulHit }, unit));
+                        (sender as IStatusEffector).RemoveStatusEffect(Pale.StatusID);
+                        //PaleHarmEffect.DoPaleHarm(unit, Amount, out int exi);
+                        EffectInfo soulHit = Effects.GenerateEffect(ScriptableObject.CreateInstance<PaleHarmEffect>(), Amount, Targeting.Slot_SelfAll);
+                        CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { soulHit }, unit));
                     }
 
                 }
@@ -162,11 +177,12 @@ namespace SaltEnemies_Reseasoned
 
         public override int Modify(int value)
         {
-            if (value > 0 && this.effector is IUnit unit)
+            if (value > 0 && this.effector is IUnit unit && unit.ContainsStatusEffect(Pale.StatusID))
             {
-                PaleHarmEffect.DoPaleHarm(unit, this.amount, out int exi);
-                //EffectInfo soulHit = Effects.GenerateEffect(ScriptableObject.CreateInstance<PaleHarmEffect>(), this.amount, Targeting.Slot_SelfAll);
-                //CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { soulHit }, unit));
+                effector.RemoveStatusEffect(Pale.StatusID);
+                //PaleHarmEffect.DoPaleHarm(unit, this.amount, out int exi);
+                EffectInfo soulHit = Effects.GenerateEffect(ScriptableObject.CreateInstance<PaleHarmEffect>(), this.amount, Targeting.Slot_SelfAll);
+                CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { soulHit }, unit));
             }
             return value;
         }
