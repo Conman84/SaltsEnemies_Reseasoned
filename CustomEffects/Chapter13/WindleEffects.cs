@@ -53,7 +53,7 @@ namespace SaltEnemies_Reseasoned
             string nameAdditionData = LocUtils.GameLoc.GetNameAdditionData(_nameAddition);
             for (int j = 0; j < entryVariable; j++)
             {
-                CombatManager.Instance.AddSubAction(new SpawnCharacterAction(charcater, -1, trySpawnAnyways: false, nameAdditionData, _permanentSpawn, _rank, abilitiesUsed, currentHealth, modifiers));
+                CombatManager.Instance.AddSubAction(new SpawnCharacterAction(charcater, caster.SlotID, trySpawnAnyways: true, nameAdditionData, _permanentSpawn, _rank, abilitiesUsed, currentHealth, modifiers));
             }
 
             exitAmount = entryVariable;
