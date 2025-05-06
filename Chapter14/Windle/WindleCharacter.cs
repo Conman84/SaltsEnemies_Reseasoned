@@ -59,6 +59,7 @@ namespace SaltsEnemies_Reseasoned
             j0.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_1_2.ToString()]);
             j0.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_1_2.ToString()]);
             j0.AddIntentsToTarget(Slots.Sides, [IntentType_GameIDs.Damage_1_2.ToString()]);
+            j0.GenerateEnemyAbility();
 
             Ability j1 = new Ability(j0.ability, "Shod_2_A", j0.Cost, j0.Rarity);
             j1.Name = "Scruffled Shod";
@@ -67,12 +68,14 @@ namespace SaltsEnemies_Reseasoned
             j1.Effects[2].entryVariable = 3;
             j1.EffectIntents[1].intents = [IntentType_GameIDs.Damage_3_6.ToString()];
             j1.EffectIntents[2].intents = [IntentType_GameIDs.Damage_3_6.ToString()];
+            j1.GenerateEnemyAbility();
 
             Ability j2 = new Ability(j1.ability, "Shod_3_A", j0.Cost, j0.Rarity);
             j2.Name = "Meaningless Shod";
             j2.Description = "Deal 2 damage to this party member.\nDeal 6 damage to the Opposing enemy.\nDeal 4 damage to the Left and Right party members.";
             j2.Effects[1].entryVariable = 6;
             j2.Effects[2].entryVariable = 4;
+            j2.GenerateEnemyAbility();
 
             Ability j3 = new Ability("Shod_4_A");
             j3.Name = "Almost Ironic Shod";
@@ -88,6 +91,7 @@ namespace SaltsEnemies_Reseasoned
             j3.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_16_20.ToString()]);
             j3.AddIntentsToTarget(Slots.Sides, [IntentType_GameIDs.Damage_7_10.ToString()]);
             j3.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_Death.ToString()]);
+            j3.GenerateEnemyAbility();
 
             windle.AddLevelData(12, [j0]);
             windle.AddLevelData(15, [j1]);
