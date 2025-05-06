@@ -813,16 +813,28 @@ namespace SaltEnemies_Reseasoned
         public static List<int> UsedBlue;
         public static List<int> UsedYellow;
         public static string RedUsed => "RedUsed_A";
+
+        public static Dictionary<ManaColorSO, List<int>> PigmentsUsed;
         public static void UseAbility(Action<CharacterCombat, int, FilledManaCost[]> orig, CharacterCombat self, int abilityID, FilledManaCost[] filledCost)
         {
             if (lastUsed == null)
                 lastUsed = new List<ManaColorSO>();
+            if (PigmentsUsed == null)
+                PigmentsUsed = new Dictionary<ManaColorSO, List<int>>();
             lastUsed.Clear();
             ID = self.ID;
             foreach (FilledManaCost filledManaCost in filledCost)
             {
                 lastUsed.Add(filledManaCost.Mana);
                 //if (filledManaCost.Mana.SharesPigmentColor(Pigments.Red)) self.SimpleSetStoredValue(RedUsed, self.SimpleGetStoredValue(RedUsed) + 1);
+                if (PigmentsUsed.Keys.Contains(filledManaCost.Mana))
+                {
+                    if (!PigmentsUsed[filledManaCost.Mana].Contains(self.ID)) PigmentsUsed[filledManaCost.Mana].Add(self.ID);
+                }
+                else
+                {
+                    PigmentsUsed.Add(filledManaCost.Mana, new List<int>() { self.ID });
+                }
             }
             if (lastUsed.Contains(Pigments.Blue))
             {
@@ -844,6 +856,7 @@ namespace SaltEnemies_Reseasoned
         }
         public static void ClearBlueUsers()
         {
+            PigmentsUsed = new Dictionary<ManaColorSO, List<int>>();
             if (UsedYellow != null) UsedYellow.Clear();
             if (UsedBlue == null) return;
             UsedBlue.Clear();
@@ -852,6 +865,16 @@ namespace SaltEnemies_Reseasoned
         {
             IDetour idetour1 = new Hook(typeof(CharacterCombat).GetMethod(nameof(CharacterCombat.UseAbility), ~BindingFlags.Default), typeof(PigmentUsedCollector).GetMethod(nameof(UseAbility), ~BindingFlags.Default));
             IDetour idetour2 = new Hook(typeof(CharacterCombat).GetMethod(nameof(CharacterCombat.FinalizeAbilityActions), ~BindingFlags.Default), typeof(PigmentUsedCollector).GetMethod(nameof(FinalizeAbilityActions), ~BindingFlags.Default));
+            PigmentsUsed = new Dictionary<ManaColorSO, List<int>>();
+        }
+        public static bool UsedBy(this ManaColorSO self, int id)
+        {
+            if (PigmentsUsed == null) return false;
+            foreach (ManaColorSO key in PigmentsUsed.Keys)
+            {
+                if (key.SharesPigmentColor(self)) return PigmentsUsed[key].Contains(id);
+            }
+            return false;
         }
     }
     public class BlackHoleEffect : EffectSO
