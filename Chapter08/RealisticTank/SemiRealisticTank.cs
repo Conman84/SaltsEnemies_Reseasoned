@@ -93,7 +93,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Targeting.Slot_OpponentSides),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Targeting.Slot_OpponentSides),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Targeting.Slot_Front),
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Cannon"),
                 AnimationTarget = Targeting.Slot_OpponentSides,
