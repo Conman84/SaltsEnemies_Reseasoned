@@ -36,6 +36,7 @@ namespace SaltsEnemies_Reseasoned
             lonely.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<LonelyCondition>() };
 
             sinker.AddPassives(new BasePassiveAbilitySO[] { lonely, Passives.Dying });
+            sinker.AddUnitType("Fish");
 
             //NAILING
             Ability nailing = new Ability("Nailing_A")
