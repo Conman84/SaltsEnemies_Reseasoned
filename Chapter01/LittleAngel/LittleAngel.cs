@@ -49,6 +49,7 @@ namespace SaltsEnemies_Reseasoned
                 Passives.Immortal,
                 lightweight,
             });
+            LittleAngel.AddUnitType("Angel");
 
             //Kindness
             Targetting_ByUnit_Side allAlly = ScriptableObject.CreateInstance<Targetting_ByUnit_Side>();
