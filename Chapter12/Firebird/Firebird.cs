@@ -11,7 +11,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Enemy template = new Enemy("The Firebird", "Firebird_EN")
+            Enemy firebird = new Enemy("The Firebird", "Firebird_EN")
             {
                 Health = 35,
                 HealthColor = Pigments.Red,
@@ -22,7 +22,7 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = LoadedAssetsHandler.GetEnemy("GigglingMinister_EN").deathSound,
                 AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_Firebird>()
             };
-            template.PrepareEnemyPrefab("assets/group4/Firebird/Firebird_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Firebird/Firebird_Gibs.prefab").GetComponent<ParticleSystem>());
+            firebird.PrepareEnemyPrefab("assets/group4/Firebird/Firebird_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Firebird/Firebird_Gibs.prefab").GetComponent<ParticleSystem>());
 
             //rejuvination
             RejuvinationPassiveAbility pheonix = ScriptableObject.CreateInstance<RejuvinationPassiveAbility>();
@@ -60,7 +60,8 @@ namespace SaltsEnemies_Reseasoned
             combative.conditions = Passives.Fleeting4.conditions;
             combative._triggerOn = Passives.Fleeting4._triggerOn;
 
-            template.AddPassives(new BasePassiveAbilitySO[] { pheonix, burning, combative, Passives.Skittish });
+            firebird.AddPassives(new BasePassiveAbilitySO[] { pheonix, burning, combative, Passives.Skittish });
+            firebird.AddUnitType("Bird");
 
             //singeing claws
             Ability claws = new Ability("SingeingClaws_A")
@@ -112,13 +113,13 @@ namespace SaltsEnemies_Reseasoned
 
 
             //ADD ENEMY
-            template.AddEnemyAbilities(new EnemyAbilityInfo[]
+            firebird.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 claws.GenerateEnemyAbility(true),
                 veins.GenerateEnemyAbility(true),
                 death.GenerateEnemyAbility(true)
             });
-            template.AddEnemy(true, true);
+            firebird.AddEnemy(true, true);
         }
     }
 }
