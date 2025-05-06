@@ -88,6 +88,12 @@ namespace SaltsEnemies_Reseasoned
             j3.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_16_20.ToString()]);
             j3.AddIntentsToTarget(Slots.Sides, [IntentType_GameIDs.Damage_7_10.ToString()]);
             j3.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_Death.ToString()]);
+
+            windle.AddLevelData(12, [j0]);
+            windle.AddLevelData(15, [j1]);
+            windle.AddLevelData(18, [j2]);
+            windle.AddLevelData(19, [j3]);
+            windle.AddCharacter(false, true);
         }
     }
 }
