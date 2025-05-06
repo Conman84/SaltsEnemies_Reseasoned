@@ -12,7 +12,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Enemy template = new Enemy("Merced", "Merced_EN")
+            Enemy merced = new Enemy("Merced", "Merced_EN")
             {
                 Health = 1,
                 HealthColor = Pigments.Purple,
@@ -22,7 +22,7 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = "event:/Hawthorne/Hurt/MercedScream",
                 DeathSound = "event:/Hawthorne/Die/MercedDie",
             };
-            template.PrepareEnemyPrefab("assets/group4/Merced/Merced_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Merced/Merced_Gibs.prefab").GetComponent<ParticleSystem>());
+            merced.PrepareEnemyPrefab("assets/group4/Merced/Merced_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Merced/Merced_Gibs.prefab").GetComponent<ParticleSystem>());
 
             //well preserved
             //PreservedHandler.Setup();
@@ -37,7 +37,8 @@ namespace SaltsEnemies_Reseasoned
             preserve.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<WellPreservedCondition>() };
             preserve.effects = new EffectInfo[0];
 
-            template.AddPassives(new BasePassiveAbilitySO[] { preserve, Passives.Skittish });
+            merced.AddPassives(new BasePassiveAbilitySO[] { preserve, Passives.Skittish });
+            merced.AddUnitType("FemaleID");
 
             RaritySO rarity = Rarity.GetCustomRarity("rarity5");
             RaritySO low = Rarity.CreateAndAddCustomRarityToPool("mercedLow", 3);
@@ -172,7 +173,7 @@ namespace SaltsEnemies_Reseasoned
             _indexing.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_Death.ToString()]);
 
             //ADD ENEMY
-            template.AddEnemyAbilities(new EnemyAbilityInfo[]
+            merced.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 _shredding.GenerateEnemyAbility(true),
                 _binder.GenerateEnemyAbility(true),
@@ -181,7 +182,7 @@ namespace SaltsEnemies_Reseasoned
                 _descriptions.GenerateEnemyAbility(true),
                 _indexing.GenerateEnemyAbility(true),
             });
-            template.AddEnemy(true, true);
+            merced.AddEnemy(true, true);
         }
     }
 }
