@@ -1121,7 +1121,7 @@ namespace SaltEnemies_Reseasoned
                     self.GenerateUnusedIntent();
                 TargetIntentLayout targetIntentLayout = self._unusedIntents.Dequeue();
                 targetIntentLayout.MoveToLast();
-                targetIntentLayout.SetInformation(icons[0], colors[0]);
+                targetIntentLayout.SetInformation(icons[1], colors[1]);
                 targetIntentLayout.SetActivation(true);
                 self._intentsInUse.Add(targetIntentLayout);
                 foreach (IntentLayoutAnimator old in targetIntentLayout.gameObject.GetComponents<IntentLayoutAnimator>())
@@ -1140,8 +1140,8 @@ namespace SaltEnemies_Reseasoned
 
                 IntentLayoutAnimator grah = targetIntentLayout.gameObject.AddComponent<IntentLayoutAnimator>();
                 grah.mutilate = targetIntentLayout;
-                grah.icons = icons;
-                grah.colors = colors;
+                grah.icons = animateSprites.ToArray();
+                grah.colors = animateColors.ToArray();
                 grah.IsActive = true;
                 grah.limit = 0.1f;
                 //Debug.Log("TARGET INTENT ");

@@ -159,9 +159,10 @@ namespace SaltsEnemies_Reseasoned
             {
                 "Misc",
             });
+            interference.AddIntentsToTarget(allEnemy, ["Misc"]);
             interference.AddIntentsToTarget(allEnemy, new string[]
             {
-                "Misc",
+                FallColor.Intent,
                 "Status_Cursed",
                 "Status_Scars",
                 "Status_Frail",

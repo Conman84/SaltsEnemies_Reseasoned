@@ -99,8 +99,9 @@ namespace SaltEnemies_Reseasoned
                         hitBy.AddModifier((IntValueModifier)new PaleTrigger(newHP, this, effector, Amount));
                     else
                     {
-                        EffectInfo soulHit = Effects.GenerateEffect(ScriptableObject.CreateInstance<PaleHarmEffect>(), Amount, Targeting.Slot_SelfAll);
-                        CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { soulHit }, unit));
+                        PaleHarmEffect.DoPaleHarm(unit, Amount, out int exi);
+                        //EffectInfo soulHit = Effects.GenerateEffect(ScriptableObject.CreateInstance<PaleHarmEffect>(), Amount, Targeting.Slot_SelfAll);
+                        //CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { soulHit }, unit));
                     }
 
                 }
@@ -163,8 +164,9 @@ namespace SaltEnemies_Reseasoned
         {
             if (value > 0 && this.effector is IUnit unit)
             {
-                EffectInfo soulHit = Effects.GenerateEffect(ScriptableObject.CreateInstance<PaleHarmEffect>(), this.amount, Targeting.Slot_SelfAll);
-                CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { soulHit }, unit));
+                PaleHarmEffect.DoPaleHarm(unit, this.amount, out int exi);
+                //EffectInfo soulHit = Effects.GenerateEffect(ScriptableObject.CreateInstance<PaleHarmEffect>(), this.amount, Targeting.Slot_SelfAll);
+                //CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { soulHit }, unit));
             }
             return value;
         }
@@ -176,16 +178,9 @@ namespace SaltEnemies_Reseasoned
         [SerializeField]
         public bool _randomBetweenPrevious;
 
-        public override bool PerformEffect(
-            CombatStats stats,
-            IUnit caster,
-            TargetSlotInfo[] targets,
-            bool areTargetSlots,
-            int entryVariable,
-            out int exitAmount)
+        public static void DoPaleHarm(IUnit caster, int entryVariable, out int exitAmount)
         {
             exitAmount = 0;
-
             int maxHP = caster.MaximumHealth;
             int currentHP = caster.CurrentHealth;
             decimal gapMax = (decimal)maxHP;
@@ -205,6 +200,19 @@ namespace SaltEnemies_Reseasoned
                 hitting = currentHP;
             }
             caster.Damage(hitting, null, DeathType_GameIDs.Basic.ToString(), -1, false, false, true, Pale.DamageType);
+        }
+
+        public override bool PerformEffect(
+            CombatStats stats,
+            IUnit caster,
+            TargetSlotInfo[] targets,
+            bool areTargetSlots,
+            int entryVariable,
+            out int exitAmount)
+        {
+            exitAmount = 0;
+
+            DoPaleHarm(caster, entryVariable, out exitAmount);
 
 
             return exitAmount > 0;
