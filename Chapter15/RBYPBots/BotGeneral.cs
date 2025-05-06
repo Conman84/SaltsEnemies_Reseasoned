@@ -91,6 +91,7 @@ namespace SaltsEnemies_Reseasoned
 
             Selector = ScriptableObject.CreateInstance<AbilitySelector_Bots>();
             Selector.Isolate = new string[] { "Bot_Petrify_A", "Bot_Partition_A" };
+            Selector.NoAlone = "Bot_Postular_A";
 
         }
         static bool Set;

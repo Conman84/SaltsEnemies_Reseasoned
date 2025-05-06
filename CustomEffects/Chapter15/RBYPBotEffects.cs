@@ -17,6 +17,7 @@ namespace SaltEnemies_Reseasoned
         [Header("Special Abilities")]
         [SerializeField]
         public string[] Isolate = new string[0];
+        public string NoAlone;
 
         public override bool UsesRarity => true;
 
@@ -69,6 +70,18 @@ namespace SaltEnemies_Reseasoned
         public bool ShouldBeIgnored(CombatAbility ability, IUnit unit)
         {
             string name = ability.ability.name;
+
+            int friends = 0;
+            if (!unit.IsUnitCharacter)
+            {
+                foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values) if (enemy.HealthColor.SharesPigmentColor(unit.HealthColor)) friends++;
+            }
+            else
+            {
+                foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values) if (chara.HealthColor.SharesPigmentColor(unit.HealthColor)) friends++;
+            }
+            if (name == NoAlone && friends <= 0) return true; 
+
             return unit.SimpleGetStoredValue(UnitStoredValueNames_GameIDs.DemonCoreW.ToString()) == 1 && Isolate.Contains(name);
         }
     }
