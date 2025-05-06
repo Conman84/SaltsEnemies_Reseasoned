@@ -37,6 +37,7 @@ namespace SaltsEnemies_Reseasoned
                 Passives.Skittish,
                 Passives.Dying
             });
+            Satyr.AddUnitType("Bird");
 
             //Sweet
             Targetting_ByUnit_Side allAlly = ScriptableObject.CreateInstance<Targetting_ByUnit_Side>();
