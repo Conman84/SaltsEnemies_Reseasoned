@@ -25,6 +25,7 @@ namespace SaltsEnemies_Reseasoned
             angel.PrepareEnemyPrefab("assets/group4/Angel/Angel_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Angel/Angel_Gibs.prefab").GetComponent<ParticleSystem>());
 
             angel.AddPassives(new BasePassiveAbilitySO[] { Passives.Leaky1, Passives.Withering });
+            angel.AddUnitType("Angel");
 
             //Pray
 
