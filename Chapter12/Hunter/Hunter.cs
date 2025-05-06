@@ -35,6 +35,7 @@ namespace SaltsEnemies_Reseasoned
             hunter._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
 
             hunting.AddPassives(new BasePassiveAbilitySO[] { Passives.Constricting, hunter });
+            hunting.AddUnitType("Bird");
 
             //nest
             Ability nest = new Ability("Nest", "Hunter_Nest_A");
