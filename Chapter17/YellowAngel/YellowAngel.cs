@@ -48,6 +48,7 @@ namespace SaltsEnemies_Reseasoned
             rupture._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
 
             yellow.AddPassives(new BasePassiveAbilitySO[] { flutter, rupture });
+            yellow.AddUnitType("Angel");
 
             //sight
             Ability sight = new Ability("OnSight_A")
