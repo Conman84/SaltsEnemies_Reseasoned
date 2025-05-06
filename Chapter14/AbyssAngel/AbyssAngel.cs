@@ -34,7 +34,7 @@ namespace SaltsEnemies_Reseasoned
             waves._triggerOn = new TriggerCalls[1] { TriggerCalls.OnMoved };
 
             cliome.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, waves });
-            cliome.UnitTypes = new List<string> { "Fish" };
+            cliome.UnitTypes = new List<string> { "Fish", "Angel" };
 
             Ability underwater = new Ability("HoldMeUnderwater_A")
             {
