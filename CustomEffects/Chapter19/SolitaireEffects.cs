@@ -24,65 +24,6 @@ namespace SaltsEnemies_Reseasoned
         public static void Setup()
         {
             NotificationHook.AddAction(NotifCheck);
-
-            //TWO GROUP
-            TwoGroup = new List<string[]>();
-            TwoGroup.Add(["InHisImage_EN", "InHisImage_EN"]);
-            TwoGroup.Add(["InHerImage_EN", "InHerImage_EN"]);
-            TwoGroup.Add(["SkinningHomunculus_EN", "SkinningHomunculus_EN"]);
-            TwoGroup.Add(["GigglingMinister_EN", "GigglingMinister_EN"]);
-            TwoGroup.Add(["ChoirBoy_EN", "ChoirBoy_EN"]);
-            TwoGroup.Add(["Yang_EN", "Yang_EN"]);
-
-            TwoGroup.Add(["Attrition_EN", "Attrition_EN"]);
-
-            TwoPlusGroup = new List<string[]>(TwoGroup);
-            TwoPlusGroup.Add(["RealisticTank_EN"]);
-
-            //ONE GROUP
-            OneGroup = new List<string[]>();
-            OneGroup.Add(["ChoirBoy_EN"]);
-            OneGroup.Add(["GigglingMinister_EN"]);
-            OneGroup.Add(["NextOfKin_EN", "NextOfKin_EN", "NextOfKin_EN", "NextOfKin_EN", "NextOfKin_EN"]);
-            OneGroup.Add(["ShiveringHomunculus_EN", "ShiveringHomunculus_EN", "ShiveringHomunculus_EN"]);
-            OneGroup.Add(["LittleAngel_EN"]);
-            OneGroup.Add(["Satyr_EN"]);
-            OneGroup.Add(["ClockTower_EN"]);
-            OneGroup.Add(["BlueFlower_EN", "RedFlower_EN"]);
-            OneGroup.Add(["RedFlower_EN", "BlueFlower_EN"]);
-            OneGroup.Add(["MortalSpoggle_EN"]);
-            OneGroup.Add(["RusticJumbleguts_EN"]);
-            OneGroup.Add(["StarGazer_EN", "StarGazer_EN", "StarGazer_EN", "StarGazer_EN", "StarGazer_EN"]);
-            OneGroup.Add(["Grandfather_EN"]);
-            OneGroup.Add(["GreyFlower_EN"]);
-            OneGroup.Add(["EyePalm_EN", "EyePalm_EN", "EyePalm_EN"]);
-            OneGroup.Add(["Merced_EN"]);
-            OneGroup.Add(["MiniReaper_EN"]);
-            OneGroup.Add(["Shua_EN"]);
-            OneGroup.Add(["GlassFigurine_EN"]);
-            OneGroup.Add(["Damocles_EN", "Damocles_EN", "Damocles_EN", "Damocles_EN", "Damocles_EN"]);
-            OneGroup.Add(["GreyBot_EN"]);
-            OneGroup.Add(["BlackStar_EN", "BlackStar_EN"]);
-            //children
-            OneGroup.Add(["Indicator_EN"]);
-            OneGroup.Add(["YNL_EN"]);
-            OneGroup.Add(["Stoplight_EN"]);
-            OneGroup.Add(["OdeToHumanity_EN"]);
-            OneGroup.Add(["GlassedSun_EN"]);
-            OneGroup.Add(["PersonalAngel_EN"]);
-            //evildog
-            OneGroup.Add(["Complimentary_EN"]);
-            OneGroup.Add(["PawnA_EN", "PawnA_EN", "PawnA_EN", "PawnA_EN", "PawnA_EN"]);
-            OneGroup.Add(["Hunter_EN"]);
-            OneGroup.Add(["Firebird_EN"]);
-            OneGroup.Add(["Yang_EN"]);
-            OneGroup.Add(["Starless_EN"]);
-            OneGroup.Add(["Eyeless_EN", "Starless_EN"]);
-
-            OneGroup.Add(["Romantic_EN", "Romantic_EN"]);
-            OneGroup.Add(["Git_EN"]);
-            OneGroup.Add(["Attrition_EN"]);
-
         }
 
         public static EnemyCombatBundle GetRandomGardenEncounter()
