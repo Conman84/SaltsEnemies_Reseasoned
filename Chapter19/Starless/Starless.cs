@@ -51,7 +51,7 @@ namespace SaltsEnemies_Reseasoned
             rightmost._characterDescription = "On ending the round on the Rightmost tile, deal an Agonizing amount of damage to all enemies.";
             rightmost.doesPassiveTriggerInformationPanel = false;
             rightmost.conditions = ScriptableObject.CreateInstance<RightMostCondition>().SelfArray();
-            rightmost._triggerOn = new TriggerCalls[] { TriggerCalls.OnCombatStart, StarlessPassiveAbility.Call };
+            rightmost._triggerOn = new TriggerCalls[] { StarlessPassiveAbility.Call };
             rightmost.effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<StarlessPassiveEffect>()),

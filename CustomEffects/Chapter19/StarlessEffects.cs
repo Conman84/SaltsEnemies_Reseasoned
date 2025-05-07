@@ -133,6 +133,18 @@ namespace SaltEnemies_Reseasoned
             IUnit caster = sender as IUnit;
             CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(effects, caster));
         }
+        public override void OnPassiveConnected(IUnit unit)
+        {
+            base.OnPassiveConnected(unit);
+            if (unit.SlotID + unit.Size < 5) return;
+            CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[]
+            {
+                Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self),
+                Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self),
+                Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self),
+                Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self),
+            }, unit));
+        }
         public static void NotifCheck(string call, object sender, object args)
         {
             if (call == TriggerCalls.TimelineEndReached.ToString())
