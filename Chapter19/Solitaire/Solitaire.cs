@@ -61,15 +61,14 @@ namespace SaltsEnemies_Reseasoned
 
             //entropy
             Ability entropy = new Ability("Entropic Measurement", "EntropicMeasurement_A");
-            entropy.Description = "Deal a Painful amount of damage to the Opposing party member then move Left or Right.\nInflict on all party members and enemies 1 Scar.";
+            entropy.Description = "Deal a Painful amount of damage to the Opposing party member then move Left or Right.\nInflict 1 Scar on all party members.";
             entropy.Rarity = radio.Rarity;
             entropy.Effects = new EffectInfo[3];
             entropy.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Front);
             entropy.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
-            entropy.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.AllUnits);
+            entropy.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Unit_AllOpponents);
             entropy.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_3_6.ToString()]);
             entropy.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Sides.ToString()]);
-            entropy.AddIntentsToTarget(Targeting.Unit_AllAllies, [IntentType_GameIDs.Status_Scars.ToString()]);
             entropy.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Status_Scars.ToString()]);
             entropy.Visuals = CustomVisuals.GetVisuals("Salt/Censor");
             entropy.AnimationTarget = Slots.Front;
