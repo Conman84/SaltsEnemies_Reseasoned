@@ -124,13 +124,13 @@ namespace SaltsEnemies_Reseasoned
             };
             devotion.Visuals = null;
             devotion.AnimationTarget = Targeting.Slot_Front;
-            devotion.AddIntentsToTarget(Targeting.Slot_Front, new string[]
-            {
-                "Status_Pale",
-            });
             devotion.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
                 "Swap_Sides",
+                "Status_Pale",
+            });
+            devotion.AddIntentsToTarget(Targeting.Slot_Front, new string[]
+            {
                 "Status_Pale",
             });
 
