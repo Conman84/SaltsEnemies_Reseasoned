@@ -214,6 +214,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(Wednesday.Add);
                 PCall(Yang.Add);
                 PCall(Yin.Add);
+                PCall(Solitaire.Add);
             }
 
             //CH1 Encounters

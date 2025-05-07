@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 
 //solitaire's tp effect: longass attack anim
 //tp garden effect
@@ -19,6 +20,8 @@ namespace SaltsEnemies_Reseasoned
 
         public static void Setup()
         {
+            NotificationHook.AddAction(NotifCheck);
+
             //TWO GROUP
             TwoGroup = new List<string[]>();
             TwoGroup.Add(["InHisImage_EN", "InHisImage_EN"]);
@@ -96,11 +99,24 @@ namespace SaltsEnemies_Reseasoned
             return ret;
         }
 
-        public static bool IsSolitaireAndDead(EnemyCombat enemy)
+
+        public static bool IsSolitaire(EnemyCombat enemy)
         {
             if (!Check.EnemyExist("Solitaire_EN")) return false;
-            if (enemy.Enemy == LoadedAssetsHandler.GetEnemy("Solitaire_EN") && enemy.CurrentHealth <= 0) return true;
+            if (enemy.Enemy == LoadedAssetsHandler.GetEnemy("Solitaire_EN") || enemy.Enemy.Equals(LoadedAssetsHandler.GetEnemy("Solitaire_EN"))) return true;
             return false;
+        }
+        public static bool IsSolitaireAndDead(EnemyCombat enemy)
+        {
+            if (IsSolitaire(enemy) && enemy.CurrentHealth <= 0) return true;
+            return false;
+        }
+
+        public static int DreamScanner;
+        public static void NotifCheck(string notifname, object sender, object args)
+        {
+            if (notifname == TriggerCalls.OnBeforeCombatStart.ToString()) DreamScanner = 0;
+            if (notifname == TriggerCalls.OnDamaged.ToString() && sender is EnemyCombat enemy && IsSolitaire(enemy)) DreamScanner++;
         }
     }
     public class MoveToGardenEffect : EffectSO
@@ -108,6 +124,11 @@ namespace SaltsEnemies_Reseasoned
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             exitAmount = 0;
+
+            //destroy old environment?
+            //GameObject.Destroy(CombatManager.Instance._combatEnvHandler);
+            CombatManager.Instance._combatEnvHandler.gameObject.SetActive(false);
+            //CombatManager.Instance._combatEnvHandlr.
 
             //generate environment
             CombatManager.Instance.GenerateCombatEnvironment(LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_03").CombatEnvironment, "");
@@ -190,6 +211,13 @@ namespace SaltsEnemies_Reseasoned
             if (entryVariable == 1) Names = SolitaireHandler.GetOneGroup();
             if (entryVariable == 2) Names = SolitaireHandler.GetTwoGroup();
             return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+        }
+    }
+    public class DreamScannerEffect : DamageEffect
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable * SolitaireHandler.DreamScanner, out exitAmount);
         }
     }
 }
