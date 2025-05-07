@@ -217,4 +217,35 @@ namespace SaltEnemies_Reseasoned
             }
         }
     }
+    public class DoubleCondition : EffectConditionSO
+    {
+        public bool And;
+        public EffectConditionSO[] conditions;
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            foreach (EffectConditionSO condition in conditions)
+            {
+                if (condition.MeetCondition(caster, effects, currentIndex))
+                {
+                    if (!And) return true;
+                }
+                else if (And) return false;
+            }
+            return And;
+        }
+        public static DoubleCondition Create(EffectConditionSO first, EffectConditionSO second, bool and)
+        {
+            DoubleCondition ret = ScriptableObject.CreateInstance<DoubleCondition>();
+            ret.conditions = [first, second];
+            ret.And = and;
+            return ret;
+        }
+        public static DoubleCondition Create(EffectConditionSO[] conditions, bool and)
+        {
+            DoubleCondition ret = ScriptableObject.CreateInstance<DoubleCondition>();
+            ret.conditions = conditions;
+            ret.And = and;
+            return ret;
+        }
+    }
 }

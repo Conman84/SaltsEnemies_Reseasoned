@@ -15,6 +15,7 @@ namespace SaltsEnemies_Reseasoned
 {
     public static class SolitaireHandler
     {
+        public static List<string[]> TwoPlusGroup;
         public static List<string[]> TwoGroup;
         public static List<string[]> OneGroup;
 
@@ -29,10 +30,12 @@ namespace SaltsEnemies_Reseasoned
             TwoGroup.Add(["SkinningHomunculus_EN", "SkinningHomunculus_EN"]);
             TwoGroup.Add(["GigglingMinister_EN", "GigglingMinister_EN"]);
             TwoGroup.Add(["ChoirBoy_EN", "ChoirBoy_EN"]);
-            TwoGroup.Add(["RealisticTank_EN"]);
             TwoGroup.Add(["Yang_EN", "Yang_EN"]);
 
             TwoGroup.Add(["Attrition_EN", "Attrition_EN"]);
+
+            TwoPlusGroup = new List<string[]>(TwoGroup);
+            TwoPlusGroup.Add(["RealisticTank_EN"]);
 
             //ONE GROUP
             OneGroup = new List<string[]>();
@@ -80,13 +83,23 @@ namespace SaltsEnemies_Reseasoned
 
         }
 
-        public static string[] GetTwoGroup()
+        public static string[] GetTwoGroup(bool multitiles = false)
         {
+            if (multitiles)
+            {
+
+                if (TwoPlusGroup == null) GetTwoGroup();
+                if (TwoPlusGroup.Count <= 0) GetTwoGroup();
+                string[] ree = TwoPlusGroup.GetRandom();
+                if (ree == null) return GetTwoGroup(multitiles);
+                if (!AddTo.MultiENExistInternal(ree)) return GetTwoGroup(multitiles);
+                return ree;
+            }
             if (TwoGroup == null) return [];
             if (TwoGroup.Count <= 0) return [];
             string[] ret = TwoGroup.GetRandom();
-            if (ret == null) return GetTwoGroup();
-            if (!AddTo.MultiENExistInternal(ret)) return GetTwoGroup();
+            if (ret == null) return GetTwoGroup(multitiles);
+            if (!AddTo.MultiENExistInternal(ret)) return GetTwoGroup(multitiles);
             return ret;
         }
         public static string[] GetOneGroup()
@@ -163,6 +176,21 @@ namespace SaltsEnemies_Reseasoned
             return true;
         }
     }
+    public class TwoTileEnemySpacesEffectCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            int freeSpaces = 0;
+            foreach (CombatSlot slot in CombatManager.Instance._stats.combatSlots.EnemySlots)
+            {
+                if (!slot.HasUnit) freeSpaces++;
+                else if (slot.Unit is EnemyCombat enemy && SolitaireHandler.IsSolitaireAndDead(enemy)) freeSpaces++;
+                else freeSpaces = 0;
+                if (freeSpaces >= 2) return true;
+            }
+            return freeSpaces >= 2;
+        }
+    }
     public class TwoEnemySpacesEffectCondition : EffectConditionSO
     {
         public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
@@ -206,11 +234,18 @@ namespace SaltsEnemies_Reseasoned
     }
     public class SolitaireSpawnGardenEnemiesEffect : SpawnEnemiesFromArrayEffect
     {
+        public bool multis;
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             if (entryVariable == 1) Names = SolitaireHandler.GetOneGroup();
-            if (entryVariable == 2) Names = SolitaireHandler.GetTwoGroup();
+            if (entryVariable == 2) Names = SolitaireHandler.GetTwoGroup(multis);
             return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+        }
+        public static SolitaireSpawnGardenEnemiesEffect Create(bool multitile)
+        {
+            SolitaireSpawnGardenEnemiesEffect ret = ScriptableObject.CreateInstance<SolitaireSpawnGardenEnemiesEffect>();
+            ret.multis = multitile;
+            return ret;
         }
     }
     public class DreamScannerEffect : DamageEffect

@@ -35,11 +35,12 @@ namespace SaltsEnemies_Reseasoned
             dreamers.Description = "\"Somewhere better than here\"";
             dreamers.Rarity = Rarity.GetCustomRarity("rarity5");
             dreamers.Priority = Priority.CreateAndAddCustomPriorityToPool("SUPERFUCKINGSLOW", -99);
-            dreamers.Effects = new EffectInfo[4];
+            dreamers.Effects = new EffectInfo[5];
             dreamers.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 2, Slots.Self);
             dreamers.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToGardenEffect>(), 1, Slots.Self);
-            dreamers.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SolitaireSpawnGardenEnemiesEffect>(), 2, Slots.Self, ScriptableObject.CreateInstance<TwoEnemySpacesEffectCondition>());
-            dreamers.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SolitaireSpawnGardenEnemiesEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<NotTwoEnemySpacesEffectCondition>());
+            dreamers.Effects[2] = Effects.GenerateEffect(SolitaireSpawnGardenEnemiesEffect.Create(true), 2, Slots.Self, ScriptableObject.CreateInstance<TwoTileEnemySpacesEffectCondition>());
+            dreamers.Effects[3] = Effects.GenerateEffect(SolitaireSpawnGardenEnemiesEffect.Create(false), 2, Slots.Self, DoubleCondition.Create(ScriptableObject.CreateInstance<TwoEnemySpacesEffectCondition>(), BasicEffects.DidThat(false), true));
+            dreamers.Effects[4] = Effects.GenerateEffect(SolitaireSpawnGardenEnemiesEffect.Create(false), 1, Slots.Self, ScriptableObject.CreateInstance<NotTwoEnemySpacesEffectCondition>());
             dreamers.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Misc.ToString()]);
             dreamers.Visuals = CustomVisuals.GetVisuals("Salt/Curtains");
             dreamers.AnimationTarget = Slots.Self;
