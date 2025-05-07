@@ -27,6 +27,7 @@ namespace SaltsEnemies_Reseasoned
             AbilitySelector_Heaven selector = ScriptableObject.CreateInstance<AbilitySelector_Heaven>();
             selector._ComeHomeAbility = "Dreamers_A";
             selector._useAfterTurns = 1;
+            tv.AbilitySelector = selector;
             tv.AddPassives(new BasePassiveAbilitySO[] { Passives.TwoFaced, Passives.Forgetful });
 
             //tp garden cuz fuck you
