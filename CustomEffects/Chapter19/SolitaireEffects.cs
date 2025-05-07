@@ -1,8 +1,10 @@
 ﻿using SaltEnemies_Reseasoned;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using Yarn;
 
 //solitaire's tp effect: longass attack anim
 //tp garden effect
@@ -83,6 +85,22 @@ namespace SaltsEnemies_Reseasoned
 
         }
 
+        public static EnemyCombatBundle GetRandomGardenEncounter()
+        {
+            ZoneBGDataBaseSO garden = LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_03") as ZoneBGDataBaseSO;
+            EnemyEncounterSelectorSO selector = null;
+            switch (UnityEngine.Random.Range(0, 2))
+            {
+                case 0: 
+                    selector = garden.EnemyEncounterData.m_EasySelector;
+                    break;
+                default:
+                    selector = garden.EnemyEncounterData.m_MediumSelector;
+                    break;
+            }
+            return selector.GetEnemyBundle();
+        }
+
         public static string[] GetTwoGroup(bool multitiles = false)
         {
             if (multitiles)
@@ -128,9 +146,18 @@ namespace SaltsEnemies_Reseasoned
         public static int DreamScanner;
         public static void NotifCheck(string notifname, object sender, object args)
         {
-            if (notifname == TriggerCalls.OnBeforeCombatStart.ToString()) DreamScanner = 0;
+            if (notifname == TriggerCalls.OnBeforeCombatStart.ToString())
+            {
+                DreamScanner = 0;
+                Returning = false;
+                MovedToGarden = false;
+            }
             if (notifname == TriggerCalls.OnDamaged.ToString() && sender is EnemyCombat enemy && IsSolitaire(enemy)) DreamScanner++;
         }
+
+        public static bool MovedToGarden;
+        public static bool Returning;
+        public static bool Moved;
     }
     public class MoveToGardenEffect : EffectSO
     {
@@ -175,6 +202,98 @@ namespace SaltsEnemies_Reseasoned
             //environmenet notifs
             CombatManager.Instance._combatEnvHandler.SetUpNotifications();
             CombatManager.Instance._combatEnvHandler.InitializeExtraData(CombatManager.Instance._informationHolder.Game);
+
+            SolitaireHandler.MovedToGarden = true;
+
+            return true;
+        }
+    }
+    public class MoveBackToOriginalAreaAction : CombatAction
+    {
+        public override IEnumerator Execute(CombatStats stats)
+        {
+            if (SolitaireHandler.MovedToGarden)
+            {
+                OverworldCombatSharedDataSO current = CombatManager.Instance._informationHolder.CombatData;
+                CombatManager.Instance._combatEnvHandler.gameObject.SetActive(false);
+                CombatManager.Instance.GenerateCombatEnvironment(current.combatEnvironmentPrefabName, current.enemyBundle.SpecialEnvironment);
+
+                if (!CombatManager.Instance._isGameRun)
+                {
+                    if (!CombatManager.Instance._combatEnvHandler.HasExtraAmbience)
+                    {
+                        CombatManager.Instance._soundManager.ForceSetAmbience(current.combatAmbienceType);
+                    }
+                    else
+                    {
+                        CombatManager.Instance._soundManager.StartExtraCombatAmbienceEvent(CombatManager.Instance._combatEnvHandler.ExtraAmbienceSound);
+                    }
+                }
+                else if (!CombatManager.Instance._combatEnvHandler.HasExtraAmbience)
+                {
+                    CombatManager.Instance._soundManager.TrySetAmbienceState(current.combatAmbienceType);
+                }
+                else
+                {
+                    CombatManager.Instance._soundManager.TryStopAmbience();
+                    CombatManager.Instance._soundManager.StartExtraCombatAmbienceEvent(CombatManager.Instance._combatEnvHandler.ExtraAmbienceSound);
+                }
+
+                CombatManager.Instance._combatEnvHandler.SetUpNotifications();
+                CombatManager.Instance._combatEnvHandler.InitializeExtraData(CombatManager.Instance._informationHolder.Game);
+
+                SolitaireHandler.MovedToGarden = false;
+                SolitaireHandler.Moved = false;
+                SolitaireHandler.Returning = false;
+            }
+            yield return null;
+        }
+    }
+    public class BoxAllEnemiesEffect : EffectSO
+    {
+        public static UnboxOnNoEnemies_SolitaireSpecial Unboxer;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            if (Unboxer == null || Unboxer.Equals(null))
+            {
+                Unboxer = ScriptableObject.CreateInstance<UnboxOnNoEnemies_SolitaireSpecial>();
+                Unboxer._unboxConditions = [TriggerCalls.TimelineEndReached, TriggerCalls.OnCombatEnd, TriggerCalls.OnFleetingEnd, TriggerCalls.OnDeath, TriggerCalls.OnAbilityUsed];
+            }
+            foreach (EnemyCombat enemy in new List<EnemyCombat>(stats.EnemiesOnField.Values))
+            {
+                if (!enemy.IsAlive) continue;
+                if (SolitaireHandler.IsSolitaireAndDead(enemy)) continue;
+                stats.TryBoxEnemy(enemy.ID, Unboxer, "");
+                enemy.SimpleSetStoredValue(UnboxOnNoEnemies_SolitaireSpecial.Value, 1);
+                SolitaireHandler.Moved = true;
+            }
+            return true;
+        }
+    }
+    public class UnboxOnNoEnemies_SolitaireSpecial : UnboxUnitHandlerSO
+    {
+        public static string Value => "Solitaire_Boxing_A";
+        public override bool CanBeUnboxed(CombatStats stats, BoxedUnit unit, object senderData)
+        {
+            if (senderData is IUnit iunit)
+            {
+                if (iunit.SimpleGetStoredValue("Dreamer_A") > 0) return false;
+            }
+
+            foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
+            {
+                if (enemy.SimpleGetStoredValue(Value) > 0) continue;
+                if (enemy.IsAlive) return false;
+            }
+
+            if (!SolitaireHandler.Returning && SolitaireHandler.Moved)
+            {
+                SolitaireHandler.Returning = true;
+                SolitaireHandler.Moved = false;
+                CombatManager.Instance.AddUIAction(new PlayAbilityAnimationAction(CustomVisuals.GetVisuals("Salt/Curtains"), Slots.Self, unit.unit));
+                CombatManager.Instance.AddUIAction(new MoveBackToOriginalAreaAction());
+            }
 
             return true;
         }
@@ -240,6 +359,8 @@ namespace SaltsEnemies_Reseasoned
         public bool multis;
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
+            _spawnTypeID = CombatType_GameIDs.Spawn_Basic.ToString();
+
             if (entryVariable == 1) Names = SolitaireHandler.GetOneGroup();
             if (entryVariable == 2) Names = SolitaireHandler.GetTwoGroup(multis);
             return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
@@ -249,6 +370,28 @@ namespace SaltsEnemies_Reseasoned
             SolitaireSpawnGardenEnemiesEffect ret = ScriptableObject.CreateInstance<SolitaireSpawnGardenEnemiesEffect>();
             ret.multis = multitile;
             return ret;
+        }
+    }
+    public class SpawnEnemyCombatBundleEffect : EffectSO
+    {
+        public EnemyCombatBundle bundle;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            if (bundle == null) return false;
+            foreach (EnemyBundleData enemy in bundle.Enemies)
+            {
+                CombatManager.Instance.AddSubAction(new SpawnEnemyAction(enemy.enemy, enemy.combatSlot, false, trySpawnAnyways: false, ""));
+            }
+            return true;
+        }
+    }
+    public class SpawnGardenEnemyBundleEffect : SpawnEnemyCombatBundleEffect
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            bundle = SolitaireHandler.GetRandomGardenEncounter();
+            return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
         }
     }
     public class DreamScannerEffect : DamageEffect
