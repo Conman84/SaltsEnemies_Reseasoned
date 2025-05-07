@@ -243,6 +243,7 @@ namespace SaltsEnemies_Reseasoned
             //CH6 Encounters
             DelusionEncounters.Add();
             BlueFlowerEncounters.Add();
+            RedFlowerEncounters.Add();
 
             Logger.LogInfo("Seasons greasons");
         }
