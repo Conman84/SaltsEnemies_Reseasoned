@@ -86,6 +86,22 @@ namespace SaltEnemies_Reseasoned
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Targeting.Slot_SelfSlot)
                 }, killer));
             }
+
+            //inspiration stuff
+            if (killer != null && directDamage)
+            {
+                bool selfHas = self.ContainsStatusEffect(Inspiration.StatusID);
+                bool killerHas = killer.ContainsStatusEffect(Inspiration.StatusID);
+                if (selfHas && ret.damageAmount > 0)
+                {
+                    (self as IStatusEffector).RemoveStatusEffect(Inspiration.StatusID);
+                    if (self.UnitTypes.Contains(Inspiration.Passive)) self.TryRemovePassiveAbility(Inspiration.Passive);
+                }
+                if (killerHas) CombatManager.Instance.AddSubAction(new ApplyInspirationAction(self.ID, self.IsUnitCharacter));
+                if (killerHas) CombatManager.Instance.AddSubAction(new RemoveInspirationAction(killer.ID, killer.IsUnitCharacter));
+                if (selfHas && ret.damageAmount > 0) CombatManager.Instance.AddSubAction(new ApplyInspirationAction(killer.ID, killer.IsUnitCharacter));
+            }
+
             return ret;
         }
         public static int WillApplyDamage(Func<IUnit, int, IUnit, int> orig, IUnit self, int amount, IUnit targetUnit)
