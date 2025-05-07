@@ -37,6 +37,7 @@ namespace SaltsEnemies_Reseasoned
             melancholy.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyLeftEffect>(), 1, MultiTargetting.Create(Slots.Self, Slots.Front)).SelfArray();
 
             //all seeing
+            StarlessPassiveAbility.Setup();
             CasterTransformByStringEffect eyeless = ScriptableObject.CreateInstance<CasterTransformByStringEffect>();
             eyeless.enemy = "Eyeless_EN";
             eyeless._maintainTimelineAbilities = true;
@@ -50,14 +51,14 @@ namespace SaltsEnemies_Reseasoned
             rightmost._characterDescription = "On ending the round on the Rightmost tile, deal an Agonizing amount of damage to all enemies.";
             rightmost.doesPassiveTriggerInformationPanel = false;
             rightmost.conditions = ScriptableObject.CreateInstance<RightMostCondition>().SelfArray();
-            rightmost._triggerOn = new TriggerCalls[] { TriggerCalls.OnCombatStart, TriggerCalls.OnRoundFinished };
+            rightmost._triggerOn = new TriggerCalls[] { TriggerCalls.OnCombatStart, StarlessPassiveAbility.Call };
             rightmost.effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<StarlessPassiveEffect>()),
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/StarBomb", false, Targeting.GenerateSlotTarget(new int[]{-4, -3, -2, -1, 0, 1, 2, 3, 4}, false))),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 9, Targeting.GenerateSlotTarget(new int[]{4, 3, 2, 1, 0, -1, -2, -3, -4}, false)),
                 Effects.GenerateEffect(eyeless),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<FixCasterTimelineIntentsEffect>())
+                //Effects.GenerateEffect(ScriptableObject.CreateInstance<FixCasterTimelineIntentsEffect>())
             };
 
             starless.AddPassives(new BasePassiveAbilitySO[] { melancholy, rightmost });

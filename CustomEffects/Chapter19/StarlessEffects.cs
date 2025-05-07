@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -114,6 +115,7 @@ namespace SaltEnemies_Reseasoned
     }
     public class StarlessPassiveAbility : PerformEffectPassiveAbility
     {
+        public static TriggerCalls Call => (TriggerCalls)38431355;
         public override bool IsPassiveImmediate => true;
         public override void TriggerPassive(object sender, object args)
         {
@@ -130,6 +132,17 @@ namespace SaltEnemies_Reseasoned
             }
             IUnit caster = sender as IUnit;
             CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(effects, caster));
+        }
+        public static void NotifCheck(string call, object sender, object args)
+        {
+            if (call == TriggerCalls.TimelineEndReached.ToString())
+            {
+                foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values) CombatManager.Instance.PostNotification(Call.ToString(), enemy, new TurnFinishedReference(false));
+            }
+        }
+        public static void Setup()
+        {
+            NotificationHook.AddAction(NotifCheck);
         }
     }
     public class StarlessPassiveEffect : EffectSO
