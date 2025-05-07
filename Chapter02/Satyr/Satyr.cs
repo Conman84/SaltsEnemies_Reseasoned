@@ -55,7 +55,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability sweet = new Ability("Sweet Flavour", "Salt_SweetFlavour_A");
             if (UnityEngine.Random.Range(0, 100) < 50) { sweet.Name = "Sweet Flavor"; }
-            sweet.Description = "Attempt to revive a dead enemy with a third of its maximum health. If successful, deal a Mortal amount of indirect damage to this enemy. Cannot revive Inanimate or Dying enemies.";
+            sweet.Description = "Attempt to revive a dead enemy with a third of its maximum health. If successful, deal a Mortal amount of indirect damage to this enemy. \nCannot revive Inanimate or Dying enemies.";
             sweet.Rarity = Rarity.GetCustomRarity("rarity5");
             sweet.Effects = new EffectInfo[]
             {
@@ -87,7 +87,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability savory = new Ability("Savory Flavour", "Salt_SavoryFlavour_A");
             if (UnityEngine.Random.Range(0, 100) < 50) { savory.Name = "Savory Flavor"; }
-            savory.Description = "Attempt to revive a dead enemy. If successful, apply 1 Divine Protection to the enemy, deal its current health as indirect damage to it, then remove all Divine Protection from it. Cannot revive Inanimate or Dying enemies.";
+            savory.Description = "Attempt to revive a dead enemy. If successful, apply 1 Divine Protection to the enemy, deal its current health as indirect damage to it, then remove all Divine Protection from it. \nCannot revive Inanimate or Dying enemies.";
             savory.Rarity = Rarity.GetCustomRarity("rarity5");
             savory.Effects = new EffectInfo[]
             {
