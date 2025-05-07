@@ -13,6 +13,7 @@ namespace SaltEnemies_Reseasoned
         public static string StatusID => "Inspiration_ID";
         public static string Intent => "Status_Inspiration";
         public static InspirationSE_SO Object;
+        public static string Multiattack => "Inspiration_Multiattack_SO";
         public static string Prevent => "Inspiration_SO";
         public static string Passive => "Inspiration_PA";
         public static BasePassiveAbilitySO Inspired;
@@ -23,12 +24,27 @@ namespace SaltEnemies_Reseasoned
         public override bool IsPositive => true;
         public override void OnTriggerAttached(StatusEffect_Holder holder, IStatusEffector caller)
         {
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnWillApplyDamage.ToString(), caller);
+            CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
+            if (caller is IUnit unit)
+            {
+                if (unit.IsUnitCharacter) CombatManager.Instance.AddRootAction(new PartyMemberInspirationApplicationAction(unit));
+                else CombatManager.Instance._stats.timeline.TryAddNewExtraEnemyTurns(unit as EnemyCombat, 1);
+            }
         }
 
         public override void OnTriggerDettached(StatusEffect_Holder holder, IStatusEffector caller)
         {
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnWillApplyDamage.ToString(), caller);
+            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
+        }
+        public override void OnEventCall_01(StatusEffect_Holder holder, object sender, object args)
+        {
+            if (sender is IUnit unit && unit.IsUnitCharacter && unit.SimpleGetStoredValue(Inspiration.Multiattack) > 0)
+            {
+                if (unit.RefreshAbilityUse())
+                {
+                    unit.SimpleSetStoredValue(Inspiration.Multiattack, unit.SimpleGetStoredValue(Inspiration.Multiattack) - 1);
+                }
+            }
         }
         public override bool TryUseNumberOnPopUp => false;
         public override int MinimumRequiredToApply => 0;
@@ -169,6 +185,29 @@ namespace SaltEnemies_Reseasoned
                 }
                 Enemies.Clear();
             }
+        }
+    }
+    public class PartyMemberInspirationApplicationAction : CombatAction
+    {
+        public IUnit unit;
+        public PartyMemberInspirationApplicationAction(IUnit unit)
+        {
+            this.unit = unit;
+        }
+        public override IEnumerator Execute(CombatStats stats)
+        {
+            if (!stats.IsPlayerTurn)
+            {
+                unit.SimpleSetStoredValue(Inspiration.Multiattack, unit.SimpleGetStoredValue(Inspiration.Multiattack) + 1);
+            }
+            else
+            {
+                if (!unit.RefreshAbilityUse())
+                {
+                    unit.SimpleSetStoredValue(Inspiration.Multiattack, unit.SimpleGetStoredValue(Inspiration.Multiattack) + 1);
+                }
+            }
+            yield return null;
         }
     }
 }
