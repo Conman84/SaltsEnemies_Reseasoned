@@ -30,6 +30,26 @@ namespace SaltsEnemies_Reseasoned
             tv.AbilitySelector = selector;
             tv.AddPassives(new BasePassiveAbilitySO[] { Passives.TwoFaced, Passives.Forgetful });
 
+            //sob
+            EnemyAbilityInfo sob = new EnemyAbilityInfo()
+            {
+                ability = LoadedAssetsHandler.GetEnemyAbility("Sob_A"),
+                rarity = Rarity.GetCustomRarity("rarity5")
+            };
+
+            //radio
+            Ability radio = new Ability("Radio", "Radio_A");
+            radio.Description = "Produce 1 random Pigment. Move to the Left or Right.";
+            radio.Rarity = Rarity.GetCustomRarity("rarity5");
+            radio.Effects = new EffectInfo[2];
+            GenerateRandomManaBetweenEffect produce = ScriptableObject.CreateInstance<GenerateRandomManaBetweenEffect>();
+            produce.possibleMana = [Pigments.Red, Pigments.Blue, Pigments.Yellow, Pigments.Purple];
+            radio.Effects[0] = Effects.GenerateEffect(produce, 1, Slots.Self);
+            radio.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
+            radio.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Mana_Generate.ToString(), [IntentType_GameIDs.Swap_Sides.ToString()]);
+            radio.Visuals = CustomVisuals.GetVisuals("Salt/Class");
+            radio.AnimationTarget = Slots.Self;
+
             //tp garden cuz fuck you
             Ability dreamers = new Ability("A Dream Within A Dream", "Dreamers_A");
             dreamers.Description = "\"Somewhere better than here\"";
