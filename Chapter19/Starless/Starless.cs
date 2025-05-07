@@ -41,6 +41,7 @@ namespace SaltsEnemies_Reseasoned
             eyeless.enemy = "Eyeless_EN";
             eyeless._maintainTimelineAbilities = true;
             eyeless._fullyHeal = false;
+            eyeless._maintainMaxHealth = true;
             StarlessPassiveAbility rightmost = ScriptableObject.CreateInstance<StarlessPassiveAbility>();
             rightmost._passiveName = "All-Seeing";
             rightmost.passiveIcon = ResourceLoader.LoadSprite("AllSeeingPassive.png");

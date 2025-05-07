@@ -311,6 +311,13 @@
 	  <None Remove="Chapter19\Wednesday\PhoneDead.png" />
 	  <None Remove="Chapter19\Wednesday\PhoneIcon.png" />
 	  <None Remove="Chapter19\Wednesday\PhoneWorld.png" />
+	  <None Remove="Chapter19\YinYang\YangDead.png" />
+	  <None Remove="Chapter19\YinYang\YangIcon.png" />
+	  <None Remove="Chapter19\YinYang\YangWorld.png" />
+	  <None Remove="Chapter19\YinYang\YinDead.png" />
+	  <None Remove="Chapter19\YinYang\YinIcon.png" />
+	  <None Remove="Chapter19\YinYang\YinWorld.png" />
+	  <None Remove="Chapter19\YinYang\YinYangIntent.png" />
 	  <None Remove="CustomPassives\Chapter02\Decay.png" />
 	  <None Remove="CustomPassives\Chapter03\DontTouchMe.png" />
 	  <None Remove="CustomPassives\Chapter03\StarPassive.png" />
@@ -660,6 +667,13 @@
 	  <EmbeddedResource Include="Chapter19\Wednesday\PhoneDead.png" />
 	  <EmbeddedResource Include="Chapter19\Wednesday\PhoneIcon.png" />
 	  <EmbeddedResource Include="Chapter19\Wednesday\PhoneWorld.png" />
+	  <EmbeddedResource Include="Chapter19\YinYang\YangDead.png" />
+	  <EmbeddedResource Include="Chapter19\YinYang\YangIcon.png" />
+	  <EmbeddedResource Include="Chapter19\YinYang\YangWorld.png" />
+	  <EmbeddedResource Include="Chapter19\YinYang\YinDead.png" />
+	  <EmbeddedResource Include="Chapter19\YinYang\YinIcon.png" />
+	  <EmbeddedResource Include="Chapter19\YinYang\YinWorld.png" />
+	  <EmbeddedResource Include="Chapter19\YinYang\YinYangIntent.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter01\Desperate.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Decay.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Fishing.png" />

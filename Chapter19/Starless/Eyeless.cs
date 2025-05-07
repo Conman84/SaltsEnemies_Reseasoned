@@ -43,6 +43,7 @@ namespace SaltsEnemies_Reseasoned
             starless.enemy = "Starless_EN";
             starless._maintainTimelineAbilities = true;
             starless._fullyHeal = false;
+            starless._maintainMaxHealth = true;
             PerformEffectPassiveAbility leftmost = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             leftmost._passiveName = "All-Knowing";
             leftmost.passiveIcon = ResourceLoader.LoadSprite("AllKnowingPassive.png");
