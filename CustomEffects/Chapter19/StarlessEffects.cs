@@ -114,6 +114,7 @@ namespace SaltEnemies_Reseasoned
     }
     public class StarlessPassiveAbility : PerformEffectPassiveAbility
     {
+        public override bool IsPassiveImmediate => true;
         public override void TriggerPassive(object sender, object args)
         {
             if (!(args is TurnFinishedReference))
@@ -127,7 +128,8 @@ namespace SaltEnemies_Reseasoned
                 }, sender as IUnit));
                 return;
             }
-            base.TriggerPassive(sender, args);
+            IUnit caster = sender as IUnit;
+            CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(effects, caster));
         }
     }
     public class StarlessPassiveEffect : EffectSO

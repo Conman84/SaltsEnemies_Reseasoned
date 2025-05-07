@@ -49,8 +49,8 @@ namespace SaltsEnemies_Reseasoned
             bonus.Effects = Effects.GenerateEffect(yang).SelfArray();
             bonus.Visuals = CustomVisuals.GetVisuals("Salt/YinYang");
             bonus.AnimationTarget = Slots.Self;
-            Intents.CreateAndAddCustom_Basic_IntentToPool("Yin_Yang", ResourceLoader.LoadSprite("YinYangIntent.png"), Color.white);
-            bonus.AddIntentsToTarget(Slots.Self, ["Yin_Yang"]);
+            Intents.CreateAndAddCustom_Basic_IntentToPool("Yang_Yin", ResourceLoader.LoadSprite("YangYinIntent.png"), Color.white);
+            bonus.AddIntentsToTarget(Slots.Self, ["Yang_Yin"]);
             AbilitySO ability = bonus.GenerateEnemyAbility(false).ability;
             transform._extraAbility.ability = ability;
 

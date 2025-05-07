@@ -314,6 +314,7 @@
 	  <None Remove="Chapter19\YinYang\YangDead.png" />
 	  <None Remove="Chapter19\YinYang\YangIcon.png" />
 	  <None Remove="Chapter19\YinYang\YangWorld.png" />
+	  <None Remove="Chapter19\YinYang\YangYinIntent.png" />
 	  <None Remove="Chapter19\YinYang\YinDead.png" />
 	  <None Remove="Chapter19\YinYang\YinIcon.png" />
 	  <None Remove="Chapter19\YinYang\YinWorld.png" />
@@ -670,6 +671,7 @@
 	  <EmbeddedResource Include="Chapter19\YinYang\YangDead.png" />
 	  <EmbeddedResource Include="Chapter19\YinYang\YangIcon.png" />
 	  <EmbeddedResource Include="Chapter19\YinYang\YangWorld.png" />
+	  <EmbeddedResource Include="Chapter19\YinYang\YangYinIntent.png" />
 	  <EmbeddedResource Include="Chapter19\YinYang\YinDead.png" />
 	  <EmbeddedResource Include="Chapter19\YinYang\YinIcon.png" />
 	  <EmbeddedResource Include="Chapter19\YinYang\YinWorld.png" />
