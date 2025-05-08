@@ -1,10 +1,12 @@
-﻿using SaltEnemies_Reseasoned;
+﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using Yarn;
+using static UnityEngine.EventSystems.EventTrigger;
 
 //solitaire's tp effect: longass attack anim
 //tp garden effect
@@ -92,13 +94,101 @@ namespace SaltsEnemies_Reseasoned
                 DreamScanner = 0;
                 Returning = false;
                 MovedToGarden = false;
+                Clear();
             }
             if (notifname == TriggerCalls.OnDamaged.ToString() && sender is EnemyCombat enemy && IsSolitaire(enemy)) DreamScanner++;
+            if (notifname == TriggerCalls.OnAbilityUsed.ToString() && sender is CharacterCombat chara)
+            {
+                int num = 0;
+                foreach (ManaColorSO key in PigmentUsedCollector.lastUsed)
+                {
+                    num += GetBlocking(key);
+                }
+                if (num > 0) CombatManager.Instance.AddSubAction(new TriggerFromCurrentAction(chara, num));
+            }
         }
 
         public static bool MovedToGarden;
         public static bool Returning;
         public static bool Moved;
+
+        //entropy shit
+        public static void Clear()
+        {
+            CurrentBlocking = new Dictionary<ManaColorSO, List<int>>();
+            FutureBlocking = new Dictionary<ManaColorSO, List<int>>();
+        }
+
+        public static Dictionary<ManaColorSO, List<int>> CurrentBlocking;
+        public static Dictionary<ManaColorSO, List<int>> FutureBlocking;
+        public static ManaColorSO PickRandomPigment()
+        {
+            ManaColorSO[] array = [Pigments.Red, Pigments.Blue, Pigments.Yellow, Pigments.Purple];
+            return array.GetRandom();
+        }
+        public static void RemoveFromFuture(int ID)
+        {
+            foreach (ManaColorSO key in FutureBlocking.Keys)
+            {
+                if (FutureBlocking[key].Contains(ID)) FutureBlocking[key].Remove(ID);
+            }
+        }
+        public static void RemoveFromCurrent(int ID)
+        {
+            foreach (ManaColorSO key in CurrentBlocking.Keys)
+            {
+                if (CurrentBlocking[key].Contains(ID)) CurrentBlocking[key].Remove(ID);
+            }
+        }
+        public static void AddToCurrentFromFuture(int ID)
+        {
+            foreach (ManaColorSO key in FutureBlocking.Keys)
+            {
+                if (FutureBlocking[key].Contains(ID)) 
+                {
+                    if (CurrentBlocking.ContainsKey(key) && !CurrentBlocking[key].Contains(ID)) CurrentBlocking[key].Add(ID);
+                    else CurrentBlocking.Add(key, new List<int>() { ID });
+                }
+            }
+        }
+        public static ManaColorSO AddRandomToFuture(int ID)
+        {
+            ManaColorSO key = PickRandomPigment();
+            if (FutureBlocking.ContainsKey(key) && !FutureBlocking[key].Contains(ID)) FutureBlocking[key].Add(ID);
+            else FutureBlocking.Add(key, new List<int>() { ID });
+            return key;
+        }
+        public static ManaColorSO AddRandomToCurrent(int ID)
+        {
+            ManaColorSO key = PickRandomPigment();
+            if (CurrentBlocking.ContainsKey(key) && !CurrentBlocking[key].Contains(ID)) CurrentBlocking[key].Add(ID);
+            else CurrentBlocking.Add(key, new List<int>() { ID });
+            return key;
+        }
+        public static bool GetFromFuture(int ID, out ManaColorSO ret)
+        {
+            ret = null;
+            foreach (ManaColorSO key in FutureBlocking.Keys)
+            {
+                if (FutureBlocking[key].Contains(ID))
+                {
+                    ret = key;
+                    return true;
+                }
+            }
+            return false;
+        }
+        public static void AddToFuture(int ID, ManaColorSO key)
+        {
+            if (FutureBlocking.ContainsKey(key) && !FutureBlocking[key].Contains(ID)) FutureBlocking[key].Add(ID);
+            else FutureBlocking.Add(key, new List<int>() { ID });
+        }
+        public static int GetBlocking(ManaColorSO key)
+        {
+            if (CurrentBlocking.ContainsKey(key)) return CurrentBlocking[key].Count;
+            return 0;
+        }
+        public static bool HasBlocking(ManaColorSO key) => GetBlocking(key) > 0;
     }
     public class MoveToGardenEffect : EffectSO
     {
@@ -238,6 +328,11 @@ namespace SaltsEnemies_Reseasoned
 
             return true;
         }
+        public override void ProcessUnbox(CombatStats stats, BoxedUnit unit, object senderData)
+        {
+            base.ProcessUnbox(stats, unit, senderData);
+            unit.unit.SimpleSetStoredValue("Dreamer_A", 0);
+        }
     }
     public class TwoTileEnemySpacesEffectCondition : EffectConditionSO
     {
@@ -340,6 +435,149 @@ namespace SaltsEnemies_Reseasoned
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable * SolitaireHandler.DreamScanner, out exitAmount);
+        }
+    }
+    public class LoadIntoFutureEffect : GenerateColorManaEffect
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            ManaColorSO ret = null;
+            if (!SolitaireHandler.GetFromFuture(caster.ID, out ret))
+            {
+                ret = SolitaireHandler.PickRandomPigment();
+                SolitaireHandler.AddToFuture(caster.ID, ret);
+            }
+            mana = ret;
+            return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+        }
+    }
+    public class LoadIntoPresentEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            ManaColorSO mana = null;
+            SolitaireHandler.RemoveFromCurrent(caster.ID);
+            if (SolitaireHandler.GetFromFuture(caster.ID, out mana)) SolitaireHandler.AddToCurrentFromFuture(caster.ID);
+            else mana = SolitaireHandler.AddRandomToCurrent(caster.ID);
+            SolitaireHandler.RemoveFromFuture(caster.ID);
+            SolitaireHandler.AddRandomToFuture(caster.ID);
+
+            if (mana == null || mana.Equals(null)) return false;
+
+            if (mana.SharesPigmentColor(Pigments.Red)) CombatManager.Instance.AddUIAction(new LoadIntoPresentAction(caster.ID, Color.red));
+            else if (mana.SharesPigmentColor(Pigments.Blue)) CombatManager.Instance.AddUIAction(new LoadIntoPresentAction(caster.ID, Color.blue));
+            else if (mana.SharesPigmentColor(Pigments.Yellow)) CombatManager.Instance.AddUIAction(new LoadIntoPresentAction(caster.ID, Color.yellow));
+            else if (mana.SharesPigmentColor(Pigments.Purple)) CombatManager.Instance.AddUIAction(new LoadIntoPresentAction(caster.ID, Color.magenta));
+
+            return true;
+        }
+    }
+    public class LoadIntoPresentAction : CombatAction
+    {
+        public int ID;
+        public Color _color;
+
+        public LoadIntoPresentAction(int id, Color color)
+        {
+            ID = id;
+            _color = color;
+        }
+        public override IEnumerator Execute(CombatStats stats)
+        {
+            if (stats.combatUI._enemiesInCombat.TryGetValue(ID, out var value))
+            {
+                EnemyInFieldLayout layout = stats.combatUI._enemyZone._enemies[value.FieldID].FieldEntity;
+                Transform head = layout.m_Data.m_Locator.transform.Find("Sprite").Find("Head");
+                if (!head.Equals(null) && head != null)
+                {
+                    Transform light = head.Find("Colors");
+                    if (!light.Equals(null) && light != null)
+                    {
+                        SpriteRenderer render = light.GetComponent<SpriteRenderer>();
+                        render.color = _color;
+                    }
+                }
+            }
+            yield return null;
+        }
+    }
+    public class TriggerFromCurrentAction : CombatAction
+    {
+        public IUnit caster;
+        public int amount;
+        public TriggerFromCurrentAction(IUnit unit, int num)
+        {
+            caster = unit;
+            amount = num;
+        }
+
+        public override IEnumerator Execute(CombatStats stats)
+        {
+            List<CombatSlot> slots = new List<CombatSlot>();
+            foreach (CombatSlot slot in caster.IsUnitCharacter ? stats.combatSlots.CharacterSlots : stats.combatSlots.EnemySlots)
+            {
+                if (slot.SlotID >= caster.SlotID && slot.SlotID < caster.SlotID + caster.Size) slots.Add(slot);
+            }
+            for (int i = 0; i < amount; i++)
+            {
+                switch(UnityEngine.Random.Range(0, 27))
+                {
+                    default: goto case 6;
+                    case 0: caster.ApplyStatusEffect(StatusField.Frail, 1); break;
+                    case 1: caster.ApplyStatusEffect(StatusField.Ruptured, 1); break;
+                    case 2: caster.ApplyStatusEffect(StatusField.Focused, 1); break;
+                    case 3: caster.ApplyStatusEffect(StatusField.OilSlicked, 1); break;
+                    case 4: caster.ApplyStatusEffect(StatusField.Spotlight, 1); break;
+                    case 5: caster.ApplyStatusEffect(StatusField.Linked, 1); break;
+                    case 6: caster.ApplyStatusEffect(StatusField.Scars, 1); break;
+                    case 7: caster.ApplyStatusEffect(StatusField.Gutted, 1); break;
+                    case 8: caster.ApplyStatusEffect(StatusField.Stunned, 1); break;
+                    case 9: foreach (CombatSlot slot in slots) slot.ApplyFieldEffect(StatusField.OnFire, 1, 0); break;
+                    case 10: foreach (CombatSlot slot in slots) slot.ApplyFieldEffect(StatusField.Constricted, 1, 0); break;
+                    case 11: foreach (CombatSlot slot in slots) slot.ApplyFieldEffect(StatusField.Shield, 1, 0); break;
+                    case 12: caster.ApplyStatusEffect(StatusField.DivineProtection, 1); break;
+                    case 13: caster.ApplyStatusEffect(StatusField.Cursed, 1); break;
+                    case 14: caster.ApplyStatusEffect(Anesthetics.Object, 1); break;
+                    case 15: caster.ApplyStatusEffect(Determined.Object, 1); break;
+                    case 16: caster.ApplyStatusEffect(Inverted.Object, 1); break;
+                    case 17: caster.ApplyStatusEffect(Left.Object, 1); break;
+                    case 18: caster.ApplyStatusEffect(Pale.Object, 10); break;
+                    case 19: caster.ApplyStatusEffect(Power.Object, 1); break;
+                    case 20: caster.ApplyStatusEffect(Favor.Object, 1); break;
+                    case 21: caster.ApplyStatusEffect(Muted.Object, 1); break;
+                    case 22: foreach (CombatSlot slot in slots) slot.ApplyFieldEffect(Roots.Object, 1, 0); break;
+                    case 23: caster.ApplyStatusEffect(Dodge.Object, 1); break;
+                    case 24: caster.ApplyStatusEffect(Entropy.Object, 1); break;
+                    case 25: caster.ApplyStatusEffect(Haste.Object, 1); break;
+                    case 26: caster.ApplyStatusEffect(Acid.Object, 1); break;
+                    case 27: caster.SimpleSetStoredValue(Inspiration.Prevent, 1);  caster.ApplyStatusEffect(Inspiration.Object, 1); break;
+                    case 28: caster.ApplyStatusEffect(Terror.Object, 1); break;
+                    case 29: caster.ApplyStatusEffect(Drowning.Object, 1); break;
+                    case 30: foreach (CombatSlot slot in slots) slot.ApplyFieldEffect(Water.Object, 1, 0); break;
+                    case 31: foreach (CombatSlot slot in slots) slot.ApplyFieldEffect(Slip.Object, 1, 0); break;
+                    case 32: caster.ApplyStatusEffect(Pimples.Object, 1); break;
+                    case 33: foreach (CombatSlot slot in slots) slot.ApplyFieldEffect(Mold.Object, 1, 0); break;
+                }
+            }
+            yield return null;
+        }
+    }
+    public class SolitaireExitEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            SolitaireHandler.RemoveFromCurrent(caster.ID);
+            exitAmount = 0;
+            return true;
+        }
+    }
+    public class SolitaireSpecialDecayCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (UnityEngine.Random.Range(0f, 1f) > 0.4f) return false;
+            return (effector as IUnit).SimpleGetStoredValue("Dreamer_A") <= 0;
         }
     }
 }

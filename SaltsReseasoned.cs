@@ -90,6 +90,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 Drowning.Add();
                 Water.Add();
+                PCall(Terror.Add);
                 PCall(Slip.Add);
                 PCall(Mold.Add);
                 Pimples.Add();

@@ -33,7 +33,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 nibble
             });
-            template.AddEnemy(true, true);
+            template.AddEnemy(true, true, true);
         }
     }
 }

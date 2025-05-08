@@ -22,13 +22,48 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = "event:/Hawthorne/Hurt/DeadPixelHurt",
                 DeathSound = "event:/Hawthorne/Die/DeadPixelDie",
             };
-            tv.PrepareEnemyPrefab("Assets/enem3/Solitaire_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Pawn_Gibs.prefab").GetComponent<ParticleSystem>());
+            tv.PrepareMultiEnemyPrefab("Assets/enem3/Solitaire_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Pawn_Gibs.prefab").GetComponent<ParticleSystem>());
+            (tv.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
+            {
+                tv.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").GetComponent<SpriteRenderer>(),
+            };
+
+            Enemy child = new Enemy("Spades", "Spades_EN")
+            {
+                Health = 10,
+                HealthColor = Pigments.Blue,
+                CombatSprite = ResourceLoader.LoadSprite("PawnIcon.png"),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("PawnWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("PawnDead.png", new Vector2(0.5f, 0f), 32),
+                DamageSound = "event:/Hawthorne/Hurt/DeadPixelHurt",
+                DeathSound = "event:/Hawthorne/Die/DeadPixelDie",
+            };
+            child.PrepareEnemyPrefab("Assets/enem3/Spades_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Pawn_Gibs.prefab").GetComponent<ParticleSystem>());
+            child.enemy.enemyTemplate.m_Data.m_Renderer = child.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").GetComponent<SpriteRenderer>();
+            child.AddPassive(Passives.TwoFaced);
+            child.AddPassive(Passives.Withering);
+            child.CombatExitEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<SolitaireExitEffect>(), 1, Slots.Self).SelfArray();
+
+            //decay
+            PerformEffectPassiveAbility decay = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            decay._passiveName = "Decay";
+            decay.m_PassiveID = PassiveType_GameIDs.Decay.ToString();
+            decay.passiveIcon = Passives.Example_Decay_MudLung.passiveIcon;
+            decay._enemyDescription = "On death, 40% chance to spawn a Spades.";
+            decay._characterDescription = decay._enemyDescription;
+            decay.doesPassiveTriggerInformationPanel = true;
+            decay.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<SolitaireSpecialDecayCondition>() };
+            decay._triggerOn = new TriggerCalls[] { TriggerCalls.OnDeath };
+            SpawnEnemyInSlotFromEntryStringNameEffect spawnspades = ScriptableObject.CreateInstance<SpawnEnemyInSlotFromEntryStringNameEffect>();
+            spawnspades.en = "Spades_EN";
+            decay.effects = Effects.GenerateEffect(spawnspades, 0).SelfArray();
 
             AbilitySelector_Heaven selector = ScriptableObject.CreateInstance<AbilitySelector_Heaven>();
             selector._ComeHomeAbility = "Dreamers_A";
             selector._useAfterTurns = 1;
             tv.AbilitySelector = selector;
             tv.AddPassives(new BasePassiveAbilitySO[] { Passives.TwoFaced, Passives.Forgetful, Passives.Dying });
+            tv.CombatExitEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<SolitaireExitEffect>(), 1, Slots.Self).SelfArray();
 
             //sob
             EnemyAbilityInfo sob = new EnemyAbilityInfo()
@@ -42,9 +77,7 @@ namespace SaltsEnemies_Reseasoned
             radio.Description = "Produce 1 random Pigment. Move to the Left or Right.";
             radio.Rarity = Rarity.GetCustomRarity("rarity5");
             radio.Effects = new EffectInfo[2];
-            GenerateRandomManaBetweenEffect produce = ScriptableObject.CreateInstance<GenerateRandomManaBetweenEffect>();
-            produce.possibleMana = [Pigments.Red, Pigments.Blue, Pigments.Yellow, Pigments.Purple];
-            radio.Effects[0] = Effects.GenerateEffect(produce, 1, Slots.Self);
+            radio.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<LoadIntoFutureEffect>(), 1, Slots.Self);
             radio.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
             radio.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Mana_Generate.ToString(), IntentType_GameIDs.Swap_Sides.ToString()]);
             radio.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
@@ -61,15 +94,11 @@ namespace SaltsEnemies_Reseasoned
 
             //entropy
             Ability entropy = new Ability("Entropic Measurement", "EntropicMeasurement_A");
-            entropy.Description = "Deal a Painful amount of damage to the Opposing party member then move Left or Right.\nInflict 1 Scar on all party members.";
+            entropy.Description = "This enemy chooses a random Pigment color. \nUntil this enemy changes its color or leaves combat, party members using this Pigment color inflict 1 random Status Effect on themselves.";
             entropy.Rarity = radio.Rarity;
-            entropy.Effects = new EffectInfo[3];
-            entropy.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Front);
-            entropy.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
-            entropy.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Unit_AllOpponents);
-            entropy.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_3_6.ToString()]);
-            entropy.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Sides.ToString()]);
-            entropy.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Status_Scars.ToString()]);
+            entropy.Effects = new EffectInfo[1];
+            entropy.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<LoadIntoPresentEffect>(), 1, Slots.Self);
+            entropy.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Mana_Generate.ToString()]);
             entropy.Visuals = CustomVisuals.GetVisuals("Salt/Censor");
             entropy.AnimationTarget = Slots.Front;
 
@@ -87,14 +116,17 @@ namespace SaltsEnemies_Reseasoned
             dreamers.Description = "\"Somewhere better than here\"";
             dreamers.Rarity = Rarity.GetCustomRarity("rarity5");
             dreamers.Priority = Priority.ExtremelySlow;
-            dreamers.Effects = new EffectInfo[5];
+            dreamers.Effects = new EffectInfo[7];
             dreamers.Effects[0] = Effects.GenerateEffect(BasicEffects.SetStoreValue("Dreamer_A"), 1, Slots.Self);
-            dreamers.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 2, Slots.Self);
-            dreamers.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<BoxAllEnemiesEffect>());
-            dreamers.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToGardenEffect>(), 1, Slots.Self);
-            dreamers.Effects[4] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnGardenEnemyBundleEffect>());
-            dreamers.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Misc.ToString()]);
-            dreamers.Visuals = CustomVisuals.GetVisuals("Salt/Curtains");
+            dreamers.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<FullHealEffect>(), 1, Targeting.Unit_AllOpponents);
+            dreamers.Effects[2] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Curtains", false, Slots.Self));
+            dreamers.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 15, Slots.Self);
+            dreamers.Effects[4] = Effects.GenerateEffect(ScriptableObject.CreateInstance<BoxAllEnemiesEffect>());
+            dreamers.Effects[5] = Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToGardenEffect>(), 1, Slots.Self);
+            dreamers.Effects[6] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnGardenEnemyBundleEffect>());
+            dreamers.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Heal_11_20.ToString()]);
+            dreamers.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_11_15.ToString(), IntentType_GameIDs.Misc.ToString()]);
+            dreamers.Visuals = null;
             dreamers.AnimationTarget = Slots.Self;
 
 
@@ -109,6 +141,13 @@ namespace SaltsEnemies_Reseasoned
                 dreamers.GenerateEnemyAbility(true),
             });
             tv.AddEnemy(true, true);
+
+            child.AddEnemyAbilities(new EnemyAbilityInfo[]
+            {
+                entropy.GenerateEnemyAbility(false),
+                dreamers.GenerateEnemyAbility(false)
+            });
+            child.AddEnemy(true, true, true);
         }
     }
 }
