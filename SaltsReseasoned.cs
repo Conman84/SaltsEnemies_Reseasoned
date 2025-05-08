@@ -244,6 +244,9 @@ namespace SaltsEnemies_Reseasoned
             DelusionEncounters.Add();
             BlueFlowerEncounters.Add();
             RedFlowerEncounters.Add();
+            YellowFlowerEncounters.Add();
+            PurpleFlowerEncounters.Add();
+            TheDeepEncounter.Add();
 
             Logger.LogInfo("Seasons greasons");
         }
