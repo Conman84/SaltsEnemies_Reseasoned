@@ -333,10 +333,10 @@ namespace SaltsEnemies_Reseasoned
         {
             base.ProcessUnbox(stats, unit, senderData);
             unit.unit.SimpleSetStoredValue("Dreamer_A", 0);
-            if (unit.unit is EnemyCombat enemy && SolitaireHandler.IsSolitaire(enemy) && enemy.HealthColor != Pigments.Blue)
+            if (unit.unit is EnemyCombat enemy && SolitaireHandler.IsSolitaire(enemy))
             {
-                CombatManager.Instance.AddRootAction(new UIActionAction(new EnemyHealthColorChangeUIAction(enemy.ID, enemy.HealthColor)));
                 enemy.UnforgetAbilities();
+                CombatManager.Instance.AddRootAction(new UIActionAction(new FixHealthColorIfNotAction(enemy.ID, enemy.HealthColor)));
             }
         }
     }
@@ -585,6 +585,15 @@ namespace SaltsEnemies_Reseasoned
             if (UnityEngine.Random.Range(0f, 1f) > 0.3f) return false;
             //note: change back to 0.4f
             return (effector as IUnit).SimpleGetStoredValue("Dreamer_A") <= 0;
+        }
+    }
+    public class FixHealthColorIfNotAction : EnemyHealthColorChangeUIAction
+    {
+        public FixHealthColorIfNotAction(int id, ManaColorSO health) : base(id, health) { }
+        public override IEnumerator Execute(CombatStats stats)
+        {
+            if (stats.combatUI._enemiesInCombat.TryGetValue(_id, out var value) && value.HealthColor == _healthColor) yield break;
+            else yield return base.Execute(stats);
         }
     }
 }
