@@ -7,6 +7,7 @@ using System.Text;
 using UnityEngine;
 using Yarn;
 using static UnityEngine.EventSystems.EventTrigger;
+using static UnityEngine.UI.CanvasScaler;
 
 //solitaire's tp effect: longass attack anim
 //tp garden effect
@@ -527,7 +528,7 @@ namespace SaltsEnemies_Reseasoned
             }
             for (int i = 0; i < amount; i++)
             {
-                switch(UnityEngine.Random.Range(0, 27))
+                switch(UnityEngine.Random.Range(0, 28))
                 {
                     default: goto case 6;
                     case 0: caster.ApplyStatusEffect(StatusField.Frail, 1); break;
@@ -557,7 +558,7 @@ namespace SaltsEnemies_Reseasoned
                     case 24: caster.ApplyStatusEffect(Entropy.Object, 1); break;
                     case 25: caster.ApplyStatusEffect(Haste.Object, 1); break;
                     case 26: caster.ApplyStatusEffect(Acid.Object, 1); break;
-                    case 27: caster.SimpleSetStoredValue(Inspiration.Prevent, 1);  caster.ApplyStatusEffect(Inspiration.Object, 1); caster.SimpleSetStoredValue(Inspiration.Prevent, 0); break;
+                    case 27: if (!caster.ContainsStatusEffect(Inspiration.StatusID)) caster.SimpleSetStoredValue(Inspiration.Prevent, 1);  caster.ApplyStatusEffect(Inspiration.Object, 1); caster.SimpleSetStoredValue(Inspiration.Prevent, 0); break;
                     case 28: caster.ApplyStatusEffect(Terror.Object, 1); break;
                     case 29: caster.ApplyStatusEffect(Drowning.Object, 1); break;
                     case 30: foreach (CombatSlot slot in slots) slot.ApplyFieldEffect(Water.Object, 1, 0); break;

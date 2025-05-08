@@ -43,6 +43,17 @@ namespace SaltEnemies_Reseasoned
             IDetour idetour16 = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.UseAbility), ~BindingFlags.Default), typeof(HooksGeneral).GetMethod(nameof(UseAbilityEnemy), ~BindingFlags.Default));
 
             ResistanceHandler.AddValues();
+
+            try
+            {
+                IDetour idetour17 = new Hook(typeof(WontKillDamageExtension).GetMethod(nameof(WontKillDamageExtension.NoKillDamageEN), ~BindingFlags.Default), typeof(HooksGeneral).GetMethod(nameof(Damage), ~BindingFlags.Default));
+                IDetour idetour18 = new Hook(typeof(WontKillDamageExtension).GetMethod(nameof(WontKillDamageExtension.NoKillDamageCH), ~BindingFlags.Default), typeof(HooksGeneral).GetMethod(nameof(Damage), ~BindingFlags.Default));
+            }
+            catch (Exception edx)
+            {
+                UnityEngine.Debug.LogWarning("you knows what up");
+                UnityEngine.Debug.LogWarning(edx.ToString());
+            }
         }
 
         public static DamageInfo Damage(Func<IUnit, int, IUnit, string, int, bool, bool, bool, string, DamageInfo> orig, IUnit self, int amount, IUnit killer, string deathType, int targetSlotOffset = -1, bool addHealthMana = true, bool directDamage = true, bool ignoresShield = false, string specialDamage = "")
@@ -97,9 +108,9 @@ namespace SaltEnemies_Reseasoned
                     (self as IStatusEffector).RemoveStatusEffect(Inspiration.StatusID);
                     if (self.UnitTypes.Contains(Inspiration.Passive)) self.TryRemovePassiveAbility(Inspiration.Passive);
                 }
-                if (killerHas) CombatManager.Instance.AddSubAction(new ApplyInspirationAction(self.ID, self.IsUnitCharacter));
-                if (killerHas) CombatManager.Instance.AddSubAction(new RemoveInspirationAction(killer.ID, killer.IsUnitCharacter));
-                if (selfHas && ret.damageAmount > 0) CombatManager.Instance.AddSubAction(new ApplyInspirationAction(killer.ID, killer.IsUnitCharacter));
+                if (killerHas) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(self.ID, self.IsUnitCharacter));
+                if (killerHas) CombatManager.Instance.AddPrioritySubAction(new RemoveInspirationAction(killer.ID, killer.IsUnitCharacter));
+                if (selfHas && ret.damageAmount > 0) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(killer.ID, killer.IsUnitCharacter));
             }
 
             return ret;

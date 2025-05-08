@@ -9,6 +9,8 @@ namespace SaltsEnemies_Reseasoned
 {
     public static class OdeToHumanity
     {
+        public static GameObject Tree;
+        public static GameObject Bush;
         public static void Add()
         {
             Enemy vase = new Enemy("Ode to Humanity", "OdeToHumanity_EN")
@@ -26,13 +28,12 @@ namespace SaltsEnemies_Reseasoned
             {
                 vase.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Mouth").GetComponent<SpriteRenderer>(),
                 vase.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Eyes1_1").GetComponent<SpriteRenderer>(),
-                vase.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Rotator").Find("Eyes2_2").GetComponent<SpriteRenderer>(),
-                vase.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Rotator").Find("Eyes2_1").GetComponent<SpriteRenderer>(),
-                vase.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Rotator").Find("Eyes3_2").GetComponent<SpriteRenderer>(),
-                vase.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Rotator").Find("Eyes3_1").GetComponent<SpriteRenderer>(),
-                vase.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Rotator").Find("Eyes4_2").GetComponent<SpriteRenderer>(),
-                vase.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Rotator").Find("Eyes4_1").GetComponent<SpriteRenderer>(),
             };
+            Tree = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/16/Vase_Tree.prefab");
+            Bush = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/16/Vase_Bush.prefab");
+            OdeFieldHandler.Setup();
+
+            //prefab trigger: "Color"
 
             //weakness
             WeaknessHandler.Setup();
@@ -57,29 +58,33 @@ namespace SaltsEnemies_Reseasoned
             rewrite.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeTargetHealthColorEffect>(), 1, Targeting.AllUnits).SelfArray();
             rewrite._triggerOn = [TriggerCalls.OnDirectDamaged];
 
-            vase.AddPassives(new BasePassiveAbilitySO[] { weakness, rewrite, Passives.Transfusion });
+            vase.AddPassives(new BasePassiveAbilitySO[] { weakness, rewrite, Passives.Transfusion, Passives.Skittish });
+            vase.CombatEnterEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<OdeEnterEffect>()).SelfArray();
 
             Ability colors = new Ability("Remember Colors", "RememberColors_A");
-            colors.Description = "Produce 2 Pigment of every primary color.";
+            colors.Description = "Change this enemy's health color to match the Opposing party member's health color.\nCurse all units with a health color not matching this enemy's.";
             colors.Rarity = Rarity.GetCustomRarity("rarity5");
-            colors.Effects = new EffectInfo[4];
-            colors.Effects[0] = Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Red), 2, Slots.Self);
-            colors.Effects[1] = Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Blue), 2, Slots.Self);
-            colors.Effects[2] = Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Yellow), 2, Slots.Self);
-            colors.Effects[3] = Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Purple), 2, Slots.Self);
-            colors.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Mana_Generate.ToString()]);
+            colors.Effects = new EffectInfo[2];
+            colors.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterChangeHealthColorForTargetEffect>(), 0, Slots.Front);
+            colors.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<CurseAllNotSelfColorEffect>(), 1, Targeting.AllUnits);
+            colors.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Misc_Hidden.ToString()]);
+            colors.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Mana_Modify.ToString()]);
+            colors.AddIntentsToTarget(Targeting.AllUnits, [IntentType_GameIDs.Status_Cursed.ToString()]);
             colors.Visuals = CustomVisuals.GetVisuals("Salt/Rose");
             colors.AnimationTarget = Slots.Self;
 
+
+            RemoveStatusEffectEffect remCurse = ScriptableObject.CreateInstance<RemoveStatusEffectEffect>();
+            remCurse._status = StatusField.Cursed;
+
             Ability holdhands = new Ability("Hold Hands", "HoldHands_A");
-            holdhands.Description = "Deal a Barely Painful amount of damage to the Opposing party member and change their health color to this enemy's. \nMove this enemy to the Left or Right.";
+            holdhands.Description = "Attempt to remove Cursed from the Opposing party member. If successful, inflict 3 Frail on them.\nOtherwise, deal an Agonizing amount of damage to the Opposing party member.";
             holdhands.Rarity = Rarity.GetCustomRarity("rarity5");
             holdhands.Effects = new EffectInfo[3];
-            holdhands.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 3, Slots.Front);
-            holdhands.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ChangeHealthColorByCasterColorEffect>(), 1, Slots.Front);
-            holdhands.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
-            holdhands.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Mana_Modify.ToString()]);
-            holdhands.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Sides.ToString()]);
+            holdhands.Effects[0] = Effects.GenerateEffect(remCurse, 1, Slots.Front);
+            holdhands.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 3, Slots.Front, BasicEffects.DidThat(true));
+            holdhands.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front, BasicEffects.DidThat(false, 2));
+            holdhands.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Rem_Status_Cursed.ToString(), IntentType_GameIDs.Status_Frail.ToString(), IntentType_GameIDs.Damage_7_10.ToString()]);
             holdhands.Visuals = LoadedAssetsHandler.GetCharacterAbility("Weave_1_A").visuals;
             holdhands.AnimationTarget = Slots.Front;
 
@@ -97,19 +102,20 @@ namespace SaltsEnemies_Reseasoned
             lockfingers.AnimationTarget = Slots.Self;
 
             Ability yourvoice = new Ability("Your Voice", "YourVoice_A");
-            yourvoice.Description = "Deal almost no damage to this enemy.";
+            yourvoice.Description = "Apply Inspiration on the Opposing party member and deal a Little damage to them.";
             yourvoice.Rarity = Rarity.GetCustomRarity("rarity5");
-            yourvoice.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 1, Slots.Self).SelfArray();
-            yourvoice.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_1_2.ToString()]);
+            yourvoice.Effects = new EffectInfo[2];
+            yourvoice.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyInspirationEffect>(), 1, Slots.Front);
+            yourvoice.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Front);
+            yourvoice.AddIntentsToTarget(Slots.Front, [Inspiration.Intent, IntentType_GameIDs.Damage_1_2.ToString()]);
             yourvoice.Visuals = CustomVisuals.GetVisuals("Salt/Whisper");
-            yourvoice.AnimationTarget = Slots.Self;
+            yourvoice.AnimationTarget = Slots.Front;
 
             //ADD ENEMY
             vase.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 holdhands.GenerateEnemyAbility(true),
                 colors.GenerateEnemyAbility(true),
-                lockfingers.GenerateEnemyAbility(true),
                 yourvoice.GenerateEnemyAbility(true),
             });
             vase.AddEnemy(true, true);

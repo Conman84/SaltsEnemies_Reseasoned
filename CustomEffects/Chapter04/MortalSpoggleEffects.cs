@@ -151,4 +151,11 @@ namespace SaltEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
+    public class HasInspirationCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            return caster.ContainsStatusEffect(Inspiration.StatusID);
+        }
+    }
 }

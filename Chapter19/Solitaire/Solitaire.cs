@@ -19,8 +19,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("PawnIcon.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("PawnWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("PawnDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = "event:/Hawthorne/Hurt/DeadPixelHurt",
-                DeathSound = "event:/Hawthorne/Die/DeadPixelDie",
+                DamageSound = "event:/Hawthorne/Sund/SolitaireHit",
+                DeathSound = "event:/Hawthorne/Sund/SolitaireDie",
             };
             tv.PrepareMultiEnemyPrefab("Assets/enem3/Solitaire_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Pawn_Gibs.prefab").GetComponent<ParticleSystem>());
             (tv.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
@@ -35,8 +35,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("PawnIcon.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("PawnWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("PawnDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = "event:/Hawthorne/Hurt/DeadPixelHurt",
-                DeathSound = "event:/Hawthorne/Die/DeadPixelDie",
+                DamageSound = "event:/Hawthorne/Sund/SolitaireHit",
+                DeathSound = "event:/Hawthorne/Sund/SolitaireDie",
             };
             child.PrepareEnemyPrefab("Assets/enem3/Spades_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Pawn_Gibs.prefab").GetComponent<ParticleSystem>());
             child.enemy.enemyTemplate.m_Data.m_Renderer = child.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").GetComponent<SpriteRenderer>();
@@ -115,6 +115,8 @@ namespace SaltsEnemies_Reseasoned
             scanner.Visuals = CustomVisuals.GetVisuals("Salt/Class");
             scanner.AnimationTarget = Slots.Front;
 
+            Intents.CreateAndAddCustom_Basic_IntentToPool("Dreaming_A", ResourceLoader.LoadSprite("ExitIntent.png"), Color.white);
+
             //tp garden cuz fuck you
             Ability dreamers = new Ability("A Dream Within A Dream", "Dreamers_A");
             dreamers.Description = "\"Somewhere better than here\"";
@@ -127,7 +129,7 @@ namespace SaltsEnemies_Reseasoned
             dreamers.Effects[3] = Effects.GenerateEffect(UIActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToGardenEffect>(), 1, Slots.Self).SelfArray()), 1, Targeting.Slot_SelfSlot);
             dreamers.Effects[4] = Effects.GenerateEffect(ScriptableObject.CreateInstance<BoxAllEnemiesEffect>());
             dreamers.Effects[5] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnGardenEnemyBundleEffect>());
-            dreamers.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_11_15.ToString(), IntentType_GameIDs.Misc.ToString()]);
+            dreamers.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_11_15.ToString(), "Dreaming_A"]);
             dreamers.Visuals = null;
             dreamers.AnimationTarget = Slots.Self;
 

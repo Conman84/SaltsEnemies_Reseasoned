@@ -431,7 +431,7 @@ namespace SaltEnemies_Reseasoned
     }
     public static class WontKillDamageExtension
     {
-        public static DamageInfo NoKillDamage(this CharacterCombat self, int amount, IUnit killer, string deathTypeID, int targetSlotOffset = -1, bool addHealthMana = true, bool directDamage = true, bool ignoresShield = false, string specialDamage = "")
+        public static DamageInfo NoKillDamageCH(this CharacterCombat self, int amount, IUnit killer, string deathTypeID, int targetSlotOffset = -1, bool addHealthMana = true, bool directDamage = true, bool ignoresShield = false, string specialDamage = "")
         {
             int num = self.SlotID;
             int num2 = self.SlotID + self.Size - 1;
@@ -485,7 +485,7 @@ namespace SaltEnemies_Reseasoned
 
             return new DamageInfo(num4, flag);
         }
-        public static DamageInfo NoKillDamage(this EnemyCombat self, int amount, IUnit killer, string deathTypeID, int targetSlotOffset = -1, bool addHealthMana = true, bool directDamage = true, bool ignoresShield = false, string specialDamage = "")
+        public static DamageInfo NoKillDamageEN(this EnemyCombat self, int amount, IUnit killer, string deathTypeID, int targetSlotOffset = -1, bool addHealthMana = true, bool directDamage = true, bool ignoresShield = false, string specialDamage = "")
         {
             int num = self.SlotID;
             int num2 = self.SlotID + self.Size - 1;
@@ -540,8 +540,8 @@ namespace SaltEnemies_Reseasoned
         }
         public static DamageInfo NoKillDamage(this IUnit self, int amount, IUnit killer, string deathTypeID, int targetSlotOffset = -1, bool addHealthMana = true, bool directDamage = true, bool ignoresShield = false, string specialDamage = "")
         {
-            if (self is CharacterCombat chara) return chara.NoKillDamage(amount, killer, deathTypeID, targetSlotOffset, addHealthMana, directDamage, ignoresShield, specialDamage);
-            else return (self as EnemyCombat).NoKillDamage(amount, killer, deathTypeID, targetSlotOffset, addHealthMana, directDamage, ignoresShield, specialDamage);
+            if (self is CharacterCombat chara) return chara.NoKillDamageCH(amount, killer, deathTypeID, targetSlotOffset, addHealthMana, directDamage, ignoresShield, specialDamage);
+            else return (self as EnemyCombat).NoKillDamageEN(amount, killer, deathTypeID, targetSlotOffset, addHealthMana, directDamage, ignoresShield, specialDamage);
         }
 
     }

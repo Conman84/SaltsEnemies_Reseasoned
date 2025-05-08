@@ -63,6 +63,20 @@ namespace SaltEnemies_Reseasoned
             inspired._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
             inspired.effects = new EffectInfo[0];
             Inspired = inspired;
+
+            NotificationHook.AddAction(NotifCheck);
+        }
+
+        public static void NotifCheck(string notifname, object sender, object args)
+        {
+            if (notifname != TriggerCalls.OnAbilityUsed.ToString()) return;
+            if (sender is IUnit unit && unit.IsUnitCharacter && unit.SimpleGetStoredValue(Inspiration.Multiattack) > 0)
+            {
+                if (unit.RefreshAbilityUse())
+                {
+                    unit.SimpleSetStoredValue(Inspiration.Multiattack, unit.SimpleGetStoredValue(Inspiration.Multiattack) - 1);
+                }
+            }
         }
     }
 
@@ -71,7 +85,7 @@ namespace SaltEnemies_Reseasoned
         public override bool IsPositive => true;
         public override void OnTriggerAttached(StatusEffect_Holder holder, IStatusEffector caller)
         {
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
+            //CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
             if (caller is IUnit unit)
             {
                 if (unit.SimpleGetStoredValue(Inspiration.Prevent) > 0)
@@ -86,7 +100,7 @@ namespace SaltEnemies_Reseasoned
 
         public override void OnTriggerDettached(StatusEffect_Holder holder, IStatusEffector caller)
         {
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
+            //CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
         }
         public override void OnEventCall_01(StatusEffect_Holder holder, object sender, object args)
         {
@@ -166,6 +180,8 @@ namespace SaltEnemies_Reseasoned
             if (Skip) yield break;
             else
             {
+                if (Charas == null) Charas = new List<int>();
+                if (Enemies == null) Enemies = new List<int>();
                 foreach (CharacterCombat chara in stats.CharactersOnField.Values)
                 {
                     if (Charas.Contains(chara.ID))
@@ -218,11 +234,13 @@ namespace SaltEnemies_Reseasoned
             if (Inspiration.Object == null || Inspiration.Object.Equals(null)) Debug.LogError("inspiration null");
             else
             {
+                if (Charas == null) Charas = new List<int>();
+                if (Enemies == null) Enemies = new List<int>();
                 foreach (CharacterCombat chara in stats.CharactersOnField.Values)
                 {
                     if (Charas.Contains(chara.ID))
                     {
-                        chara.ApplyStatusEffect(Inspiration.Object, 1);
+                        if (!chara.ApplyStatusEffect(Inspiration.Object, 1)) continue;
                         if (chara.UnitTypes.Contains(Inspiration.Passive)) if (Inspiration.Inspired != null && !Inspiration.Inspired.Equals(null)) chara.AddPassiveAbility(Inspiration.Inspired);
                     }
                 }
@@ -231,7 +249,7 @@ namespace SaltEnemies_Reseasoned
                 {
                     if (Enemies.Contains(enemy.ID))
                     {
-                        enemy.ApplyStatusEffect(Inspiration.Object, 1);
+                        if (!enemy.ApplyStatusEffect(Inspiration.Object, 1)) continue;
                         if (enemy.UnitTypes.Contains(Inspiration.Passive)) if (Inspiration.Inspired != null && !Inspiration.Inspired.Equals(null)) enemy.AddPassiveAbility(Inspiration.Inspired);
                     }
                 }
@@ -329,13 +347,13 @@ namespace SaltEnemies_Reseasoned
                 return 0;
             }
 
-            unit.SimpleSetStoredValue(Inspiration.Prevent, 1);
+            if (!unit.ContainsStatusEffect(Inspiration.StatusID)) unit.SimpleSetStoredValue(Inspiration.Prevent, 1);
             if (!unit.ApplyStatusEffect(_Status, num))
             {
                 unit.SimpleSetStoredValue(Inspiration.Prevent, 0);
                 return 0;
             }
-
+            if (unit.UnitTypes.Contains(Inspiration.Passive)) if (Inspiration.Inspired != null && !Inspiration.Inspired.Equals(null)) unit.AddPassiveAbility(Inspiration.Inspired);
             unit.SimpleSetStoredValue(Inspiration.Prevent, 0);
             return Mathf.Max(1, num);
         }

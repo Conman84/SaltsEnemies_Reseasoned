@@ -298,6 +298,7 @@
 	  <None Remove="Chapter19\Pawn\PawnIcon.png" />
 	  <None Remove="Chapter19\Pawn\PawnWorld.png" />
 	  <None Remove="Chapter19\Pawn\TraitorPassive.png" />
+	  <None Remove="Chapter19\Solitaire\ExitIntent.png" />
 	  <None Remove="Chapter19\Starless\AllKnowingPassive.png" />
 	  <None Remove="Chapter19\Starless\AllSeeingPassive.png" />
 	  <None Remove="Chapter19\Starless\EyelessDead.png" />
@@ -656,6 +657,7 @@
 	  <EmbeddedResource Include="Chapter19\Pawn\PawnIcon.png" />
 	  <EmbeddedResource Include="Chapter19\Pawn\PawnWorld.png" />
 	  <EmbeddedResource Include="Chapter19\Pawn\TraitorPassive.png" />
+	  <EmbeddedResource Include="Chapter19\Solitaire\ExitIntent.png" />
 	  <EmbeddedResource Include="Chapter19\Starless\AllKnowingPassive.png" />
 	  <EmbeddedResource Include="Chapter19\Starless\AllSeeingPassive.png" />
 	  <EmbeddedResource Include="Chapter19\Starless\EyelessDead.png" />

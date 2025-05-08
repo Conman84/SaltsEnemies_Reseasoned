@@ -41,9 +41,10 @@ namespace SaltsEnemies_Reseasoned
                 Passives.Pure, 
                 Passives.Skittish, 
                 Passives.Absorb,
-                substitute, 
-                Passives.Forgetful
+                substitute
             });
+            MortalSpoggle.AddUnitType(Inspiration.Passive);
+            MortalSpoggle.CombatEnterEffects = Effects.GenerateEffect(RootActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyInspirationEffect>(), 1, Slots.Self).SelfArray()), 1, Slots.Self).SelfArray();
 
             //Siphon
             ConsumeRandomButColorManaEffect notGrey = ScriptableObject.CreateInstance<ConsumeRandomButColorManaEffect>();
@@ -88,19 +89,21 @@ namespace SaltsEnemies_Reseasoned
             allAlly.getAllUnitSlots = false;
             allAlly.getAllies = true;
 
-            Ability notLong = new Ability("Not Long for This World", "Salt_NotLongforThisWorld_A");
-            notLong.Description = "Apply 3 Divine Protection to the enemies with the lowest health. Apply 2 Divine Protection to the enemies with the second lowest health. Apply 1 Divine Protection to the enemies with the third lowest health.";
-            notLong.Rarity = Rarity.GetCustomRarity("rarity8");
+            Ability notLong = new Ability("Divine Inspiration", "Salt_DivineInspiration_A");
+            notLong.Description = "Apply 1 Inspiration to this enemy. \nIf this enemy already had Inspration, deal a Little damage to all party members.";
+            notLong.Rarity = Rarity.GetCustomRarity("rarity5");
             notLong.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DPLowestThreeEffect>(), 1, allAlly),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Targetting.Everything(false), ScriptableObject.CreateInstance<HasInspirationCondition>()),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyInspirationEffect>(), 1, Slots.Self, BasicEffects.DidThat(false)),
             };
             notLong.Visuals = LoadedAssetsHandler.GetEnemyAbility("MinorKey_A").visuals;
-            notLong.AnimationTarget = allAlly;
-            notLong.AddIntentsToTarget(allAlly, new string[]
+            notLong.AnimationTarget = Slots.Self;
+            notLong.AddIntentsToTarget(Slots.Self, new string[]
             {
-                "Status_DivineProtection"
+                Inspiration.Intent, IntentType_GameIDs.Misc_Hidden.ToString()
             });
+            notLong.AddIntentsToTarget(Targetting.Everything(false), [IntentType_GameIDs.Damage_1_2.ToString()]);
 
             //Add
             MortalSpoggle.AddEnemyAbilities(new EnemyAbilityInfo[]
