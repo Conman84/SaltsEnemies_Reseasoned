@@ -91,7 +91,7 @@ namespace SaltsEnemies_Reseasoned
         {
             if (notifname == TriggerCalls.OnBeforeCombatStart.ToString())
             {
-                DreamScanner = 0;
+                //DreamScanner = 0;
                 Returning = false;
                 MovedToGarden = false;
                 Clear();
@@ -106,6 +106,7 @@ namespace SaltsEnemies_Reseasoned
                 }
                 if (num > 0) CombatManager.Instance.AddSubAction(new TriggerFromCurrentAction(chara, num));
             }
+            if (notifname == TriggerCalls.OnGettingBoxed.ToString() && sender is EnemyCombat EN && IsSolitaire(EN)) RemoveFromCurrent(EN.ID);
         }
 
         public static bool MovedToGarden;
@@ -332,6 +333,11 @@ namespace SaltsEnemies_Reseasoned
         {
             base.ProcessUnbox(stats, unit, senderData);
             unit.unit.SimpleSetStoredValue("Dreamer_A", 0);
+            if (unit.unit is EnemyCombat enemy && SolitaireHandler.IsSolitaire(enemy))
+            {
+                CombatManager.Instance.AddRootAction(new UIActionAction(new EnemyHealthColorChangeUIAction(enemy.ID, enemy.HealthColor)));
+                enemy.UnforgetAbilities();
+            }
         }
     }
     public class TwoTileEnemySpacesEffectCondition : EffectConditionSO
@@ -576,7 +582,8 @@ namespace SaltsEnemies_Reseasoned
     {
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
-            if (UnityEngine.Random.Range(0f, 1f) > 0.4f) return false;
+            if (UnityEngine.Random.Range(0f, 1f) > 0.3f) return false;
+            //note: change back to 0.4f
             return (effector as IUnit).SimpleGetStoredValue("Dreamer_A") <= 0;
         }
     }

@@ -126,4 +126,30 @@ namespace SaltsEnemies_Reseasoned
             return true;
         }
     }
+    public class UIActionEffect : EffectSO
+    {
+        public EffectInfo[] effects;
+
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            EffectInfo[] effectInfoArray = effects;
+            exitAmount = 0;
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit)
+                {
+                    CombatManager.Instance.AddUIAction(new EffectAction(effectInfoArray, target.Unit, 0));
+                    ++exitAmount;
+                }
+            }
+            return exitAmount > 0;
+        }
+
+        public static UIActionEffect Create(EffectInfo[] e)
+        {
+            UIActionEffect instance = CreateInstance<UIActionEffect>();
+            instance.effects = e;
+            return instance;
+        }
+    }
 }

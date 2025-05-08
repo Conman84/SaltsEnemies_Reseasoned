@@ -49,20 +49,20 @@ namespace SaltsEnemies_Reseasoned
             decay._passiveName = "Decay";
             decay.m_PassiveID = PassiveType_GameIDs.Decay.ToString();
             decay.passiveIcon = Passives.Example_Decay_MudLung.passiveIcon;
-            decay._enemyDescription = "On death, 40% chance to spawn a Spades.";
+            decay._enemyDescription = "On death, 30% chance to spawn a Spades.";
             decay._characterDescription = decay._enemyDescription;
             decay.doesPassiveTriggerInformationPanel = true;
             decay.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<SolitaireSpecialDecayCondition>() };
             decay._triggerOn = new TriggerCalls[] { TriggerCalls.OnDeath };
             SpawnEnemyInSlotFromEntryStringNameEffect spawnspades = ScriptableObject.CreateInstance<SpawnEnemyInSlotFromEntryStringNameEffect>();
             spawnspades.en = "Spades_EN";
-            decay.effects = Effects.GenerateEffect(spawnspades, 0).SelfArray();
+            decay.effects = Effects.GenerateEffect(spawnspades, 0, Slots.Self).SelfArray();
 
             AbilitySelector_Heaven selector = ScriptableObject.CreateInstance<AbilitySelector_Heaven>();
             selector._ComeHomeAbility = "Dreamers_A";
             selector._useAfterTurns = 1;
             tv.AbilitySelector = selector;
-            tv.AddPassives(new BasePassiveAbilitySO[] { Passives.TwoFaced, Passives.Forgetful, Passives.Dying });
+            tv.AddPassives(new BasePassiveAbilitySO[] { Passives.TwoFaced, Passives.Forgetful, Passives.Dying, decay });
             tv.CombatExitEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<SolitaireExitEffect>(), 1, Slots.Self).SelfArray();
 
             //sob
@@ -98,13 +98,13 @@ namespace SaltsEnemies_Reseasoned
             entropy.Rarity = radio.Rarity;
             entropy.Effects = new EffectInfo[1];
             entropy.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<LoadIntoPresentEffect>(), 1, Slots.Self);
-            entropy.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Mana_Generate.ToString()]);
+            entropy.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Mana_Consume.ToString()]);
             entropy.Visuals = CustomVisuals.GetVisuals("Salt/Censor");
-            entropy.AnimationTarget = Slots.Front;
+            entropy.AnimationTarget = Slots.Self;
 
             //scanner
             Ability scanner = new Ability("Dream Scanner", "DreamScanner_A");
-            scanner.Description = "Deal damage to the Opposing party member equal to the amount of times any Solitaire has taken damage this combat.";
+            scanner.Description = "Deal damage to the Opposing party member equal to the amount of times any Solitaire has taken damage since you opened the game.";
             scanner.Rarity = radio.Rarity;
             scanner.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<DreamScannerEffect>(), 1, Slots.Front).SelfArray();
             scanner.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_7_10.ToString()]);
@@ -119,14 +119,14 @@ namespace SaltsEnemies_Reseasoned
             dreamers.Effects = new EffectInfo[7];
             dreamers.Effects[0] = Effects.GenerateEffect(BasicEffects.SetStoreValue("Dreamer_A"), 1, Slots.Self);
             dreamers.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<FullHealEffect>(), 1, Targeting.Unit_AllOpponents);
-            dreamers.Effects[2] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Curtains", false, Slots.Self));
-            dreamers.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 15, Slots.Self);
-            dreamers.Effects[4] = Effects.GenerateEffect(ScriptableObject.CreateInstance<BoxAllEnemiesEffect>());
-            dreamers.Effects[5] = Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToGardenEffect>(), 1, Slots.Self);
+            dreamers.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 15, Slots.Self);
+            dreamers.Effects[3] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Curtains", false, Slots.Self));
+            dreamers.Effects[4] = Effects.GenerateEffect(UIActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToGardenEffect>(), 1, Slots.Self).SelfArray()), 1, Targeting.Slot_SelfSlot);
+            dreamers.Effects[5] = Effects.GenerateEffect(ScriptableObject.CreateInstance<BoxAllEnemiesEffect>());
             dreamers.Effects[6] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnGardenEnemyBundleEffect>());
             dreamers.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Heal_11_20.ToString()]);
             dreamers.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_11_15.ToString(), IntentType_GameIDs.Misc.ToString()]);
-            dreamers.Visuals = null;
+            dreamers.Visuals = LoadedAssetsHandler.GetCharacterAbility("Mend_1_A").visuals;
             dreamers.AnimationTarget = Slots.Self;
 
 
