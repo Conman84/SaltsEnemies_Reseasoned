@@ -98,7 +98,11 @@ namespace SaltsEnemies_Reseasoned
             entropy.Rarity = radio.Rarity;
             entropy.Effects = new EffectInfo[1];
             entropy.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<LoadIntoPresentEffect>(), 1, Slots.Self);
-            entropy.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Mana_Consume.ToString()]);
+            Intents.CreateAndAddCustom_Basic_IntentToPool("Misc_Red", Intents.GetInGame_IntentInfo(IntentType_GameIDs.Misc)._sprite, Color.red);
+            Intents.CreateAndAddCustom_Basic_IntentToPool("Misc_Blue", Intents.GetInGame_IntentInfo(IntentType_GameIDs.Misc)._sprite, Color.blue);
+            Intents.CreateAndAddCustom_Basic_IntentToPool("Misc_Yellow", Intents.GetInGame_IntentInfo(IntentType_GameIDs.Misc)._sprite, Color.yellow);
+            Intents.CreateAndAddCustom_Basic_IntentToPool("Misc_Purple", Intents.GetInGame_IntentInfo(IntentType_GameIDs.Misc)._sprite, Color.magenta);
+            entropy.AddIntentsToTarget(Slots.Self, [FallColor.Intent, "Misc_Red", "Misc_Blue", "Misc_Yellow", "Misc_Purple"]);
             entropy.Visuals = CustomVisuals.GetVisuals("Salt/Censor");
             entropy.AnimationTarget = Slots.Self;
 
@@ -131,9 +135,9 @@ namespace SaltsEnemies_Reseasoned
             //ADD ENEMY
             tv.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                sob,
+                //sob,
                 radio.GenerateEnemyAbility(true),
-                anon.GenerateEnemyAbility(true),
+                //anon.GenerateEnemyAbility(true),
                 entropy.GenerateEnemyAbility(true),
                 scanner.GenerateEnemyAbility(true),
                 dreamers.GenerateEnemyAbility(true),

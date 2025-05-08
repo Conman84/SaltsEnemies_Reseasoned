@@ -77,6 +77,7 @@ namespace SaltsEnemies_Reseasoned
             Power.Add();
             Determined.Add();
             DivineSacrifice.Add();
+            PCall(Inspiration.Add);
             Favor.Add();
             Muted.Add();
             Roots.Add();

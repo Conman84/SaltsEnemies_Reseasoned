@@ -1,4 +1,6 @@
-﻿using SaltEnemies_Reseasoned;
+﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
+using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +19,51 @@ namespace SaltEnemies_Reseasoned
         public static string Prevent => "Inspiration_SO";
         public static string Passive => "Inspiration_PA";
         public static BasePassiveAbilitySO Inspired;
+
+        public static void Add()
+        {
+            StatusEffectInfoSO InspireInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
+            InspireInfo.icon = ResourceLoader.LoadSprite("InspirationIcon");
+            InspireInfo._statusName = "Inspiration";
+            InspireInfo._description = "On taking damage, transfer Inspiration to the attacker and give them another action.\nOn dealing damage, transfer Inspiration to the target and give them another action.";//note: i changed it. cuz the old way it decreased sucked
+            InspireInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo._applied_SE_Event;
+            InspireInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.RemovedSoundEvent;
+            InspireInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
+
+            InspirationSE_SO InspireSO = ScriptableObject.CreateInstance<InspirationSE_SO>();
+            InspireSO._StatusID = StatusID;
+            InspireSO._EffectInfo = InspireInfo;
+            Object = InspireSO;
+            if (LoadedDBsHandler.StatusFieldDB._StatusEffects.ContainsKey(StatusID)) LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusID] = InspireSO;
+            else LoadedDBsHandler.StatusFieldDB.AddNewStatusEffect(InspireSO);
+
+            IntentInfoBasic intentinfo = new IntentInfoBasic();
+            intentinfo._color = Color.white;
+            intentinfo._sprite = ResourceLoader.LoadSprite("InspirationIcon");
+            if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
+            else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
+
+            UnitStoreData_ModIntSO multiattack_value = ScriptableObject.CreateInstance<UnitStoreData_ModIntSO>();
+            multiattack_value.m_Text = "Extra Actions +{0}";
+            multiattack_value._UnitStoreDataID = Multiattack;
+            multiattack_value.m_TextColor = (LoadedDBsHandler.MiscDB.GetUnitStoreData(UnitStoredValueNames_GameIDs.PunchA.ToString()) as UnitStoreData_IntSO).m_TextColor;
+            multiattack_value.m_CompareDataToThis = 0;
+            if (LoadedDBsHandler.MiscDB.m_UnitStoreDataPool.ContainsKey(Multiattack))
+                LoadedDBsHandler.MiscDB.m_UnitStoreDataPool[Multiattack] = multiattack_value;
+            else
+                LoadedDBsHandler.MiscDB.AddNewUnitStoreData(multiattack_value._UnitStoreDataID, multiattack_value);
+
+            PerformEffectPassiveAbility inspired = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            inspired._passiveName = "Inspired";
+            inspired.m_PassiveID = Passive;
+            inspired.passiveIcon = ResourceLoader.LoadSprite("InspirationIcon");
+            inspired._enemyDescription = "This enemy is Inspired.";
+            inspired._characterDescription = "This party member is Inspired.";
+            inspired.doesPassiveTriggerInformationPanel = false;
+            inspired._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
+            inspired.effects = new EffectInfo[0];
+            Inspired = inspired;
+        }
     }
 
     public class InspirationSE_SO : StatusEffect_SO
@@ -27,6 +74,11 @@ namespace SaltEnemies_Reseasoned
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
             if (caller is IUnit unit)
             {
+                if (unit.SimpleGetStoredValue(Inspiration.Prevent) > 0)
+                {
+                    unit.SimpleSetStoredValue(Inspiration.Prevent, 0);
+                    return;
+                }
                 if (unit.IsUnitCharacter) CombatManager.Instance.AddRootAction(new PartyMemberInspirationApplicationAction(unit));
                 else CombatManager.Instance._stats.timeline.TryAddNewExtraEnemyTurns(unit as EnemyCombat, 1);
             }
@@ -208,6 +260,84 @@ namespace SaltEnemies_Reseasoned
                 }
             }
             yield return null;
+        }
+    }
+
+
+    public class ApplyInspirationEffect : EffectSO
+    {
+        [Header("Status")]
+        public StatusEffect_SO _Status;
+
+        [Header("Data")]
+        public bool _ApplyToFirstUnit;
+
+        public bool _JustOneRandomTarget;
+
+        public bool _RandomBetweenPrevious;
+
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            _Status = Inspiration.Object;
+
+            exitAmount = 0;
+            if (_Status == null)
+            {
+                Inspiration.Add();
+            }
+
+            if (_ApplyToFirstUnit || _JustOneRandomTarget)
+            {
+                List<TargetSlotInfo> list = new List<TargetSlotInfo>();
+                foreach (TargetSlotInfo targetSlotInfo in targets)
+                {
+                    if (targetSlotInfo.HasUnit)
+                    {
+                        list.Add(targetSlotInfo);
+                        if (_ApplyToFirstUnit)
+                        {
+                            break;
+                        }
+                    }
+                }
+
+                if (list.Count > 0)
+                {
+                    int index = UnityEngine.Random.Range(0, list.Count);
+                    exitAmount += ApplyStatusEffect(list[index].Unit, entryVariable);
+                }
+            }
+            else
+            {
+                for (int j = 0; j < targets.Length; j++)
+                {
+                    if (targets[j].HasUnit)
+                    {
+                        exitAmount += ApplyStatusEffect(targets[j].Unit, entryVariable);
+                    }
+                }
+            }
+
+            return exitAmount > 0;
+        }
+
+        public int ApplyStatusEffect(IUnit unit, int entryVariable)
+        {
+            int num = (_RandomBetweenPrevious ? UnityEngine.Random.Range(base.PreviousExitValue, entryVariable + 1) : entryVariable);
+            if (num < _Status.MinimumRequiredToApply)
+            {
+                return 0;
+            }
+
+            unit.SimpleSetStoredValue(Inspiration.Prevent, 1);
+            if (!unit.ApplyStatusEffect(_Status, num))
+            {
+                unit.SimpleSetStoredValue(Inspiration.Prevent, 0);
+                return 0;
+            }
+
+            unit.SimpleSetStoredValue(Inspiration.Prevent, 0);
+            return Mathf.Max(1, num);
         }
     }
 }

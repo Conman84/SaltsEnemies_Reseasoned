@@ -557,7 +557,7 @@ namespace SaltsEnemies_Reseasoned
                     case 24: caster.ApplyStatusEffect(Entropy.Object, 1); break;
                     case 25: caster.ApplyStatusEffect(Haste.Object, 1); break;
                     case 26: caster.ApplyStatusEffect(Acid.Object, 1); break;
-                    case 27: caster.SimpleSetStoredValue(Inspiration.Prevent, 1);  caster.ApplyStatusEffect(Inspiration.Object, 1); break;
+                    case 27: caster.SimpleSetStoredValue(Inspiration.Prevent, 1);  caster.ApplyStatusEffect(Inspiration.Object, 1); caster.SimpleSetStoredValue(Inspiration.Prevent, 0); break;
                     case 28: caster.ApplyStatusEffect(Terror.Object, 1); break;
                     case 29: caster.ApplyStatusEffect(Drowning.Object, 1); break;
                     case 30: foreach (CombatSlot slot in slots) slot.ApplyFieldEffect(Water.Object, 1, 0); break;
