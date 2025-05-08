@@ -333,7 +333,7 @@ namespace SaltsEnemies_Reseasoned
         {
             base.ProcessUnbox(stats, unit, senderData);
             unit.unit.SimpleSetStoredValue("Dreamer_A", 0);
-            if (unit.unit is EnemyCombat enemy && SolitaireHandler.IsSolitaire(enemy))
+            if (unit.unit is EnemyCombat enemy && SolitaireHandler.IsSolitaire(enemy) && enemy.HealthColor != Pigments.Blue)
             {
                 CombatManager.Instance.AddRootAction(new UIActionAction(new EnemyHealthColorChangeUIAction(enemy.ID, enemy.HealthColor)));
                 enemy.UnforgetAbilities();
