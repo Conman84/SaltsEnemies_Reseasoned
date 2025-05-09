@@ -57,7 +57,7 @@ namespace SaltEnemies_Reseasoned
             {
                 int num = 1;
                 if (UnityEngine.Random.Range(0f, 1f) < 0.25f) num++;
-                if (base.PerformEffect(stats, caster, targets, areTargetSlots, num, out int exi)) exitAmount += exi;
+                if (base.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, num, out int exi)) exitAmount += exi;
             }
             return exitAmount > 0;
         }
