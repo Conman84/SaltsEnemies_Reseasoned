@@ -179,6 +179,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(BlackStar.Add);
                 PCall(Singularity.Add);
                 PCall(Windle.Add);
+                PCall(Indicator.Add);
 
                 //CH14 Enemies
                 PCall(MidnightTrafficLight.Add);
