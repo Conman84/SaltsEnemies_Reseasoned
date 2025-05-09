@@ -101,6 +101,9 @@
 	  <None Remove="Chapter14\AbyssAngel\ClioneIcon.png" />
 	  <None Remove="Chapter14\AbyssAngel\ClioneWorld.png" />
 	  <None Remove="Chapter14\AbyssAngel\WavesPassive.png" />
+	  <None Remove="Chapter14\Arceles\BoatDead.png" />
+	  <None Remove="Chapter14\Arceles\BoatIcon.png" />
+	  <None Remove="Chapter14\Arceles\BoatWorld.png" />
 	  <None Remove="Chapter14\MidnightTrafficLight\PracticalPassive.png" />
 	  <None Remove="Chapter14\MidnightTrafficLight\TrainDead.png" />
 	  <None Remove="Chapter14\MidnightTrafficLight\TrainDownIntent.png" />
@@ -469,6 +472,9 @@
 	  <EmbeddedResource Include="Chapter14\AbyssAngel\ClioneIcon.png" />
 	  <EmbeddedResource Include="Chapter14\AbyssAngel\ClioneWorld.png" />
 	  <EmbeddedResource Include="Chapter14\AbyssAngel\WavesPassive.png" />
+	  <EmbeddedResource Include="Chapter14\Arceles\BoatDead.png" />
+	  <EmbeddedResource Include="Chapter14\Arceles\BoatIcon.png" />
+	  <EmbeddedResource Include="Chapter14\Arceles\BoatWorld.png" />
 	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\PracticalPassive.png" />
 	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\TrainDead.png" />
 	  <EmbeddedResource Include="Chapter14\MidnightTrafficLight\TrainDownIntent.png" />
