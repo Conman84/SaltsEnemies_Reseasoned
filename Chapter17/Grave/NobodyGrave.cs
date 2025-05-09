@@ -47,7 +47,7 @@ namespace SaltsEnemies_Reseasoned
             des._extraAbility.ability = ability;
 
             grave.AddPassives(new BasePassiveAbilitySO[] { Passives.Inanimate, des, Passives.Withering });
-
+            //NOTE: you should add the defender's passive to the glossary. it should be something like the bonus attack description in the main game, but its name shoudl be "Karma" and its description have, "If this enemy is below a certain amount of health," then the rest of the bonus attack description.
 
             //weathering
             Ability weathering = new Ability("Weathering", "Weathering_A");
