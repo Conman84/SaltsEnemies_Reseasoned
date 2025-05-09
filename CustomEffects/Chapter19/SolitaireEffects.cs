@@ -243,7 +243,26 @@ namespace SaltsEnemies_Reseasoned
 
             SolitaireHandler.MovedToGarden = true;
 
+            OdeInteraction.Flip();
+
             return true;
+        }
+    }
+    public static class OdeInteraction
+    {
+        public static void Flip()
+        {
+            foreach (GameObject arena in OdeFieldHandler.Fields)
+            {
+                if (arena == null || arena.Equals(null)) continue;
+                if (arena.activeSelf) arena.SetActive(false);
+                else arena.SetActive(true);
+            }
+            foreach (GameObject arena in OdeFieldHandler.Trees)
+            {
+                if (arena == null || arena.Equals(null)) continue;
+                arena.SetActive(false);
+            }
         }
     }
     public class MoveBackToOriginalAreaAction : CombatAction
@@ -283,6 +302,9 @@ namespace SaltsEnemies_Reseasoned
                 SolitaireHandler.MovedToGarden = false;
                 SolitaireHandler.Moved = false;
                 SolitaireHandler.Returning = false;
+
+                OdeInteraction.Flip();
+
             }
             yield return null;
         }
@@ -343,6 +365,10 @@ namespace SaltsEnemies_Reseasoned
             {
                 enemy.UnforgetAbilities();
                 CombatManager.Instance.AddRootAction(new UIActionAction(new FixHealthColorIfNotAction(enemy.ID, enemy.HealthColor)));
+            }
+            if (unit.unit is EnemyCombat EN && Check.EnemyExist("OdeToHumanity_EN") && EN.Enemy == LoadedAssetsHandler.GetEnemy("OdeToHumanity_EN"))
+            {
+                CombatManager.Instance.AddRootAction(new SpawnTreeAction(EN.ID));
             }
         }
     }

@@ -96,7 +96,8 @@ namespace SaltEnemies_Reseasoned
             if (stats.combatUI._enemiesInCombat.TryGetValue(ID, out var value))
             {
                 EnemyInFieldLayout layout = stats.combatUI._enemyZone._enemies[value.FieldID].FieldEntity;
-                UnityEngine.Object.Instantiate(OdeToHumanity.Tree, layout.transform.position, layout.transform.rotation);
+                if (OdeFieldHandler.Trees == null) OdeFieldHandler.Trees = new List<GameObject>();
+                OdeFieldHandler.Trees.Add(UnityEngine.Object.Instantiate(OdeToHumanity.Tree, layout.transform.position, layout.transform.rotation));
             }
             yield return null;
         }
@@ -113,7 +114,8 @@ namespace SaltEnemies_Reseasoned
             if (stats.combatUI._enemiesInCombat.TryGetValue(ID, out var value))
             {
                 EnemyInFieldLayout layout = stats.combatUI._enemyZone._enemies[value.FieldID].FieldEntity;
-                UnityEngine.Object.Instantiate(OdeToHumanity.Bush, layout.transform.position, layout.transform.rotation);
+                if (OdeFieldHandler.Fields == null) OdeFieldHandler.Fields = new List<GameObject>();
+                OdeFieldHandler.Fields.Add(UnityEngine.Object.Instantiate(OdeToHumanity.Bush, layout.transform.position, layout.transform.rotation));
             }
             yield return null;
         }
@@ -130,9 +132,12 @@ namespace SaltEnemies_Reseasoned
     }
     public static class OdeFieldHandler
     {
+        public static List<GameObject> Fields;
+        public static List<GameObject> Trees;
         public static void Setup() => NotificationHook.AddAction(NotifCheck);
         public static void NotifCheck(string notifname, object sender, object args)
         {
+            if (notifname == TriggerCalls.OnCombatEnd.ToString()) Fields = new List<GameObject>();
             if (sender is EnemyCombat enemy && Check.EnemyExist("OdeToHumanity_EN") && enemy.Enemy == LoadedAssetsHandler.GetEnemy("OdeToHumanity_EN"))
             {
                 if (notifname == TriggerCalls.OnDamaged.ToString())
