@@ -31,7 +31,7 @@ namespace SaltsEnemies_Reseasoned
             punish._enemyDescription = "On moving, inflict 10 Pale on the Opposing party member. \nIf they already had over 100 Pale, trigger it.";
             punish._characterDescription = punish._enemyDescription;
             punish.doesPassiveTriggerInformationPanel = true;
-            punish.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<TryTriggerPaleEffect>(), 1, Slots.Front), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleEffect>(), 10, Slots.Front, BasicEffects.DidThat(false)), });
+            punish.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<TryTriggerPaleEffect>(), 1, Slots.Front), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleEffect>(), 10, Slots.Front, BasicEffects.DidThat(false)), };
             punish._triggerOn = new TriggerCalls[1] { TriggerCalls.OnMoved };
             punish.conditions = new EffectorConditionSO[0];
 
