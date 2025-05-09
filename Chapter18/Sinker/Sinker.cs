@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 18,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("SinkerIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("SinkerWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("SinkerDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("SinkerWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("SinkerDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetCharacter("Clive_CH").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("Clive_CH").deathSound,
             };

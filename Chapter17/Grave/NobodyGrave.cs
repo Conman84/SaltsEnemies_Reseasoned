@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 20,
                 HealthColor = Pigments.Grey,
                 CombatSprite = ResourceLoader.LoadSprite("GraveIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("GraveWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("GraveDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("GraveWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("GraveDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetCharacter("Gospel_CH").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("Gospel_CH").deathSound,
             };

@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 42,
                 HealthColor = Pigments.Yellow,
                 CombatSprite = ResourceLoader.LoadSprite("HarpoonIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("HarpoonWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("HarpoonDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("HarpoonWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("HarpoonDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Noisy/YA_Hit",
                 DeathSound = "event:/Hawthorne/Noisy/YA_Death",
             };

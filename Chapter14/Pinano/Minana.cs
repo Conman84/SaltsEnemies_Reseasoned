@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 6,
                 HealthColor = Pigments.Blue,
                 CombatSprite = ResourceLoader.LoadSprite("MinanaIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("MinanaWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("MinanaDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("MinanaWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("MinanaDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("Mung_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("Mung_EN").deathSound,
             };

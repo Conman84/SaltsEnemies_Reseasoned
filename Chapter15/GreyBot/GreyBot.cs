@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 26,
                 HealthColor = Pigments.Grey,
                 CombatSprite = ResourceLoader.LoadSprite("GreyBotIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("GreyBotWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("GreyBotDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("GreyBotWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("GreyBotDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Noise/ApparatusHit",
                 DeathSound = "event:/Hawthorne/Noise/ApparatusDie",
             };

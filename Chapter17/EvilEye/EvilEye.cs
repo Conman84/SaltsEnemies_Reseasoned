@@ -17,8 +17,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 30,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("EyeballIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("EyeballWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("EyeballDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("EyeballWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("EyeballDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Noisy/Eye_Hit",
                 DeathSound = "event:/Hawthorne/Noisy/Eye_Die",
                 AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_EvilEye>()

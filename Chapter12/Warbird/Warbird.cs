@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 20,
                 HealthColor = Pigments.Grey,
                 CombatSprite = ResourceLoader.LoadSprite("ScarecrowIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("ScarecrowWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("ScarecrowDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("ScarecrowWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("ScarecrowDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("RealisticTank_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("RealisticTank_EN").deathSound,
             };

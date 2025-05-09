@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 HealthColor = Pigments.Red,
                 Size = 2,
                 CombatSprite = ResourceLoader.LoadSprite("DragonIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("DragonWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("DragonDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("DragonWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("DragonDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("Flarb_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("Flarb_EN").deathSound,
                 AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_Dragon>()

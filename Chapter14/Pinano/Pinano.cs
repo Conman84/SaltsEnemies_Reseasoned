@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 12,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("PinanoIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("PinanoWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("PinanoDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("PinanoWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("PinanoDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("MudLung_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("MudLung_EN").deathSound,
             };

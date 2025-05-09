@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 40,
                 HealthColor = Pigments.Purple,
                 CombatSprite = ResourceLoader.LoadSprite("VaseIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("VaseWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("VaseDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("VaseWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("VaseDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Combat/StatusEffects/SE_Cursed_Apl",
                 DeathSound = LoadedAssetsHandler.GetEnemy("SingingStone_EN").deathSound,
             };

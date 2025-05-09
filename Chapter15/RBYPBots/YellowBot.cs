@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 21,
                 HealthColor = Pigments.Yellow,
                 CombatSprite = ResourceLoader.LoadSprite("YellowBotIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("YellowBotWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("YellowBotDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("YellowBotWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("YellowBotDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Noise/ApparatusHit",
                 DeathSound = "event:/Hawthorne/Noise/ApparatusDie",
                 AbilitySelector = BotGeneral.Selector

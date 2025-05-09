@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 16,
                 HealthColor = Pigments.Yellow,
                 CombatSprite = ResourceLoader.LoadSprite("BlackstarIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("BlackstarWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("BlackstarDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("BlackstarWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("BlackstarDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").deathSound,
             };

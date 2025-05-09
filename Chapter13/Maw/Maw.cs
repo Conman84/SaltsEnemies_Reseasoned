@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 40,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("MawIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("MawWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("MawDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("MawWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("MawDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetCharacter("LongLiver_CH").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("Leviat_CH").deathSound,
             };

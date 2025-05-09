@@ -17,8 +17,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 12,
                 HealthColor = Pigments.Purple,
                 CombatSprite = ResourceLoader.LoadSprite("WindleIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("WindleWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("WindleDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("WindleWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("WindleDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetCharacter("Doll_CH").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("Doll_CH").deathSound,
             };

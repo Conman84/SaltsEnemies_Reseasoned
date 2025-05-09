@@ -17,8 +17,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 16,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("BeakIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("BeakWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("BeakDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("BeakWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("BeakDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("Keko_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("Keko_EN").deathSound,
                 AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_Nervous>()
