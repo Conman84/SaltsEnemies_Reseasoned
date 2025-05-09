@@ -48,4 +48,18 @@ namespace SaltEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
+    public class SpasmEffect : AddTurnTargetToTimelineEffect
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (TargetSlotInfo target in targets)
+            {
+                int num = 1;
+                if (UnityEngine.Random.Range(0f, 1f) < 0.25f) num++;
+                if (base.PerformEffect(stats, caster, targets, areTargetSlots, num, out int exi)) exitAmount += exi;
+            }
+            return exitAmount > 0;
+        }
+    }
 }
