@@ -36,13 +36,13 @@ namespace SaltEnemies_Reseasoned
                 LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusID] = MutedSO;
                 already = true;
             }
-            else LoadedDBsHandler.StatusFieldDB.AddNewStatusEffect(MutedSO);
+            if (!LoadedDBsHandler.StatusFieldDB._StatusEffects.ContainsKey(StatusID)) LoadedDBsHandler.StatusFieldDB.AddNewStatusEffect(MutedSO);
 
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
             intentinfo._sprite = ResourceLoader.LoadSprite("MutedIcon.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
-            else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
+            if (!LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
 
             if (already) return;
 

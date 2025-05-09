@@ -28,13 +28,13 @@ namespace SaltEnemies_Reseasoned
             HasteSO._EffectInfo = HasteInfo;
             Object = HasteSO;
             if (LoadedDBsHandler.StatusFieldDB._StatusEffects.ContainsKey(StatusID)) LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusID] = HasteSO;
-            else LoadedDBsHandler.StatusFieldDB.AddNewStatusEffect(HasteSO);
+            if (!LoadedDBsHandler.StatusFieldDB._StatusEffects.ContainsKey(StatusID)) LoadedDBsHandler.StatusFieldDB.AddNewStatusEffect(HasteSO);
 
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
             intentinfo._sprite = ResourceLoader.LoadSprite("Haste.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
-            else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
+            if (!LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
         }
     }
     public class HasteSE_SO : StatusEffect_SO
