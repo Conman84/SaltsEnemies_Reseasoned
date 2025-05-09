@@ -311,6 +311,12 @@
 	  <None Remove="Chapter19\Pawn\PawnWorld.png" />
 	  <None Remove="Chapter19\Pawn\TraitorPassive.png" />
 	  <None Remove="Chapter19\Solitaire\ExitIntent.png" />
+	  <None Remove="Chapter19\Solitaire\SolitaireDead.png" />
+	  <None Remove="Chapter19\Solitaire\SolitaireIcon.png" />
+	  <None Remove="Chapter19\Solitaire\SolitaireWorld.png" />
+	  <None Remove="Chapter19\Solitaire\SpadesDead.png" />
+	  <None Remove="Chapter19\Solitaire\SpadesIcon.png" />
+	  <None Remove="Chapter19\Solitaire\SpadesWorld.png" />
 	  <None Remove="Chapter19\Starless\AllKnowingPassive.png" />
 	  <None Remove="Chapter19\Starless\AllSeeingPassive.png" />
 	  <None Remove="Chapter19\Starless\EyelessDead.png" />
@@ -682,6 +688,12 @@
 	  <EmbeddedResource Include="Chapter19\Pawn\PawnWorld.png" />
 	  <EmbeddedResource Include="Chapter19\Pawn\TraitorPassive.png" />
 	  <EmbeddedResource Include="Chapter19\Solitaire\ExitIntent.png" />
+	  <EmbeddedResource Include="Chapter19\Solitaire\SolitaireDead.png" />
+	  <EmbeddedResource Include="Chapter19\Solitaire\SolitaireIcon.png" />
+	  <EmbeddedResource Include="Chapter19\Solitaire\SolitaireWorld.png" />
+	  <EmbeddedResource Include="Chapter19\Solitaire\SpadesDead.png" />
+	  <EmbeddedResource Include="Chapter19\Solitaire\SpadesIcon.png" />
+	  <EmbeddedResource Include="Chapter19\Solitaire\SpadesWorld.png" />
 	  <EmbeddedResource Include="Chapter19\Starless\AllKnowingPassive.png" />
 	  <EmbeddedResource Include="Chapter19\Starless\AllSeeingPassive.png" />
 	  <EmbeddedResource Include="Chapter19\Starless\EyelessDead.png" />

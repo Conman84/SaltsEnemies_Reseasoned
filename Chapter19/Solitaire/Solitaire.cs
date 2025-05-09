@@ -16,9 +16,9 @@ namespace SaltsEnemies_Reseasoned
             {
                 Health = 20,
                 HealthColor = Pigments.Blue,
-                CombatSprite = ResourceLoader.LoadSprite("PawnIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("PawnWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("PawnDead.png", new Vector2(0.5f, 0f), 32),
+                CombatSprite = ResourceLoader.LoadSprite("SolitaireIcon.png"),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("SolitaireDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("SolitaireWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Sund/SolitaireHit",
                 DeathSound = "event:/Hawthorne/Sund/SolitaireDie",
             };
@@ -32,9 +32,9 @@ namespace SaltsEnemies_Reseasoned
             {
                 Health = 10,
                 HealthColor = Pigments.Blue,
-                CombatSprite = ResourceLoader.LoadSprite("PawnIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("PawnWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("PawnDead.png", new Vector2(0.5f, 0f), 32),
+                CombatSprite = ResourceLoader.LoadSprite("SpadesIcon.png"),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("SpadesDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("SpadesWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Sund/SolitaireHit",
                 DeathSound = "event:/Hawthorne/Sund/SolitaireDie",
             };
