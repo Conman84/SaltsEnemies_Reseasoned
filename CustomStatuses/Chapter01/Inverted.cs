@@ -16,7 +16,7 @@ namespace SaltEnemies_Reseasoned
         public static InvertedSE_SO Object;
         public static void Add()
         {
-            Debug.LogWarning("Inverted.Add. I've left some leftover code for the damage color setting in case you want to use it, for the heal color you'd just copy the code and change DamageType --> HealType");
+            //Debug.LogWarning("Inverted.Add. I've left some leftover code for the damage color setting in case you want to use it, for the heal color you'd just copy the code and change DamageType --> HealType");
             /*TMP_ColorGradient PaleGradient = ScriptableObject.CreateInstance<TMP_ColorGradient>();
             UnityEngine.Color32 paleColor = new UnityEngine.Color32(63, 205, 189, 255);
             PaleGradient.bottomLeft = paleColor;
