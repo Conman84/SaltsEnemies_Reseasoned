@@ -63,7 +63,7 @@ namespace SaltsEnemies_Reseasoned
             trolley._triggerOn = baseExtra._triggerOn;
             Ability bonus = new Ability("Trolley_Problem_A");
             bonus.Name = "Trolley";
-            bonus.Description = "If the Light phase is Green, deal 0-20 damage to either all enemies or all party members.";
+            bonus.Description = "If the Light phase is Green, deal maybe a Little or a Lot of damage to either all enemies or all party members.";
             bonus.Effects = new EffectInfo[4];
             bonus.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Train", false, TrainTargetting.Create(false)), 0, TrainTargetting.Create(true), ScriptableObject.CreateInstance<SecondTrainCondition>());
             bonus.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ExtraVariableForNextEffect>(), 0, TrainTargetting.Create(true));
@@ -71,7 +71,7 @@ namespace SaltsEnemies_Reseasoned
             bonus.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<TrainSongEffect>(), 1, TrainTargetting.Create(true), ScriptableObject.CreateInstance<SecondTrainCondition>());
             bonus.Visuals = null;
             bonus.AnimationTarget = Slots.Self;
-            bonus.AddIntentsToTarget(TrainTargetting.Create(true), new string[] { FallColor.Intent, IntentType_GameIDs.Damage_1_2.ToString(), IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Damage_11_15.ToString(), IntentType_GameIDs.Damage_16_20.ToString(), IntentType_GameIDs.Damage_21.ToString() });
+            bonus.AddIntentsToTarget(TrainTargetting.Create(true), new string[] { FallColor.Intent, IntentType_GameIDs.Damage_1_2.ToString(), IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Damage_11_15.ToString(), IntentType_GameIDs.Damage_16_20.ToString() });
             AbilitySO ability = bonus.GenerateEnemyAbility(false).ability;
             trolley._extraAbility.ability = ability;
 

@@ -92,12 +92,17 @@ namespace SaltsEnemies_Reseasoned
         {
             if (notifname == TriggerCalls.OnBeforeCombatStart.ToString())
             {
-                //DreamScanner = 0;
+                DreamScanner = CombatManager.Instance._informationHolder.Run.inGameData.GetIntData("DreamScanner");
                 Returning = false;
                 MovedToGarden = false;
                 Clear();
             }
-            if (notifname == TriggerCalls.OnDamaged.ToString() && sender is EnemyCombat enemy && IsSolitaire(enemy)) DreamScanner++;
+            if (notifname == TriggerCalls.OnDamaged.ToString() && sender is EnemyCombat enemy && IsSolitaire(enemy))
+            {
+                DreamScanner = CombatManager.Instance._informationHolder.Run.inGameData.GetIntData("DreamScanner");
+                DreamScanner++;
+                CombatManager.Instance._informationHolder.Run.inGameData.SetIntData("DreamScanner", DreamScanner);
+            }
             if (notifname == TriggerCalls.OnAbilityUsed.ToString() && sender is CharacterCombat chara)
             {
                 int num = 0;

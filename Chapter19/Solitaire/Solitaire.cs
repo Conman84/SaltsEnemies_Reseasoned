@@ -22,7 +22,7 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = "event:/Hawthorne/Sund/SolitaireHit",
                 DeathSound = "event:/Hawthorne/Sund/SolitaireDie",
             };
-            tv.PrepareMultiEnemyPrefab("Assets/enem3/Solitaire_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Pawn_Gibs.prefab").GetComponent<ParticleSystem>());
+            tv.PrepareMultiEnemyPrefab("Assets/enem3/Solitaire_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Solitaire_Gibs.prefab").GetComponent<ParticleSystem>());
             (tv.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
             {
                 tv.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").GetComponent<SpriteRenderer>(),
@@ -38,7 +38,7 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = "event:/Hawthorne/Sund/SolitaireHit",
                 DeathSound = "event:/Hawthorne/Sund/SolitaireDie",
             };
-            child.PrepareEnemyPrefab("Assets/enem3/Spades_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Pawn_Gibs.prefab").GetComponent<ParticleSystem>());
+            child.PrepareEnemyPrefab("Assets/enem3/Spades_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Spades_Gibs.prefab").GetComponent<ParticleSystem>());
             child.enemy.enemyTemplate.m_Data.m_Renderer = child.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").GetComponent<SpriteRenderer>();
             child.AddPassive(Passives.TwoFaced);
             child.AddPassive(Passives.Withering);
@@ -102,13 +102,13 @@ namespace SaltsEnemies_Reseasoned
             Intents.CreateAndAddCustom_Basic_IntentToPool("Misc_Blue", Intents.GetInGame_IntentInfo(IntentType_GameIDs.Misc)._sprite, Color.blue);
             Intents.CreateAndAddCustom_Basic_IntentToPool("Misc_Yellow", Intents.GetInGame_IntentInfo(IntentType_GameIDs.Misc)._sprite, Color.yellow);
             Intents.CreateAndAddCustom_Basic_IntentToPool("Misc_Purple", Intents.GetInGame_IntentInfo(IntentType_GameIDs.Misc)._sprite, Color.magenta);
-            entropy.AddIntentsToTarget(Slots.Self, [FallColor.Intent, "Misc_Red", "Misc_Blue", "Misc_Yellow", "Misc_Purple"]);
+            entropy.AddIntentsToTarget(Slots.Self, [FallColor.Intent3, "Misc_Red", "Misc_Blue", "Misc_Yellow", "Misc_Purple"]);
             entropy.Visuals = CustomVisuals.GetVisuals("Salt/Censor");
             entropy.AnimationTarget = Slots.Self;
 
             //scanner
             Ability scanner = new Ability("Dream Scanner", "DreamScanner_A");
-            scanner.Description = "Deal damage to the Opposing party member equal to the amount of times any Solitaire has taken damage since you opened the game.";
+            scanner.Description = "Deal damage to the Opposing party member equal to the amount of times any Solitaire has taken damage this run.";
             scanner.Rarity = radio.Rarity;
             scanner.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<DreamScannerEffect>(), 1, Slots.Front).SelfArray();
             scanner.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_7_10.ToString()]);

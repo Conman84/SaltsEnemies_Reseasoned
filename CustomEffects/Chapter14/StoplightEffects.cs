@@ -151,9 +151,16 @@ namespace SaltEnemies_Reseasoned
     public static class FallColor
     {
         public static string Intent => "AnimatedIntent_Identifier";
+        public static Color _color => new Color(28f, 78f, 128f);
+        public static string Intent2 => "AnimatedIntent2_Identifier";
+        public static Color _color2 => new Color(28f, 78f, 129f);
+        public static string Intent3 => "AnimatedIntent3_Identifier";
+        public static Color _color3 => new Color(28f, 78f, 130f);
         public static void Setup()
         {
-            Intents.CreateAndAddCustom_Basic_IntentToPool(Intent, ResourceLoader.LoadSprite("idk.png"), new Color(28f, 78f, 128f));
+            Intents.CreateAndAddCustom_Basic_IntentToPool(Intent, ResourceLoader.LoadSprite("idk.png"), _color);
+            Intents.CreateAndAddCustom_Basic_IntentToPool(Intent2, ResourceLoader.LoadSprite("idk.png"), _color2);
+            Intents.CreateAndAddCustom_Basic_IntentToPool(Intent3, ResourceLoader.LoadSprite("idk.png"), _color3);
         }
     }
 }
