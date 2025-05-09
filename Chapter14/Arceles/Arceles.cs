@@ -21,7 +21,7 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetEnemy("Merced_EN").deathSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("Gospel_CH").deathSound,
             };
-            boat.PrepareEnemyPrefab("assets/train/Boat_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/train/Boat_Gibs.prefab").GetComponent<ParticleSystem>());
+            boat.PrepareEnemyPrefab("assets/train/Boat_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/train/Boat_Gibs.prefab").GetComponent<ParticleSystem>());
 
             //bonus attack
             ExtraAttackPassiveAbility baseExtra = LoadedAssetsHandler.GetEnemy("Xiphactinus_EN").passiveAbilities[1] as ExtraAttackPassiveAbility;
