@@ -60,7 +60,7 @@ namespace SaltsEnemies_Reseasoned
 
             AbilitySelector_Heaven selector = ScriptableObject.CreateInstance<AbilitySelector_Heaven>();
             selector._ComeHomeAbility = "Dreamers_A";
-            selector._useAfterTurns = 1;
+            selector._useAfterTurns = 2;
             tv.AbilitySelector = selector;
             tv.AddPassives(new BasePassiveAbilitySO[] { Passives.TwoFaced, Passives.Forgetful, Passives.Dying, decay });
             tv.CombatExitEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<SolitaireExitEffect>(), 1, Slots.Self).SelfArray();
