@@ -17,6 +17,8 @@ namespace SaltEnemies_Reseasoned
         public static MutedSE_SO Object;
         public static void Add()
         {
+            bool already = false;
+
             StatusEffectInfoSO LeftInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             LeftInfo.icon = ResourceLoader.LoadSprite("MutedIcon.png");
             LeftInfo._statusName = "Muted";
@@ -29,7 +31,11 @@ namespace SaltEnemies_Reseasoned
             MutedSO._StatusID = StatusID;
             MutedSO._EffectInfo = LeftInfo;
             Object = MutedSO;
-            if (LoadedDBsHandler.StatusFieldDB._StatusEffects.ContainsKey(StatusID)) LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusID] = MutedSO;
+            if (LoadedDBsHandler.StatusFieldDB._StatusEffects.ContainsKey(StatusID))
+            {
+                LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusID] = MutedSO;
+                already = true;
+            }
             else LoadedDBsHandler.StatusFieldDB.AddNewStatusEffect(MutedSO);
 
             IntentInfoBasic intentinfo = new IntentInfoBasic();
@@ -37,6 +43,8 @@ namespace SaltEnemies_Reseasoned
             intentinfo._sprite = ResourceLoader.LoadSprite("MutedIcon.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
+
+            if (already) return;
 
             IDetour MutedCharactersIDetour = new Hook(typeof(CharacterCombat).GetMethod(nameof(CharacterCombat.UseAbility), ~BindingFlags.Default), typeof(Muted).GetMethod(nameof(UseMutedAbilityChara), ~BindingFlags.Default));
             IDetour MutedEnemieIDetour = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.UseAbility), ~BindingFlags.Default), typeof(Muted).GetMethod(nameof(UseMutedAbilityEn), ~BindingFlags.Default));
