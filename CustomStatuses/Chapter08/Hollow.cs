@@ -27,13 +27,13 @@ namespace SaltEnemies_Reseasoned
             HollowSO._EffectInfo = HollowInfo;
             Object = HollowSO;
             if (LoadedDBsHandler.StatusFieldDB._StatusEffects.ContainsKey(StatusID)) LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusID] = HollowSO;
-            else LoadedDBsHandler.StatusFieldDB.AddNewStatusEffect(HollowSO);
+            if (!LoadedDBsHandler.StatusFieldDB._StatusEffects.ContainsKey(StatusID)) LoadedDBsHandler.StatusFieldDB.AddNewStatusEffect(HollowSO);
 
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
             intentinfo._sprite = ResourceLoader.LoadSprite("HollowIcon.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
-            else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
+            if (!LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
         }
     }
     public class HollowSE_SO : StatusEffect_SO
