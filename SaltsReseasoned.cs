@@ -186,6 +186,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(Pinano.Add);
                 PCall(Minana.Add);
                 PCall(AbyssAngel.Add);
+                PCall(Arceles.Add);
 
                 //CH15 Enemies
                 PCall(YellowBot.Add);
