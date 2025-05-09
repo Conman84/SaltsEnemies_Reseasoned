@@ -210,6 +210,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(Shooter.Add);
                 PCall(SkeletonHead.Add);
                 PCall(Sinker.Add);
+                PCall(PersonalAngel.Add);
 
                 //CH19 Enemies
                 PCall(Starless.Add);

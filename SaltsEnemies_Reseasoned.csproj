@@ -289,6 +289,10 @@
 	  <None Remove="Chapter17\YellowAngel\HarpoonIcon.png" />
 	  <None Remove="Chapter17\YellowAngel\HarpoonPortal.png" />
 	  <None Remove="Chapter17\YellowAngel\HarpoonWorld.png" />
+	  <None Remove="Chapter18\PersonalAngel\PersonalDead.png" />
+	  <None Remove="Chapter18\PersonalAngel\PersonalIcon.png" />
+	  <None Remove="Chapter18\PersonalAngel\PersonalWorld.png" />
+	  <None Remove="Chapter18\PersonalAngel\PunisherPassive.png" />
 	  <None Remove="Chapter18\Shooter\HeadDead.png" />
 	  <None Remove="Chapter18\Shooter\HeadIcon.png" />
 	  <None Remove="Chapter18\Shooter\HeadWorld.png" />
@@ -653,6 +657,10 @@
 	  <EmbeddedResource Include="Chapter17\YellowAngel\HarpoonIcon.png" />
 	  <EmbeddedResource Include="Chapter17\YellowAngel\HarpoonPortal.png" />
 	  <EmbeddedResource Include="Chapter17\YellowAngel\HarpoonWorld.png" />
+	  <EmbeddedResource Include="Chapter18\PersonalAngel\PersonalDead.png" />
+	  <EmbeddedResource Include="Chapter18\PersonalAngel\PersonalIcon.png" />
+	  <EmbeddedResource Include="Chapter18\PersonalAngel\PersonalWorld.png" />
+	  <EmbeddedResource Include="Chapter18\PersonalAngel\PunisherPassive.png" />
 	  <EmbeddedResource Include="Chapter18\Shooter\HeadDead.png" />
 	  <EmbeddedResource Include="Chapter18\Shooter\HeadIcon.png" />
 	  <EmbeddedResource Include="Chapter18\Shooter\HeadWorld.png" />
