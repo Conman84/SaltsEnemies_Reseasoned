@@ -21,8 +21,7 @@ namespace SaltEnemies_Reseasoned
             SlotStatusEffectInfoSO SlipInfo = ScriptableObject.CreateInstance<SlotStatusEffectInfoSO>();
             SlipInfo.icon = ResourceLoader.LoadSprite("SlipIcon.png");
             SlipInfo._fieldName = "Slip";
-            SlipInfo._description = "Get the description";
-            Debug.LogError("Slip.Add. get the status description");
+            SlipInfo._description = "On moving into Slip, decrease Slip by 1 and move again in the same direction.";
             SlipInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo._applied_SE_Event;
             SlipInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             SlipInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
