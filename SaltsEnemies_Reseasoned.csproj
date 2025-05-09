@@ -88,6 +88,11 @@
 	  <None Remove="Chapter13\BlackStar\SingularityDead.png" />
 	  <None Remove="Chapter13\BlackStar\SingularityIcon.png" />
 	  <None Remove="Chapter13\BlackStar\SingularityWorld.png" />
+	  <None Remove="Chapter13\Indicator\IndicatorDead.png" />
+	  <None Remove="Chapter13\Indicator\IndicatorIcon.png" />
+	  <None Remove="Chapter13\Indicator\IndicatorPassive.png" />
+	  <None Remove="Chapter13\Indicator\IndicatorWorld.png" />
+	  <None Remove="Chapter13\Indicator\SpasmPassive.png" />
 	  <None Remove="Chapter13\Maw\MawDead.png" />
 	  <None Remove="Chapter13\Maw\MawIcon.png" />
 	  <None Remove="Chapter13\Maw\MawPassive.png" />
@@ -447,6 +452,11 @@
 	  <EmbeddedResource Include="Chapter13\BlackStar\SingularityDead.png" />
 	  <EmbeddedResource Include="Chapter13\BlackStar\SingularityIcon.png" />
 	  <EmbeddedResource Include="Chapter13\BlackStar\SingularityWorld.png" />
+	  <EmbeddedResource Include="Chapter13\Indicator\IndicatorDead.png" />
+	  <EmbeddedResource Include="Chapter13\Indicator\IndicatorIcon.png" />
+	  <EmbeddedResource Include="Chapter13\Indicator\IndicatorPassive.png" />
+	  <EmbeddedResource Include="Chapter13\Indicator\IndicatorWorld.png" />
+	  <EmbeddedResource Include="Chapter13\Indicator\SpasmPassive.png" />
 	  <EmbeddedResource Include="Chapter13\Maw\MawDead.png" />
 	  <EmbeddedResource Include="Chapter13\Maw\MawIcon.png" />
 	  <EmbeddedResource Include="Chapter13\Maw\MawPassive.png" />
@@ -1026,7 +1036,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Chapter13\Indicator\" />
 	  <Folder Include="CustomEffects\Chapter06\" />
 	  <Folder Include="CustomEffects\Chapter11\" />
 	  <Folder Include="CustomEffects\Chapter12\" />
