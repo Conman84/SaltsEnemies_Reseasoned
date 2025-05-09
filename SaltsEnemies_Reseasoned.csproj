@@ -236,6 +236,10 @@
 	  <None Remove="Chapter13\Windle\WindleIcon.png" />
 	  <None Remove="Chapter13\Windle\WindlePassive.png" />
 	  <None Remove="Chapter13\Windle\WindleWorld.png" />
+	  <None Remove="Chapter14\YNL\LobotomyDead.png" />
+	  <None Remove="Chapter14\YNL\LobotomyIcon.png" />
+	  <None Remove="Chapter14\YNL\LobotomyPortal.png" />
+	  <None Remove="Chapter14\YNL\LobotomyWorld.png" />
 	  <None Remove="Chapter15\GreyBot\CCTVPassive.png" />
 	  <None Remove="Chapter15\RBYPBots\Sprites\BlueBotDead.png" />
 	  <None Remove="Chapter15\RBYPBots\Sprites\BlueBotIcon.png" />
@@ -626,6 +630,10 @@
 	  <EmbeddedResource Include="Chapter13\Windle\WindleIcon.png" />
 	  <EmbeddedResource Include="Chapter13\Windle\WindlePassive.png" />
 	  <EmbeddedResource Include="Chapter13\Windle\WindleWorld.png" />
+	  <EmbeddedResource Include="Chapter14\YNL\LobotomyDead.png" />
+	  <EmbeddedResource Include="Chapter14\YNL\LobotomyIcon.png" />
+	  <EmbeddedResource Include="Chapter14\YNL\LobotomyPortal.png" />
+	  <EmbeddedResource Include="Chapter14\YNL\LobotomyWorld.png" />
 	  <EmbeddedResource Include="Chapter15\GreyBot\CCTVPassive.png" />
 	  <EmbeddedResource Include="Chapter15\RBYPBots\Sprites\BlueBotDead.png" />
 	  <EmbeddedResource Include="Chapter15\RBYPBots\Sprites\BlueBotIcon.png" />
