@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 40,
                 HealthColor = Pigments.Blue,
                 CombatSprite = ResourceLoader.LoadSprite("StarlessIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("StarlessWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("StarlessDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("StarlessWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("StarlessDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Sound/StarlessHit",
                 DeathSound = "event:/Hawthorne/Sound/StarlessDie",
             };

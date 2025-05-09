@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 40,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("YangIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("YangWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("YangDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("YangWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("YangDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Noi3e/YangHit",
                 DeathSound = "event:/Hawthorne/Noi3e/YangDie",
             };

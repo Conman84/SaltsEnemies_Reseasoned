@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 40,
                 HealthColor = Pigments.Purple,
                 CombatSprite = ResourceLoader.LoadSprite("YinIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("YinWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("YinDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("YinWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("YinDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Noi3e/YinHit",
                 DeathSound = "event:/Hawthorne/Noi3e/YinDie",
             };

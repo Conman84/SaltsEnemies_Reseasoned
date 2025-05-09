@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 20,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("PawnIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("PawnWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("PawnDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("PawnDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("PawnWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Noi3e/PawnHit",
                 DeathSound = "event:/Hawthorne/Noi3e/PawnDie",
             };

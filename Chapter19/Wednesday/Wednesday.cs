@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 17,
                 HealthColor = Pigments.Purple,
                 CombatSprite = ResourceLoader.LoadSprite("PhoneIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("PhoneWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("PhoneDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("PhoneWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("PhoneDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Sund/PhoneHit",
                 DeathSound = "event:/Hawthorne/Sund/PhoneDie",
                 AbilitySelector = AbilitySelector_Wednesday.Create("PickUp_A")
