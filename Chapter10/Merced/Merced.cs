@@ -17,8 +17,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 1,
                 HealthColor = Pigments.Purple,
                 CombatSprite = ResourceLoader.LoadSprite("MercedIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("MercedWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("MercedDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("MercedWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("MercedDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Hurt/MercedScream",
                 DeathSound = "event:/Hawthorne/Die/MercedDie",
             };

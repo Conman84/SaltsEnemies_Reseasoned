@@ -15,8 +15,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 18,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("RabiesIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("RabiesWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("RabiesDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("RabiesWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("RabiesDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetCharacter("Pearl_CH").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("Pearl_CH").deathSound,
             };

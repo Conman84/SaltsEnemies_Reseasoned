@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 18,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("CoffinIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("CoffinWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("CoffinDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("CoffinWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("CoffinDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN").deathSound,
             };

@@ -17,8 +17,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 17,
                 HealthColor = Pigments.Grey,
                 CombatSprite = ResourceLoader.LoadSprite("GlassIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("GlassWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("GlassDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("GlassWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("GlassDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("JumbleGuts_Hollowing_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("JumbleGuts_Hollowing_EN").deathSound,
             };

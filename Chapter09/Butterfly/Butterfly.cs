@@ -17,8 +17,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 16,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("ButterflyIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("ButterflyWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("ButterflyDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("ButterflyWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("ButterflyDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "",
                 DeathSound = "",
             };

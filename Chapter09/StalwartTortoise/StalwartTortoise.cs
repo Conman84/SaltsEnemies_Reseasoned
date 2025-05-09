@@ -17,8 +17,8 @@ namespace SaltsEnemies_Reseasoned
                 HealthColor = Pigments.Red,
                 Size = 2,
                 CombatSprite = ResourceLoader.LoadSprite("TortoiseIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("TortoiseWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("TortoiseDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("TortoiseWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("TortoiseDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("Flarb_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("Flarb_EN").deathSound,
             };

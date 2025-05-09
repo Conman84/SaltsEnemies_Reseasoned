@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 30,
                 HealthColor = Pigments.Blue,
                 CombatSprite = ResourceLoader.LoadSprite("TripodIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("TripodWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("TripodDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("TripodWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("TripodDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
                 AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_Tripod>()

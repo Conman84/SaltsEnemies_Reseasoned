@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 30,
                 HealthColor = Pigments.Grey,
                 CombatSprite = ResourceLoader.LoadSprite("ReaperIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("ReaperWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("ReaperDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("ReaperWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("ReaperDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("SingingStone_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("SingingStone_EN").deathSound,
             };

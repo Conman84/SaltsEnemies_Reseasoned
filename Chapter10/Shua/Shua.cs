@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 28,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("ShuaIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("ShuaWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("ShuaDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("ShuaWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("ShuaDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetCharacter("Hans_CH").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("Hans_CH").deathSound,
                 AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_Shua>()

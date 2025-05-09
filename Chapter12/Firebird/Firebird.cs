@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 Health = 35,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("FirebirdIcon.png"),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("FirebirdWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("FirebirdDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("FirebirdWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("FirebirdDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("GigglingMinister_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("GigglingMinister_EN").deathSound,
                 AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_Firebird>()
