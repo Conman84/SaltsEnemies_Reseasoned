@@ -221,6 +221,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(Yang.Add);
                 PCall(Yin.Add);
                 PCall(Solitaire.Add);
+                PCall(TwoThousandNine.Add);
             }
 
             //CH1 Encounters

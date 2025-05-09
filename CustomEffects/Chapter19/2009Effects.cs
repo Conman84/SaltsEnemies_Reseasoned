@@ -12,7 +12,7 @@ namespace SaltsEnemies_Reseasoned
             exitAmount = 0;
             foreach (TargetSlotInfo target in targets)
             {
-                if (target.HasUnit && UnityEngine.Random.Range(0, 100) < 5)
+                if (target.HasUnit && UnityEngine.Random.Range(0, 100) < 15)
                 {
                     CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(target.Unit.ID, target.Unit.IsUnitCharacter, "Critical Hit!"));
                     base.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, entryVariable * 3, out int exi);

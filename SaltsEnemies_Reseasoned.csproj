@@ -306,6 +306,10 @@
 	  <None Remove="Chapter18\Sinker\SinkerDead.png" />
 	  <None Remove="Chapter18\Sinker\SinkerIcon.png" />
 	  <None Remove="Chapter18\Sinker\SinkerWorld.png" />
+	  <None Remove="Chapter19\2009\2009Dead.png" />
+	  <None Remove="Chapter19\2009\2009Icon.png" />
+	  <None Remove="Chapter19\2009\2009World.png" />
+	  <None Remove="Chapter19\2009\RotaryPassive.png" />
 	  <None Remove="Chapter19\Pawn\PawnDead.png" />
 	  <None Remove="Chapter19\Pawn\PawnIcon.png" />
 	  <None Remove="Chapter19\Pawn\PawnWorld.png" />
@@ -683,6 +687,10 @@
 	  <EmbeddedResource Include="Chapter18\Sinker\SinkerDead.png" />
 	  <EmbeddedResource Include="Chapter18\Sinker\SinkerIcon.png" />
 	  <EmbeddedResource Include="Chapter18\Sinker\SinkerWorld.png" />
+	  <EmbeddedResource Include="Chapter19\2009\2009Dead.png" />
+	  <EmbeddedResource Include="Chapter19\2009\2009Icon.png" />
+	  <EmbeddedResource Include="Chapter19\2009\2009World.png" />
+	  <EmbeddedResource Include="Chapter19\2009\RotaryPassive.png" />
 	  <EmbeddedResource Include="Chapter19\Pawn\PawnDead.png" />
 	  <EmbeddedResource Include="Chapter19\Pawn\PawnIcon.png" />
 	  <EmbeddedResource Include="Chapter19\Pawn\PawnWorld.png" />
