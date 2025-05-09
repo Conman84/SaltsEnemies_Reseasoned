@@ -51,6 +51,7 @@ namespace SaltsEnemies_Reseasoned
             AbilitySO ability = bonus.GenerateEnemyAbility(true).ability;
             judgement._extraAbility.ability = ability;
 
+            //add the pasis
             devil.AddPassives(new BasePassiveAbilitySO[] { Passives.SlipperyGenerator(2), punish, judgement });
 
             //heaven
