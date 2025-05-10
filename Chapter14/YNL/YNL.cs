@@ -72,25 +72,80 @@ namespace SaltsEnemies_Reseasoned
 
             Ability bins = new Ability("Procedure_A");
             bins.Name = "Procedure";
-            bins.Description = "Produce pigment of the Opposing party member's health color for their current health.";
+            bins.Description = "Move to the Left or Right. Deal an Agonizing amount of damage to the Opposing party member and destroy their held item.";
             bins.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ProcedureEffect>(), 1, Slots.Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self),
+                Effects.GenerateEffect(BasicEffects.GetVisuals("Absolve_1_A", true, Slots.Front)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeItemEffect>(), 1, Slots.Front),
             };
-            bins.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Mana_Generate.ToString()]);
-            bins.Visuals = LoadedAssetsHandler.GetCharacterAbility("Absolve_1_A").visuals;
-            bins.AnimationTarget = Slots.Front;
+            bins.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Sides.ToString()]);
+            bins.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Misc.ToString()]);
+            bins.Visuals = null;
+            bins.AnimationTarget = Slots.Self;
+            bins.Priority = Priority.Slow;
             point._secondExtraAbility.ability = bins.GenerateEnemyAbility(true).ability;
 
 
-            lobotomy.AddPassives(new BasePassiveAbilitySO[] { point, Passives.Withering });
+            lobotomy.AddPassives(new BasePassiveAbilitySO[] { point, Passives.Constricting });
 
-            Ability test = new Ability("Test_A");
+            //shocks
+            Ability shock = new Ability("ShockTherapy_A")
+            {
+                Name = "Shock Therapy",
+                Description = "Transform the Opposing party member into a random party member. \nIf the Opposing party member has already been transformed by this ability, lower their level and produce 7 coins.",
+                Rarity = Rarity.CreateAndAddCustomRarityToPool("ynl10", 10),
+                Effects = new EffectInfo[]
+                {
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ShockTherapyEffect>(), 3, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<LobotomySongEffect>(), 0, Slots.Front, BasicEffects.DidThat(true))
+                },
+                Visuals = CustomVisuals.GetVisuals("Salt/Zap"),
+                AnimationTarget = Slots.Front,
+            };
+            shock.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Misc.ToString()]);
+            shock.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Misc_Currency.ToString()]);
+
+            //illuminate
+            Ability illuminate = new Ability("Illuminate")
+            {
+                Name = "Illuminate",
+                Description = "Remove all Status Effects from the Opposing party member. If no Status Effects were removed, inflict 3 Stunned and deal a Painful amount of damage to them.",
+                Rarity = Rarity.GetCustomRarity("rarity5"),
+                Effects = new EffectInfo[]
+                {
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveAllStatusEffectsByAmountEffect>(), 3, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Slots.Front, BasicEffects.DidThat(false)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyStunnedEffect>(), 3, Slots.Front, BasicEffects.DidThat(false, 2)),
+                },
+                Visuals = CustomVisuals.GetVisuals("Salt/Spotlight"),
+                AnimationTarget = Slots.Front,
+            };
+            illuminate.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Misc.ToString(), IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Status_Stunned.ToString()]);
+
+            //replacement
+            Ability replace = new Ability("Replacement_A")
+            {
+                Name = "Replacement",
+                Description = "Apply 3 Power on the Opposing party member. \nIf the Opposing party member has killed during this combat, deal an Agonizing amount of damage to them.",
+                Rarity = Rarity.CreateAndAddCustomRarityToPool("ynl3", 3),
+                Effects = new EffectInfo[]
+                {
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 3, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ReplacementDamageEffect>(), 8, Slots.Front)
+                },
+                Visuals = CustomVisuals.GetVisuals("Salt/Crush"),
+                AnimationTarget = Slots.Front,
+            };
+            replace.AddIntentsToTarget(Slots.Front, [Power.Intent, IntentType_GameIDs.Damage_7_10.ToString()]);
 
             //ADD ENEMY
             lobotomy.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                test.GenerateEnemyAbility(true),
+                shock.GenerateEnemyAbility(true),
+                illuminate.GenerateEnemyAbility(true),
+                replace.GenerateEnemyAbility(true)
             });
             lobotomy.AddEnemy(true, true);
         }
