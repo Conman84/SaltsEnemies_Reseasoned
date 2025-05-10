@@ -21,6 +21,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("NamelessDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("JumbleGuts_Hollowing_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("JumbleGuts_Hollowing_EN").deathSound,
+                AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_Nameless>()
             };
             template.PrepareEnemyPrefab("assets/group4/Nameless/Nameless_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Nameless/Nameless_Gibs.prefab").GetComponent<ParticleSystem>());
 
@@ -46,7 +47,7 @@ namespace SaltsEnemies_Reseasoned
             };
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Immortal, Passives.Fleeting4, flither });
-            template.CombatExitEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnCasterGibsEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsDieCondition>()).SelfArray();
+            //template.CombatExitEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnCasterGibsEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsDieCondition>()).SelfArray();
 
 
             //Nameless

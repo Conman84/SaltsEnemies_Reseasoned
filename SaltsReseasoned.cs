@@ -162,6 +162,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(MiniReaper.Add);
                 PCall(Shua.Add);
                 PCall(Merced.Add);
+                PCall(Miriam.Add);
 
                 //CH11 Enemies
                 PCall(GlassFigurine.Add);

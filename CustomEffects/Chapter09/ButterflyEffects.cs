@@ -190,7 +190,7 @@ namespace SaltEnemies_Reseasoned
         public static void PlayerTurnEnd(Action<CombatStats> orig, CombatStats self)
         {
             orig(self);
-            CombatManager.Instance.AddSubAction(new PerformDelayedAttacksAction(false));
+            CombatManager.Instance.AddRootAction(new PerformDelayedAttacksAction(false));
         }
         public static void FinalizeCombat(Action<CombatStats> orig, CombatStats self)
         {
