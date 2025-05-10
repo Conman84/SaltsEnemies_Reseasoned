@@ -9,7 +9,7 @@ namespace SaltEnemies_Reseasoned
         public override int GetNextAbilitySlotUsage(List<CombatAbility> abilities, IUnit unit)
         {
             int num = base.GetNextAbilitySlotUsage(abilities, unit);
-            if (num > 0)
+            if (num >= 0)
             {
                 if (abilities[num].ability.name == "TheVolumeOfABeatingHeart_A")
                 {

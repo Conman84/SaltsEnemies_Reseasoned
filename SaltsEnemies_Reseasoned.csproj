@@ -38,6 +38,10 @@
 	  <None Remove="Chapter10\Merced\MercedIcon.png" />
 	  <None Remove="Chapter10\Merced\MercedWorld.png" />
 	  <None Remove="Chapter10\Merced\WellPreservedPassive.png" />
+	  <None Remove="Chapter10\Miriam\DelayedAttackIcon.png" />
+	  <None Remove="Chapter10\Miriam\MiriamDead.png" />
+	  <None Remove="Chapter10\Miriam\MiriamIcon.png" />
+	  <None Remove="Chapter10\Miriam\MiriamWorld.png" />
 	  <None Remove="Chapter10\Reaper\ReaperDead.png" />
 	  <None Remove="Chapter10\Reaper\ReaperIcon.png" />
 	  <None Remove="Chapter10\Reaper\ReaperWorld.png" />
@@ -439,6 +443,10 @@
 	  <EmbeddedResource Include="Chapter10\Merced\MercedIcon.png" />
 	  <EmbeddedResource Include="Chapter10\Merced\MercedWorld.png" />
 	  <EmbeddedResource Include="Chapter10\Merced\WellPreservedPassive.png" />
+	  <EmbeddedResource Include="Chapter10\Miriam\DelayedAttackIcon.png" />
+	  <EmbeddedResource Include="Chapter10\Miriam\MiriamDead.png" />
+	  <EmbeddedResource Include="Chapter10\Miriam\MiriamIcon.png" />
+	  <EmbeddedResource Include="Chapter10\Miriam\MiriamWorld.png" />
 	  <EmbeddedResource Include="Chapter10\Reaper\ReaperDead.png" />
 	  <EmbeddedResource Include="Chapter10\Reaper\ReaperIcon.png" />
 	  <EmbeddedResource Include="Chapter10\Reaper\ReaperWorld.png" />
