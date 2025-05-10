@@ -179,7 +179,7 @@ namespace SaltEnemies_Reseasoned
         public static void PlayerTurnStart(Action<CombatStats> orig, CombatStats self)
         {
             orig(self);
-            NamelessHandler.CreateFile();
+            //NamelessHandler.CreateFile();
             NobodyMoveHandler.Clear();
             CombatManager.Instance.AddRootAction(new BadDogTurnStartAction());
             CombatManager.Instance.AddRootAction(new PerformDelayedAttacksAction(true));

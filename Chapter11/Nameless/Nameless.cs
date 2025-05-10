@@ -24,6 +24,8 @@ namespace SaltsEnemies_Reseasoned
             };
             template.PrepareEnemyPrefab("assets/group4/Nameless/Nameless_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Nameless/Nameless_Gibs.prefab").GetComponent<ParticleSystem>());
 
+            
+
             //FLITHERING
             PerformEffectPassiveAbility flither = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             flither._passiveName = "Flithering";
