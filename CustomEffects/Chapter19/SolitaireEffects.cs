@@ -252,16 +252,23 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Flip()
         {
-            foreach (GameObject arena in OdeFieldHandler.Fields)
+            try
             {
-                if (arena == null || arena.Equals(null)) continue;
-                if (arena.activeSelf) arena.SetActive(false);
-                else arena.SetActive(true);
+                foreach (GameObject arena in OdeFieldHandler.Fields)
+                {
+                    if (arena == null || arena.Equals(null)) continue;
+                    if (arena.activeSelf) arena.SetActive(false);
+                    else arena.SetActive(true);
+                }
+                foreach (GameObject arena in OdeFieldHandler.Trees)
+                {
+                    if (arena == null || arena.Equals(null)) continue;
+                    arena.SetActive(false);
+                }
             }
-            foreach (GameObject arena in OdeFieldHandler.Trees)
+            catch
             {
-                if (arena == null || arena.Equals(null)) continue;
-                arena.SetActive(false);
+
             }
         }
     }
