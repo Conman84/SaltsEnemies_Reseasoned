@@ -56,7 +56,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability gutting = new Ability("Gutting", "Gutting_A");
             gutting.Description = "Deal an Agonizing amount of damage to the Opposing party member and heal this enemy for the amount of damage dealt.\nIf no damage is dealt, instantly flee.";
-            gutting.Rarity = Rarity.GetCustomRarity("rarity5");
+            gutting.Rarity = Rarity.CreateAndAddCustomRarityToPool("Chiito_4", 4);
             gutting.Effects = new EffectInfo[3];
             gutting.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front);
             gutting.Effects[1] = Effects.GenerateEffect(exitHeal, 1, Slots.Self);
@@ -68,7 +68,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability fracking = new Ability("Fracking", "Fracking_A");
             fracking.Description = "Move to the Left or Right 3 times. If there is an Opposing party member, deal a Painful amount of damage to them and instantly flee.";
-            fracking.Rarity = Rarity.GetCustomRarity("rarity5");
+            fracking.Rarity = Rarity.CreateAndAddCustomRarityToPool("chiito_6", 6);
             fracking.Effects = new EffectInfo[7];
             fracking.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
             fracking.Effects[1] = fracking.Effects[0];
