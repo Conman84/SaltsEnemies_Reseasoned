@@ -255,7 +255,12 @@ namespace SaltsEnemies_Reseasoned
             RedFlowerEncounters.Add();
             YellowFlowerEncounters.Add();
             PurpleFlowerEncounters.Add();
+
+            //CH7 Encounters
             TheDeepEncounter.Add();
+
+            //CH8 Encounters
+            SigilEncounters.Add();
 
             Logger.LogInfo("Seasons greasons");
         }
