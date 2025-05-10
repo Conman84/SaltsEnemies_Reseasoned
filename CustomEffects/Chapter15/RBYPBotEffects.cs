@@ -266,4 +266,38 @@ namespace SaltEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
+    public class RandomizeHealthColorAndNonHealthColorEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            List<ManaColorSO> options = new List<ManaColorSO>() { Pigments.Red, Pigments.Blue, Pigments.Yellow, Pigments.Purple };
+            if (options.Contains(caster.HealthColor)) options.Remove(caster.HealthColor);
+            List<int> list = new List<int>();
+            List<ManaColorSO> list2 = new List<ManaColorSO>();
+            ManaBarSlot[] manaBarSlots = stats.MainManaBar.ManaBarSlots;
+            foreach (ManaBarSlot manaBarSlot in manaBarSlots)
+            {
+                if (!manaBarSlot.IsEmpty && manaBarSlot.ManaColor == caster.HealthColor)
+                {
+                    int num = UnityEngine.Random.Range(0, options.Count);
+                    manaBarSlot.SetMana(options[num]);
+                    list.Add(manaBarSlot.SlotIndex);
+                    list2.Add(options[num]);
+                }
+                else if (!manaBarSlot.IsEmpty && manaBarSlot.ManaColor != caster.HealthColor)
+                {
+                    manaBarSlot.SetMana(caster.HealthColor);
+                    list.Add(manaBarSlot.SlotIndex);
+                    list2.Add(caster.HealthColor);
+                }
+            }
+
+            if (list.Count > 0)
+            {
+                CombatManager.Instance.AddUIAction(new ModifyManaSlotsUIAction(stats.MainManaBar.ID, list.ToArray(), list2.ToArray()));
+            }
+            exitAmount = list.Count;
+            return exitAmount > 0;
+        }
+    }
 }
