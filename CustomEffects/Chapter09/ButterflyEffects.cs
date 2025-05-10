@@ -417,7 +417,7 @@ namespace SaltEnemies_Reseasoned
     }
     public static class NamelessHandler
     {
-        public static string RootPath => Paths.GameRootPath;
+        public static string RootPath => Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         public static string PluginPath => Paths.PluginPath;
         public static void CreateFile()
         {
@@ -438,7 +438,7 @@ namespace SaltEnemies_Reseasoned
             }
             catch (Exception ex)
             {
-                UnityEngine.Debug.LogError("NAMELESS FILE CREATION FAILED; " + ex);
+                UnityEngine.Debug.LogError("Nameless FILE CREATION FAILED; " + ex);
                 try
                 {
                     if (!FileExists)
@@ -456,7 +456,7 @@ namespace SaltEnemies_Reseasoned
                 }
                 catch (Exception e2x)
                 {
-                    UnityEngine.Debug.LogError("NAMELESS FILE CREATION FAILED TWICE; " + e2x);
+                    UnityEngine.Debug.LogError("Nameless FILE CREATION FAILED TWICE; " + e2x);
                     FileGenerates = false;
                 }
             }

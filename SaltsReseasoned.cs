@@ -167,6 +167,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(GlassFigurine.Add);
                 PCall(Tripod.Add);
                 PCall(Rabies.Add);
+                PCall(Nameless.Add);
 
                 //CH12 Enemies
                 PCall(Warbird.Add);

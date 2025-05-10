@@ -57,6 +57,9 @@
 	  <None Remove="Chapter11\GlassFigurine\GlassIcon.png" />
 	  <None Remove="Chapter11\GlassFigurine\GlassPortal.png" />
 	  <None Remove="Chapter11\GlassFigurine\GlassWorld.png" />
+	  <None Remove="Chapter11\Nameless\NamelessDead.png" />
+	  <None Remove="Chapter11\Nameless\NamelessIcon.png" />
+	  <None Remove="Chapter11\Nameless\NamelessWorld.png" />
 	  <None Remove="Chapter11\Rabies\RabiesDead.png" />
 	  <None Remove="Chapter11\Rabies\RabiesIcon.png" />
 	  <None Remove="Chapter11\Rabies\RabiesWorld.png" />
@@ -451,6 +454,9 @@
 	  <EmbeddedResource Include="Chapter11\GlassFigurine\GlassIcon.png" />
 	  <EmbeddedResource Include="Chapter11\GlassFigurine\GlassPortal.png" />
 	  <EmbeddedResource Include="Chapter11\GlassFigurine\GlassWorld.png" />
+	  <EmbeddedResource Include="Chapter11\Nameless\NamelessDead.png" />
+	  <EmbeddedResource Include="Chapter11\Nameless\NamelessIcon.png" />
+	  <EmbeddedResource Include="Chapter11\Nameless\NamelessWorld.png" />
 	  <EmbeddedResource Include="Chapter11\Rabies\RabiesDead.png" />
 	  <EmbeddedResource Include="Chapter11\Rabies\RabiesIcon.png" />
 	  <EmbeddedResource Include="Chapter11\Rabies\RabiesWorld.png" />

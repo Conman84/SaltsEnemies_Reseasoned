@@ -124,8 +124,8 @@ namespace SaltsEnemies_Reseasoned
             };
             illuminate.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Misc.ToString(), IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Status_Stunned.ToString()]);
 
-            //replacement
-            Ability replace = new Ability("Replacement_A")
+            //Replacement
+            Ability Replace = new Ability("Replacement_A")
             {
                 Name = "Replacement",
                 Description = "Apply 3 Power on the Opposing party member. \nIf the Opposing party member has killed during this combat, deal an Agonizing amount of damage to them.",
@@ -138,14 +138,14 @@ namespace SaltsEnemies_Reseasoned
                 Visuals = CustomVisuals.GetVisuals("Salt/Crush"),
                 AnimationTarget = Slots.Front,
             };
-            replace.AddIntentsToTarget(Slots.Front, [Power.Intent, IntentType_GameIDs.Damage_7_10.ToString()]);
+            Replace.AddIntentsToTarget(Slots.Front, [Power.Intent, IntentType_GameIDs.Damage_7_10.ToString()]);
 
             //ADD ENEMY
             lobotomy.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 shock.GenerateEnemyAbility(true),
                 illuminate.GenerateEnemyAbility(true),
-                replace.GenerateEnemyAbility(true)
+                Replace.GenerateEnemyAbility(true)
             });
             lobotomy.AddEnemy(true, true);
         }
