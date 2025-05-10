@@ -22,23 +22,6 @@ namespace SaltsEnemies_Reseasoned
             };
             template.PrepareEnemyPrefab("assets/group4/Tank/Tank_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Tank/Tank_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            //COLD BLOOD
-            FireNoReduce.Setup();
-            PerformEffectPassiveAbility cold = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
-            cold._passiveName = "Cold-Blooded";
-            cold.passiveIcon = ResourceLoader.LoadSprite("cold.png");
-            cold.m_PassiveID = FireNoReduce.PassiveID;
-            cold._characterDescription = "All Fire damage received by this character is multiplied by -1. This damage cannot set this character's health above their maximum health. \nFire on this party member's position does not decrease.";
-            cold._enemyDescription = "All Fire damage received by this enemy is multiplied by -1. This damage cannot set this enemy's health above their maximum health. \nFire on this enemy's position does not decrease.";
-            cold.doesPassiveTriggerInformationPanel = false;
-            cold._triggerOn = new TriggerCalls[] { TriggerCalls.OnBeingDamaged };
-            cold.conditions = new EffectorConditionSO[]
-            {
-                ScriptableObject.CreateInstance<ColdHealCondition>()
-            };
-            cold.effects = new EffectInfo[0];
-            //AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("cold.png"), "Cold-Blooded", cold._enemyDescription);
-
             //WARNING
             PerformEffectPassiveAbility warn = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             warn._passiveName = "Warning";
