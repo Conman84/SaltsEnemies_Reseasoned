@@ -55,7 +55,7 @@ namespace SaltsEnemies_Reseasoned
             transform._extraAbility.ability = ability;
 
             //addpassives
-            yin.AddPassives(new BasePassiveAbilitySO[] { Passives.Pure, Passives.Transfusion, Passives.Leaky3, Passives.Unstable, Passives.Formless, Passives.Slippery, Passives.Infantile, Violent.Generate(7), transform });
+            yin.AddPassives(new BasePassiveAbilitySO[] { Passives.Pure, Passives.Transfusion, Passives.Leaky3, Passives.Unstable, Passives.Slippery, Passives.Infantile, Violent.Generate(7), transform });
 
             //cruel
             Ability cruel = new Ability("Cruel Games", "CruelGames_A");

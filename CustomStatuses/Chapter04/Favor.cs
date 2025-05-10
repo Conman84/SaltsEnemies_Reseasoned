@@ -24,6 +24,10 @@ namespace SaltEnemies_Reseasoned
             if (LoadedDBsHandler.CombatDB.m_TxtColorPool.ContainsKey(HealType)) LoadedDBsHandler.CombatDB.m_TxtColorPool[HealType] = FavorGradient;
             else LoadedDBsHandler.CombatDB.AddNewTextColor(HealType, FavorGradient);
 
+            if (LoadedDBsHandler.CombatDB.m_SoundPool.ContainsKey(HealType)) LoadedDBsHandler.CombatDB.m_SoundPool[HealType] = LoadedDBsHandler.CombatDB.m_SoundPool[CombatType_GameIDs.Heal_Linked.ToString()];
+            else LoadedDBsHandler.CombatDB.AddNewSound(HealType, LoadedDBsHandler.CombatDB.m_SoundPool[CombatType_GameIDs.Heal_Linked.ToString()]);
+
+
             StatusEffectInfoSO LeftInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             LeftInfo.icon = ResourceLoader.LoadSprite("Favor.png");
             LeftInfo._statusName = "Favor";
