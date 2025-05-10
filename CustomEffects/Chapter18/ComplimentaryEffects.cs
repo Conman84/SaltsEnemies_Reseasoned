@@ -98,7 +98,10 @@ namespace SaltEnemies_Reseasoned
                                 {
                                     try
                                     {
-                                        if (effect is StatusEffect_Holder holder) unit.ApplyStatusEffect(holder._Status, holder.m_ContentMain);
+                                        if (effect is StatusEffect_Holder holder)
+                                        {
+                                            CombatManager.Instance.AddSubAction(new ApplyStatusAction(holder._Status, holder.m_ContentMain, unit));
+                                        }
                                     }
                                     catch (Exception ex)
                                     {
@@ -110,7 +113,7 @@ namespace SaltEnemies_Reseasoned
                                 {
                                     try
                                     {
-                                        if (!unit.ContainsPassiveAbility(passive.m_PassiveID)) unit.AddPassiveAbility(passive);
+                                        CombatManager.Instance.AddSubAction(new ApplyPassiveAction(passive, unit));
                                     }
                                     catch (Exception ex)
                                     {
@@ -132,6 +135,39 @@ namespace SaltEnemies_Reseasoned
                         }
                     }
                 }
+                yield return null;
+            }
+        }
+        public class ApplyStatusAction : CombatAction
+        {
+            public StatusEffect_SO status;
+            public int amount;
+            public IUnit unit;
+            public ApplyStatusAction(StatusEffect_SO status, int amount, IUnit unit)
+            {
+                this.status = status;
+                this.amount = amount;
+                this.unit = unit;
+            }
+
+            public override IEnumerator Execute(CombatStats stats)
+            {
+                unit.ApplyStatusEffect(status, amount);
+                yield return null;
+            }
+        }
+        public class ApplyPassiveAction : CombatAction
+        {
+            public BasePassiveAbilitySO passive;
+            public IUnit unit;
+            public ApplyPassiveAction(BasePassiveAbilitySO passive, IUnit unit)
+            {
+                this.passive = passive;
+                this.unit = unit;
+            }
+            public override IEnumerator Execute(CombatStats stats)
+            {
+                if (!unit.ContainsPassiveAbility(passive.m_PassiveID)) unit.AddPassiveAbility(passive);
                 yield return null;
             }
         }
