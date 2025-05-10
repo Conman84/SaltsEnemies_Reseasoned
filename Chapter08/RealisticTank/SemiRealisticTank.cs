@@ -65,23 +65,23 @@ namespace SaltsEnemies_Reseasoned
             backlash.effects = [];
             
 
-            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, Passives.Forgetful, warn, backlash });
+            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, Passives.Formless, warn, backlash });
 
             //BLOAT
             Ability bloat = new Ability("Salt_Bloat_A")
             {
                 Name = "Bloat",
-                Description = "Apply 6 Shield to this enemy's positions.\nReset the Fleeting counter on all enemies.",
-                Rarity = Rarity.CreateAndAddCustomRarityToPool("Tank_10", 10),
+                Description = "Deal a Barely Painful amount of damage to all party members.\nReset the Fleeting counter on all enemies.",
+                Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 6, Targeting.Slot_SelfAll),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 3, Targeting.Unit_AllOpponents),
                     Effects.GenerateEffect(SetStoreValueTargetEffect.Create(UnitStoredValueNames_GameIDs.FleetingPA.ToString(), true), 0, Targetting.AllAlly),
                 },
                 Visuals = LoadedAssetsHandler.GetCharacterAbility("Entrenched_1_A").visuals,
                 AnimationTarget = Targeting.Slot_SelfAll,
             };
-            bloat.AddIntentsToTarget(Targeting.Slot_SelfAll, new string[] { IntentType_GameIDs.Field_Shield.ToString() });
+            bloat.AddIntentsToTarget(Targetting.Everything(false), new string[] { IntentType_GameIDs.Damage_3_6.ToString() });
             bloat.AddIntentsToTarget(Targetting.AllAlly, new string[] { IntentType_GameIDs.PA_Fleeting.ToString() });
 
             //GROSS
@@ -92,7 +92,7 @@ namespace SaltsEnemies_Reseasoned
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Targeting.Slot_OpponentSides),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Targeting.Slot_OpponentSides),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Targeting.Slot_Front),
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Cannon"),
@@ -110,12 +110,12 @@ namespace SaltsEnemies_Reseasoned
             Ability coarse = new Ability("Salt_Coarse_A")
             {
                 Name = "Coarse",
-                Description = "Deal a Painful amount of Shield-ignoring damage to this enemy. Inflict 6 Oil-Slicked on all party members.",
-                Rarity = Rarity.CreateAndAddCustomRarityToPool("Tank_1", 1),
+                Description = "Deal a Barely Painful amount of damage to this enemy, this damage ignores Shield. Inflict 3 Oil-Slicked on all party members.",
+                Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                            Effects.GenerateEffect(BasicEffects.ShieldPierce, 6, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 6, allEnemy)
+                            Effects.GenerateEffect(BasicEffects.ShieldPierce, 3, Targeting.Slot_SelfSlot),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 3, allEnemy)
                 },
                 Visuals = LoadedAssetsHandler.GetEnemyAbility("Flood_A").visuals,
                 AnimationTarget = TargettingSelf_NotSlot.Create(),
