@@ -105,7 +105,7 @@ namespace SaltEnemies_Reseasoned
         }
         public override void OnEventCall_02(StatusEffect_Holder holder, object sender, object args)
         {
-            (sender as IStatusEffector).RemoveStatusEffect(holder.StatusID);
+            (holder.m_ObjectData as IStatusEffector).RemoveStatusEffect(holder.StatusID);
         }
     }
     public class ApplyTerrorEffect : StatusEffect_Apply_Effect
