@@ -74,13 +74,15 @@ namespace SaltEnemies_Reseasoned
             public List<string> abilities;
             public List<IStatusEffect> status;
             public List<BasePassiveAbilitySO> passives;
-            public Spawn2HalvesAction(EnemySO en, int final, List<string> abilities, List<IStatusEffect> status, List<BasePassiveAbilitySO> passives)
+            public ManaColorSO healthColor;
+            public Spawn2HalvesAction(EnemySO en, int final, List<string> abilities, List<IStatusEffect> status, List<BasePassiveAbilitySO> passives, ManaColorSO healthColor = null)
             {
                 this.en = en;
                 this.final = final;
                 this.abilities = abilities;
                 this.status = status;
                 this.passives = passives;
+                this.healthColor = healthColor;
             }
             public override IEnumerator Execute(CombatStats stats)
             {
@@ -94,6 +96,7 @@ namespace SaltEnemies_Reseasoned
                             EnemyCombat newborn = stats.Enemies[stats.Enemies.Count - 1];
                             if (newborn is IUnit unit)
                             {
+                                if (healthColor != null && !healthColor.Equals(null)) CombatManager.Instance.AddSubAction(new ApplyHealthColorAction(healthColor, unit));
                                 foreach (IStatusEffect effect in status)
                                 {
                                     try
@@ -168,6 +171,21 @@ namespace SaltEnemies_Reseasoned
             public override IEnumerator Execute(CombatStats stats)
             {
                 if (!unit.ContainsPassiveAbility(passive.m_PassiveID)) unit.AddPassiveAbility(passive);
+                yield return null;
+            }
+        }
+        public class ApplyHealthColorAction : CombatAction
+        {
+            public ManaColorSO health;
+            public IUnit unit;
+            public ApplyHealthColorAction(ManaColorSO health, IUnit unit)
+            {
+                this.health = health;
+                this.unit = unit;
+            }
+            public override IEnumerator Execute(CombatStats stats)
+            {
+                if (health != null && !health.Equals(null)) unit.ChangeHealthColor(health);
                 yield return null;
             }
         }
