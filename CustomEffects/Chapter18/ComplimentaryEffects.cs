@@ -64,7 +64,7 @@ namespace SaltEnemies_Reseasoned
             List<IStatusEffect> status = new List<IStatusEffect>((caster as IStatusEffector).StatusEffects);
             List<BasePassiveAbilitySO> passives = new List<BasePassiveAbilitySO>((caster as IPassiveEffector).PassiveAbilities);
             SilentDeath(enemy, null);
-            CombatManager.Instance.AddSubAction(new Spawn2HalvesAction(en, final, abilities, status, passives));
+            CombatManager.Instance.AddSubAction(new Spawn2HalvesAction(en, final, abilities, status, passives, caster.HealthColor));
             return true;
         }
         public class Spawn2HalvesAction : CombatAction
@@ -74,13 +74,15 @@ namespace SaltEnemies_Reseasoned
             public List<string> abilities;
             public List<IStatusEffect> status;
             public List<BasePassiveAbilitySO> passives;
-            public Spawn2HalvesAction(EnemySO en, int final, List<string> abilities, List<IStatusEffect> status, List<BasePassiveAbilitySO> passives)
+            public ManaColorSO healthColor;
+            public Spawn2HalvesAction(EnemySO en, int final, List<string> abilities, List<IStatusEffect> status, List<BasePassiveAbilitySO> passives, ManaColorSO healthColor = null)
             {
                 this.en = en;
                 this.final = final;
                 this.abilities = abilities;
                 this.status = status;
                 this.passives = passives;
+                this.healthColor = healthColor;
             }
             public override IEnumerator Execute(CombatStats stats)
             {
@@ -94,11 +96,15 @@ namespace SaltEnemies_Reseasoned
                             EnemyCombat newborn = stats.Enemies[stats.Enemies.Count - 1];
                             if (newborn is IUnit unit)
                             {
+                                if (healthColor != null && !healthColor.Equals(null)) CombatManager.Instance.AddSubAction(new ApplyHealthColorAction(healthColor, unit));
                                 foreach (IStatusEffect effect in status)
                                 {
                                     try
                                     {
-                                        if (effect is StatusEffect_Holder holder) unit.ApplyStatusEffect(holder._Status, holder.m_ContentMain);
+                                        if (effect is StatusEffect_Holder holder)
+                                        {
+                                            CombatManager.Instance.AddSubAction(new ApplyStatusAction(holder._Status, holder.m_ContentMain, unit));
+                                        }
                                     }
                                     catch (Exception ex)
                                     {
@@ -110,7 +116,7 @@ namespace SaltEnemies_Reseasoned
                                 {
                                     try
                                     {
-                                        if (!unit.ContainsPassiveAbility(passive.m_PassiveID)) unit.AddPassiveAbility(passive);
+                                        CombatManager.Instance.AddSubAction(new ApplyPassiveAction(passive, unit));
                                     }
                                     catch (Exception ex)
                                     {
@@ -132,6 +138,54 @@ namespace SaltEnemies_Reseasoned
                         }
                     }
                 }
+                yield return null;
+            }
+        }
+        public class ApplyStatusAction : CombatAction
+        {
+            public StatusEffect_SO status;
+            public int amount;
+            public IUnit unit;
+            public ApplyStatusAction(StatusEffect_SO status, int amount, IUnit unit)
+            {
+                this.status = status;
+                this.amount = amount;
+                this.unit = unit;
+            }
+
+            public override IEnumerator Execute(CombatStats stats)
+            {
+                unit.ApplyStatusEffect(status, amount);
+                yield return null;
+            }
+        }
+        public class ApplyPassiveAction : CombatAction
+        {
+            public BasePassiveAbilitySO passive;
+            public IUnit unit;
+            public ApplyPassiveAction(BasePassiveAbilitySO passive, IUnit unit)
+            {
+                this.passive = passive;
+                this.unit = unit;
+            }
+            public override IEnumerator Execute(CombatStats stats)
+            {
+                if (!unit.ContainsPassiveAbility(passive.m_PassiveID)) unit.AddPassiveAbility(passive);
+                yield return null;
+            }
+        }
+        public class ApplyHealthColorAction : CombatAction
+        {
+            public ManaColorSO health;
+            public IUnit unit;
+            public ApplyHealthColorAction(ManaColorSO health, IUnit unit)
+            {
+                this.health = health;
+                this.unit = unit;
+            }
+            public override IEnumerator Execute(CombatStats stats)
+            {
+                if (health != null && !health.Equals(null)) unit.ChangeHealthColor(health);
                 yield return null;
             }
         }
