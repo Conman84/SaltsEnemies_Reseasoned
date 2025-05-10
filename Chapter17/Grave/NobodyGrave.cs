@@ -28,7 +28,7 @@ namespace SaltsEnemies_Reseasoned
             ExtraAttackPassiveAbility des = ScriptableObject.Instantiate<ExtraAttackPassiveAbility>(baseExtra);
             des._passiveName = "Desecration (12)";
             des.passiveIcon = ResourceLoader.LoadSprite("KarmaPassive.png");
-            des._enemyDescription = "If this enemy has less than 12 health, it will perforn an extra ability \"Desecration\" each turn.";
+            des._enemyDescription = "If this enemy has 12 or less health, it will perforn an extra ability \"Desecration\" each turn.";
             des.conditions = new List<EffectorConditionSO>(baseExtra.conditions != null ? baseExtra.conditions : new EffectorConditionSO[0]) { ScriptableObject.CreateInstance<DefenderCondition>() }.ToArray();
             Ability bonus = new Ability("Karma_Desecration_A");
             bonus.Name = "Desecration";
