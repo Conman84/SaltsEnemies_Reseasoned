@@ -155,6 +155,20 @@ namespace SaltEnemies_Reseasoned
                 return false;
             return true;
         }
+        public bool IsntBronzo(EnemyCombat enemy)
+        {
+            if (enemy.Enemy == LoadedAssetsHandler.GetEnemy("Bronzo1_EN"))
+                return false;
+            if (enemy.Enemy == LoadedAssetsHandler.GetEnemy("Bronzo2_EN"))
+                return false;
+            if (enemy.Enemy == LoadedAssetsHandler.GetEnemy("Bronzo3_EN"))
+                return false;
+            if (enemy.Enemy == LoadedAssetsHandler.GetEnemy("Bronzo4_EN"))
+                return false;
+            if (enemy.Enemy == LoadedAssetsHandler.GetEnemy("Bronzo5_EN"))
+                return false;
+            return true;
+        }
         public static bool ContainsPassiveAbility(EnemySO enemy, string passive)
         {
             foreach (BasePassiveAbilitySO passi in enemy.passiveAbilities)
@@ -177,7 +191,7 @@ namespace SaltEnemies_Reseasoned
             for (int index = 0; index < stats.Enemies.Count; index++)
             {
                 EnemyCombat targetEnemy = stats.Enemies[index];
-                if (!targetEnemy.IsAlive && !targetEnemy.HasFled && IsntSuperboss(targetEnemy) && CanLive(targetEnemy))
+                if (!targetEnemy.IsAlive && !targetEnemy.HasFled && IsntSuperboss(targetEnemy) && CanLive(targetEnemy) && IsntBronzo(targetEnemy))
                 {
                     candidatesLength++;
                 }
@@ -248,6 +262,20 @@ namespace SaltEnemies_Reseasoned
                 return false;
             return true;
         }
+        public bool IsntBronzo(EnemyCombat enemy)
+        {
+            if (enemy.Enemy == LoadedAssetsHandler.GetEnemy("Bronzo1_EN"))
+                return false;
+            if (enemy.Enemy == LoadedAssetsHandler.GetEnemy("Bronzo2_EN"))
+                return false;
+            if (enemy.Enemy == LoadedAssetsHandler.GetEnemy("Bronzo3_EN"))
+                return false;
+            if (enemy.Enemy == LoadedAssetsHandler.GetEnemy("Bronzo4_EN"))
+                return false;
+            if (enemy.Enemy == LoadedAssetsHandler.GetEnemy("Bronzo5_EN"))
+                return false;
+            return true;
+        }
         public static bool ContainsPassiveAbility(EnemySO enemy, string passive)
         {
             foreach (BasePassiveAbilitySO passi in enemy.passiveAbilities)
@@ -269,7 +297,7 @@ namespace SaltEnemies_Reseasoned
             for (int index = 0; index < stats.Enemies.Count; index++)
             {
                 EnemyCombat targetEnemy = stats.Enemies[index];
-                if (!targetEnemy.IsAlive && !targetEnemy.HasFled && IsntSuperboss(targetEnemy) && CanLive(targetEnemy))
+                if (!targetEnemy.IsAlive && !targetEnemy.HasFled && IsntSuperboss(targetEnemy) && CanLive(targetEnemy) && IsntBronzo(targetEnemy))
                 {
                     candidatesLength++;
                 }
