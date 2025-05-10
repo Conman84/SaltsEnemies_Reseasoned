@@ -137,7 +137,11 @@ namespace SaltEnemies_Reseasoned
         public static void Setup() => NotificationHook.AddAction(NotifCheck);
         public static void NotifCheck(string notifname, object sender, object args)
         {
-            if (notifname == TriggerCalls.OnCombatEnd.ToString()) Fields = new List<GameObject>();
+            if (notifname == TriggerCalls.OnCombatEnd.ToString())
+            {
+                Fields = new List<GameObject>();
+                Trees = new List<GameObject>();
+            }
             if (sender is EnemyCombat enemy && Check.EnemyExist("OdeToHumanity_EN") && enemy.Enemy == LoadedAssetsHandler.GetEnemy("OdeToHumanity_EN"))
             {
                 if (notifname == TriggerCalls.OnDamaged.ToString())

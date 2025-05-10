@@ -125,7 +125,7 @@ namespace SaltsEnemies_Reseasoned
             paradox.AnimationTarget = Targeting.Slot_Front;
             paradox.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[4] { -4, -1, 1, 4 }, false), new string[]
             {
-                "Misc"
+                "Misc_Hidden"
             });
             paradox.AddIntentsToTarget(Targeting.Slot_Front, new string[]
             {
