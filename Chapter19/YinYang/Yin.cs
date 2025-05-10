@@ -25,7 +25,7 @@ namespace SaltsEnemies_Reseasoned
 
             //harmony
             ExtraAttackPassiveAbility baseExtra = LoadedAssetsHandler.GetEnemy("Xiphactinus_EN").passiveAbilities[1] as ExtraAttackPassiveAbility;
-            InstantiateExtraAttackPassiveAbility transform = ScriptableObject.CreateInstance<InstantiateExtraAttackPassiveAbility>();
+            ExtraAttackPassiveAbility transform = ScriptableObject.CreateInstance<ExtraAttackPassiveAbility>();
             transform.conditions = baseExtra.conditions;
             transform.passiveIcon = baseExtra.passiveIcon;
             transform.specialStoredData = baseExtra.specialStoredData;
