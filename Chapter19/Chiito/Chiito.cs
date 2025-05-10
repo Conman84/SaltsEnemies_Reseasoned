@@ -87,7 +87,7 @@ namespace SaltsEnemies_Reseasoned
             EnemyAbilityInfo nibble = new EnemyAbilityInfo()
             {
                 ability = LoadedAssetsHandler.GetEnemyAbility("Nibble_A"),
-                rarity = Rarity.GetCustomRarity("rarity5")
+                rarity = Rarity.CreateAndAddCustomRarityToPool("chiito_2", 2)
             };
 
             //ADD ENEMY
