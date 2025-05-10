@@ -64,7 +64,7 @@ namespace SaltEnemies_Reseasoned
             List<IStatusEffect> status = new List<IStatusEffect>((caster as IStatusEffector).StatusEffects);
             List<BasePassiveAbilitySO> passives = new List<BasePassiveAbilitySO>((caster as IPassiveEffector).PassiveAbilities);
             SilentDeath(enemy, null);
-            CombatManager.Instance.AddSubAction(new Spawn2HalvesAction(en, final, abilities, status, passives));
+            CombatManager.Instance.AddSubAction(new Spawn2HalvesAction(en, final, abilities, status, passives, caster.HealthColor));
             return true;
         }
         public class Spawn2HalvesAction : CombatAction
