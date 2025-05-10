@@ -261,6 +261,8 @@ namespace SaltsEnemies_Reseasoned
 
             //CH8 Encounters
             SigilEncounters.Add();
+            TheEndOfTimeEncounters.Add();
+            SemiRealisticTankEncounters.Add();
 
             Logger.LogInfo("Seasons greasons");
         }
