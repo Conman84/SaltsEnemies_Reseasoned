@@ -115,6 +115,8 @@ namespace SaltsEnemies_Reseasoned
         public static string Purple => "PurpleFlower_EN";
         public static string Red => "RedFlower_EN";
         public static string Blue => "BlueFlower_EN";
+        public static string Grey => "GreyFlower_EN";
+        public static string Gray => Grey;
     }
     public static class Noses
     {
@@ -131,5 +133,14 @@ namespace SaltsEnemies_Reseasoned
         public static string Blue => "ColophonComposed_EN";
         public static string Yellow => "ColophonMaladjusted_EN";
         public static string Purple => "ColophonDelighted_EN";
+    }
+    public static class Bots
+    {
+        public static string Yellow => "YellowBot_EN";
+        public static string Purple => "PurpleBot_EN";
+        public static string Red => "RedBot_EN";
+        public static string Blue => "BlueBot_EN";
+        public static string Grey => "GreyBot_EN";
+        public static string Gray => Grey;
     }
 }
