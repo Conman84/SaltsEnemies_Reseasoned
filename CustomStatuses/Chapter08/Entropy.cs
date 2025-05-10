@@ -69,22 +69,29 @@ namespace SaltEnemies_Reseasoned
         }
         public static void AddTurnsThread(object obj)
         {
-            if (obj is IUnit unit)
+            try
             {
-                int timing = unit.SimpleGetStoredValue(Entropy.Limit);
-                Debug.Log(timing);
-                if (!unit.Equals(null) && unit.IsAlive)
+                if (obj is IUnit unit)
                 {
-                    for (int i = 0; i < timing; i++)
+                    int timing = unit.SimpleGetStoredValue(Entropy.Limit);
+                    Debug.Log(timing);
+                    if (!unit.Equals(null) && unit.IsAlive)
                     {
-                        Thread.Sleep(1000);
-                    }
-                    if (!unit.Equals(null) && unit.IsAlive && unit.ContainsStatusEffect(Entropy.StatusID))
-                    {
-                        CombatManager.Instance.PostNotification(Entropy.TriggerCall, unit, null);
-                    }
+                        for (int i = 0; i < timing; i++)
+                        {
+                            Thread.Sleep(1000);
+                        }
+                        if (!unit.Equals(null) && unit.IsAlive && unit.ContainsStatusEffect(Entropy.StatusID))
+                        {
+                            CombatManager.Instance.PostNotification(Entropy.TriggerCall, unit, null);
+                        }
 
+                    }
                 }
+            }
+            catch
+            {
+
             }
         }
     }
