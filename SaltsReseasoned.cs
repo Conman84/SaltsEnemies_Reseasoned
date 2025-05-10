@@ -268,6 +268,7 @@ namespace SaltsEnemies_Reseasoned
             TheEndOfTimeEncounters.Add();
             SemiRealisticTankEncounters.Add();
             SolventEncounters.Add();
+            WindSongEncounters.Add();
 
             Logger.LogInfo("Seasons greasons");
         }

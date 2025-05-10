@@ -12,7 +12,7 @@ namespace SaltsEnemies_Reseasoned
             //Main
             Portals.AddPortalSign("Salt_SigilEncounter_Sign", ResourceLoader.LoadSprite("SigilWorld.png", null, 32, null), Portals.EnemyIDColor);
 
-            //Garden
+            //Orpheum
             //Medium
             //No H
             EnemyEncounter_API mainEncounters = new EnemyEncounter_API(0, "Zone02_Sigil_Medium_EnemyBundle", "Salt_SigilEncounter_Sign");

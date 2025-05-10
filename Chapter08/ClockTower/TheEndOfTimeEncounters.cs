@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
             Portals.AddPortalSign("Salt_TheEndOfTimeEncounter_Sign", ResourceLoader.LoadSprite("ClockTowerPortal.png", null, 32, null), Portals.EnemyIDColor);
 
             //Garden
-            //Easy
+            //Hard
             EnemyEncounter_API mainEncounters = new EnemyEncounter_API(0, "H_Zone03_TheEndOfTime_Hard_EnemyBundle", "Salt_TheEndOfTimeEncounter_Sign");
             mainEncounters.MusicEvent = "event:/Hawthorne/ClockTheme";
             mainEncounters.RoarEvent = LoadedAssetsHandler.GetCharacter("Doll_CH").deathSound;

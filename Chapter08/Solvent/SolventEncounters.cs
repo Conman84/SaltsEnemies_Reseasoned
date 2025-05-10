@@ -12,7 +12,7 @@ namespace SaltsEnemies_Reseasoned
             //Main
             Portals.AddPortalSign("Salt_SolventEncounters_Sign", ResourceLoader.LoadSprite("SolventPortal.png", null, 32, null), Portals.EnemyIDColor);
 
-            //Garden
+            //Orpheum
             //Easy
             EnemyEncounter_API mainEncounters = new EnemyEncounter_API(0, "H_Zone02_Solvent_Easy_EnemyBundle", "Salt_SolventEncounters_Sign");
             mainEncounters.MusicEvent = "event:/Hawthorne/SolventTheme";
