@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy coffin = new Enemy("Grandfather", "Grandfather_EN")
             {
-                Health = 18,
+                Health = 20,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("CoffinIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("CoffinWorld.png", new Vector2(0.5f, 0f), 32),
@@ -58,7 +58,7 @@ namespace SaltsEnemies_Reseasoned
             rot.Effects = new EffectInfo[3];
             rot.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 1, Slots.Front);
             rot.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 8, Slots.Front);
-            rot.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Targeting.Unit_AllOpponents, ScriptableObject.CreateInstance<IsFrontTargetCondition>());
+            rot.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Targeting.Unit_AllOpponents, IsFrontTargetCondition.Create(false));
             rot.AddIntentsToTarget(Slots.Front, new string[] { IntentType_GameIDs.Damage_1_2.ToString(), IntentType_GameIDs.Status_Ruptured.ToString() });
             rot.AddIntentsToTarget(Targeting.Unit_AllOpponents, new string[] { IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Status_Ruptured.ToString() });
 
