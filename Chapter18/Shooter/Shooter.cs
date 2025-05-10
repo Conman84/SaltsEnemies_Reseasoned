@@ -35,6 +35,7 @@ namespace SaltsEnemies_Reseasoned
             bonus.Effects = new EffectInfo[1];
             SpawnEnemyByStringNameEffect spawn = ScriptableObject.CreateInstance<SpawnEnemyByStringNameEffect>();
             spawn.enemyName = "SkeletonHead_EN";
+            spawn._spawnTypeID = CombatType_GameIDs.Spawn_Basic.ToString();
             bonus.Effects[0] = Effects.GenerateEffect(spawn, 1, Slots.Self);
             bonus.AddIntentsToTarget(Slots.Self, IntentType_GameIDs.Other_Spawn.ToString().SelfArray());
             bonus.Visuals = CustomVisuals.GetVisuals("Salt/Curse");
