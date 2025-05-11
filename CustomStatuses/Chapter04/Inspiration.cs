@@ -65,6 +65,8 @@ namespace SaltEnemies_Reseasoned
             Inspired = inspired;
 
             NotificationHook.AddAction(NotifCheck);
+
+            InspirationHandler.Setup();
         }
 
         public static void NotifCheck(string notifname, object sender, object args)
@@ -281,6 +283,26 @@ namespace SaltEnemies_Reseasoned
         }
     }
 
+    public static class InspirationHandler
+    {
+        public static void Clear()
+        {
+            ApplyInspirationAction.Charas = new List<int>();
+            ApplyInspirationAction.Enemies = new List<int>();
+            RemoveInspirationAction.Charas = new List<int>();
+            RemoveInspirationAction.Enemies = new List<int>();
+        }
+        public static void NotifCheck(string notifname, object sender, object args)
+        {
+            if (notifname == TriggerCalls.OnCombatEnd.ToString()) Clear();
+            else if (notifname == TriggerCalls.OnBeforeCombatStart.ToString()) Clear();
+        }
+        public static void Setup()
+        {
+            NotificationHook.AddAction(NotifCheck);
+            MainMenuException.AddAction(Clear);
+        }
+    }
 
     public class ApplyInspirationEffect : EffectSO
     {
