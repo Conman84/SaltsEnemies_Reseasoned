@@ -149,7 +149,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 if (_sand == null)
                 {
-                    Debug.LogError("AnglerHandler: make sure this is getting the right assetbundle");
+                    //Debug.LogError("AnglerHandler: make sure this is getting the right assetbundle");
                     _sand = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/Senis3/0FuckFolder/Sand.prefab").GetComponent<ParticleSystem>();
                 }
                 return _sand;
