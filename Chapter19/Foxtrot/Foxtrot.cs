@@ -52,7 +52,7 @@ namespace SaltsEnemies_Reseasoned
             march.conditions = [ScriptableObject.CreateInstance<IsAliveEffectorCondition>()];
             march._triggerOn = [MarchingHandler.Call];
 
-            foxtrot.AddPassives(new BasePassiveAbilitySO[] { march, Passives.Dying, rupture });
+            foxtrot.AddPassives(new BasePassiveAbilitySO[] { march, rupture });
             AbilitySelector_Foxtrot selector = ScriptableObject.CreateInstance<AbilitySelector_Foxtrot>();
             selector._passive = MarchingHandler.Passive;
             selector._hasPassive = "TakeRoot_A";
