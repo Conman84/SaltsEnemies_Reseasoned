@@ -129,7 +129,7 @@ namespace SaltsEnemies_Reseasoned
             dreamers.Effects[3] = Effects.GenerateEffect(UIActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToGardenEffect>(), 1, Slots.Self).SelfArray()), 1, Targeting.Slot_SelfSlot);
             dreamers.Effects[4] = Effects.GenerateEffect(ScriptableObject.CreateInstance<BoxAllEnemiesEffect>());
             dreamers.Effects[5] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnGardenEnemyBundleEffect>());
-            dreamers.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_11_15.ToString(), "Dreaming_A"]);
+            dreamers.AddIntentsToTarget(Slots.Self, ["Dreaming_A", IntentType_GameIDs.Damage_11_15.ToString()]);
             dreamers.Visuals = null;
             dreamers.AnimationTarget = Slots.Self;
 
