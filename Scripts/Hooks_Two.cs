@@ -190,6 +190,7 @@ namespace SaltEnemies_Reseasoned
             NobodyMoveHandler.NotifCheck(notificationName, sender, args);
             ReplacementHandler.NotifCheck(notificationName, sender, args);
             if (notificationName == TriggerCalls.OnMoved.ToString() && BadDogHandler.IsPlayerTurn()) BadDogHandler.RunCheckFunction();
+            if (notificationName == TriggerCalls.OnAbilityUsed.ToString() && BadDogHandler.IsPlayerTurn()) BadDogHandler.RunCheckFunction();
             if (notificationName == TriggerCalls.OnAbilityUsed.ToString()) TrainHandler.SwitchTrainTargetting(sender);
             if (notificationName == TriggerCalls.OnDeath.ToString() && sender is ITurn) TrainHandler.CheckAll();
             //SigilSongHandler.NotifCheck(notificationName, sender, args);
