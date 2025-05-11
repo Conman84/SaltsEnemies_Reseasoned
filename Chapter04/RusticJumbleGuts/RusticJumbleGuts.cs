@@ -32,7 +32,6 @@ namespace SaltsEnemies_Reseasoned
 
             RusticJumbleGuts.AddPassives(new BasePassiveAbilitySO[]
             {
-                Passives.Dying, 
                 Passives.Transfusion, 
                 Passives.Slippery, 
                 Passives.Pure

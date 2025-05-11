@@ -338,6 +338,10 @@
 	  <None Remove="Chapter19\Chiito\ChiitoIcon.png" />
 	  <None Remove="Chapter19\Chiito\ChiitoWorld.png" />
 	  <None Remove="Chapter19\Chiito\StealthPassive.png" />
+	  <None Remove="Chapter19\Foxtrot\FoxtrotDead.png" />
+	  <None Remove="Chapter19\Foxtrot\FoxtrotIcon.png" />
+	  <None Remove="Chapter19\Foxtrot\FoxtrotWorld.png" />
+	  <None Remove="Chapter19\Foxtrot\MarchingPassive.png" />
 	  <None Remove="Chapter19\Pawn\PawnDead.png" />
 	  <None Remove="Chapter19\Pawn\PawnIcon.png" />
 	  <None Remove="Chapter19\Pawn\PawnWorld.png" />
@@ -747,6 +751,10 @@
 	  <EmbeddedResource Include="Chapter19\Chiito\ChiitoIcon.png" />
 	  <EmbeddedResource Include="Chapter19\Chiito\ChiitoWorld.png" />
 	  <EmbeddedResource Include="Chapter19\Chiito\StealthPassive.png" />
+	  <EmbeddedResource Include="Chapter19\Foxtrot\FoxtrotDead.png" />
+	  <EmbeddedResource Include="Chapter19\Foxtrot\FoxtrotIcon.png" />
+	  <EmbeddedResource Include="Chapter19\Foxtrot\FoxtrotWorld.png" />
+	  <EmbeddedResource Include="Chapter19\Foxtrot\MarchingPassive.png" />
 	  <EmbeddedResource Include="Chapter19\Pawn\PawnDead.png" />
 	  <EmbeddedResource Include="Chapter19\Pawn\PawnIcon.png" />
 	  <EmbeddedResource Include="Chapter19\Pawn\PawnWorld.png" />
