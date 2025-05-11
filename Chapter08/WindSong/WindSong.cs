@@ -83,7 +83,7 @@ namespace SaltsEnemies_Reseasoned
             Ability finale = new Ability("Coda_A")
             {
                 Name = "Coda",
-                Description = "The closing is near.",
+                Description = "\"The closing is near.\"\nInstantly kill this enemy.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("WindSong_20", 20),
                 Effects = new EffectInfo[]
                         {

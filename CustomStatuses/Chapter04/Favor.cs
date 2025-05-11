@@ -99,16 +99,17 @@ namespace SaltEnemies_Reseasoned
 
         public override void OnTriggerAttached(StatusEffect_Holder holder, IStatusEffector caller)
         {
+            holder.m_ObjectData = caller;
             CombatManager.Instance.PostNotification(Favor.Trigger, null, null);
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.CanHeal.ToString(), caller);
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, Favor.Trigger, caller);
+            CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnHealed.ToString(), caller);
+            CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, Favor.Trigger, null);
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_03, TriggerCalls.OnTurnFinished.ToString(), caller);
         }
 
         public override void OnTriggerDettached(StatusEffect_Holder holder, IStatusEffector caller)
         {
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.CanHeal.ToString(), caller);
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, Favor.Trigger, caller);
+            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnHealed.ToString(), caller);
+            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, Favor.Trigger, null);
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_03, TriggerCalls.OnTurnFinished.ToString(), caller);
         }
         public bool selfHealing;
@@ -127,7 +128,7 @@ namespace SaltEnemies_Reseasoned
         public override void OnEventCall_02(StatusEffect_Holder holder, object sender, object args)
         {
 
-            (sender as IStatusEffector).RemoveStatusEffect(holder.StatusID);
+            (holder.m_ObjectData as IStatusEffector).RemoveStatusEffect(holder.StatusID);
         }
         public override void OnEventCall_03(StatusEffect_Holder holder, object sender, object args)
         {
