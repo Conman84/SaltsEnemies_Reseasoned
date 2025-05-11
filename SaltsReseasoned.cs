@@ -229,6 +229,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(Solitaire.Add);
                 PCall(TwoThousandNine.Add);
                 PCall(Chiito.Add);
+                PCall(Foxtrot.Add);
             }
 
             //CH1 Encounters
