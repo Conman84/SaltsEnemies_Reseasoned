@@ -46,7 +46,7 @@ namespace SaltsEnemies_Reseasoned
                 ScriptableObject.CreateInstance<CowardCondition>()
             };
 
-            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Immortal, Passives.Fleeting4, flither });
+            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Immortal, Passives.Fleeting4, Passives.Withering });
             //template.CombatExitEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnCasterGibsEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsDieCondition>()).SelfArray();
 
 
