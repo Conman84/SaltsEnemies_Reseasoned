@@ -229,4 +229,16 @@ namespace SaltEnemies_Reseasoned
             }
         }
     }
+    public class FastRingerEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            if (caster is EnemyCombat enemy)
+            {
+                Try.AddNewFrontEnemyTurns(new List<EnemyCombat>() { enemy }, new List<int>() { enemy.GetLastAbilityIDFromNameUsingAbilityName("Ringer") });
+            }
+            return true;
+        }
+    }
 }

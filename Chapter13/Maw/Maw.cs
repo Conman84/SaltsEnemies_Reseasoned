@@ -1,5 +1,4 @@
 ﻿using BrutalAPI;
-using HarmonyLib;
 using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
@@ -22,6 +21,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("MawDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetCharacter("LongLiver_CH").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("Leviat_CH").deathSound,
+                Priority = Priority.VeryFast
             };
             maw.PrepareEnemyPrefab("assets/group4/Maw/Maw_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Maw/Maw_Gibs.prefab").GetComponent<ParticleSystem>());
 

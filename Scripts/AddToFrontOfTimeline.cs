@@ -138,15 +138,15 @@ namespace SaltEnemies_Reseasoned
             {
                 for (int i = 1; i < CombatManager._instance._stats.timeline.Round.Count; i++)
                 {
-                    list2.Add(timeline.Round[i]);
-                    /*if (EnemyGilberID.Contains(timeline.Round[i].turnUnit.ID))
+                    //list2.Add(timeline.Round[i]);
+                    if (i <= CombatManager.Instance._stats.timeline.CurrentTurn + 1 && !CombatManager.Instance._stats.IsPlayerTurn)
                     {
                         list.Add(timeline.Round[i]);
                     }
                     else
                     {
                         list2.Add(timeline.Round[i]);
-                    }*/
+                    }
                 }
             }
             List<TurnUIInfo> list3 = new List<TurnUIInfo>();
