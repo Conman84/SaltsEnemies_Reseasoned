@@ -15,7 +15,7 @@ namespace SaltsEnemies_Reseasoned
             //Garden
             //Hard
             EnemyEncounter_API mainEncounters = new EnemyEncounter_API(0, "H_Zone03_TheEndOfTime_Hard_EnemyBundle", "Salt_TheEndOfTimeEncounter_Sign");
-            mainEncounters.MusicEvent = "event:/Hawthorne/ClockTheme";
+            mainEncounters.MusicEvent = "event:/Hawthorne/Redo/ClockTowerSong";
             mainEncounters.RoarEvent = LoadedAssetsHandler.GetCharacter("Doll_CH").deathSound;
 
             mainEncounters.CreateNewEnemyEncounterData(new string[]

@@ -144,9 +144,9 @@ namespace SaltsEnemies_Reseasoned
         {
             foreach (TargetSlotInfo target in Slots.LeftRight.GetTargets(CombatManager.Instance._stats.combatSlots, caster.SlotID, caster.IsUnitCharacter))
             {
-                if (target.GetFieldAmount(Slip.FieldID, true) < 1) return false;
+                if (target.GetFieldAmount(Slip.FieldID, true) >= 1) return true;
             }
-            return true;
+            return false;
         }
     }
     public class RingerEffect : EffectSO

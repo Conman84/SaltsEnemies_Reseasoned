@@ -294,6 +294,7 @@
 	  <None Remove="Chapter17\EvilDog\EvilDogDead.png" />
 	  <None Remove="Chapter17\EvilDog\EvilDogIcon.png" />
 	  <None Remove="Chapter17\EvilDog\EvilDogWorld.png" />
+	  <None Remove="Chapter17\EvilDog\NylonPassive.png" />
 	  <None Remove="Chapter17\EvilDog\WarpingIcon.png" />
 	  <None Remove="Chapter17\EvilEye\CyclicalPassive.png" />
 	  <None Remove="Chapter17\EvilEye\EyeballDead.png" />
@@ -421,6 +422,10 @@
 	  <None Remove="SpecialIcons\UnlockingIntent.png" />
 	  <None Remove="SpecialIcons\upicon.png" />
 	  <None Remove="SpecialIcons\waiticon.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Chapter17\EvilDog\NylonPassive.png" />
 	</ItemGroup>
 
 	<ItemGroup>
