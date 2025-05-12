@@ -134,12 +134,13 @@ namespace SaltEnemies_Reseasoned
             List<TurnInfo> list = new List<TurnInfo>();
             List<TurnInfo> list2 = new List<TurnInfo>();
             list.Add(CombatManager._instance._stats.timeline.Round[0]);
+            //Debug.Log("CombatManager.Instance._stats.timeline.CurrentTurn " + CombatManager.Instance._stats.timeline.CurrentTurn);
             if (CombatManager._instance._stats.timeline.Round.Count > 1)
             {
                 for (int i = 1; i < CombatManager._instance._stats.timeline.Round.Count; i++)
                 {
                     //list2.Add(timeline.Round[i]);
-                    if (i <= CombatManager.Instance._stats.timeline.CurrentTurn + 1 && !CombatManager.Instance._stats.IsPlayerTurn)
+                    if (i <= CombatManager.Instance._stats.timeline.CurrentTurn && !CombatManager.Instance._stats.IsPlayerTurn)
                     {
                         list.Add(timeline.Round[i]);
                     }
@@ -171,18 +172,23 @@ namespace SaltEnemies_Reseasoned
             List<TimelineInfo> NewSortTimelineinfo = new List<TimelineInfo>();
             List<TimelineInfo> OldSortTimelineinfo = new List<TimelineInfo>();
             NewSortTimelineinfo.Add(TimelineHandler.TimelineSlotInfo[0]);
+            //Debug.Log("GilbertAddTimelineSlots");
+            //Debug.Log("TimelineHandler.TimelineLayout._pointerIndex " + TimelineHandler.TimelineLayout._pointerIndex);
             for (int j = 1; j < TimelineHandler.TimelineSlotInfo.Count; j++)
             {
-                OldSortTimelineinfo.Add(TimelineHandler.TimelineSlotInfo[j]);
-                /*if (EnemyGilberID.Contains(TimelineHandler.TimelineSlotInfo[j].enemyID))
+                //OldSortTimelineinfo.Add(TimelineHandler.TimelineSlotInfo[j]);
+                if (j <= TimelineHandler.TimelineLayout._pointerIndex + 1 && !CombatManager.Instance._stats.IsPlayerTurn)
+                //if (j <= CombatManager.Instance._stats.timeline.CurrentTurn && !CombatManager.Instance._stats.IsPlayerTurn)
                 {
                     NewSortTimelineinfo.Add(TimelineHandler.TimelineSlotInfo[j]);
                 }
                 else
                 {
                     OldSortTimelineinfo.Add(TimelineHandler.TimelineSlotInfo[j]);
-                }*/
+                }
             }
+            //Debug.Log("before " + NewSortTimelineinfo.Count);
+            //Debug.Log("after " + OldSortTimelineinfo.Count);
             for (int i = 0; i < newTurns.Length; i++)
             {
                 TurnUIInfo turnUIInfo = newTurns[i];
@@ -229,9 +235,14 @@ namespace SaltEnemies_Reseasoned
                     }
                 }
                 timelineSlotGroup.UpdateSlotID(UIInfos[i].timeSlotID);
+                //Debug.Log("set timelineslotID " + UIInfos[i].timeSlotID);
                 timelineSlotGroup.SetSiblingIndex(UIInfos[i].timeSlotID + 1);
+                //Debug.Log("set sibling index: " + (UIInfos[i].timeSlotID + 1).ToString());
+                //Debug.Log("sibling index proper: " + timelineSlotGroup.slot.transform.GetSiblingIndex());
+                //Debug.Log("total slots in use:" + TimelineLayout._slotsInUse.Count);
                 NewSlots.Add(timelineSlotGroup);
                 TimelineLayout._slotsInUse = SortTimelineSlotList(TimelineLayout._slotsInUse);
+                //Debug.Log("new timelineslotID " + timelineSlotGroup.slot.TimelineSlotID);
                 spriteColors = null;
             }
             for (int j = 0; j < NewSlots.Count; j++)
@@ -245,11 +256,14 @@ namespace SaltEnemies_Reseasoned
 
         public static void ShiftTimelineSlotsDown(List<TimelineSlotGroup> Slots, int StartIndex)
         {
+            int shiftedDown = 0;
             for (int num = Slots.Count - 2; num > StartIndex - 1; num--)
             {
                 Slots[num].UpdateSlotID(Slots[num].slot.TimelineSlotID + 1);
                 Slots[num].SetSiblingIndex(Slots[num].slot.transform.GetSiblingIndex() + 1);
+                shiftedDown++;
             }
+            //Debug.Log("slots shifted down: " + shiftedDown);
         }
 
         public static List<TimelineSlotGroup> SortTimelineSlotList(List<TimelineSlotGroup> Slots)

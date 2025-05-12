@@ -229,6 +229,8 @@ namespace SaltEnemies_Reseasoned
             }
         }
     }
+    
+    //THIS INCONSISTENTLY DOESNT WORK.
     public class FastRingerEffect : EffectSO
     {
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
