@@ -291,6 +291,10 @@
 	  <None Remove="Chapter16\TortureMeNot\ForgetPortal.png" />
 	  <None Remove="Chapter16\TortureMeNot\ForgettingPassive.png" />
 	  <None Remove="Chapter16\TortureMeNot\ForgetWorld.png" />
+	  <None Remove="Chapter17\EvilDog\EvilDogDead.png" />
+	  <None Remove="Chapter17\EvilDog\EvilDogIcon.png" />
+	  <None Remove="Chapter17\EvilDog\EvilDogWorld.png" />
+	  <None Remove="Chapter17\EvilDog\WarpingIcon.png" />
 	  <None Remove="Chapter17\EvilEye\CyclicalPassive.png" />
 	  <None Remove="Chapter17\EvilEye\EyeballDead.png" />
 	  <None Remove="Chapter17\EvilEye\EyeballIcon.png" />
@@ -704,6 +708,10 @@
 	  <EmbeddedResource Include="Chapter16\TortureMeNot\ForgetPortal.png" />
 	  <EmbeddedResource Include="Chapter16\TortureMeNot\ForgettingPassive.png" />
 	  <EmbeddedResource Include="Chapter16\TortureMeNot\ForgetWorld.png" />
+	  <EmbeddedResource Include="Chapter17\EvilDog\EvilDogDead.png" />
+	  <EmbeddedResource Include="Chapter17\EvilDog\EvilDogIcon.png" />
+	  <EmbeddedResource Include="Chapter17\EvilDog\EvilDogWorld.png" />
+	  <EmbeddedResource Include="Chapter17\EvilDog\WarpingIcon.png" />
 	  <EmbeddedResource Include="Chapter17\EvilEye\CyclicalPassive.png" />
 	  <EmbeddedResource Include="Chapter17\EvilEye\EyeballDead.png" />
 	  <EmbeddedResource Include="Chapter17\EvilEye\EyeballIcon.png" />
