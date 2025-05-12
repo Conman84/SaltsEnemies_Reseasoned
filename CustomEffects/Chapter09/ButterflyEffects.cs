@@ -709,7 +709,7 @@ namespace SaltEnemies_Reseasoned
                 }
             }
         }
-        public static void RunCheckFunction()
+        public static void RunCheckFunction(bool skipRoot = false)
         {
             CombatStats stats = CombatManager.Instance._stats;
             foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
@@ -799,6 +799,7 @@ namespace SaltEnemies_Reseasoned
                     }
                 }
             }
+            if (!skipRoot) CombatManager.Instance.AddRootAction(new MawCheckAction());
         }
         public static bool IsPlayerTurn() => CombatManager.Instance._stats.IsPlayerTurn;
     }
