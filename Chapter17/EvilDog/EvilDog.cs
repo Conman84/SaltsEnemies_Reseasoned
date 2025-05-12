@@ -80,7 +80,7 @@ namespace SaltsEnemies_Reseasoned
 
             //toggle
             Ability pain = new Ability("Toggle", "Toggle_A");
-            pain.Description = "If there is Slip on the Opposing position, deal an Agonizing amount of damage to the Opposing party member and move them to the Left or Right.\nOtherwise, apply 1 Slip on the Opposing position.";
+            pain.Description = "If there is Slip on the Opposing position, deal an Agonizing amount of damage to the Opposing party member and move them to the Left or Right.\nOtherwise, queue the ability \"Ringer\".";
             pain.Rarity = Rarity.GetCustomRarity("rarity5");
             pain.Priority = Priority.Slow;
             pain.Effects = new EffectInfo[5];
@@ -88,7 +88,7 @@ namespace SaltsEnemies_Reseasoned
             pain.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front, BasicEffects.DidThat(true));
             pain.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Front, BasicEffects.DidThat(true, 2));
             pain.Effects[3] = Effects.GenerateEffect(BasicEffects.GetVisuals("Wriggle_A", false, Slots.Self), 0, null, BasicEffects.DidThat(false, 3));
-            pain.Effects[4] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.Front, BasicEffects.DidThat(false, 4));
+            pain.Effects[4] = Effects.GenerateEffect(ScriptableObject.CreateInstance<RingerEffect>(), 1, Slots.Self, BasicEffects.DidThat(false, 4));
             pain.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Swap_Sides.ToString(), Slip.Intent]);
             pain.Visuals = null;
             pain.AnimationTarget = Slots.Front;
