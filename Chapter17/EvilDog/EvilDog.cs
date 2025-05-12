@@ -89,7 +89,7 @@ namespace SaltsEnemies_Reseasoned
             pain.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Front, BasicEffects.DidThat(true, 2));
             pain.Effects[3] = Effects.GenerateEffect(BasicEffects.GetVisuals("Wriggle_A", false, Slots.Self), 0, null, BasicEffects.DidThat(false, 3));
             pain.Effects[4] = Effects.GenerateEffect(ScriptableObject.CreateInstance<RingerEffect>(), 1, Slots.Self, BasicEffects.DidThat(false, 4));
-            pain.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Swap_Sides.ToString(), Slip.Intent]);
+            pain.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Swap_Sides.ToString()]);
             pain.Visuals = null;
             pain.AnimationTarget = Slots.Front;
 
