@@ -91,6 +91,7 @@ namespace SaltEnemies_Reseasoned
         {
             TargettingSelf_NotSlot ret = ScriptableObject.CreateInstance<TargettingSelf_NotSlot>();
             ret.getAllUnitSlots = false;
+            ret.getAllies = true;
             return ret;
         }
     }
