@@ -1,9 +1,11 @@
-﻿using SaltEnemies_Reseasoned;
+﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 
-namespace SaltsEnemies_Reseasoned
+namespace SaltEnemies_Reseasoned
 {
     public class RingingNoiseEffect : EffectSO
     {
@@ -170,6 +172,61 @@ namespace SaltsEnemies_Reseasoned
                 if (target.GetFieldAmount(Slip.FieldID, true) >= 1) return true;
             }
             return false;
+        }
+    }
+    public class NylonPassiveEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, caster.IsUnitCharacter, "Nylon", ResourceLoader.LoadSprite("NylonPassive.png")));
+            exitAmount = 0;
+            return true;
+        }
+    }
+    public class MoveTowardsSlipEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            int rightMod = 1;
+            int leftMod = 1;
+            if (!caster.IsUnitCharacter)
+            {
+                foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
+                {
+                    if (enemy.SlotID == caster.SlotID + caster.Size) rightMod = enemy.Size;
+                    if (enemy.SlotID == caster.SlotID - enemy.Size) leftMod = enemy.Size;
+                }
+            }
+            TargetSlotInfo Left = null;
+            TargetSlotInfo Right = null;
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.SlotID == caster.SlotID - leftMod) Left = target;
+                else if (target.SlotID == caster.SlotID + rightMod) Right = target;
+            }
+            bool Lefting = (Left != null && Left.GetFieldAmount(Slip.FieldID) > 0);
+            bool righting = (Right != null && Right.GetFieldAmount(Slip.FieldID) > 0);
+            if (Lefting && righting)
+            {
+                ScriptableObject.CreateInstance<SwapToSidesEffect>().PerformEffect(stats, caster, Slots.Self.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter), Slots.Self.AreTargetSlots, 1, out int grag);
+                return true;
+            }
+            else if (Lefting)
+            {
+                BasicEffects.GoLeft.PerformEffect(stats, caster, Slots.Self.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter), Slots.Self.AreTargetSlots, 1, out int grag);
+                return true;
+            }
+            else if (righting)
+            {
+                BasicEffects.GoRight.PerformEffect(stats, caster, Slots.Self.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter), Slots.Self.AreTargetSlots, 1, out int grag);
+                return true;
+            }
+            else
+            {
+                ScriptableObject.CreateInstance<SwapToSidesEffect>().PerformEffect(stats, caster, Slots.Self.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter), Slots.Self.AreTargetSlots, 1, out int grag);
+                return false;
+            }
         }
     }
 }
