@@ -44,13 +44,13 @@ namespace SaltsEnemies_Reseasoned
             return true;
         }
     }
-    public class FrontHas2ConstrictedEffectCondition : EffectConditionSO
+    public class FrontHas3ConstrictedEffectCondition : EffectConditionSO
     {
         public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
         {
             foreach (TargetSlotInfo target in Slots.Front.GetTargets(CombatManager.Instance._stats.combatSlots, caster.SlotID, caster.IsUnitCharacter))
             {
-                if (target.GetFieldAmount(StatusField_GameIDs.Constricted_ID.ToString(), true) >= 2) return true;
+                if (target.GetFieldAmount(StatusField_GameIDs.Constricted_ID.ToString(), true) >= 3) return true;
             }
             return false;
         }
@@ -84,6 +84,46 @@ namespace SaltsEnemies_Reseasoned
         {
             base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
             return true;
+        }
+    }
+    public class RemoveAllConstrictedEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            for (int i = 0; i < targets.Length; i++)
+            {
+                if (targets[i].IsTargetCharacterSlot)
+                {
+                    exitAmount += stats.combatSlots.CharacterSlots[targets[i].SlotID].TryRemoveFieldEffect(StatusField_GameIDs.Constricted_ID.ToString());
+                }
+                else
+                {
+                    exitAmount += stats.combatSlots.EnemySlots[targets[i].SlotID].TryRemoveFieldEffect(StatusField_GameIDs.Constricted_ID.ToString());
+                }
+            }
+
+            return exitAmount > 0;
+        }
+    }
+    public class RemoveAllSlipEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            for (int i = 0; i < targets.Length; i++)
+            {
+                if (targets[i].IsTargetCharacterSlot)
+                {
+                    exitAmount += stats.combatSlots.CharacterSlots[targets[i].SlotID].TryRemoveFieldEffect(Slip.FieldID);
+                }
+                else
+                {
+                    exitAmount += stats.combatSlots.EnemySlots[targets[i].SlotID].TryRemoveFieldEffect(Slip.FieldID);
+                }
+            }
+
+            return exitAmount > 0;
         }
     }
 }

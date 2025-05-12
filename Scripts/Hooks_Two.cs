@@ -257,7 +257,7 @@ namespace SaltEnemies_Reseasoned
         {
             get
             {
-                UnityEngine.Debug.LogError("make sure this is loading the right sprite");
+                //UnityEngine.Debug.LogError("make sure this is loading the right sprite");
                 if (_icon == null) _icon = ResourceLoader.LoadSprite("WarpingIcon");
                 return _icon;
             }
