@@ -45,7 +45,7 @@ namespace SaltsEnemies_Reseasoned
             nylon._enemyDescription = "On being directly damaged, apply 1 Slip on the Opposing position.";
             nylon._characterDescription = nylon._enemyDescription;
             nylon.doesPassiveTriggerInformationPanel = true;
-            nylon.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.Front).SelfArray();
+            nylon.effects = Effects.GenerateEffect(RootActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.Front).SelfArray()), 1, Slots.Self).SelfArray();
             nylon._triggerOn = [TriggerCalls.OnDirectDamaged];
 
             //addpassives
