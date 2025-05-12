@@ -39,7 +39,7 @@ namespace SaltsEnemies_Reseasoned
 
             //nylon
             PerformEffectPassiveAbility nylon = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
-            nylon._passiveName = "Nylon";
+            nylon._passiveName = "Nylon (1)";
             nylon.m_PassiveID = "Nylon_PA";
             nylon.passiveIcon = ResourceLoader.LoadSprite("NylonPassive.png");
             nylon._enemyDescription = "On being directly damaged, apply 1 Slip on the Opposing position.";
