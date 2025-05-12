@@ -80,7 +80,7 @@ namespace SaltsEnemies_Reseasoned
 
             //toggle
             Ability pain = new Ability("Toggle", "Toggle_A");
-            pain.Description = "If there is Slip on the Opposing position, deal an Agonizing amount of damage to the Opposing party member and move them to the Left or Right.\nOtherwise, immediately perform the ability \"Ringer\".";
+            pain.Description = "If there is Slip on the Opposing position, deal an Agonizing amount of damage to the Opposing party member and move them to the Left or Right.\nOtherwise, queue the ability \"Ringer\".";
             pain.Rarity = Rarity.GetCustomRarity("rarity5");
             pain.Priority = Priority.Slow;
             pain.Effects = new EffectInfo[5];
