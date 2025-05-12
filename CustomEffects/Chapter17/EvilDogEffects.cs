@@ -126,4 +126,50 @@ namespace SaltsEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
+    public class ToggleEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            if (caster is EnemyCombat enemy)
+            {
+                stats.timeline.AddExtraEnemyTurns(new List<EnemyCombat>() { enemy }, new List<int>() { enemy.GetLastAbilityIDFromNameUsingAbilityName("Toggle") });
+            }
+            return true;
+        }
+    }
+    public class LRHas1SlipEffectCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            foreach (TargetSlotInfo target in Slots.LeftRight.GetTargets(CombatManager.Instance._stats.combatSlots, caster.SlotID, caster.IsUnitCharacter))
+            {
+                if (target.GetFieldAmount(Slip.FieldID, true) < 1) return false;
+            }
+            return true;
+        }
+    }
+    public class RingerEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            if (caster is EnemyCombat enemy)
+            {
+                stats.timeline.AddExtraEnemyTurns(new List<EnemyCombat>() { enemy }, new List<int>() { enemy.GetLastAbilityIDFromNameUsingAbilityName("Ringer") });
+            }
+            return true;
+        }
+    }
+    public class FrontHas1SlipEffectCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            foreach (TargetSlotInfo target in Slots.Front.GetTargets(CombatManager.Instance._stats.combatSlots, caster.SlotID, caster.IsUnitCharacter))
+            {
+                if (target.GetFieldAmount(Slip.FieldID, true) >= 1) return true;
+            }
+            return false;
+        }
+    }
 }

@@ -40,60 +40,46 @@ namespace SaltsEnemies_Reseasoned
             //addpassives
             dog.AddPassives(new BasePassiveAbilitySO[] { Passives.TwoFaced, warp, Passives.Slippery });
 
-            //ring
-            Ability ring = new Ability("RingingNoise_A")
-            {
-                Name = "Ringing Noise",
-                Description = "Apply 1 Slip on the Opposing position. \nDeal a Little damage to this enemy and inflict 1 Scar on it. \n50% chance to queue this ability again.",
-                Rarity = Rarity.GetCustomRarity("rarity5"),
-                Effects = new EffectInfo[]
-                        {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.Front),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 1, Slots.Self),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Slots.Self),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<RingingNoiseEffect>(), 1, Slots.Self, Effects.ChanceCondition(50))
-                        },
-                Visuals = CustomVisuals.GetVisuals("Salt/Class"),
-                AnimationTarget = Slots.Front,
-            };
-            ring.AddIntentsToTarget(Slots.Front, [Slip.Intent]);
-            ring.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_1_2.ToString(), IntentType_GameIDs.Status_Scars.ToString(), IntentType_GameIDs.Misc.ToString()]);
+            //ringer
+            Ability ringer = new Ability("Ringer", "Ringer_A");
+            ringer.Description = "Apply 1 Slip on the Opposing position.\nIf there was already Slip on the Opposing position, queue the ability \"Flip Flop\" and move to the Left or Right.";
+            ringer.Rarity = Rarity.GetCustomRarity("rarity5");
+            ringer.Effects = new EffectInfo[3];
+            ringer.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.Front);
+            ringer.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<FlipFlopEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<FrontHas2SlipEffectCondition>());
+            ringer.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self, BasicEffects.DidThat(true));
+            ringer.AddIntentsToTarget(Slots.Front, [Slip.Intent]);
+            ringer.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Swap_Sides.ToString()]);
+            ringer.Visuals = CustomVisuals.GetVisuals("Salt/Class");
+            ringer.AnimationTarget = Slots.Front;
 
             //flipflop
             Ability flip = new Ability("Flip Flop", "FlipFlop_A");
-            flip.Description = "Apply 1 Slip on the Left or Right positions if they have no Slip. Remove all Slip from the Opposing position.\nRemove all Constricted and then inflict 2 Constricted on the Opposing position.\nIf any Constricted was removed, queue the ability \"Stinging Pain\".";
-            flip.Rarity = ring.Rarity;
-            flip.Effects = new EffectInfo[5];
-            flip.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipIfNoneEffect>(), 1, Slots.LeftRight);
-            flip.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveAllSlipEffect>(), 1, Slots.Front);
-            flip.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveAllConstrictedEffect>(), 1, Slots.Front);
-            flip.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 2, Slots.Front);
-            flip.Effects[4] = Effects.GenerateEffect(ScriptableObject.CreateInstance<StingingPainEffect>(), 1, Slots.Self, BasicEffects.DidThat(true, 2));
-            flip.AddIntentsToTarget(Slots.LeftRight, [Slip.Intent]);
-            Intents.CreateAndAddCustom_Basic_IntentToPool("Rem_Status_Slip", ResourceLoader.LoadSprite("SlipIcon.png"), Intents.GetInGame_IntentInfo(IntentType_GameIDs.Rem_Field_Shield)._color);
-            flip.AddIntentsToTarget(Slots.Front, ["Rem_Status_Slip", IntentType_GameIDs.Rem_Field_Constricted.ToString(), IntentType_GameIDs.Field_Constricted.ToString(), IntentType_GameIDs.Misc_Hidden.ToString()]);
-            flip.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Misc.ToString()]);
+            flip.Description = "If both the Left and Right party member positions, have Slip, queue the ability \"Toggle\".\nOtherwise, queue the ability \"Ringer\".";
+            flip.Rarity = Rarity.GetCustomRarity("rarity5");
+            flip.Effects = new EffectInfo[2];
+            flip.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ToggleEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<LRHas1SlipEffectCondition>());
+            flip.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<RingerEffect>(), 1, Slots.Self, BasicEffects.DidThat(false));
+            flip.AddIntentsToTarget(Slots.LeftRight, [IntentType_GameIDs.Misc_Hidden.ToString()]);
             flip.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
-            flip.AnimationTarget = Slots.FrontLeftRight;
+            flip.AnimationTarget = Slots.LeftRight;
 
-            //stinging pain
-            Ability pain = new Ability("Stinging Pain", "StingingPain_A");
-            pain.Description = "Deal an Agonizing amount of damage and inflict 1 Slip on the Opposing position.\nIf the Opposing position now has 2 or more Slip, move Left or Right and queue the ability \"Flip Flop\".";
-            pain.Rarity = ring.Rarity;
-            pain.Effects = new EffectInfo[4];
-            pain.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front);
-            pain.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.Front);
-            pain.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapSidesReturnTrueEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<FrontHas2SlipEffectCondition>());
-            pain.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<FlipFlopEffect>(), 1, Slots.Self, BasicEffects.DidThat(true));
-            pain.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_7_10.ToString(), Slip.Intent, IntentType_GameIDs.Misc_Hidden.ToString()]);
-            pain.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Sides.ToString(), IntentType_GameIDs.Misc.ToString()]);
-            pain.Visuals = CustomVisuals.GetVisuals("Salt/Drill");
+            //toggle
+            Ability pain = new Ability("Toggle", "Toggle_A");
+            pain.Description = "If there is Slip on the Opposing position, deal an Agonizing amount of damage to the Opposing party member and move them to the Left or Right.";
+            pain.Rarity = Rarity.GetCustomRarity("rarity5");
+            pain.Effects = new EffectInfo[3];
+            pain.Effects[0] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Drill", false, Slots.Front), 0, null, ScriptableObject.CreateInstance<FrontHas1SlipEffectCondition>());
+            pain.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front, BasicEffects.DidThat(true));
+            pain.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Front, BasicEffects.DidThat(true, 2));
+            pain.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Swap_Sides.ToString()]);
+            pain.Visuals = null;
             pain.AnimationTarget = Slots.Front;
 
             //ADD ENEMY
             dog.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                ring.GenerateEnemyAbility(true),
+                ringer.GenerateEnemyAbility(true),
                 flip.GenerateEnemyAbility(true),
                 pain.GenerateEnemyAbility(true)
             });
