@@ -120,20 +120,19 @@ namespace SaltsEnemies_Reseasoned
                         }
                     }
                 }
+                if (EnemyExist("Wednesday_EN") && value.EnemyBase == LoadedAssetsHandler.GetEnemy("Wednesday_EN"))
                 {
-                    if (EnemyExist("Wednesday_EN") && value.EnemyBase == LoadedAssetsHandler.GetEnemy("Wednesday_EN"))
+                    foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
                     {
-                        foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+                        if (enemy.ID != self.EnemyID) continue;
+                        if (enemy.SimpleGetStoredValue(TriggerOnlyOnceEffectCondition.Value) <= 0)
                         {
-                            if (enemy.ID != self.EnemyID) continue;
-                            if (enemy.SimpleGetStoredValue(TriggerOnlyOnceEffectCondition.Value) <= 0)
-                            {
-                                enemy.SimpleSetStoredValue(TriggerOnlyOnceEffectCondition.Value, 1);
-                                WednesdayEffect.Trigger(true);
-                            }
+                            enemy.SimpleSetStoredValue(TriggerOnlyOnceEffectCondition.Value, 1);
+                            WednesdayEffect.Trigger(true);
                         }
                     }
                 }
+            }
         }
         public static void Setup()
         {

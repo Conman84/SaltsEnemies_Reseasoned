@@ -73,22 +73,22 @@ namespace SaltsEnemies_Reseasoned
             List<EnemySO> grey = new List<EnemySO>();
             if (Check.EnemyExist("DesiccatingJumbleguts_EN")) grey.Add(LoadedAssetsHandler.GetEnemy("DesiccatingJumbleguts_EN"));
             if (Check.EnemyExist("PerforatedSpoggle_EN")) grey.Add(LoadedAssetsHandler.GetEnemy("PerforatedSpoggle_EN"));
-            if (Check.EnemyExist("RusticJumbleguts_EN")) grey.Add(LoadedAssetsHandler.GetEnemy("RusticJumbleguts_EN"));
-            if (Check.EnemyExist("MortalSpoggle_EN")) grey.Add(LoadedAssetsHandler.GetEnemy("MortalSpoggle_EN"));
+            if (Check.EnemyExist("RusticJumbleguts_EN")) for (int i = 0; i < 2; i++) grey.Add(LoadedAssetsHandler.GetEnemy("RusticJumbleguts_EN"));
+            if (Check.EnemyExist("MortalSpoggle_EN")) for (int i = 0; i < 2; i++) grey.Add(LoadedAssetsHandler.GetEnemy("MortalSpoggle_EN"));
             if (Check.MultiENExistInternal([Flower.Red, Flower.Blue, Flower.Purple, Flower.Yellow, Flower.Grey]))
             {
-                for (int i = 0; i < 5; i++) red.Add(LoadedAssetsHandler.GetEnemy("RedFlower_EN"));
-                for (int i = 0; i < 5; i++) blue.Add(LoadedAssetsHandler.GetEnemy("BlueFlower_EN"));
-                for (int i = 0; i < 5; i++) yellow.Add(LoadedAssetsHandler.GetEnemy("YellowFlower_EN"));
-                for (int i = 0; i < 5; i++) purple.Add(LoadedAssetsHandler.GetEnemy("PurpleFlower_EN"));
+                for (int i = 0; i < 3; i++) red.Add(LoadedAssetsHandler.GetEnemy("RedFlower_EN"));
+                for (int i = 0; i < 3; i++) blue.Add(LoadedAssetsHandler.GetEnemy("BlueFlower_EN"));
+                for (int i = 0; i < 3; i++) yellow.Add(LoadedAssetsHandler.GetEnemy("YellowFlower_EN"));
+                for (int i = 0; i < 3; i++) purple.Add(LoadedAssetsHandler.GetEnemy("PurpleFlower_EN"));
                 for (int i = 0; i < 2; i++) grey.Add(LoadedAssetsHandler.GetEnemy("GreyFlower_EN"));
             }
             if (Check.MultiENExistInternal([Bots.Red, Bots.Blue, Bots.Yellow, Bots.Purple, Bots.Gray]))
             {
-                for (int i = 0; i < 5; i++) red.Add(LoadedAssetsHandler.GetEnemy("RedBot_EN"));
-                for (int i = 0; i < 5; i++) blue.Add(LoadedAssetsHandler.GetEnemy("BlueBot_EN"));
-                for (int i = 0; i < 5; i++) yellow.Add(LoadedAssetsHandler.GetEnemy("YellowBot_EN"));
-                for (int i = 0; i < 5; i++) purple.Add(LoadedAssetsHandler.GetEnemy("PurpleBot_EN"));
+                for (int i = 0; i < 3; i++) red.Add(LoadedAssetsHandler.GetEnemy("RedBot_EN"));
+                for (int i = 0; i < 3; i++) blue.Add(LoadedAssetsHandler.GetEnemy("BlueBot_EN"));
+                for (int i = 0; i < 3; i++) yellow.Add(LoadedAssetsHandler.GetEnemy("YellowBot_EN"));
+                for (int i = 0; i < 3; i++) purple.Add(LoadedAssetsHandler.GetEnemy("PurpleBot_EN"));
                 for (int i = 0; i < 2; i++) grey.Add(LoadedAssetsHandler.GetEnemy("GreyBot_EN"));
             }
             if (Check.EnemyExist("GlassedSun_EN"))
@@ -97,33 +97,33 @@ namespace SaltsEnemies_Reseasoned
                 EnemySO rE = ScriptableObject.Instantiate(first);
                 rE.enterEffects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<SunColorEffect>(), 1, Slots.Self) };
                 rE.healthColor = Pigments.Red;
-                for (int i = 0; i < 2; i++) red.Add(rE);
+                for (int i = 0; i < 20; i++) red.Add(rE);
                 EnemySO bE = ScriptableObject.Instantiate(rE);
                 bE.healthColor = Pigments.Blue;
-                for (int i = 0; i < 2; i++) blue.Add(bE);
+                for (int i = 0; i < 20; i++) blue.Add(bE);
                 EnemySO yE = ScriptableObject.Instantiate(rE);
                 yE.healthColor = Pigments.Yellow;
-                for (int i = 0; i < 2; i++) yellow.Add(yE);
+                for (int i = 0; i < 20; i++) yellow.Add(yE);
                 EnemySO pE = ScriptableObject.Instantiate(rE);
                 pE.healthColor = Pigments.Purple;
-                for (int i = 0; i < 2; i++) purple.Add(pE);
+                for (int i = 0; i < 20; i++) purple.Add(pE);
                 EnemySO gE = ScriptableObject.Instantiate(rE);
                 gE.healthColor = Pigments.Grey;
-                for (int i = 0; i < 2; i++) grey.Add(gE);
+                for (int i = 0; i < 20; i++) grey.Add(gE);
             }
             if (Check.MultiENExistInternal([Colophon.Red, Colophon.Blue, Colophon.Yellow, Colophon.Purple]))
             {
-                for (int i = 0; i < 5; i++) red.Add(LoadedAssetsHandler.GetEnemy("DefeatedColophon_EN"));
-                for (int i = 0; i < 5; i++) blue.Add(LoadedAssetsHandler.GetEnemy("ComposedColophon_EN"));
-                for (int i = 0; i < 5; i++) yellow.Add(LoadedAssetsHandler.GetEnemy("MaladjustedColophon_EN"));
-                for (int i = 0; i < 5; i++) purple.Add(LoadedAssetsHandler.GetEnemy("DelightedColophon_EN"));
+                for (int i = 0; i < 3; i++) red.Add(LoadedAssetsHandler.GetEnemy("DefeatedColophon_EN"));
+                for (int i = 0; i < 3; i++) blue.Add(LoadedAssetsHandler.GetEnemy("ComposedColophon_EN"));
+                for (int i = 0; i < 3; i++) yellow.Add(LoadedAssetsHandler.GetEnemy("MaladjustedColophon_EN"));
+                for (int i = 0; i < 3; i++) purple.Add(LoadedAssetsHandler.GetEnemy("DelightedColophon_EN"));
             }
             if (Check.MultiENExistInternal([Noses.Red, Noses.Blue, Noses.Yellow, Noses.Purple, Noses.Grey]))
             {
-                for (int i = 0; i < 5; i++) red.Add(LoadedAssetsHandler.GetEnemy("ProlificNosestone_EN"));
-                for (int i = 0; i < 5; i++) blue.Add(LoadedAssetsHandler.GetEnemy("ScatterbrainedNosestone_EN"));
-                for (int i = 0; i < 5; i++) yellow.Add(LoadedAssetsHandler.GetEnemy("SweatingNosestone_EN"));
-                for (int i = 0; i < 5; i++) purple.Add(LoadedAssetsHandler.GetEnemy("MesmerizingNosestone_EN"));
+                for (int i = 0; i < 3; i++) red.Add(LoadedAssetsHandler.GetEnemy("ProlificNosestone_EN"));
+                for (int i = 0; i < 3; i++) blue.Add(LoadedAssetsHandler.GetEnemy("ScatterbrainedNosestone_EN"));
+                for (int i = 0; i < 3; i++) yellow.Add(LoadedAssetsHandler.GetEnemy("SweatingNosestone_EN"));
+                for (int i = 0; i < 3; i++) purple.Add(LoadedAssetsHandler.GetEnemy("MesmerizingNosestone_EN"));
                 for (int i = 0; i < 2; i++) grey.Add(LoadedAssetsHandler.GetEnemy("UninspiredNosestone_EN"));
             }
             Red = red.ToArray();
@@ -149,6 +149,21 @@ namespace SaltsEnemies_Reseasoned
                 else if (caster.HealthColor == Pigments.Purple) _enemyTransformation = Purple.GetRandom();
                 else if (caster.HealthColor == Pigments.Grey) _enemyTransformation = Grey.GetRandom();
                 else _enemyTransformation = Grey.GetRandom();
+
+                if (caster is EnemyCombat enemy)
+                {
+                    for (int i = 0; i < 100; i++)
+                    {
+                        if (_enemyTransformation != null && !_enemyTransformation.Equals(null) && enemy.Enemy._enemyName != _enemyTransformation._enemyName) break;
+                        if (caster.HealthColor == Pigments.Red) _enemyTransformation = Red.GetRandom();
+                        else if (caster.HealthColor == Pigments.Blue) _enemyTransformation = Blue.GetRandom();
+                        else if (caster.HealthColor == Pigments.Yellow) _enemyTransformation = Yellow.GetRandom();
+                        else if (caster.HealthColor == Pigments.Purple) _enemyTransformation = Purple.GetRandom();
+                        else if (caster.HealthColor == Pigments.Grey) _enemyTransformation = Grey.GetRandom();
+                        else _enemyTransformation = Grey.GetRandom();
+                    }
+                }
+
             }
             catch
             {
