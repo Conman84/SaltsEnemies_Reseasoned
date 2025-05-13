@@ -11,7 +11,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Enemy template = new Enemy("Wednesday", "Wednesday_EN")
+            Enemy wednesday = new Enemy("Wednesday", "Wednesday_EN")
             {
                 Health = 17,
                 HealthColor = Pigments.Purple,
@@ -22,7 +22,7 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = "event:/Hawthorne/Sund/PhoneDie",
                 AbilitySelector = AbilitySelector_Wednesday.Create("PickUp_A")
             };
-            template.PrepareEnemyPrefab("Assets/enem3/Phone_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Phone_Gibs.prefab").GetComponent<ParticleSystem>());
+            wednesday.PrepareEnemyPrefab("Assets/enem3/Phone_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Phone_Gibs.prefab").GetComponent<ParticleSystem>());
 
             //REPRESSION
             RepressionPassiveAbility repression = ScriptableObject.CreateInstance<RepressionPassiveAbility>();
@@ -63,7 +63,8 @@ namespace SaltsEnemies_Reseasoned
             };
             revenge._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged };
 
-            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Withering, repression, backlash, revenge });
+            wednesday.AddPassives(new BasePassiveAbilitySO[] { Passives.Withering, repression, backlash, revenge });
+            wednesday.CombatExitEffects = Effects.GenerateEffect(WednesdayEffect.Create(false)).SelfArray();
 
             Ability silentNight = new Ability("Silent Night", "SilentNight_A");
             silentNight.Description = "It's all quiet for now.";
@@ -82,12 +83,12 @@ namespace SaltsEnemies_Reseasoned
             pickup.AnimationTarget = Slots.Self;
 
             //ADD ENEMY
-            template.AddEnemyAbilities(new EnemyAbilityInfo[]
+            wednesday.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 silentNight.GenerateEnemyAbility(true),
                 pickup.GenerateEnemyAbility(true),
             });
-            template.AddEnemy(true, true);
+            wednesday.AddEnemy(true, true);
         }
     }
 }

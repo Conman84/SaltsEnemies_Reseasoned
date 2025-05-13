@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Text;
+using FMOD;
 using UnityEngine;
 
 namespace SaltsEnemies_Reseasoned
@@ -67,6 +67,92 @@ namespace SaltsEnemies_Reseasoned
             ret._lockedAbility = ability;
             ret._useAfterSelections = turns;
             return ret;
+        }
+    }
+    public class WednesdayEffect : EffectSO
+    {
+        public static int Amount = 0;
+        public static void Reset() => Amount = 0;
+        public bool Add = true;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            return Trigger(Add);
+        }
+
+        public static bool Trigger(bool Add)
+        {
+            bool GOING = Amount > 0;
+            if (Add) Amount++;
+            else Amount--;
+            if ((Amount > 0) == GOING) return Amount > 0;
+            if (Amount > 0)
+            {
+                if (changeMusic != null)
+                {
+                    try { changeMusic.Abort(); } catch { UnityEngine.Debug.LogWarning("wednesday thread failed to shut down."); }
+                }
+                changeMusic = new System.Threading.Thread(GO);
+                changeMusic.Start();
+            }
+            else
+            {
+                if (changeMusic != null)
+                {
+                    try { changeMusic.Abort(); } catch { UnityEngine.Debug.LogWarning("wednesday thread failed to shut down."); }
+                }
+                changeMusic = new System.Threading.Thread(STOP);
+                changeMusic.Start();
+            }
+            return Amount > 0;
+        }
+
+
+        public static System.Threading.Thread changeMusic;
+        public static void GO()
+        {
+            int start = 0;
+            if (CombatManager.Instance._stats.audioController.MusicCombatEvent.getParameterByName("Phone", out float num) == RESULT.OK) start = (int)num;
+            //UnityEngine.Debug.Log("going: " + start);
+            for (int i = start; i <= 100 && Amount > 0; i++)
+            {
+                CombatManager.Instance._stats.audioController.MusicCombatEvent.setParameterByName("Phone", i);
+                System.Threading.Thread.Sleep(20);
+                //if (i > 95) UnityEngine.Debug.Log("we;re getting there properly");
+            }
+            //UnityEngine.Debug.Log("done");
+        }
+        public static void STOP()
+        {
+            int start = 0;
+            if (CombatManager.Instance._stats.audioController.MusicCombatEvent.getParameterByName("Phone", out float num) == RESULT.OK) start = (int)num;
+            //UnityEngine.Debug.Log("going: " + start);
+            for (int i = start; i >= 0 && Amount <= 0; i--)
+            {
+                CombatManager.Instance._stats.audioController.MusicCombatEvent.setParameterByName("Phone", i);
+                System.Threading.Thread.Sleep(20);
+                //if (i < 5) UnityEngine.Debug.Log("we;re getting there properly");
+            }
+            //UnityEngine.Debug.Log("done");
+        }
+
+        public static WednesdayEffect Create(bool Add)
+        {
+            WednesdayEffect ret = ScriptableObject.CreateInstance<WednesdayEffect>();
+            ret.Add = Add;
+            return ret;
+        }
+    }
+    public class OnlyTriggerIfOnceCondition : EffectConditionSO
+    {
+        public static string Value => "TriggerOnlyOnceEffectConditionSO";
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            if (caster.SimpleGetStoredValue(Value) > 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

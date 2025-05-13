@@ -200,6 +200,7 @@ namespace SaltEnemies_Reseasoned
             ThreadCleaner.CleanThreads();
             ButterflyUnboxer.Boxeds.Clear();
             BlackHoleEffect.Reset();
+            WednesdayEffect.Reset();
             //WaterView.Reset();
             YNLHandler2.DoEffect();
         }
@@ -212,6 +213,7 @@ namespace SaltEnemies_Reseasoned
             Attacks.Clear();
             ButterflyUnboxer.Boxeds.Clear();
             BlackHoleEffect.Reset();
+            WednesdayEffect.Reset();
         }
 
         public static void Setup()
