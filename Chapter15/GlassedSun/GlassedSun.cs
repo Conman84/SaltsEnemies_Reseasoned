@@ -50,6 +50,7 @@ namespace SaltsEnemies_Reseasoned
 
 
             //SUN
+            GlassedSunHandler.Setup();
             PriorityPerformEffectPassiveAbility stain = ScriptableObject.CreateInstance<PriorityPerformEffectPassiveAbility>();
             stain._passiveName = "Stained";
             stain.m_PassiveID = "Stained_PA";

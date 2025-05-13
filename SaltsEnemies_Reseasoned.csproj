@@ -247,6 +247,10 @@
 	  <None Remove="Chapter14\YNL\LobotomyIcon.png" />
 	  <None Remove="Chapter14\YNL\LobotomyPortal.png" />
 	  <None Remove="Chapter14\YNL\LobotomyWorld.png" />
+	  <None Remove="Chapter15\GlassedSun\StainedPassive.png" />
+	  <None Remove="Chapter15\GlassedSun\SunDead.png" />
+	  <None Remove="Chapter15\GlassedSun\SunIcon.png" />
+	  <None Remove="Chapter15\GlassedSun\SunWorld.png" />
 	  <None Remove="Chapter15\GreyBot\CCTVPassive.png" />
 	  <None Remove="Chapter15\RBYPBots\Sprites\BlueBotDead.png" />
 	  <None Remove="Chapter15\RBYPBots\Sprites\BlueBotIcon.png" />
@@ -425,6 +429,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="Chapter15\GlassedSun\StainedPassive.png" />
+	  <EmbeddedResource Include="Chapter15\GlassedSun\SunDead.png" />
+	  <EmbeddedResource Include="Chapter15\GlassedSun\SunIcon.png" />
+	  <EmbeddedResource Include="Chapter15\GlassedSun\SunWorld.png" />
 	  <EmbeddedResource Include="Chapter17\EvilDog\NylonPassive.png" />
 	</ItemGroup>
 
