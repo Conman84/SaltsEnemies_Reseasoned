@@ -20,6 +20,14 @@ namespace SaltsEnemies_Reseasoned
             if (!LoadedAssetsHandler.LoadedEnemyBundles.Keys.Contains(name) && LoadedAssetsHandler.LoadEnemyBundle(name) == null) { if (DoDebugs.EnemyNull) Debug.LogWarning("Bundle: " + name + " is null"); return false; }
             return LoadedAssetsHandler.GetEnemyBundle(name) != null;
         }
+        public static bool MultiENExistInternal(string[] names)
+        {
+            foreach (string name in names)
+            {
+                if (!EnemyExist(name)) return false;
+            }
+            return true;
+        }
         public static class DoDebugs
         {
             public static bool All => false;
