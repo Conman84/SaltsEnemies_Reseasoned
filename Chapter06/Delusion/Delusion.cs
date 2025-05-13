@@ -8,6 +8,8 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
+            IllusionHandler.Setup();
+
             Enemy illusion = new Enemy("Delusion", "Delusion_EN")
             {
                 Health = 20,

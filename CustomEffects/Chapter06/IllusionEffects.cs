@@ -239,6 +239,7 @@ namespace SaltEnemies_Reseasoned
             {
                 if (_illusion == null)
                 {
+                    Setup();
                     IllusionStatePassiveAbility fake = ScriptableObject.CreateInstance<IllusionStatePassiveAbility>();
                     fake._passiveName = "Delirium";
                     fake.passiveIcon = ResourceLoader.LoadSprite("IllusionPassive.png");
@@ -247,6 +248,7 @@ namespace SaltEnemies_Reseasoned
                     fake.m_PassiveID = "Salt_Illusion_PA";
                     fake.doesPassiveTriggerInformationPanel = false;
                     fake._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
+                    fake.specialStoredData = UnitStoreData.GetCustom_UnitStoreData(State);
                     _illusion = fake;
                     AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("IllusionPassive.png"), "Delirium", fake._enemyDescription);
                 }
@@ -259,9 +261,11 @@ namespace SaltEnemies_Reseasoned
         {
             if (set) return; set = true;
             UnitStoreData_IllusionStateSO value_count = ScriptableObject.CreateInstance<UnitStoreData_IllusionStateSO>();
+            value_count._UnitStoreDataID = State;
             if (LoadedDBsHandler.MiscDB.m_UnitStoreDataPool.ContainsKey(State))
                 LoadedDBsHandler.MiscDB.m_UnitStoreDataPool[State] = value_count;
             else
+                //UnitStoreData.AddCustom_Any_UnitStoreDataToPool(value_count, State);
                 LoadedDBsHandler.MiscDB.AddNewUnitStoreData(value_count._UnitStoreDataID, value_count);
         }
         static Ability _drain;
