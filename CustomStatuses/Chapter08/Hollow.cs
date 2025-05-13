@@ -50,13 +50,15 @@ namespace SaltEnemies_Reseasoned
                 CombatManager.Instance.AddRootAction(new HollowAction());
             }
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.CanTurnShowInTimeline.ToString(), caller);
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, TriggerCalls.OnRoundFinished.ToString(), caller);
+            CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, StarlessPassiveAbility.Call.ToString(), caller);
         }
 
         public override void OnTriggerDettached(StatusEffect_Holder holder, IStatusEffector caller)
         {
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.CanTurnShowInTimeline.ToString(), caller);
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, TriggerCalls.OnRoundFinished.ToString(), caller);
+            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, StarlessPassiveAbility.Call.ToString(), caller);
+            (caller as IUnit).SimpleSetStoredValue(SkipTick, 0);
+            return;
             if (!caller.IsStatusEffectorCharacter & !Loading)
             {
                 Loading = true;

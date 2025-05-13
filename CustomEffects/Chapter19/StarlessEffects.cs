@@ -152,8 +152,11 @@ namespace SaltEnemies_Reseasoned
                 foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values) CombatManager.Instance.PostNotification(Call.ToString(), enemy, new TurnFinishedReference(false));
             }
         }
+        static bool Set;
         public static void Setup()
         {
+            if (Set) return;
+            Set = true;
             NotificationHook.AddAction(NotifCheck);
         }
     }

@@ -57,6 +57,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(FallColor.Setup);
             PCall(GibsFix.Setup);
             PCall(ShuaHandler.Setup);
+            StarlessPassiveAbility.Setup();
             //PCall(ShieldPiercer.Setup);
             #endregion
 
