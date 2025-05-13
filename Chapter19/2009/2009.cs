@@ -38,6 +38,7 @@ namespace SaltsEnemies_Reseasoned
             rotary.conditions = Passives.Slippery.conditions;
 
             spinner.AddPassives(new BasePassiveAbilitySO[] { rotary });
+            spinner.CombatExitEffects = Effects.GenerateEffect(SetMusicParameterByStringIfCasterValueEffect._Create("2009"), -1).SelfArray();
 
             Ability breaker = new Ability("Breakdown", "Breakdown_A");
             breaker.Description = "Inflict 2 Frail on the Opposing party member then give this enemy another action.\nDeal a Little damage to this enemy.";

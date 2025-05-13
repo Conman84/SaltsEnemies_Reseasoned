@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -47,6 +48,12 @@ namespace SaltsEnemies_Reseasoned
             exitAmount = 0;
             if (caster.SimpleGetStoredValue(TriggerOnlyOnceEffectCondition.Value) <= 0) return false;
             return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+        }
+        public static SetMusicParameterByStringIfCasterValueEffect _Create(string parameter)
+        {
+            SetMusicParameterByStringIfCasterValueEffect ret = ScriptableObject.CreateInstance<SetMusicParameterByStringIfCasterValueEffect>();
+            ret.Parameter = parameter;
+            return ret;
         }
     }
 }
