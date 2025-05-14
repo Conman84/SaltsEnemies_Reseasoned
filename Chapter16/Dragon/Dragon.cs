@@ -230,7 +230,7 @@ namespace SaltsEnemies_Reseasoned
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 1, Slots.Front)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 3, Slots.Front)
                 },
                 Visuals = LoadedAssetsHandler.GetCharacterAbility("Oil_1_A").visuals,
                 AnimationTarget = Slots.Front,
