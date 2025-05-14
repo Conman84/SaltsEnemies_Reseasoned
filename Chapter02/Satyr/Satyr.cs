@@ -130,7 +130,7 @@ namespace SaltsEnemies_Reseasoned
             SatyrAnimationVisualsEffect bitterAnim = ScriptableObject.CreateInstance<SatyrAnimationVisualsEffect>();
             bitterAnim._visuals = LoadedAssetsHandler.GetEnemy("TriggerFingers_BOSS").abilities[3].ability.visuals;
             bitterAnim._visuals2 = LoadedAssetsHandler.GetEnemyAbility("Crush_A").visuals;
-            bitterAnim._animationTarget = Targeting.Slot_SelfSlot;
+            bitterAnim._animationTarget = Targeting.Slot_Front;
 
             Ability bitter = new Ability("Bitter Flavour", "Salt_BitterFlavour_A");
             if (UnityEngine.Random.Range(0, 100) < 50) { bitter.Name = "Bitter Flavor"; }
