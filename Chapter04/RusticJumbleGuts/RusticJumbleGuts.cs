@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         public static void Add()
         {
             //Enemy Code
-            Enemy RusticJumbleGuts = new Enemy("Rustic Jumbleguts", "RusticJumbleguts_EN")
+            Enemy RusticJumbleGuts = new Enemy("Rustic Jumble Guts", "RusticJumbleguts_EN")
             {
                 Health = 6,
                 HealthColor = Pigments.Grey,
