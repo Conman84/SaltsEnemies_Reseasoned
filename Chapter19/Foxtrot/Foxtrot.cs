@@ -69,6 +69,7 @@ namespace SaltsEnemies_Reseasoned
             pokey.AnimationTarget = Slots.Front;
 
             //root
+            //can only be used when has "marching" passive
             Ability root = new Ability("Take Root", "TakeRoot_A");
             root.Description = "Remove \"Marching\" as a passive from this enemy.\nApply 6 Power to this enemy.";
             root.Rarity = Rarity.CreateAndAddCustomRarityToPool("fox_low", 5);
@@ -85,6 +86,7 @@ namespace SaltsEnemies_Reseasoned
             root.AnimationTarget = Slots.Self;
 
             //explode
+            //can only be used when does not have "marching" passive
             Ability bomb = new Ability("Blow Up", "BlowUp_A");
             bomb.Description = "Deal almost no damage to the Left, Right, and Opposing party members.\nInstantly kill this enemy.";
             bomb.Rarity = Rarity.CreateAndAddCustomRarityToPool("fox_high", 25);
