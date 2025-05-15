@@ -4,6 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
+//damocles moveset
+
+//Dangle: 2-3 frail & 4-6 scars self
+//Pasts: 2 damage to all enemies at full health
+//Futures: 5 delayed attack damage. move L/R
+//Fall: the gimmick.
+
+//resprite passive
+//new design: make it something like the old starless design with the moon cradle and the hands and whatnot
+
+
+
 namespace SaltEnemies_Reseasoned
 {
     public static class PastHandler
