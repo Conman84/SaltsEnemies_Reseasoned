@@ -12,6 +12,8 @@ using System.Text;
 //Futures: 5 delayed attack damage. move L/R
 //Fall: the gimmick.
 
+//formless, withering, string snaps, decay (2x self)
+
 //resprite passive
 //new design: make it something like the old starless design with the moon cradle and the hands and whatnot
 
