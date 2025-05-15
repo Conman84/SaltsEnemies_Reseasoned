@@ -1046,6 +1046,31 @@ namespace SaltEnemies_Reseasoned
             return ret.ToArray();
         }
     }
+    public class Targetting_ByUnit_Side_FullHealth : Targetting_ByUnit_Side
+    {
+        public override bool AreTargetAllies => getAllies;
+
+        public override bool AreTargetSlots => getAllUnitSlots;
+
+        public override TargetSlotInfo[] GetTargets(SlotsCombat slots, int casterSlotID, bool isCasterCharacter)
+        {
+            List<TargetSlotInfo> ret = new List<TargetSlotInfo>();
+            TargetSlotInfo[] source = base.GetTargets(slots, casterSlotID, isCasterCharacter);
+            foreach (TargetSlotInfo target in source)
+            {
+                if (target.HasUnit && target.Unit.CurrentHealth >= target.Unit.MaximumHealth) ret.Add(target);
+            }
+            return ret.ToArray();
+        }
+
+        public static Targetting_ByUnit_Side_FullHealth Create(bool allies)
+        {
+            Targetting_ByUnit_Side_FullHealth ret = ScriptableObject.CreateInstance<Targetting_ByUnit_Side_FullHealth>();
+            ret.getAllies = allies;
+            ret.getAllUnitSlots = false;
+            return ret;
+        }
+    }
 
     public class DoubleTargetting : BaseCombatTargettingSO
     {
