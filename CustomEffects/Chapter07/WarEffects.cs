@@ -67,7 +67,7 @@ namespace SaltEnemies_Reseasoned
             EnemySO enemy = (caster as EnemyCombat).Enemy;
             for (int i = 0; i < entryVariable; i++)
             {
-                CombatManager.Instance.AddSubAction(new SpawnEnemyAction(enemy, caster.SlotID, givesExperience, trySpawnAnyways: false, _spawnType));
+                CombatManager.Instance.AddSubAction(new SpawnEnemyAction(enemy, caster.SlotID, givesExperience, trySpawnAnyways: true, _spawnType));
             }
 
             exitAmount = entryVariable;

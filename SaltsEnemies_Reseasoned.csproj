@@ -56,6 +56,10 @@
 	  <None Remove="Chapter10\Skyloft\SkyloftIcon.png" />
 	  <None Remove="Chapter10\Skyloft\SkyloftPortal.png" />
 	  <None Remove="Chapter10\Skyloft\SkyloftWorld.png" />
+	  <None Remove="Chapter11\Damocles\DamoclesDead.png" />
+	  <None Remove="Chapter11\Damocles\DamoclesIcon.png" />
+	  <None Remove="Chapter11\Damocles\DamoclesPassive.png" />
+	  <None Remove="Chapter11\Damocles\DamoclesWorld.png" />
 	  <None Remove="Chapter11\GlassFigurine\DisorientingPassive.png" />
 	  <None Remove="Chapter11\GlassFigurine\GlassDead.png" />
 	  <None Remove="Chapter11\GlassFigurine\GlassIcon.png" />
@@ -429,6 +433,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="Chapter11\Damocles\DamoclesDead.png" />
+	  <EmbeddedResource Include="Chapter11\Damocles\DamoclesIcon.png" />
+	  <EmbeddedResource Include="Chapter11\Damocles\DamoclesPassive.png" />
+	  <EmbeddedResource Include="Chapter11\Damocles\DamoclesWorld.png" />
 	  <EmbeddedResource Include="Chapter15\GlassedSun\StainedPassive.png" />
 	  <EmbeddedResource Include="Chapter15\GlassedSun\SunDead.png" />
 	  <EmbeddedResource Include="Chapter15\GlassedSun\SunIcon.png" />
