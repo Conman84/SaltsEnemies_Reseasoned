@@ -171,6 +171,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(Tripod.Add);
                 PCall(Rabies.Add);
                 PCall(Nameless.Add);
+                PCall(Damocles.Add);
 
                 //CH12 Enemies
                 PCall(Warbird.Add);

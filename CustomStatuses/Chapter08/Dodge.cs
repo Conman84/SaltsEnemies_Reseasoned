@@ -83,8 +83,12 @@ namespace SaltEnemies_Reseasoned
             }
             return orig(self, stats, caster, possibleTargets, areTargetSlots, previousExitValue);
         }
+
+        static bool Set;
         public static void Setup()
         {
+            if (Set) return;
+            Set = true;
             IDetour dodgeHook = new Hook(typeof(EffectInfo).GetMethod(nameof(EffectInfo.StartEffect), ~BindingFlags.Default), typeof(DodgeHandler).GetMethod(nameof(StartEffect), ~BindingFlags.Default));
         }
     }

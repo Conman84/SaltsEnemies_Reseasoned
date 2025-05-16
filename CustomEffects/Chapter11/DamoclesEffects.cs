@@ -11,7 +11,7 @@ namespace SaltEnemies_Reseasoned
             if (UnityEngine.Random.Range(0, 100) > 50) return false;
             if (args is IntegerReference skinteger && skinteger.value > 0 && effector is IUnit unit)
             {
-                CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(effector.ID, effector.IsUnitCharacter, "The String Snaps", ResourceLoader.LoadSprite("snapstring.png")));
+                CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(effector.ID, effector.IsUnitCharacter, "Closure", ResourceLoader.LoadSprite("DamoclesPassive.png")));
                 unit.DirectDeath(null);
                 CombatManager.Instance.AddUIAction(new PlayAbilityAnimationAction(LoadedAssetsHandler.GetEnemyAbility("Domination_A").visuals, Slots.Front, unit));
                 TargetSlotInfo[] targets = Slots.Front.GetTargets(CombatManager.Instance._stats.combatSlots, unit.SlotID, unit.IsUnitCharacter);

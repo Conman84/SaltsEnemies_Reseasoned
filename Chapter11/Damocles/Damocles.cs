@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("DamoclesIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("DamoclesWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("DamoclesDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Sound/StarlessHit",
+                DeathSound = "event:/Hawthorne/Sound/StarlessDie",
             };
             sword.PrepareEnemyPrefab("assets/group4/Damocles/Damocles_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Damocles/Damocles_Gibs.prefab").GetComponent<ParticleSystem>());
             sword.enemy.enemyTemplate.m_Data.m_Renderer = sword.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Moon").GetComponent<SpriteRenderer>();
@@ -28,7 +28,7 @@ namespace SaltsEnemies_Reseasoned
             //FALL
             PerformEffectPassiveAbility damocles = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             damocles._passiveName = "Closure";
-            damocles.passiveIcon = ResourceLoader.LoadSprite("DamoclesPasive.png");
+            damocles.passiveIcon = ResourceLoader.LoadSprite("DamoclesPassive.png");
             damocles.m_PassiveID = "Closure_PA";
             damocles._enemyDescription = "On taking any amount of damage, there is a 50% chance that this enemy instantly dies then deals the amount of damage taken to the Opposing party member.";
             damocles._characterDescription = "On taking any amount of damage, there is a 50% chance that this party member instantly dies then deals the amount of damage taken to the Opposing enemy.";
@@ -61,12 +61,60 @@ namespace SaltsEnemies_Reseasoned
 
             sword.AddPassives(new BasePassiveAbilitySO[] { Passives.Formless, damocles, Passives.Withering, decay });
 
-            Ability test = new Ability("Test_A");
+            //fall
+            Ability fall = new Ability("Fall", "Fall_A");
+            fall.Description = "Deal 0-20 damage to this enemy.";
+            fall.Rarity = Rarity.CreateAndAddCustomRarityToPool("damocles3", 3);
+            fall.Effects = new EffectInfo[2];
+            fall.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ExtraVariableForNextEffect>(), 0);
+            fall.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomDamageBetweenPreviousAndEntryEffect>(), 20, Targeting.Slot_SelfSlot);
+            fall.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), [FallColor.Intent, IntentType_GameIDs.Damage_1_2.ToString(), IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Damage_11_15.ToString(), IntentType_GameIDs.Damage_16_20.ToString()]);
+            fall.Visuals = null;
+            fall.AnimationTarget = Slots.Self;
+
+            //dangle
+            Ability dangle = new Ability("Dangle", "Dangle_A");
+            dangle.Description = "Inflict 2-3 Frail and 4-6 Scars on this enemy.";
+            dangle.Rarity = Rarity.GetCustomRarity("rarity5");
+            dangle.Effects = new EffectInfo[5];
+            dangle.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 2, Slots.Self);
+            dangle.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 1, Slots.Self, Effects.ChanceCondition(50));
+            dangle.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 4, Slots.Self);
+            dangle.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Slots.Self, Effects.ChanceCondition(50));
+            dangle.Effects[4] = dangle.Effects[3];
+            dangle.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Status_Frail.ToString(), IntentType_GameIDs.Status_Scars.ToString()]);
+            dangle.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
+            dangle.AnimationTarget = Targeting.Slot_SelfAll;
+
+            //pasts
+            Ability pasts = new Ability("Pasts", "Pasts_A");
+            pasts.Description = "Deal a Little damage to all enemies at full health.";
+            pasts.Rarity = Rarity.GetCustomRarity("damocles3");
+            pasts.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Targetting_ByUnit_Side_FullHealth.Create(true)).SelfArray();
+            pasts.AddIntentsToTarget(Targetting_ByUnit_Side_FullHealth.Create(true), [IntentType_GameIDs.Damage_1_2.ToString()]);
+            pasts.AddIntentsToTarget(Targetting.AllAlly, [IntentType_GameIDs.Misc_Hidden.ToString()]);
+            pasts.Visuals = LoadedAssetsHandler.GetEnemyAbility("UglyOnTheInside_A").visuals;
+            pasts.AnimationTarget = Targetting_ByUnit_Side_FullHealth.Create(true);
+
+            //future
+            Ability futures = new Ability("Futures", "Futures_A");
+            futures.Description = "At the start of the next turn, deal a Painful amount of damage to this enemy's current Opposing position.\nMove to the Left or Right.";
+            futures.Rarity = Rarity.GetCustomRarity("rarity5");
+            futures.Effects = new EffectInfo[2];
+            futures.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 5, Slots.Front);
+            futures.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
+            futures.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_3_6.ToString(), "Damage_Delay"]);
+            futures.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Sides.ToString()]);
+            futures.AnimationTarget = Slots.Front;
+            futures.Visuals = LoadedAssetsHandler.GetEnemyAbility("UglyOnTheInside_A").visuals;
 
             //ADD ENEMY
             sword.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                test.GenerateEnemyAbility(true),
+                pasts.GenerateEnemyAbility(true),
+                dangle.GenerateEnemyAbility(true),
+                futures.GenerateEnemyAbility(true),
+                fall.GenerateEnemyAbility(true)
             });
             sword.AddEnemy(true, true);
         }
