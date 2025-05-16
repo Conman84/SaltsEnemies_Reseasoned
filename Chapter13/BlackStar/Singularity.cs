@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -22,6 +23,8 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = LoadedAssetsHandler.GetEnemy("TaintedYolk_EN").deathSound,
             };
             blackhole.PrepareEnemyPrefab("assets/group4/Singularity/Singularity_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Singularity/Singularity_Gibs.prefab").GetComponent<ParticleSystem>());
+            blackhole.enemy.enemyTemplate.m_Data.m_Renderer = blackhole.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").GetComponent<SpriteRenderer>();
+
 
             //jumpy
             PerformEffectPassiveAbility jumpy = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
