@@ -68,7 +68,7 @@ namespace SaltsEnemies_Reseasoned
             fall.Effects = new EffectInfo[2];
             fall.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ExtraVariableForNextEffect>(), 0);
             fall.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomDamageBetweenPreviousAndEntryEffect>(), 20, Targeting.Slot_SelfSlot);
-            fall.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), [FallColor.Intent, IntentType_GameIDs.Damage_1_2.ToString(), IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Damage_11_15.ToString(), IntentType_GameIDs.Damage_16_20.ToString()]);
+            fall.AddIntentsToTarget(Slots.Self, [FallColor.Intent, IntentType_GameIDs.Damage_1_2.ToString(), IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Damage_11_15.ToString(), IntentType_GameIDs.Damage_16_20.ToString()]);
             fall.Visuals = null;
             fall.AnimationTarget = Slots.Self;
 
