@@ -53,10 +53,13 @@ namespace SaltsEnemies_Reseasoned
                 detectWither
             };
             DelayRespawnEffect spawn = ScriptableObject.CreateInstance<DelayRespawnEffect>();
+            SpawnEnemyInSlotFromEntryStringNameEffect newD = ScriptableObject.CreateInstance<SpawnEnemyInSlotFromEntryStringNameEffect>();
+            newD.en = "Damocles_EN";
+            SpawnSelfEnemyAnywhereEffect copy = ScriptableObject.CreateInstance<SpawnSelfEnemyAnywhereEffect>();
             decay.effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(spawn, 1, Targeting.Slot_SelfSlot),
-                Effects.GenerateEffect(spawn, 1, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(newD, 0, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(copy, 1, Targeting.Slot_SelfSlot),
             };
 
             sword.AddPassives(new BasePassiveAbilitySO[] { Passives.Formless, damocles, Passives.Withering, decay });
