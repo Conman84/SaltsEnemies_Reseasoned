@@ -56,7 +56,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<StarlessPassiveEffect>()),
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/StarBomb", false, Targeting.GenerateSlotTarget(new int[]{-4, -3, -2, -1, 0, 1, 2, 3, 4}, false))),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 9, Targeting.GenerateSlotTarget(new int[]{4, 3, 2, 1, 0, -1, -2, -3, -4}, false)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Targeting.GenerateSlotTarget(new int[]{4, 3, 2, 1, 0, -1, -2, -3, -4}, false)),
                 Effects.GenerateEffect(eyeless),
                 //Effects.GenerateEffect(ScriptableObject.CreateInstance<FixCasterTimelineIntentsEffect>())
             };

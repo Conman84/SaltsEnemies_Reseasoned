@@ -59,6 +59,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(ShuaHandler.Setup);
             StarlessPassiveAbility.Setup();
             TurnStarter.Setup();
+            GlassedSunHandler.Setup();
             //PCall(ShieldPiercer.Setup);
             #endregion
 

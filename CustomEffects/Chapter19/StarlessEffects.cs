@@ -147,7 +147,7 @@ namespace SaltEnemies_Reseasoned
         }
         public static void NotifCheck(string call, object sender, object args)
         {
-            if (call == TriggerCalls.TimelineEndReached.ToString())
+            if (call == TriggerCalls.TimelineEndReached.ToString() && sender == null)
             {
                 foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values) CombatManager.Instance.PostNotification(Call.ToString(), enemy, new TurnFinishedReference(false));
             }
