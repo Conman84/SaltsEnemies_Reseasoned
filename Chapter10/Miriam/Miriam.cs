@@ -24,6 +24,8 @@ namespace SaltsEnemies_Reseasoned
             miriam.PrepareEnemyPrefab("assets/group4/Miriam/Miriam_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Miriam/Miriam_Gibs.prefab").GetComponent<ParticleSystem>());
 
             miriam.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, Passives.MultiAttack2, Passives.Formless });
+            miriam.AddLootData(new EnemyLootItemProbability[] { new EnemyLootItemProbability() { isItemTreasure = true, amount = 3, probability = 100 } });
+
 
             Intents.CreateAndAddCustom_Damage_IntentToPool("Damage_Delay", ResourceLoader.LoadSprite("DelayedAttackIcon.png"), (Intents.GetInGame_IntentInfo(IntentType_GameIDs.Damage_11_15) as IntentInfoDamage).GetColor(true),
                 ResourceLoader.LoadSprite("DelayedAttackIcon.png"), (Intents.GetInGame_IntentInfo(IntentType_GameIDs.Damage_11_15) as IntentInfoDamage).GetColor(false));
