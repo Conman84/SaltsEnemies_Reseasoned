@@ -60,6 +60,7 @@ namespace SaltsEnemies_Reseasoned
             blackhole.CombatEnterEffects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsPlayerTurnEffectCondition>()),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ArmorEffect>(), 1, Targetting.AllSelfSlots),
                 Effects.GenerateEffect(add)
             };
             blackhole.CombatExitEffects = Effects.GenerateEffect(minu).SelfArray();
