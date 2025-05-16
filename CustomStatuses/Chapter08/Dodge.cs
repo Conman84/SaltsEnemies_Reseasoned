@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 //call Dodge.Add() in awake
 
@@ -63,17 +64,23 @@ namespace SaltEnemies_Reseasoned
             if (areTargetSlots && !allSlotsSelected)
             {
                 bool redoTarget = false;
+                List<IUnit> swaps = new List<IUnit>();
                 foreach (TargetSlotInfo target in possibleTargets)
                 {
                     if (target.HasUnit && target.Unit.ContainsStatusEffect(Dodge.StatusID))
                     {
                         if (target.Unit.IsUnitCharacter != caster.IsUnitCharacter)
                         {
-                            CombatManager.Instance.PostNotification(Dodge.Call.ToString(), target.Unit, null);
-                            SwapUnitToSides(target, target.Unit);
+                            if (!swaps.Contains(target.Unit)) swaps.Add(target.Unit);
                             redoTarget = true;
                         }
                     }
+                }
+                foreach (IUnit unit in swaps)
+                {
+                    CombatManager.Instance.PostNotification(Dodge.Call.ToString(), unit, null);
+                    if (unit.SlotID < 0 || unit.SlotID >= 5) continue;
+                    SwapUnitToSides(Slots.Self.GetTargets(CombatManager.Instance._stats.combatSlots, unit.SlotID, unit.IsUnitCharacter)[0], unit);
                 }
                 if (redoTarget)
                 {
