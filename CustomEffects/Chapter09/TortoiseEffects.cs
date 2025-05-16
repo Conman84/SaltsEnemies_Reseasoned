@@ -59,10 +59,13 @@ namespace SaltEnemies_Reseasoned
             if (character) g = stats.combatSlots.GetCharacterTargetSlot(SlotID, 0);
             if (g.HasUnit && g.Unit.ContainsPassiveAbility(ArmorManager.Armor))
             {
+                int amount = 6;
+                if (g.Unit is EnemyCombat enemy && enemy.TryGetPassiveAbility(ArmorManager.Armor, out BasePassiveAbilitySO passive) && passive is HeavilyArmoredPassive armor) amount = armor.Amount;
+                else if (g.Unit is CharacterCombat chara && chara.TryGetPassiveAbility(ArmorManager.Armor, out BasePassiveAbilitySO passi) && passi is HeavilyArmoredPassive armor2) amount = armor2.Amount;
                 if (!stats.combatSlots.UnitInSlotContainsFieldEffect(SlotID, character, StatusField_GameIDs.Shield_ID.ToString()))
                 {
-                    CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(UnitID, character, "Heavily Armored (10)", ResourceLoader.LoadSprite("heavily_armored.png")));
-                    stats.combatSlots.ApplyFieldEffect(SlotID, character, StatusField.Shield, 10);
+                    CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(UnitID, character, "Heavily Armored (" + amount.ToString() + ")", ResourceLoader.LoadSprite("heavily_armored.png")));
+                    stats.combatSlots.ApplyFieldEffect(SlotID, character, StatusField.Shield, amount);
                 }
             }
             yield return null;
@@ -180,5 +183,9 @@ namespace SaltEnemies_Reseasoned
             ret.includeRestrictor = includeRestrictor;
             return ret;
         }
+    }
+    public class HeavilyArmoredPassive : PerformEffectPassiveAbility
+    {
+        public int Amount;
     }
 }

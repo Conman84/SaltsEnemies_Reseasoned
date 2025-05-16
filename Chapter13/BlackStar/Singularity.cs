@@ -37,9 +37,21 @@ namespace SaltsEnemies_Reseasoned
             };
             jumpy._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged, TriggerCalls.OnAbilityUsed };
 
+            //armor
+            HeavilyArmoredPassive armor = ScriptableObject.CreateInstance<HeavilyArmoredPassive>();
+            armor._passiveName = "Heavily Armored (4)";
+            armor.passiveIcon = ResourceLoader.LoadSprite("heavily_armored");
+            armor._enemyDescription = "If any of this enemy's positions have no Shield, apply 4 Shield there.";
+            armor._characterDescription = "If this party member's position has no Shield, apply 4 Shield there.";
+            armor.m_PassiveID = ArmorManager.Armor;
+            armor.doesPassiveTriggerInformationPanel = false;
+            armor._triggerOn = new TriggerCalls[] { TriggerCalls.OnMoved };
+            armor.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ArmorEffect>(), 1, Targetting.AllSelfSlots).SelfArray();
+            armor.Amount = 4;
+
             //addpassives
-            blackhole.AddPassives(new BasePassiveAbilitySO[] { jumpy, Passives.Unstable, Passives.Constricting });
-            blackhole.AddLootData(new EnemyLootItemProbability[] { new EnemyLootItemProbability() { isItemTreasure = false, amount = 2, probability = 100 } });
+            blackhole.AddPassives(new BasePassiveAbilitySO[] { jumpy, Passives.Unstable, Passives.Constricting, armor });
+            blackhole.AddLootData(new EnemyLootItemProbability[] { new EnemyLootItemProbability() { isItemTreasure = false, amount = 3, probability = 100 } });
 
             BlackHoleEffect add = ScriptableObject.CreateInstance<BlackHoleEffect>();
             add.Add = true;

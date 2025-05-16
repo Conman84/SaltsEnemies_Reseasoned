@@ -26,7 +26,7 @@ namespace SaltsEnemies_Reseasoned
 
             //armmor
             ArmorManager.Setup();
-            PerformEffectPassiveAbility armor = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            HeavilyArmoredPassive armor = ScriptableObject.CreateInstance<HeavilyArmoredPassive>();
             armor._passiveName = "Heavily Armored (10)";
             armor.passiveIcon = ResourceLoader.LoadSprite("heavily_armored");
             armor._enemyDescription = "If any of this enemy's positions have no Shield, apply 10 Shield there.";
@@ -35,6 +35,7 @@ namespace SaltsEnemies_Reseasoned
             armor.doesPassiveTriggerInformationPanel = false;
             armor._triggerOn = new TriggerCalls[] { TriggerCalls.OnMoved };
             armor.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ArmorEffect>(), 1, Targetting.AllSelfSlots).SelfArray();
+            armor.Amount = 10;
 
             //painless
             PainCondition.Setup();
