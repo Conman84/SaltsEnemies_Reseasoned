@@ -1101,11 +1101,18 @@ namespace SaltEnemies_Reseasoned
     }
     public class EmptyTargetting : BaseCombatTargettingSO
     {
+        public bool GetAllies;
         public override bool AreTargetSlots => false;
-        public override bool AreTargetAllies => false;
+        public override bool AreTargetAllies => GetAllies;
         public override TargetSlotInfo[] GetTargets(SlotsCombat slots, int casterSlotID, bool isCasterCharacter)
         {
             return new TargetSlotInfo[0];
+        }
+        public static EmptyTargetting Create(bool allies)
+        {
+            EmptyTargetting ret = ScriptableObject.CreateInstance<EmptyTargetting>();
+            ret.GetAllies = allies;
+            return ret;
         }
     }
 }

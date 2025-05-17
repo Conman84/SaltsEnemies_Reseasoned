@@ -68,7 +68,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 "Misc",
             });
-            sweet.AddIntentsToTarget(ScriptableObject.CreateInstance<EmptyTargetting>(), IntentType_GameIDs.Other_MaxHealth.ToString().SelfArray());
+            sweet.AddIntentsToTarget(EmptyTargetting.Create(true), IntentType_GameIDs.Other_MaxHealth.ToString().SelfArray());
             sweet.AddIntentsToTarget(Slots.Self, "Damage_21".SelfArray());
 
             //Savory
@@ -99,7 +99,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 "Misc",
             });
-            savory.AddIntentsToTarget(ScriptableObject.CreateInstance<EmptyTargetting>(), new string[] { IntentType_GameIDs.Status_DivineProtection.ToString(), IntentType_GameIDs.Damage_21.ToString() });
+            savory.AddIntentsToTarget(EmptyTargetting.Create(true), new string[] { IntentType_GameIDs.Status_DivineProtection.ToString(), IntentType_GameIDs.Damage_21.ToString() });
 
             //Sour
             IncreaseStatusEffectsEffect increaseAllStatus = ScriptableObject.CreateInstance<IncreaseStatusEffectsEffect>();
