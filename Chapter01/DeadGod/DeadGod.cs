@@ -248,7 +248,7 @@ namespace SaltsEnemies_Reseasoned
                 world.GenerateEnemyAbility(true),
                 blind.GenerateEnemyAbility(true),
             });
-            DeadGod.AddEnemy(true, true, false);
+            DeadGod.AddEnemy(true);
         }
     }
 }
