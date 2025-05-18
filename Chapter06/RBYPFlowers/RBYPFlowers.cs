@@ -189,19 +189,19 @@ namespace SaltsEnemies_Reseasoned
             allEnemy.getAllUnitSlots = false;
             Ability smileu = new Ability("Smile for You", "Smile4U_A")
             {
-                Description = "Apply Spotlight on the Opposing party member. Apply 1 Stunned to a random party member. \nApply 1 Photosynthesis to this enemy.",
+                Description = "Apply Spotlight on the Opposing party member. Apply 1 Muted to a random party member. \nApply 1 Photosynthesis to this enemy.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySpotlightEffect>(), 1, Targeting.Slot_Front),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyStunnedEffect>(), 1, randoEnemy),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 1, randoEnemy),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPhotoSynthesisEffect>(), 1, Targeting.Slot_SelfSlot)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Smile"),
                 AnimationTarget = Targeting.Slot_Front
             };
             smileu.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Status_Spotlight.ToString() });
-            smileu.AddIntentsToTarget(allEnemy, new string[] { IntentType_GameIDs.Status_Stunned.ToString() });
+            smileu.AddIntentsToTarget(allEnemy, new string[] { Muted.Intent });
             smileu.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { Photo.Intent });
 
             //YELLOW ADD
