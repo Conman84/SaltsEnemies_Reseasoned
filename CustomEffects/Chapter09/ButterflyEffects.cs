@@ -606,6 +606,8 @@ namespace SaltEnemies_Reseasoned
         }
         public static void NotifCheck(string notificationName, object sender, object args)
         {
+            if (Enemy == null) Enemy = new List<int>();
+            if (Chara == null) Chara = new List<int>();
             if (notificationName == TriggerCalls.OnMoved.ToString() && sender is IUnit unit)
             {
                 if (unit.IsUnitCharacter) Chara.Add(unit.SlotID);
