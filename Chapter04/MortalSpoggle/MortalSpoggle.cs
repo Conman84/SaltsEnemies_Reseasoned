@@ -25,7 +25,7 @@ namespace SaltsEnemies_Reseasoned
             //Enemy Code
             Enemy MortalSpoggle = new Enemy("Mortal Spoggle", "MortalSpoggle_EN")
             {
-                Health = 38,
+                Health = 32,
                 HealthColor = Pigments.Grey,
                 Priority = BrutalAPI.Priority.GetCustomPriority("priority0"),
                 CombatSprite = ResourceLoader.LoadSprite("GSpogIconB.png"),
