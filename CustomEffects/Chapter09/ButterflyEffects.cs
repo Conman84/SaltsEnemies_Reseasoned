@@ -560,14 +560,6 @@ namespace SaltEnemies_Reseasoned
                             self._tooltip.DelayShow(content, header, extraContent);
                             return;
                         }
-                        if (abilityBySlotID.name == "Flowers_Photosynthesize_A")
-                        {
-                            StringPairData abilityLocData = abilityBySlotID.GetAbilityLocData();
-                            header = abilityLocData.text;
-                            content = "Consume all Pigment of this enemy's health color and apply double the amount of Pigment consumed as Roots, distributed among all occupied party member positions. \nApply 1 Photosynthesis to this enemy.";
-                            self._tooltip.DelayShow(content, header, "");
-                            return;
-                        }
                     }
                 }
             }

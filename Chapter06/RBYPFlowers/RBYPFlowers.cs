@@ -63,7 +63,7 @@ namespace SaltsEnemies_Reseasoned
             prevExit.usePreviousExitValue = true;
             Ability photosynthesize = new Ability("Photosynthesize", "Flowers_Photosynthesize_A")
             {
-                Description = "Consume all Pigment of this enemy's health color and apply double the amount of Pigment consumed as Roots, distributed among all occupied party member positions. \nApply 1 Photosynthesis to this enemy. \nThis ability cannot be selected if there is no Pigment of this enemy's health color in the tray, and must be selected if there is over 5 Pigment of the health color.",
+                Description = "Consume all Pigment of this enemy's health color and apply double the amount of Pigment consumed as Roots, distributed among all occupied party member positions. \nApply 1 Photosynthesis to this enemy.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
