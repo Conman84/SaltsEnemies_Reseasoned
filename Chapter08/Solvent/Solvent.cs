@@ -154,7 +154,7 @@ namespace SaltsEnemies_Reseasoned
                 camo.GenerateEnemyAbility(true),
                 runaway.GenerateEnemyAbility(true)
             });
-            solvent.AddEnemy(true, true);
+            solvent.AddEnemy(true);
 
             PassivesToCamera();
         }
