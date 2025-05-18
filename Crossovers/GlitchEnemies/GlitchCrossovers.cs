@@ -61,7 +61,7 @@ namespace SaltsEnemies_Reseasoned
         {
             AddTo easy = new AddTo("SwineEasy");
             easy.AddRandomGroup("UnculturedSwine_EN", "UnculturedSwine_EN", "LostSheep_EN");
-            easy.AddRandomGroup("UnculturedSwine_EN", "MudLung_EN", "LostSheep");
+            easy.AddRandomGroup("UnculturedSwine_EN", "MudLung_EN", "LostSheep_EN");
 
             AddTo med = new AddTo("SwineMed");
             if (SaltsReseasoned.silly > 50) med.AddRandomGroup("UnculturedSwine_EN", Spoggle.Blue, "LostSheep_EN");
@@ -116,7 +116,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Enigma_EN", "Enigma_EN", "Enigma_EN", "BackupDancer_EN");
 
             easy = new AddTo("H_Zone02_Something_Easy_EnemyBundle");
-            easy.AddRandomGroup("Something_EN", "BackupDancer_EN", "LostSheep");
+            easy.AddRandomGroup("Something_EN", "BackupDancer_EN", "LostSheep_EN");
 
             med = new AddTo("H_Zone02_Something_Medium_EnemyBundle");
             if (SaltsReseasoned.trolling < 50) med.AddRandomGroup("Something_EN", "BackupDancer_EN", Jumble.Blue);
