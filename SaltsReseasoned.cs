@@ -60,6 +60,7 @@ namespace SaltsEnemies_Reseasoned
             StarlessPassiveAbility.Setup();
             TurnStarter.Setup();
             GlassedSunHandler.Setup();
+            PCall(AuthorHandler.Setup);
             //PCall(ShieldPiercer.Setup);
             #endregion
 
@@ -236,6 +237,8 @@ namespace SaltsEnemies_Reseasoned
                 PCall(TwoThousandNine.Add);
                 PCall(Chiito.Add);
                 PCall(Foxtrot.Add);
+                PCall(Author.Add);
+                PCall(Monster.Add);
             }
 
             //CH1 Encounters
