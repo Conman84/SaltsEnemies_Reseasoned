@@ -63,6 +63,7 @@ namespace SaltEnemies_Reseasoned
             inspired._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
             inspired.effects = new EffectInfo[0];
             Inspired = inspired;
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("InspirationIcon.png"), "Inspired", inspired._enemyDescription);
 
             NotificationHook.AddAction(NotifCheck);
 
