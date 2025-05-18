@@ -119,7 +119,7 @@ namespace SaltsEnemies_Reseasoned
                 futures.GenerateEnemyAbility(true),
                 fall.GenerateEnemyAbility(true)
             });
-            sword.AddEnemy(true, true);
+            sword.AddEnemy(true);
         }
     }
 }
