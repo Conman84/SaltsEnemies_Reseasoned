@@ -107,7 +107,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 librarium.GenerateEnemyAbility(true),
             });
-            template.AddEnemy(true, true);
+            template.AddEnemy(true);
         }
     }
 }
