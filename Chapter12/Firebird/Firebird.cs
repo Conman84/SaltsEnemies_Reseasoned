@@ -50,15 +50,15 @@ namespace SaltsEnemies_Reseasoned
 
             //combative
             CombativePassiveAbility combative = ScriptableObject.CreateInstance<CombativePassiveAbility>();
-            combative._turnsBeforeFleeting = 4;
-            combative._passiveName = "Combative (4)";
+            combative._turnsBeforeFleeting = 2;
+            combative._passiveName = "Combative (2)";
             combative.passiveIcon = ResourceLoader.LoadSprite("CombativePassive.png");
-            combative.m_PassiveID = Passives.Fleeting4.m_PassiveID;
-            combative._enemyDescription = Passives.Fleeting4._enemyDescription + "\nOn receiving any damage, reset this enemy's Fleeting counter.";
-            combative._characterDescription = Passives.Fleeting4._characterDescription + "\nOn receiving any damage, reset this party member's Fleeting counter.";
-            combative.doesPassiveTriggerInformationPanel = Passives.Fleeting4.doesPassiveTriggerInformationPanel;
-            combative.conditions = Passives.Fleeting4.conditions;
-            combative._triggerOn = Passives.Fleeting4._triggerOn;
+            combative.m_PassiveID = Passives.FleetingGenerator(2).m_PassiveID;
+            combative._enemyDescription = Passives.FleetingGenerator(2)._enemyDescription + "\nOn dealing or receiving damage, reset this enemy's Fleeting counter.";
+            combative._characterDescription = Passives.FleetingGenerator(2)._characterDescription + "\nOn dealing or receiving damage, reset this party member's Fleeting counter.";
+            combative.doesPassiveTriggerInformationPanel = Passives.FleetingGenerator(2).doesPassiveTriggerInformationPanel;
+            combative.conditions = Passives.FleetingGenerator(2).conditions;
+            combative._triggerOn = Passives.FleetingGenerator(2)._triggerOn;
 
             firebird.AddPassives(new BasePassiveAbilitySO[] { pheonix, burning, combative, Passives.Skittish });
             firebird.AddUnitType("Bird");

@@ -240,11 +240,13 @@ namespace SaltEnemies_Reseasoned
         public override void OnPassiveConnected(IUnit unit)
         {
             base.OnPassiveConnected(unit);
-            CombatManager.Instance.AddObserver(OnSecondTriggered, TriggerCalls.OnDamaged.ToString(), unit);
+            CombatManager.Instance.AddObserver(OnSecondTriggered, TriggerCalls.OnDirectDamaged.ToString(), unit);
+            CombatManager.Instance.AddObserver(OnSecondTriggered, TriggerCalls.OnDidApplyDamage.ToString(), unit);
         }
         public override void OnPassiveDisconnected(IUnit unit)
         {
-            CombatManager.Instance.RemoveObserver(OnSecondTriggered, TriggerCalls.OnDamaged.ToString(), unit);
+            CombatManager.Instance.RemoveObserver(OnSecondTriggered, TriggerCalls.OnDirectDamaged.ToString(), unit);
+            CombatManager.Instance.RemoveObserver(OnSecondTriggered, TriggerCalls.OnDidApplyDamage.ToString(), unit);
             base.OnPassiveDisconnected(unit);
         }
     }

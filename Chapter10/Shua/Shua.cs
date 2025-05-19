@@ -37,15 +37,15 @@ namespace SaltsEnemies_Reseasoned
 
             //combative
             CombativePassiveAbility combative = ScriptableObject.CreateInstance<CombativePassiveAbility>();
-            combative._turnsBeforeFleeting = 4;
-            combative._passiveName = "Combative (4)";
+            combative._turnsBeforeFleeting = 3;
+            combative._passiveName = "Combative (3)";
             combative.passiveIcon = ResourceLoader.LoadSprite("CombativePassive.png");
-            combative.m_PassiveID = Passives.Fleeting4.m_PassiveID;
-            combative._enemyDescription = Passives.Fleeting4._enemyDescription + "\nOn receiving any damage, reset this enemy's Fleeting counter.";
-            combative._characterDescription = Passives.Fleeting4._characterDescription + "\nOn receiving any damage, reset this party member's Fleeting counter.";
-            combative.doesPassiveTriggerInformationPanel = Passives.Fleeting4.doesPassiveTriggerInformationPanel;
-            combative.conditions = Passives.Fleeting4.conditions;
-            combative._triggerOn = Passives.Fleeting4._triggerOn;
+            combative.m_PassiveID = Passives.Fleeting3.m_PassiveID;
+            combative._enemyDescription = Passives.Fleeting3._enemyDescription + "\nOn dealing or receiving, reset this enemy's Fleeting counter.";
+            combative._characterDescription = Passives.Fleeting3._characterDescription + "\nOn dealing or receiving, reset this party member's Fleeting counter.";
+            combative.doesPassiveTriggerInformationPanel = Passives.Fleeting3.doesPassiveTriggerInformationPanel;
+            combative.conditions = Passives.Fleeting3.conditions;
+            combative._triggerOn = Passives.Fleeting3._triggerOn;
 
             //add pasives
             shua.AddPassives(new BasePassiveAbilitySO[] { incomprehend, combative });
