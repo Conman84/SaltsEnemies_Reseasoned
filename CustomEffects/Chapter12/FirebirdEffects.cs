@@ -234,6 +234,7 @@ namespace SaltEnemies_Reseasoned
     {
         public void OnSecondTriggered(object sender, object args)
         {
+            CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction((sender as IUnit).ID, (sender as IUnit).IsUnitCharacter, _passiveName, passiveIcon));
             (sender as IUnit).SimpleSetStoredValue(fleeting_USD, 0);
         }
         public override void OnPassiveConnected(IUnit unit)
