@@ -85,7 +85,7 @@ namespace SaltsEnemies_Reseasoned
         }
 
         //------------------this seems to be the thing that makes the butterfly's hit sound not play when it flees which i already fixed withs omething else? accidentally
-        /*
+        
         public static IEnumerator PlayEnemyFleetingAnimation(Func<EnemyZoneHandler, int, string, string, IEnumerator> orig, EnemyZoneHandler self, int fieldID, string enemySound, string exitType)
         {
             if (CombatManager.Instance._stats.combatUI._enemiesInCombat.TryGetValue(self._enemies[fieldID].FieldEntity.EnemyID, out var value))
@@ -93,7 +93,7 @@ namespace SaltsEnemies_Reseasoned
                 if (EnemyExist("Butterfly_EN") && value.EnemyBase == LoadedAssetsHandler.GetEnemy("Butterfly_EN"))
                 {
                     Vector3 fieldPosition = self._enemies[fieldID].FieldPosition;
-                    self._unitSoundsHandler.PlayExitEvent(fieldPosition, exitType);
+                    self.CombatDB.TryOneShotSoundEventInPosition(exitType, fieldPosition);
 
                     yield return self._enemies[fieldID].FieldEntity.PlayFleeting();
                 }
@@ -101,7 +101,7 @@ namespace SaltsEnemies_Reseasoned
             }
             else yield return orig(self, fieldID, enemySound, exitType);
         }
-        */
+        //re-added it
 
         public static void DamageEnemy(Action<EnemyInFieldLayout> orig, EnemyInFieldLayout self)
         {
@@ -138,7 +138,7 @@ namespace SaltsEnemies_Reseasoned
         {
             IDetour hook = new Hook(typeof(EnemyInFieldLayout).GetMethod(nameof(EnemyInFieldLayout.PlayEnemyDeathAnimation), ~BindingFlags.Default), typeof(GibsFix).GetMethod(nameof(PlayEnemyDeathAnimation), ~BindingFlags.Default));
             IDetour hack = new Hook(typeof(EnemyInFieldLayout).GetMethod(nameof(EnemyInFieldLayout.SpawnGibs), ~BindingFlags.Default), typeof(GibsFix).GetMethod(nameof(SpawnGibs), ~BindingFlags.Default));
-            //IDetour rock = new Hook(typeof(EnemyZoneHandler).GetMethod(nameof(EnemyZoneHandler.PlayEnemyFleetingAnimation), ~BindingFlags.Default), typeof(GibsFix).GetMethod(nameof(PlayEnemyFleetingAnimation), ~BindingFlags.Default));
+            IDetour rock = new Hook(typeof(EnemyZoneHandler).GetMethod(nameof(EnemyZoneHandler.PlayEnemyFleetingAnimation), ~BindingFlags.Default), typeof(GibsFix).GetMethod(nameof(PlayEnemyFleetingAnimation), ~BindingFlags.Default));
             IDetour horse = new Hook(typeof(EnemyInFieldLayout).GetMethod(nameof(EnemyInFieldLayout.DamageEnemy), ~BindingFlags.Default), typeof(GibsFix).GetMethod(nameof(DamageEnemy), ~BindingFlags.Default));
         }
     }

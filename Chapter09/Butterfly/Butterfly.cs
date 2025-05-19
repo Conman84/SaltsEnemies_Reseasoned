@@ -19,7 +19,7 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("ButterflyIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("ButterflyWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("ButterflyDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = "",
+                DamageSound = "event:/Hawthorne/Boowomp",
                 DeathSound = "",
             };
             butterfly.PrepareMultiEnemyPrefab("assets/group4/Butterfly/Butterfly_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Butterfly/Butterfly_Gibs.prefab").GetComponent<ParticleSystem>());
@@ -71,7 +71,7 @@ namespace SaltsEnemies_Reseasoned
             //addpassives
             butterfly.AddPassives(new BasePassiveAbilitySO[] { colors, ethereal });
             butterfly.CombatExitEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnCasterGibsEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsDieCondition>()).SelfArray();
-            SaltsReseasoned.PCall(ButterflyHitHandler.Setup);
+            //SaltsReseasoned.PCall(ButterflyHitHandler.Setup);
 
             //DISSOLVER
             Ability dissolver = new Ability("Witch_Dissolver_A")
