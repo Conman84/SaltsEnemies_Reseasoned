@@ -29,8 +29,8 @@ namespace SaltsEnemies_Reseasoned
             PerformDoubleEffectPassiveAbility coda = ScriptableObject.CreateInstance<PerformDoubleEffectPassiveAbility>();
             coda._passiveName = "Coda";
             coda.passiveIcon = ResourceLoader.LoadSprite("CodaIcon.png");
-            coda._enemyDescription = "On death, apply 3 Dodge, 2 Haste, and 1 Hollow to every other enemy.";
-            coda._characterDescription = "On death, apply 3 Dodge, 2 Haste, and 1 Hollow to every other party member.";
+            coda._enemyDescription = "On death, apply 3 Dodge, 3 Haste, and 3 Power to every other enemy.";
+            coda._characterDescription = "On death, apply 3 Dodge, 3 Haste, and 3 Power to every other party member.";
             coda.m_PassiveID = "Coda_PA";
             coda.doesPassiveTriggerInformationPanel = true;
             coda._triggerOn = new TriggerCalls[] { TriggerCalls.OnDeath };
@@ -42,8 +42,8 @@ namespace SaltsEnemies_Reseasoned
             {
                         Effects.GenerateEffect(ScriptableObject.CreateInstance<WindSongEffect>(), 1, Targeting.Slot_SelfSlot),
                         Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDodgeEffect>(), 3, allAlly),
-                        Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyHasteEffect>(), 2, allAlly),
-                        Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyHollowEffect>(), 1, allAlly),
+                        Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyHasteEffect>(), 3, allAlly),
+                        Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 3, allAlly),
             };
             coda._secondDoesPerformPopUp = false;
             coda._secondTriggerOn = new TriggerCalls[] { TriggerCalls.Count };

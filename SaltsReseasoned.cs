@@ -89,7 +89,7 @@ namespace SaltsEnemies_Reseasoned
             Dodge.Add();
             Entropy.Add();
             Haste.Add();
-            Hollow.Add();
+            //Hollow.Add();
             Acid.Add();
             if (DebugVer)
             {
