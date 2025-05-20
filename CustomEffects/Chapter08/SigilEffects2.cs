@@ -22,12 +22,14 @@ namespace SaltsEnemies_Reseasoned
         public static Sprite Red;
         public static Sprite Green;
         public static Sprite Purple;
+        public static Sprite Yellow;
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             if (Blue == null || Blue.Equals(null)) Blue = ResourceLoader.LoadSprite("sigilPassive.png");
             if (Red == null || Red.Equals(null)) Red = ResourceLoader.LoadSprite("SigilP_Red.png");
             if (Green == null || Green.Equals(null)) Green = ResourceLoader.LoadSprite("SigilP_Green.png");
             if (Purple == null || Purple.Equals(null)) Purple = ResourceLoader.LoadSprite("SigilP_Purple.png");
+            if (Yellow == null || Yellow.Equals(null)) Yellow = ResourceLoader.LoadSprite("SigilP_Yellow.png");
             exitAmount = 0;
             BasePassiveAbilitySO passive;
             if (caster is EnemyCombat enemy && enemy.TryGetPassiveAbility(SigilManager.Sigil, out passive))
@@ -45,9 +47,14 @@ namespace SaltsEnemies_Reseasoned
                         passive.passiveIcon = Red;
                         break;
                     case 3:
-                        passive._enemyDescription = "This enemy is immune to damage.\nAll enemies will produce 1 additional pigment of their health color when damaged.\nAt the start of each turn, reset this enemy's Sigil.";
-                        passive._characterDescription = "This party member is immune to damage.\nAll party members will produce 1 additional pigment of their health color when damaged.\nAt the start of each turn, reset this party member's Sigil.";
+                        passive._enemyDescription = "This enemy is immune to damage.\nAt the start of each turn, reset this enemy's Sigil.";
+                        passive._characterDescription = "This party member is immune to damage.\nAt the start of each turn, reset this party member's Sigil.";
                         passive.passiveIcon = Green;
+                        break;
+                    case 5:
+                        passive._enemyDescription = "All enemies will produce 2 additional pigment of their health color when damaged.\nAt the start of each turn, reset this enemy's Sigil.";
+                        passive._characterDescription = "All party members will produce 2 additional pigment of their health color when damaged.\nAt the start of each turn, reset this party member's Sigil.";
+                        passive.passiveIcon = Yellow;
                         break;
                     default:
                         passive._enemyDescription = "At the start of each turn, reset this enemy's Sigil.";
@@ -76,6 +83,11 @@ namespace SaltsEnemies_Reseasoned
                         passive._enemyDescription = "This enemy is immune to damage.\nAt the start of each turn, reset this enemy's Sigil.";
                         passive._characterDescription = "This party member is immune to damage.\nAt the start of each turn, reset this party member's Sigil.";
                         passive.passiveIcon = Green;
+                        break;
+                    case 5:
+                        passive._enemyDescription = "All enemies will produce 2 additional pigment of their health color when damaged.\nAt the start of each turn, reset this enemy's Sigil.";
+                        passive._characterDescription = "All party members will produce 2 additional pigment of their health color when damaged.\nAt the start of each turn, reset this party member's Sigil.";
+                        passive.passiveIcon = Yellow;
                         break;
                     default:
                         passive._enemyDescription = "At the start of each turn, reset this enemy's Sigil.";

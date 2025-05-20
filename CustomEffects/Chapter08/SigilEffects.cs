@@ -55,7 +55,7 @@ namespace SaltEnemies_Reseasoned
                             gap /= 3;
                             hitting.AddModifier(new AdditionValueModifier(true, (int)Math.Ceiling(gap)));
                         }
-                        if (notificationName == TriggerCalls.OnDirectDamaged.ToString() && GetSigilPassive(chara) != null && GetSigilPassive(chara)._sigil == SigilType.Spectral)
+                        if (notificationName == TriggerCalls.OnDirectDamaged.ToString() && GetSigilPassive(chara) != null && GetSigilPassive(chara)._sigil == SigilType.Intensive)
                         {
                             if (unit.HealthColor.canGenerateMana)
                             {
@@ -63,7 +63,7 @@ namespace SaltEnemies_Reseasoned
                                 ischara.Add(chara.IsUnitCharacter);
                                 passi.Add(GetSigilPassive(chara)._passiveName);
                                 icons.Add(GetSigilPassive(chara).passiveIcon);
-                                pigment++;
+                                pigment+= 2;
                             }
                         }
                         if (notificationName == TriggerCalls.OnDirectDamaged.ToString() && GetSigilPassive(chara) != null && GetSigilPassive(chara)._sigil == SigilType.Defensive)
@@ -98,7 +98,7 @@ namespace SaltEnemies_Reseasoned
                             gap /= 3;
                             hitting.AddModifier(new AdditionValueModifier(true, (int)Math.Ceiling(gap)));
                         }
-                        if (notificationName == TriggerCalls.OnDirectDamaged.ToString() && GetSigilPassive(enemy) != null && GetSigilPassive(enemy)._sigil == SigilType.Spectral)
+                        if (notificationName == TriggerCalls.OnDirectDamaged.ToString() && GetSigilPassive(enemy) != null && GetSigilPassive(enemy)._sigil == SigilType.Intensive)
                         {
                             if (unit.HealthColor.canGenerateMana)
                             {
@@ -106,7 +106,7 @@ namespace SaltEnemies_Reseasoned
                                 ischara.Add(enemy.IsUnitCharacter);
                                 passi.Add(GetSigilPassive(enemy)._passiveName);
                                 icons.Add(GetSigilPassive(enemy).passiveIcon);
-                                pigment++;
+                                pigment+= 2;
                             }
                         }
                         if (notificationName == TriggerCalls.OnDirectDamaged.ToString() && GetSigilPassive(enemy) != null && GetSigilPassive(enemy)._sigil == SigilType.Defensive)
@@ -227,6 +227,7 @@ namespace SaltEnemies_Reseasoned
                 _enemyDescription = "At the start of each turn, reset this enemy's Sigil.";
                 _characterDescription = "At the start of each turn, reset this party member's Sigil.";
                 passiveIcon = CasterSetSigilPassiveEffect.Purple;
+                CombatManager.Instance.AddUIAction(new EnemyPassiveAbilityChangeUIAction(unit.ID, (unit as IPassiveEffector).PassiveAbilities.ToArray()));
             }
         }
         public bool Added = false;
@@ -303,7 +304,8 @@ namespace SaltEnemies_Reseasoned
         Defensive = 1,
         Offensive = 2,
         Spectral = 3,
-        Pure = 4
+        Pure = 4,
+        Intensive = 5
     }
     public class FloatMod : IntValueModifier
     {

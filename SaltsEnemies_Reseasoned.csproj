@@ -15,6 +15,7 @@
 	  <None Remove="Chapter08\Sigil\SigilP_Green.png" />
 	  <None Remove="Chapter08\Sigil\SigilP_Purple.png" />
 	  <None Remove="Chapter08\Sigil\SigilP_Red.png" />
+	  <None Remove="Chapter08\Sigil\SigilP_Yellow.png" />
 	  <None Remove="Chapter09\Butterfly\ButterflyDead.png" />
 	  <None Remove="Chapter09\Butterfly\ButterflyIcon.png" />
 	  <None Remove="Chapter09\Butterfly\ButterflyWorld.png" />
@@ -450,6 +451,7 @@
 	  <EmbeddedResource Include="Chapter08\Sigil\SigilP_Green.png" />
 	  <EmbeddedResource Include="Chapter08\Sigil\SigilP_Purple.png" />
 	  <EmbeddedResource Include="Chapter08\Sigil\SigilP_Red.png" />
+	  <EmbeddedResource Include="Chapter08\Sigil\SigilP_Yellow.png" />
 	  <EmbeddedResource Include="Chapter11\Damocles\DamoclesDead.png" />
 	  <EmbeddedResource Include="Chapter11\Damocles\DamoclesIcon.png" />
 	  <EmbeddedResource Include="Chapter11\Damocles\DamoclesPassive.png" />

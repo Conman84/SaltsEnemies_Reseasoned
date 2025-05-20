@@ -89,20 +89,35 @@ namespace SaltsEnemies_Reseasoned
             Ability spectral = new Ability("Sigil_Spectral_A")
             {
                 Name = "Spectral Sigil",
-                Description = "This enemy is immune to damage until its next turn.\nAll other enemies will produce 1 additional pigment of their health color when damaged until this enemy's next turn.",
+                Description = "This enemy is immune to damage until its next turn.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
-                        {
-                            Effects.GenerateEffect(value, 3, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterSetSigilPassiveEffect>(), 3),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilSongCheckEffect>(), 1, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilEffect>(), 2, Targeting.Slot_SelfSlot)
-                        },
+                {
+                    Effects.GenerateEffect(value, 3, Targeting.Slot_SelfSlot),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterSetSigilPassiveEffect>(), 3),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilSongCheckEffect>(), 1, Targeting.Slot_SelfSlot),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilEffect>(), 2, Targeting.Slot_SelfSlot)
+                },
                 Visuals = CustomVisuals.GetVisuals("Salt/Pop"),
                 AnimationTarget = Targeting.Slot_SelfSlot,
             };
             spectral.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { SigilManager.Spectral });
-            spectral.AddIntentsToTarget(allAlly, new string[] { SigilManager.MndTxt, SigilManager.UpPurple });
+
+            //intense
+            Ability intense = new Ability("Sigil_Intensive_A");
+            intense.Name = "Intensive Sigil";
+            intense.Description = "All enemies will produce 2 additional Pigment of their health color on being damaged until this enemy's next turn.";
+            intense.Rarity = Rarity.GetCustomRarity("rarity5");
+            intense.Effects = new EffectInfo[]
+            {
+                Effects.GenerateEffect(value, 5, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterSetSigilPassiveEffect>(), 5),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilSongCheckEffect>(), 1, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilEffect>(), 4, Targeting.Slot_SelfSlot)
+            };
+            intense.AddIntentsToTarget(allAlly, [IntentType_GameIDs.Mana_Generate.ToString(), SigilManager.UpPurple]);
+            intense.Visuals = CustomVisuals.GetVisuals("Salt/Think");
+            intense.AnimationTarget = Slots.Self;
 
             //PURE
             Ability pure = new Ability("Sigil_Pure_A")
@@ -127,6 +142,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 offense.GenerateEnemyAbility(true),
                 defense.GenerateEnemyAbility(true),
+                intense.GenerateEnemyAbility(true),
                 spectral.GenerateEnemyAbility(true),
                 pure.GenerateEnemyAbility(true)
             });
