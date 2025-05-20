@@ -50,7 +50,7 @@ namespace SaltsEnemies_Reseasoned
             march.doesPassiveTriggerInformationPanel = false;
             march.effects = new EffectInfo[2];
             march.effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<MarchingEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsAliveEffectCondition>());
-            march.effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
+            march.effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsAliveEffectCondition>());
             march.conditions = [ScriptableObject.CreateInstance<IsAliveEffectorCondition>()];
             march._triggerOn = [MarchingHandler.Call];
 
