@@ -99,6 +99,7 @@ namespace SaltsEnemies_Reseasoned
         public override IEnumerator Execute(CombatStats stats)
         {
             if (target == null || target.Equals(null)) yield break;
+            if (target.CurrentHealth <= 0) yield break;
 
             if (sigil != null && !sigil.Equals(null))
             {
