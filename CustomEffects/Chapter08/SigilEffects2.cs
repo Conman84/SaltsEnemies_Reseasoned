@@ -55,6 +55,7 @@ namespace SaltsEnemies_Reseasoned
                         passive.passiveIcon = Purple;
                         break;
                 }
+                CombatManager.Instance.AddUIAction(new EnemyPassiveAbilityChangeUIAction(caster.ID, enemy.PassiveAbilities.ToArray()));
                 return true;
             }
             else if (caster is CharacterCombat chara && chara.TryGetPassiveAbility(SigilManager.Sigil, out passive))
@@ -82,6 +83,7 @@ namespace SaltsEnemies_Reseasoned
                         passive.passiveIcon = Purple;
                         break;
                 }
+                CombatManager.Instance.AddUIAction(new EnemyPassiveAbilityChangeUIAction(caster.ID, chara.PassiveAbilities.ToArray()));
                 return true;
             }
             return false;
