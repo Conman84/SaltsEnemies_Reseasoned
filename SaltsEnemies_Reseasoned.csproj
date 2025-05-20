@@ -12,6 +12,9 @@
 	  <None Remove="assets\meowy" />
 	  <None Remove="Chapter07\Postmodern\Passive_Silence.png" />
 	  <None Remove="Chapter08\RealisticTank\BacklashPassive.png" />
+	  <None Remove="Chapter08\Sigil\SigilP_Green.png" />
+	  <None Remove="Chapter08\Sigil\SigilP_Purple.png" />
+	  <None Remove="Chapter08\Sigil\SigilP_Red.png" />
 	  <None Remove="Chapter09\Butterfly\ButterflyDead.png" />
 	  <None Remove="Chapter09\Butterfly\ButterflyIcon.png" />
 	  <None Remove="Chapter09\Butterfly\ButterflyWorld.png" />
@@ -434,13 +437,19 @@
 	  <None Remove="SpecialIcons\downicon.png" />
 	  <None Remove="SpecialIcons\FavoritePicture.png" />
 	  <None Remove="SpecialIcons\idk.png" />
+	  <None Remove="SpecialIcons\mindicon.png" />
+	  <None Remove="SpecialIcons\PurpleUpIcon.png" />
 	  <None Remove="SpecialIcons\spectralicon.png" />
+	  <None Remove="SpecialIcons\speedicon.png" />
 	  <None Remove="SpecialIcons\UnlockingIntent.png" />
 	  <None Remove="SpecialIcons\upicon.png" />
 	  <None Remove="SpecialIcons\waiticon.png" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="Chapter08\Sigil\SigilP_Green.png" />
+	  <EmbeddedResource Include="Chapter08\Sigil\SigilP_Purple.png" />
+	  <EmbeddedResource Include="Chapter08\Sigil\SigilP_Red.png" />
 	  <EmbeddedResource Include="Chapter11\Damocles\DamoclesDead.png" />
 	  <EmbeddedResource Include="Chapter11\Damocles\DamoclesIcon.png" />
 	  <EmbeddedResource Include="Chapter11\Damocles\DamoclesPassive.png" />
@@ -872,7 +881,10 @@
 	  <EmbeddedResource Include="SpecialIcons\downicon.png" />
 	  <EmbeddedResource Include="SpecialIcons\FavoritePicture.png" />
 	  <EmbeddedResource Include="SpecialIcons\idk.png" />
+	  <EmbeddedResource Include="SpecialIcons\mindicon.png" />
+	  <EmbeddedResource Include="SpecialIcons\PurpleUpIcon.png" />
 	  <EmbeddedResource Include="SpecialIcons\spectralicon.png" />
+	  <EmbeddedResource Include="SpecialIcons\speedicon.png" />
 	  <EmbeddedResource Include="SpecialIcons\UnlockingIntent.png" />
 	  <EmbeddedResource Include="SpecialIcons\upicon.png" />
 	  <EmbeddedResource Include="SpecialIcons\waiticon.png" />

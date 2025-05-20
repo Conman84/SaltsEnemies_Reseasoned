@@ -40,6 +40,9 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("sigilPassive.png"), "Sigil", sigil._enemyDescription);
 
             monolith.AddPassives(new BasePassiveAbilitySO[] { sigil, Passives.Formless, Passives.Withering });
+            //AddPassiveCopyEffect addpassive = ScriptableObject.CreateInstance<AddPassiveCopyEffect>();
+            //addpassive._passiveToAdd = sigil;
+            //monolith.CombatEnterEffects = Effects.GenerateEffect(addpassive).SelfArray();
 
             //OFFENSE
             Targetting_ByUnit_Side allAlly = ScriptableObject.CreateInstance<Targetting_ByUnit_Side>();
@@ -50,11 +53,12 @@ namespace SaltsEnemies_Reseasoned
             Ability offense = new Ability("Sigil_Offense_A")
             {
                 Name = "Offensive Sigil",
-                Description = "All enemies will deal 3 more damage this turn, until this enemy's next turn.",
+                Description = "All enemies will deal a third of this enemy's current health as additional damage this turn, until this enemy's next turn.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("Sigil_10", 10),
                 Effects = new EffectInfo[]
                 {
                             Effects.GenerateEffect(value, 2, allAlly),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterSetSigilPassiveEffect>(), 2),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilSongCheckEffect>(), 1, allAlly),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilEffect>(), 1, allAlly)
                 },
@@ -67,28 +71,30 @@ namespace SaltsEnemies_Reseasoned
             Ability defense = new Ability("Sigil_Defense_A")
             {
                 Name = "Defensive Sigil",
-                Description = "All enemies will take 50% less direct damage this turn, until this enemy's next turn.",
+                Description = "All enemies will move Left or Right on receiving direct damage or on performing an ability, until this enemy's next turn.",
                 Rarity = Rarity.GetCustomRarity("Sigil_10"),
                 Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(value, 1, allAlly),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterSetSigilPassiveEffect>(), 1),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilSongCheckEffect>(), 1, allAlly),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilEffect>(), 0, allAlly)
                         },
                 Visuals = LoadedAssetsHandler.GetCharacterAbility("Resolve_1_A").visuals,
                 AnimationTarget = allAlly,
             };
-            defense.AddIntentsToTarget(allAlly, new string[] { SigilManager.DefTxt, SigilManager.UpArrow });
+            defense.AddIntentsToTarget(allAlly, new string[] { SigilManager.SpdTxt, SigilManager.UpArrow });
 
             //SPECTRAL
             Ability spectral = new Ability("Sigil_Spectral_A")
             {
                 Name = "Spectral Sigil",
-                Description = "This enemy is immune to damage until its next turn.",
+                Description = "This enemy is immune to damage until its next turn.\nAll other enemies will produce 1 additional pigment of their health color when damaged until this enemy's next turn.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(value, 3, Targeting.Slot_SelfSlot),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterSetSigilPassiveEffect>(), 3),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilSongCheckEffect>(), 1, Targeting.Slot_SelfSlot),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilEffect>(), 2, Targeting.Slot_SelfSlot)
                         },
@@ -96,16 +102,18 @@ namespace SaltsEnemies_Reseasoned
                 AnimationTarget = Targeting.Slot_SelfSlot,
             };
             spectral.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { SigilManager.Spectral });
+            spectral.AddIntentsToTarget(allAlly, new string[] { SigilManager.MndTxt, SigilManager.UpPurple });
 
             //PURE
             Ability pure = new Ability("Sigil_Pure_A")
             {
                 Name = "Pure Sigil",
                 Description = "This enemy does nothing.",
-                Rarity = Rarity.CreateAndAddCustomRarityToPool("Sigil_1", 10),
+                Rarity = Rarity.CreateAndAddCustomRarityToPool("Sigil_1", 1),
                 Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(value, 4, Targeting.Slot_SelfSlot),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterSetSigilPassiveEffect>(), 4),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilSongCheckEffect>(), 1, Targeting.Slot_SelfSlot),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilEffect>(), 3, Targeting.Slot_SelfSlot)
                         },

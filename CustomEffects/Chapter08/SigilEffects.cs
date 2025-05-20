@@ -4,6 +4,8 @@ using System.Collections;
 using BrutalAPI;
 using UnityEngine;
 using SaltsEnemies_Reseasoned;
+using System.Collections.Generic;
+using static UnityEngine.EventSystems.EventTrigger;
 
 /*I DO THESE*/
 //call SigilManager.Add() in awake.
@@ -15,9 +17,12 @@ namespace SaltEnemies_Reseasoned
     {
         public static string AtkTxt => "AtkTxt";
         public static string DefTxt => "DefTxt";
+        public static string SpdTxt => "SpdTxt";
+        public static string MndTxt => "MndTxt";
         public static string UpArrow => "UpArrow";
         public static string DownArrow => "DownArrow";
         public static string OtherUpAlt => "OtherUpAlt";
+        public static string UpPurple => "UpPurple";
         public static string Spectral => "Spectral";
         public static SigilPassiveAbility GetSigilPassive(IPassiveEffector unit)
         {
@@ -31,21 +36,51 @@ namespace SaltEnemies_Reseasoned
         {
             if (sender is IUnit unit)
             {
+                List<int> ids = new List<int>();
+                List<bool> ischara = new List<bool>();
+                List<string> passi = new List<string>();
+                List<Sprite> icons = new List<Sprite>();
+                int pigment = 0;
                 if (unit.IsUnitCharacter)
                 {
                     foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
                     {
-                        if (notificationName == TriggerCalls.OnBeingDamaged.ToString() && GetSigilPassive(chara) != null && GetSigilPassive(chara)._sigil == SigilType.Defensive && args is DamageReceivedValueChangeException hitBy && hitBy.directDamage)
+                        if (notificationName == TriggerCalls.OnWillApplyDamage.ToString() && GetSigilPassive(chara) != null && GetSigilPassive(chara)._sigil == SigilType.Offensive && args is DamageDealtValueChangeException hitting)
                         {
-                            hitBy.AddModifier(new FloatMod(0.5f, false));
+                            ids.Add(chara.ID);
+                            ischara.Add(chara.IsUnitCharacter);
+                            passi.Add(GetSigilPassive(chara)._passiveName);
+                            icons.Add(GetSigilPassive(chara).passiveIcon);
+                            decimal gap = chara.CurrentHealth;
+                            gap /= 3;
+                            hitting.AddModifier(new AdditionValueModifier(true, (int)Math.Ceiling(gap)));
                         }
-                        else if (notificationName == TriggerCalls.OnWillApplyDamage.ToString() && GetSigilPassive(chara) != null && GetSigilPassive(chara)._sigil == SigilType.Offensive && args is DamageDealtValueChangeException hitting)
+                        if (notificationName == TriggerCalls.OnDirectDamaged.ToString() && GetSigilPassive(chara) != null && GetSigilPassive(chara)._sigil == SigilType.Spectral)
                         {
-                            hitting.AddModifier(new AdditionValueModifier(true, 3));
+                            if (unit.HealthColor.canGenerateMana)
+                            {
+                                ids.Add(chara.ID);
+                                ischara.Add(chara.IsUnitCharacter);
+                                passi.Add(GetSigilPassive(chara)._passiveName);
+                                icons.Add(GetSigilPassive(chara).passiveIcon);
+                                pigment++;
+                            }
+                        }
+                        if (notificationName == TriggerCalls.OnDirectDamaged.ToString() && GetSigilPassive(chara) != null && GetSigilPassive(chara)._sigil == SigilType.Defensive)
+                        {
+                            CombatManager.Instance.AddSubAction(new SubActionAction(new SigilSwapSideAction(unit, chara)));
+                        }
+                        if (notificationName == TriggerCalls.OnAbilityUsed.ToString() && GetSigilPassive(chara) != null && GetSigilPassive(chara)._sigil == SigilType.Defensive)
+                        {
+                            CombatManager.Instance.AddSubAction(new SubActionAction(new SigilSwapSideAction(unit, chara)));
                         }
                     }
                     if (notificationName == TriggerCalls.OnBeingDamaged.ToString() && sender is CharacterCombat CH && GetSigilPassive(CH) != null && GetSigilPassive(CH)._sigil == SigilType.Spectral && args is DamageReceivedValueChangeException hits)
                     {
+                        ids.Add(CH.ID);
+                        ischara.Add(CH.IsUnitCharacter);
+                        passi.Add(GetSigilPassive(CH)._passiveName);
+                        icons.Add(GetSigilPassive(CH).passiveIcon);
                         hits.AddModifier(new FloatMod(0f, false));
                     }
                 }
@@ -53,20 +88,47 @@ namespace SaltEnemies_Reseasoned
                 {
                     foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
                     {
-                        if (notificationName == TriggerCalls.OnBeingDamaged.ToString() && GetSigilPassive(enemy) != null && GetSigilPassive(enemy)._sigil == SigilType.Defensive && args is DamageReceivedValueChangeException hitBy && hitBy.directDamage)
+                        if (notificationName == TriggerCalls.OnWillApplyDamage.ToString() && GetSigilPassive(enemy) != null && GetSigilPassive(enemy)._sigil == SigilType.Offensive && args is DamageDealtValueChangeException hitting)
                         {
-                            hitBy.AddModifier(new FloatMod(0.5f, false));
+                            ids.Add(enemy.ID);
+                            ischara.Add(enemy.IsUnitCharacter);
+                            passi.Add(GetSigilPassive(enemy)._passiveName);
+                            icons.Add(GetSigilPassive(enemy).passiveIcon);
+                            decimal gap = enemy.CurrentHealth;
+                            gap /= 3;
+                            hitting.AddModifier(new AdditionValueModifier(true, (int)Math.Ceiling(gap)));
                         }
-                        else if (notificationName == TriggerCalls.OnWillApplyDamage.ToString() && GetSigilPassive(enemy) != null && GetSigilPassive(enemy)._sigil == SigilType.Offensive && args is DamageDealtValueChangeException hitting)
+                        if (notificationName == TriggerCalls.OnDirectDamaged.ToString() && GetSigilPassive(enemy) != null && GetSigilPassive(enemy)._sigil == SigilType.Spectral)
                         {
-                            hitting.AddModifier(new AdditionValueModifier(true, 3));
+                            if (unit.HealthColor.canGenerateMana)
+                            {
+                                ids.Add(enemy.ID);
+                                ischara.Add(enemy.IsUnitCharacter);
+                                passi.Add(GetSigilPassive(enemy)._passiveName);
+                                icons.Add(GetSigilPassive(enemy).passiveIcon);
+                                pigment++;
+                            }
+                        }
+                        if (notificationName == TriggerCalls.OnDirectDamaged.ToString() && GetSigilPassive(enemy) != null && GetSigilPassive(enemy)._sigil == SigilType.Defensive)
+                        {
+                            CombatManager.Instance.AddSubAction(new SubActionAction(new SigilSwapSideAction(unit, enemy)));
+                        }
+                        if (notificationName == TriggerCalls.OnAbilityUsed.ToString() && GetSigilPassive(enemy) != null && GetSigilPassive(enemy)._sigil == SigilType.Defensive)
+                        {
+                            CombatManager.Instance.AddSubAction(new SubActionAction(new SigilSwapSideAction(unit, enemy)));
                         }
                     }
                     if (notificationName == TriggerCalls.OnBeingDamaged.ToString() && sender is EnemyCombat EN && GetSigilPassive(EN) != null && GetSigilPassive(EN)._sigil == SigilType.Spectral && args is DamageReceivedValueChangeException hits)
                     {
+                        ids.Add(EN.ID);
+                        ischara.Add(EN.IsUnitCharacter);
+                        passi.Add(GetSigilPassive(EN)._passiveName);
+                        icons.Add(GetSigilPassive(EN).passiveIcon);
                         hits.AddModifier(new FloatMod(0f, false));
                     }
                 }
+                if (ids.Count > 0) CombatManager.Instance.AddUIAction(new ShowMultiplePassiveInformationUIAction(ids.ToArray(), ischara.ToArray(), passi.ToArray(), icons.ToArray()));
+                if (pigment > 0) unit.GenerateHealthMana(pigment);
             }
         }
         public static string Sigil = "SigilPA";
@@ -88,9 +150,12 @@ namespace SaltEnemies_Reseasoned
             Setup();
             Intents.CreateAndAddCustom_Basic_IntentToPool(DefTxt, ResourceLoader.LoadSprite("defenseicon.png"), Color.white);
             Intents.CreateAndAddCustom_Basic_IntentToPool(AtkTxt, ResourceLoader.LoadSprite("atkicon.png"), Color.white);
+            Intents.CreateAndAddCustom_Basic_IntentToPool(SpdTxt, ResourceLoader.LoadSprite("speedicon.png"), Color.white);
+            Intents.CreateAndAddCustom_Basic_IntentToPool(MndTxt, ResourceLoader.LoadSprite("mindicon.png"), Color.white);
             Intents.CreateAndAddCustom_Basic_IntentToPool(UpArrow, ResourceLoader.LoadSprite("blueUpIcon.png"), Color.white);
             Intents.CreateAndAddCustom_Basic_IntentToPool(DownArrow, ResourceLoader.LoadSprite("downicon.png"), Color.white);
             Intents.CreateAndAddCustom_Basic_IntentToPool(OtherUpAlt, ResourceLoader.LoadSprite("upicon.png"), Color.white);
+            Intents.CreateAndAddCustom_Basic_IntentToPool(UpPurple, ResourceLoader.LoadSprite("PurpleUpIcon.png"), Color.white);
             Intents.CreateAndAddCustom_Basic_IntentToPool(Spectral, ResourceLoader.LoadSprite("spectralicon.png"), Color.white);
         }
     }
@@ -158,6 +223,10 @@ namespace SaltEnemies_Reseasoned
             if (sender is IUnit unit)
             {
                 unit.SimpleSetStoredValue(SigilManager.Sigil, 4);
+                if (CasterSetSigilPassiveEffect.Purple == null || CasterSetSigilPassiveEffect.Purple.Equals(null)) CasterSetSigilPassiveEffect.Purple = ResourceLoader.LoadSprite("SigilP_Purple.png");
+                _enemyDescription = "At the start of each turn, reset this enemy's Sigil.";
+                _characterDescription = "At the start of each turn, reset this party member's Sigil.";
+                passiveIcon = CasterSetSigilPassiveEffect.Purple;
             }
         }
         public bool Added = false;
