@@ -47,8 +47,10 @@ namespace SaltsEnemies_Reseasoned
             march.m_PassiveID = MarchingHandler.Passive;
             march._enemyDescription = "On any enemy without \"Marching\" as a passive moving, move Left or Right.";
             march._characterDescription = "On any party member without \"Marching\" as a passive moving, move Left or Right.";
-            march.doesPassiveTriggerInformationPanel = true;
-            march.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self).SelfArray();
+            march.doesPassiveTriggerInformationPanel = false;
+            march.effects = new EffectInfo[2];
+            march.effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<MarchingEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsAliveEffectCondition>());
+            march.effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
             march.conditions = [ScriptableObject.CreateInstance<IsAliveEffectorCondition>()];
             march._triggerOn = [MarchingHandler.Call];
 

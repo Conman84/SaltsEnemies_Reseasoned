@@ -113,4 +113,13 @@ namespace SaltEnemies_Reseasoned
             return true;
         }
     }
+    public class MarchingEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, false, "Marching", ResourceLoader.LoadSprite("MarchingPassive.png")));
+            exitAmount = 0;
+            return true;
+        }
+    }
 }
