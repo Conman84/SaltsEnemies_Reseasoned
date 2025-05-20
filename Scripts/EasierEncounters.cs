@@ -143,4 +143,11 @@ namespace SaltsEnemies_Reseasoned
         public static string Grey => "GreyBot_EN";
         public static string Gray => Grey;
     }
+    public static class Enemy
+    {
+        public static string Skinning => "SkinningHomunculus_EN";
+        public static string Shivering => "ShiveringHomunculus_EN";
+        public static string Minister => "GigglingMinister_EN";
+        public static string Sacrifice => "WrigglingSacrifice_EN";
+    }
 }
