@@ -32,7 +32,7 @@ namespace SaltsEnemies_Reseasoned
                 "GigglingMinister_EN",
                 "GigglingMinister_EN",
                 "NextOfKin_EN",
-            }, null);
+            }, null); 
             mainEncounters.CreateNewEnemyEncounterData(new string[]
             {
                 "ClockTower_EN",
