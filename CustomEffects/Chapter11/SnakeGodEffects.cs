@@ -69,6 +69,7 @@ namespace SaltEnemies_Reseasoned
         public static void Setup()
         {
             UnitStoreData_SnakeGodTargetSO target = ScriptableObject.CreateInstance<UnitStoreData_SnakeGodTargetSO>();
+            target._UnitStoreDataID = Last;
             if (LoadedDBsHandler.MiscDB.m_UnitStoreDataPool.ContainsKey(Last))
                 LoadedDBsHandler.MiscDB.m_UnitStoreDataPool[Last] = target;
             else
