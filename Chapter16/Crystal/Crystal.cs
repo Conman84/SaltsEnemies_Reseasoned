@@ -138,7 +138,7 @@ namespace SaltsEnemies_Reseasoned
                 torture.GenerateEnemyAbility(true),
                 overbite.GenerateEnemyAbility(true),
             });
-            crystal.AddEnemy(true, true);
+            crystal.AddEnemy(true, true, true);
         }
     }
 }

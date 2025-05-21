@@ -69,7 +69,7 @@ namespace SaltsEnemies_Reseasoned
                 thrash.GenerateEnemyAbility(true),
                 burp.GenerateEnemyAbility()
             });
-            minana.AddEnemy(true, true);
+            minana.AddEnemy(true, true, true);
         }
     }
 }

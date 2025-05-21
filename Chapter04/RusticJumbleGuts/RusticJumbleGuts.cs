@@ -93,7 +93,7 @@ namespace SaltsEnemies_Reseasoned
                 flood.GenerateEnemyAbility(true),
                 dust.GenerateEnemyAbility(true),
             });
-            RusticJumbleGuts.AddEnemy(true, true, false);
+            RusticJumbleGuts.AddEnemy(true, true, true);
         }
     }
 }

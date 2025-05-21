@@ -135,7 +135,7 @@ namespace SaltsEnemies_Reseasoned
                 fade.GenerateEnemyAbility(true),
                 phase.GenerateEnemyAbility(true),
             });
-            butterfly.AddEnemy(true, true);
+            butterfly.AddEnemy(true, true, true);
         }
     }
 }

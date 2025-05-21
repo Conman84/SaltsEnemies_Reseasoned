@@ -59,7 +59,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 _windle1.GenerateEnemyAbility(true)
             });
-            windle.AddEnemy(true, true);
+            windle.AddEnemy(true, true, true);
 
             WindleCharacter.Add();
         }
