@@ -41,7 +41,11 @@ namespace SaltsEnemies_Reseasoned
         }
         public void AddRandomGroup(string[] enemies)
         {
-            if (!MultiENExistInternal(enemies)) return;
+            if (!MultiENExistInternal(enemies))
+            {
+                Debug.LogWarning("Failed to add random group to " + bundle);
+                return;
+            }
             AddRandomGroup_Internal(new RandomEnemyGroup(enemies));
         }
         public void AddRandomGroup_Internal(RandomEnemyGroup group)
@@ -149,5 +153,7 @@ namespace SaltsEnemies_Reseasoned
         public static string Shivering => "ShiveringHomunculus_EN";
         public static string Minister => "GigglingMinister_EN";
         public static string Sacrifice => "WrigglingSacrifice_EN";
+        public static string Solvent => "LivingSolvent_EN";
+        public static string Tank => "RealisticTank_EN";
     }
 }
