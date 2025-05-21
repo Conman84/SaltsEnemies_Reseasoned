@@ -121,7 +121,7 @@ namespace SaltsEnemies_Reseasoned
             Ability dreamers = new Ability("A Dream Within A Dream", "Dreamers_A");
             dreamers.Description = "\"Somewhere better than here\"";
             dreamers.Rarity = Rarity.GetCustomRarity("rarity5");
-            dreamers.Priority = Priority.ExtremelySlow;
+            dreamers.Priority = Priority.CreateAndAddCustomPriorityToPool("Solitaire_SupeSlow", -10);
             dreamers.Effects = new EffectInfo[7];
             dreamers.Effects[0] = Effects.GenerateEffect(BasicEffects.SetStoreValue("Dreamer_A"), 1, Slots.Self);
             dreamers.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Curtains", false, Slots.Self));
