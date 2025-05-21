@@ -75,7 +75,7 @@ namespace SaltEnemies_Reseasoned
                 }
                 else if (IsEnemy(enemy, "Children0_EN"))
                 {
-                    if (UnityEngine.Random.Range(0, 100) < 99) return;
+                    if (UnityEngine.Random.Range(0, 100) < 95) return;
                     SpawnEnemyInSlotFromEntryStringNameEffect ef = ScriptableObject.CreateInstance<SpawnEnemyInSlotFromEntryStringNameEffect>();
                     ef.en = "ChildrenPrayer_EN";
                     ef.trySpawnAnywhereIfFail = true;

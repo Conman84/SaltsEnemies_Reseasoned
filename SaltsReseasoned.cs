@@ -195,6 +195,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(AbyssAngel.Add);
                 PCall(Arceles.Add);
                 PCall(YNL.Add);
+                PCall(Children.Add);
 
                 //CH15 Enemies
                 PCall(YellowBot.Add);
