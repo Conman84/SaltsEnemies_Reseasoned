@@ -206,14 +206,14 @@ namespace SaltEnemies_Reseasoned
         {
             Ability interrupt = new Ability("Derogatory_Interrupt_A");
             interrupt.Name = "Interrupt";
-            interrupt.Description = "Move Left or Right. If the Opposing party member is Stunned, deal a Painful amount of damage to them.";
+            interrupt.Description = "Move Left or Right. If the Opposing party member is Muted, deal a Painful amount of damage to them.";
             interrupt.Rarity = Rarity.CreateAndAddCustomRarityToPool("Derogatory_5", 5);
             interrupt.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Targeting.Slot_SelfSlot),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<HasStunnedEffect>(), 5, Targeting.Slot_Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<HasMutedEffect>(), 5, Targeting.Slot_Front),
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Parry_1_A", true, Targeting.Slot_Front), 1, Targeting.Slot_SelfSlot, BasicEffects.DidThat(true)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageIfStunnedEffect>(), 5, Targeting.Slot_Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageIfMutedEffect>(), 5, Targeting.Slot_Front),
             };
             interrupt.AnimationTarget = Targeting.Slot_Front;
             interrupt.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Swap_Sides.ToString() });
@@ -259,6 +259,30 @@ namespace SaltEnemies_Reseasoned
                 if (target.HasUnit & target.Unit.ContainsStatusEffect(StatusField_GameIDs.Stunned_ID.ToString())) exitAmount++;
             }
             return exitAmount > 0;
+        }
+    }
+    public class HasMutedEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit & target.Unit.ContainsStatusEffect(Muted.StatusID)) exitAmount++;
+            }
+            return exitAmount > 0;
+        }
+    }
+    public class DamageIfMutedEffect : DamageEffect
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            List<TargetSlotInfo> ret = new List<TargetSlotInfo>();
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit & target.Unit.ContainsStatusEffect(Muted.StatusID)) ret.Add(target);
+            }
+            return base.PerformEffect(stats, caster, ret.ToArray(), areTargetSlots, entryVariable, out exitAmount);
         }
     }
 }
