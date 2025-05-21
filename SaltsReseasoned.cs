@@ -166,6 +166,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(Rabies.Add);
                 PCall(Nameless.Add);
                 PCall(Damocles.Add);
+                PCall(Kyotlokutla.Add);
 
                 //CH12 Enemies
                 PCall(Warbird.Add);

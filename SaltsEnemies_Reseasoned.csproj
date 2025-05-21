@@ -69,6 +69,10 @@
 	  <None Remove="Chapter11\GlassFigurine\GlassIcon.png" />
 	  <None Remove="Chapter11\GlassFigurine\GlassPortal.png" />
 	  <None Remove="Chapter11\GlassFigurine\GlassWorld.png" />
+	  <None Remove="Chapter11\Kyotlokutla\HateYou.png" />
+	  <None Remove="Chapter11\Kyotlokutla\SnakeGodDead.png" />
+	  <None Remove="Chapter11\Kyotlokutla\SnakeGodIcon.png" />
+	  <None Remove="Chapter11\Kyotlokutla\SnakeGodWorld.png" />
 	  <None Remove="Chapter11\Nameless\NamelessDead.png" />
 	  <None Remove="Chapter11\Nameless\NamelessIcon.png" />
 	  <None Remove="Chapter11\Nameless\NamelessWorld.png" />
@@ -474,6 +478,10 @@
 	  <EmbeddedResource Include="Chapter11\Damocles\DamoclesIcon.png" />
 	  <EmbeddedResource Include="Chapter11\Damocles\DamoclesPassive.png" />
 	  <EmbeddedResource Include="Chapter11\Damocles\DamoclesWorld.png" />
+	  <EmbeddedResource Include="Chapter11\Kyotlokutla\HateYou.png" />
+	  <EmbeddedResource Include="Chapter11\Kyotlokutla\SnakeGodDead.png" />
+	  <EmbeddedResource Include="Chapter11\Kyotlokutla\SnakeGodIcon.png" />
+	  <EmbeddedResource Include="Chapter11\Kyotlokutla\SnakeGodWorld.png" />
 	  <EmbeddedResource Include="Chapter14\Children\Children00Icon.png" />
 	  <EmbeddedResource Include="Chapter14\Children\Children00World.png" />
 	  <EmbeddedResource Include="Chapter14\Children\Children0Icon.png" />
