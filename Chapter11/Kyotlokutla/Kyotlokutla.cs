@@ -34,7 +34,7 @@ namespace SaltsEnemies_Reseasoned
             hate._characterDescription = "Won't work cuz i didn't set up the hook for it lol!";
             hate.doesPassiveTriggerInformationPanel = false;
             hate._triggerOn = new TriggerCalls[1] { TriggerCalls.Count };
-            hate.specialStoredData = UnitStoreData.GetCustom_UnitStoreData(SnakeGodManager.Last);
+            hate.specialStoredData = LoadedDBsHandler.MiscDB.GetUnitStoreData(SnakeGodManager.Last);
 
             snakegod.AddPassives(new BasePassiveAbilitySO[] { hate, Passives.Formless });
             snakegod.AddLootData([new EnemyLootItemProbability() { isItemTreasure = true, amount = 3, probability = 100 }]);
