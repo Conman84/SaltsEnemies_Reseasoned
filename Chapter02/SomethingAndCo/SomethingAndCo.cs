@@ -130,24 +130,24 @@ namespace SaltsEnemies_Reseasoned
             didThat.wasSuccessful = true;
 
             Ability convo = new Ability("Conversation", "Salt_Conversation_A");
-            convo.Description = "Apply 1 Stunned to the opposing party member. If successful, apply 2 Stunned to self.";
+            convo.Description = "Apply 1 Muted to the opposing party member. If successful, apply 2 Muted to self.";
             convo.Rarity = Rarity.GetCustomRarity("rarity10");
             convo.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Ads", false, Targeting.Slot_Front), 1, Targeting.Slot_Front, ScriptableObject.CreateInstance<AnimationsOnEffectCondition>()),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<WasteTimeEffect>(), 1, Targeting.Slot_SelfSlot, ScriptableObject.CreateInstance<AnimationsOffEffectCondition>()),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyStunnedEffect>(), 1, Targeting.Slot_Front),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyStunnedEffect>(), 2, Targeting.Slot_SelfSlot, didThat),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 1, Targeting.Slot_Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 2, Targeting.Slot_SelfSlot, didThat),
             };
             convo.Visuals = null;
             convo.AnimationTarget = Targeting.Slot_SelfSlot;
             convo.AddIntentsToTarget(Targeting.Slot_Front, new string[]
             {
-                "Status_Stunned"
+                Muted.Intent
             });
             convo.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
-                "Status_Stunned"
+                Muted.Intent
             });
 
             //Add
