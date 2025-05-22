@@ -21,7 +21,8 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("EyeballDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Noisy/Eye_Hit",
                 DeathSound = "event:/Hawthorne/Noisy/Eye_Die",
-                AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_EvilEye>()
+                AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_EvilEye>(),
+                Priority = Priority.VerySlow
             };
             evileye.PrepareEnemyPrefab("assets/enemie/Eyeball_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("assets/giblets/Eyeball_Gibs.prefab").GetComponent<ParticleSystem>());
 
