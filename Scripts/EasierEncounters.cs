@@ -43,7 +43,7 @@ namespace SaltsEnemies_Reseasoned
         {
             if (!MultiENExistInternal(enemies))
             {
-                Debug.LogWarning("Failed to add random group to " + bundle);
+                //Debug.LogWarning("Failed to add random group to " + bundle);
                 return;
             }
             AddRandomGroup_Internal(new RandomEnemyGroup(enemies));
@@ -79,7 +79,7 @@ namespace SaltsEnemies_Reseasoned
         public static bool BundleStatic(string name)
         {
             if (!BundleExist(name)) return false;
-            if (BundleRandom(name, false)) Debug.LogWarning("Bundle: " + name + "is random, checked for static");
+            //if (BundleRandom(name, false)) Debug.LogWarning("Bundle: " + name + "is random, checked for static");
             return !BundleRandom(name, false);
         }
         public static bool MultiENExistInternal(string[] names)
