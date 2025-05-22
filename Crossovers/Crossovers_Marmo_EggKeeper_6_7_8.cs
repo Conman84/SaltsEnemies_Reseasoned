@@ -115,6 +115,22 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup(Enemies.Tank, "Romantic_EN", "Romantic_EN");
 
             //work on romantic basegame
+            med = new AddTo(Orph.H.Scrungie.Med);
+            med.AddRandomGroup("Scrungie_EN", "Scrungie_EN", "WindSong_EN", "Romantic_EN");
+            if (SaltsReseasoned.silly > 50) med.AddRandomGroup("Scrungie_EN", "Scrungie_EN", "Sigil_EN", "Romantic_EN");
+            if (SaltsReseasoned.silly < 50) med.AddRandomGroup("Scrungie_EN", "Scrungie_EN", Enemies.Solvent, "Romantic_EN");
+            if (SaltsReseasoned.trolling < 50) med.AddRandomGroup("Scrungie_EN", "Scrungie_EN", Flower.Yellow, "Romantic_EN");
+            if (SaltsReseasoned.trolling > 50) med.AddRandomGroup("Scrungie_EN", "Scrungie_EN", Flower.Purple, "Romantic_EN");
+
+            hard = new AddTo(Orph.H.Sacrifice.Hard);
+            if (SaltsReseasoned.silly < 50) hard.AddRandomGroup(Enemies.Sacrifice, Flower.Yellow, Flower.Purple, "Romantic_EN");
+
+            hard = new AddTo(Orph.H.Revola.Hard);
+            if (SaltsReseasoned.trolling > 50) hard.AddRandomGroup("Revola_EN", Flower.Yellow, "Romantic_EN");
+            if (SaltsReseasoned.trolling < 50) hard.AddRandomGroup("Revola_EN", Flower.Purple, "Romantic_EN");
+
+            hard = new AddTo(Orph.H.Conductor.Hard);
+            if (SaltsReseasoned.silly > 50) hard.AddRandomGroup("Conductor_EN", Flower.Yellow, Flower.Purple, "Romantic_EN");
         }
     }
 }
