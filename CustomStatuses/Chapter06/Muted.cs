@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
+using Tools;
 using UnityEngine;
 
 //call Muted.Add() in awake
@@ -110,10 +111,12 @@ namespace SaltEnemies_Reseasoned
                 Debug.Log("is muted, used not slap");
                 StringReference args = new StringReference(LoadedDBsHandler.AbilityDB._BasicSlapAbility.ability.name);
                 CombatManager.Instance.PostNotification(TriggerCalls.OnAbilityWillBeUsed.ToString(), self, args);
+
                 EffectInfo slap = Effects.GenerateEffect(ScriptableObject.CreateInstance<SlapEffect>(), 1, Targeting.Slot_SelfSlot);
                 CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { slap }, self));
-                CombatManager.Instance.AddRootAction(new EndAbilityAction(self.ID, self.IsUnitCharacter));
-                //self.EndTurn();
+                
+                //CombatManager.Instance.AddRootAction(new EndAbilityAction(self.ID, self.IsUnitCharacter));
+                
                 return;
             }
             orig(self, abilitySlot);
