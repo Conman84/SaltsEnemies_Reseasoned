@@ -53,7 +53,7 @@ namespace SaltEnemies_Reseasoned
         public static void UseMutedAbilityChara(Action<CharacterCombat, int, FilledManaCost[]> orig, CharacterCombat self, int abilityID, FilledManaCost[] filledCost)
         {
             AbilitySO ability = self.CombatAbilities[abilityID].ability;
-            if (self.ContainsStatusEffect(StatusID) && ability._abilityName != "Slap")
+            if (self.ContainsStatusEffect(StatusID) && (ability._abilityName != "Slap" && ability.name != "Slap_A"))
             {
                 try
                 {
