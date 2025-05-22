@@ -190,6 +190,10 @@ namespace SaltEnemies_Reseasoned
                     text = "Pure Sigil";
                     color = Color.magenta;
                     break;
+                case 5:
+                    text = "Intensive Sigil";
+                    color = Color.yellow;
+                    break;
                 default: goto case 4;
             }
             string text2 = ColorUtility.ToHtmlStringRGB(color);
