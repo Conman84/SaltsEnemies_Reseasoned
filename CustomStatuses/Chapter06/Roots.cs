@@ -249,7 +249,7 @@ namespace SaltEnemies_Reseasoned
             StatusEffectInfoSO PhotoInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             PhotoInfo.icon = ResourceLoader.LoadSprite("PhotoIcon.png");
             PhotoInfo._statusName = "Photosynthesis";
-            PhotoInfo._description = "Multiply all healing received by the amount of Photosynthesis.";
+            PhotoInfo._description = "Multiply all healing received by the amount of Photosynthesis.\nPhotosynthesis decreases by 1 on being damaged.";
             PhotoInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.AppliedSoundEvent;
             PhotoInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             PhotoInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
@@ -274,11 +274,13 @@ namespace SaltEnemies_Reseasoned
         public override void OnTriggerAttached(StatusEffect_Holder holder, IStatusEffector caller)
         {
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnBeingHealed.ToString(), caller);
+            CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, TriggerCalls.OnDirectDamaged.ToString(), caller);
         }
 
         public override void OnTriggerDettached(StatusEffect_Holder holder, IStatusEffector caller)
         {
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnBeingHealed.ToString(), caller);
+            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, TriggerCalls.OnDirectDamaged.ToString(), caller);
         }
 
         public override void OnEventCall_01(StatusEffect_Holder holder, object sender, object args)
@@ -288,6 +290,10 @@ namespace SaltEnemies_Reseasoned
             {
                 healIt.AddModifier(new MultiplyIntValueModifier(false, Amount));
             }
+        }
+        public override void OnEventCall_02(StatusEffect_Holder holder, object sender, object args)
+        {
+            ReduceDuration(holder, sender as IStatusEffector);
         }
     }
     public class ApplyPhotoSynthesisEffect : StatusEffect_Apply_Effect
