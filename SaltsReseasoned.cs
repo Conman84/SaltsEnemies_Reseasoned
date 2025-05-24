@@ -14,7 +14,7 @@ using UnityEngine.InputSystem.HID;
 namespace SaltsEnemies_Reseasoned
 {
 
-    [BepInPlugin("millieamp.reseasoned", "Salt Enemies (TM) Reseasoned", "0.2.0")]
+    [BepInPlugin("000.saltenemies", "Salt Enemies (TM) Reseasoned", "0.2.0")]
     [BepInDependency("BrutalOrchestra.BrutalAPI", BepInDependency.DependencyFlags.HardDependency)]
     public class SaltsReseasoned : BaseUnityPlugin
     {

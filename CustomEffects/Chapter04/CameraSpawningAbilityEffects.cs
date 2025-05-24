@@ -1,9 +1,7 @@
 ﻿using BrutalAPI;
-using SaltEnemies_Reseasoned;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using Tools;
 using UnityEngine;
 
@@ -125,7 +123,7 @@ namespace SaltsEnemies_Reseasoned
             return true;
         }
     }
-    public class Camera_CopyAndSpawnCustomCharacterAnywhereEffect : EffectSO
+    public class Camera_CopyAndSpawnCustomCharacterAnywhereEffect : SpawnEnemyAnywhereEffect
     {
         [Header("Rank Data")]
         [CharacterRef]
@@ -160,12 +158,31 @@ namespace SaltsEnemies_Reseasoned
             }
 
             string nameAdditionData = LocUtils.GameLoc.GetNameAdditionData(_nameAddition);
-            for (int j = 0; j < entryVariable; j++)
-            {
-                CombatManager.Instance.AddSubAction(new SpawnCharacterAction(character, -1, trySpawnAnyways: false, nameAdditionData, _permanentSpawn, _rank, usedAbilities, currentHealth, modifiers));
-            }
 
-            exitAmount = entryVariable;
+            EnemySO toCopy = ScriptableObject.Instantiate(LoadedAssetsHandler.GetEnemy("MechanicalLens_EN"));
+            toCopy.abilities = CameraSpawningHandler.GetAbilities(character, _rank, usedAbilities);
+            string Name = "Image of ";
+            if (nameAdditionData != "")
+            {
+                Name += string.Format(nameAdditionData, character.GetName());
+            }
+            else
+            {
+                Name += character.GetName();
+            }
+            toCopy._enemyName = Name;
+            toCopy.passiveAbilities = character.passiveAbilities;
+            toCopy.health = currentHealth;
+            toCopy.healthColor = character.healthColor;
+
+            base.enemy = toCopy;
+
+            //for (int j = 0; j < entryVariable; j++)
+            //{
+            //CombatManager.Instance.AddSubAction(new SpawnCharacterAction(character, -1, trySpawnAnyways: false, nameAdditionData, _permanentSpawn, _rank, usedAbilities, currentHealth, modifiers));
+            //}
+            base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+
             return true;
         }
     }
@@ -227,7 +244,7 @@ namespace SaltsEnemies_Reseasoned
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             exitAmount = 0;
-            
+
             foreach (TargetSlotInfo target in targets)
             {
                 if (target.HasUnit) continue;
