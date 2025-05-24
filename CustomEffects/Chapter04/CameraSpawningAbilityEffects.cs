@@ -43,6 +43,7 @@ namespace SaltsEnemies_Reseasoned
                     ability = ability.ability,
                     rarity = Rarity.GetCustomRarity("rarity5")
                 };
+                ret.Add(add);
             }
 
             return ret;
