@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -124,7 +125,7 @@ namespace SaltsEnemies_Reseasoned
                     Name += item.GetName();
                 }
                 toCopy._enemyName = Name;
-                toCopy.passiveAbilities = item.passiveAbilities;
+                toCopy.passiveAbilities = CameraEffects.GetPassives(null, new CameraEffects.PassiveHolder(item.passiveAbilities.ToArray(), null), null);
                 toCopy.health = maxHealth;
                 toCopy.healthColor = item.healthColor;
 
@@ -195,7 +196,7 @@ namespace SaltsEnemies_Reseasoned
                 Name += character.GetName();
             }
             toCopy._enemyName = Name;
-            toCopy.passiveAbilities = character.passiveAbilities;
+            toCopy.passiveAbilities = CameraEffects.GetPassives(null, new CameraEffects.PassiveHolder(character.passiveAbilities.ToArray(), null), null); ;
             toCopy.health = currentHealth;
             toCopy.healthColor = character.healthColor;
 

@@ -370,6 +370,266 @@ namespace SaltEnemies_Reseasoned
                 }
             }
         }
+        public static List<BasePassiveAbilitySO> GetPassives(CharacterCombat character, PassiveHolder passives, EnemyCombat enemy, bool OnlyHasnt = false, bool pickRandom = false)
+        {
+            if (OnlyHasnt) passives = passives.reduce(enemy);
+            if (pickRandom) passives = passives.randomOne();
+            BasePassiveAbilitySO passive;
+
+            List<BasePassiveAbilitySO> ret = new List<BasePassiveAbilitySO>();
+
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Focus.ToString(), out passive))
+            {
+                ret.Add(passive);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Skittish.ToString(), out passive))
+            {
+                ret.Add(passive);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Slippery.ToString(), out passive))
+            {
+                ret.Add(passive);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Infantile.ToString()))
+            {
+                ret.Add(Passives.Infantile);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Parental.ToString()))
+            {
+                if (UnityEngine.Random.Range(0f, 1f) < 0.5f) ret.Add(LoadedAssetsHandler.GetEnemy("Flarb_EN").passiveAbilities[1]);
+                else ret.Add(LoadedAssetsHandler.GetEnemy("SkinningHomunculus_EN").passiveAbilities[0]);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Unstable.ToString(), out passive))
+            {
+                ret.Add(passive);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Constricting.ToString(), out passive))
+            {
+                ret.Add(passive);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Formless.ToString()))
+            {
+                ret.Add(Passives.Formless);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Pure.ToString(), out passive))
+            {
+                ret.Add(passive);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Absorb.ToString()))
+            {
+                ret.Add(passive);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Forgetful.ToString()))
+            {
+                ret.Add(Passives.Forgetful);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Withering.ToString()))
+            {
+                ret.Add(Passives.Withering);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Overexert.ToString(), out passive))
+            {
+                bool cont = true;
+                for (int i = -1; i < 13; i++)
+                {
+                    if (passive._passiveName.Contains("(" + i.ToString() + ")"))
+                    {
+                        ret.Add(Passives.OverexertGenerator(i));
+                        cont = false;
+                        break;
+                    }
+                }
+                if (cont) ret.Add(Passives.Overexert2);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.MultiAttack.ToString(), out passive))
+            {
+                bool cont = true;
+                for (int i = -1; i < 13; i++)
+                {
+                    if (passive._passiveName.Contains("(" + i.ToString() + ")"))
+                    {
+                        ret.Add(Passives.MultiAttackGenerator(i));
+                        cont = false;
+                        break;
+                    }
+                }
+                if (cont) ret.Add(Passives.MultiAttack2);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Obscure.ToString()))
+            {
+                ret.Add(Passives.Obscure);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Confusion.ToString()))
+            {
+                ret.Add(Passives.Confusion);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Fleeting.ToString(), out passive))
+            {
+                ret.Add(passive);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Dying.ToString()))
+            {
+                ret.Add(Passives.Dying);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Inanimate.ToString()))
+            {
+                ret.Add(Passives.Inanimate);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Inferno.ToString(), out passive))
+            {
+                ret.Add(passive);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Enfeebled.ToString()))
+            {
+                ret.Add(Passives.Enfeebled);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Immortal.ToString()))
+            {
+                ret.Add(Passives.Immortal);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.TwoFaced.ToString(), out passive))
+            {
+                ret.Add(passive);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Catalyst.ToString(), out passive))
+            {
+                ret.Add(passive);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Anchored.ToString()))
+            {
+                ret.Add(Passives.Anchored);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Delicate.ToString()))
+            {
+                ret.Add(Passives.Delicate);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Leaky.ToString(), out passive))
+            {
+                ret.Add(passive);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.PanicAttack.ToString(), out passive))
+            {
+                ret.Add(passive);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Transfusion.ToString()))
+            {
+                ret.Add(Passives.Transfusion);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Abomination.ToString(), out passive))
+            {
+                bool cont = true;
+                for (int i = -1; i < 13; i++)
+                {
+                    if (passive._passiveName.Contains("(" + i.ToString() + ")"))
+                    {
+                        ret.Add(Passives.AbominationGenerator(i));
+                        cont = false;
+                        break;
+                    }
+                }
+                if (cont) ret.Add(Passives.Abomination1);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.BoneSpurs.ToString(), out passive))
+            {
+                ret.Add(passive);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Infestation.ToString(), out passive))
+            {
+                bool cont = true;
+                for (int i = -1; i < 13; i++)
+                {
+                    if (passive._passiveName.Contains("(" + i.ToString() + ")"))
+                    {
+                        ret.Add(Passives.InfestationGenerator(i));
+                        cont = false;
+                        break;
+                    }
+                }
+                if (cont) ret.Add(Passives.Infestation1);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Masochism.ToString(), out passive))
+            {
+                bool cont = true;
+                for (int i = -1; i < 13; i++)
+                {
+                    if (passive._passiveName.Contains("(" + i.ToString() + ")"))
+                    {
+                        ret.Add(Passives.MasochismGenerator(i));
+                        cont = false;
+                        break;
+                    }
+                }
+                if (cont) ret.Add(Passives.Masochism1);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Construct.ToString()))
+            {
+                RandomAbilityPassive instance1 = ScriptableObject.CreateInstance<RandomAbilityPassive>();
+                instance1._passiveName = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._passiveName;
+                instance1.passiveIcon = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0].passiveIcon;
+                instance1.m_PassiveID = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0].m_PassiveID;
+                instance1._enemyDescription = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._enemyDescription;
+                instance1._characterDescription = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._characterDescription;
+                instance1._triggerOn = new TriggerCalls[]
+                {
+                (TriggerCalls) 889532//old zensuke trigger
+                };
+                ret.Add(instance1);
+            }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Cashout.ToString(), out passive))
+            {
+                bool cont = true;
+                for (int i = -1; i < 13; i++)
+                {
+                    if (passive._passiveName.Contains("(" + i.ToString() + ")"))
+                    {
+                        ret.Add(Passives.CashoutGenerator(i));
+                        cont = false;
+                        break;
+                    }
+                }
+                if (cont) ret.Add(Passives.Cashout);
+            }
+            if (DefaultPassiveAdding != null)
+            {
+                foreach (string ID in DefaultPassiveAdding.Keys)
+                {
+                    try
+                    {
+                        if (passives.ContainsPassiveAbility(ID, out passive))
+                        {
+                            if (DefaultPassiveAdding[ID].m_PassiveID == DefaultPassive.m_PassiveID)
+                            {
+                                if (DefaultPassiveAdding[ID]._enemyDescription != "nothing.") passive._enemyDescription = DefaultPassiveAdding[ID]._enemyDescription;
+                                ret.Add(passive);
+                            }
+                            else ret.Add(DefaultPassiveAdding[ID]);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.Log("epic fail on passive ID " + ID);
+                        Debug.LogError(ex.ToString());
+                    }
+                }
+            }
+            if (OtherChecks != null)
+            {
+                foreach (Action<PassiveHolder, CharacterCombat, EnemyCombat> action in OtherChecks)
+                {
+                    try
+                    {
+                        action(passives, character, enemy);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.LogError("CameraEffects AddPassive action fail");
+                        Debug.LogError(ex.ToString());
+                    }
+                }
+            }
+
+            return ret;
+        }
         public static void RemoveAttack(Action<EnemyCombatUIInfo, int> orig, EnemyCombatUIInfo self, int attackID)
         {
             if (attackID >= self.Abilities.Count)
