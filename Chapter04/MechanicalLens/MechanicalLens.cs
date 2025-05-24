@@ -35,6 +35,8 @@ namespace SaltsEnemies_Reseasoned
                 LoadedAssetsHandler.GetEnemy("Xiphactinus_EN").passiveAbilities[1]
             });
 
+            MechanicalLens.AddUnitType("Camera");
+
             //Lens Flash
             PreviousEffectCondition didntThat = ScriptableObject.CreateInstance<PreviousEffectCondition>();
             didntThat.wasSuccessful = false;
