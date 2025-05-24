@@ -57,6 +57,7 @@ namespace SaltsEnemies_Reseasoned
             martyr._parentalAbility.ability = ability;
 
             pawn.AddPassives(new BasePassiveAbilitySO[] { Passives.Absorb, traitor, martyr, });
+            pawn.UnitTypes = new List<string> { "FemaleID" };
 
             //mercenary
             Ability merc = new Ability("Mercenary A", "Mercenary_A");

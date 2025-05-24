@@ -53,6 +53,7 @@ namespace SaltsEnemies_Reseasoned
 
             //add the pasis
             devil.AddPassives(new BasePassiveAbilitySO[] { Passives.SlipperyGenerator(2), punish, judgement });
+            devil.UnitTypes = new List<string> { "FemaleID" };
 
             //heaven
             Ability heaven = new Ability("GatesOfHeaven_A")
