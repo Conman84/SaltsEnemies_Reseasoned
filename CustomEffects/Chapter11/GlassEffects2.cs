@@ -11,6 +11,7 @@ namespace SaltEnemies_Reseasoned
 
         public void Function(object sender, object args)
         {
+            Debug.Log("hi");
             base.PerformEffect(CombatManager.Instance._stats, sender as IUnit, [], false, 0, out int exi);
         }
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)

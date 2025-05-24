@@ -248,7 +248,17 @@ namespace SaltEnemies_Reseasoned
                     "But I Hear a Small Cry",
                     "\"Just Let Me Die\""
                 }.GetRandom();
+
+
+                foreach (EnemyCombatUIInfo enemyInfo in stats.combatUI._enemiesInCombat.Values)
+                {
+                    if (enemyInfo.SlotID == enemy.SlotID)
+                    {
+                        enemyInfo.Name = enemy._currentName;
+                    }
+                }
             }
+
 
             return true;
         }
