@@ -122,6 +122,14 @@ namespace SaltsEnemies_Reseasoned
             exitAmount = entryVariable;
             return true;
         }
+        public static Camera_CopyAndSpawnRandomCharacterAnywhereEffect Copy(CopyAndSpawnRandomCharacterAnywhereEffect ori)
+        {
+            Camera_CopyAndSpawnRandomCharacterAnywhereEffect ret = ScriptableObject.CreateInstance<Camera_CopyAndSpawnRandomCharacterAnywhereEffect>();
+            ret._rank = ori._rank;
+            ret._nameAddition = ori._nameAddition;
+            ret._permanentSpawn = ori._permanentSpawn;
+            return ret;
+        }
     }
     public class Camera_CopyAndSpawnCustomCharacterAnywhereEffect : SpawnEnemyAnywhereEffect
     {
@@ -184,6 +192,18 @@ namespace SaltsEnemies_Reseasoned
             base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
 
             return true;
+        }
+
+        public static Camera_CopyAndSpawnCustomCharacterAnywhereEffect Copy(CopyAndSpawnCustomCharacterAnywhereEffect ori)
+        {
+            Camera_CopyAndSpawnCustomCharacterAnywhereEffect ret = ScriptableObject.CreateInstance<Camera_CopyAndSpawnCustomCharacterAnywhereEffect>();
+            ret._characterCopy = ori._characterCopy;
+            ret._rank = ori._rank;
+            ret._nameAddition = ori._nameAddition;
+            ret._permanentSpawn = ori._permanentSpawn;
+            ret._usePreviousAsHealth = ori._usePreviousAsHealth;
+            ret._extraModifiers = ori._extraModifiers;
+            return ret;
         }
     }
     //reviver
