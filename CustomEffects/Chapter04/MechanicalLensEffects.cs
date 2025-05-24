@@ -4,6 +4,7 @@ using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
@@ -848,7 +849,8 @@ namespace SaltEnemies_Reseasoned
             AbilitySO ability = self.Abilities[index].ability;
             CombatManager.Instance.AddSubAction(new ShowAttackInformationUIAction(self.ID, self.IsUnitCharacter, ability.GetAbilityLocData().text));
             CombatManager.Instance.AddSubAction(new PlayAbilityAnimationAction(ability.visuals, ability.animationTarget, self));
-            CombatManager.Instance.AddSubAction(new EffectAction(ability.effects, self));
+            if (!self.UnitTypes.Contains("Camera")) CombatManager.Instance.AddSubAction(new EffectAction(ability.effects, self));
+            else CombatManager.Instance.AddSubAction(new CameraCopyEffectAction(ability.effects, self));
             self.SetVolatileUpdateUIAction();
             return true;
         }
@@ -856,7 +858,8 @@ namespace SaltEnemies_Reseasoned
         {
             CombatManager.Instance.AddSubAction(new ShowAttackInformationUIAction(self.ID, self.IsUnitCharacter, selectedAbility.GetAbilityLocData().text));
             CombatManager.Instance.AddSubAction(new PlayAbilityAnimationAction(selectedAbility.visuals, selectedAbility.animationTarget, self));
-            CombatManager.Instance.AddSubAction(new EffectAction(selectedAbility.effects, self));
+            if (!self.UnitTypes.Contains("Camera")) CombatManager.Instance.AddSubAction(new EffectAction(selectedAbility.effects, self));
+            else CombatManager.Instance.AddSubAction(new CameraCopyEffectAction(selectedAbility.effects, self));
             self.SetVolatileUpdateUIAction();
             return true;
         }

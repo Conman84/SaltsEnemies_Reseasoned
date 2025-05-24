@@ -1,7 +1,9 @@
 ﻿using BrutalAPI;
 using MonoMod.RuntimeDetour;
+using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using Tools;
@@ -119,6 +121,40 @@ namespace SaltEnemies_Reseasoned
                 
                 return;
             }
+
+
+            //camera exception
+            if (self.UnitTypes.Contains("Camera"))
+            {
+                if (abilitySlot < 0 || abilitySlot >= self.Abilities.Count)
+                {
+                    Debug.LogError(self.Name + " cannot use ability in slot " + abilitySlot + ", it does not exist");
+                    self.EndTurn();
+                    return;
+                }
+
+                ability = self.Abilities[abilitySlot].ability;
+                if (!self.CanUseAbility)
+                {
+                    Debug.LogError(self.Name + " cannot use " + ability.GetAbilityLocData().text + " probably due to stunned");
+                    self.EndTurn();
+                    return;
+                }
+
+                StringReference args = new StringReference(ability.name);
+                CombatManager.Instance.PostNotification(TriggerCalls.OnAbilityWillBeUsed.ToString(), self, args);
+                if (!DebugUtils.videoMode)
+                {
+                    CombatManager.Instance.AddUIAction(new ShowAttackInformationUIAction(self.ID, self.IsUnitCharacter, ability.GetAbilityLocData().text));
+                }
+
+                CombatManager.Instance.AddRootAction(new PlayAbilityAnimationAction(ability.visuals, ability.animationTarget, self));
+                CombatManager.Instance.AddRootAction(new CameraCopyEffectAction(ability.effects, self));
+                CombatManager.Instance.AddRootAction(new EndAbilityAction(self.ID, self.IsUnitCharacter));
+
+                return;
+            }
+
             orig(self, abilitySlot);
         }
     }

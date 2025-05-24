@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Tools;
 using UnityEngine;
 
@@ -9,9 +10,9 @@ namespace SaltsEnemies_Reseasoned
 {
     public class Test
     {
-        CopyAndSpawnRandomCharacterAnywhereEffect random;
-        CopyAndSpawnCustomCharacterAnywhereEffect custom;
-        CopyCasterAndSpawnCharacterAnywhereEffect caster;
+        CopyAndSpawnRandomCharacterAnywhereEffect random;//done
+        CopyAndSpawnCustomCharacterAnywhereEffect custom;//done
+        CopyCasterAndSpawnCharacterAnywhereEffect caster;//done
         ResurrectEffect revive;//done
     }
     public class CameraSpawningHandler
@@ -53,6 +54,19 @@ namespace SaltsEnemies_Reseasoned
         public CameraCopyEffectAction(EffectInfo[] effects, IUnit caster, int startResult = 0) : base(new EffectInfo[effects.Length], caster, startResult)
         {
             //set effects
+
+            for (int i = 0; i < effects.Length; i++)
+            {
+                EffectInfo newer = Effects.CopyEffect(effects[i]);
+
+                if (newer.effect is CopyAndSpawnRandomCharacterAnywhereEffect old1) newer.effect = Camera_CopyAndSpawnRandomCharacterAnywhereEffect.Copy(old1);
+                if (newer.effect is CopyAndSpawnCustomCharacterAnywhereEffect old2) newer.effect = Camera_CopyAndSpawnCustomCharacterAnywhereEffect.Copy(old2);
+                if (newer.effect is CopyCasterAndSpawnCharacterAnywhereEffect) newer.effect = ScriptableObject.CreateInstance<Camera_SpawnEnemyCopySelfEffect>();
+                if (newer.effect is ResurrectEffect) newer.effect = ScriptableObject.CreateInstance<Camera_ResurrectEffect>();
+
+                _effects[i] = newer;
+            }
+
         }
         public override IEnumerator Execute(CombatStats stats)
         {
@@ -204,6 +218,29 @@ namespace SaltsEnemies_Reseasoned
             ret._usePreviousAsHealth = ori._usePreviousAsHealth;
             ret._extraModifiers = ori._extraModifiers;
             return ret;
+        }
+    }
+    public class Camera_SpawnEnemyCopySelfEffect : EffectSO
+    {
+        public bool givesExperience;
+
+        [SerializeField]
+        public string _spawnType = CombatType_GameIDs.Spawn_Basic.ToString();
+
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            if (caster is EnemyCombat enemm)
+            {
+                EnemySO enemy = enemm.Enemy;
+                for (int i = 0; i < entryVariable; i++)
+                {
+                    CombatManager.Instance.AddSubAction(new SpawnEnemyAction(enemy, -1, givesExperience, trySpawnAnyways: false, _spawnType, 20));
+                }
+            }
+            else return false;
+            exitAmount = entryVariable;
+            return true;
         }
     }
     //reviver
