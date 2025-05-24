@@ -129,6 +129,7 @@ namespace SaltsEnemies_Reseasoned
                 toCopy.healthColor = item.healthColor;
 
                 base.enemy = toCopy;
+                base._spawnTypeID = CombatType_GameIDs.Spawn_Basic.ToString();
 
                 if (base.PerformEffect(stats, caster, targets, areTargetSlots, 1, out int ex)) exitAmount++;
                 //CombatManager.Instance.AddSubAction(new SpawnCharacterAction(item, -1, trySpawnAnyways: false, nameAdditionData, _permanentSpawn, _rank, usedAbilities, maxHealth));
@@ -199,6 +200,7 @@ namespace SaltsEnemies_Reseasoned
             toCopy.healthColor = character.healthColor;
 
             base.enemy = toCopy;
+            base._spawnTypeID = CombatType_GameIDs.Spawn_Basic.ToString();
 
             //for (int j = 0; j < entryVariable; j++)
             //{
