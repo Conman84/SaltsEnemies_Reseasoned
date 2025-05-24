@@ -45,6 +45,11 @@ namespace SaltsEnemies_Reseasoned
 
             glass.AddPassives(new BasePassiveAbilitySO[] { Passives.Unstable, disorient, Passives.Obscure });
 
+            //namechange
+            glass.CombatEnterEffects = Effects.GenerateEffect(GlassConnectionEffect.Create(true)).SelfArray();
+            glass.CombatExitEffects = Effects.GenerateEffect(GlassConnectionEffect.Create(false)).SelfArray();
+
+
             //dreams
             Ability dreams = new Ability("Psychokinetic Dreams", "PsychokineticDreams_A");
             dreams.Description = "Deal damage to the Opposing party member equal to this enemy's missing health.";
