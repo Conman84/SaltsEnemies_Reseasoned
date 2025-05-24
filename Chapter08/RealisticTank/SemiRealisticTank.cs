@@ -27,10 +27,10 @@ namespace SaltsEnemies_Reseasoned
             warn._passiveName = "Warning";
             warn.m_PassiveID = "Tank_Warning_PA";
             warn.passiveIcon = ResourceLoader.LoadSprite("WarningPassive.png");
-            warn._enemyDescription = "On taking any damage, inflict 1 Ruptured on all party members.";
-            warn._characterDescription = "On taking any damage, inflict 1 Ruptured on all enemies.";
+            warn._enemyDescription = "On taking any damage, inflict 1 Frail, Ruptured, Acid, or Muted on all party members.";
+            warn._characterDescription = "On taking any damage, inflict 1 Frail, Ruptured, Acid, or Muted on all enemies.";
             warn.doesPassiveTriggerInformationPanel = true;
-            warn.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Targetting.AllEnemy) };
+            warn.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomNegativeStatusEffect>(), 1, Targetting.AllEnemy) };
             warn._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDamaged };
             warn.conditions = Passives.Slippery.conditions;
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WarningPassive.png"), "Warning", warn._enemyDescription);

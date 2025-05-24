@@ -300,7 +300,7 @@ namespace SaltEnemies_Reseasoned
                 return _linked;
             }
         }
-        public static EffectSO[] Array => new EffectSO[] { Oil, Left, Frail, Scar, Cursed, Pale, Rupture, Acid, Muted, DS, /*Drown, Terror, Pimples,*/ Linked };//pimples,,, salted, paranoia
+        public static EffectSO[] Array => new EffectSO[] { Frail, Rupture, Acid, Muted };//pimples,,, salted, paranoia
 
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
