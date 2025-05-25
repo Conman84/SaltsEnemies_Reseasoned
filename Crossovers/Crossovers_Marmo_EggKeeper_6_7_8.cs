@@ -151,6 +151,9 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Orph.H.Jumble.Purple.Med);
             med.AddRandomGroup(Jumble.Purple, "Surrogate_EN", "Delusion_EN", "Delusion_EN");
+
+            easy = new AddTo(Orph.H.Flower.Yellow.Easy);
+            easy.AddRandomGroup(Flower.Yellow, "Gungrot_EN", "Gungrot_EN");
         }
     }
 }
