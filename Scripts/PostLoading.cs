@@ -46,6 +46,14 @@ namespace SaltEnemies_Reseasoned
             //eggkeeper
             PCall(MinichibisEggkeeperEncounters.Add);
 
+            //marmo & eggkeeper massive lump
+            PCall(Crossovers_Marmo_EggKeeper_6_7_8.Add);
+
+            if (DebugVer)
+            {
+                
+            }
+
             //Round
             PCall(RoundCrossovers.Shufflers_1_4);
 

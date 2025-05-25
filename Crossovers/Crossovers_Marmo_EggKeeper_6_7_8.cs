@@ -196,14 +196,44 @@ namespace SaltsEnemies_Reseasoned
 
             hard = new AddTo(Garden.H.Tank.Hard);
             hard.AddRandomGroup(Enemies.Tank, "Git_EN", "Git_EN");
+            hard.AddRandomGroup(Enemies.Tank, "Attrition_EN");
+            hard.AddRandomGroup(Enemies.Tank, "EggKeeper_EN", "ChoirBoy_EN");
 
             hard = new AddTo(Garden.H.ClockTower.Hard);
             hard.AddRandomGroup("ClockTower_EN", "Git_EN", "Git_EN", Flower.Red);
+            hard.AddRandomGroup("ClockTower_EN", "Attrition_EN", "Attrition_EN", "Attrition_EN");
+            hard.AddRandomGroup("ClockTower_EN", "Attrition_EN", Flower.Red, Flower.Blue);
+            hard.AddRandomGroup("ClockTower_EN", Enemies.Skinning, Enemies.Skinning, "EggKeeper_EN");
+            hard.AddRandomGroup("ClockTower_EN", Enemies.Minister, "ChoirBoy_EN", "EggKeeper_EN");
 
             med = new AddTo(Garden.H.InHerImage.Med);
             med.AddRandomGroup("InHerImage_EN", "InHerImage_EN", Flower.Red, "Git_EN");
+            med.AddRandomGroup("InHerImage_EN", "InHerImage_EN", Flower.Red, "EggKeeper_EN");
             med = new AddTo(Garden.H.InHisImage.Med);
             med.AddRandomGroup("InHisImage_EN", "InHisImage_EN", Flower.Blue, "Git_EN");
+            med.AddRandomGroup("InHisImage_EN", "InHisImage_EN", Flower.Blue, "EggKeeper_EN");
+
+            easy = new AddTo(Garden.H.Attrition.Easy);
+            easy.AddRandomGroup("Attrition_EN", "Attrition_EN", "WindSong_EN");
+
+            med = new AddTo(Garden.H.Attrition.Med);
+            med.AddRandomGroup("Attrition_EN", "Attrition_EN", "Attrition_EN", Flower.Blue);
+            med.AddRandomGroup("Attrition_EN", "Attrition_EN", "Attrition_EN", Flower.Red);
+
+            hard = new AddTo(Garden.H.Satyr.Hard);
+            hard.AddRandomGroup("Satyr_EN", "Attrition_EN", Flower.Blue);
+            hard.AddRandomGroup("Satyr_EN", "Attrition_EN", Flower.Red);
+
+            med = new AddTo(Garden.H.EggKeeper.Med);
+            med.AddRandomGroup("EggKeeper_EN", "ChoirBoy_EN", "WindSong_EN");
+
+            easy = new AddTo(Garden.H.Flower.Blue.Easy);
+            if (SaltsReseasoned.trolling < 50) easy.AddRandomGroup(Flower.Red, Flower.Blue, "EggKeeper_EN");
+            easy = new AddTo(Garden.H.Flower.Red.Easy);
+            if (SaltsReseasoned.trolling > 50) easy.AddRandomGroup(Flower.Red, Flower.Blue, "EggKeeper_EN");
+
+            med = new AddTo(Garden.H.Minister.Med);
+            med.AddRandomGroup(Enemies.Minister, Enemies.Minister, Flower.Blue, "EggKeeper_EN");
         }
     }
 }
