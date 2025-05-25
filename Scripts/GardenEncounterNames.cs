@@ -108,6 +108,10 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Hard => "H_Zone03_TheDeep_Hard_EnemyBundle";
             }
+            public static class Grandfather
+            {
+                public static string Med => "H_Zone03_Grandfather_Hard_EnemyBundle";
+            }
 
             //marmo
             public static class Git

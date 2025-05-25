@@ -29,6 +29,11 @@ namespace SaltEnemies_Reseasoned
             SaltRusticJumbleGutsEncounters.Add();
             SaltMortalSpoggleEncounters.Add();
             SaltMechanicalLensEncounters.Add();
+            
+            if (DebugVer)
+            {
+                PCall(GrandfatherEncounters.Post);
+            }
 
             //Crossovers
 

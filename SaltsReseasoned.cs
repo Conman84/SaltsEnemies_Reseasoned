@@ -275,6 +275,12 @@ namespace SaltsEnemies_Reseasoned
             SolventEncounters.Add();
             WindSongEncounters.Add();
 
+            if (DebugVer)
+            {
+                //CH9 Encounters
+                PCall(GrandfatherEncounters.Add);
+            }
+
             Logger.LogInfo("Seasons greasons");
         }
 
