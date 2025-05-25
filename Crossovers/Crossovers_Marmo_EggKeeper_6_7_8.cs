@@ -45,6 +45,7 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Orph.H.Crow.Med);
             med.AddRandomGroup("TheCrow_EN", "LivingSolvent_EN", Jumble.Unstable);
             med.AddRandomGroup("TheCrow_EN", Spoggle.Unstable, "LivingSolvent_EN");
+            med.AddRandomGroup("TheCrow_EN", "WindSong_EN", "Surrogate_EN");
 
             AddTo hard = new AddTo(Orph.H.Revola.Hard);
             hard.AddRandomGroup("Revola_EN", "WindSong_EN", Jumble.Unstable);
@@ -110,11 +111,11 @@ namespace SaltsEnemies_Reseasoned
             hard = new AddTo(Garden.H.ClockTower.Hard);
             hard.AddRandomGroup("ClockTower_EN", Enemies.Skinning, Enemies.Shivering, "Romantic_EN");
             hard.AddRandomGroup("ClockTower_EN", Enemies.Minister, Enemies.Minister, "Romantic_EN");
+            hard.AddRandomGroup("ClockTower_EN", "ChoirBoy_EN", "Surrogate_EN", "Surrogate_EN");
 
             hard = new AddTo(Garden.H.Tank.Hard);
             hard.AddRandomGroup(Enemies.Tank, "Romantic_EN", "Romantic_EN");
 
-            //work on romantic basegame
             med = new AddTo(Orph.H.Scrungie.Med);
             med.AddRandomGroup("Scrungie_EN", "Scrungie_EN", "WindSong_EN", "Romantic_EN");
             if (SaltsReseasoned.silly > 50) med.AddRandomGroup("Scrungie_EN", "Scrungie_EN", "Sigil_EN", "Romantic_EN");
@@ -131,6 +132,25 @@ namespace SaltsEnemies_Reseasoned
 
             hard = new AddTo(Orph.H.Conductor.Hard);
             if (SaltsReseasoned.silly > 50) hard.AddRandomGroup("Conductor_EN", Flower.Yellow, Flower.Purple, "Romantic_EN");
+            hard.AddRandomGroup("Conductor_EN", "Surrogate_EN", "WindSong_EN");
+
+            med = new AddTo(Orph.H.Delusion.Med);
+            med.AddRandomGroup("Delusion_EN", "Delusion_EN", "Delusion_EN", "Surrogate_EN");
+            if (SaltsReseasoned.trolling > 50) med.AddRandomGroup("Delusion_EN", "Delusion_EN", Flower.Yellow, "Surrogate_EN");
+            if (SaltsReseasoned.trolling < 50) med.AddRandomGroup("Delusion_EN", "Delusion_EN", Flower.Purple, "Surrogate_EN");
+            med.AddRandomGroup("Delusion_EN", "Delusion_EN", "WindSong_EN", "Surrogate_EN");
+            med.AddRandomGroup("Delusion_EN", "Delusion_EN", "Gungrot_EN", "Gungrot_EN");
+
+            med = new AddTo(Orph.H.Flower.Yellow.Med);
+            if (SaltsReseasoned.trolling < 50) med.AddRandomGroup(Flower.Yellow, Flower.Purple, "Surrogate_EN");
+            med = new AddTo(Orph.H.Flower.Purple.Med);
+            if (SaltsReseasoned.trolling > 50) med.AddRandomGroup(Flower.Purple, Flower.Yellow, "Surrogate_EN");
+
+            med = new AddTo(Orph.H.Sigil.Med);
+            med.AddRandomGroup("Sigil_EN", "Delusion_EN", "Delusion_EN", "Surrogate_EN");
+
+            med = new AddTo(Orph.H.Jumble.Purple.Med);
+            med.AddRandomGroup(Jumble.Purple, "Surrogate_EN", "Delusion_EN", "Delusion_EN");
         }
     }
 }
