@@ -132,7 +132,7 @@ namespace SaltsEnemies_Reseasoned
                 Visuals = CustomVisuals.GetVisuals("Salt/Snap"),
                 AnimationTarget = Targeting.Slot_Front
             };
-            loveu.AddIntentsToTarget(Targeting.Slot_Front, new string[] { Power.Intent, IntentType_GameIDs.Damage_Death.ToString() });
+            loveu.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Damage_Death.ToString(), Power.Intent });
             loveu.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { Photo.Intent });
 
             //RED ADD
