@@ -85,7 +85,7 @@ namespace SaltsEnemies_Reseasoned
             //basic flower abilities
             EnemyAbilityInfo aroma = new EnemyAbilityInfo()
             {
-                ability = LoadedAssetsHandler.GetEnemyAbility("Flower_Aroma_A"),
+                ability = LoadedAssetsHandler.GetEnemyAbility("Flower_Bouquet_A"),
                 rarity = Rarity.GetCustomRarity("rarity5")
             };
             EnemyAbilityInfo photo = new EnemyAbilityInfo()
