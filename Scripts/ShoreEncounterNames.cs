@@ -54,6 +54,28 @@ namespace SaltsEnemies_Reseasoned
             public static string Hard => "Zone01_Flarb_Hard_EnemyBundle";
         }
 
+        //hawthorne
+        public static class Tripod
+        {
+            public static string Hard => "Zone01_Tripod_Hard_EnemyBundle";
+        }
+        public static class Minana
+        {
+            public static string Easy => "Zone01_Minana_Easy_EnemyBundle";
+        }
+        public static class Pinano
+        {
+            public static string Med => "Zone01_Pinano_Med_EnemyBundle";
+        }
+        public static class Grave
+        {
+            public static string Easy => "Zone01_NobodyGrave_Easy_EnemyBundle";
+        }
+        public static class Ufo
+        {
+            public static string Med => "Zone01_ToyUfo_Medium_EnemyBundle";
+        }
+
 
 
         //HARDMODE
@@ -150,6 +172,65 @@ namespace SaltsEnemies_Reseasoned
             public static class Unmung
             {
                 public static string Hard => "H_Zone01_TeachaMantoFish_Hard_EnemyBundle";
+            }
+            public static class Skyloft
+            {
+                public static string Easy => "H_Zone01_Skyloft_Easy_EnemyBundle";
+            }
+            public static class Tripod
+            {
+                public static string Hard => "H_Zone01_Tripod_Hard_EnemyBundle";
+            }
+            public static class LittleBeak
+            {
+                public static string Med => "H_Zone01_LittleBeak_Medium_EnemyBundle";
+            }
+            public static class Warbird
+            {
+                public static string Hard => "H_Zone01_Warbird_Hard_EnemyBundle";
+            }
+            public static class Windle
+            {
+                public static string Easy => "H_Zone01_Windle_Easy_EnemyBundle";
+            }
+            public static class Clione
+            {
+                public static string Med => "H_Zone01_AbyssAngel_Medium_EnemyBundle";
+                public static string Hard => "H_Zone01_AbyssAngel_Hard_EnemyBundle";
+            }
+            public static class Arceles
+            {
+                public static string Easy => "H_Zone01_Arceles_Easy_EnemyBundle";
+            }
+            public static class Minana
+            {
+                public static string Easy => "H_Zone01_Minana_Easy_EnemyBundle";
+            }
+            public static class Pinano
+            {
+                public static string Easy => "H_Zone01_Pinano_Easy_EnemyBundle";
+                public static string Med => "H_Zone01_Pinano_Medium_EnemyBundle";
+            }
+            public static class Grave
+            {
+                public static string Easy => "H_Zone01_NobodyGrave_Easy_EnemyBundle";
+            }
+            public static class Ufo
+            {
+                public static string Med => "H_Zone01_ToyUfo_Medium_EnemyBundle";
+            }
+            public static class Sinker
+            {
+                public static string Med => "H_Zone01_Sinker_Medium_EnemyBundle";
+                public static string Hard => "H_Zone01_Sinker_Hard_EnemyBundle";
+            }
+            public static class TwoThousandNine
+            {
+                public static string Med => "H_Zone01_2009_Medium_EnemyBundle";
+            }
+            public static class Chiito
+            {
+                public static string Med => "H_Zone01_Chiito_Medium_EnemyBundle";
             }
 
 

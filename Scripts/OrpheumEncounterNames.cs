@@ -53,6 +53,38 @@ namespace SaltsEnemies_Reseasoned
         {
             public static string Med => "Zone02_Sigil_Medium_EnemyBundle";
         }
+        public static class Rabies
+        {
+            public static string Med => "Zone02_Lyssarabhas_Medium_EnemyBundle";
+        }
+        public static class Bot
+        {
+            public static class Red
+            {
+                public static string Med => "Zone02_RedBot_Medium_EnemyBundle";
+            }
+            public static class Yellow
+            {
+                public static string Med => "Zone02_YellowBot_Medium_EnemyBundle";
+            }
+            public static class Blue
+            {
+                public static string Med => "Zone02_BlueBot_Medium_EnemyBundle";
+            }
+            public static class Purple
+            {
+                public static string Med => "Zone02_PurpleBot_Medium_EnemyBundle";
+            }
+        }
+        public static class Evileye
+        {
+            public static string Hard => "Zone02_Evileye_Hard_EnemyBundle";
+        }
+        public static class Shooter
+        {
+            public static string Easy => "Zone02_SkeletonShooter_Easy_EnemyBundle";
+            public static string Med => "Zone02_SkeletonShooter_Medium_EnemyBundle";
+        }
 
         //HARDmode
         public static class H
@@ -179,6 +211,82 @@ namespace SaltsEnemies_Reseasoned
             public static class DeadGod
             {
                 public static string Hard => "Salt_DeadGod_Orpheum_Bundle";
+            }
+            public static class Tortoise
+            {
+                public static string Hard => "H_Zone02_StalwartTortoise_Hard_EnemyBundle";
+            }
+            public static class Butterfly
+            {
+                public static string Med => "H_Zone02_SpectreWitchFamiliar_Medium_EnemyBundle";
+            }
+            public static class Rabies
+            {
+                public static string Med => "H_Zone02_Lyssarabhas_Medium_EnemyBundle";
+            }
+            public static class Maw
+            {
+                public static string Med => "H_Zone02_Maw_Medium_EnemyBundle";
+                public static string Hard => "H_Zone02_Maw_Hard_EnemyBundle";
+            }
+            public static class Bot
+            {
+                public static class Red
+                {
+                    public static string Med => "H_Zone02_RedBot_Medium_EnemyBundle";
+                }
+                public static class Yellow
+                {
+                    public static string Med => "H_Zone02_YellowBot_Medium_EnemyBundle";
+                }
+                public static class Blue
+                {
+                    public static string Med => "H_Zone02_BlueBot_Medium_EnemyBundle";
+                }
+                public static class Purple
+                {
+                    public static string Med => "H_Zone02_PurpleBot_Medium_EnemyBundle";
+                }
+            }
+            public static class Crystal
+            {
+                public static string Med => "H_Zone02_CrystallineCorpseEater_Medium_EnemyBundle";
+            }
+            public static class Dragon
+            {
+                public static string Hard => "H_Zone02_TheDragon_Hard_EnemyBundle";
+            }
+            public static class Evileye
+            {
+                public static string Med => "H_Zone02_Evileye_Medium_EnemyBundle";
+            }
+            public static class YellowAngel
+            {
+                public static string Med => "H_Zone02_YellowAngel_Medium_EnemyBundle";
+            }
+            public static class Shooter
+            {
+                public static string Easy => "H_Zone02_SkeletonShooter_Easy_EnemyBundle";
+                public static string Med => "H_Zone02_SkeletonShooter_Medium_EnemyBundle";
+            }
+            public static class Wednesday
+            {
+                public static string Med => "H_Zone02_Wednesday_Medium_EnemyBundle";
+            }
+            public static class Solitaire
+            {
+                public static string Med => "H_Zone02_Solitaire_Medium_EnemyBundle";
+                public static string Hard => "H_Zone02_Solitaire_Hard_EnemyBundle";
+            }
+            public static class Foxtrot
+            {
+                public static string Easy => "H_Zone02_Foxtrot_Easy_EnemyBundle";
+                public static string Med => "H_Zone02_Foxtrot_Medium_EnemyBundle";
+            }
+            public static class Author
+            {
+                public static string Med => "H_Zone02_Author_Medium_EnemyBundle";
+                public static string Hard => "H_Zone02_Author_Hard_EnemyBundle";
             }
 
 
