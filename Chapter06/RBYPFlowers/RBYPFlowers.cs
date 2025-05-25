@@ -121,20 +121,18 @@ namespace SaltsEnemies_Reseasoned
             //RED SPECIAL
             Ability loveu = new Ability("Love for You", "Love4U_A")
             {
-                Description = "Apply 4 Power on the Opposing party member. Apply 20 Shield to this enemy's position, and 5 to it's Let and Right. \nApply 1 Photosynthesis to this enemy.",
+                Description = "If the Opposing party member has Power, instantly kill them. Apply 5 Power on the Opposing party member.\nApply 1 Photosynthesis to this enemy.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
-                        {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 4, Targeting.Slot_Front),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 20, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 5, Targeting.Slot_AllySides),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPhotoSynthesisEffect>(), 1, Targeting.Slot_SelfSlot)
-                        },
+                {
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<KillIfPowerEffect>(), 1, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 5, Targeting.Slot_Front, BasicEffects.DidThat(false)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPhotoSynthesisEffect>(), 1, Targeting.Slot_SelfSlot)
+                },
                 Visuals = CustomVisuals.GetVisuals("Salt/Snap"),
                 AnimationTarget = Targeting.Slot_Front
             };
-            loveu.AddIntentsToTarget(Targeting.Slot_Front, new string[] { Power.Intent });
-            loveu.AddIntentsToTarget(Targeting.Slot_AllySides, new string[] { IntentType_GameIDs.Field_Shield.ToString() });
+            loveu.AddIntentsToTarget(Targeting.Slot_Front, new string[] { Power.Intent, IntentType_GameIDs.Damage_Death.ToString() });
             loveu.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { Photo.Intent });
 
             //RED ADD
@@ -165,20 +163,18 @@ namespace SaltsEnemies_Reseasoned
             //BLUE SPECIAL
             Ability cryu = new Ability("Cry for You", "Cry4U_A")
             {
-                Description = "Heal the Opposing party member a Little health. Attempt to change the closest Left and Right enemies' health color to Blue and heal them. \nApply 1 Photosynthesis to this enemy.",
+                Description = "Heal the Opposing party member a Little health. Instantly kill the Opposing party member if they were not healed. \nApply 1 Photosynthesis to this enemy.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
-                        {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 3, Targeting.Slot_Front),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ChangeHealthColorByCasterColorEffect>(), 1, Targetting.Closer(true, true)),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 5, Targetting.Closer(true, true)),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPhotoSynthesisEffect>(), 1, Targeting.Slot_SelfSlot)
-                        },
+                {
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 3, Targeting.Slot_Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Slots.Front, BasicEffects.DidThat(false)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPhotoSynthesisEffect>(), 1, Targeting.Slot_SelfSlot)
+                },
                 Visuals = CustomVisuals.GetVisuals("Salt/Rain"),
-                AnimationTarget = MultiTargetting.Create(Targeting.Slot_Front, Targetting.Closer(true, true))
+                AnimationTarget = Slots.Front
             };
-            cryu.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Heal_1_4.ToString(), });
-            cryu.AddIntentsToTarget(Targetting.Closer(true, true), new string[] { IntentType_GameIDs.Mana_Randomize.ToString(), IntentType_GameIDs.Heal_5_10.ToString() });
+            cryu.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Heal_1_4.ToString(), IntentType_GameIDs.Damage_Death.ToString() });
             cryu.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { Photo.Intent });
 
             //BLUE ADD
