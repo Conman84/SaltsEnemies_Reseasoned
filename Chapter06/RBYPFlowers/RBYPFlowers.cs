@@ -35,7 +35,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Overgrowth.png"), "Overgrowth", grow._enemyDescription);
 
             //AROMA
-            Ability aroma = new Ability("Flower_Aroma_A")
+            Ability aroma_1 = new Ability("Flower_Aroma_A")
             {
                 Name = "Aroma",
                 Description = "Move the Left and Right party members closer to this enemy. \nIf the Opposing position has Roots, deal a Painful amount of damage to the Opposing party member. \nApply 3 Roots to the Opposing position.",
@@ -54,9 +54,34 @@ namespace SaltsEnemies_Reseasoned
                 Visuals = CustomVisuals.GetVisuals("Salt/Rose"),
                 AnimationTarget = Targeting.Slot_SelfSlot
             };
-            aroma.AddIntentsToTarget(Targeting.Slot_OpponentLeft, new string[] { IntentType_GameIDs.Swap_Right.ToString() });
-            aroma.AddIntentsToTarget(Targeting.Slot_OpponentRight, new string[] { IntentType_GameIDs.Swap_Left.ToString() });
-            aroma.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Damage_3_6.ToString(), Roots.Intent });
+            aroma_1.AddIntentsToTarget(Targeting.Slot_OpponentLeft, new string[] { IntentType_GameIDs.Swap_Right.ToString() });
+            aroma_1.AddIntentsToTarget(Targeting.Slot_OpponentRight, new string[] { IntentType_GameIDs.Swap_Left.ToString() });
+            aroma_1.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Damage_3_6.ToString(), Roots.Intent });
+
+
+            //AROMA
+            Ability aroma_2 = new Ability("Flower_Bouquet_A")
+            {
+                Name = "Bouquet",
+                Description = "Move the Left and Right party members closer to this enemy. \nIf the Opposing position has Roots, deal an Agonizing amount of damage to the Opposing party member. \nApply 3 Roots to the Opposing position.",
+                Rarity = Rarity.GetCustomRarity("rarity5"),
+                Effects = new EffectInfo[]
+                {
+                            Effects.GenerateEffect(BasicEffects.GoRight, 1, Targeting.Slot_OpponentLeft),
+                            Effects.GenerateEffect(BasicEffects.GoLeft, 1, Targeting.Slot_OpponentRight),
+                            Effects.GenerateEffect(CasterRootActionEffect.Create(new EffectInfo[]
+                            {
+                                Effects.GenerateEffect(BasicEffects.GetVisuals("Thorns_1_A", true, Targeting.Slot_Front), 1, Targeting.Slot_Front),
+                                Effects.GenerateEffect(ScriptableObject.CreateInstance<IfRootsDamageEffect>(), 7, Targeting.Slot_Front),
+                                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRootsSlotEffect>(), 3, Targeting.Slot_Front)
+                            }), 1, Targeting.Slot_Front),
+                },
+                Visuals = CustomVisuals.GetVisuals("Salt/Rose"),
+                AnimationTarget = Targeting.Slot_SelfSlot
+            };
+            aroma_2.AddIntentsToTarget(Targeting.Slot_OpponentLeft, new string[] { IntentType_GameIDs.Swap_Right.ToString() });
+            aroma_2.AddIntentsToTarget(Targeting.Slot_OpponentRight, new string[] { IntentType_GameIDs.Swap_Left.ToString() });
+            aroma_2.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Damage_7_10.ToString(), Roots.Intent });
 
             //PHOTOSYNTHESIZE
             HealEffect prevExit = ScriptableObject.CreateInstance<HealEffect>();
@@ -115,7 +140,7 @@ namespace SaltsEnemies_Reseasoned
             //RED ADD
             redflower.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                aroma.GenerateEnemyAbility(true),
+                aroma_2.GenerateEnemyAbility(true),
                 photosynthesize.GenerateEnemyAbility(true),
                 loveu.GenerateEnemyAbility(true),
             });
@@ -159,7 +184,7 @@ namespace SaltsEnemies_Reseasoned
             //BLUE ADD
             blueflower.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                aroma.GenerateEnemyAbility(false),
+                aroma_2.GenerateEnemyAbility(false),
                 photosynthesize.GenerateEnemyAbility(false),
                 cryu.GenerateEnemyAbility(true),
             });
@@ -207,7 +232,7 @@ namespace SaltsEnemies_Reseasoned
             //YELLOW ADD
             yellowflower.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                aroma.GenerateEnemyAbility(false),
+                aroma_1.GenerateEnemyAbility(false),
                 photosynthesize.GenerateEnemyAbility(false),
                 smileu.GenerateEnemyAbility(true),
             });
@@ -255,7 +280,7 @@ namespace SaltsEnemies_Reseasoned
             //PURPLEADD
             purpleflower.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                aroma.GenerateEnemyAbility(false),
+                aroma_1.GenerateEnemyAbility(false),
                 photosynthesize.GenerateEnemyAbility(false),
                 lieu.GenerateEnemyAbility(true),
             });

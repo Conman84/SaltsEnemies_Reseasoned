@@ -41,11 +41,13 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Orph.H.Freud.Med);
             med.AddRandomGroup("Freud_EN", "WindSong_EN", Jumble.Unstable, Jumble.Yellow);
             med.AddRandomGroup("Freud_EN", Spoggle.Unstable, "WindSong_EN", "SilverSuckle_EN", "SilverSuckle_EN");
+            med.AddRandomGroup("Freud_EN", "Sigil_EN", "Gungrot_EN", "Gungrot_EN");
 
             med = new AddTo(Orph.H.Crow.Med);
             med.AddRandomGroup("TheCrow_EN", "LivingSolvent_EN", Jumble.Unstable);
             med.AddRandomGroup("TheCrow_EN", Spoggle.Unstable, "LivingSolvent_EN");
             med.AddRandomGroup("TheCrow_EN", "WindSong_EN", "Surrogate_EN");
+            med.AddRandomGroup("TheCrow_EN", "Gungrot_EN", "Gungrot_EN", "WindSong_EN");
 
             AddTo hard = new AddTo(Orph.H.Revola.Hard);
             hard.AddRandomGroup("Revola_EN", "WindSong_EN", Jumble.Unstable);
@@ -56,6 +58,7 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Orph.H.Jumble.Blue.Med);
             med.AddRandomGroup(Jumble.Blue, Jumble.Unstable, "LivingSolvent_EN");
+            med.AddRandomGroup(Jumble.Blue, "WindSong_EN", "Gungrot_EN", "Gungrot_EN");
 
             med = new AddTo(Orph.H.Jumble.Purple.Med);
             med.AddRandomGroup(Jumble.Purple, Jumble.Unstable, "LivingSolvent_EN");
@@ -143,8 +146,10 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Orph.H.Flower.Yellow.Med);
             if (SaltsReseasoned.trolling < 50) med.AddRandomGroup(Flower.Yellow, Flower.Purple, "Surrogate_EN");
+            if (SaltsReseasoned.silly < 50) med.AddRandomGroup(Flower.Yellow, Flower.Purple, "Gungrot_EN", "Gungrot_EN");
             med = new AddTo(Orph.H.Flower.Purple.Med);
             if (SaltsReseasoned.trolling > 50) med.AddRandomGroup(Flower.Purple, Flower.Yellow, "Surrogate_EN");
+            if (SaltsReseasoned.silly > 50) med.AddRandomGroup(Flower.Purple, Flower.Yellow, "Gungrot_EN", "Gungrot_EN");
 
             med = new AddTo(Orph.H.Sigil.Med);
             med.AddRandomGroup("Sigil_EN", "Delusion_EN", "Delusion_EN", "Surrogate_EN");
@@ -154,6 +159,51 @@ namespace SaltsEnemies_Reseasoned
 
             easy = new AddTo(Orph.H.Flower.Yellow.Easy);
             easy.AddRandomGroup(Flower.Yellow, "Gungrot_EN", "Gungrot_EN");
+
+            med = new AddTo(Orph.H.WindSong.Med);
+            med.AddRandomGroup("WindSong_EN", "Something_EN", "Gungrot_EN", "Gungrot_EN");
+            med.AddRandomGroup("WindSong_EN", "Gungrot_EN", "Gungrot_EN", "Scrungie_EN");
+            if (SaltsReseasoned.trolling < 50) med.AddRandomGroup("WindSong_EN", Jumble.Purple, "Gungrot_EN", "Gungrot_EN");
+            if (SaltsReseasoned.trolling > 50) med.AddRandomGroup("WindSong_EN", Jumble.Blue, "Gungrot_EN", "Gungrot_EN");
+            if (SaltsReseasoned.silly > 50) med.AddRandomGroup("WindSong_EN", Flower.Yellow, "Gungrot_EN", "Gungrot_EN");
+            if (SaltsReseasoned.silly < 50) med.AddRandomGroup("WindSong_EN", Flower.Purple, "Gungrot_EN", "Gungrot_EN");
+
+            hard = new AddTo(Orph.H.Sacrifice.Hard);
+            hard.AddRandomGroup(Enemies.Sacrifice, "Delusion_EN", "Delusion_EN", "Gungrot_EN", "Gungrot_EN");
+
+            med = new AddTo(Orph.H.Errant.Med);
+            med.AddRandomGroup("Errant_EN", "Sigil_EN", "SilverSuckle_EN", "SilverSuckle_EN", "SilverSuckle_EN");
+            med.AddRandomGroup("Errant_EN", "Sigil_EN", "Gungrot_EN", "Gungrot_EN");
+
+            hard = new AddTo(Orph.H.Errant.Hard);
+            hard.AddRandomGroup("Errant_EN", "WindSong_EN", "SilverSuckle_EN", "SilverSuckle_EN", "SilverSuckle_EN");
+            hard.AddRandomGroup("Errant_EN", "WindSong_EN", "Gungrot_EN", "Gungrot_EN");
+            hard.AddRandomGroup("Errant_EN", "WindSong_EN", "Romantic_EN");
+            hard.AddRandomGroup("Errant_EN", "Something_EN", "Sigil_EN");
+
+            easy = new AddTo(Garden.H.Git.Easy);
+            easy.AddRandomGroup("WindSong_EN", "Git_EN", "Git_EN");
+
+            med = new AddTo(Garden.H.Flower.Red.Med);
+            med.AddRandomGroup(Flower.Red, Flower.Blue, "Git_EN");
+
+            med = new AddTo(Garden.H.Flower.Blue.Med);
+            med.AddRandomGroup(Flower.Blue, Flower.Red, "Git_EN");
+
+            med = new AddTo(Garden.H.Satyr.Med);
+            med.AddRandomGroup("Satyr_EN", Flower.Blue, "Git_EN");
+            med.AddRandomGroup("Satyr_EN", Flower.Red, "Git_EN");
+
+            hard = new AddTo(Garden.H.Tank.Hard);
+            hard.AddRandomGroup(Enemies.Tank, "Git_EN", "Git_EN");
+
+            hard = new AddTo(Garden.H.ClockTower.Hard);
+            hard.AddRandomGroup("ClockTower_EN", "Git_EN", "Git_EN", Flower.Red);
+
+            med = new AddTo(Garden.H.InHerImage.Med);
+            med.AddRandomGroup("InHerImage_EN", "InHerImage_EN", Flower.Red, "Git_EN");
+            med = new AddTo(Garden.H.InHisImage.Med);
+            med.AddRandomGroup("InHisImage_EN", "InHisImage_EN", Flower.Blue, "Git_EN");
         }
     }
 }
