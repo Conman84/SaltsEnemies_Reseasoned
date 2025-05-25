@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BrutalAPI;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -102,6 +103,19 @@ namespace SaltEnemies_Reseasoned
                 return includeRestrictor ? holder.FieldContent + holder.Restrictor : holder.FieldContent;
             }
             return 0;
+        }
+    }
+    public static class EncounterExtensions
+    {
+        public static void AddRandomEncounter(this EnemyEncounter_API self, string enemy1 = "", string enemy2 = "", string enemy3 = "", string enemy4 = "", string enemy5 = "")
+        {
+            List<string> ret = new List<string>();
+            if (enemy1 != "") ret.Add(enemy1);
+            if (enemy2 != "") ret.Add(enemy2);
+            if (enemy3 != "") ret.Add(enemy3);
+            if (enemy4 != "") ret.Add(enemy4);
+            if (enemy5 != "") ret.Add(enemy5);
+            self.CreateNewEnemyEncounterData(ret.ToArray());
         }
     }
 }
