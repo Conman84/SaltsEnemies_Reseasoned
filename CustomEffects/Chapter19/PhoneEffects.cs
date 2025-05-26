@@ -155,4 +155,31 @@ namespace SaltsEnemies_Reseasoned
             return false;
         }
     }
+    public class CallEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+
+            List<EnemyCombat> enemies = new List<EnemyCombat>();
+            List<int> abilities = new List<int>();
+
+            foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
+            {
+                int num = 1;
+
+                for (int i = 0; i < num; i++)
+                {
+                    enemies.Add(enemy);
+                    abilities.Add(enemy.GetSingleAbilitySlotUsage(-1));
+                }
+            }
+
+            stats.timeline.AddExtraEnemyTurns(enemies, abilities);
+
+            exitAmount = abilities.Count;
+
+            return exitAmount > 0;
+        }
+    }
 }

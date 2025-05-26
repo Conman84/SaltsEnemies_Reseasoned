@@ -80,7 +80,7 @@ namespace SaltsEnemies_Reseasoned
             pickup.Description = "All enemies gain another action on the timeline.";
             pickup.Rarity = Rarity.CreateAndAddCustomRarityToPool("phone3", 3);
             pickup.Priority = Priority.Slow;
-            pickup.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnTargetToTimelineEffect>(), 1, Targeting.Unit_AllAllies).SelfArray();
+            pickup.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<CallEffect>(), 1, Targeting.Unit_AllAllies).SelfArray();
             pickup.AddIntentsToTarget(Targeting.Unit_AllAllies, IntentType_GameIDs.Misc_Additional.ToString().SelfArray());
             pickup.Visuals = CustomVisuals.GetVisuals("Salt/Call");
             pickup.AnimationTarget = Slots.Self;
