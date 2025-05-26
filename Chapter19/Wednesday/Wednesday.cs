@@ -64,7 +64,7 @@ namespace SaltsEnemies_Reseasoned
             revenge._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged };
 
             //passives
-            wednesday.AddPassives(new BasePassiveAbilitySO[] { Passives.Withering, Passives.Abomination1, backlash, Passives.Formless, Passives.Overexert1 });
+            wednesday.AddPassives(new BasePassiveAbilitySO[] { Passives.Withering, Passives.Abomination1, backlash, Passives.Overexert1, Passives.Formless  });
             
             
             wednesday.CombatExitEffects = Effects.GenerateEffect(WednesdayEffect.Create(false), 0, null, ScriptableObject.CreateInstance<OnlyTriggerIfOnceCondition>()).SelfArray();
