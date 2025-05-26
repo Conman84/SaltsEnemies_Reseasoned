@@ -257,6 +257,7 @@ namespace SaltEnemies_Reseasoned
                 return false;
             }
 
+            Debug.Log("starless: should be ignored");
             return true;
         }
     }
@@ -322,8 +323,9 @@ namespace SaltEnemies_Reseasoned
 
             foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
             {
-                if (chara.CurrentHealth / chara.MaximumHealth < 0.5f) return false;
+                if ((float)chara.CurrentHealth / (float)chara.MaximumHealth < 0.5f) return false;
             }
+            Debug.Log("eyeless: should be ignored");
             return true;
         }
     }

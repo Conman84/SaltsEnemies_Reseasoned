@@ -42,6 +42,10 @@ namespace SaltsEnemies_Reseasoned
                 noTouch
             });
 
+            AbilitySelector_Freud selector = ScriptableObject.CreateInstance<AbilitySelector_Freud>();
+            selector.unlocking = "Salt_Unlocking_A";
+            Freud.AbilitySelector = selector;
+
             Freud.CombatEnterEffects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<FreudEnterEffect>(), 1, Targeting.Slot_SelfSlot),
