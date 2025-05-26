@@ -47,8 +47,8 @@ namespace SaltEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("Wall2.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("WallWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("WallDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetCharacter("Gospel_CH").damageSound,
-                DeathSound = LoadedAssetsHandler.GetCharacter("Gospel_CH").deathSound,
+                DamageSound = "event:/Hawthorne/Noisy/Eye_Hit",
+                DeathSound = "event:/Hawthorne/Noisy/Eye_Die",
                 Priority = Priority.GetCustomPriority("wall1")
             };
             wall2.PrepareEnemyPrefab("assets/enem3/Wall_2_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Wall_Gibs.prefab").GetComponent<ParticleSystem>());
