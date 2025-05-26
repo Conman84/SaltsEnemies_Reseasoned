@@ -257,7 +257,7 @@ namespace SaltEnemies_Reseasoned
                 return false;
             }
 
-            Debug.Log("starless: should be ignored");
+            //Debug.Log("starless: should be ignored");
             return true;
         }
     }
@@ -325,7 +325,7 @@ namespace SaltEnemies_Reseasoned
             {
                 if ((float)chara.CurrentHealth / (float)chara.MaximumHealth < 0.5f) return false;
             }
-            Debug.Log("eyeless: should be ignored");
+            //Debug.Log("eyeless: should be ignored");
             return true;
         }
     }

@@ -83,7 +83,7 @@ namespace SaltEnemies_Reseasoned
                 if (chara.CurrentHealth <= 9) return false;
             }
 
-            Debug.Log("glass: should be ignored");
+            //Debug.Log("glass: should be ignored");
             return true;
         }
     }

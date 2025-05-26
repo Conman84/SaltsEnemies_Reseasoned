@@ -285,7 +285,7 @@ namespace SaltEnemies_Reseasoned
 
             if (unit.SimpleGetStoredValue("Freud_Unlocking_A") <= 0 && name == this.unlocking && UnityEngine.Random.Range(0, 100) < 50)
             {
-                Debug.Log("freud: should ignore");
+                //Debug.Log("freud: should ignore");
                 return true;
             }
             return false;
