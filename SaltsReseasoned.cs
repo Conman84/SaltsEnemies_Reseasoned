@@ -281,6 +281,7 @@ namespace SaltsEnemies_Reseasoned
                 //CH9 Encounters
                 PCall(GrandfatherEncounters.Add);
                 PCall(GreyFlowerEncounters.Add);
+                PCall(StalwartTortoiseEncounters.Add);
             }
 
             Logger.LogInfo("Seasons greasons");

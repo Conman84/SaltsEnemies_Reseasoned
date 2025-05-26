@@ -155,5 +155,6 @@ namespace SaltsEnemies_Reseasoned
         public static string Sacrifice => "WrigglingSacrifice_EN";
         public static string Solvent => "LivingSolvent_EN";
         public static string Tank => "RealisticTank_EN";
+        public static string Suckle => "SilverSuckle_EN";
     }
 }

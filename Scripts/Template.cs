@@ -42,7 +42,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Portals.AddPortalSign("Salt_TemplateEncounter_Sign", ResourceLoader.LoadSprite("TemplateWorld.png"), Portals.EnemyIDColor);
 
-            EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, "H_Zone03_Template_Med_EnemyBundle", "Salt_TemplateEncounter_Sign");
+            EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Orph.H.Tortoise.Hard, "Salt_TemplateEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/NewCoffinTheme";
             med.RoarEvent = LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN").deathSound;
 
