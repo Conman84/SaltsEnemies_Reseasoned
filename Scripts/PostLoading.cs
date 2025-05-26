@@ -33,6 +33,7 @@ namespace SaltEnemies_Reseasoned
             if (DebugVer)
             {
                 PCall(GrandfatherEncounters.Post);
+                PCall(GreyFlowerEncounters.Post);
             }
 
             //Crossovers
