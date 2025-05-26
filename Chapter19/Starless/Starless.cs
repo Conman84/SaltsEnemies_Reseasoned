@@ -70,10 +70,10 @@ namespace SaltsEnemies_Reseasoned
             //flow
             Ability flow = new Ability("Starless_Flow_A");
             flow.Name = "Flow";
-            flow.Description = "Move Right.";
+            flow.Description = "Move Right.\nApply 1 Haste to this enemy.";
             flow.Rarity = Rarity.GetCustomRarity("rarity5");
-            flow.Effects = Effects.GenerateEffect(BasicEffects.GoRight, 1, Slots.Self).SelfArray();
-            flow.AddIntentsToTarget(Slots.Self, IntentType_GameIDs.Swap_Right.ToString().SelfArray());
+            flow.Effects = [Effects.GenerateEffect(BasicEffects.GoRight, 1, Slots.Self), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyHasteEffect>(), 1, Slots.Self)];
+            flow.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Right.ToString(), Haste.Intent]);
             flow.Visuals = CustomVisuals.GetVisuals("Salt/Swirl");
             flow.AnimationTarget = Slots.Self;
 
