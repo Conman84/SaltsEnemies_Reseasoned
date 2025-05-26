@@ -209,12 +209,26 @@ namespace SaltEnemies_Reseasoned
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             exitAmount = 0;
-            foreach (TargetSlotInfo target in targets)
+
+            List<EnemyCombat> enemies = new List<EnemyCombat>();
+            List<int> abilities = new List<int>();
+
+            foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
             {
                 int num = UnityEngine.Random.Range(0, 3);
                 if (UnityEngine.Random.Range(0f, 1f) < 0.25f) num++;
-                if (base.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, num, out int exi)) exitAmount += exi;
+
+                for (int i = 0; i < num; i++)
+                {
+                    enemies.Add(enemy);
+                    abilities.Add(enemy.GetSingleAbilitySlotUsage(-1));
+                }
             }
+
+            stats.timeline.AddExtraEnemyTurns(enemies, abilities);
+
+            exitAmount = abilities.Count;
+
             return exitAmount > 0;
         }
     }
