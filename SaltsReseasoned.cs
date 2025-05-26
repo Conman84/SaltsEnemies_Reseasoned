@@ -233,6 +233,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(Foxtrot.Add);
                 PCall(Author.Add);
                 PCall(Monster.Add);
+                PCall(Wall.Add);
             }
 
             //CH1 Encounters

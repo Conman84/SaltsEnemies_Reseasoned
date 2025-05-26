@@ -410,6 +410,10 @@
 	  <None Remove="Chapter19\Starless\StarlessDead.png" />
 	  <None Remove="Chapter19\Starless\StarlessIcon.png" />
 	  <None Remove="Chapter19\Starless\StarlessWorld.png" />
+	  <None Remove="Chapter19\Wall\Wall2.png" />
+	  <None Remove="Chapter19\Wall\WallDead.png" />
+	  <None Remove="Chapter19\Wall\WallIcon.png" />
+	  <None Remove="Chapter19\Wall\WallWorld.png" />
 	  <None Remove="Chapter19\Wednesday\PhoneDead.png" />
 	  <None Remove="Chapter19\Wednesday\PhoneIcon.png" />
 	  <None Remove="Chapter19\Wednesday\PhoneWorld.png" />
@@ -467,6 +471,13 @@
 	  <None Remove="SpecialIcons\UnlockingIntent.png" />
 	  <None Remove="SpecialIcons\upicon.png" />
 	  <None Remove="SpecialIcons\waiticon.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Chapter19\Wall\Wall2.png" />
+	  <EmbeddedResource Include="Chapter19\Wall\WallDead.png" />
+	  <EmbeddedResource Include="Chapter19\Wall\WallIcon.png" />
+	  <EmbeddedResource Include="Chapter19\Wall\WallWorld.png" />
 	</ItemGroup>
 
 	<ItemGroup>
