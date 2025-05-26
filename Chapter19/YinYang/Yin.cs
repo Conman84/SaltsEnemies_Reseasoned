@@ -86,8 +86,8 @@ namespace SaltsEnemies_Reseasoned
             //ADD ENEMY
             yin.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
+                over.GenerateEnemyAbility(true),
                 cruel.GenerateEnemyAbility(true),
-                over.GenerateEnemyAbility(true)
             });
             yin.AddEnemy(true, true);
         }
