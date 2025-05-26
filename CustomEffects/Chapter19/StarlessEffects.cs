@@ -91,6 +91,8 @@ namespace SaltEnemies_Reseasoned
                     {
                         if (slotgroup.slot.TimelineSlotID == i)
                         {
+                            if (slotgroup.slot.TimelineSlotID <= stats.timeline.CurrentTurn) break;
+
                             Sprite[] intents = null;
                             Color[] spriteColors = null;
                             bool cansee = timeline.timelineIcon != null && !timeline.timelineIcon.Equals(null);
