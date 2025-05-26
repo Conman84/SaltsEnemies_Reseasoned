@@ -20,6 +20,7 @@ namespace SaltEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("WallDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetCharacter("Gospel_CH").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("Gospel_CH").deathSound,
+                Priority = Priority.CreateAndAddCustomPriorityToPool("wall1", 1)
             };
             wall1.PrepareEnemyPrefab("assets/enem3/Wall_1_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Wall_Gibs.prefab").GetComponent<ParticleSystem>());
             wall1.CombatEnterEffects = Effects.GenerateEffect(WallConnectionEffect.Create(true)).SelfArray();
@@ -48,6 +49,7 @@ namespace SaltEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("WallDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetCharacter("Gospel_CH").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("Gospel_CH").deathSound,
+                Priority = Priority.GetCustomPriority("wall1")
             };
             wall2.PrepareEnemyPrefab("assets/enem3/Wall_2_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Wall_Gibs.prefab").GetComponent<ParticleSystem>());
             wall2.AddEnemyAbilities([crush]);
