@@ -63,6 +63,10 @@ namespace SaltsEnemies_Reseasoned
 
             starless.AddPassives(new BasePassiveAbilitySO[] { melancholy, rightmost });
 
+            AbilitySelector_Starless selector = ScriptableObject.CreateInstance<AbilitySelector_Starless>();
+            selector._stagger = "Starless_Stagger_A";
+            starless.AbilitySelector = selector;
+
             //flow
             Ability flow = new Ability("Starless_Flow_A");
             flow.Name = "Flow";

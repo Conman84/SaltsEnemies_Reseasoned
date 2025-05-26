@@ -61,6 +61,10 @@ namespace SaltsEnemies_Reseasoned
 
             eyeless.AddPassives(new BasePassiveAbilitySO[] { gluttony, leftmost });
 
+            AbilitySelector_Eyeless selector = ScriptableObject.CreateInstance<AbilitySelector_Eyeless>();
+            selector._killAbility = "Starless_Despair_A";
+            eyeless.AbilitySelector = selector;
+
             eyeless.CombatEnterEffects = Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Starless"), 1).SelfArray();
             eyeless.CombatExitEffects = Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Starless"), -1).SelfArray();
 
