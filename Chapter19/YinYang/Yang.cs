@@ -58,6 +58,7 @@ namespace SaltsEnemies_Reseasoned
             yin.enemy = "Yin_EN";
             yin._maintainMaxHealth = true;
             yin._fullyHeal = false;
+            yin._maintainTimelineAbilities = true;
             bonus.Effects = [Effects.GenerateEffect(yin), Effects.GenerateEffect(ScriptableObject.CreateInstance<FixCasterTimelineIntentsEffect>())];
             bonus.Visuals = CustomVisuals.GetVisuals("Salt/YinYang");
             bonus.AnimationTarget = Slots.Self;
