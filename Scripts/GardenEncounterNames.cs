@@ -115,7 +115,7 @@ namespace SaltsEnemies_Reseasoned
             }
             public static class Grandfather
             {
-                public static string Med => "H_Zone03_Grandfather_Hard_EnemyBundle";
+                public static string Med => "H_Zone03_Grandfather_Med_EnemyBundle";
             }
             public static class MiniReaper
             {
