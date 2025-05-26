@@ -63,7 +63,10 @@ namespace SaltsEnemies_Reseasoned
             };
             revenge._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged };
 
-            wednesday.AddPassives(new BasePassiveAbilitySO[] { Passives.Withering, repression, backlash, revenge });
+            //passives
+            wednesday.AddPassives(new BasePassiveAbilitySO[] { Passives.Withering, Passives.Abomination1, backlash, Passives.Formless, Passives.Overexert1 });
+            
+            
             wednesday.CombatExitEffects = Effects.GenerateEffect(WednesdayEffect.Create(false), 0, null, ScriptableObject.CreateInstance<OnlyTriggerIfOnceCondition>()).SelfArray();
 
             Ability silentNight = new Ability("Silent Night", "SilentNight_A");
