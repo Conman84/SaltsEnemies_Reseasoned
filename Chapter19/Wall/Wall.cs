@@ -11,7 +11,7 @@ namespace SaltEnemies_Reseasoned
     {
         public static void Add()
         {
-            Enemy wall1 = new Enemy("Wal", "Wall_EN")
+            Enemy wall1 = new Enemy("Wall", "Wall_EN")
             {
                 Health = 10,
                 HealthColor = Pigments.Red,
@@ -39,7 +39,7 @@ namespace SaltEnemies_Reseasoned
             });
             wall1.AddEnemy(true, true);
 
-            Enemy wall2 = new Enemy("Wal", "Wall_2_EN")
+            Enemy wall2 = new Enemy("Wall", "Wall_2_EN")
             {
                 Health = 10,
                 HealthColor = Pigments.Red,
