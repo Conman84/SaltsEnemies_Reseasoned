@@ -45,6 +45,11 @@ namespace SaltsEnemies_Reseasoned
 
             glass.AddPassives(new BasePassiveAbilitySO[] { Passives.Unstable, disorient, Passives.Obscure });
 
+            AbilitySelector_GlassFigurine sel = ScriptableObject.CreateInstance<AbilitySelector_GlassFigurine>();
+            sel._WoodChipsAbility = "WoodChips_A";
+            glass.AbilitySelector = sel;
+
+
             //namechange
             glass.CombatEnterEffects = Effects.GenerateEffect(GlassConnectionEffect.Create(true)).SelfArray();
             glass.CombatExitEffects = Effects.GenerateEffect(GlassConnectionEffect.Create(false)).SelfArray();

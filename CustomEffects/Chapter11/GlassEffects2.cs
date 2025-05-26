@@ -30,4 +30,59 @@ namespace SaltEnemies_Reseasoned
         }
 
     }
+
+    public class AbilitySelector_GlassFigurine : BaseAbilitySelectorSO
+    {
+
+        [SerializeField]
+        public string _WoodChipsAbility = "WoodChips_A";
+
+        public override bool UsesRarity => true;
+
+        public override int GetNextAbilitySlotUsage(List<CombatAbility> abilities, IUnit unit)
+        {
+            int num = 0;
+            List<int> list = new List<int>();
+            for (int i = 0; i < abilities.Count; i++)
+            {
+                if (!ShouldBeIgnored(abilities[i]))
+                {
+                    num += abilities[i].rarity.rarityValue;
+                    list.Add(i);
+                }
+            }
+
+            if (list.Count <= 0)
+            {
+                return -1;
+            }
+
+            int num2 = UnityEngine.Random.Range(0, num);
+            num = 0;
+            foreach (int item in list)
+            {
+                num += abilities[item].rarity.rarityValue;
+                if (num2 < num)
+                {
+                    return item;
+                }
+            }
+
+            return -1;
+        }
+
+        public bool ShouldBeIgnored(CombatAbility ability)
+        {
+            if (ability.ability.name != _WoodChipsAbility)
+            {
+                return false;
+            }
+
+            foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
+            {
+                if (chara.CurrentHealth <= 9) return false;
+            }
+            return true;
+        }
+    }
 }
