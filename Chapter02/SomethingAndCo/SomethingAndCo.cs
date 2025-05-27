@@ -109,7 +109,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 Health = 3,
                 HealthColor = Pigments.Yellow,
-                Priority = BrutalAPI.Priority.GetCustomPriority("priority-1"),
+                //Priority = BrutalAPI.Priority.GetCustomPriority("priority-1"),
                 CombatSprite = ResourceLoader.LoadSprite("DerogatoryIconB.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("BubbleDead.png", new Vector2(0.5f, 0f), 32),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("DerogatoryIcon.png", new Vector2(0.5f, 0f), 32),
@@ -139,6 +139,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 1, Targeting.Slot_Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 2, Targeting.Slot_SelfSlot, didThat),
             };
+            convo.Priority = Priority.Fast;
             convo.Visuals = null;
             convo.AnimationTarget = Targeting.Slot_SelfSlot;
             convo.AddIntentsToTarget(Targeting.Slot_Front, new string[]
@@ -169,6 +170,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Parry_1_A", true, Targeting.Slot_Front), 1, Targeting.Slot_SelfSlot, BasicEffects.DidThat(true)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageIfMutedEffect>(), 5, Targeting.Slot_Front),
             };
+            interrupt.Priority = Priority.Slow;
             interrupt.AnimationTarget = Targeting.Slot_Front;
             interrupt.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Swap_Sides.ToString() });
             interrupt.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Damage_3_6.ToString() });
