@@ -72,8 +72,40 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup(Enemies.Minister, Jumble.Grey, "Shua_EN");
             med.AddRandomGroup(Enemies.Minister, "InHerImage_EN", "InHerImage_EN", "Shua_EN");
 
-            AddTo easy = new AddTo(Garden.H.ChoirBoy.Easy);
-            easy.AddRandomGroup("ChoirBoy_EN", "Shua_EN", "LittleAngel_EN");
+            med = new AddTo(Garden.H.Jumble.Grey.Med);
+            med.AddRandomGroup(Jumble.Grey, "Shua_EN", "WindSong_EN");
+
+            med = new AddTo(Garden.H.Satyr.Med);
+            med.AddRandomGroup("Satyr_EN", Jumble.Grey, "Shua_EN");
+            med.AddRandomGroup("Satyr_EN", "InHerImage_EN", "InHerImage_EN", "Shua_EN");
+
+            hard = new AddTo(Garden.H.Satyr.Hard);
+            hard.AddRandomGroup("Satyr_EN", Enemies.Skinning, "Shua_EN");
+
+            med = new AddTo(Garden.H.Flower.Red.Med);
+            med.AddRandomGroup(Flower.Red, Flower.Blue, "Shua_EN", "EyePalm_EN");
+
+            med = new AddTo(Garden.H.Flower.Blue.Med);
+            med.AddRandomGroup(Flower.Blue, Flower.Red, "Shua_EN", "WindSong_EN");
+
+            med = new AddTo(Garden.H.Flower.Grey.Med);
+            med.AddRandomGroup(Flower.Grey, "MiniReaper_EN", "Shua_EN");
+
+            hard = new AddTo(Garden.H.Flower.Grey.Hard);
+            hard.AddRandomGroup(Flower.Grey, "Grandfather_EN", "LittleAngel_EN", "Shua_EN");
+
+            hard = new AddTo(Garden.H.ClockTower.Hard);
+            hard.AddRandomGroup("ClockTower_EN", "Shua_EN", "InHerImage_EN", "InHerImage_EN");
+            hard.AddRandomGroup("ClockTower_EN", "Shua_EN", "LittleAngel_EN", "ChoirBoy_EN");
+
+            hard = new AddTo(Garden.H.Tank.Hard);
+            hard.AddRandomGroup(Enemies.Tank, "Shua_EN");
+            hard.AddRandomGroup(Enemies.Tank, "WindSong_EN", "Shua_EN");
+
+            hard = new AddTo(Garden.H.Miriam.Hard);
+            hard.AddRandomGroup("Miriam_EN", "Shua_EN", "EyePalm_EN", "EyePalm_EN");
+            hard.AddRandomGroup("Miriam_EN", "Shua_EN", "EyePalm_EN", "EyePalm_EN", "EyePalm_EN");
+            hard.AddRandomGroup("Miriam_EN", "Shua_EN", "MiniReaper_EN", "MiniReaper_EN");
         }
     }
 }
