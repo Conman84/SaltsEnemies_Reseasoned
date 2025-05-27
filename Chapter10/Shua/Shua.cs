@@ -55,18 +55,18 @@ namespace SaltsEnemies_Reseasoned
             Ability whisper = new Ability("Whisperings_A")
             {
                 Name = "Whisperings",
-                Description = "Apply 1 Constricted on the Opposing party member position. Deal a Painful amount of damage to the Opposing party member.",
+                Description = "Apply 1 Constricted on the Opposing party member position. Deal an Agonizing amount of damage to the Opposing party member.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 1, Slots.Front),
                             Effects.GenerateEffect(BasicEffects.PlaySound("event:/Combat/StatusEffects/SE_Cursed_Apl"), 1, Slots.Front),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 3, Slots.Front),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front),
                         },
                 Visuals = CustomVisuals.GetVisuals("Salt/Whisper"),
                 AnimationTarget = Slots.Self,
             };
-            whisper.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Field_Constricted.ToString(), IntentType_GameIDs.Damage_3_6.ToString()]);
+            whisper.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Field_Constricted.ToString(), IntentType_GameIDs.Damage_7_10.ToString()]);
 
             //wanderlust
             Ability wander = new Ability("Wanderlust_A")
