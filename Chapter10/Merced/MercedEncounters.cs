@@ -93,7 +93,7 @@ namespace SaltsEnemies_Reseasoned
             if (SaltsReseasoned.rando == 11) med.AddRandomGroup("Grandfather_EN", "InHerImage_EN", "InHerImage_EN", "Merced_EN");
 
             easy = new AddTo(Garden.H.EyePalm.Easy);
-            if (SaltsReseasoned.rando == 12) easy.AddRandomGroup("EyePalm_EN", "EyePalm_EN", "EyePalm_EN", "Merced_EN";
+            if (SaltsReseasoned.rando == 12) easy.AddRandomGroup("EyePalm_EN", "EyePalm_EN", "EyePalm_EN", "Merced_EN");
 
             med = new AddTo(Garden.H.EyePalm.Med);
             if (SaltsReseasoned.silly > 50) med.AddRandomGroup("EyePalm_EN", "EyePalm_EN", "InHisImage_EN", "InHerImage_EN", "Merced_EN");
