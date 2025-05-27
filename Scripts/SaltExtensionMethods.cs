@@ -107,6 +107,16 @@ namespace SaltEnemies_Reseasoned
     }
     public static class EncounterExtensions
     {
+        public static void AddEncounterSimple(this EnemyEncounter_API self, int num1 = 0, string enemy1 = "", int num2 = 0, string enemy2 = "", int num3 = 0, string enemy3 = "", int num4 = 0, string enemy4 = "", int num5 = 0, string enemy5 = "")
+        {
+            List<string> ret = new List<string>();
+            if (enemy1 != "") for (int i = 0; i < num1; i++) ret.Add(enemy1);
+            if (enemy2 != "") for (int i = 0; i < num2; i++) ret.Add(enemy2);
+            if (enemy3 != "") for (int i = 0; i < num3; i++) ret.Add(enemy3);
+            if (enemy4 != "") for (int i = 0; i < num4; i++) ret.Add(enemy4);
+            if (enemy5 != "") for (int i = 0; i < num5; i++) ret.Add(enemy5);
+            self.CreateNewEnemyEncounterData(ret.ToArray());
+        }
         public static void AddRandomEncounter(this EnemyEncounter_API self, string enemy1 = "", string enemy2 = "", string enemy3 = "", string enemy4 = "", string enemy5 = "")
         {
             List<string> ret = new List<string>();
