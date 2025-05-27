@@ -286,6 +286,7 @@ namespace SaltsEnemies_Reseasoned
 
                 //CH10 Encounters
                 PCall(MiniReaperEncounters.Add);
+                PCall(MedamaudeEncounters.Add);
             }
 
             Logger.LogInfo("Seasons greasons");
