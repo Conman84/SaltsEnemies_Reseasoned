@@ -743,6 +743,7 @@ namespace SaltEnemies_Reseasoned
             {
                 exitAmount++;
             }
+            if (caster.CurrentHealth < caster.MaximumHealth) caster.SetHealthTo(caster.MaximumHealth);
             CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
             CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
             CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
