@@ -24,5 +24,20 @@ namespace SaltsEnemies_Reseasoned
             easy.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Merced.Easy, 2, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
         }
+        public static void Add_Hard()
+        {
+            EnemyEncounter_API hard = new EnemyEncounter_API(EncounterType.Random, Garden.H.Merced.Hard, "Salt_MercedEncounter_Sign");
+            hard.MusicEvent = "event:/Hawthorne/MercedSong";
+            hard.RoarEvent = "event:/Hawthorne/Attack2/Rainy";
+
+            hard.AddRandomEncounter("Merced_EN", Flower.Red, Flower.Blue, Flower.Yellow, Flower.Purple);
+            hard.AddRandomEncounter("Merced_EN", Enemies.Skinning, Enemies.Skinning, Enemies.Skinning);
+            hard.AddRandomEncounter("Merced_EN", "ChoirBoy_EN", "Grandfather_EN");
+            hard.AddRandomEncounter("Merced_EN", Enemies.Minister, Enemies.Minister, Enemies.Minister);
+            hard.AddRandomEncounter("Merced_EN", "Satyr_EN", "Satyr_EN", Enemies.Camera);
+
+            hard.AddEncounterToDataBases();
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Merced.Hard, 1, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
+        }
     }
 }
