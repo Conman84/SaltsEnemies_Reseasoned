@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy shua = new Enemy("Shua", "Shua_EN")
             {
-                Health = 28,
+                Health = 34,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("ShuaIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("ShuaWorld.png", new Vector2(0.5f, 0f), 32),
