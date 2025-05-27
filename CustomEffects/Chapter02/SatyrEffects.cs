@@ -7,6 +7,7 @@ using System;
 using UnityEngine;
 using System.Drawing;
 using SaltsEnemies_Reseasoned;
+using Unity.Mathematics;
 
 namespace SaltEnemies_Reseasoned
 {
@@ -330,7 +331,9 @@ namespace SaltEnemies_Reseasoned
                     int num = stats.GetRandomEnemySlot(targetEnemy.Enemy.size);
                     if (num != -1)
                     {
-                        if (stats.AddNewEnemy(targetEnemy.Enemy, num, false, _spawnType, targetEnemy.Enemy.health))
+                        bool IsCamera = Check.EnemyExist("MechanicalLens_EN") && (targetEnemy.Enemy == LoadedAssetsHandler.GetEnemy("MechanicalLens_EN") || targetEnemy.Enemy.Equals(LoadedAssetsHandler.GetEnemy("MechanicalLens_EN")));
+
+                        if (stats.AddNewEnemy(targetEnemy.Enemy, num, false, _spawnType, IsCamera ? 20 : targetEnemy.Enemy.health))
                         {
                             targetEnemy.HasFled = true;
                             exitAmount++;
@@ -342,7 +345,7 @@ namespace SaltEnemies_Reseasoned
                                 DamageEffect indirect = ScriptableObject.CreateInstance<DamageEffect>();
                                 indirect._indirect = true;
                                 int maxHP = unit.CurrentHealth;
-                                if (Check.EnemyExist("MechanicalLens_EN") && newborn.Enemy == LoadedAssetsHandler.GetEnemy("MechanicalLens_EN")) maxHP = 20;
+                                
                                 //maxHP *= 2;
                                 EffectInfo hit = Effects.GenerateEffect(indirect, maxHP, Targeting.Slot_SelfAll);
                                 RemoveStatusEffectEffect DPGone = ScriptableObject.CreateInstance<RemoveStatusEffectEffect>();
