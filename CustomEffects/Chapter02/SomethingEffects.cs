@@ -204,23 +204,10 @@ namespace SaltEnemies_Reseasoned
     {
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
-            Ability interrupt = new Ability("Derogatory_Interrupt_A");
-            interrupt.Name = "Interrupt";
-            interrupt.Description = "Move Left or Right. If the Opposing party member is Muted, deal a Painful amount of damage to them.";
-            interrupt.Rarity = Rarity.CreateAndAddCustomRarityToPool("Derogatory_5", 5);
-            interrupt.Effects = new EffectInfo[]
-            {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Targeting.Slot_SelfSlot),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<HasMutedEffect>(), 5, Targeting.Slot_Front),
-                Effects.GenerateEffect(BasicEffects.GetVisuals("Parry_1_A", true, Targeting.Slot_Front), 1, Targeting.Slot_SelfSlot, BasicEffects.DidThat(true)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageIfMutedEffect>(), 5, Targeting.Slot_Front),
-            };
-            interrupt.AnimationTarget = Targeting.Slot_Front;
-            interrupt.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Swap_Sides.ToString() });
-            interrupt.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Damage_3_6.ToString() });
+            
             ExtraAbilityInfo interrupt_a = new ExtraAbilityInfo();
-            interrupt_a.ability = interrupt.GenerateEnemyAbility().ability;
-            interrupt_a.rarity = interrupt.Rarity;
+            interrupt_a.ability = LoadedAssetsHandler.GetEnemyAbility("Derogatory_Interrupt_A");
+            interrupt_a.rarity = Rarity.GetCustomRarity("Derogatory_5");
 
             exitAmount = 0;
             foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
@@ -280,7 +267,7 @@ namespace SaltEnemies_Reseasoned
             List<TargetSlotInfo> ret = new List<TargetSlotInfo>();
             foreach (TargetSlotInfo target in targets)
             {
-                if (target.HasUnit & target.Unit.ContainsStatusEffect(Muted.StatusID)) ret.Add(target);
+                if (target.HasUnit && target.Unit.ContainsStatusEffect(Muted.StatusID)) ret.Add(target);
             }
             return base.PerformEffect(stats, caster, ret.ToArray(), areTargetSlots, entryVariable, out exitAmount);
         }
