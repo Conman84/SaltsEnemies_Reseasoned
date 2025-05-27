@@ -36,7 +36,7 @@ namespace SaltsEnemies_Reseasoned
             if (SaltsReseasoned.trolling > 50) easy.AddRandomGroup("MudLung_EN", "MudLung_EN", "Skyloft_EN");
 
             AddTo med = new AddTo(Shore.H.MudLung.Med);
-            med.AddGroupSimple(3, "MudLung_EN", 1, "Skyloft_EN");
+            med.SimpleAddGroup(3, "MudLung_EN", 1, "Skyloft_EN");
 
             med = new AddTo(Shore.H.Jumble.Red.Med);
             if (SaltsReseasoned.silly < 50) med.AddRandomGroup(Jumble.Red, Jumble.Yellow, "Skyloft_EN");
@@ -75,10 +75,10 @@ namespace SaltsEnemies_Reseasoned
             if (SaltsReseasoned.silly < 50) hard.AddRandomGroup("Voboola_EN", "Skyloft_EN");
 
             easy = new AddTo(Shore.H.DeadPixel.Easy);
-            if (SaltsReseasoned.silly > 50) easy.AddGroupSimple(2, "DeadPixel_EN", 1, "Mung_EN", 1, "Skyloft_EN");
+            if (SaltsReseasoned.silly > 50) easy.SimpleAddGroup(2, "DeadPixel_EN", 1, "Mung_EN", 1, "Skyloft_EN");
 
             med = new AddTo(Shore.H.DeadPixel.Med);
-            if (SaltsReseasoned.silly < 50) med.AddGroupSimple(2, "DeadPixel_EN", 1, "MudLung_EN", 1, "Skyloft_EN");
+            if (SaltsReseasoned.silly < 50) med.SimpleAddGroup(2, "DeadPixel_EN", 1, "MudLung_EN", 1, "Skyloft_EN");
 
             med = new AddTo(Shore.H.Angler.Med);
             if (SaltsReseasoned.silly < 50) med.AddRandomGroup("AFlower_EN", Jumble.Yellow, Jumble.Red, "Skyloft_EN");
@@ -94,6 +94,15 @@ namespace SaltsEnemies_Reseasoned
 
             hard = new AddTo(Shore.H.Unmung.Hard);
             hard.AddRandomGroup(Enemies.Unmung, "Skyloft_EN");
+
+            easy = new AddTo(Garden.H.InHerImage.Easy);
+            if (SaltsReseasoned.trolling > 50) easy.SimpleAddGroup(2, "InHerImage_EN", 1, "NextOfKin_EN", 1, "Skyloft_EN");
+
+            easy = new AddTo(Garden.H.InHisImage.Easy);
+            if (SaltsReseasoned.trolling < 50) easy.SimpleAddGroup(2, "InHisImage_EN", 1, "NextOfKin_EN", 1, "Skyloft_EN");
+
+            easy = new AddTo(Garden.H.ChoirBoy.Easy);
+            if (SaltsReseasoned.trolling < 50) easy.AddRandomGroup("ChoirBoy_EN", "ChoirBoy_EN", "Skyloft_EN");
         }
     }
 }
