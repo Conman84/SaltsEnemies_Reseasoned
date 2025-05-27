@@ -268,7 +268,7 @@ namespace SaltEnemies_Reseasoned
             exitAmount = 0;
             foreach (TargetSlotInfo target in targets)
             {
-                if (target.HasUnit & target.Unit.ContainsStatusEffect(Muted.StatusID)) exitAmount++;
+                if (target.HasUnit && target.Unit.ContainsStatusEffect(Muted.StatusID)) exitAmount++;
             }
             return exitAmount > 0;
         }
