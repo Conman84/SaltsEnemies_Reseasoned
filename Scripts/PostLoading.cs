@@ -38,6 +38,7 @@ namespace SaltEnemies_Reseasoned
                 PCall(MiniReaperEncounters.Post);
                 PCall(MedamaudeEncounters.Post);
                 PCall(MercedEncounters.Post);
+                PCall(SkyloftEncounters.Post);
             }
 
             //Crossovers
