@@ -75,7 +75,11 @@ namespace SaltsEnemies_Reseasoned
         {
             public static string Med => "Zone01_ToyUfo_Medium_EnemyBundle";
         }
+        public static class Wall
+        {
 
+            public static string Med => "Zone01_Wall_Medium_EnemyBundle";
+        }
 
 
         //HARDMODE
@@ -231,6 +235,11 @@ namespace SaltsEnemies_Reseasoned
             public static class Chiito
             {
                 public static string Med => "H_Zone01_Chiito_Medium_EnemyBundle";
+            }
+            public static class Wall
+            {
+                public static string Easy => "H_Zone01_Wall_Easy_EnemyBundle";
+                public static string Med => "H_Zone01_Wall_Medium_EnemyBundle";
             }
 
 
