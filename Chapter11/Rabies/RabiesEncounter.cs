@@ -69,5 +69,65 @@ namespace SaltsEnemies_Reseasoned
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Rabies.Med, 15, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
         }
+        public static void Post()
+        {
+            AddTo med = new AddTo(Orph.H.Something.Med);
+            med.AddRandomGroup("Something_EN", "Rabies_EN", Spoggle.Yellow);
+            med.AddRandomGroup("Something_EN", "Rabies_EN", Spoggle.Blue);
+
+            med = new AddTo(Orph.H.Crow.Med);
+            med.AddRandomGroup("TheCrow_EN", "Rabies_EN", "Scrungie_EN");
+
+            med = new AddTo(Orph.H.Freud.Med);
+            med.AddRandomGroup("Freud_EN", "Rabies_EN", "Delusion_EN");
+            med.AddRandomGroup("Freud_EN", "Rabies_EN", Jumble.Blue);
+
+            med = new AddTo(Orph.H.Camera.Med);
+            med.AddRandomGroup(Enemies.Camera, Enemies.Camera, "Rabies_EN", "Rabies_EN");
+
+            med = new AddTo(Orph.H.Delusion.Med);
+            med.SimpleAddGroup(3, "Delusion_EN", 1, "Rabies_EN");
+
+            med = new AddTo(Orph.H.Flower.Yellow.Med);
+            med.AddRandomGroup(Flower.Yellow, Flower.Purple, "Rabies_EN");
+
+            med = new AddTo(Orph.H.Flower.Purple.Med);
+            med.AddRandomGroup(Flower.Purple, Flower.Yellow, "Rabies_EN");
+
+            med = new AddTo(Orph.Sigil.Med);
+            med.AddRandomGroup("Sigil_EN", "MusicMan_EN", "Rabies_EN", "LostSheep_EN");
+
+            med = new AddTo(Orph.H.Sigil.Med);
+            med.AddRandomGroup("Sigil_EN", "MusicMan_EN", "MusicMan_EN", "Rabies_EN");
+            med.AddRandomGroup("Sigil_EN", "Rabies_EN", "Rabies_EN", Enemies.Suckle, Enemies.Suckle);
+
+            med = new AddTo(Orph.H.WindSong.Med);
+            med.AddRandomGroup("WindSong_EN", "Rabies_EN", "Delusion_EN", "Delusion_EN");
+            med.AddRandomGroup("WindSong_EN", "Rabies_EN", "MusicMan_EN", "MusicMan_EN");
+
+            AddTo hard = new AddTo(Orph.H.Tortoise.Hard);
+            hard.AddRandomGroup("StalwartTortoise_EN", "Rabies_EN", Enemies.Suckle);
+
+            hard = new AddTo(Orph.Scrungie.Hard);
+            hard.AddRandomGroup("Scrungie_EN", "Scrungie_EN", "Rabies_EN", "LostSheep_EN");
+
+            med = new AddTo(Orph.H.Scrungie.Med);
+            med.AddRandomGroup("Scrungie_EN", "Scrungie_EN", "Rabies_EN");
+
+            med = new AddTo(Orph.Jumble.Blue.Med);
+            med.AddRandomGroup(Jumble.Blue, "Rabies_EN", "SingingStone_EN");
+
+            med = new AddTo(Orph.H.Jumble.Blue.Med);
+            med.AddRandomGroup(Jumble.Blue, Jumble.Purple, "Rabies_EN");
+
+            med = new AddTo(Orph.Jumble.Purple.Med);
+            med.AddRandomGroup(Jumble.Purple, "Rabies_EN", "SingingStone_EN");
+
+            med = new AddTo(Orph.H.Jumble.Purple.Med);
+            med.AddRandomGroup(Jumble.Purple, Jumble.Blue, "Rabies_EN");
+
+            med = new AddTo(Orph.Spoggle.Red.Med);
+            med.AddRandomGroup(Spoggle.Red, "Rabies_EN", "SingingStone_EN");
+        }
     }
 }
