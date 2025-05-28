@@ -296,6 +296,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(TripodEncounters.Add);
                 PCall(GlassFigurineEncounters.Add);
                 PCall(RabiesEncounters.Add);
+                PCall(KyotlokutlaEncounters.Add);
             }
 
             Logger.LogInfo("Seasons greasons");
