@@ -291,6 +291,9 @@ namespace SaltsEnemies_Reseasoned
                 PCall(SkyloftEncounters.Add);
                 PCall(MiriamEncounters.Add);
                 PCall(ShuaEncounters.Add);
+
+                //CH11 Encounters
+                PCall(TripodEncounters.Add);
             }
 
             Logger.LogInfo("Seasons greasons");
