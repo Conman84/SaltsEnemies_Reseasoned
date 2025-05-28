@@ -41,6 +41,7 @@ namespace SaltEnemies_Reseasoned
                 PCall(SkyloftEncounters.Post);
                 PCall(ShuaEncounters.Post);
                 PCall(NamelessEncounters.Post);
+                PCall(DamoclesEncounters.Post);
             }
 
             //Crossovers
