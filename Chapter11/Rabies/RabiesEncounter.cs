@@ -128,6 +128,31 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Orph.Spoggle.Red.Med);
             med.AddRandomGroup(Spoggle.Red, "Rabies_EN", "SingingStone_EN");
+
+            med = new AddTo(Orph.H.Spoggle.Red.Med);
+            med.AddRandomGroup(Spoggle.Red, Spoggle.Purple, "Rabies_EN");
+
+            med = new AddTo(Orph.Spoggle.Purple.Med);
+            med.AddRandomGroup(Spoggle.Purple, "Rabies_EN", "SingingStone_EN");
+
+            med = new AddTo(Orph.H.Spoggle.Purple.Med);
+            med.AddRandomGroup(Spoggle.Purple, Spoggle.Red, "Rabies_EN");
+
+            hard = new AddTo(Orph.H.Sacrifice.Hard);
+            hard.AddRandomGroup(Enemies.Sacrifice, "Rabies_EN", "Rabies_EN");
+
+            hard = new AddTo(Orph.Revola.Hard);
+            hard.AddRandomGroup("Revola_EN", "Rabies_EN");
+
+            hard = new AddTo(Orph.Revola.Hard);
+            hard.AddRandomGroup("Revola_EN", "Rabies_EN", Enemies.Suckle, Enemies.Suckle);
+
+            med = new AddTo(Orph.H.Conductor.Med);
+            med.AddRandomGroup("Conductor_EN", "Rabies_EN", "LostSheep_EN");
+
+            hard = new AddTo(Orph.H.Conductor.Hard);
+            hard.AddRandomGroup("Conductor_EN", "Rabies_EN", "MusicMan_EN", "Sigil_EN");
+            hard.AddRandomGroup("Conductor_EN", "Rabies_EN", "Enigma_EN", "Sigil_EN");
         }
     }
 }
