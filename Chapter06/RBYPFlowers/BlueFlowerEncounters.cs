@@ -43,7 +43,7 @@ namespace SaltsEnemies_Reseasoned
             }, null);
 
             mainEncounters.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone03_BlueFlower_Easy_EnemyBundle", 5, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone03_BlueFlower_Easy_EnemyBundle", 4, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
 
             //Medium
             EnemyEncounter_API mainEncounters2 = new EnemyEncounter_API(0, "H_Zone03_BlueFlower_Medium_EnemyBundle", "Salt_BlueFlowerEncounters_Sign");
@@ -99,7 +99,7 @@ namespace SaltsEnemies_Reseasoned
             }, null);
 
             mainEncounters2.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone03_BlueFlower_Medium_EnemyBundle", 5, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone03_BlueFlower_Medium_EnemyBundle", 4, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
 
             //Secondary
             AddTo bundle1 = new AddTo("H_Zone03_InHisImage_Medium_EnemyBundle");
