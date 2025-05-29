@@ -46,6 +46,7 @@ namespace SaltEnemies_Reseasoned
                 PCall(GlassFigurineEncounters.Post);
                 PCall(RabiesEncounters.Post);
                 PCall(LittleBeakEncounters.Post);
+                PCall(HunterEncounters.Post);
             }
 
             //Crossovers
