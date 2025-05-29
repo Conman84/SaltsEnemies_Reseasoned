@@ -40,8 +40,6 @@ namespace SaltsEnemies_Reseasoned
         }
         public static void Add_Med()
         {
-            Portals.AddPortalSign("Salt_IndicatorEncounter_Sign", ResourceLoader.LoadSprite("IndicatorWorld.png"), Portals.EnemyIDColor);
-
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Garden.H.Indicator.Med, "Salt_IndicatorEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/IndicatorSong";
             med.RoarEvent = LoadedAssetsHandler.GetCharacter("Hans_CH").deathSound;
