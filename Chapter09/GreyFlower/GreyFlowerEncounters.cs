@@ -29,7 +29,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter(Flower.Grey, Flower.Red, Flower.Blue);
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Flower.Grey.Med, 5, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Flower.Grey.Med, 4, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
         }
         public static void Add_Hard()
         {
