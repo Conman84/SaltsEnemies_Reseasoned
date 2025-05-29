@@ -64,6 +64,45 @@ namespace SaltEnemies_Reseasoned
 
             med = new AddTo(Garden.H.Flower.Blue.Med);
             med.AddRandomGroup(Flower.Blue, Flower.Red, "Hunter_EN", "GlassFigurine_EN");
+
+            med = new AddTo(Garden.H.Flower.Grey.Med);
+            med.AddRandomGroup(Flower.Grey, Flower.Red, "Hunter_EN");
+
+            hard = new AddTo(Garden.H.Flower.Grey.Hard);
+            hard.AddRandomGroup(Flower.Grey, "Hunter_EN", Enemies.Minister);
+
+            hard = new AddTo(Garden.H.ClockTower.Hard);
+            hard.AddRandomGroup("ClockTower_EN", "Hunter_EN", Enemies.Skinning, Enemies.Shivering);
+            hard.AddRandomGroup("ClockTower_EN", "Hunter_EN", "InHerImage_EN", "InHerImage_EN");
+
+            med = new AddTo(Garden.H.MiniReaper.Med);
+            med.AddRandomGroup("MiniReaper_EN", "InHisImage_EN", "InHisImage_EN", "Hunter_EN");
+            med.AddRandomGroup("MiniReaper_EN", "InHisImage_EN", "InHerImage_EN", "Hunter_EN");
+
+            hard = new AddTo(Garden.H.Tank.Hard);
+            hard.AddRandomGroup(Enemies.Tank, "Hunter_EN");
+            hard.AddRandomGroup(Enemies.Tank, "Hunter_EN", "GlassFigurine_EN");
+            hard.AddRandomGroup(Enemies.Tank, "Hunter_EN", "ChoirBoy_EN");
+
+            med = new AddTo(Garden.H.Shua.Med);
+            med.AddRandomGroup("Shua_EN", "Hunter_EN", "ChoirBoy_EN");
+            med.AddRandomGroup("Shua_EN", "Hunter_EN", "Grandfather_EN");
+
+            hard = new AddTo(Garden.H.SnakeGod.Hard);
+            hard.AddRandomGroup("SnakeGod_EN", "Hunter_EN");
+
+            med = new AddTo(Garden.H.Skinning.Med);
+            med.AddRandomGroup(Enemies.Skinning, Enemies.Shivering, "Hunter_EN");
+
+            hard = new AddTo(Garden.H.Skinning.Hard);
+            hard.AddRandomGroup(Enemies.Skinning, Enemies.Skinning, "Hunter_EN");
+            med.AddRandomGroup(Enemies.Skinning, "Hunter_EN", "Damocles_EN", "Damocles_EN");
+
+            med = new AddTo(Garden.H.Minister.Med);
+            med.AddRandomGroup(Enemies.Minister, Enemies.Minister, "Hunter_EN");
+
+            hard = new AddTo(Garden.H.Minister.Hard);
+            hard.AddRandomGroup(Enemies.Minister, "Hunter_EN", "MiniReaper_EN");
         }
     }
 }
