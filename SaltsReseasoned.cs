@@ -306,6 +306,7 @@ namespace SaltsEnemies_Reseasoned
 
                 //CH13 Encounters
                 PCall(WindleEncounters.Add);
+                PCall(BlackStarEncounters.Add);
             }
 
             Logger.LogInfo("Seasons greasons");
