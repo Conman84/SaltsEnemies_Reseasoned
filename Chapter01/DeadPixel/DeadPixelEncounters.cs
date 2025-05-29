@@ -102,7 +102,7 @@ namespace SaltsEnemies_Reseasoned
                 "MusicMan_EN"
             }, null);
             mainEncounters3.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_DeadPixel_Easy_EnemyBundle", 3, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Easy);
+            //EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_DeadPixel_Easy_EnemyBundle", 3, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Easy);
             
             //Secondary
             //Far Shore
@@ -287,7 +287,8 @@ namespace SaltsEnemies_Reseasoned
                 "DeadPixel_EN"
             }));
             ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone01_Kekastle_Hard_EnemyBundle"))._enemyBundles = list15;
-            
+
+            return;
             //Orpheum
             List<RandomEnemyGroup> list16 = new List<RandomEnemyGroup>(((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone02_MusicMan_Medium_EnemyBundle"))._enemyBundles);
             list16.Add(new RandomEnemyGroup(new string[]
@@ -369,6 +370,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
+            return;
             //Secondary
             //Far Shore
             List<RandomEnemyGroup> list1 = new List<RandomEnemyGroup>(((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone02_Enigma_Easy_EnemyBundle"))._enemyBundles);
