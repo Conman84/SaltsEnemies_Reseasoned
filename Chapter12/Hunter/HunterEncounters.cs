@@ -47,5 +47,23 @@ namespace SaltEnemies_Reseasoned
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Hunter.Med, 8, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
         }
+
+        public static void Post()
+        {
+            AddTo med = new AddTo(Garden.H.Satyr.Med);
+            med.AddRandomGroup("Satyr_EN", "Hunter_EN", "ChoirBoy_EN");
+            med.AddRandomGroup("Satyr_EN", "Hunter_EN", Enemies.Minister);
+
+            AddTo hard = new AddTo(Garden.H.Satyr.Hard);
+            hard.AddRandomGroup("Satyr_EN", "Hunter_EN", Enemies.Skinning);
+            hard.AddRandomGroup("Satyr_EN", "Hunter_EN", "InHisImage_EN", "InHisImage_EN");
+
+            med = new AddTo(Garden.H.Flower.Red.Med);
+            med.AddRandomGroup(Flower.Red, Flower.Blue, "Hunter_EN", "Damocles_EN");
+            med.AddRandomGroup(Flower.Red, "Hunter_EN", "ChoirBoy_EN");
+
+            med = new AddTo(Garden.H.Flower.Blue.Med);
+            med.AddRandomGroup(Flower.Blue, Flower.Red, "Hunter_EN", "GlassFigurine_EN");
+        }
     }
 }
