@@ -21,7 +21,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("LittleBeak_EN", "MudLung_EN", Jumble.Yellow);
             med.AddRandomEncounter("LittleBeak_EN", Spoggle.Blue, Spoggle.Yellow);
             med.AddRandomEncounter("LittleBeak_EN", Jumble.Yellow, Jumble.Red);
-            med.AddRandomEncounter("LittleBeak_EN", Enemies.Mungling, "MudLung");
+            med.AddRandomEncounter("LittleBeak_EN", Enemies.Mungling, "MudLung_EN");
             med.AddRandomEncounter("LittleBeak_EN", Enemies.Mungling, "Skyloft_EN");
             med.AddRandomEncounter("LittleBeak_EN", "DeadPixel_EN", "DeadPixel_EN");
             med.AddRandomEncounter("LittleBeak_EN", "LittleBeak_EN", "Wringle_EN");
