@@ -20,9 +20,17 @@ namespace SaltsEnemies_Reseasoned
             easy.AddRandomEncounter("Windle_EN", "MudLung_EN");
             easy.AddRandomEncounter("Windle_EN", "MudLung_EN", "Mung_EN");
             easy.AddRandomEncounter("Windle_EN", "MudLung_EN", "LostSheep_EN");
+            easy.AddRandomEncounter("Windle_EN", "MudLung_EN", "Skyloft_EN");
+            easy.AddRandomEncounter("Windle_EN", "MudLung_EN", "MudLung_EN");
+            easy.AddRandomEncounter("Windle_EN", "Mung_EN", "Mung_EN");
+            easy.AddRandomEncounter("Windle_EN", "Wringle_EN");
 
             easy.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Windle.Easy, 5, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Easy);
+        }
+        public static void Post()
+        {
+            AddTo easy = new AddTo(Shore.H.DeadPixel.Easy);
         }
     }
 }

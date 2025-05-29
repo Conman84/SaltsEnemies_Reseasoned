@@ -158,10 +158,6 @@ namespace SaltsEnemies_Reseasoned
                 public static string Easy => "H_Zone02_Enigma_Easy_EnemyBundle";
                 public static string Med => "H_Zone02_Enigma_Medium_EnemyBundle";
             }
-            public static class DeadPixel
-            {
-                public static string Easy => "H_Zone02_DeadPixel_Easy_EnemyBundle";
-            }
             public static class Something
             {
                 public static string Easy => "H_Zone02_Something_Easy_EnemyBundle";
