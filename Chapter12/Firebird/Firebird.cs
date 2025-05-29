@@ -50,15 +50,15 @@ namespace SaltsEnemies_Reseasoned
 
             //combative
             CombativePassiveAbility combative = ScriptableObject.CreateInstance<CombativePassiveAbility>();
-            combative._turnsBeforeFleeting = 2;
-            combative._passiveName = "Combative (2)";
+            combative._turnsBeforeFleeting = 3;
+            combative._passiveName = "Combative (3)";
             combative.passiveIcon = ResourceLoader.LoadSprite("CombativePassive.png");
-            combative.m_PassiveID = Passives.FleetingGenerator(2).m_PassiveID;
-            combative._enemyDescription = Passives.FleetingGenerator(2)._enemyDescription + "\nOn dealing or receiving damage, reset this enemy's Fleeting counter.";
-            combative._characterDescription = Passives.FleetingGenerator(2)._characterDescription + "\nOn dealing or receiving damage, reset this party member's Fleeting counter.";
-            combative.doesPassiveTriggerInformationPanel = Passives.FleetingGenerator(2).doesPassiveTriggerInformationPanel;
-            combative.conditions = Passives.FleetingGenerator(2).conditions;
-            combative._triggerOn = Passives.FleetingGenerator(2)._triggerOn;
+            combative.m_PassiveID = Passives.FleetingGenerator(3).m_PassiveID;
+            combative._enemyDescription = Passives.FleetingGenerator(3)._enemyDescription + "\nOn dealing or receiving damage, reset this enemy's Fleeting counter.";
+            combative._characterDescription = Passives.FleetingGenerator(3)._characterDescription + "\nOn dealing or receiving damage, reset this party member's Fleeting counter.";
+            combative.doesPassiveTriggerInformationPanel = Passives.FleetingGenerator(3).doesPassiveTriggerInformationPanel;
+            combative.conditions = Passives.FleetingGenerator(3).conditions;
+            combative._triggerOn = Passives.FleetingGenerator(3)._triggerOn;
 
             firebird.AddPassives(new BasePassiveAbilitySO[] { pheonix, burning, combative, Passives.Skittish });
             firebird.AddUnitType("Bird");
