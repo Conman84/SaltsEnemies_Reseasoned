@@ -308,6 +308,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(WindleEncounters.Add);
                 PCall(BlackStarEncounters.Add);
                 PCall(IndicatorEncounters.Add);
+                PCall(MawEncounters.Add);
             }
 
             Logger.LogInfo("Seasons greasons");
