@@ -19,7 +19,6 @@ namespace SaltsEnemies_Reseasoned
 
             AddTo med = new AddTo("RR_Zone02_Shawled_Shuffler_Medium_EnemyBundle");
             med.AddRandomGroup(shuffler, "Enigma_EN", "Enigma_EN", "LostSheep_EN");
-            med.AddRandomGroup(shuffler, "SingingStone_EN", "DeadPixel_EN", "DeadPixel_EN");
             med.AddRandomGroup(shuffler, shuffler, "LostSheep_EN");
             med.AddRandomGroup(shuffler, "Something_EN", "LostSheep_EN");
             med.AddRandomGroup(shuffler, shuffler, "MechanicalLens_EN");

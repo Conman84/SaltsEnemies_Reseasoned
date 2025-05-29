@@ -18,7 +18,6 @@ namespace SaltsEnemies_Reseasoned
         {
             AddTo easy = new AddTo("H_Zone02_Moone_Easy_EnemyBundle");
             easy.AddRandomGroup("Moone_EN", "Moone_EN", "Enigma_EN");
-            easy.AddRandomGroup("Moone_EN", "Moone_EN", "DeadPixel_EN", "DeadPixel_EN");
 
             AddTo med = new AddTo("H_Zone02_Moone_Medium_EnemyBundle");
             med.AddRandomGroup("Moone_EN", "Moone_EN", "Enigma_EN", "Enigma_EN");
@@ -55,7 +54,6 @@ namespace SaltsEnemies_Reseasoned
         public static void Heehoo()
         {
             AddTo med = new AddTo("H_Zone02_Heehoo_Medium_EnemyBundle");
-            med.AddRandomGroup("Heehoo_EN", "DeadPixel_EN", "DeadPixel_EN");
             med.AddRandomGroup("Heehoo_EN", "Enigma_EN", "Enigma_EN");
             med.AddRandomGroup("Heehoo_EN", "Scrungie_EN", "Enigma_EN");
 

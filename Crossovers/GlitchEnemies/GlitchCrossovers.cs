@@ -107,7 +107,6 @@ namespace SaltsEnemies_Reseasoned
             if (SaltsReseasoned.silly < 50) easy.AddRandomGroup("BackupDancer_EN", "BackupDancer_EN", "LostSheep_EN");
 
             AddTo med = new AddTo("BDancerMed");
-            med.AddRandomGroup("BackupDancer_EN", "BackupDancer_EN", "DeadPixel_EN", "DeadPixel_EN");
             med.AddRandomGroup("BackupDancer_EN", "BackupDancer_EN", "Enigma_EN", "Enigma_EN");
             med.AddRandomGroup("BackupDancer_EN", "MusicMan_EN", "MusicMan_EN", "LostSheep_EN");
             med.AddRandomGroup("BackupDancer_EN", "MusicMan_EN", "MusicMan_EN", "Enigma_EN");
@@ -161,9 +160,6 @@ namespace SaltsEnemies_Reseasoned
 
             easy = new AddTo("H_Zone02_Enigma_Easy_EnemyBundle");
             easy.AddRandomGroup("Enigma_EN", "Enigma_EN", "Frostbite_EN");
-
-            easy = new AddTo("H_Zone02_DeadPixel_Easy_EnemyBundle");
-            easy.AddRandomGroup("DeadPixel_EN", "DeadPixel_EN", "Frostbite_EN");
 
             med = new AddTo("H_Zone02_Enigma_Medium_EnemyBundle");
             med.AddRandomGroup("Enigma_EN", "Enigma_EN", "Enigma_EN", "Frostbite_EN");
