@@ -31,6 +31,13 @@ namespace SaltsEnemies_Reseasoned
         public static void Post()
         {
             AddTo easy = new AddTo(Shore.H.DeadPixel.Easy);
+            easy.AddRandomGroup("DeadPixel_EN", "DeadPixel_EN", "Windle_EN");
+
+            AddTo med = new AddTo(Shore.H.Angler.Med);
+            med.AddRandomGroup("AFlower_EN", "Windle_EN", Enemies.Mungling);
+
+            med = new AddTo(Shore.H.LittleBeak.Med);
+            med.AddRandomGroup("LittleBeak_EN", "LittleBeak_EN", "Windle_EN");
         }
     }
 }
