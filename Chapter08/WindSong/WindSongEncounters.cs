@@ -131,7 +131,7 @@ namespace SaltsEnemies_Reseasoned
             }, null);
 
             mainEncounters2.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone03_WindSong_Easy_EnemyBundle", 5, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone03_WindSong_Easy_EnemyBundle", 3, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
 
             //Secondary
             //Orpheum

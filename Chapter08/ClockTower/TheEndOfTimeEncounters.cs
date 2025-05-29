@@ -176,7 +176,7 @@ namespace SaltsEnemies_Reseasoned
             }, null);
 
             mainEncounters.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone03_TheEndOfTime_Hard_EnemyBundle", 8, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone03_TheEndOfTime_Hard_EnemyBundle", 10, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
 
             //Secondary
             AddTo bundle1 = new AddTo("H_Zone03_SkinningHomunculus_Hard_EnemyBundle");
