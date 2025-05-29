@@ -69,6 +69,7 @@ namespace SaltEnemies_Reseasoned
                 {
                     if (target.HasUnit && target.Unit.ContainsStatusEffect(Dodge.StatusID))
                     {
+                        //Debug.Log("Dodge: a target has dodge");
                         if (target.Unit.IsUnitCharacter != caster.IsUnitCharacter)
                         {
                             if (!swaps.Contains(target.Unit)) swaps.Add(target.Unit);
@@ -81,7 +82,9 @@ namespace SaltEnemies_Reseasoned
                     CombatManager.Instance.PostNotification(Dodge.Call.ToString(), unit, null);
                     if (unit.SlotID < 0 || unit.SlotID >= 5) continue;
                     SwapUnitToSides(Slots.Self.GetTargets(CombatManager.Instance._stats.combatSlots, unit.SlotID, unit.IsUnitCharacter)[0], unit);
+                    //Debug.Log("Dodge Swapped");
                 }
+                //if (swaps.Count > 0) Debug.Log("Dodge: this was: " + self.effect.GetType().Name);
                 if (redoTarget)
                 {
                     possibleTargets = ((self.targets != null) ? self.targets.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter) : new TargetSlotInfo[0]);
