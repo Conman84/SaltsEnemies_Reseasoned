@@ -129,13 +129,6 @@ namespace SaltsEnemies_Reseasoned
             mainEncounters2.CreateNewEnemyEncounterData(new string[]
             {
                 "TheCrow_EN",
-                "MusicMan_EN",
-                "DeadPixel_EN",
-                "DeadPixel_EN",
-            }, null);
-            mainEncounters2.CreateNewEnemyEncounterData(new string[]
-            {
-                "TheCrow_EN",
                 "Enigma_EN",
                 "Enigma_EN",
                 "Enigma_EN",

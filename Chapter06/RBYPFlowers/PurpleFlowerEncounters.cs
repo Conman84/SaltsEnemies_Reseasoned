@@ -33,13 +33,6 @@ namespace SaltsEnemies_Reseasoned
             {
                 Flower.Yellow,
                 Flower.Purple,
-                "DeadPixel_EN",
-                "DeadPixel_EN",
-            }, null);
-            mainEncounters2.CreateNewEnemyEncounterData(new string[]
-            {
-                Flower.Yellow,
-                Flower.Purple,
                 "MechanicalLens_EN",
             }, null);
             mainEncounters2.CreateNewEnemyEncounterData(new string[]

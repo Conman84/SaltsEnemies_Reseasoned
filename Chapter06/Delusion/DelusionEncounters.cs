@@ -96,29 +96,6 @@ namespace SaltsEnemies_Reseasoned
             {
                 "Delusion_EN",
                 "Delusion_EN",
-                "DeadPixel_EN",
-                "DeadPixel_EN",
-            }, null);
-            mainEncounters2.CreateNewEnemyEncounterData(new string[]
-            {
-                "Delusion_EN",
-                "Delusion_EN",
-                "Delusion_EN",
-                "DeadPixel_EN",
-                "DeadPixel_EN",
-            }, null);
-            mainEncounters2.CreateNewEnemyEncounterData(new string[]
-            {
-                "Delusion_EN",
-                "Delusion_EN",
-                "DeadPixel_EN",
-                "DeadPixel_EN",
-                "FakeAngel_EN",
-            }, null);
-            mainEncounters2.CreateNewEnemyEncounterData(new string[]
-            {
-                "Delusion_EN",
-                "Delusion_EN",
                 "Delusion_EN",
                 "Delusion_EN",
                 "FakeAngel_EN",

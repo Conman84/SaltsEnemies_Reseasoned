@@ -27,12 +27,6 @@ namespace SaltsEnemies_Reseasoned
             mainEncounters.CreateNewEnemyEncounterData(new string[]
             {
                 "Something_EN",
-                "DeadPixel_EN",
-                "DeadPixel_EN",
-            }, null);
-            mainEncounters.CreateNewEnemyEncounterData(new string[]
-            {
-                "Something_EN",
                 "SingingStone_EN",
                 "SingingStone_EN",
             }, null);
