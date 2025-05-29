@@ -79,7 +79,7 @@ namespace SaltEnemies_Reseasoned
             med = new AddTo(Garden.H.InHerImage.Med);
             med.AddRandomGroup("InHerImage_EN", "InHerImage_EN", "GlassFigurine_EN", "NextOfKin_EN");
 
-            easy = new AddTo(Garden.H.InHerImage.Easy);
+            easy = new AddTo(Garden.H.InHisImage.Easy);
             easy.AddRandomGroup("InHisImage_EN", "InHisImage_EN", "GlassFigurine_EN");
 
             med = new AddTo(Garden.H.InHisImage.Med);
