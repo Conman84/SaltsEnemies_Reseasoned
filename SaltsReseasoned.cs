@@ -302,6 +302,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(LittleBeakEncounters.Add);
                 PCall(HunterEncounters.Add);
                 PCall(FirebirdEncounters.Add);
+                PCall(WarbirdEncounters.Add);
             }
 
             Logger.LogInfo("Seasons greasons");

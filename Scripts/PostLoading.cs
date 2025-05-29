@@ -48,6 +48,7 @@ namespace SaltEnemies_Reseasoned
                 PCall(LittleBeakEncounters.Post);
                 PCall(HunterEncounters.Post);
                 PCall(FirebirdEncounters.Post);
+                PCall(WarbirdEncounters.Post);
             }
 
             //Crossovers
