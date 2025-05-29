@@ -38,6 +38,43 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Shore.H.LittleBeak.Med);
             med.AddRandomGroup("LittleBeak_EN", "LittleBeak_EN", "Windle_EN");
+
+            AddTo hard = new AddTo(Shore.H.Unmung.Hard);
+            hard.AddRandomGroup(Enemies.Unmung, "Windle_EN");
+
+            easy = new AddTo(Shore.H.Keko.Easy);
+            easy.AddRandomGroup("Keko_EN", "Keko_EN", "Windle_EN");
+
+            easy = new AddTo(Shore.H.MudLung.Easy);
+            easy.AddRandomGroup("MudLung_EN", "MudLung_EN", "Windle_EN");
+
+            easy = new AddTo(Shore.H.Mungling.Easy);
+            easy.AddRandomGroup(Enemies.Mungling, "Mung_EN", "Windle_EN");
+
+            med = new AddTo(Shore.H.Jumble.Red.Med);
+            if (SaltsReseasoned.trolling > 50) med.AddRandomGroup(Jumble.Red, "MudLung_EN", "Windle_EN");
+
+            med = new AddTo(Shore.H.Jumble.Yellow.Med);
+            if (SaltsReseasoned.trolling < 50) med.AddRandomGroup(Jumble.Yellow, "MudLung_EN", "Windle_EN");
+
+            med = new AddTo(Shore.H.FlaMinGoa.Med);
+            med.AddRandomGroup("FlaMinGoa_EN", "Windle_EN", Jumble.Yellow);
+
+            hard = new AddTo(Shore.H.Flarb.Hard);
+            hard.AddRandomGroup("Flarb_EN", "Windle_EN");
+
+            hard = new AddTo(Shore.H.Jumble.Blue.Hard);
+            if (SaltsReseasoned.rando == 5) hard.AddRandomGroup(Jumble.Blue, Jumble.Purple, "Windle_EN");
+
+            hard = new AddTo(Shore.H.Jumble.Purple.Hard);
+            if (SaltsReseasoned.rando == 6) hard.AddRandomGroup(Jumble.Purple, Jumble.Blue, "Windle_EN");
+
+            hard = new AddTo(Shore.H.Spoggle.Red.Hard);
+            if (SaltsReseasoned.rando == 7) hard.AddRandomGroup(Spoggle.Red, Spoggle.Purple, "Windle_EN");
+
+            hard = new AddTo(Shore.H.Spoggle.Purple.Hard);
+            if (SaltsReseasoned.rando == 8) hard.AddRandomGroup(Spoggle.Purple, Spoggle.Red, "Windle_EN");
+
         }
     }
 }

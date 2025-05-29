@@ -303,6 +303,9 @@ namespace SaltsEnemies_Reseasoned
                 PCall(HunterEncounters.Add);
                 PCall(FirebirdEncounters.Add);
                 PCall(WarbirdEncounters.Add);
+
+                //CH13 Encounters
+                PCall(WindleEncounters.Add);
             }
 
             Logger.LogInfo("Seasons greasons");
