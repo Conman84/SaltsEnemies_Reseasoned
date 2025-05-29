@@ -49,7 +49,7 @@ namespace SaltsEnemies_Reseasoned
             turb.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<MassSwapZoneEffect>(), 1, Targeting.GenerateSlotTarget(new int[] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, true)).SelfArray();
             turb._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
 
-            star.AddPassives(new BasePassiveAbilitySO[] { decay, Passives.Withering, turb });
+            star.AddPassives(new BasePassiveAbilitySO[] { decay, Passives.Withering, turb, Passives.Unstable });
 
             //radioation
             Ability rad = new Ability("Radiation_A")
