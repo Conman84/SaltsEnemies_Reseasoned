@@ -52,6 +52,7 @@ namespace SaltEnemies_Reseasoned
 
                 PCall(WindleEncounters.Post);
                 PCall(BlackStarEncounters.Post);
+                PCall(IndicatorEncounters.Post);
             }
 
             //Crossovers
