@@ -53,7 +53,6 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Rabies_EN", "MusicMan_EN", Flower.Yellow);
             med.AddRandomEncounter("Rabies_EN", "MusicMan_EN", Flower.Purple);
             med.AddRandomEncounter("Rabies_EN", "Rabies_EN", "MusicMan_EN", "Sigil_EN");
-            med.SimpleAddEncounter(2, "Rabies_EN", 2, "DeadPixel_EN");
             med.AddRandomEncounter("Rabies_EN", "Rabies_EN", "WindSong_EN");
             med.AddRandomEncounter("Rabies_EN", "MusicMan_EN", "WindSong_EN");
             med.SimpleAddEncounter(1, "Rabies_EN", 3, "Delusion_EN");

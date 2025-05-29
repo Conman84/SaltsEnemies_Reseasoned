@@ -63,13 +63,6 @@ namespace SaltsEnemies_Reseasoned
             mainEncounters.CreateNewEnemyEncounterData(new string[]
             {
                 "WindSong_EN",
-                "Scrungie_EN",
-                "DeadPixel_EN",
-                "DeadPixel_EN",
-            }, null);
-            mainEncounters.CreateNewEnemyEncounterData(new string[]
-            {
-                "WindSong_EN",
                 Spoggle.Red,
                 "SilverSuckle_EN",
                 "SilverSuckle_EN",

@@ -26,12 +26,6 @@ namespace SaltsEnemies_Reseasoned
             mainEncounters.CreateNewEnemyEncounterData(new string[]
             {
                 "LivingSolvent_EN",
-                "DeadPixel_EN",
-                "DeadPixel_EN",
-            }, null);
-            mainEncounters.CreateNewEnemyEncounterData(new string[]
-            {
-                "LivingSolvent_EN",
                 "Enigma_EN",
             }, null);
             mainEncounters.CreateNewEnemyEncounterData(new string[]
