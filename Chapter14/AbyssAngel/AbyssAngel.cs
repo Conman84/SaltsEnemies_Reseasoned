@@ -24,7 +24,7 @@ namespace SaltsEnemies_Reseasoned
             cliome.PrepareEnemyPrefab("assets/group4/Clione/Clione_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Clione/Clione_Gibs.prefab").GetComponent<ParticleSystem>());
 
             PerformEffectPassiveAbility waves = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
-            waves._passiveName = "Waves";
+            waves._passiveName = "Waves (2)";
             waves.m_PassiveID = "Waves_PA";
             waves.passiveIcon = ResourceLoader.LoadSprite("WavesPassive.png");
             waves._enemyDescription = "On moving, inflict 2 Deep Water on the Opposing position.";
