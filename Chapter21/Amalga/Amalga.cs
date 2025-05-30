@@ -76,7 +76,7 @@ namespace SaltsEnemies_Reseasoned
             cannon._passiveName = "33";
             cannon._enemyDescription = "This enemy will perforn the extra ability \"33\" each turn.";
             Ability bonus = new Ability("33_A");
-            bonus.Name = "33";
+            bonus.Name = "13";
             bonus.Description = "Deal an Deadly amount of damage to the Opposing party member.";
             bonus.Priority = Priority.Fast;
             bonus.Effects = new EffectInfo[1];
@@ -202,7 +202,7 @@ namespace SaltsEnemies_Reseasoned
             cannon._passiveName = "33";
             cannon._enemyDescription = "This enemy will perforn the extra ability \"33\" each turn.";
             Ability bonus = new Ability("33_A");
-            bonus.Name = "33";
+            bonus.Name = "13";
             bonus.Description = "Deal an Deadly amount of damage to the Opposing party member.";
             bonus.Priority = Priority.Fast;
             bonus.Effects = new EffectInfo[1];
