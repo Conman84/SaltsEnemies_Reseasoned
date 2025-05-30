@@ -16,6 +16,7 @@ using System.Net.Sockets;
 using static SaltsEnemies_Reseasoned.Orph.H;
 using Mono.Cecil.Cil;
 using static SaltsEnemies_Reseasoned.Orph;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -376,6 +377,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Incomprehensible.png"), "Incomprehensible", "When an opponent moves in front of this unit, inflict 1 Muted on them.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Dodge.png"), "Evasive", "Permenantly applies Dodge to this unit.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Lazy.png"), "Lazy", "When fleeing, this enemy will return after a certain amount of rounds if combat hasn't ended.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("FlitheringIcon.png"), "Flithering", "On any ally dying, if there are no other allies without \"Withering\" or \"Flithering\" as passives, instantly flee.\nAt the start and end of the enemies' turn, if there are no other allies without \"Cowardice\" or \"Flithering\" as passives, instantly flee.");
 
             //CH19
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("BacklashPassive.png"), "Backlash", "On taking direct damage, apply Shield to this unit's position for the amount of damage taken.");
