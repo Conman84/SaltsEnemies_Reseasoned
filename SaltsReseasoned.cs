@@ -144,35 +144,37 @@ namespace SaltsEnemies_Reseasoned
             TheEndOfTime.Add();
             SemiRealisticTank.Add();
 
+            //CH9 enemies
+            PCall(Butterfly.Add);
+            PCall(Grandfather.Add);
+            PCall(StalwartTortoise.Add);
+            PCall(GreyFlower.Add);
+
+            //CH10 Enemies
+            Medamaude.Add();
+            PCall(Skyloft.Add);
+            PCall(MiniReaper.Add);
+            PCall(Shua.Add);
+            PCall(Merced.Add);
+            PCall(Miriam.Add);
+
+            //CH11 Enemies
+            PCall(GlassFigurine.Add);
+            PCall(Tripod.Add);
+            PCall(Rabies.Add);
+            PCall(Nameless.Add);
+            PCall(Damocles.Add);
+            PCall(Kyotlokutla.Add);
+
+            //CH12 Enemies
+            PCall(Warbird.Add);
+            PCall(LittleBeak.Add);
+            PCall(Hunter.Add);
+            PCall(Firebird.Add);
+
             if (DebugVer)
             {
-                //CH9 enemies
-                PCall(Butterfly.Add);
-                PCall(Grandfather.Add);
-                PCall(StalwartTortoise.Add);
-                PCall(GreyFlower.Add);
-
-                //CH10 Enemies
-                Medamaude.Add();
-                PCall(Skyloft.Add);
-                PCall(MiniReaper.Add);
-                PCall(Shua.Add);
-                PCall(Merced.Add);
-                PCall(Miriam.Add);
-
-                //CH11 Enemies
-                PCall(GlassFigurine.Add);
-                PCall(Tripod.Add);
-                PCall(Rabies.Add);
-                PCall(Nameless.Add);
-                PCall(Damocles.Add);
-                PCall(Kyotlokutla.Add);
-
-                //CH12 Enemies
-                PCall(Warbird.Add);
-                PCall(LittleBeak.Add);
-                PCall(Hunter.Add);
-                PCall(Firebird.Add);
+                
 
                 //CH13 Enemies
                 PCall(Maw.Add);
