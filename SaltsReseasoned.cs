@@ -335,6 +335,8 @@ namespace SaltsEnemies_Reseasoned
                 //CH15 Encounters
                 PCall(RedBotEncounters.Add);
                 PCall(YellowBotEncounters.Add);
+                PCall(BlueBotEncounters.Add);
+                PCall(PurpleBotEncounters.Add);
             }
 
             //moving the passives glossary here.
