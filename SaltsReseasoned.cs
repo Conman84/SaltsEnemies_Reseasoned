@@ -11,6 +11,7 @@ using SaltsEnemies_Reseasoned.Chapter1.LostSheep;
 using Unity.Mathematics;
 using UnityEngine.InputSystem.HID;
 using UnityEngine.UI;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -323,6 +324,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Jumpy.png"), "Jumpy", "Upon being damaged, move to a random position. Upon performing an ability, move to a random position.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Lightweight.png"), "Lightweight", "Upon moving, 50% chance to move Left or Right.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Unmasking.png"), "Unmasking", "Upon taking a certain amount of direct damage or higher, remove Confusion and Obscured as passives from this unit.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DontTouchMe.png"), "Don't Touch Me", "Upon being clicked, gain an additional action on the timeline.");
 
             Logger.LogInfo("Seasons greasons");
         }

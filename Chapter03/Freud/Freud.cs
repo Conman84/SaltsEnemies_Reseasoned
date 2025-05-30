@@ -20,7 +20,7 @@ namespace SaltsEnemies_Reseasoned
             noTouch._enemyDescription = "Upon being clicked, gain an additional ability on the timeline.";
             noTouch.doesPassiveTriggerInformationPanel = false;
             noTouch._triggerOn = new TriggerCalls[] { OnClickPassiveAbility.Trigger };
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DontTouchMe.png"), "Don't Touch Me", noTouch._enemyDescription);
+            
 
             //Enemy Code
             Enemy Freud = new Enemy("Freud", "Freud_EN")
