@@ -375,6 +375,7 @@
 	  <None Remove="Chapter20\2009\RotaryPassive.png" />
 	  <None Remove="Chapter21\Amalga\AmalgaDead.png" />
 	  <None Remove="Chapter21\Amalga\AmalgaIcon.png" />
+	  <None Remove="Chapter21\Amalga\AmalgaPortal.png" />
 	  <None Remove="Chapter21\Amalga\AmalgaWorld.png" />
 	  <None Remove="Chapter21\Amalga\HidingPassive.png" />
 	  <None Remove="Chapter21\Amalga\MimicPassive.png" />
@@ -482,6 +483,7 @@
 	<ItemGroup>
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaDead.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaIcon.png" />
+	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaPortal.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaWorld.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\HidingPassive.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\MimicPassive.png" />
