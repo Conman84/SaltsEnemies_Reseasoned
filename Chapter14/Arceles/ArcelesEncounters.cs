@@ -10,7 +10,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Portals.AddPortalSign("Salt_ArcelesEncounter_Sign", ResourceLoader.LoadSprite("ArcelesWorld.png"), Portals.EnemyIDColor);
+            Portals.AddPortalSign("Salt_ArcelesEncounter_Sign", ResourceLoader.LoadSprite("BoatWorld.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API easy = new EnemyEncounter_API(EncounterType.Random, Shore.H.Arceles.Easy, "Salt_ArcelesEncounter_Sign");
             easy.MusicEvent = "event:/Hawthorne/NewBoatSong";
