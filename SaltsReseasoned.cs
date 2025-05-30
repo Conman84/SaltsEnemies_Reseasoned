@@ -98,11 +98,11 @@ namespace SaltsEnemies_Reseasoned
             Haste.Add();
             //Hollow.Add();
             Acid.Add();
+            PCall(Terror.Add);
             if (DebugVer)
             {
                 Drowning.Add();
                 Water.Add();
-                PCall(Terror.Add);
                 PCall(Slip.Add);
                 PCall(Mold.Add);
                 Pimples.Add();
