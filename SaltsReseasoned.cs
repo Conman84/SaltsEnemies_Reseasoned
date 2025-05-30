@@ -379,7 +379,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Incomprehensible.png"), "Incomprehensible", "When an opponent moves in front of this unit, inflict 1 Muted on them.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Dodge.png"), "Evasive", "Permenantly applies Dodge to this unit.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Lazy.png"), "Lazy", "When fleeing, this enemy will return after a certain amount of rounds if combat hasn't ended.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("FlitheringIcon.png"), "Flithering", "On any ally dying, if there are no other allies without \"Withering\" or \"Flithering\" as passives, instantly flee.\nAt the start and end of the enemies' turn, if there are no other allies without \"Cowardice\" or \"Flithering\" as passives, instantly flee.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("FlitheringIcon.png"), "Flithering", "On any ally dying, if there are no other allies without \"Withering\" or \"Flithering\" as passives, instantly flee.\nAt the start and end of this unit's portion of the turn, if there are no other allies without \"Cowardice\" or \"Flithering\" as passives, instantly flee.");
 
             //CH11
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DamoclesPassive.png"), "Closure", "On taking any amount of damage, there is a 50% chance that this unit instantly dies then deals the amount of damage taken to the Opposing unit.");
