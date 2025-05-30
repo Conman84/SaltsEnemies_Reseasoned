@@ -33,14 +33,14 @@ namespace SaltsEnemies_Reseasoned
             warn.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomNegativeStatusEffect>(), 1, Targetting.AllEnemy) };
             warn._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDamaged };
             warn.conditions = Passives.Slippery.conditions;
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WarningPassive.png"), "Warning", warn._enemyDescription);
+            
 
             //backlash
             PerformEffectPassiveAbility backlash = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             backlash._passiveName = "Backlash";
             backlash.m_PassiveID = "Backlash_PA";
             backlash.passiveIcon = ResourceLoader.LoadSprite("BacklashPassive.png");
-            backlash._enemyDescription = "On taking direct damage, apply Shield to this unit's position for the amount of damage taken.";
+            backlash._enemyDescription = "On taking direct damage, apply Shield to this enemy's position for the amount of damage taken.";
             backlash._characterDescription = backlash._enemyDescription;
             backlash.doesPassiveTriggerInformationPanel = false;
             backlash.conditions = new List<EffectorConditionSO>(Passives.Slippery.conditions) { ScriptableObject.CreateInstance<BacklashCondition>() }.ToArray();

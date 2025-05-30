@@ -45,7 +45,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyEntropyEffect>(), 6, allEnemy)
             };
             acceleration.specialStoredData = UnitStoreData.GetCustom_UnitStoreData(ClockTowerManager.Acceleration);
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ParanoidSpeed.png"), "Acceleration", acceleration._enemyDescription);
+            
 
             //ADDPASSIVES
             clock.AddPassives(new BasePassiveAbilitySO[] { Passives.OverexertGenerator(12), acceleration });

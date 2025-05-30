@@ -15,6 +15,7 @@ using UnityEngine.InputSystem.EnhancedTouch;
 using System.Net.Sockets;
 using static SaltsEnemies_Reseasoned.Orph.H;
 using Mono.Cecil.Cil;
+using static SaltsEnemies_Reseasoned.Orph;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -357,6 +358,27 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("survival.png"), "Survival Instinct", "On death, instantly kill the lowest health opponent.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("intimidated.png"), "Intimidated", "When an opponent moves in front of this enemy, reroll one of this unit's actions.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CodaIcon.png"), "Coda", "On death, apply 3 Dodge, 3 Haste, and 3 Power to all allies.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("sigilPassive.png"), "Sigil", "At the start of each turn, reset this unit's Sigil.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WarningPassive.png"), "Warning", "On taking any damage, inflict 1 Frail, Ruptured, Acid, or Muted on all opponents.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ParanoidSpeed.png"), "Acceleration", "If the opponent's portion of the turn takes longer than 60 seconds, apply 6 Entropy to all opponents.");
+
+            //CH9
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Ethereal.png"), "Ethereal", "On taking any damage, instantly flee. When fleeing, this unit will return at the end of the timeline if combat hasn't ended.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Hemochromia.png"), "Heterochromia", "Upon receiving any kind of damage, randomize this unit's health colour.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DisabledIcon.png"), "Disabled", "On receiving any damage over a certain amount, cancel one of this unit's actions.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("enrupture"), "Enruptured", "Permenantly inflicts Ruptured on this unit.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("heavily_armored"), "Heavily Armored", "If this unit's positions have no Shield, apply a certain amount of Shield there.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("algophobia"), "Algophobia", "Taking a certain amount of damage or more in one turn will make this unit instantly flee.");
+
+            //CH10
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MissFaced.png"), "Miss-Faced", "On being direct damaged and at the end of each round, this unit's health color changes between Red and Blue.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WellPreservedPassive.png"), "Well-Preserved", "This unit is immune to indirect damage and damage from its allies.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Incomprehensible.png"), "Incomprehensible", "When an opponent moves in front of this unit, inflict 1 Muted on them.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Dodge.png"), "Evasive", "Permenantly applies Dodge to this unit.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Lazy.png"), "Lazy", "When fleeing, this enemy will return after a certain amount of rounds if combat hasn't ended.");
+
+            //CH19
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("BacklashPassive.png"), "Backlash", "On taking direct damage, apply Shield to this unit's position for the amount of damage taken.");
 
             Logger.LogInfo("Seasons greasons");
         }

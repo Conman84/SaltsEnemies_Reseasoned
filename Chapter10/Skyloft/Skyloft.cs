@@ -39,9 +39,9 @@ namespace SaltsEnemies_Reseasoned
 
             //LAZY
             PerformEffectPassiveAbility lazy = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
-            lazy._passiveName = "Lazy";
+            lazy._passiveName = "Lazy (2)";
             lazy.passiveIcon = ResourceLoader.LoadSprite("Lazy.png");
-            lazy._enemyDescription = "When fleeing, this enemy will return at the end of the next 2 rounds if combat hasn't ended.";
+            lazy._enemyDescription = "When fleeing, this enemy will return after 2 rounds if combat hasn't ended.";
             lazy._characterDescription = "When fleeing, this character will return at the end of the next 2 rounds if combat hasn't ended.";
             lazy.m_PassiveID = ButterflyUnboxer.SkyloftPassive;
             lazy.doesPassiveTriggerInformationPanel = true;
