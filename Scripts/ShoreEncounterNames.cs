@@ -241,6 +241,10 @@ namespace SaltsEnemies_Reseasoned
                 public static string Easy => "H_Zone01_Wall_Easy_EnemyBundle";
                 public static string Med => "H_Zone01_Wall_Medium_EnemyBundle";
             }
+            public static class Amalga
+            {
+                public static string Hard => "H_Zone01_Amalga_Hard_EnemyBundle";
+            }
 
 
             //marmo
