@@ -10,7 +10,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Portals.AddPortalSign("Salt_SkyloftEncounter_Sign", ResourceLoader.LoadSprite("SkyloftWorld.png"), Portals.EnemyIDColor);
+            Portals.AddPortalSign("Salt_SkyloftEncounter_Sign", ResourceLoader.LoadSprite("SkyloftPortal.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Shore.H.Skyloft.Easy, "Salt_SkyloftEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/SkyloftSong";
