@@ -105,8 +105,8 @@ namespace SaltEnemies_Reseasoned
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             exitAmount = 0;
-            if (Connect) CombatManager.Instance.AddObserver(RunEffect, TriggerCalls.OnDirectDamaged.ToString(), caster);
-            else CombatManager.Instance.RemoveObserver(RunEffect, TriggerCalls.OnDirectDamaged.ToString(), caster);
+            if (Connect) CombatManager.Instance.AddObserver(RunEffect, TriggerCalls.OnDamaged.ToString(), caster);
+            else CombatManager.Instance.RemoveObserver(RunEffect, TriggerCalls.OnDamaged.ToString(), caster);
             return true;
         }
 
