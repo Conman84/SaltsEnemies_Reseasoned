@@ -331,6 +331,10 @@ namespace SaltsEnemies_Reseasoned
                 PCall(ArcelesEncounters.Add);
                 PCall(MinanaEncounters.Add);
                 PCall(PinanoEncounters.Add);
+
+                //CH15 Encounters
+                PCall(RedBotEncounters.Add);
+                PCall(YellowBotEncounters.Add);
             }
 
             //moving the passives glossary here.
