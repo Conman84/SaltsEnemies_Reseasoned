@@ -21,8 +21,7 @@ namespace SaltsEnemies_Reseasoned
             fishing._enemyDescription = "Upon taking direct damage, spawn a \"Fish.\" The weight of the fish spawned increases upon taking more damage.";
             fishing.doesPassiveTriggerInformationPanel = false;
             fishing._triggerOn = new TriggerCalls[] { TriggerCalls.OnBeingDamaged };
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Fishing.png"), "Fishing", fishing._enemyDescription);
-
+            
             //Enemy Code
             Enemy ManFish = new Enemy("Teach a Man to Fish", "TeachaMantoFish_EN")
             {

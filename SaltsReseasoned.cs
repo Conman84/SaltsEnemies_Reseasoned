@@ -10,6 +10,7 @@ using SaltEnemies_Reseasoned;
 using SaltsEnemies_Reseasoned.Chapter1.LostSheep;
 using Unity.Mathematics;
 using UnityEngine.InputSystem.HID;
+using UnityEngine.UI;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -321,6 +322,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Freakout.png"), "Freak Out", "Upon receiving any damage, apply 0-1 Power to all allies.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Jumpy.png"), "Jumpy", "Upon being damaged, move to a random position. Upon performing an ability, move to a random position.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Lightweight.png"), "Lightweight", "Upon moving, 50% chance to move Left or Right.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Unmasking.png"), "Unmasking", "Upon taking a certain amount of direct damage or higher, remove Confusion and Obscured as passives from this unit.");
 
             Logger.LogInfo("Seasons greasons");
         }

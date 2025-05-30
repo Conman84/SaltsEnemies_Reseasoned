@@ -21,7 +21,7 @@ namespace SaltsEnemies_Reseasoned
             unmask._enemyDescription = "Upon taking a certain amount of direct damage or higher, remove Confusion and Obscured as passives from this enemy.";
             unmask.doesPassiveTriggerInformationPanel = false;
             unmask._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged };
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Unmasking.png"), "Unmasking", unmask._enemyDescription);
+            
 
             //Desperate
             PerformEffectImmediatePassiveAbility desperate = ScriptableObject.CreateInstance<PerformEffectImmediatePassiveAbility>();
