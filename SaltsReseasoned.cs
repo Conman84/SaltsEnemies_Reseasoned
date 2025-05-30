@@ -276,34 +276,35 @@ namespace SaltsEnemies_Reseasoned
             SolventEncounters.Add();
             WindSongEncounters.Add();
 
+            //I think the next update should be chapters 9-12. ive made changes to reflect as much.
+            //CH9 Encounters
+            PCall(GrandfatherEncounters.Add);
+            PCall(GreyFlowerEncounters.Add);
+            PCall(StalwartTortoiseEncounters.Add);
+            PCall(SpectreWitchFamiliarEncounters.Add);
+
+            //CH10 Encounters
+            PCall(MiniReaperEncounters.Add);
+            PCall(MedamaudeEncounters.Add);
+            PCall(MercedEncounters.Add);
+            PCall(SkyloftEncounters.Add);
+            PCall(MiriamEncounters.Add);
+            PCall(ShuaEncounters.Add);
+
+            //CH11 Encounters
+            PCall(TripodEncounters.Add);
+            PCall(GlassFigurineEncounters.Add);
+            PCall(RabiesEncounters.Add);
+            PCall(KyotlokutlaEncounters.Add);
+
+            //CH12 Encounters
+            PCall(LittleBeakEncounters.Add);
+            PCall(HunterEncounters.Add);
+            PCall(FirebirdEncounters.Add);
+            PCall(WarbirdEncounters.Add);
+
             if (DebugVer)
             {
-                //CH9 Encounters
-                PCall(GrandfatherEncounters.Add);
-                PCall(GreyFlowerEncounters.Add);
-                PCall(StalwartTortoiseEncounters.Add);
-                PCall(SpectreWitchFamiliarEncounters.Add);
-
-                //CH10 Encounters
-                PCall(MiniReaperEncounters.Add);
-                PCall(MedamaudeEncounters.Add);
-                PCall(MercedEncounters.Add);
-                PCall(SkyloftEncounters.Add);
-                PCall(MiriamEncounters.Add);
-                PCall(ShuaEncounters.Add);
-
-                //CH11 Encounters
-                PCall(TripodEncounters.Add);
-                PCall(GlassFigurineEncounters.Add);
-                PCall(RabiesEncounters.Add);
-                PCall(KyotlokutlaEncounters.Add);
-
-                //CH12 Encounters
-                PCall(LittleBeakEncounters.Add);
-                PCall(HunterEncounters.Add);
-                PCall(FirebirdEncounters.Add);
-                PCall(WarbirdEncounters.Add);
-
                 //CH13 Encounters
                 PCall(WindleEncounters.Add);
                 PCall(BlackStarEncounters.Add);

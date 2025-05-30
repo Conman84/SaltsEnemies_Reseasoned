@@ -29,27 +29,28 @@ namespace SaltEnemies_Reseasoned
             SaltRusticJumbleGutsEncounters.Add();
             SaltMortalSpoggleEncounters.Add();
             SaltMechanicalLensEncounters.Add();
-            
+
+            //I think the next update should be chapters 9-12. ive made changes to reflect as much.
+            PCall(GrandfatherEncounters.Post);
+            PCall(GreyFlowerEncounters.Post);
+            PCall(SpectreWitchFamiliarEncounters.Post);
+            PCall(MiniReaperEncounters.Post);
+            PCall(MedamaudeEncounters.Post);
+            PCall(MercedEncounters.Post);
+            PCall(SkyloftEncounters.Post);
+            PCall(ShuaEncounters.Post);
+
+            PCall(NamelessEncounters.Post);
+            PCall(DamoclesEncounters.Post);
+            PCall(GlassFigurineEncounters.Post);
+            PCall(RabiesEncounters.Post);
+            PCall(LittleBeakEncounters.Post);
+            PCall(HunterEncounters.Post);
+            PCall(FirebirdEncounters.Post);
+            PCall(WarbirdEncounters.Post);
+
             if (DebugVer)
             {
-                PCall(GrandfatherEncounters.Post);
-                PCall(GreyFlowerEncounters.Post);
-                PCall(SpectreWitchFamiliarEncounters.Post);
-                PCall(MiniReaperEncounters.Post);
-                PCall(MedamaudeEncounters.Post);
-                PCall(MercedEncounters.Post);
-                PCall(SkyloftEncounters.Post);
-                PCall(ShuaEncounters.Post);
-
-                PCall(NamelessEncounters.Post);
-                PCall(DamoclesEncounters.Post);
-                PCall(GlassFigurineEncounters.Post);
-                PCall(RabiesEncounters.Post);
-                PCall(LittleBeakEncounters.Post);
-                PCall(HunterEncounters.Post);
-                PCall(FirebirdEncounters.Post);
-                PCall(WarbirdEncounters.Post);
-
                 PCall(WindleEncounters.Post);
                 PCall(BlackStarEncounters.Post);
                 PCall(IndicatorEncounters.Post);
