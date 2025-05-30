@@ -30,7 +30,7 @@ namespace SaltsEnemies_Reseasoned
                  Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerRangePlusOneEffect>(), 0, allAlly)
             };
             freakout._triggerOn = new TriggerCalls[] { TriggerCalls.OnDamaged };
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Freakout.png"), "Freak Out", freakout._enemyDescription);
+            
 
             //Enemy Code
             Enemy LostSheep = new Enemy("Lost Sheep", "LostSheep_EN")

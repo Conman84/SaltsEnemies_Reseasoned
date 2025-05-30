@@ -317,6 +317,9 @@ namespace SaltsEnemies_Reseasoned
                 PCall(MawEncounters.Add);
             }
 
+            //moving the passives glossary here.
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Freakout.png"), "Freak Out", "Upon receiving any damage, apply 0-1 Power to all allies.");
+
             Logger.LogInfo("Seasons greasons");
         }
 
