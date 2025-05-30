@@ -175,14 +175,12 @@ namespace SaltEnemies_Reseasoned
                         CombatManager.Instance.PostNotification(TriggerCalls.OnFleeting.ToString(), enemy, false);
                         if (enemy.ContainsPassiveAbility(ButterflyUnboxer.ButterflyPassive) && enemy.CurrentHealth > 0)
                         {
-                            UnityEngine.Debug.LogError("FlitheringHandler.Run make sure loading correct passive icon for Ethereal");
                             CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(enemy.ID, enemy.IsUnitCharacter, "Ethereal", ResourceLoader.LoadSprite("Ethereal.png")));
                             stats.TryBoxEnemy(enemy.ID, ButterflyUnboxer.GetDefault(enemy.ID), CombatType_GameIDs.Exit_Obliterate.ToString());
                             ButterflyUnboxer.Boxeds.Add(enemy.ID);
                         }
                         else if (enemy.ContainsPassiveAbility(ButterflyUnboxer.SkyloftPassive) && enemy.CurrentHealth > 0)
                         {
-                            Debug.LogError("FlitheringHandler.Run make sure loading correct passive icon for Lazy");
                             CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(enemy.ID, enemy.IsUnitCharacter, "Lazy", ResourceLoader.LoadSprite("Lazy.png")));
                             stats.TryBoxEnemy(enemy.ID, ButterflyUnboxer.GetDefault(enemy.ID, true), CombatType_GameIDs.Exit_Fleeting.ToString());
                             ButterflyUnboxer.Boxeds.Add(enemy.ID);
