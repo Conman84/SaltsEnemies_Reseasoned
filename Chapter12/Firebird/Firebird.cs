@@ -26,17 +26,17 @@ namespace SaltsEnemies_Reseasoned
 
             //rejuvination
             RejuvinationPassiveAbility pheonix = ScriptableObject.CreateInstance<RejuvinationPassiveAbility>();
-            pheonix._passiveName = "Rejuvination";
+            pheonix._passiveName = "Rejuvination (4)";
             pheonix.passiveIcon = ResourceLoader.LoadSprite("rejuvination.png");
             pheonix.m_PassiveID = "Rejuvination_PA";
-            pheonix._enemyDescription = "On death, if this enemy is above 4 maximum health, Resurrect it at half health and inflict 1 Fire on its position.";
+            pheonix._enemyDescription = "On death, if this enemy is above 4 maximum health, Resurrect it at half its maximum health.";
             pheonix._characterDescription = "idkkk mannnn";
             pheonix.doesPassiveTriggerInformationPanel = false;
             pheonix._triggerOn = new TriggerCalls[] { TriggerCalls.CanDie };
 
             //burning
             PerformEffectPassiveAbility burning = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
-            burning._passiveName = "Burning";
+            burning._passiveName = "Burning (1)";
             burning.passiveIcon = ResourceLoader.LoadSprite("burningIcon.png");
             burning.m_PassiveID = "Burning_PA";
             burning._enemyDescription = "On receiving direct damage, inflict 1 Fire on this position and the Opposing position.";

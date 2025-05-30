@@ -379,6 +379,16 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Lazy.png"), "Lazy", "When fleeing, this enemy will return after a certain amount of rounds if combat hasn't ended.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("FlitheringIcon.png"), "Flithering", "On any ally dying, if there are no other allies without \"Withering\" or \"Flithering\" as passives, instantly flee.\nAt the start and end of the enemies' turn, if there are no other allies without \"Cowardice\" or \"Flithering\" as passives, instantly flee.");
 
+            //CH11
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DamoclesPassive.png"), "Closure", "On taking any amount of damage, there is a 50% chance that this unit instantly dies then deals the amount of damage taken to the Opposing unit.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DisorientingPassive.png"), "Disorienting", "On taking direct damage, randomize all party member ability costs.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("HateYou.png"), "Vindictive", "This unit remembers its oppressors. On taking direct damage, inflict 1 Scar on the attacker.");
+
+            //CH12
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CombativePassive.png"), "Combative", " This unit will flee after a set amount of turns.\nOn dealing or receiving damage, reset this unit's Fleeting counter.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("burningIcon.png"), "Burning", "On receiving direct damage, inflict a certain amount of Fire on this position and the Opposing position.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("rejuvination.png"), "Rejuvination", "On death, if this enemy is above a certain amount of maximum health, Resurrect it at half its maximum health.");
+
             //CH19
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("BacklashPassive.png"), "Backlash", "On taking direct damage, apply Shield to this unit's position for the amount of damage taken.");
 
