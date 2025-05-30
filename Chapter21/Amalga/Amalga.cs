@@ -223,7 +223,7 @@ namespace SaltsEnemies_Reseasoned
             amalga.CombatExitEffects = new EffectInfo[]
             {
                 Effects.GenerateEffect(remove),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<AmalgaDropFishEffect>(), 3)
+                //Effects.GenerateEffect(ScriptableObject.CreateInstance<AmalgaDropFishEffect>(), 3)
             };
 
             EnemyAbilityInfo devour = new EnemyAbilityInfo()
