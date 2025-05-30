@@ -20,7 +20,7 @@ namespace SaltsEnemies_Reseasoned
             substitute._enemyDescription = "Permanently applies Divine Sacrifice to this enemy.";
             substitute.doesPassiveTriggerInformationPanel = false;
             substitute._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DivineSacrifice.png"), "Substitute", substitute._enemyDescription);
+            
 
             //Enemy Code
             Enemy MortalSpoggle = new Enemy("Mortal Spoggle", "MortalSpoggle_EN")

@@ -21,7 +21,6 @@ namespace SaltsEnemies_Reseasoned
             illusory._enemyDescription = "This enemy is immune to both direct and indirect damage.";
             illusory.doesPassiveTriggerInformationPanel = false;
             illusory._triggerOn = new TriggerCalls[] { TriggerCalls.OnBeingDamaged };
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("StarPassive.png"), "Illusory", illusory._enemyDescription);
 
             //Enemy Code
             Enemy StarGazer = new Enemy("Star Gazer", "StarGazer_EN")

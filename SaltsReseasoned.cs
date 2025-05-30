@@ -12,6 +12,7 @@ using Unity.Mathematics;
 using UnityEngine.InputSystem.HID;
 using UnityEngine.UI;
 using UnityEngine.InputSystem.EnhancedTouch;
+using System.Net.Sockets;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -320,11 +321,25 @@ namespace SaltsEnemies_Reseasoned
             }
 
             //moving the passives glossary here.
+
+            //CH1
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Freakout.png"), "Freak Out", "Upon receiving any damage, apply 0-1 Power to all allies.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Jumpy.png"), "Jumpy", "Upon being damaged, move to a random position. Upon performing an ability, move to a random position.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Lightweight.png"), "Lightweight", "Upon moving, 50% chance to move Left or Right.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Unmasking.png"), "Unmasking", "Upon taking a certain amount of direct damage or higher, remove Confusion and Obscured as passives from this unit.");
+            
+            //CH2
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Fishing.png"), "Fishing", "Upon taking direct damage, spawn a \"Fish.\" The weight of the fish spawned increases upon taking more damage.");
+            
+            //CH3
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DontTouchMe.png"), "Don't Touch Me", "Upon being clicked, gain an additional action on the timeline.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("StarPassive.png"), "Illusory", "This unit is immune to both direct and indirect damage.");
+            
+            //CH4
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Revenge.png"), "Revenge", "On taking direct damage, give this unit another action.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PickPocket.png"), "Pick-Pocket", "On Fleeing, steal 5 coins.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DivineSacrifice.png"), "Substitute", "Permanently applies Divine Sacrifice to this unit.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("InspirationIcon.png"), "Inspired", "This unit is Inspired.");
 
             Logger.LogInfo("Seasons greasons");
         }

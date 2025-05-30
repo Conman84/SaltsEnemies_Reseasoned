@@ -35,14 +35,14 @@ namespace SaltsEnemies_Reseasoned
             revenge.m_PassiveID = "Revenge_PA";
             revenge.passiveIcon = ResourceLoader.LoadSprite("Revenge.png");
             revenge._characterDescription = "On taking direct damage, give this enemy another ability.";
-            revenge._enemyDescription = "On taking direct damage, give this enemy another ability.";
+            revenge._enemyDescription = "On taking direct damage, give this enemy another action.";
             revenge.doesPassiveTriggerInformationPanel = true;
             revenge.effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Targeting.Slot_SelfSlot),
             };
             revenge._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged };
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Revenge.png"), "Revenge", revenge._enemyDescription);
+            
 
             //Revenge
             PerformEffectPassiveAbility pocket = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
@@ -57,7 +57,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<LosePlayerCurrencyEffect>(), 5, Targeting.Slot_SelfSlot),
             };
             pocket._triggerOn = new TriggerCalls[] { TriggerCalls.OnFleeting };
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PickPocket.png"), "Pick-Pocket", pocket._enemyDescription);
+            
 
             //Enemy Code
             Enemy CoinHunter = new Enemy("Coin Hunter", "CoinHunter_EN")
