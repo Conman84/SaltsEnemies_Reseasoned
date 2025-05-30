@@ -245,7 +245,7 @@ namespace SaltsEnemies_Reseasoned
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("WallIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("WallWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("WallDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("AmalgaDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetCharacter("Gospel_CH").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("Gospel_CH").deathSound,
                 Priority = Priority.GetCustomPriority("wall1")
