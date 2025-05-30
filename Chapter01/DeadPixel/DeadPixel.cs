@@ -22,15 +22,15 @@ namespace SaltsEnemies_Reseasoned
             jumpy._passiveName = "Jumpy";
             jumpy.m_PassiveID = "Jumpy_PA";
             jumpy.passiveIcon = ResourceLoader.LoadSprite("Jumpy.png");
-            jumpy._characterDescription = "Upon being hit move to a random position. Upon performing an ability, move to a random position.";
-            jumpy._enemyDescription = "Upon being hit move to a random position. Upon performing an ability, move to a random position.";
+            jumpy._characterDescription = "Upon being damaged, move to a random position. Upon performing an ability, move to a random position.";
+            jumpy._enemyDescription = "Upon being damaged, move to a random position. Upon performing an ability, move to a random position.";
             jumpy.doesPassiveTriggerInformationPanel = true;
             jumpy.effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToRandomZoneEffect>(), 1, Targeting.GenerateSlotTarget(new int[9] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, true)),
             };
             jumpy._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged, TriggerCalls.OnAbilityUsed };
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Jumpy.png"), "Jumpy", jumpy._enemyDescription);
+            
 
             //Numb
             PerformEffectPassiveAbility numb = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();

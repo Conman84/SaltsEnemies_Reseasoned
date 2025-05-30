@@ -319,6 +319,7 @@ namespace SaltsEnemies_Reseasoned
 
             //moving the passives glossary here.
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Freakout.png"), "Freak Out", "Upon receiving any damage, apply 0-1 Power to all allies.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Jumpy.png"), "Jumpy", "Upon being damaged, move to a random position. Upon performing an ability, move to a random position.");
 
             Logger.LogInfo("Seasons greasons");
         }
