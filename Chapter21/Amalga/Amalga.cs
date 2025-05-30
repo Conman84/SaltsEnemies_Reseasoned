@@ -22,9 +22,9 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
             };
-            Debug.Log("before");
+
             amalga.PrepareMultiEnemyPrefab("Assets/Amalga/Amalga_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Amalga/Amalga_Gibs.prefab").GetComponent<ParticleSystem>());
-            Debug.Log("initial");
+
             (amalga.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
             {
                 amalga.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Hands").Find("Outline").GetComponent<SpriteRenderer>(),
@@ -33,7 +33,6 @@ namespace SaltsEnemies_Reseasoned
                 amalga.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("R_Ear").Find("Outine").GetComponent<SpriteRenderer>(),
             };
 
-            Debug.Log("prefab");
 
             //hiding
             AmalgaHandler.Setup();
@@ -58,6 +57,18 @@ namespace SaltsEnemies_Reseasoned
             seeking._triggerOn = [TriggerCalls.OnAbilityUsed];
             seeking.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToClosestTargetEffect>(), 1, Targeting.GenerateSlotTarget(new int[9] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, false)).SelfArray();
 
+            //focus
+            Connection_PerformEffectPassiveAbility focus = ScriptableObject.CreateInstance<Connection_PerformEffectPassiveAbility>();
+            focus._passiveName = "33";
+            focus.passiveIcon = ResourceLoader.LoadSprite("MimicPassive.png");
+            focus.m_PassiveID = "33_PA";
+            focus._enemyDescription = "On entering combat, gain Focus.";
+            focus._characterDescription = focus._enemyDescription;
+            focus.doesPassiveTriggerInformationPanel = false;
+            focus._triggerOn = [TriggerCalls.Count];
+            focus.connectionEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Slots.Self).SelfArray();
+            focus.disconnectionEffects = [];
+
             //bonus attack
             ExtraAttackPassiveAbility baseExtra = LoadedAssetsHandler.GetEnemy("Xiphactinus_EN").passiveAbilities[1] as ExtraAttackPassiveAbility;
             ExtraAttackPassiveAbility cannon = ScriptableObject.Instantiate<ExtraAttackPassiveAbility>(baseExtra);
@@ -75,7 +86,7 @@ namespace SaltsEnemies_Reseasoned
             AbilitySO ability = bonus.GenerateEnemyAbility(true).ability;
             cannon._extraAbility.ability = ability;
 
-            amalga.AddPassives(new BasePassiveAbilitySO[] { hiding, seeking, cannon });
+            amalga.AddPassives(new BasePassiveAbilitySO[] { hiding, seeking, focus, cannon });
 
             AmalgaSongEffect add = ScriptableObject.CreateInstance<AmalgaSongEffect>();
             add.Add = true;
@@ -88,7 +99,6 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<AmalgaDropFishEffect>(), 3)
             };
 
-            Debug.Log("passives");
 
             EnemyAbilityInfo devour = new EnemyAbilityInfo()
             {
@@ -172,6 +182,18 @@ namespace SaltsEnemies_Reseasoned
             seeking._triggerOn = [TriggerCalls.OnAbilityUsed];
             seeking.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToClosestTargetEffect>(), 1, Targeting.GenerateSlotTarget(new int[9] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, false)).SelfArray();
 
+            //focus
+            Connection_PerformEffectPassiveAbility focus = ScriptableObject.CreateInstance<Connection_PerformEffectPassiveAbility>();
+            focus._passiveName = "33";
+            focus.passiveIcon = ResourceLoader.LoadSprite("MimicPassive.png");
+            focus.m_PassiveID = "33_PA";
+            focus._enemyDescription = "On entering combat, gain Focus.";
+            focus._characterDescription = focus._enemyDescription;
+            focus.doesPassiveTriggerInformationPanel = false;
+            focus._triggerOn = [TriggerCalls.Count];
+            focus.connectionEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Slots.Self).SelfArray();
+            focus.disconnectionEffects = [];
+
             //bonus attack
             ExtraAttackPassiveAbility baseExtra = LoadedAssetsHandler.GetEnemy("Xiphactinus_EN").passiveAbilities[1] as ExtraAttackPassiveAbility;
             ExtraAttackPassiveAbility cannon = ScriptableObject.Instantiate<ExtraAttackPassiveAbility>(baseExtra);
@@ -189,7 +211,7 @@ namespace SaltsEnemies_Reseasoned
             AbilitySO ability = bonus.GenerateEnemyAbility().ability;
             cannon._extraAbility.ability = ability;
 
-            amalga.AddPassives(new BasePassiveAbilitySO[] { hiding, seeking, cannon });
+            amalga.AddPassives(new BasePassiveAbilitySO[] { hiding, seeking, focus, cannon });
 
             AmalgaSongEffect add = ScriptableObject.CreateInstance<AmalgaSongEffect>();
             add.Add = true;
