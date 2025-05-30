@@ -70,20 +70,18 @@ namespace SaltsEnemies_Reseasoned
                 ScriptableObject.CreateInstance<CowardCondition>()
             };
 
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("survival.png"), "Survival Instinct", survival._enemyDescription);
-
             //INTIMIDATED
             DelayedAttackManager.Setup();
             PerformEffectPassiveAbility fear = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             fear._passiveName = "Intimidated";
             fear.passiveIcon = ResourceLoader.LoadSprite("intimidated.png");
             fear.m_PassiveID = "Intimidated_PA";
-            fear._enemyDescription = "When a party member moves in front of this enemy, reroll one of this enemy's abilities.";
+            fear._enemyDescription = "When a party member moves in front of this enemy, reroll one of this enemy's actions.";
             fear._characterDescription = "wotn workn...";
             fear.doesPassiveTriggerInformationPanel = true;
             fear.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<ReRollTargetTimelineAbilityEffect>(), 1, Targeting.Slot_SelfSlot) };
             fear._triggerOn = new TriggerCalls[1] { (TriggerCalls)AmbushManager.Patiently };
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("intimidated.png"), "Intimidated", fear._enemyDescription);
+            
 
             //ADD PASSIVES
             solvent.AddPassives(new BasePassiveAbilitySO[] { survival, fear, Passives.FleetingGenerator(5), flither, Passives.Dying });

@@ -51,7 +51,6 @@ namespace SaltsEnemies_Reseasoned
             {
                         Effects.GenerateEffect(ScriptableObject.CreateInstance<WindSongEffect>(), 1, Targeting.Slot_SelfSlot)
             };
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CodaIcon.png"), "Coda", coda._enemyDescription);
 
             //ADDPASSIVES
             windsong.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, Passives.Formless, coda });

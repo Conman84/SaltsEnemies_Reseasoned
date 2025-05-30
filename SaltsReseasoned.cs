@@ -13,6 +13,8 @@ using UnityEngine.InputSystem.HID;
 using UnityEngine.UI;
 using UnityEngine.InputSystem.EnhancedTouch;
 using System.Net.Sockets;
+using static SaltsEnemies_Reseasoned.Orph.H;
+using Mono.Cecil.Cil;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -337,9 +339,24 @@ namespace SaltsEnemies_Reseasoned
             
             //CH4
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Revenge.png"), "Revenge", "On taking direct damage, give this unit another action.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PickPocket.png"), "Pick-Pocket", "On Fleeing, steal 5 coins.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PickPocket.png"), "Pick-Pocket", "On Fleeing, steal a certain amount of coins.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DivineSacrifice.png"), "Substitute", "Permanently applies Divine Sacrifice to this unit.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("InspirationIcon.png"), "Inspired", "This unit is Inspired.");
+
+            //CH6
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("IllusionPassive.png"), "Delirium", "This unit has an Offense and a Supportive State and randomly picks between the two on entering battle.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("splatter.png"), "Splatter", "On death, produce 4 Pigment of this unit's health color.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Overgrowth.png"), "Overgrowth", "On taking direct damage, inflict 3 Roots on the Opposing position.");
+
+            //CH7
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("saltwater.png"), "Salinity", "On receiving direct damage, produce a certain amount of Blue Pigment.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Joeverflow.png"), "Asphyxiation", "Overflow under a certain amount will not trigger.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("NoMenu.png"), "Locked In", "The pause menu can no longer be accessed.");
+
+            //CH8
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("survival.png"), "Survival Instinct", "On death, instantly kill the lowest health opponent.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("intimidated.png"), "Intimidated", "When an opponent moves in front of this enemy, reroll one of this unit's actions.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CodaIcon.png"), "Coda", "On death, apply 3 Dodge, 3 Haste, and 3 Power to all allies.");
 
             Logger.LogInfo("Seasons greasons");
         }

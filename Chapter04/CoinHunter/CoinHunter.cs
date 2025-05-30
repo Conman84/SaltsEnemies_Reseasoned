@@ -46,7 +46,7 @@ namespace SaltsEnemies_Reseasoned
 
             //Revenge
             PerformEffectPassiveAbility pocket = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
-            pocket._passiveName = "Pick-Pocket";
+            pocket._passiveName = "Pick-Pocket (5)";
             pocket.m_PassiveID = "PickPocket_PA";
             pocket.passiveIcon = ResourceLoader.LoadSprite("PickPocket.png");
             pocket._characterDescription = "On fleeing, steal 5 coins.";

@@ -250,7 +250,6 @@ namespace SaltEnemies_Reseasoned
                     fake._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
                     fake.specialStoredData = UnitStoreData.GetCustom_UnitStoreData(State);
                     _illusion = fake;
-                    AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("IllusionPassive.png"), "Delirium", fake._enemyDescription);
                 }
                 return _illusion;
             }
