@@ -328,10 +328,12 @@ namespace SaltsEnemies_Reseasoned
 
             //CH1
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Freakout.png"), "Freak Out", "Upon receiving any damage, apply 0-1 Power to all allies.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Anesthetics.png"), "Numb", "Apply a certain amount of Anesthetics to this enemy at the start of each turn.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Jumpy.png"), "Jumpy", "Upon being damaged, move to a random position. Upon performing an ability, move to a random position.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Lightweight.png"), "Lightweight", "Upon moving, 50% chance to move Left or Right.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Unmasking.png"), "Unmasking", "Upon taking a certain amount of direct damage or higher, remove Confusion and Obscured as passives from this unit.");
-            
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Desperate.png"), "Desperate", "On taking any damage, 33% chance to apply a certain amount of Determined to self.");
+
             //CH2
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Fishing.png"), "Fishing", "Upon taking direct damage, spawn a \"Fish.\" The weight of the fish spawned increases upon taking more damage.");
             

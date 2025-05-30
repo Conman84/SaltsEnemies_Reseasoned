@@ -45,7 +45,6 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyAnestheticsEffect>(), 1, Targeting.Slot_SelfSlot),
             };
             numb._triggerOn = new TriggerCalls[] { TriggerCalls.OnTurnStart };
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Anesthetics.png"), "Numb", "Apply a certain amount of Anesthetics to this enemy at the start of each turn.");
 
             //Enemy Code
             Enemy DeadPixel = new Enemy("Dead Pixel", "DeadPixel_EN")

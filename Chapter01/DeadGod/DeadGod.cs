@@ -25,7 +25,7 @@ namespace SaltsEnemies_Reseasoned
 
             //Desperate
             PerformEffectImmediatePassiveAbility desperate = ScriptableObject.CreateInstance<PerformEffectImmediatePassiveAbility>();
-            desperate._passiveName = "Desperate";
+            desperate._passiveName = "Desperate (3)";
             desperate.m_PassiveID = "Desperate_PA";
             desperate.passiveIcon = ResourceLoader.LoadSprite("Desperate.png");
             desperate._characterDescription = "On taking any damage, 33% chance to apply 3 Determined to self.";
@@ -42,7 +42,6 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDeterminedEffect>(), 3, Targeting.Slot_SelfSlot),
             };
             desperate._triggerOn = new TriggerCalls[] { TriggerCalls.OnBeingDamaged };
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Desperate.png"), "Desperate", desperate._enemyDescription);
 
             //Enemy Code
             Enemy DeadGod = new Enemy("Embers of a Dead God", "EmbersofaDeadGod_EN")
