@@ -330,6 +330,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(MidnightTrafficLightEncounters.Add);
                 PCall(ArcelesEncounters.Add);
                 PCall(MinanaEncounters.Add);
+                PCall(PinanoEncounters.Add);
             }
 
             //moving the passives glossary here.

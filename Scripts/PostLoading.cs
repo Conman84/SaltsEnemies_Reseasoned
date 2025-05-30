@@ -60,6 +60,7 @@ namespace SaltEnemies_Reseasoned
                 PCall(MidnightTrafficLightEncounters.Post);
                 PCall(ArcelesEncounters.Post);
                 PCall(ChildrenEncounters.Post);
+                PCall(PinanoEncounters.Post);
             }
 
             //Crossovers
