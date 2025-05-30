@@ -122,15 +122,6 @@ namespace SaltsEnemies_Reseasoned
                 ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone02_Conductor_Hard_EnemyBundle"))._enemyBundles = list8;
 
                 //Garden
-                List<RandomEnemyGroup> list9 = new List<RandomEnemyGroup>(((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone03_SkinningHomunculus_Medium_EnemyBundle"))._enemyBundles);
-                list9.Add(new RandomEnemyGroup(new string[]
-                {
-                    "SkinningHomunculus_EN",
-                    "LittleAngel_EN",
-                    "Surrogate_EN",
-                }));
-                ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone03_SkinningHomunculus_Medium_EnemyBundle"))._enemyBundles = list9;
-
                 List<RandomEnemyGroup> list10 = new List<RandomEnemyGroup>(((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone03_SkinningHomunculus_Hard_EnemyBundle"))._enemyBundles);
                 list10.Add(new RandomEnemyGroup(new string[]
                 {
