@@ -326,6 +326,7 @@ namespace SaltsEnemies_Reseasoned
 
                 //CH14 Encounters
                 PCall(AbyssAngelEncounters.Add);
+                PCall(YourNewLifeEncounters.Add);
             }
 
             //moving the passives glossary here.
