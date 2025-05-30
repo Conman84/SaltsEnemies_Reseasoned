@@ -57,6 +57,7 @@ namespace SaltEnemies_Reseasoned
                 PCall(MawEncounters.Post);
                 PCall(AbyssAngelEncounters.Post);
                 PCall(YourNewLifeEncounters.Post);
+                PCall(MidnightTrafficLightEncounters.Post);
             }
 
             //Crossovers
