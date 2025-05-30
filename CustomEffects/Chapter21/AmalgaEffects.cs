@@ -84,7 +84,7 @@ namespace SaltEnemies_Reseasoned
         {
             exitAmount = 0;
             if (caster.CurrentHealth > 0) return false;
-            if (LoadedDBsHandler.ItemPoolDB.TryGetItemLootListEffect(PoolList_GameIDs.FishingRod.ToString(), out ExtraLootListEffect fish))
+            if (LoadedDBsHandler.ItemPoolDB.TryGetItemLootListEffect(PoolList_GameIDs.CanOfWorms_WelsCatfish.ToString(), out ExtraLootListEffect fish))
             {
                 return fish.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
             }
