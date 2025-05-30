@@ -246,6 +246,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(Author.Add);
                 PCall(Monster.Add);
                 PCall(Wall.Add);
+                PCall(Amalga.Add);
             }
 
             //CH1 Encounters
