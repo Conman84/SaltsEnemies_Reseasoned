@@ -145,26 +145,26 @@ namespace SaltsEnemies_Reseasoned
             PCall(Postmodern.Add);
 
             //CH8 Enemies
-            Sigil.Add();
             Solvent.Add();
             WindSong.Add();
-            TheEndOfTime.Add();
+            Sigil.Add();
             SemiRealisticTank.Add();
+            TheEndOfTime.Add();
 
             //my enemenemenies
             //CH9 enemies
-            PCall(Butterfly.Add);
             PCall(Grandfather.Add);
+            PCall(Butterfly.Add);
             PCall(StalwartTortoise.Add);
             PCall(GreyFlower.Add);
 
             //CH10 Enemies
-            Medamaude.Add();
-            PCall(Skyloft.Add);
             PCall(MiniReaper.Add);
+            Medamaude.Add();
+            PCall(Miriam.Add);
             PCall(Shua.Add);
             PCall(Merced.Add);
-            PCall(Miriam.Add);
+            PCall(Skyloft.Add);
 
             //CH11 Enemies
             PCall(GlassFigurine.Add);
@@ -175,41 +175,41 @@ namespace SaltsEnemies_Reseasoned
             PCall(Kyotlokutla.Add);
 
             //CH12 Enemies
-            PCall(Warbird.Add);
             PCall(LittleBeak.Add);
             PCall(Hunter.Add);
             PCall(Firebird.Add);
+            PCall(Warbird.Add);
 
             if (DebugVer)
             {
                 //CH13 Enemies
-                PCall(Maw.Add);
                 PCall(BlackStar.Add);
                 PCall(Singularity.Add);
                 PCall(Windle.Add);
                 PCall(Indicator.Add);
+                PCall(Maw.Add);
 
                 //CH14 Enemies
+                PCall(AbyssAngel.Add);
+                PCall(YNL.Add);
+                PCall(Arceles.Add);
                 PCall(MidnightTrafficLight.Add);
                 PCall(Pinano.Add);
                 PCall(Minana.Add);
-                PCall(AbyssAngel.Add);
-                PCall(Arceles.Add);
-                PCall(YNL.Add);
                 PCall(Children.Add);
 
                 //CH15 Enemies
                 PCall(YellowBot.Add);
-                PCall(GreyBot.Add);
                 PCall(RedBot.Add);
                 PCall(BlueBot.Add);
                 PCall(PurpleBot.Add);
+                PCall(GreyBot.Add);
                 PCall(GlassedSun.Add);
 
                 //CH16 Enemies
-                PCall(Dragon.Add);
                 PCall(Crystal.Add);
                 PCall(Candy.Add);
+                PCall(Dragon.Add);
                 PCall(OdeToHumanity.Add);
                 PCall(TortureMeNot.Add);
 
@@ -229,17 +229,17 @@ namespace SaltsEnemies_Reseasoned
                 PCall(Complimentary.Add);
 
                 //CH19 Enemies
+                PCall(Wednesday.Add);
                 PCall(Starless.Add);
                 PCall(Eyeless.Add);
-                PCall(Pawn.Add);
-                PCall(Wednesday.Add);
                 PCall(Yang.Add);
                 PCall(Yin.Add);
+                PCall(Pawn.Add);
 
                 //CH20 Enemies
-                PCall(Solitaire.Add);
                 PCall(TwoThousandNine.Add);
                 PCall(Chiito.Add);
+                PCall(Solitaire.Add);
                 PCall(Foxtrot.Add);
 
                 //CH21 Enemies
@@ -385,6 +385,8 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("HateYou.png"), "Vindictive", "This unit remembers its oppressors. On taking direct damage, inflict 1 Scar on the attacker.");
 
             //CH12
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("panic.png"), "Nervous", "On moving, gain another action.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("hunterpassive.png"), "Horrifying", "At the end of each round, if the Opposing unit has Terror instantly kill them.\nOn being directly damaged, inflict Terror on the Opposing unit.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CombativePassive.png"), "Combative", " This unit will flee after a set amount of turns.\nOn dealing or receiving damage, reset this unit's Fleeting counter.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("burningIcon.png"), "Burning", "On receiving direct damage, inflict a certain amount of Fire on this position and the Opposing position.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("rejuvination.png"), "Rejuvination", "On death, if this enemy is above a certain amount of maximum health, Resurrect it at half its maximum health.");
