@@ -228,10 +228,14 @@ namespace SaltsEnemies_Reseasoned
                 PCall(Wednesday.Add);
                 PCall(Yang.Add);
                 PCall(Yin.Add);
+
+                //CH20 Enemies
                 PCall(Solitaire.Add);
                 PCall(TwoThousandNine.Add);
                 PCall(Chiito.Add);
                 PCall(Foxtrot.Add);
+
+                //CH21 Enemies
                 PCall(Author.Add);
                 PCall(Monster.Add);
                 PCall(Wall.Add);
