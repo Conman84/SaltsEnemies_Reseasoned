@@ -274,7 +274,8 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = LoadedAssetsHandler.GetCharacter("Gospel_CH").deathSound,
                 Priority = Priority.GetCustomPriority("wall1")
             };
-            wall1.PrepareEnemyPrefab("assets/enem3/Wall_1_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Wall_Gibs.prefab").GetComponent<ParticleSystem>());
+            //wall1.PrepareEnemyPrefab("assets/enem3/Wall_1_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Wall_Gibs.prefab").GetComponent<ParticleSystem>());
+            wall1.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("Wall_EN").enemyTemplate;
             wall1.CombatEnterEffects = Effects.GenerateEffect(AmalgaWallConnectionEffect.Create(true)).SelfArray();
             wall1.CombatExitEffects = Effects.GenerateEffect(AmalgaWallConnectionEffect.Create(false)).SelfArray();
 

@@ -23,7 +23,10 @@ namespace SaltEnemies_Reseasoned
                 Priority = Priority.CreateAndAddCustomPriorityToPool("wall1", 1)
             };
             wall1.PrepareEnemyPrefab("assets/enem3/Wall_1_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Wall_Gibs.prefab").GetComponent<ParticleSystem>());
-            wall1.CombatEnterEffects = Effects.GenerateEffect(WallConnectionEffect.Create(true)).SelfArray();
+            wall1.CombatEnterEffects = new EffectInfo[]
+            {
+                Effects.GenerateEffect(WallConnectionEffect.Create(true)),
+            };
             wall1.CombatExitEffects = Effects.GenerateEffect(WallConnectionEffect.Create(false)).SelfArray();
 
             //crush

@@ -34,4 +34,33 @@ namespace SaltsEnemies_Reseasoned
             return ret;
         }
     }
+    public class WallDebuggerEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            Debug.Log("CASTER: " + caster.ID.ToString() + " ; " + caster.Name + " ; Field: " + caster.FieldID);
+
+            foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
+                Debug.Log("enemy: " + enemy.ID.ToString() + " ; " + enemy.Name + " ; Field: " + enemy.FieldID);
+
+            foreach (EnemyCombatUIInfo info in stats.combatUI._enemiesInCombat.Values)
+                Debug.Log("enemyUI: " + info.ID.ToString() + " ; " + info.Name + " ; Field: " + info.FieldID + " ; in slot: " + info.SlotID);
+
+            for (int i = 0; i < stats.combatUI._enemyZone._enemies.Length; i++)
+                if (stats.combatUI._enemyZone._enemies[i] != null && !stats.combatUI._enemyZone._enemies[i].Equals(null))
+                {
+                    if (stats.combatUI._enemyZone._enemies[i].FieldEntity != null && !stats.combatUI._enemyZone._enemies[i].FieldEntity.Equals(null))
+                    {
+                        Debug.Log("enemy layout fieldID: " + i.ToString() + " ; enemy layout enemyID: " + stats.combatUI._enemyZone._enemies[i].FieldEntity.EnemyID.ToString());
+                    }
+                    else
+                        Debug.Log("null enemyfieldlayout for FieldID: " + i.ToString());
+                }
+                else
+                    Debug.Log("null enemyinfolayout for FieldID: " + i.ToString());
+
+            return true;
+        }
+    }
 }
