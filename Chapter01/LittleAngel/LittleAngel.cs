@@ -17,8 +17,8 @@ namespace SaltsEnemies_Reseasoned
             lightweight._passiveName = "Lightweight";
             lightweight.m_PassiveID = "Lightweight_PA";
             lightweight.passiveIcon = ResourceLoader.LoadSprite("Lightweight.png");
-            lightweight._characterDescription = "Upon moving, 50% chance to move again.";
-            lightweight._enemyDescription = "Upon moving, 50% chance to move again.";
+            lightweight._characterDescription = "Upon moving, 50% chance to move Left or Right.";
+            lightweight._enemyDescription = "Upon moving, 50% chance to move Left or Right.";
             lightweight.doesPassiveTriggerInformationPanel = true;
             lightweight.effects = new EffectInfo[]
             {
@@ -28,7 +28,7 @@ namespace SaltsEnemies_Reseasoned
             PercentageEffectorCondition light50P = ScriptableObject.CreateInstance<PercentageEffectorCondition>();
             light50P.triggerPercentage = 50;
             lightweight.conditions = new EffectorConditionSO[1] { light50P };
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Lightweight.png"), "Lightweight", lightweight._enemyDescription);
+            
 
             //Enemy Code
             Enemy LittleAngel = new Enemy("Little Angel", "LittleAngel_EN")
