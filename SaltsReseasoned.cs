@@ -412,7 +412,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 //CH13
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WindlePassive.png"), "Automated", "At the end of each turn, if this unit has not manually performed an ability, perform a random ability.");
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CollapsePassive.png"), "Collapse", "On dying from Withering, spawn a specific enemy.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CollapsePassive.png"), "Collapse", "On dying from Withering, spawn a specific unit.");
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("BlackstarPassive.png"), "Turbulent", "On being directly damaged, shuffle all enemy positions.");
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("IndicatorPassive.png"), "Compulsory", "On being directly damaged, force the Opposing unit to perform a random ability.");
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SpasmPassive.png"), "Spasm", "On death, give all allies 1-2 additional actions on the timeline.");
