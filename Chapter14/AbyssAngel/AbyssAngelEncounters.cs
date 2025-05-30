@@ -8,6 +8,11 @@ namespace SaltsEnemies_Reseasoned
 {
     public static class AbyssAngelEncounters
     {
+        public static void Add()
+        {
+            Add_Med();
+            Add_Hard();
+        }
         public static void Add_Med()
         {
             Portals.AddPortalSign("Salt_AbyssAngelEncounter_Sign", ResourceLoader.LoadSprite("ClioneWorld.png"), Portals.EnemyIDColor);
@@ -36,10 +41,42 @@ namespace SaltsEnemies_Reseasoned
             hard.MusicEvent = "event:/Hawthorne/ClioneSong";
             hard.RoarEvent = "event:/Hawthorne/Misc/Water";
 
-
+            hard.AddRandomEncounter("Clione_EN", "FlaMinGoa_EN", "MudLung_EN");
+            hard.AddRandomEncounter("Clione_EN", "AFlower_EN", "MudLung_EN", "MudLung_EN");
+            hard.AddRandomEncounter("Clione_EN", "LittleBeak_EN", Jumble.Yellow);
+            hard.AddRandomEncounter("Clione_EN", Jumble.Red, Jumble.Yellow, "Flarblet_EN");
+            hard.AddRandomEncounter("Clione_EN", "FlaMinGoa_EN", Enemies.Mungling);
+            hard.AddRandomEncounter("Clione_EN", "LittleBeak_EN", Enemies.Mungling);
+            hard.AddRandomEncounter("Clione_EN", "Windle_EN", "FlaMinGoa_EN");
+            hard.AddRandomEncounter("Clione_EN", Spoggle.Blue, "AFlower_EN");
+            hard.AddRandomEncounter("Clione_EN", Spoggle.Yellow, "LittleBeak_EN");
+            hard.AddRandomEncounter("Clione_EN", Enemies.Mungling, Enemies.Mungling, "LostSheep_EN");
+            hard.AddRandomEncounter("Clione_EN", "LittleBeak_EN", "LittleBeak_EN", "Skyloft_EN");
+            hard.AddRandomEncounter("Clione_EN", "AFlower_EN", Jumble.Yellow);
+            hard.AddRandomEncounter("Clione_EN", "AFlower_EN", "DeadPixel_EN", "DeadPixel_EN");
 
             hard.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Clione.Hard, 20, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Hard);
+        }
+        public static void Post()
+        {
+            AddTo hard = new AddTo(Shore.H.Tripod.Hard);
+            hard.AddRandomGroup("Tripod_EN", "Clione_EN", Jumble.Red);
+            hard.AddRandomGroup("Tripod_EN", "Clione_EN", "LostSheep_EN");
+
+            hard = new AddTo(Shore.H.Camera.Hard);
+            hard.AddRandomGroup(Enemies.Camera, Enemies.Camera, "Clione_EN", "MudLung_EN");
+            hard.AddRandomGroup(Enemies.Camera, "Clione_EN", "FlaMinGoa_EN");
+
+            hard = new AddTo(Shore.H.Warbird.Hard);
+            hard.AddRandomGroup("Warbird_EN", "Clione_EN", Enemies.Mungling);
+            hard.AddRandomGroup("Warbird_EN", "Clione_EN", Jumble.Red);
+
+            hard = new AddTo(Shore.H.Flarb.Hard);
+            hard.AddRandomGroup("Flarb_EN", "Clione_EN");
+
+            hard = new AddTo(Shore.H.Voboola.Hard);
+            hard.AddRandomGroup("Voboola_EN", "Clione_EN");
         }
     }
 }

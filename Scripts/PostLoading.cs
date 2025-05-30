@@ -55,6 +55,7 @@ namespace SaltEnemies_Reseasoned
                 PCall(BlackStarEncounters.Post);
                 PCall(IndicatorEncounters.Post);
                 PCall(MawEncounters.Post);
+                PCall(AbyssAngelEncounters.Post);
             }
 
             //Crossovers

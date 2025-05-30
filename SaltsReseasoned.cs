@@ -323,6 +323,9 @@ namespace SaltsEnemies_Reseasoned
                 PCall(BlackStarEncounters.Add);
                 PCall(IndicatorEncounters.Add);
                 PCall(MawEncounters.Add);
+
+                //CH14 Encounters
+                PCall(AbyssAngelEncounters.Add);
             }
 
             //moving the passives glossary here.
