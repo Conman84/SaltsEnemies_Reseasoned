@@ -245,6 +245,8 @@ namespace SaltsEnemies_Reseasoned
 
             OdeInteraction.Flip();
 
+            SolitaireSongEffect.Run(true);
+
             return true;
         }
     }
@@ -311,6 +313,8 @@ namespace SaltsEnemies_Reseasoned
                 SolitaireHandler.Returning = false;
 
                 OdeInteraction.Flip();
+
+                SolitaireSongEffect.Run(false);
 
             }
             yield return null;
@@ -640,9 +644,9 @@ namespace SaltsEnemies_Reseasoned
         public static int Amount = 0;
         public static void Reset() => Amount = 0;
         public bool Add = true;
-        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+
+        public static bool Run(bool Add)
         {
-            exitAmount = 0;
             bool GOING = Amount > 0;
             if (Add) Amount++;
             else Amount--;
@@ -666,6 +670,11 @@ namespace SaltsEnemies_Reseasoned
                 changeMusic.Start();
             }
             return Amount > 0;
+        }
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            return Run(Add);
         }
 
         public static System.Threading.Thread changeMusic;
@@ -694,6 +703,12 @@ namespace SaltsEnemies_Reseasoned
                 //if (i < 5) UnityEngine.Debug.Log("we;re getting there properly");
             }
             //UnityEngine.Debug.Log("done");
+        }
+        public static SolitaireSongEffect Create(bool add)
+        {
+            SolitaireSongEffect ret = ScriptableObject.CreateInstance<SolitaireSongEffect>();
+            ret.Add = add;
+            return ret;
         }
     }
 }

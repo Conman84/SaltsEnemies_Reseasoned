@@ -204,6 +204,7 @@ namespace SaltEnemies_Reseasoned
             AmalgaSongEffect.Reset();
             MonsterSongEffect.Reset();
             WednesdayEffect.Reset();
+            SolitaireSongEffect.Reset();
             //WaterView.Reset();
             YNLHandler2.DoEffect();
         }
