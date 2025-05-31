@@ -436,6 +436,12 @@ namespace SaltsEnemies_Reseasoned
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PillarPassive.png"), "Pillar", "On death, randomize the health color of all allies sharing this unit's health color.");
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CCTVPassive.png"), "C.C.T.V.", "On any opponent manually moving or using an ability, move 1 space closer to them.");
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("StainedPassive.png"), "Stained", "At the end of each round, transform into a random 'color enemy' of this unit's health color.");
+
+                //CH16
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SweetTooth.png"), "Sweet Tooth", "On dealing damage, gain an equivalent amount of Power.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ForgettingPassive.png"), "Forgetting", "On dying except from Withering, spawn a random 1-tile enemy from this area.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AsleepDragonPassive.png"), "Slumber", "On taking any damage, awaken.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WeaknessPassive.png"), "Weakness", "All party members and enemies without \"Weakness\" as a passive who share this unit's health color receive double damage.");
             }
 
             //CH19

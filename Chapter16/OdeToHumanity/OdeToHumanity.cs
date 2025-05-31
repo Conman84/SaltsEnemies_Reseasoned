@@ -41,8 +41,8 @@ namespace SaltsEnemies_Reseasoned
             weakness._passiveName = "Weakness";
             weakness.passiveIcon = ResourceLoader.LoadSprite("WeaknessPassive.png");
             weakness.m_PassiveID = WeaknessHandler.Passive;
-            weakness._enemyDescription = "All party members and enemies without \"Weakness\" as a passive who share this enemy's health color receive 2x damage.";
-            weakness._characterDescription = "All party members and enemies without \"Weakness\" as a passive who share this party member's health color receive 2x damage.";
+            weakness._enemyDescription = "All party members and enemies without \"Weakness\" as a passive who share this enemy's health color receive double damage.";
+            weakness._characterDescription = "All party members and enemies without \"Weakness\" as a passive who share this party member's health color receive double damage.";
             weakness.effects = [];
             weakness.doesPassiveTriggerInformationPanel = false;
             weakness._triggerOn = [TriggerCalls.Count];
