@@ -168,9 +168,9 @@ namespace SaltEnemies_Reseasoned
             return slapAdd;
         }
         public override bool IsPositive => false;
-        public bool hasSlap = false;
+        public string hasSlap => "HasSlap";
 
-        public bool addedSlap = false;
+        public string addedSlap = "AddedSlap";
         public override void OnTriggerAttached(StatusEffect_Holder holder, IStatusEffector caller)
         {
             if (caller is CharacterCombat character)
@@ -180,21 +180,21 @@ namespace SaltEnemies_Reseasoned
                 {
                     if (ability.ability._abilityName == "Slap")
                     {
-                        hasSlap = true;
+                        character.SimpleSetStoredValue(hasSlap, 1);
                     }
                 }
                 foreach (ExtraAbilityInfo ability in character.ExtraAbilities)
                 {
                     if (ability.ability._abilityName == "Slap")
                     {
-                        hasSlap = true;
+                        character.SimpleSetStoredValue(hasSlap, 1);
                     }
                 }
-                if (!hasSlap)
+                if (character.SimpleGetStoredValue(hasSlap) < 1)
                 {
                     character.AddExtraAbility(slapExtraAbil());
                     //Debug.Log("added Slap");
-                    addedSlap = true;
+                    character.SimpleSetStoredValue(addedSlap, 1);
                 }
             }
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnFinished.ToString(), caller);
@@ -203,7 +203,7 @@ namespace SaltEnemies_Reseasoned
         public override void OnTriggerDettached(StatusEffect_Holder holder, IStatusEffector caller)
         {
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnFinished.ToString(), caller);
-            if (caller is CharacterCombat character && addedSlap)
+            if (caller is CharacterCombat character && character.SimpleGetStoredValue(addedSlap) >= 1)
             {
                 //Debug.Log("has receivd extra slap");
                 foreach (ExtraAbilityInfo ability in character.ExtraAbilities)
@@ -214,7 +214,7 @@ namespace SaltEnemies_Reseasoned
                         //Debug.Log("is slap");
                         character.TryRemoveExtraAbility(ability);
                         //Debug.Log("removed");
-                        addedSlap = false;
+                        character.SimpleSetStoredValue(addedSlap, 0);
                         break;
                     }
                 }
