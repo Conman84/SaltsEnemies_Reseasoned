@@ -55,7 +55,7 @@ namespace SaltsEnemies_Reseasoned
             stain._passiveName = "Stained";
             stain.m_PassiveID = "Stained_PA";
             stain.passiveIcon = ResourceLoader.LoadSprite("StainedPassive.png");
-            stain._enemyDescription = "At the end of each round, transform into a random color enemy of this enemy's health color.";
+            stain._enemyDescription = "At the end of each round, transform into a random 'color enemy' of this enemy's health color.";
             stain._characterDescription = "literally doesnt work";
             GlassedSunEffect g = ScriptableObject.CreateInstance<GlassedSunEffect>();
             GlassedSunEffect.Instance = g;

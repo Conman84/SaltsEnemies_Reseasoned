@@ -434,6 +434,8 @@ namespace SaltsEnemies_Reseasoned
 
                 //CH15
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PillarPassive.png"), "Pillar", "On death, randomize the health color of all allies sharing this unit's health color.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CCTVPassive.png"), "C.C.T.V.", "On any opponent manually moving or using an ability, move 1 space closer to them.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("StainedPassive.png"), "Stained", "At the end of each round, transform into a random 'color enemy' of this unit's health color.");
             }
 
             //CH19
