@@ -344,6 +344,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(CrystallineCorpseEaterEncounters.Add);
                 PCall(TortureMeNotEncounters.Add);
                 PCall(DragonEncounters.Add);
+                PCall(OdeToHumanityEncounters.Add);
             }
 
             //moving the passives glossary here.
