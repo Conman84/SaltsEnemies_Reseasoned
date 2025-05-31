@@ -343,6 +343,7 @@ namespace SaltsEnemies_Reseasoned
                 //CH16 Encounters
                 PCall(CrystallineCorpseEaterEncounters.Add);
                 PCall(TortureMeNotEncounters.Add);
+                PCall(DragonEncounters.Add);
             }
 
             //moving the passives glossary here.
