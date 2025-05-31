@@ -12,12 +12,12 @@ namespace SaltEnemies_Reseasoned
             {
                 switch (DateTime.Now.Month)
                 {
-                    case 12: return 4;
+                    case 12: return 5;
                     case 11: return 4;
                     case 10: return 4;
                     case 1: return 4;
                     case 2: return 4;
-                    case 3: return 4;
+                    case 3: return 3;
                     default: return 1;
                 }
             }
