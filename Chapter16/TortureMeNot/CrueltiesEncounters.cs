@@ -112,6 +112,32 @@ namespace SaltsEnemies_Reseasoned
 
             easy = new AddTo(Garden.H.GlassFigurine.Easy);
             easy.SimpleAddGroup(1, "GlassFigurine_EN", 4, "TortureMeNot_EN");
+
+            med = new AddTo(Garden.H.Indicator.Med);
+            med.AddRandomGroup("Indicator_EN", "InHisImage_EN", "InHisImage_EN", "TortureMeNot_EN");
+
+            hard = new AddTo(Garden.H.Stoplight.Hard);
+            hard.AddRandomGroup("Stoplight_EN", "ChoirBoy_EN", "ChoirBoy_EN", "TortureMeNot_EN");
+
+            med = new AddTo(Garden.H.GreyBot.Med);
+            med.AddRandomGroup(Bots.Grey, "MiniReaper_EN", "TortureMeNot_EN", "TortureMeNot_EN");
+
+            hard = new AddTo(Garden.H.GlassedSun.Hard);
+            hard.SimpleAddGroup(4, "GlassedSun_EN", 1, "TortureMeNot_EN");
+            hard.SimpleAddGroup(3, "GlassedSun_EN", 2, "TortureMeNot_EN");
+            hard.SimpleAddGroup(2, "GlassedSun_EN", 3, "TortureMeNot_EN");
+
+            easy = new AddTo(Garden.H.InHerImage.Easy);
+            easy.SimpleAddGroup(2, "InHerImage_EN", 3, "TortureMeNot_EN");
+
+            easy = new AddTo(Garden.H.ChoirBoy.Easy);
+            easy.SimpleAddGroup(1, "ChoirBoy_EN", 4, "TortureMeNot_EN");
+
+            hard = new AddTo(Garden.H.Skinning.Hard);
+            hard.SimpleAddGroup(2, Enemies.Skinning, 3, "TortureMeNot_EN");
+
+            med = new AddTo(Garden.H.Minister.Med);
+            med.AddRandomGroup(Enemies.Minister, Enemies.Minister, "EyePalm_EN", "TortureMeNot_EN");
         }
     }
 }
