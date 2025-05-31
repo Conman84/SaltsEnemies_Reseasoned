@@ -21,7 +21,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 namespace SaltsEnemies_Reseasoned
 {
 
-    [BepInPlugin("000.saltenemies", "Salt Enemies (TM) Reseasoned", "0.3.0")]
+    [BepInPlugin("000.saltenemies", "Salt Enemies (TM) Reseasoned", "1.0.0")]
     [BepInDependency("BrutalOrchestra.BrutalAPI", BepInDependency.DependencyFlags.HardDependency)]
     public class SaltsReseasoned : BaseUnityPlugin
     {
@@ -99,13 +99,14 @@ namespace SaltsEnemies_Reseasoned
             //Hollow.Add();
             Acid.Add();
             PCall(Terror.Add);
+            Drowning.Add();
+            Water.Add();
+            PCall(Slip.Add);
+            PCall(Mold.Add);
+            Pimples.Add();
             if (DebugVer)
             {
-                Drowning.Add();
-                Water.Add();
-                PCall(Slip.Add);
-                PCall(Mold.Add);
-                Pimples.Add();
+                
             }
 
             //CH1 Enemies
@@ -316,36 +317,36 @@ namespace SaltsEnemies_Reseasoned
             PCall(FirebirdEncounters.Add);
             PCall(WarbirdEncounters.Add);
 
+            //CH13 Encounters
+            PCall(WindleEncounters.Add);
+            PCall(BlackStarEncounters.Add);
+            PCall(IndicatorEncounters.Add);
+            PCall(MawEncounters.Add);
+
+            //CH14 Encounters
+            PCall(AbyssAngelEncounters.Add);
+            PCall(YourNewLifeEncounters.Add);
+            PCall(MidnightTrafficLightEncounters.Add);
+            PCall(ArcelesEncounters.Add);
+            PCall(MinanaEncounters.Add);
+            PCall(PinanoEncounters.Add);
+
+            //CH15 Encounters
+            PCall(RedBotEncounters.Add);
+            PCall(YellowBotEncounters.Add);
+            PCall(BlueBotEncounters.Add);
+            PCall(PurpleBotEncounters.Add);
+            PCall(GreyBotEncounters.Add);
+            PCall(GlassedSunEncounters.Add);
+
+            //CH16 Encounters
+            PCall(CrystallineCorpseEaterEncounters.Add);
+            PCall(TortureMeNotEncounters.Add);
+            PCall(DragonEncounters.Add);
+            PCall(OdeToHumanityEncounters.Add);
+
             if (DebugVer)
             {
-                //CH13 Encounters
-                PCall(WindleEncounters.Add);
-                PCall(BlackStarEncounters.Add);
-                PCall(IndicatorEncounters.Add);
-                PCall(MawEncounters.Add);
-
-                //CH14 Encounters
-                PCall(AbyssAngelEncounters.Add);
-                PCall(YourNewLifeEncounters.Add);
-                PCall(MidnightTrafficLightEncounters.Add);
-                PCall(ArcelesEncounters.Add);
-                PCall(MinanaEncounters.Add);
-                PCall(PinanoEncounters.Add);
-
-                //CH15 Encounters
-                PCall(RedBotEncounters.Add);
-                PCall(YellowBotEncounters.Add);
-                PCall(BlueBotEncounters.Add);
-                PCall(PurpleBotEncounters.Add);
-                PCall(GreyBotEncounters.Add);
-                PCall(GlassedSunEncounters.Add);
-
-                //CH16 Encounters
-                PCall(CrystallineCorpseEaterEncounters.Add);
-                PCall(TortureMeNotEncounters.Add);
-                PCall(DragonEncounters.Add);
-                PCall(OdeToHumanityEncounters.Add);
-
                 //CH17 Encounters
                 PCall(NobodyGraveEncounters.Add);
             }
