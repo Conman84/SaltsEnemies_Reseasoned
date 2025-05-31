@@ -46,7 +46,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter(Bots.Blue, Bots.Purple, Enemies.Solvent);
             med.AddRandomEncounter(Bots.Blue, Bots.Purple, "Delusion_EN");
             med.AddRandomEncounter(Bots.Blue, Bots.Purple, "Rabies_EN");
-            med.AddRandomEncounter(Bots.Blue, Bots.Purple, "Butterfly_EN");
+            med.AddRandomEncounter(Bots.Blue, Bots.Purple, "Spectre_EN");
             med.AddRandomEncounter(Bots.Blue, Bots.Purple, Bots.Red);
             med.AddRandomEncounter(Bots.Blue, Bots.Yellow, Bots.Red);
             med.AddRandomEncounter(Bots.Blue, Bots.Purple);

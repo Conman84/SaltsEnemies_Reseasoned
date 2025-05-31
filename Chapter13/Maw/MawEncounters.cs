@@ -40,7 +40,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Maw_EN", "Enigma_EN");
             med.AddRandomEncounter("Maw_EN", "Scrungie_EN");
             med.AddRandomEncounter("Maw_EN", Enemies.Camera);
-            med.AddRandomEncounter("Maw_EN", "Butterfly_EN");
+            med.AddRandomEncounter("Maw_EN", "Spectre_EN");
             med.AddRandomEncounter("Maw_EN", "Rabies_EN");
 
             med.AddEncounterToDataBases();
@@ -69,7 +69,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomEncounter("Maw_EN", Spoggle.Red, Spoggle.Purple);
             hard.AddRandomEncounter("Maw_EN", "WindSong_EN", "Scrungie_EN");
             hard.AddRandomEncounter("Maw_EN", Enemies.Solvent, "Delusion_EN", "Delusion_EN");
-            hard.SimpleAddEncounter(1, "Maw_EN", 3, "Butterfly_EN");
+            hard.SimpleAddEncounter(1, "Maw_EN", 3, "Spectre_EN");
             hard.SimpleAddEncounter(1, "Maw_EN", 3, "ManicMan_EN");
 
             hard.AddEncounterToDataBases();

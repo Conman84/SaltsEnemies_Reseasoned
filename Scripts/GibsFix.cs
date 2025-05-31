@@ -90,7 +90,7 @@ namespace SaltsEnemies_Reseasoned
         {
             if (CombatManager.Instance._stats.combatUI._enemiesInCombat.TryGetValue(self._enemies[fieldID].FieldEntity.EnemyID, out var value))
             {
-                if (EnemyExist("Butterfly_EN") && value.EnemyBase == LoadedAssetsHandler.GetEnemy("Butterfly_EN"))
+                if (EnemyExist("Spectre_EN") && value.EnemyBase == LoadedAssetsHandler.GetEnemy("Spectre_EN"))
                 {
                     Vector3 fieldPosition = self._enemies[fieldID].FieldPosition;
                     self.CombatDB.TryOneShotSoundEventInPosition(exitType, fieldPosition);

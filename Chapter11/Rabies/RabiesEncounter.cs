@@ -59,8 +59,8 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "Rabies_EN", 2, "Delusion_EN");
             med.AddRandomEncounter("Rabies_EN", "Delusion_EN", Spoggle.Purple);
             med.AddRandomEncounter("Rabies_EN", "Delusion_EN", Spoggle.Red);
-            med.AddRandomEncounter("Rabies_EN", "Delusion_EN", "Delusion_EN", "Butterfly_EN");
-            med.SimpleAddEncounter(2, "Rabies_EN", 2, "Butterfly_EN");
+            med.AddRandomEncounter("Rabies_EN", "Delusion_EN", "Delusion_EN", "Spectre_EN");
+            med.SimpleAddEncounter(2, "Rabies_EN", 2, "Spectre_EN");
             med.AddRandomEncounter("Rabies_EN", "Rabies_EN", Enemies.Solvent, Enemies.Suckle, Enemies.Suckle);
             med.AddRandomEncounter("Rabies_EN", "Rabies_EN", Enemies.Camera, Enemies.Suckle, Enemies.Suckle);
             med.SimpleAddEncounter(2, "Rabies_EN", 1, Enemies.Camera, 1, "Sigil_EN");

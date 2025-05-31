@@ -12,7 +12,7 @@ namespace SaltsEnemies_Reseasoned
         {
             if (notifname == TriggerCalls.OnDamaged.ToString() && sender is EnemyCombat enemy)
             {
-                if (Check.EnemyExist("Butterfly_EN") && enemy.Enemy == LoadedAssetsHandler.GetEnemy("Butterfly_EN"))
+                if (Check.EnemyExist("Spectre_EN") && enemy.Enemy == LoadedAssetsHandler.GetEnemy("Spectre_EN"))
                 {
                     Vector3 loc = CombatManager.Instance._stats.combatUI._enemyZone._enemies[enemy.FieldID].FieldEntity.Position;
                     RuntimeManager.PlayOneShot("event:/Hawthorne/Boowomp", loc);

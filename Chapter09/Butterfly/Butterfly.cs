@@ -12,7 +12,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Enemy butterfly = new Enemy("Spectre Witch's Familiar", "Butterfly_EN")
+            Enemy butterfly = new Enemy("Spectre Witch's Familiar", "Spectre_EN")
             {
                 Health = 16,
                 HealthColor = Pigments.Red,
