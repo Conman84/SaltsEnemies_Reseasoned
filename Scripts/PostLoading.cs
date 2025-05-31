@@ -68,6 +68,7 @@ namespace SaltEnemies_Reseasoned
                 PCall(PurpleBotEncounters.Post);
                 PCall(GreyBotEncounters.Post);
                 PCall(GlassedSunEncounters.Post);
+                PCall(CrystallineCorpseEaterEncounters.Post);
             }
 
             //Crossovers

@@ -22,5 +22,12 @@ namespace SaltEnemies_Reseasoned
                 }
             }
         }
+        public static bool Chance
+        {
+            get
+            {
+                return UnityEngine.Random.Range(0, 2) < Mod;
+            }
+        }
     }
 }
