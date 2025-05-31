@@ -77,7 +77,41 @@ namespace SaltsEnemies_Reseasoned
             easy = new AddTo(Orph.H.MusicMan.Easy);
             easy.SimpleAddGroup(3, "MusicMan_EN", 1, "TortureMeNot_EN");
 
+            med = new AddTo(Orph.H.Jumble.Purple.Med);
+            med.AddRandomGroup(Jumble.Purple, Jumble.Blue, "TortureMeNot_EN");
 
+            hard = new AddTo(Orph.H.Sacrifice.Hard);
+            hard.SimpleAddGroup(2, Enemies.Sacrifice, 3, "TortureMeNot_EN");
+
+            hard = new AddTo(Orph.H.Revola.Hard);
+            hard.AddRandomGroup("Revola_EN", Bots.Yellow, "TortureMeNot_EN");
+
+            med = new AddTo(Garden.H.Jumble.Grey.Med);
+            med.SimpleAddGroup(1, Jumble.Grey, 1, Enemies.Minister, 3, "TortureMeNot_EN");
+
+            easy = new AddTo(Garden.H.Flower.Blue.Easy);
+            easy.AddRandomGroup(Flower.Blue, Flower.Red, "TortureMeNot_EN");
+
+            hard = new AddTo(Garden.H.ClockTower.Hard);
+            hard.SimpleAddGroup(1, "ClockTower_EN", 1, Enemies.Skinning, 3, "TortureMeNot_EN");
+
+            med = new AddTo(Garden.H.Grandfather.Med);
+            med.AddRandomGroup("Grandfather_EN", "InHerImage_EN", "InHerImage_EN", "TortureMeNot_EN");
+
+            easy = new AddTo(Garden.H.EyePalm.Easy);
+            easy.SimpleAddGroup(3, "EyePalm_EN", 1, "TortureMeNot_EN");
+
+            hard = new AddTo(Garden.H.Tank.Hard);
+            hard.SimpleAddGroup(1, Enemies.Tank, 3, "TortureMeNot_EN");
+
+            easy = new AddTo(Garden.H.Merced.Easy);
+            easy.SimpleAddGroup(1, "Merced_EN", 3, "TortureMeNot_EN", 1, "BlackStar_EN");
+
+            med = new AddTo(Garden.H.Shua.Med);
+            med.AddRandomGroup("Shua_EN", "Hunter_EN", "WindSong_EN", "TortureMeNot_EN");
+
+            easy = new AddTo(Garden.H.GlassFigurine.Easy);
+            easy.SimpleAddGroup(1, "GlassFigurine_EN", 4, "TortureMeNot_EN");
         }
     }
 }
