@@ -442,6 +442,7 @@ namespace SaltsEnemies_Reseasoned
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ForgettingPassive.png"), "Forgetting", "On dying except from Withering, spawn a random 1-tile enemy from this area.");
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AsleepDragonPassive.png"), "Slumber", "On taking any damage, awaken.");
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WeaknessPassive.png"), "Weakness", "All party members and enemies without \"Weakness\" as a passive who share this unit's health color receive double damage.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("RewritePassive.png"), "Rewrite", "On receiving direct damage, randomize the health colors of all party members and enemies.");
             }
 
             //CH19
