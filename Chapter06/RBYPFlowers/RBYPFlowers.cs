@@ -22,7 +22,7 @@ namespace SaltsEnemies_Reseasoned
             splatter.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateCasterHealthManaEffect>(), 4, Targeting.Slot_SelfSlot) };
 
             PerformEffectPassiveAbility grow = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
-            grow._passiveName = "Overgrowth";
+            grow._passiveName = "Overgrowth (3)";
             grow.m_PassiveID = "Flowers_Overgrowth_PA";
             grow.passiveIcon = ResourceLoader.LoadSprite("Overgrowth.png");
             grow._enemyDescription = "On taking direct damage, inflict 3 Roots on the Opposing position.";
