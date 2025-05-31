@@ -55,8 +55,20 @@ namespace SaltsEnemies_Reseasoned
             AbilitySO ability = bonus.GenerateEnemyAbility(false).ability;
             transform._extraAbility.ability = ability;
 
+
+            //splatter
+            PerformEffectPassiveAbility splatter = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            splatter._passiveName = "Splatter (2)";
+            splatter.passiveIcon = ResourceLoader.LoadSprite("splatter.png");
+            splatter._enemyDescription = "On death, produce 2 pigment of this enemy's health color.";
+            splatter._characterDescription = "On death, produce 2 pigment of this character's health color.";
+            splatter.m_PassiveID = "Splatter_PA";
+            splatter.doesPassiveTriggerInformationPanel = true;
+            splatter._triggerOn = new TriggerCalls[] { TriggerCalls.OnDeath };
+            splatter.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateCasterHealthManaEffect>(), 2, Targeting.Slot_SelfSlot) };
+
             //addpassives
-            yin.AddPassives(new BasePassiveAbilitySO[] { Passives.Pure, Passives.Transfusion, Passives.Leaky3, Passives.Unstable, Passives.Slippery, Passives.Infantile, Violent.Generate(7), transform });
+            yin.AddPassives(new BasePassiveAbilitySO[] { Passives.Pure, Passives.Transfusion, splatter, Passives.Leaky3, Passives.Unstable, Passives.Slippery, Passives.Infantile, Violent.Generate(7), transform });
 
             //cruel
             Ability cruel = new Ability("Cruel Games", "CruelGames_A");

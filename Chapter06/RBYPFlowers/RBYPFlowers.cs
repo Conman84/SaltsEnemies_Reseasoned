@@ -12,7 +12,7 @@ namespace SaltsEnemies_Reseasoned
         public static void Add()
         {
             PerformEffectPassiveAbility splatter = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
-            splatter._passiveName = "Splatter";
+            splatter._passiveName = "Splatter (4)";
             splatter.passiveIcon = ResourceLoader.LoadSprite("splatter.png");
             splatter._enemyDescription = "On death, produce 4 pigment of this enemy's health color.";
             splatter._characterDescription = "On death, produce 4 pigment of this character's health color.";
