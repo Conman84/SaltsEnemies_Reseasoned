@@ -72,6 +72,8 @@ namespace SaltEnemies_Reseasoned
                 PCall(TortureMeNotEncounters.Post);
                 PCall(DragonEncounters.Post);
                 PCall(OdeToHumanityEncounters.Post);
+
+                PCall(NobodyGraveEncounters.Post);
             }
 
             //Crossovers

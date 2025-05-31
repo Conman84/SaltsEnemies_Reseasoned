@@ -345,6 +345,9 @@ namespace SaltsEnemies_Reseasoned
                 PCall(TortureMeNotEncounters.Add);
                 PCall(DragonEncounters.Add);
                 PCall(OdeToHumanityEncounters.Add);
+
+                //CH17 Encounters
+                PCall(NobodyGraveEncounters.Add);
             }
 
             //moving the passives glossary here.
