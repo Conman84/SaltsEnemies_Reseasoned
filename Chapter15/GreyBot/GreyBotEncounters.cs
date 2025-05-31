@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SaltsEnemies_Reseasoned
 {
-    internal class GreyBotEncounters
+    public static class GreyBotEncounters
     {
     }
 }
