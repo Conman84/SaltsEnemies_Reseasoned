@@ -21,7 +21,7 @@ namespace SaltEnemies_Reseasoned
             Called = true;
 
             //glassed sun setup
-            PCall(GlassedSunEffect.Instance.Setup);
+            if (DebugVer) PCall(GlassedSunEffect.Instance.Setup);
 
             SaltDeadPixelEncounters.Add();
             PCall(SaltCrowEncounters.Add);
