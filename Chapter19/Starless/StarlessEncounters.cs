@@ -112,7 +112,7 @@ namespace SaltsEnemies_Reseasoned
 
             hard = new AddTo(Garden.H.ClockTower.Hard);
             hard.AddRandomGroup("ClockTower_EN", "Eyeless_EN", "Starless_EN", "Damocles_EN", "Damocles_EN");
-            hard.AddRandomGroup("ClockTower_EN", 'Starless_EN', "InHerImage_EN", "InHerImage_EN");
+            hard.AddRandomGroup("ClockTower_EN", "Starless_EN", "InHerImage_EN", "InHerImage_EN");
             hard.AddRandomGroup("ClockTower_EN", "Eyeless_EN", "InHisImage_EN", "InHisImage_EN");
             hard.AddRandomGroup("ClockTower_EN", "Starless_EN", Enemies.Skinning, "MiniReaper_EN");
             hard.AddRandomGroup("ClockTower_EN", "Starless_EN", "Eyeless_EN", "Hunter_EN");
