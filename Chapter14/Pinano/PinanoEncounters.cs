@@ -155,7 +155,7 @@ namespace SaltsEnemies_Reseasoned
             if (SaltsReseasoned.trolling > 50) med.AddRandomGroup("LittleBeak_EN", "Pinano_EN", Jumble.Yellow);
             if (SaltsReseasoned.trolling < 50) med.AddRandomGroup("LittleBeak_EN", "Pinano_EN", Jumble.Red);
             med.AddRandomGroup("LittleBeak_EN", "Pinano_EN", Enemies.Mungling);
-            med.AddRandomGroup("LittleBeak_EN,", "LittleBeak_EN", "Pinano_EN");
+            med.AddRandomGroup("LittleBeak_EN", "LittleBeak_EN", "Pinano_EN");
             med.AddRandomGroup("LittleBeak_EN", "Pinano_EN", "Windle_EN");
 
             hard = new AddTo(Shore.H.Warbird.Hard);
