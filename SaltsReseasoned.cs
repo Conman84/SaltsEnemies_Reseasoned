@@ -356,6 +356,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(SinkerEncounters.Add);
                 PCall(SkeletonShooterEncounters.Add);
                 PCall(ComplimentaryEncounters.Add);
+                PCall(PersonalAngelEncounters.Add);
             }
 
             //moving the passives glossary here.

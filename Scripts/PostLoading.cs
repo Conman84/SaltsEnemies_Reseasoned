@@ -81,6 +81,7 @@ namespace SaltEnemies_Reseasoned
                 PCall(SinkerEncounters.Post);
                 PCall(SkeletonShooterEncounters.Post);
                 PCall(ComplimentaryEncounters.Post);
+                PCall(PersonalAngelEncounters.Post);
             }
 
             //Crossovers
