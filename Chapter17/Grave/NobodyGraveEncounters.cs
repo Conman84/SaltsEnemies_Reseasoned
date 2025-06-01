@@ -34,8 +34,6 @@ namespace SaltsEnemies_Reseasoned
         }
         public static void Add_Hardmode()
         {
-            Portals.AddPortalSign("Salt_NobodyGraveEncounter_Sign", ResourceLoader.LoadSprite("GraveWorld.png"), Portals.EnemyIDColor);
-
             EnemyEncounter_API easy = new EnemyEncounter_API(EncounterType.Random, Shore.H.Grave.Easy, "Salt_NobodyGraveEncounter_Sign");
             easy.MusicEvent = "event:/Hawthorne/GraveTheme";
             easy.RoarEvent = LoadedAssetsHandler.GetCharacter("Gospel_CH").deathSound;
