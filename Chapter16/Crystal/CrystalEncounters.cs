@@ -40,7 +40,7 @@ namespace SaltEnemies_Reseasoned
             med.AddRandomEncounter("Crystal_EN", Bots.Blue, "MusicMan_EN");
             med.AddRandomEncounter("Crystal_EN", Bots.Purple, "Enigma_EN");
             med.AddRandomEncounter("Crystal_EN", "WindSong_EN", "Scrungie_EN");
-            med.AddRandomEncounter("Crystal_EN", "Crystal_EN", "Butterfly_EN");
+            med.AddRandomEncounter("Crystal_EN", "Crystal_EN", "Spectre_EN");
             med.AddRandomEncounter("Crystal_EN", "Crystal_EN", "LostSheep_EN");
             med.AddRandomEncounter("Crystal_EN", Spoggle.Red, Spoggle.Purple);
             med.AddRandomEncounter("Crystal_EN", Jumble.Blue, "Freud_EN");
