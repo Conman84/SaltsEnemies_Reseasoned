@@ -49,27 +49,30 @@ namespace SaltEnemies_Reseasoned
             PCall(FirebirdEncounters.Post);
             PCall(WarbirdEncounters.Post);
 
-            PCall(WindleEncounters.Post);
-            PCall(BlackStarEncounters.Post);
-            PCall(IndicatorEncounters.Post);
-            PCall(MawEncounters.Post);
-            PCall(AbyssAngelEncounters.Post);
-            PCall(YourNewLifeEncounters.Post);
-            PCall(MidnightTrafficLightEncounters.Post);
-            PCall(ArcelesEncounters.Post);
-            PCall(ChildrenEncounters.Post);
-            PCall(PinanoEncounters.Post);
+            if (DebugVer)
+            {
+                PCall(WindleEncounters.Post);
+                PCall(BlackStarEncounters.Post);
+                PCall(IndicatorEncounters.Post);
+                PCall(MawEncounters.Post);
+                PCall(AbyssAngelEncounters.Post);
+                PCall(YourNewLifeEncounters.Post);
+                PCall(MidnightTrafficLightEncounters.Post);
+                PCall(ArcelesEncounters.Post);
+                PCall(ChildrenEncounters.Post);
+                PCall(PinanoEncounters.Post);
 
-            PCall(RedBotEncounters.Post);
-            PCall(YellowBotEncounters.Post);
-            PCall(BlueBotEncounters.Post);
-            PCall(PurpleBotEncounters.Post);
-            PCall(GreyBotEncounters.Post);
-            PCall(GlassedSunEncounters.Post);
-            PCall(CrystallineCorpseEaterEncounters.Post);
-            PCall(TortureMeNotEncounters.Post);
-            PCall(DragonEncounters.Post);
-            PCall(OdeToHumanityEncounters.Post);
+                PCall(RedBotEncounters.Post);
+                PCall(YellowBotEncounters.Post);
+                PCall(BlueBotEncounters.Post);
+                PCall(PurpleBotEncounters.Post);
+                PCall(GreyBotEncounters.Post);
+                PCall(GlassedSunEncounters.Post);
+                PCall(CrystallineCorpseEaterEncounters.Post);
+                PCall(TortureMeNotEncounters.Post);
+                PCall(DragonEncounters.Post);
+                PCall(OdeToHumanityEncounters.Post);
+            }
 
             if (DebugVer)
             {
