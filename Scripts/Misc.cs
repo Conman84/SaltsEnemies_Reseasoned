@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SaltsEnemies_Reseasoned
+namespace SaltEnemies_Reseasoned
 {
     public static class Misc
     {

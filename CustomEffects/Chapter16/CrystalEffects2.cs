@@ -18,7 +18,7 @@ namespace SaltEnemies_Reseasoned
                     case 1: return 4;
                     case 2: return 4;
                     case 3: return 3;
-                    default: return 1;
+                    default: return Misc.Birthday ? 3 : 1;
                 }
             }
         }
