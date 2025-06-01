@@ -96,5 +96,31 @@ namespace SaltsEnemies_Reseasoned
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Shooter.Med, 12, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
         }
+        public static void Post()
+        {
+            AddTo med = new AddTo(Orph.H.Enigma.Med);
+            med.SimpleAddGroup(3, "Enigma_EN", 1, "SkeletonShooter_EN");
+
+            AddTo easy = new AddTo(Orph.H.Something.Easy);
+            easy.AddRandomGroup("Something_EN", "SkeletonShooter_EN");
+
+            med = new AddTo(Orph.H.Something.Med);
+            med.AddRandomGroup("Something_EN", "SkeletonShooter_EN", "MusicMan_EN");
+            med.AddRandomGroup("Something_EN", "SkeletonShooter_EN", "Scrungie_EN");
+            if (SaltsReseasoned.trolling > 50) med.AddRandomGroup("Something_EN", "SkeletonShooter_EN", Bots.Yellow);
+            if (SaltsReseasoned.trolling < 50) med.AddRandomGroup("Something_EN", "SkeletonShooter_EN", Bots.Red);
+            if (SaltsReseasoned.trolling > 50) med.AddRandomGroup("Something_EN", "SkeletonShooter_EN", Jumble.Blue);
+            if (SaltsReseasoned.trolling < 50) med.AddRandomGroup("Something_EN", "SkeletonShooter_EN", Jumble.Purple);
+            if (SaltsReseasoned.trolling < 50) med.AddRandomGroup("Something_EN", "SkeletonShooter_EN", Spoggle.Red);
+            if (SaltsReseasoned.trolling > 50) med.AddRandomGroup("Something_EN", "SkeletonShooter_EN", Spoggle.Purple);
+            if (SaltsReseasoned.trolling < 50) med.AddRandomGroup("Something_EN", "SkeletonShooter_EN", Flower.Yellow);
+            if (SaltsReseasoned.trolling > 50) med.AddRandomGroup("Something_EN", "SkeletonShooter_EN", Flower.Purple);
+            if (SaltsReseasoned.silly > 50) med.AddRandomGroup("Something_EN", "SkeletonShooter_EN", Bots.Blue);
+            if (SaltsReseasoned.silly < 50) med.AddRandomGroup("Something_EN", "SkeletonShooter_EN", Bots.Purple);
+
+            med = new AddTo(Orph.H.Crow.Med);
+            med.AddRandomGroup("TheCrow_EN", "SkeletonShooter_EN", "SkeletonShooter_EN");
+
+        }
     }
 }
