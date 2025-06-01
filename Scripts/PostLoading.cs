@@ -77,6 +77,7 @@ namespace SaltEnemies_Reseasoned
                 PCall(ToyUfoEncounters.Post);
                 PCall(EvileyeEncounters.Post);
                 PCall(YellowAngelEncounters.Post);
+                PCall(ChienTindalouEncounters.Post);
             }
 
             //Crossovers

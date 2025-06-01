@@ -352,6 +352,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(ToyUfoEncounters.Add);
                 PCall(EvileyeEncounters.Add);
                 PCall(YellowAngelEncounters.Add);
+                PCall(ChienTindalouEncounters.Add);
             }
 
             //moving the passives glossary here.
