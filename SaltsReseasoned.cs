@@ -69,6 +69,7 @@ namespace SaltsEnemies_Reseasoned
             GlassedSunHandler.Setup();
             PCall(AuthorHandler.Setup);
             //PCall(ShieldPiercer.Setup);
+            PCall(Debugger.Setup);
             #endregion
 
             //Add To Glossary

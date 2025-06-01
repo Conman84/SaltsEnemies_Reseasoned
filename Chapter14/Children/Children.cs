@@ -92,8 +92,8 @@ namespace SaltsEnemies_Reseasoned
             Enemy child = new Enemy("Children of God", "Children6_EN");
             child.Health = 1;
             child.HealthColor = Pigments.Grey;
-            child.OverworldAliveSprite = ResourceLoader.LoadSprite("Children6World.png");
-            child.OverworldDeadSprite = ResourceLoader.LoadSprite("ChildrenDead.png");
+            child.OverworldAliveSprite = ResourceLoader.LoadSprite("Children6World.png", new Vector2(0.5f, 0));
+            child.OverworldDeadSprite = ResourceLoader.LoadSprite("ChildrenDead.png", new Vector2(0.5f, 0));
             child.CombatSprite = ResourceLoader.LoadSprite("Children6Icon.png");
             child.DamageSound = LoadedAssetsHandler.GetCharacter("Hans_CH").damageSound;
             child.DeathSound = LoadedAssetsHandler.GetCharacter("Hans_CH").deathSound;
