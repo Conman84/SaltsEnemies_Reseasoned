@@ -74,6 +74,7 @@ namespace SaltEnemies_Reseasoned
             if (DebugVer)
             {
                 PCall(NobodyGraveEncounters.Post);
+                PCall(ToyUfoEncounters.Post);
             }
 
             //Crossovers
