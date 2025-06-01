@@ -10,7 +10,7 @@ namespace SaltEnemies_Reseasoned
     {
         public static void Add()
         {
-            Portals.AddPortalSign("Salt_YellowAngelEncounter_Sign", ResourceLoader.LoadSprite("HarpoonWorld.png"), Portals.EnemyIDColor);
+            Portals.AddPortalSign("Salt_YellowAngelEncounter_Sign", ResourceLoader.LoadSprite("HarpoonPortal.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Orph.H.YellowAngel.Med, "Salt_YellowAngelEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/YellowAngelTheme";
