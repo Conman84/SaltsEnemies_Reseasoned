@@ -81,7 +81,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("StalwartTortoise_EN", "Maw_EN");
 
             hard = new AddTo(Orph.H.Sacrifice.Hard);
-            hard.SimpleAddGroup(1, "Sacrifice_EN", 1, "Maw_EN", 3, Enemies.Suckle);
+            hard.SimpleAddGroup(1, Enemies.Sacrifice, 1, "Maw_EN", 3, Enemies.Suckle);
 
             hard = new AddTo(Orph.H.Conductor.Hard);
             hard.AddRandomGroup("Conductor_EN", "Maw_EN", "SingingStone_EN");

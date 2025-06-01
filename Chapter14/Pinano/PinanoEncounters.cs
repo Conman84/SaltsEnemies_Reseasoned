@@ -238,7 +238,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("FlaMinGoa_EN", "Pinano_EN", Enemies.Mungling);
             hard.AddRandomGroup("FlaMinGoa_EN", "Pinano_EN", "LittleBeak_EN");
             hard.AddRandomGroup("FlaMinGoa_EN", "Pinano_EN", "MudLung_EN", "MudLung_EN");
-            hard.AddRandomGroup("FlaMinGoa_EN", "Pinano_EN", "Pinano_EN", "Arceles");
+            hard.AddRandomGroup("FlaMinGoa_EN", "Pinano_EN", "Pinano_EN", "Arceles_EN");
 
             hard = new AddTo(Shore.Flarb.Hard);
             hard.AddRandomGroup("Flarb_EN", "Pinano_EN", "Flarblet_EN");

@@ -70,7 +70,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("WindSong_EN", "Wednesday_EN", "Rabies_EN");
 
             med = new AddTo(Orph.H.Maw.Med);
-            med.AddRandomGroup("Maw_EN", "Wedneday_EN", Bots.Yellow);
+            med.AddRandomGroup("Maw_EN", "Wednesday_EN", Bots.Yellow);
 
             AddTo hard = new AddTo(Orph.H.Maw.Hard);
             if (Winter.Chance) hard.AddRandomGroup("Maw_EN", "Wednesday_EN", "Crystal_EN");
