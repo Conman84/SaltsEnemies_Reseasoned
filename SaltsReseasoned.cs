@@ -100,14 +100,13 @@ namespace SaltsEnemies_Reseasoned
             //Hollow.Add();
             Acid.Add();
             PCall(Terror.Add);
-            Drowning.Add();
-            Water.Add();
-            PCall(Slip.Add);
-            PCall(Mold.Add);
-            Pimples.Add();
             if (DebugVer)
             {
-                
+                Drowning.Add();
+                Water.Add();
+                PCall(Slip.Add);
+                PCall(Mold.Add);
+                Pimples.Add();
             }
 
             //CH1 Enemies
