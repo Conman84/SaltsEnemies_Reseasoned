@@ -428,33 +428,47 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("burningIcon.png"), "Burning", "On receiving direct damage, inflict a certain amount of Fire on this position and the Opposing position.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("rejuvination.png"), "Rejuvination", "On death, if this enemy is above a certain amount of maximum health, Resurrect it at half its maximum health.");
 
+            //CH13
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WindlePassive.png"), "Automated", "At the end of each turn, if this unit has not manually performed an ability, perform a random ability.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CollapsePassive.png"), "Collapse", "On dying from Withering, spawn a specific unit.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("BlackstarPassive.png"), "Turbulent", "On being directly damaged, shuffle all enemy positions.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("IndicatorPassive.png"), "Compulsory", "On being directly damaged, force the Opposing unit to perform a random ability.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SpasmPassive.png"), "Spasm", "On death, give all allies 1-2 additional actions on the timeline.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MawPassive.png"), "Bad Dog", "During the player's turn, whenever anything moves, if this unit has an Opposing target, remove all of its actions from the timeline. \nOtherwise, return all lost actions.");
+
+            //CH14
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WavesPassive.png"), "Waves", "On moving, inflict a certain amount of Deep Water on the Opposing position.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PracticalPassive.png"), "Practial", "On taking direct damage, shift one Light phase backwards.\nOn any ability being used other than by this unit, 50% chance to toggle the Crosswalk phase.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WileyPassive.png"), "Whimsy", "Most Status Effects and some Field Effects will no longer decrease while this unit is in combat.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ViolentPassive.png"), "Violent", "On receiving direct damage, deal a certain amount of damage to the Opposing position.\nThis passive does not trigger if the damage received kills.");
+
+            //CH15
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PillarPassive.png"), "Pillar", "On death, randomize the health color of all allies sharing this unit's health color.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CCTVPassive.png"), "C.C.T.V.", "On any opponent manually moving or using an ability, move 1 space closer to them.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("StainedPassive.png"), "Stained", "At the end of each round, transform into a random 'color enemy' of this unit's health color.");
+
+            //CH16
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SweetTooth.png"), "Sweet Tooth", "On dealing damage, gain an equivalent amount of Power.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ForgettingPassive.png"), "Forgetting", "On dying except from Withering, spawn a random 1-tile enemy from this area.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AsleepDragonPassive.png"), "Slumber", "On taking any damage, awaken.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WeaknessPassive.png"), "Weakness", "All party members and enemies without \"Weakness\" as a passive who share this unit's health color receive double damage.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("RewritePassive.png"), "Rewrite", "On receiving direct damage, randomize the health colors of all party members and enemies.");
+
             if (DebugVer)
             {
-                //CH13
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WindlePassive.png"), "Automated", "At the end of each turn, if this unit has not manually performed an ability, perform a random ability.");
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CollapsePassive.png"), "Collapse", "On dying from Withering, spawn a specific unit.");
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("BlackstarPassive.png"), "Turbulent", "On being directly damaged, shuffle all enemy positions.");
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("IndicatorPassive.png"), "Compulsory", "On being directly damaged, force the Opposing unit to perform a random ability.");
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SpasmPassive.png"), "Spasm", "On death, give all allies 1-2 additional actions on the timeline.");
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MawPassive.png"), "Bad Dog", "During the player's turn, whenever anything moves, if this unit has an Opposing target, remove all of its actions from the timeline. \nOtherwise, return all lost actions.");
+                //CH17
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("KarmaPassive.png"), "Karma", "If this unit has a certain amount of health or less, it will perforn an extra ability each turn.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("JitteryPassive.png"), "Jittery", "On any opponent manually moving, move to the Left or Right.");
+                AddPassivesToGlossary.AddPassive(FlutteryCondition.Icon, "Fluttery", "On moving, move again in the same direction.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CyclicalPassive.png"), "Cyclical", "This unit performs all of its abilities in numeric order.");
+                AddPassivesToGlossary.AddPassive(WarpingHandler.Icon, "Warping", "Whenever anything damages this unit, move the attacker to the Left or Right.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("NylonPassive.png"), "Nylon", "On being directly damaged, inflict a certain amount of Slip to the Opposing position.");
 
-                //CH14
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WavesPassive.png"), "Waves", "On moving, inflict a certain amount of Deep Water on the Opposing position.");
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PracticalPassive.png"), "Practial", "On taking direct damage, shift one Light phase backwards.\nOn any ability being used other than by this unit, 50% chance to toggle the Crosswalk phase.");
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WileyPassive.png"), "Whimsy", "Most Status Effects and some Field Effects will no longer decrease while this unit is in combat.");
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ViolentPassive.png"), "Violent", "On receiving direct damage, deal a certain amount of damage to the Opposing position.\nThis passive does not trigger if the damage received kills.");
+                //CH18
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("LonelyIcon.png"), "Lonely", "On any ally moving, dying, or fleeing, if this unit is not next to another ally attempt to move until it is next to one, unless there are no other allied units in combat.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DivisibleIcon.png"), "Divisible", "On taking any damage, if there is available space split into 2 copies of this unit with half the health.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PunisherPassive.png"), "Punisher", "On moving, inflict 10 Pale on the Opposing target. \nIf they already had over 100 Pale, trigger it.");
 
-                //CH15
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PillarPassive.png"), "Pillar", "On death, randomize the health color of all allies sharing this unit's health color.");
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CCTVPassive.png"), "C.C.T.V.", "On any opponent manually moving or using an ability, move 1 space closer to them.");
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("StainedPassive.png"), "Stained", "At the end of each round, transform into a random 'color enemy' of this unit's health color.");
-
-                //CH16
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SweetTooth.png"), "Sweet Tooth", "On dealing damage, gain an equivalent amount of Power.");
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ForgettingPassive.png"), "Forgetting", "On dying except from Withering, spawn a random 1-tile enemy from this area.");
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AsleepDragonPassive.png"), "Slumber", "On taking any damage, awaken.");
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WeaknessPassive.png"), "Weakness", "All party members and enemies without \"Weakness\" as a passive who share this unit's health color receive double damage.");
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("RewritePassive.png"), "Rewrite", "On receiving direct damage, randomize the health colors of all party members and enemies.");
             }
 
             //CH19
