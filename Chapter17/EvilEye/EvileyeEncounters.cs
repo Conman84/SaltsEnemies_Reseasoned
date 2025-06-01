@@ -50,7 +50,6 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(1, "Evileye_EN", 4, "LostSheep_EN");
             med.AddRandomEncounter("Evileye_EN", Bots.Red, Bots.Yellow);
             med.AddRandomEncounter("Evileye_EN", "Rabies_EN", "Rabies_EN");
-            med.AddRandomEncounter("Evileye_EN", "DeadPixel_EN", "DeadPixel_EN", Enemies.Suckle, Enemies.Suckle);
             med.SimpleAddEncounter(1, "Evileye_EN", 3, "Spectre_EN");
             if (Winter.Chance) med.AddRandomEncounter("Evileye_EN", "Crystal_EN", Enemies.Suckle);
             if (Winter.Chance) med.AddRandomEncounter("Evileye_EN", "Crystal_EN", "LostSheep_EN");
