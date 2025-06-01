@@ -287,7 +287,7 @@ namespace SaltsEnemies_Reseasoned
 
             AddTo bundle32 = new AddTo("H_Zone03_GigglingMinister_Hard_EnemyBundle");
             bundle32.AddRandomGroup("GigglingMinister_EN", "ChoirBoy_EN", "LittleAngel_EN", "WindSong_EN");
-            bundle32.AddRandomGroup("GigglingMinister_EN", "GigglingMinister_EN", "GigglingMinister_EN", "WindSong_EN");
+            bundle32.AddRandomGroup("GigglingMinister_EN", "GigglingMinister_EN", "NextOfKin_EN", "WindSong_EN");
 
             AddTo bundle33 = new AddTo("H_Zone03_RusticJumbleGuts_Medium_EnemyBundle");
             bundle33.AddRandomGroup(Jumble.Grey, "InHisImage_EN", "InHerImage_EN", "WindSong_EN");
