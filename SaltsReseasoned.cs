@@ -364,6 +364,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(WednesdayEncounters.Add);
                 PCall(StarlessEncounters.Add);
                 PCall(PawnAEncounters.Add);
+                PCall(YangEncounters.Add);
             }
 
             //moving the passives glossary here.
