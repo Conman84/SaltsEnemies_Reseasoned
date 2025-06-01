@@ -120,7 +120,69 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Orph.H.Crow.Med);
             med.AddRandomGroup("TheCrow_EN", "SkeletonShooter_EN", "SkeletonShooter_EN");
+            med.AddRandomGroup("TheCrow_EN", Enemies.Shooter, "Scrungie_EN");
+            med.AddRandomGroup("TheCrow_EN", Enemies.Shooter, "MusicMan_EN");
+            med.AddRandomGroup("TheCrow_EN", Enemies.Shooter, Bots.Yellow);
+            med.AddRandomGroup("TheCrow_EN", Enemies.Shooter, Flower.Yellow);
 
+            med = new AddTo(Orph.H.Freud.Med);
+            med.AddRandomGroup("Freud_EN", Enemies.Shooter, Enemies.Shooter);
+            med.AddRandomGroup("Freud_EN", Enemies.Shooter, "Enigma_EN", "Enigma_EN");
+            med.AddRandomGroup("Freud_EN", Enemies.Shooter, Enemies.Camera);
+            med.AddRandomGroup("Freud_EN", Enemies.Shooter, Spoggle.Red);
+            med.AddRandomGroup("Freud_EN", Enemies.Shooter, Jumble.Blue);
+
+            med = new AddTo(Orph.H.Camera.Med);
+            med.AddRandomGroup(Enemies.Camera, Enemies.Camera, Enemies.Shooter, "LostSheep_EN");
+            med.AddRandomGroup(Enemies.Camera, Enemies.Camera, Enemies.Shooter, "Enigma_EN");
+            med.AddRandomGroup(Enemies.Camera, Enemies.Camera, Enemies.Shooter, "MusicMan_EN");
+
+            easy = new AddTo(Orph.H.Delusion.Med);
+            easy.AddRandomGroup("Delusion_EN", Enemies.Shooter, "FakeAngel_EN");
+            easy.AddRandomGroup("Delusion_EN", Enemies.Shooter);
+
+            med = new AddTo(Orph.H.Delusion.Med);
+            med.AddRandomGroup("Delusion_EN", "Delusion_EN", Enemies.Shooter, "FakeAngel_EN");
+            med.AddRandomGroup("Delusion_EN", "Delusion_EN", Enemies.Shooter);
+            med.AddRandomGroup("Delusion_EN", "Delusion_EN", "Delusion_EN", Enemies.Shooter);
+            med.AddRandomGroup("Delusion_EN", "Delusion_EN", Enemies.Shooter, Enemies.Solvent);
+
+            easy = new AddTo(Orph.H.Flower.Yellow.Easy);
+            easy.AddRandomGroup(Flower.Yellow, Enemies.Shooter, "SingingStone_EN");
+            easy.AddRandomGroup(Flower.Yellow, Enemies.Shooter, "MusicMan_EN");
+
+            med = new AddTo(Orph.H.Flower.Yellow.Med);
+            med.AddRandomGroup(Flower.Yellow, Flower.Purple, Enemies.Shooter);
+            med.AddRandomGroup(Flower.Yellow, Enemies.Shooter, "Scrungie_EN");
+            med.AddRandomGroup(Flower.Yellow, Enemies.Shooter, "Rabies_EN");
+            med.AddRandomGroup(Flower.Yellow, Enemies.Shooter, "WindSong_EN");
+
+            med = new AddTo(Orph.H.Flower.Purple.Med);
+            med.AddRandomGroup(Flower.Purple, Flower.Yellow, Enemies.Shooter);
+            med.AddRandomGroup(Flower.Purple, Enemies.Shooter, "Scrungie_EN");
+            med.AddRandomGroup(Flower.Purple, Enemies.Shooter, "Rabies_EN");
+            med.AddRandomGroup(Flower.Purple, Enemies.Shooter, "WindSong_EN");
+
+            med = new AddTo(Orph.Sigil.Med);
+            med.AddRandomGroup("Sigil_EN", Enemies.Shooter, Enemies.Shooter);
+            med.AddRandomGroup("Sigil_EN", Enemies.Shooter, "MusicMan_EN");
+            med.AddRandomGroup("Sigil_EN", Enemies.Shooter, "Enigma_EN", "Enigma_EN");
+
+            med = new AddTo(Orph.H.Sigil.Med);
+            med.AddRandomGroup("Sigil_EN", Enemies.Shooter, Enemies.Shooter);
+            med.AddRandomGroup("Sigil_EN", Enemies.Shooter, "MusicMan_EN", "MusicMan_EN");
+            med.AddRandomGroup("Sigil_EN", Enemies.Shooter, "Scrungie_EN");
+            med.AddRandomGroup("Sigil_EN", Enemies.Shooter, "Enigma_EN", "Enigma_EN");
+            med.AddRandomGroup("Sigil_EN", Enemies.Shooter, "Something_EN");
+            med.AddRandomGroup("Sigil_EN", Enemies.Shooter, Spoggle.Red);
+            med.AddRandomGroup("Sigil_EN", Enemies.Shooter, Bots.Yellow);
+
+            med = new AddTo(Orph.H.WindSong.Med);
+            med.AddRandomGroup("WindSong_EN", Enemies.Shooter, "Enigma_EN", "Enigma_EN");
+            med.AddRandomGroup("WindSong_EN", Enemies.Shooter, "Scrungie_EN");
+            med.AddRandomGroup("WindSong_EN", Enemies.Shooter, "MusicMan_EN", "MusicMan_EN");
+            med.AddRandomGroup("WindSong_EN", Enemies.Shooter, Bots.Red, Bots.Yellow);
+            med.AddRandomGroup("WindSong_EN", Enemies.Shooter, "Something_EN");
         }
     }
 }
