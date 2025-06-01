@@ -59,6 +59,8 @@ namespace SaltsEnemies_Reseasoned
             combative.doesPassiveTriggerInformationPanel = Passives.FleetingGenerator(3).doesPassiveTriggerInformationPanel;
             combative.conditions = Passives.FleetingGenerator(3).conditions;
             combative._triggerOn = Passives.FleetingGenerator(3)._triggerOn;
+            combative.specialStoredData = Passives.Fleeting3.specialStoredData;
+            combative.fleeting_USD = "FleetingPA";
 
             firebird.AddPassives(new BasePassiveAbilitySO[] { pheonix, burning, combative, Passives.Skittish });
             firebird.AddUnitType("Bird");

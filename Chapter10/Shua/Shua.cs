@@ -46,6 +46,8 @@ namespace SaltsEnemies_Reseasoned
             combative.doesPassiveTriggerInformationPanel = Passives.Fleeting3.doesPassiveTriggerInformationPanel;
             combative.conditions = Passives.Fleeting3.conditions;
             combative._triggerOn = Passives.Fleeting3._triggerOn;
+            combative.specialStoredData = Passives.Fleeting3.specialStoredData;
+            combative.fleeting_USD = "FleetingPA";
 
             //add pasives
             shua.AddPassives(new BasePassiveAbilitySO[] { incomprehend, combative });
