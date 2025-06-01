@@ -71,17 +71,25 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetEnemy("JumbleGuts_Flummoxing_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("JumbleGuts_Flummoxing_EN").deathSound,
             };
-            torture.PrepareMultiEnemyPrefab("assets/16/Forget_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/16/Forget_Gibs.prefab").GetComponent<ParticleSystem>());
-            (torture.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
+            
+            if (LoadedAssetsHandler.GetEnemy("TortureMeNot_EN") != null && !LoadedAssetsHandler.GetEnemy("TortureMeNot_EN").Equals(null))
             {
+                torture.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("TortureMeNot_EN").enemyTemplate;
+            }
+            else
+            {
+                torture.PrepareMultiEnemyPrefab("assets/16/Forget_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/16/Forget_Gibs.prefab").GetComponent<ParticleSystem>());
+                (torture.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
+                {
                 torture.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Sprite").Find("f1").GetComponent<SpriteRenderer>(),
                 torture.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Sprite").Find("f2").GetComponent<SpriteRenderer>(),
                 torture.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Sprite").Find("f3").GetComponent<SpriteRenderer>(),
                 torture.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Sprite").Find("f4").GetComponent<SpriteRenderer>(),
                 torture.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Sprite").Find("f5").GetComponent<SpriteRenderer>(),
-            };
+                };
+            }
 
-            
+
 
             torture.AddPassives(new BasePassiveAbilitySO[] { passive, Passives.Withering });
 
