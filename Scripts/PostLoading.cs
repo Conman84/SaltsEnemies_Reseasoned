@@ -84,6 +84,7 @@ namespace SaltEnemies_Reseasoned
                 PCall(PersonalAngelEncounters.Post);
 
                 PCall(WednesdayEncounters.Post);
+                PCall(StarlessEncounters.Post);
             }
 
             //Crossovers

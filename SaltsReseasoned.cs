@@ -362,6 +362,7 @@ namespace SaltsEnemies_Reseasoned
 
                 //CH19 Encounters
                 PCall(WednesdayEncounters.Add);
+                PCall(StarlessEncounters.Add);
             }
 
             //moving the passives glossary here.
