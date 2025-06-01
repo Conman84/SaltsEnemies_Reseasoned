@@ -30,9 +30,36 @@ namespace SaltsEnemies_Reseasoned
                 //throw ex;
             }
         }
+        public static void ZoneBGDataBaseSO_TryGenerateNewCard(Action<ZoneBGDataBaseSO, CardInfo> orig, ZoneBGDataBaseSO self, CardInfo info)
+        {
+            orig(self, info);
+            try
+            {
+                List<int> remove = new List<int>();
+                for (int i = self._zoneData.ZoneCards.Length - 1; i >= 0; i--)
+                {
+                    Card card = self._zoneData.ZoneCards[i];
+                    if (card.RoomPrefabName == "")
+                    {
+                        Debug.LogWarning("empty room prefab! For signID: " + card.SignID + " ; It is being removed.");
+                        remove.Add(i);
+                    }
+                }
+                foreach (int num in remove)
+                {
+                    self._zoneData._zoneCards.RemoveAt(num);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogWarning("ZoneBGDataBaseSO_TryGenerateNewCard failsafer failed?");
+                Debug.Log(ex.ToString());
+            }
+        }
         public static void Setup()
         {
             IDetour hook = new Hook(typeof(RunDataSO).GetMethod(nameof(RunDataSO.PopulateRoomInstance), ~BindingFlags.Default), typeof(Debugger).GetMethod(nameof(RunDataSO_PopulateRoomInstance), ~BindingFlags.Default));
+            IDetour hook2 = new Hook(typeof(ZoneBGDataBaseSO).GetMethod(nameof(ZoneBGDataBaseSO.TryGenerateNewCard), ~BindingFlags.Default), typeof(Debugger).GetMethod(nameof(ZoneBGDataBaseSO_TryGenerateNewCard), ~BindingFlags.Default));
         }
     }
 }
