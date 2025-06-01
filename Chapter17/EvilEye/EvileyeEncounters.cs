@@ -8,6 +8,11 @@ namespace SaltsEnemies_Reseasoned
 {
     public static class EvileyeEncounters
     {
+        public static void Add()
+        {
+            Add_Normal();
+            Add_Hardmode();
+        }
         public static void Add_Normal()
         {
             Portals.AddPortalSign("Salt_EvileyeEncounter_Sign", ResourceLoader.LoadSprite("EyeballWorld.png"), Portals.EnemyIDColor);
@@ -65,6 +70,42 @@ namespace SaltsEnemies_Reseasoned
 
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Evileye.Med, 15, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+        }
+        public static void Post()
+        {
+            AddTo hard = new AddTo(Orph.H.Tortoise.Hard);
+            hard.AddRandomGroup("StalwartTortoise_EN", "Evileye_EN");
+
+            AddTo med = new AddTo(Orph.H.Maw.Med);
+            med.AddRandomGroup("Maw_EN", "Evileye_EN");
+            med.SimpleAddGroup(1, "Maw_EN", 1, "Evileye_EN", 3, Enemies.Suckle);
+
+            hard = new AddTo(Orph.H.Maw.Hard);
+            hard.AddRandomGroup("Maw_EN", "Evileye_EN", "MusicMan_EN");
+            hard.AddRandomGroup("Maw_EN", "Evileye_EN", "Delusion_EN");
+            hard.AddRandomGroup("Maw_EN", "Evileye_EN", Bots.Yellow);
+            hard.AddRandomGroup("Maw_EN", "Evileye_EN", Bots.Red);
+            hard.AddRandomGroup("Maw_EN", "Evileye_EN", "WindSong_EN");
+            hard.AddRandomGroup("Maw_EN", "Evileye_EN", "Freud_EN");
+            hard.AddRandomGroup("Maw_EN", "Evileye_EN", "TheCrow_EN");
+
+            hard = new AddTo(Orph.H.Dragon.Hard);
+            hard.AddRandomGroup("TheDragon_EN", "Evileye_EN", "Enigma_EN");
+
+            hard = new AddTo(Orph.H.Sacrifice.Hard);
+            hard.AddRandomGroup(Enemies.Sacrifice, "Evileye_EN", "TheCrow_EN");
+
+            hard = new AddTo(Orph.Revola.Hard);
+            hard.AddRandomGroup("Revola_EN", "Evileye_EN");
+
+            hard = new AddTo(Orph.H.Revola.Hard);
+            hard.AddRandomGroup("Revola_EN", "Evileye_EN", Enemies.Suckle, Enemies.Suckle);
+
+            med = new AddTo(Orph.H.Conductor.Med);
+            med.AddRandomGroup("Conductor_EN", "Evileye_EN", "LostSheep_EN");
+
+            hard = new AddTo(Orph.H.Conductor.Hard);
+            if (Winter.Chance) hard.AddRandomGroup("Conductor_EN", "Evileye_EN", "Crystal_EN");
         }
     }
 }

@@ -350,6 +350,7 @@ namespace SaltsEnemies_Reseasoned
                 //CH17 Encounters
                 PCall(NobodyGraveEncounters.Add);
                 PCall(ToyUfoEncounters.Add);
+                PCall(EvileyeEncounters.Add);
             }
 
             //moving the passives glossary here.

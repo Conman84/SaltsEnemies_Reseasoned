@@ -75,6 +75,7 @@ namespace SaltEnemies_Reseasoned
             {
                 PCall(NobodyGraveEncounters.Post);
                 PCall(ToyUfoEncounters.Post);
+                PCall(EvileyeEncounters.Post);
             }
 
             //Crossovers
