@@ -24,14 +24,14 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomEncounter("TheDragon_EN", "Freud_EN", Jumble.Purple);
             hard.AddRandomEncounter("TheDragon_EN", "TheCrow_EN", Spoggle.Red);
             hard.AddRandomEncounter("TheDragon_EN", "WindSong_EN", "Freud_EN");
-            hard.AddRandomEncounter("TheDragon_EN", "Crystal_EN", "MusicMan_EN");
+            if (Winter.Chance) hard.AddRandomEncounter("TheDragon_EN", "Crystal_EN", "MusicMan_EN");
             hard.AddRandomEncounter("TheDragon_EN", "Maw_EN", Bots.Red);
             hard.SimpleAddEncounter(1, "TheDragon_EN", 3, "Enigma_EN");
             hard.AddRandomEncounter("TheDragon_EN", "Scrungie_EN", "WindSong_EN");
             hard.AddRandomEncounter("TheDragon_EN", "Scrungie_EN", Spoggle.Purple);
             hard.AddRandomEncounter("TheDragon_EN", "Scrungie_EN", Flower.Purple);
             hard.AddRandomEncounter("TheDragon_EN", Enemies.Solvent, "Maw_EN");
-            hard.AddRandomEncounter("TheDragon_EN", Enemies.Solvent, "Crystal_EN");
+            if (Winter.Chance) hard.AddRandomEncounter("TheDragon_EN", Enemies.Solvent, "Crystal_EN");
             hard.AddRandomEncounter("TheDragon_EN", "Delusion_EN", Spoggle.Red);
             hard.AddRandomEncounter("TheDragon_EN", "Delusion_EN", "Freud_EN");
             hard.AddRandomEncounter("TheDragon_EN", "Something_EN", Flower.Yellow);
