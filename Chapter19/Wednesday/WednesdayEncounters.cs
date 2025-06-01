@@ -91,7 +91,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("YellowAngel_EN", "Wednesday_EN", "Something_EN");
 
             hard = new AddTo(Orph.H.Sacrifice.Hard);
-            hard.AddRandomGroup("Sacrifice_EN", "Wednesday_EN", "Scrungie_EN", "Scrungie_EN");
+            hard.AddRandomGroup(Enemies.Sacrifice, "Wednesday_EN", "Scrungie_EN", "Scrungie_EN");
 
             med = new AddTo(Orph.H.Spoggle.Red.Med);
             med.AddRandomGroup(Spoggle.Red, Spoggle.Purple, "Wednesday_EN");

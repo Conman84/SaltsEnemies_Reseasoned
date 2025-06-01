@@ -73,7 +73,7 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = LoadedAssetsHandler.GetEnemy("JumbleGuts_Flummoxing_EN").deathSound,
             };
             
-            if (LoadedAssetsHandler.LoadedEnemies.Keys.Contains("TortureMeNot_EN")
+            if (LoadedAssetsHandler.LoadedEnemies.Keys.Contains("TortureMeNot_EN"))
             {
                 torture.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("TortureMeNot_EN").enemyTemplate;
             }
