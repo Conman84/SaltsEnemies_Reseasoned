@@ -80,6 +80,7 @@ namespace SaltEnemies_Reseasoned
                 PCall(ChienTindalouEncounters.Post);
                 PCall(SinkerEncounters.Post);
                 PCall(SkeletonShooterEncounters.Post);
+                PCall(ComplimentaryEncounters.Post);
             }
 
             //Crossovers
