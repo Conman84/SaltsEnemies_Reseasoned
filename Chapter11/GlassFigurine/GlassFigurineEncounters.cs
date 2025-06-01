@@ -7,7 +7,7 @@ namespace SaltEnemies_Reseasoned
     {
         public static void Add()
         {
-            Portals.AddPortalSign("Salt_GlassFigurineEncounter_Sign", ResourceLoader.LoadSprite("GlassWorld.png"), Portals.EnemyIDColor);
+            Portals.AddPortalSign("Salt_GlassFigurineEncounter_Sign", ResourceLoader.LoadSprite("GlassPortal.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API easy = new EnemyEncounter_API(EncounterType.Random, Garden.H.GlassFigurine.Easy, "Salt_GlassFigurineEncounter_Sign");
             easy.MusicEvent = "event:/Hawthorne/GlassSong";
