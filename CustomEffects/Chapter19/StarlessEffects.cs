@@ -329,4 +329,18 @@ namespace SaltEnemies_Reseasoned
             return true;
         }
     }
+    public class EyelessEnterEffect : SwapToOneSideEffect
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            if (caster.SlotID > 0) return false;
+            for (int i = 0; i < 5; i++)
+            {
+                _swapRight = true;
+                if (base.PerformEffect(stats, caster, Slots.Self.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter), Slots.Self.AreTargetSlots, entryVariable, out int exi)) exitAmount++;
+            }
+            return exitAmount > 0;
+        }
+    }
 }

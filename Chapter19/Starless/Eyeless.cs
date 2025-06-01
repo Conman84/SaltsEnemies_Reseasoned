@@ -65,7 +65,11 @@ namespace SaltsEnemies_Reseasoned
             selector._killAbility = "Starless_Despair_A";
             eyeless.AbilitySelector = selector;
 
-            eyeless.CombatEnterEffects = Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Starless"), 1).SelfArray();
+            eyeless.CombatEnterEffects = new EffectInfo[]
+            {
+                Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Starless"), 1),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<EyelessEnterEffect>())
+            };
             eyeless.CombatExitEffects = Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Starless"), -1).SelfArray();
 
             Ability despair = new Ability("Despair", "Starless_Despair_A");
