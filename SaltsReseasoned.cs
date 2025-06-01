@@ -181,39 +181,39 @@ namespace SaltsEnemies_Reseasoned
             PCall(Firebird.Add);
             PCall(Warbird.Add);
 
+            //CH13 Enemies
+            PCall(BlackStar.Add);
+            PCall(Singularity.Add);
+            PCall(Windle.Add);
+            PCall(Indicator.Add);
+            PCall(Maw.Add);
+
+            //CH14 Enemies
+            PCall(AbyssAngel.Add);
+            PCall(YNL.Add);
+            PCall(Arceles.Add);
+            PCall(MidnightTrafficLight.Add);
+            PCall(Pinano.Add);
+            PCall(Minana.Add);
+            PCall(Children.Add);
+
+            //CH15 Enemies
+            PCall(YellowBot.Add);
+            PCall(RedBot.Add);
+            PCall(BlueBot.Add);
+            PCall(PurpleBot.Add);
+            PCall(GreyBot.Add);
+            PCall(GlassedSun.Add);
+
+            //CH16 Enemies
+            PCall(Crystal.Add);
+            PCall(Candy.Add);
+            PCall(Dragon.Add);
+            PCall(OdeToHumanity.Add);
+            PCall(TortureMeNot.Add);
+
             if (DebugVer)
             {
-                //CH13 Enemies
-                PCall(BlackStar.Add);
-                PCall(Singularity.Add);
-                PCall(Windle.Add);
-                PCall(Indicator.Add);
-                PCall(Maw.Add);
-
-                //CH14 Enemies
-                PCall(AbyssAngel.Add);
-                PCall(YNL.Add);
-                PCall(Arceles.Add);
-                PCall(MidnightTrafficLight.Add);
-                PCall(Pinano.Add);
-                PCall(Minana.Add);
-                PCall(Children.Add);
-
-                //CH15 Enemies
-                PCall(YellowBot.Add);
-                PCall(RedBot.Add);
-                PCall(BlueBot.Add);
-                PCall(PurpleBot.Add);
-                PCall(GreyBot.Add);
-                PCall(GlassedSun.Add);
-
-                //CH16 Enemies
-                PCall(Crystal.Add);
-                PCall(Candy.Add);
-                PCall(Dragon.Add);
-                PCall(OdeToHumanity.Add);
-                PCall(TortureMeNot.Add);
-
                 //CH17 Enemies
                 PCall(Ufo.Add);
                 PCall(YellowAngel.Add);
