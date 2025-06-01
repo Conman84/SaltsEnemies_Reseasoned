@@ -44,7 +44,63 @@ namespace SaltsEnemies_Reseasoned
         }
         public static void Post()
         {
+            AddTo med = new AddTo(Orph.H.Enigma.Med);
+            med.SimpleAddGroup(3, "Enigma_EN", 1, "Wednesday_EN");
 
+            med = new AddTo(Orph.H.Something.Med);
+            med.AddRandomGroup("Something_EN", "Something_EN", "Wednesday_EN");
+
+            med = new AddTo(Orph.H.Crow.Med);
+            med.AddRandomGroup("TheCrow_EN", "Wednesday_EN", Spoggle.Red, Enemies.Suckle, Enemies.Suckle);
+
+            med = new AddTo(Orph.H.Freud.Med);
+            med.AddRandomGroup("Freud_EN", "Wednesday_EN", "Scrungie_EN", "Scrungie_EN");
+            med.AddRandomGroup("Freud_EN", "Wednesday_EN", "Rabies_EN", Enemies.Suckle, Enemies.Suckle);
+
+            med = new AddTo(Orph.H.Camera.Med);
+            med.AddRandomGroup(Enemies.Camera, Enemies.Camera, "Wednesday_EN", Enemies.Solvent);
+
+            med = new AddTo(Orph.H.Delusion.Med);
+            med.AddRandomGroup("Delusion_EN", "Delusion_EN", "FakeAngel_EN", "Wednesday_EN");
+
+            med = new AddTo(Orph.H.Flower.Purple.Med);
+            med.AddRandomGroup(Flower.Purple, "Wednesday_EN", "Enigma_EN", "Enigma_EN");
+
+            med = new AddTo(Orph.H.WindSong.Med);
+            med.AddRandomGroup("WindSong_EN", "Wednesday_EN", "Rabies_EN");
+
+            med = new AddTo(Orph.H.Maw.Med);
+            med.AddRandomGroup("Maw_EN", "Wedneday_EN", Bots.Yellow);
+
+            AddTo hard = new AddTo(Orph.H.Maw.Hard);
+            if (Winter.Chance) hard.AddRandomGroup("Maw_EN", "Wednesday_EN", "Crystal_EN");
+
+            med = new AddTo(Orph.H.Bot.Blue.Med);
+            med.AddRandomGroup(Bots.Blue, "Wednesday_EN", "MusicMan_EN", "MusicMan_EN");
+
+            med = new AddTo(Orph.H.Crystal.Med);
+            med.AddRandomGroup("Crystal_EN", "Wednesday_EN", "Freud_EN");
+
+            hard = new AddTo(Orph.H.Dragon.Hard);
+            hard.AddRandomGroup("TheDragon_EN", "Wednesday_EN", "MusicMan_EN", "MusicMan_EN");
+
+            med = new AddTo(Orph.H.Evileye.Med);
+            med.AddRandomGroup("Evileye_EN", "Wednesday_EN", Enemies.Shooter);
+
+            med = new AddTo(Orph.H.YellowAngel.Med);
+            med.AddRandomGroup("YellowAngel_EN", "Wednesday_EN", "Something_EN");
+
+            hard = new AddTo(Orph.H.Sacrifice.Hard);
+            hard.AddRandomGroup("Sacrifice_EN", "Wednesday_EN", "Scrungie_EN", "Scrungie_EN");
+
+            med = new AddTo(Orph.H.Spoggle.Red.Med);
+            med.AddRandomGroup(Spoggle.Red, Spoggle.Purple, "Wednesday_EN");
+
+            med = new AddTo(Orph.H.Conductor.Med);
+            med.AddRandomGroup("Conductor_EN", "Wednesday_EN", Enemies.Suckle, Enemies.Suckle, Enemies.Suckle);
+
+            hard = new AddTo(Orph.H.Conductor.Hard);
+            hard.AddRandomGroup("Conductor_EN", "Wednesday_EN", "YellowAngel_EN");
         }
     }
 }

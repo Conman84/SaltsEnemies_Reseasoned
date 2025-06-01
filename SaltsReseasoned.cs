@@ -353,10 +353,15 @@ namespace SaltsEnemies_Reseasoned
                 PCall(EvileyeEncounters.Add);
                 PCall(YellowAngelEncounters.Add);
                 PCall(ChienTindalouEncounters.Add);
+
+                //CH18 Encounters
                 PCall(SinkerEncounters.Add);
                 PCall(SkeletonShooterEncounters.Add);
                 PCall(ComplimentaryEncounters.Add);
                 PCall(PersonalAngelEncounters.Add);
+
+                //CH19 Encounters
+                PCall(WednesdayEncounters.Add);
             }
 
             //moving the passives glossary here.
