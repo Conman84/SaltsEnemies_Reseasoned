@@ -63,14 +63,16 @@ namespace SaltsEnemies_Reseasoned
             //pigs in blue
             Ability blue = new Ability("PigsInBlue_A");
             blue.Name = "Pigs in Blue";
-            blue.Description = "If any enemies share this enemy's health color, deal a Little amount damage to their Opposing position.";
+            blue.Description = "If any enemies share this enemy's health color, deal a Little amount damage to their Opposing position.\nInflict 1 Constricted on the Opposing position.";
             blue.Rarity = Rarity.GetCustomRarity("rarity5");
             blue.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Targetting.Reverse(targettingCasterColor))
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Targetting.Reverse(targettingCasterColor)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 1, Slots.Front)
             };
             blue.AddIntentsToTarget(Targetting.Reverse(targettingCasterColor), new string[] { IntentType_GameIDs.Damage_1_2.ToString() });
             blue.AddIntentsToTarget(allEnemy, new string[] { IntentType_GameIDs.Misc.ToString() });
+            blue.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Field_Constricted.ToString()]);
             blue.Visuals = CustomVisuals.GetVisuals("Salt/Gaze");
             blue.AnimationTarget = Targetting.Reverse(targettingCasterColor);
 
