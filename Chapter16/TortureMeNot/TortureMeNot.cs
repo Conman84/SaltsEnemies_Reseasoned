@@ -2,6 +2,7 @@
 using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -72,7 +73,7 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = LoadedAssetsHandler.GetEnemy("JumbleGuts_Flummoxing_EN").deathSound,
             };
             
-            if (LoadedAssetsHandler.GetEnemy("TortureMeNot_EN") != null && !LoadedAssetsHandler.GetEnemy("TortureMeNot_EN").Equals(null))
+            if (LoadedAssetsHandler.LoadedEnemies.Keys.Contains("TortureMeNot_EN")
             {
                 torture.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("TortureMeNot_EN").enemyTemplate;
             }
