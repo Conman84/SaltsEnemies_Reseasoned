@@ -376,6 +376,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(TwoThousandNineEncounters.Add);
                 PCall(ChiitoEncounters.Add);
                 PCall(SolitaireEncounters.Add);
+                PCall(FoxtrotEncounters.Add);
 
                 //CH21 Encounters
                 PCall(AuthorEncounters.Add);
