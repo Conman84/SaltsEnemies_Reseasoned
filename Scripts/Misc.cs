@@ -26,7 +26,8 @@ namespace SaltEnemies_Reseasoned
         {
             get
             {
-                return Mod * Mod;
+                if (Birthday) return 50;
+                return 1;
             }
         }
     }
