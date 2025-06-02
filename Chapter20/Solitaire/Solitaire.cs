@@ -126,11 +126,11 @@ namespace SaltsEnemies_Reseasoned
             dreamers.Effects[0] = Effects.GenerateEffect(BasicEffects.SetStoreValue("Dreamer_A"), 1, Slots.Self);
             dreamers.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Curtains", false, Slots.Self));
             dreamers.Effects[2] = Effects.GenerateEffect(UIActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToGardenEffect>(), 1, Slots.Self).SelfArray()), 1, Targeting.Slot_SelfSlot);
-            dreamers.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 15, Slots.Self);
+            dreamers.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 365, Slots.Self);
             dreamers.Effects[4] = Effects.GenerateEffect(ScriptableObject.CreateInstance<BoxAllEnemiesEffect>());
             dreamers.Effects[5] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnGardenEnemyBundleEffect>());
             dreamers.Effects[6] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Targeting.Unit_AllOpponents);
-            dreamers.AddIntentsToTarget(Slots.Self, ["Dreaming_A", IntentType_GameIDs.Damage_11_15.ToString()]);
+            dreamers.AddIntentsToTarget(Slots.Self, ["Dreaming_A", IntentType_GameIDs.Damage_Death.ToString()]);
             dreamers.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Status_Focused.ToString()]);
             dreamers.Visuals = null;
             dreamers.AnimationTarget = Slots.Self;
