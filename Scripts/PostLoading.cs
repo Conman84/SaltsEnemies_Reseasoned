@@ -90,6 +90,7 @@ namespace SaltEnemies_Reseasoned
                 PCall(StarlessEncounters.Post);
                 PCall(PawnAEncounters.Post);
                 PCall(YangEncounters.Post);
+                PCall(TwoThousandNineEncounters.Post);
             }
 
             //Crossovers
