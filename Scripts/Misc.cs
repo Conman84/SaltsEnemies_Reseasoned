@@ -22,5 +22,12 @@ namespace SaltEnemies_Reseasoned
                 return 1;
             }
         }
+        public static int MoreMod
+        {
+            get
+            {
+                return Mod * Mod;
+            }
+        }
     }
 }
