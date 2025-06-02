@@ -217,7 +217,11 @@ namespace SaltEnemies_Reseasoned
             Attacks.Clear();
             ButterflyUnboxer.Boxeds.Clear();
             BlackHoleEffect.Reset();
+            SetMusicParameterByStringEffect.Params = new Dictionary<string, int>();
+            AmalgaSongEffect.Reset();
+            MonsterSongEffect.Reset();
             WednesdayEffect.Reset();
+            SolitaireSongEffect.Reset();
         }
 
         public static void Setup()

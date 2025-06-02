@@ -34,6 +34,7 @@ namespace SaltEnemies_Reseasoned
 
             int currentHealth = self.CurrentHealth;
             self.CurrentHealth = 0;
+            self.HasFled = true;
             CombatManager.Instance.AddUIAction(new EnemyDamagedUIAction(self.ID, self.CurrentHealth, self.MaximumHealth, currentHealth, CombatType_GameIDs.Dmg_Weak.ToString()));
             CombatManager.Instance.AddSubAction(new WitherlessEnemyDeathAction(self.ID, killer, DeathType_GameIDs.DirectDeath.ToString()));
             return true;
