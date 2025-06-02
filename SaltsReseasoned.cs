@@ -374,6 +374,7 @@ namespace SaltsEnemies_Reseasoned
 
                 //CH20 Encounters
                 PCall(TwoThousandNineEncounters.Add);
+                PCall(ChiitoEncounters.Add);
             }
 
             //moving the passives glossary here.

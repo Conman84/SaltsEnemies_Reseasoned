@@ -43,5 +43,67 @@ namespace SaltsEnemies_Reseasoned
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Chiito.Med, 25, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
         }
+        public static void Post()
+        {
+            AddTo med = new AddTo(Shore.H.Angler.Med);
+            med.AddRandomGroup("AFlower_EN", "MudLung_EN", "Chiito_EN");
+
+            AddTo hard = new AddTo(Shore.H.Angler.Hard);
+            hard.AddRandomGroup("AFlower_EN", "Sinker_EN", "Chiito_EN");
+
+            AddTo easy = new AddTo(Shore.H.Skyloft.Easy);
+            easy.AddRandomGroup("Skyloft_EN", "Chiito_EN");
+
+            hard = new AddTo(Shore.H.Camera.Hard);
+            hard.AddRandomGroup(Enemies.Camera, "Chiito_EN", "ToyUfo_EN", "Pinano_EN");
+
+            hard = new AddTo(Shore.H.Tripod.Hard);
+            hard.AddRandomGroup("Tripod_EN", "Keko_EN", "Keko_EN", "Chiito_EN");
+
+            med = new AddTo(Shore.H.LittleBeak.Med);
+            med.AddRandomGroup("LittleBeak_EN", "Chiito_EN", "NobodyGrave_EN");
+            med.AddRandomGroup("LittleBeak_EN", "Chiito_EN", "MudLung_EN");
+
+            hard = new AddTo(Shore.H.Warbird.Hard);
+            hard.AddRandomGroup("Warbird_EN", "Chiito_EN", "AFlower_EN");
+
+            med = new AddTo(Shore.H.Clione.Med);
+            med.AddRandomGroup("Clione_EN", "Chiito_EN", "Pinano_EN");
+
+            hard = new AddTo(Shore.H.Clione.Hard);
+            hard.AddRandomGroup("Clione_EN", "2009_EN", "Chiito_EN", "NobodyGrave_EN");
+
+            med = new AddTo(Shore.H.Sinker.Med);
+            med.AddRandomGroup("Sinker_EN", "Chiito_EN", "Flarblet_EN");
+            med.AddRandomGroup("Sinker_EN", "Chiito_EN", "MudLung_EN");
+
+            hard = new AddTo(Shore.H.Sinker.Hard);
+            hard.AddRandomGroup("Sinker_EN", Enemies.Mungling, "Chiito_EN");
+
+            hard = new AddTo(Shore.H.Unmung.Hard);
+            hard.AddRandomGroup(Enemies.Unmung, "Chiito_EN");
+
+            easy = new AddTo(Shore.H.Mungling.Easy);
+            easy.AddRandomGroup(Enemies.Mungling, "Chiito_EN");
+
+            med = new AddTo(Shore.H.Mungling.Med);
+            med.AddRandomGroup(Enemies.Mungling, "MudLung_EN", "Chiito_EN");
+
+            med = new AddTo(Shore.H.FlaMinGoa.Med);
+            med.AddRandomGroup("FlaMinGoa_EN", "Pinano_EN", "Chiito_EN");
+
+            hard = new AddTo(Shore.H.FlaMinGoa.Hard);
+            hard.AddRandomGroup("FlaMinGoa_EN", "Chiito_EN", "LittleBeak_EN");
+
+            hard = new AddTo(Shore.H.Flarb.Hard);
+            hard.AddRandomGroup("Flarb_EN", "Chiito_EN");
+            hard.AddRandomGroup("Flarb_EN", "Chiito_EN", "LostSheep_EN");
+
+            hard = new AddTo(Shore.H.Voboola.Hard);
+            hard.AddRandomGroup("Voboola_EN", "Chiito_EN");
+
+            hard = new AddTo(Shore.H.Kekastle.Hard);
+            hard.AddRandomGroup("Kekastle_EN", "Chiito_EN");
+        }
     }
 }
