@@ -257,7 +257,7 @@ namespace SaltEnemies_Reseasoned
             for (int i = start; i <= 100 && Amount > 0; i++)
             {
                 CombatManager.Instance._stats.audioController.MusicCombatEvent.setParameterByName("Monster", i);
-                System.Threading.Thread.Sleep(20);
+                System.Threading.Thread.Sleep(100);
                 //if (i > 95) UnityEngine.Debug.Log("we;re getting there properly");
             }
             //UnityEngine.Debug.Log("done");
