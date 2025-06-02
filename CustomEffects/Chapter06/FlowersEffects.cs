@@ -112,7 +112,7 @@ namespace SaltEnemies_Reseasoned
                 exitAmount++;
             }
             stats.overflowMana.StoredSlots = ret;
-            stats.combatUI._manaOverflow.StoredSlots = stats.overflowMana.StoredSlots;
+            stats.combatUI._manaOverflow.StoredSlots = new List<ManaColorSO>(stats.overflowMana.StoredSlots);
             stats.combatUI._manaOverflow.UpdateExposedSlots();
             return exitAmount > 0;
         }
