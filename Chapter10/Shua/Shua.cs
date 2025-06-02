@@ -41,8 +41,8 @@ namespace SaltsEnemies_Reseasoned
             combative._passiveName = "Combative (3)";
             combative.passiveIcon = ResourceLoader.LoadSprite("CombativePassive.png");
             combative.m_PassiveID = Passives.Fleeting3.m_PassiveID;
-            combative._enemyDescription = Passives.Fleeting3._enemyDescription + "\nOn dealing or receiving, reset this enemy's Fleeting counter.";
-            combative._characterDescription = Passives.Fleeting3._characterDescription + "\nOn dealing or receiving, reset this party member's Fleeting counter.";
+            combative._enemyDescription = Passives.Fleeting3._enemyDescription + "\nOn dealing or receiving damage, reset this enemy's Fleeting counter.";
+            combative._characterDescription = Passives.Fleeting3._characterDescription + "\nOn dealing or receiving damage, reset this party member's Fleeting counter.";
             combative.doesPassiveTriggerInformationPanel = Passives.Fleeting3.doesPassiveTriggerInformationPanel;
             combative.conditions = Passives.Fleeting3.conditions;
             combative._triggerOn = Passives.Fleeting3._triggerOn;
