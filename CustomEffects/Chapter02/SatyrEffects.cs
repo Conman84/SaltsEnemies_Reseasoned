@@ -333,7 +333,7 @@ namespace SaltEnemies_Reseasoned
                     {
                         bool IsCamera = Check.EnemyExist("MechanicalLens_EN") && (targetEnemy.Enemy == LoadedAssetsHandler.GetEnemy("MechanicalLens_EN") || targetEnemy.Enemy.Equals(LoadedAssetsHandler.GetEnemy("MechanicalLens_EN")));
 
-                        if (stats.AddNewEnemy(targetEnemy.Enemy, num, false, _spawnType, IsCamera ? 20 : targetEnemy.Enemy.health))
+                        if (stats.AddNewEnemy(targetEnemy.Enemy, num, false, _spawnType, IsCamera ? 20 : targetEnemy.MaximumHealth))
                         {
                             targetEnemy.HasFled = true;
                             exitAmount++;
