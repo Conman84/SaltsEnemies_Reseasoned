@@ -335,7 +335,7 @@ namespace SaltEnemies_Reseasoned
             }
             //UnityEngine.Debug.Log("done");
         }
-        public static string DragonAwakeType => "DragonAwake_PA";
+        public static string DragonAwakeType => "Dragon_Awake_PA";
         public static bool AreDragons()
         {
             foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
