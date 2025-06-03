@@ -207,7 +207,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Chiito_EN", "Wall_EN", "Wall_EN", "Skyloft_EN");
 
             hard = new AddTo(Shore.H.Unmung.Hard);
-            hard.AddRandomGroup("Unmung_EN", "Wall_EN");
+            hard.AddRandomGroup(Enemies.Unmung, "Wall_EN");
 
             easy = new AddTo(Shore.MudLung.Easy);
             easy.AddRandomGroup("MudLung_EN", "Wall_EN");
