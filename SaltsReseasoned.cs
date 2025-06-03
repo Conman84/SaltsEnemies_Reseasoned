@@ -517,6 +517,10 @@ namespace SaltsEnemies_Reseasoned
 
                 //CH21
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ProphecyPassive.png"), "Prophecy", "On death, spawn a specific unit.\nIncrease the unit's health proportional to the amount of turns this unit has been in combat.\nTransfer all status effects from this unit to the spawned unit.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ScaryPassive.png"), "Scary", "On being directly damaged, Curse the Opposing unit.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("HidingPassive.png"), "Hiding", "On any opponent using an ability, move Left or Right.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SeekingPassive.png"), "Seeking", "On using an ability, move in front of the closest opponent.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MimicPassive.png"), "33", "On entering combat, gain Focus.");
             }
 
             Logger.LogInfo("Seasons greasons");
