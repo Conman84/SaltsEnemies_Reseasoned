@@ -11,7 +11,9 @@ namespace SaltEnemies_Reseasoned
         [Header("Special Abilities")]
         [SerializeField]
         public string longslice = "Slice";
+        [SerializeField]
         public string shortstomp = "Stomp";
+        [SerializeField]
         public string lens = "Lens";
 
         public override bool UsesRarity => true;
