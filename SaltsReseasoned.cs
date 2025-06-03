@@ -149,7 +149,6 @@ namespace SaltsEnemies_Reseasoned
             SemiRealisticTank.Add();
             TheEndOfTime.Add();
 
-            //my enemenemenies
             //CH9 enemies
             PCall(Grandfather.Add);
             PCall(Butterfly.Add);
