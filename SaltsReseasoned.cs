@@ -380,6 +380,7 @@ namespace SaltsEnemies_Reseasoned
 
                 //CH21 Encounters
                 PCall(AuthorEncounters.Add);
+                PCall(WallEncounters.Add);
             }
 
             //moving the passives glossary here.
