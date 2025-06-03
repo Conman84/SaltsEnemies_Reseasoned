@@ -497,10 +497,27 @@ namespace SaltsEnemies_Reseasoned
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DivisibleIcon.png"), "Divisible", "On taking any damage, if there is available space split into 2 copies of this unit with half the health.");
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PunisherPassive.png"), "Punisher", "On moving, inflict 10 Pale on the Opposing target. \nIf they already had over 100 Pale, trigger it.");
 
+                //CH19
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("TraitorPassive.png"), "Traitor", "On receiving damage from an ally, deal a Painful amount of damage to the Opposing position.\nOn receiving damage from an opponent, deal a Little damage to the Left and Right allies.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MelancholyPassive.png"), "Melancholy", "On taking direct damage, apply 1 Left on this unit and the Opposing position.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("GluttonyPassive.png"), "Gluttony", "On receiving direct damage, move Left and deal a Painful amount of damage to the Opposing position.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AllSeeingPassive.png"), "All-Seeing", "On ending the round on the Rightmost tile, deal an Agonizing amount of damage to all opponents and transform into a specific unit.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AllKnowingPassive.png"), "All-Knowing", "On moving to the Leftmost position, transform into a specific unit.");
             }
 
             //CH19
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("BacklashPassive.png"), "Backlash", "On taking direct damage, apply Shield to this unit's position for the amount of damage taken.");
+
+            if (DebugVer)
+            {
+                //CH20
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("RotaryPassive.png"), "Rotary", "On being damaged, move all the way to the Left or Right.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("StealthPassive.png"), "Stealth Mechanics", "At the start of combat, instantly flee.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MarchingPassive.png"), "Marching", "On any ally without \"Marching\" as a passive moving, move Left or Right.");
+
+                //CH21
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ProphecyPassive.png"), "Prophecy", "On death, spawn a specific unit.\nIncrease the unit's health proportional to the amount of turns this unit has been in combat.\nTransfer all status effects from this unit to the spawned unit.");
+            }
 
             Logger.LogInfo("Seasons greasons");
         }

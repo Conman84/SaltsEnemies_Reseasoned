@@ -35,7 +35,7 @@ namespace SaltsEnemies_Reseasoned
             prophet._passiveName = "Prophecy";
             prophet.passiveIcon = ResourceLoader.LoadSprite("ProphecyPassive.png");
             prophet.m_PassiveID = "Prophecy_PA";
-            prophet._characterDescription = "On death, spawn the Monster.\nIncrease the Monster's health proportional to the amount of turns this en\nTransfer all status effects from this enemy to the Monster.";
+            prophet._characterDescription = "On death, spawn the Monster.\nIncrease the Monster's health proportional to the amount of turns this enemy has been in combat.\nTransfer all status effects from this enemy to the Monster.";
             prophet._enemyDescription = prophet._characterDescription;
             prophet.doesPassiveTriggerInformationPanel = false;
             prophet._triggerOn = [TriggerCalls.OnDeath, TriggerCalls.TimelineEndReached];
