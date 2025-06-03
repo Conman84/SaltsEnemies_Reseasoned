@@ -187,7 +187,7 @@ namespace SaltEnemies_Reseasoned
                         if (stats.TryTransformCharacter(chara.ID, c, false, false, false)) exitAmount++;
                         chara.SimpleSetStoredValue(HasTransformed, 1);
                     }
-                    if (YNLHandler2.DoPerm && !chara.IsMainCharacter)
+                    if (YNLHandler2.DoPerm)
                     {
                         YNLHandler2.Transforms.Add(chara.ID);
                     }

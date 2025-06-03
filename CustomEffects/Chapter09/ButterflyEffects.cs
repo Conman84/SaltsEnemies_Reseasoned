@@ -966,7 +966,7 @@ namespace SaltEnemies_Reseasoned
                     if (stats.InfoHolder.CombatData.CharactersData.Length > chara.ID)
                     {
                         CharacterInGameData old = stats.InfoHolder.CombatData.CharactersData[chara.ID];
-                        CharacterInGameData newer = new CharacterInGameData(chara.Character, old.CharacterSlot, chara.Rank, chara.UsedAbilities, old.IsMainCharacter);
+                        CharacterInGameData newer = new CharacterInGameData(old.IsMainCharacter ? old.Character : chara.Character, old.CharacterSlot, chara.Rank, chara.UsedAbilities, old.IsMainCharacter);
                         newer.SetCurrentHealth(old.CurrentHealth);
                         //newer.WearableModifiers = old.WearableModifiers;
                         stats.InfoHolder.CombatData.CharactersData[chara.ID] = newer;
