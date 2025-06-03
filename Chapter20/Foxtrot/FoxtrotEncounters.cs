@@ -61,7 +61,7 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Orph.H.Delusion.Med);
             med.SimpleAddGroup(3, "Delusion_EN", 1, "Foxtrot_EN");
-            med.SimpleAddGroup(2, 'Delusion_EN', 1, "Foxtrot_EN", 1, Enemies.Solvent);
+            med.SimpleAddGroup(2, "Delusion_EN", 1, "Foxtrot_EN", 1, Enemies.Solvent);
 
             easy = new AddTo(Orph.H.Flower.Yellow.Easy);
             easy.AddRandomGroup(Flower.Yellow, "Foxtrot_EN", "Foxtrot_EN");
