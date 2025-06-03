@@ -37,15 +37,15 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Author_EN", "Delusion_EN", "Delusion_EN", "LostSheep_EN");
             med.AddRandomEncounter("Author_EN", "Solitaire_EN", "Enigma_EN", "Enigma_EN");
             med.AddRandomEncounter("Author_EN", Enemies.Shooter, "Enigma_EN", "Enigma_EN");
-            med.AddRandomEncounter("Author_EN", "Scrungie_EN", Bots.Red);
+            med.AddRandomEncounter("Author_EN", "Something_EN", Bots.Red);
             med.AddRandomEncounter("Author_EN", "Scrungie_EN", Bots.Blue);
             med.AddRandomEncounter("Author_EN", "Scrungie_EN", Bots.Yellow);
-            med.AddRandomEncounter("Author_EN", "Scrungie_EN", Bots.Purple);
+            med.AddRandomEncounter("Author_EN", "Something_EN", Bots.Purple);
             med.AddRandomEncounter("Author_EN", "Scrungie_EN", Jumble.Blue);
-            med.AddRandomEncounter("Author_EN", "Scrungie_EN", Jumble.Purple);
+            med.AddRandomEncounter("Author_EN", "Something_EN", Jumble.Purple);
             med.AddRandomEncounter("Author_EN", "Scrungie_EN", Spoggle.Red);
-            med.AddRandomEncounter("Author_EN", "Scrungie_EN", Spoggle.Purple);
-            med.AddRandomEncounter("Author_EN", "Scrungie_EN", Flower.Yellow);
+            med.AddRandomEncounter("Author_EN", "Something_EN", Spoggle.Purple);
+            med.AddRandomEncounter("Author_EN", "Something_EN", Flower.Yellow);
             med.AddRandomEncounter("Author_EN", "Scrungie_EN", Flower.Purple);
 
             med.AddEncounterToDataBases();
@@ -73,6 +73,68 @@ namespace SaltsEnemies_Reseasoned
 
             hard.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Author.Hard, 15, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Hard);
+        }
+        public static void Post()
+        {
+            AddTo med = new AddTo(Orph.H.Something.Med);
+            med.AddRandomGroup("Something_EN", "Author_EN", "LostSheep_EN");
+
+            med = new AddTo(Orph.H.Crow.Med);
+            med.AddRandomGroup("TheCrow_EN", "Author_EN", Spoggle.Red);
+
+            med = new AddTo(Orph.H.Freud.Med);
+            med.AddRandomGroup("Freud_EN", "Author_EN", "Enigma_EN");
+
+            med = new AddTo(Orph.H.Sigil.Med);
+            med.AddRandomGroup("Sigil_EN", "MusicMan_EN", "Author_EN");
+
+            med = new AddTo(Orph.H.WindSong.Med);
+            med.AddRandomGroup("WindSong_EN", "MusicMan_EN", "Author_EN");
+
+            AddTo hard = new AddTo(Orph.H.Tortoise.Hard);
+            hard.AddRandomGroup("StalwartTortoise_EN", "Author_EN");
+
+            med = new AddTo(Orph.H.Maw.Med);
+            med.AddRandomGroup("Maw_EN", "Author_EN", Bots.Yellow);
+
+            hard = new AddTo(Orph.H.Maw.Hard);
+            hard.AddRandomGroup("Maw_EN", "Author_EN", "Evileye_EN");
+
+            med = new AddTo(Orph.H.Crystal.Med);
+            med.AddRandomGroup("Crystal_EN", "Author_EN", "LostSheep_EN");
+
+            hard = new AddTo(Orph.H.Dragon.Hard);
+            hard.AddRandomGroup("TheDragon_EN", "Author_EN", "Scrungie_EN");
+
+            med = new AddTo(Orph.H.Evileye.Med);
+            med.AddRandomGroup("Evileye_EN", "Author_EN", Jumble.Purple);
+
+            med = new AddTo(Orph.H.YellowAngel.Med);
+            med.AddRandomGroup("YellowAngel_EN", "Author_EN", Enemies.Shooter);
+
+            med = new AddTo(Orph.H.Wednesday.Med);
+            med.AddRandomGroup("Wednesday_EN", "MusicMan_EN", "MusicMan_EN", "Author_EN");
+
+            med = new AddTo(Orph.H.Solitaire.Med);
+            med.AddRandomGroup("Solitaire_EN", "Solitaire_EN", "Author_EN");
+
+            med = new AddTo(Orph.H.Scrungie.Med);
+            med.SimpleAddGroup(2, "Scrungie_EN", 1, "Author_EN");
+
+            med = new AddTo(Orph.H.Spoggle.Red.Med);
+            med.AddRandomGroup(Spoggle.Red, "Author_EN");
+
+            hard = new AddTo(Orph.H.Sacrifice.Hard);
+            hard.AddRandomGroup(Enemies.Sacrifice, "Author_EN", "Author_EN");
+
+            hard = new AddTo(Orph.H.Revola.Hard);
+            hard.AddRandomGroup("Revola_EN", "Author_EN");
+
+            med = new AddTo(Orph.H.Conductor.Med);
+            med.AddRandomGroup("Conductor_EN", "Author_EN", "SingingStone_EN", "SingingStone_EN");
+
+            hard = new AddTo(Orph.H.Conductor.Hard);
+            if (Winter.Chance) hard.AddRandomGroup("Conductor_EN", "Author_EN", "Crystal_EN");
         }
     }
 }

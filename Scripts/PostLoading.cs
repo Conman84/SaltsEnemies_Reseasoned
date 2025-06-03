@@ -94,6 +94,7 @@ namespace SaltEnemies_Reseasoned
                 PCall(ChiitoEncounters.Post);
                 PCall(SolitaireEncounters.Post);
                 PCall(FoxtrotEncounters.Post);
+                PCall(AuthorEncounters.Post);
             }
 
             //Crossovers
