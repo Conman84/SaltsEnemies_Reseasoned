@@ -68,7 +68,7 @@ namespace SaltsEnemies_Reseasoned
             eyeless.CombatEnterEffects = new EffectInfo[]
             {
                 Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Starless"), 1),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<EyelessEnterEffect>())
+                Effects.GenerateEffect(RootActionEffect.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<EyelessEnterEffect>())]))
             };
             eyeless.CombatExitEffects = Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Starless"), -1).SelfArray();
 

@@ -123,7 +123,7 @@ namespace SaltEnemies_Reseasoned
         {
             if (!(args is TurnFinishedReference))
             {
-                CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[]
+                CombatManager.Instance.AddRootAction(new EffectAction(new EffectInfo[]
                 {
                     Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self),
                     Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self),
