@@ -34,12 +34,14 @@ namespace SaltEnemies_Reseasoned
         public class PassiveHolder
         {
             public List<string> types;
+            public List<BasePassiveAbilitySO> passives;
             CharacterCombat chara;
             public PassiveHolder(BasePassiveAbilitySO[] passi, CharacterCombat chara = null)
             {
                 this.types = new List<string>();
                 foreach (BasePassiveAbilitySO pas in passi) types.Add(pas.m_PassiveID);
                 if (chara != null) this.chara = chara;
+                passives = passi.ToList();
             }
             public bool ContainsPassiveAbility(string ty) => types.Contains(ty);
 
@@ -51,11 +53,22 @@ namespace SaltEnemies_Reseasoned
                 {
                     if (ret)
                     {
-                        foreach (BasePassiveAbilitySO passi in chara.PassiveAbilities) if (passi.m_PassiveID == ty)
-                            {
-                                passive = passi;
-                                return ret;
-                            }
+                        if (chara != null)
+                        {
+                            foreach (BasePassiveAbilitySO passi in chara.PassiveAbilities) if (passi.m_PassiveID == ty)
+                                {
+                                    passive = passi;
+                                    return ret;
+                                }
+                        }
+                        else
+                        {
+                            foreach (BasePassiveAbilitySO passi in passives) if (passi.m_PassiveID == ty)
+                                {
+                                    passive = passi;
+                                    return ret;
+                                }
+                        }
                     }
                     return ret;
                 }
@@ -275,20 +288,6 @@ namespace SaltEnemies_Reseasoned
             {
                 enemy.AddPassiveAbility(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Infestation.ToString(), out passive))
-            {
-                bool cont = true;
-                for (int i = -1; i < 13; i++)
-                {
-                    if (passive._passiveName.Contains("(" + i.ToString() + ")"))
-                    {
-                        enemy.AddPassiveAbility(Passives.InfestationGenerator(i));
-                        cont = false;
-                        break;
-                    }
-                }
-                if (cont) enemy.AddPassiveAbility(Passives.Infestation1);
-            }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Masochism.ToString(), out passive))
             {
                 bool cont = true;
@@ -332,6 +331,10 @@ namespace SaltEnemies_Reseasoned
                 if (cont) enemy.AddPassiveAbility(Passives.Cashout);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Infestation.ToString(), out passive))
+            {
+                enemy.AddPassiveAbility(passive);
+            }
+            if (passives.ContainsPassiveAbility(UnitStoredValueNames_GameIDs.InfestationPA.ToString(), out passive))
             {
                 enemy.AddPassiveAbility(passive);
             }
@@ -539,17 +542,7 @@ namespace SaltEnemies_Reseasoned
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Infestation.ToString(), out passive))
             {
-                bool cont = true;
-                for (int i = -1; i < 13; i++)
-                {
-                    if (passive._passiveName.Contains("(" + i.ToString() + ")"))
-                    {
-                        ret.Add(Passives.InfestationGenerator(i));
-                        cont = false;
-                        break;
-                    }
-                }
-                if (cont) ret.Add(Passives.Infestation1);
+                ret.Add(passive);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Masochism.ToString(), out passive))
             {
@@ -593,43 +586,51 @@ namespace SaltEnemies_Reseasoned
                 }
                 if (cont) ret.Add(Passives.Cashout);
             }
-            if (DefaultPassiveAdding != null)
+            try
             {
-                foreach (string ID in DefaultPassiveAdding.Keys)
+                if (DefaultPassiveAdding != null)
                 {
-                    try
+                    foreach (string ID in DefaultPassiveAdding.Keys)
                     {
-                        if (passives.ContainsPassiveAbility(ID, out passive))
+                        try
                         {
-                            if (DefaultPassiveAdding[ID].m_PassiveID == DefaultPassive.m_PassiveID)
+                            if (passives.ContainsPassiveAbility(ID, out passive))
                             {
-                                if (DefaultPassiveAdding[ID]._enemyDescription != "nothing.") passive._enemyDescription = DefaultPassiveAdding[ID]._enemyDescription;
-                                ret.Add(passive);
+                                if (DefaultPassiveAdding[ID].m_PassiveID == DefaultPassive.m_PassiveID)
+                                {
+                                    if (DefaultPassiveAdding[ID]._enemyDescription != "nothing.") passive._enemyDescription = DefaultPassiveAdding[ID]._enemyDescription;
+                                    ret.Add(passive);
+                                }
+                                else ret.Add(DefaultPassiveAdding[ID]);
                             }
-                            else ret.Add(DefaultPassiveAdding[ID]);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.Log("epic fail on passive ID " + ID);
+                            Debug.LogError(ex.ToString());
                         }
                     }
-                    catch (Exception ex)
+                }
+                if (OtherChecks != null)
+                {
+                    foreach (Action<PassiveHolder, CharacterCombat, EnemyCombat> action in OtherChecks)
                     {
-                        Debug.Log("epic fail on passive ID " + ID);
-                        Debug.LogError(ex.ToString());
+                        try
+                        {
+                            action(passives, character, enemy);
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.LogError("CameraEffects AddPassive action fail");
+                            Debug.LogError(ex.ToString());
+                        }
                     }
                 }
             }
-            if (OtherChecks != null)
+            catch (Exception ex)
             {
-                foreach (Action<PassiveHolder, CharacterCombat, EnemyCombat> action in OtherChecks)
-                {
-                    try
-                    {
-                        action(passives, character, enemy);
-                    }
-                    catch (Exception ex)
-                    {
-                        Debug.LogError("CameraEffects AddPassive action fail");
-                        Debug.LogError(ex.ToString());
-                    }
-                }
+                Debug.LogWarning("camera passive copy fail");
+                Debug.LogWarning(ex.ToString());
             }
 
             return ret;
@@ -748,16 +749,22 @@ namespace SaltEnemies_Reseasoned
                 exitAmount++;
             }
             if (caster.CurrentHealth < caster.MaximumHealth) caster.SetHealthTo(caster.MaximumHealth);
-            CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
-            CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
-            CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
-            CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
+            if (stats.combatUI._animations.CanTriggerAnimations)
+            {
+                CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
+                CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
+                CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
+                CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
+            }
             if (caster.ChangeHealthColor(targets[0].Unit.HealthColor))
                 exitAmount++;
-            CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
-            CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
-            CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
-            CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
+            if (stats.combatUI._animations.CanTriggerAnimations)
+            {
+                CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
+                CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
+                CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
+                CombatManager.Instance.AddUIAction(new WasteTimeUIAction(caster.ID, caster.IsUnitCharacter, ""));
+            }
             if (targets[0].Unit is CharacterCombat character && caster is EnemyCombat enemy)
             {
                 string namae = "Image of ";
