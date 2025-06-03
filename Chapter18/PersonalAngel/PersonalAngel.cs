@@ -86,7 +86,7 @@ namespace SaltsEnemies_Reseasoned
                 Visuals = CustomVisuals.GetVisuals("Salt/Curse"),
                 AnimationTarget = Slots.Front,
             };
-            hell.AddIntentsToTarget(Slots.Self, [Pale.Intent]);
+            hell.AddIntentsToTarget(Slots.Front, [Pale.Intent]);
 
             //ADD ENEMY
             devil.AddEnemyAbilities(new EnemyAbilityInfo[]
