@@ -31,8 +31,8 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Author_EN", "Delusion_EN", "Delusion_EN", Enemies.Shooter);
             med.AddRandomEncounter("Author_EN", "Delusion_EN", "Delusion_EN", "Solitaire_EN");
             med.SimpleAddEncounter(1, "Author_EN", 2, "Scrungie_EN");
-            med.AddRandomEncounter("Author_EN", "Solitiare_EN", Enemies.Shooter, "Delusion_EN");
-            med.AddRandomEncounter("Author_EN", "Solitiare_EN", Enemies.Shooter, "MusicMan_EN");
+            med.AddRandomEncounter("Author_EN", "Solitaire_EN", Enemies.Shooter, "Delusion_EN");
+            med.AddRandomEncounter("Author_EN", "Solitaire_EN", Enemies.Shooter, "MusicMan_EN");
             med.AddRandomEncounter("Author_EN", "MusicMan_EN", "MusicMan_EN", "SingingStone_EN");
             med.AddRandomEncounter("Author_EN", "Delusion_EN", "Delusion_EN", "LostSheep_EN");
             med.AddRandomEncounter("Author_EN", "Solitaire_EN", "Enigma_EN", "Enigma_EN");
