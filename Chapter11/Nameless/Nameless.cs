@@ -94,7 +94,7 @@ namespace SaltsEnemies_Reseasoned
                 nameless.GenerateEnemyAbility(true),
                 nobody.GenerateEnemyAbility(true)
             });
-            template.AddEnemy(true, true);
+            template.AddEnemy(true);
         }
     }
 }

@@ -104,7 +104,7 @@ namespace SaltsEnemies_Reseasoned
                 cat.GenerateEnemyAbility(true),
                 suicide.GenerateEnemyAbility(true)
             });
-            author.AddEnemy(true, true);
+            author.AddEnemy(true);
         }
     }
 }

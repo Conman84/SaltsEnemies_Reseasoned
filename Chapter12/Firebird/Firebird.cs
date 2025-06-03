@@ -121,7 +121,7 @@ namespace SaltsEnemies_Reseasoned
                 veins.GenerateEnemyAbility(true),
                 death.GenerateEnemyAbility(true)
             });
-            firebird.AddEnemy(true, true);
+            firebird.AddEnemy(true);
         }
     }
 }

@@ -117,7 +117,7 @@ namespace SaltsEnemies_Reseasoned
                 suffocate.GenerateEnemyAbility(true),
                 scare.GenerateEnemyAbility(true)
             });
-            snakegod.AddEnemy(true, true);
+            snakegod.AddEnemy(true);
         }
     }
 }

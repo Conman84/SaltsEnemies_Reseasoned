@@ -115,7 +115,7 @@ namespace SaltsEnemies_Reseasoned
                 lies.GenerateEnemyAbility(true),
                 die.GenerateEnemyAbility(true)
             });
-            miriam.AddEnemy(true, true);
+            miriam.AddEnemy(true);
         }
     }
 }
