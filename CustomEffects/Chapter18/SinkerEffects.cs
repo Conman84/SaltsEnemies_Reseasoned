@@ -63,7 +63,7 @@ namespace SaltEnemies_Reseasoned
             for (int i = 0; i < 12; i++) fish.Add(LoadedAssetsHandler.GetEnemy("MudLung_EN"));
             for (int i = 0; i < 2; i++) fish.Add(LoadedAssetsHandler.GetEnemy("Mung_EN"));
             fish.Add(LoadedAssetsHandler.GetEnemy("Goa_EN"));
-            for (int i = 0; i < 4; i++) fish.Add(LoadedAssetsHandler.GetEnemy("MunglingMudLung_EN"));
+            for (int i = 0; i < 4; i++) fish.Add(LoadedAssetsHandler.GetEnemy(Enemies.Mungling));
             for (int i = 0; i < 4; i++) fish.Add(LoadedAssetsHandler.GetEnemy("FlaMinGoa_EN"));
             for (int i = 0; i < 3; i++) fish.Add(LoadedAssetsHandler.GetEnemy("Mungie_EN"));
             for (int i = 0; i < 3; i++) fish.Add(LoadedAssetsHandler.GetEnemy("Keko_EN"));
@@ -73,12 +73,13 @@ namespace SaltEnemies_Reseasoned
                 for (int i = 0; i < 5; i++) fish.Add(LoadedAssetsHandler.GetEnemy("Pinano_EN"));
             }
             fish.Add(LoadedAssetsHandler.GetEnemy("Wringle_EN"));
-            for (int i = 0; i < 2; i++) fish.Add(LoadedAssetsHandler.GetEnemy("Spoggle_Spitfire_EN"));
+            for (int i = 0; i < 2; i++) fish.Add(LoadedAssetsHandler.GetEnemy(Spoggle.Yellow));
             fish.Add(LoadedAssetsHandler.GetEnemy("ManicHips_EN"));
             if (Check.EnemyExist("AFlower_EN")) for (int i = 0; i < 3; i++) fish.Add(LoadedAssetsHandler.GetEnemy("AFlower_EN"));
-            if (Check.EnemyExist("TeachaMantoFish_EN")) fish.Add(LoadedAssetsHandler.GetEnemy("TeachaMantoFish_EN"));
+            if (Check.EnemyExist(Enemies.Unmung)) fish.Add(LoadedAssetsHandler.GetEnemy(Enemies.Unmung));
             foreach (EnemySO en in LoadedAssetsHandler.LoadedEnemies.Values)
             {
+                if (en.unitTypes == null) continue;
                 if (en.unitTypes.Contains(UnitType_GameIDs.Fish.ToString()) && en.size == 1 && en.health <= 30)
                 {
                     if (!fish.Contains(en)) fish.Add(en);

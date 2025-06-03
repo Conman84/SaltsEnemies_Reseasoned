@@ -10,7 +10,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Portals.AddPortalSign("Salt_AmalgaEncounter_Sign", ResourceLoader.LoadSprite("AmalgaPortal.png"), Portals.EnemyIDColor);
+            Portals.AddPortalSign("Salt_AmalgaEncounter_Sign", ResourceLoader.LoadSprite("WallWorld.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API hard = new EnemyEncounter_API(EncounterType.Random, Shore.H.Amalga.Hard, "Salt_AmalgaEncounter_Sign");
             hard.MusicEvent = "event:/Hawthorne/WallTheme";
