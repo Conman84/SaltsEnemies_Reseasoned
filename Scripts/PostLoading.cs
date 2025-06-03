@@ -21,7 +21,7 @@ namespace SaltEnemies_Reseasoned
             Called = true;
 
             //glassed sun setup
-            if (DebugVer) PCall(GlassedSunEffect.Instance.Setup);
+            PCall(GlassedSunEffect.Instance.Setup);
 
             SaltDeadPixelEncounters.Add();
             PCall(SaltCrowEncounters.Add);
@@ -49,54 +49,48 @@ namespace SaltEnemies_Reseasoned
             PCall(FirebirdEncounters.Post);
             PCall(WarbirdEncounters.Post);
 
-            if (DebugVer)
-            {
-                PCall(WindleEncounters.Post);
-                PCall(BlackStarEncounters.Post);
-                PCall(IndicatorEncounters.Post);
-                PCall(MawEncounters.Post);
-                PCall(AbyssAngelEncounters.Post);
-                PCall(YourNewLifeEncounters.Post);
-                PCall(MidnightTrafficLightEncounters.Post);
-                PCall(ArcelesEncounters.Post);
-                PCall(ChildrenEncounters.Post);
-                PCall(PinanoEncounters.Post);
+            PCall(WindleEncounters.Post);
+            PCall(BlackStarEncounters.Post);
+            PCall(IndicatorEncounters.Post);
+            PCall(MawEncounters.Post);
+            PCall(AbyssAngelEncounters.Post);
+            PCall(YourNewLifeEncounters.Post);
+            PCall(MidnightTrafficLightEncounters.Post);
+            PCall(ArcelesEncounters.Post);
+            PCall(ChildrenEncounters.Post);
+            PCall(PinanoEncounters.Post);
 
-                PCall(RedBotEncounters.Post);
-                PCall(YellowBotEncounters.Post);
-                PCall(BlueBotEncounters.Post);
-                PCall(PurpleBotEncounters.Post);
-                PCall(GreyBotEncounters.Post);
-                PCall(GlassedSunEncounters.Post);
-                PCall(CrystallineCorpseEaterEncounters.Post);
-                PCall(TortureMeNotEncounters.Post);
-                PCall(DragonEncounters.Post);
-                PCall(OdeToHumanityEncounters.Post);
-            }
+            PCall(RedBotEncounters.Post);
+            PCall(YellowBotEncounters.Post);
+            PCall(BlueBotEncounters.Post);
+            PCall(PurpleBotEncounters.Post);
+            PCall(GreyBotEncounters.Post);
+            PCall(GlassedSunEncounters.Post);
+            PCall(CrystallineCorpseEaterEncounters.Post);
+            PCall(TortureMeNotEncounters.Post);
+            PCall(DragonEncounters.Post);
+            PCall(OdeToHumanityEncounters.Post);
 
-            if (DebugVer)
-            {
-                PCall(NobodyGraveEncounters.Post);
-                PCall(ToyUfoEncounters.Post);
-                PCall(EvileyeEncounters.Post);
-                PCall(YellowAngelEncounters.Post);
-                PCall(ChienTindalouEncounters.Post);
-                PCall(SinkerEncounters.Post);
-                PCall(SkeletonShooterEncounters.Post);
-                PCall(ComplimentaryEncounters.Post);
-                PCall(PersonalAngelEncounters.Post);
+            PCall(NobodyGraveEncounters.Post);
+            PCall(ToyUfoEncounters.Post);
+            PCall(EvileyeEncounters.Post);
+            PCall(YellowAngelEncounters.Post);
+            PCall(ChienTindalouEncounters.Post);
+            PCall(SinkerEncounters.Post);
+            PCall(SkeletonShooterEncounters.Post);
+            PCall(ComplimentaryEncounters.Post);
+            PCall(PersonalAngelEncounters.Post);
 
-                PCall(WednesdayEncounters.Post);
-                PCall(StarlessEncounters.Post);
-                PCall(PawnAEncounters.Post);
-                PCall(YangEncounters.Post);
-                PCall(TwoThousandNineEncounters.Post);
-                PCall(ChiitoEncounters.Post);
-                PCall(SolitaireEncounters.Post);
-                PCall(FoxtrotEncounters.Post);
-                PCall(AuthorEncounters.Post);
-                PCall(WallEncounters.Post);
-            }
+            PCall(WednesdayEncounters.Post);
+            PCall(StarlessEncounters.Post);
+            PCall(PawnAEncounters.Post);
+            PCall(YangEncounters.Post);
+            PCall(TwoThousandNineEncounters.Post);
+            PCall(ChiitoEncounters.Post);
+            PCall(SolitaireEncounters.Post);
+            PCall(FoxtrotEncounters.Post);
+            PCall(AuthorEncounters.Post);
+            PCall(WallEncounters.Post);
 
             //Crossovers
 
