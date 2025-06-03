@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -148,6 +149,9 @@ namespace SaltsEnemies_Reseasoned
             mainEncounters2.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone01_AFlower_Hard_EnemyBundle", 10, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Hard);
 
+            //normal mode
+            Add_Normal();
+
             //Secondary
             List<RandomEnemyGroup> list1 = new List<RandomEnemyGroup>(((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone01_FlaMingGoa_Medium_EnemyBundle"))._enemyBundles);
             list1.Add(new RandomEnemyGroup(new string[]
@@ -219,6 +223,28 @@ namespace SaltsEnemies_Reseasoned
                 "AFlower_EN"
             }));
             ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone01_Voboola_Hard_EnemyBundle"))._enemyBundles = list5;
+        }
+        public static void Add_Normal()
+        {
+            EnemyEncounter_API hard = new EnemyEncounter_API(EncounterType.Random, Shore.Angler.Hard, "Salt_AFlower_Sign");
+            hard.MusicEvent = "event:/Hawthorne/AnglerTheme";
+            hard.RoarEvent = LoadedAssetsHandler.GetEnemyBundle("H_Zone01_Voboola_Hard_EnemyBundle")._roarReference.roarEvent;
+
+            hard.AddRandomEncounter("AFlower_EN", "MudLung_EN", "MudLung_EN");
+            hard.AddRandomEncounter("AFlower_EN", "Pinano_EN", "MudLung_EN");
+            hard.AddRandomEncounter("AFlower_EN", "MudLung_EN", "Wall_EN");
+            hard.AddRandomEncounter("AFlower_EN", "MudLung_EN", Jumble.Yellow);
+            hard.AddRandomEncounter("AFlower_EN", "MudLung_EN", Jumble.Red);
+            hard.AddRandomEncounter("AFlower_EN", "Wall_EN", "Wall_EN");
+            hard.AddRandomEncounter("AFlower_EN", "Wall_EN", Spoggle.Yellow);
+            hard.AddRandomEncounter("AFlower_EN", "Wall_EN", Spoggle.Blue);
+            hard.AddRandomEncounter("AFlower_EN", "Pinano_EN", "LostSheep_EN");
+            hard.AddRandomEncounter("AFlower_EN", "ToyUfo_EN", "NobodyGrave_EN");
+            hard.AddRandomEncounter("AFlower_EN", "Pinano_EN", "Flarblet_EN");
+            hard.AddRandomEncounter("AFlower_EN", "Keko_EN", "Keko_EN", "LostSheep_EN");
+
+            hard.AddEncounterToDataBases();
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.Angler.Hard, 10, ZoneType_GameIDs.FarShore_Easy, BundleDifficulty.Hard);
         }
     }
 }

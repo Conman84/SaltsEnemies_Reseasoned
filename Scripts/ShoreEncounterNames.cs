@@ -55,6 +55,10 @@ namespace SaltsEnemies_Reseasoned
         }
 
         //hawthorne
+        public static class Angler
+        {
+            public static string Hard => "Zone01_AFlower_Hard_EnemyBundle";
+        }
         public static class Tripod
         {
             public static string Hard => "Zone01_Tripod_Hard_EnemyBundle";
