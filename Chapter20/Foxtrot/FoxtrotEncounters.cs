@@ -30,7 +30,7 @@ namespace SaltsEnemies_Reseasoned
             easy.SimpleAddEncounter(3, "Foxtrot_EN", 1, "CandyStone_EN");
 
             easy.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Foxtrot.Easy, 3, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Foxtrot.Easy, 4, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Easy);
         }
         public static void Post()
         {
