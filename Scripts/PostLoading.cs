@@ -30,7 +30,6 @@ namespace SaltEnemies_Reseasoned
             SaltMortalSpoggleEncounters.Add();
             SaltMechanicalLensEncounters.Add();
 
-            //I think the next update should be chapters 9-12. ive made changes to reflect as much.
             PCall(GrandfatherEncounters.Post);
             PCall(GreyFlowerEncounters.Post);
             PCall(SpectreWitchFamiliarEncounters.Post);
