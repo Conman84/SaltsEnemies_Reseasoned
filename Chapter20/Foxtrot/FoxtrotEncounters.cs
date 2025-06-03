@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
             Portals.AddPortalSign("Salt_FoxtrotEncounter_Sign", ResourceLoader.LoadSprite("FoxtrotWorld.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API easy = new EnemyEncounter_API(EncounterType.Random, Orph.H.Foxtrot.Easy, "Salt_FoxtrotEncounter_Sign");
-            easy.MusicEvent = "event:/Hawthorne/TripodTheme";
+            easy.MusicEvent = "event:/Hawthorne/FoxtrotPlaceholder";
             easy.RoarEvent = "event:/Hawthorne/Sund/FoxtrotDie";
 
             easy.SimpleAddEncounter(3, "Foxtrot_EN");
