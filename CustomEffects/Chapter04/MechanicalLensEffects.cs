@@ -331,6 +331,10 @@ namespace SaltEnemies_Reseasoned
                 }
                 if (cont) enemy.AddPassiveAbility(Passives.Cashout);
             }
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Infestation.ToString(), out passive))
+            {
+                enemy.AddPassiveAbility(passive);
+            }
             if (DefaultPassiveAdding != null)
             {
                 foreach (string ID in DefaultPassiveAdding.Keys)
