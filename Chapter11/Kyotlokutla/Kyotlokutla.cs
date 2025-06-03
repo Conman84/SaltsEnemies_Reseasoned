@@ -96,17 +96,17 @@ namespace SaltsEnemies_Reseasoned
             Ability scare = new Ability("TerrifyTheFeeble_A")
             {
                 Name = "Terrify the Feeble",
-                Description = "Make the party member with the lowest health instantly flee. Produce 4 Red pigment.",
+                Description = "Instantly kill the lowest health party member. Produce 4 Red pigment.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("snakegod15", 15),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<FleeTargetEffect>(), 1, Targetting.LowestEnemy),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Targetting.LowestEnemy),
                     Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Red), 4, Slots.Self)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Forest"),
                 AnimationTarget = Targetting.LowestEnemy,
             };
-            scare.AddIntentsToTarget(Targetting.LowestEnemy, [IntentType_GameIDs.PA_Fleeting.ToString()]);
+            scare.AddIntentsToTarget(Targetting.LowestEnemy, [IntentType_GameIDs.Damage_Death.ToString()]);
             scare.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Mana_Generate.ToString()]);
 
             //ADD ENEMY
