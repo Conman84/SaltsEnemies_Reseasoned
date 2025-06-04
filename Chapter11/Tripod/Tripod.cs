@@ -74,12 +74,12 @@ namespace SaltsEnemies_Reseasoned
             Ability shortStomp = new Ability("ShortStomp_A")
             {
                 Name = "Short Stomp",
-                Description = "If this enemy does not Confusion as a Passive, heal it a Moderate amount health. \nOtherwise, deal a Painful amount of damage to the Opposing party member and inflict 2 Ruptured upon them, then move this enemy 3 spaces Left or Right.",
+                Description = "If this enemy does not Confusion as a Passive, give it 10 Shield. \nOtherwise, deal a Painful amount of damage to the Opposing party member and inflict 2 Ruptured upon them, then move this enemy 3 spaces Left or Right.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("Tripod8", 8),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(BasicEffects.GetVisuals("FallingSkies_A", false, Slots.Self), 1, Slots.Self, HasConfusionCondition.Create(false)),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 10, Slots.Self, HasConfusionCondition.Create(false)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 10, Slots.Self, HasConfusionCondition.Create(false)),
                     Effects.GenerateEffect(BasicEffects.GetVisuals("FallingSkies_A", false, Slots.Front), 0, Slots.Front, HasConfusionCondition.Create(true)),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Front, HasConfusionCondition.Create(true)),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Slots.Front, HasConfusionCondition.Create(true)),
@@ -88,7 +88,7 @@ namespace SaltsEnemies_Reseasoned
                 Visuals = null,
                 AnimationTarget = Slots.Self,
             };
-            shortStomp.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Heal_5_10.ToString(), IntentType_GameIDs.Misc_Hidden.ToString()]);
+            shortStomp.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Field_Shield.ToString(), IntentType_GameIDs.Misc_Hidden.ToString()]);
             shortStomp.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Status_Ruptured.ToString()]);
             shortStomp.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Sides.ToString()]);
 
