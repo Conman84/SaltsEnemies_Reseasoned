@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy firebird = new Enemy("The Firebird", "Firebird_EN")
             {
-                Health = 35,
+                Health = 25,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("FirebirdIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("FirebirdWorld.png", new Vector2(0.5f, 0f), 32),
