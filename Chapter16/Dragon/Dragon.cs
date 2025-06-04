@@ -36,11 +36,11 @@ namespace SaltsEnemies_Reseasoned
             Ability scorch_L = new Ability("ScorchLeft_A")
             {
                 Name = "Scorch Left",
-                Description = "Inflict 3 Fire on the Left Opposing party member position.",
+                Description = "Inflict 2 Fire on the Left Opposing party member position.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 3, tar_L),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 2, tar_L),
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Scorch"),
                 AnimationTarget = tar_L,
@@ -54,11 +54,11 @@ namespace SaltsEnemies_Reseasoned
             Ability scorch_R = new Ability("ScorchRight_A")
             {
                 Name = "Scourge Right",
-                Description = "Inflict 3 Fire on the Right Opposing party member position.",
+                Description = "Inflict 2 Fire on the Right Opposing party member position.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 3, tar_R),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 2, tar_R),
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Scorch"),
                 AnimationTarget = tar_R,
@@ -188,7 +188,7 @@ namespace SaltsEnemies_Reseasoned
             asleep.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<DragonOnceCondition>(), ScriptableObject.CreateInstance<IsAliveCondition>() };
 
             //addpassives
-            dargon.AddPassives(new BasePassiveAbilitySO[] { Passives.FleetingGenerator(6), asleep });
+            dargon.AddPassives(new BasePassiveAbilitySO[] { asleep });
             dargon.CombatExitEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<DragonSongEffect>()).SelfArray();
 
             //ASLEEP MOVESET
