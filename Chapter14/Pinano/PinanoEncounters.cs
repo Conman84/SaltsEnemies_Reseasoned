@@ -176,11 +176,11 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Shore.H.Clione.Med);
             med.AddRandomGroup("Clione_EN", "Pinano_EN", "Pinano_EN");
-            hard.AddRandomGroup("Clione_EN", "Pinano_EN", Enemies.Mungling);
-            hard.AddRandomGroup("Clione_EN", "Pinano_EN", "MudLung_EN");
-            hard.AddRandomGroup("Clione_EN", "Pinano_EN", "Flarblet_EN");
-            hard.AddRandomGroup("Clione_EN", "Pinano_EN", Jumble.Red);
-            hard.AddRandomGroup("Clione_EN", "Pinano_EN", Jumble.Yellow);
+            med.AddRandomGroup("Clione_EN", "Pinano_EN", Enemies.Mungling);
+            med.AddRandomGroup("Clione_EN", "Pinano_EN", "MudLung_EN");
+            med.AddRandomGroup("Clione_EN", "Pinano_EN", "Flarblet_EN");
+            med.AddRandomGroup("Clione_EN", "Pinano_EN", Jumble.Red);
+            med.AddRandomGroup("Clione_EN", "Pinano_EN", Jumble.Yellow);
 
             hard = new AddTo(Shore.H.Clione.Hard);
             hard.AddRandomGroup("Clione_EN", "Pinano_EN", "DeadPixel_EN", "DeadPixel_EN");
