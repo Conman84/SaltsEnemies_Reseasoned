@@ -71,7 +71,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("SkeletonShooter_EN", "SkeletonShooter_EN", Bots.Yellow);
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.Shooter.Med, 10, ZoneType_GameIDs.Orpheum_Easy, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.Shooter.Med, 12, ZoneType_GameIDs.Orpheum_Easy, BundleDifficulty.Medium);
         }
         public static void Add_Hardmode_Med()
         {
@@ -94,7 +94,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("SkeletonShooter_EN", "SkeletonShooter_EN", Flower.Purple);
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Shooter.Med, 12, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Shooter.Med, 15, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
         }
         public static void Post()
         {

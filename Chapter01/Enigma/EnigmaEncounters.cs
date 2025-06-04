@@ -34,7 +34,7 @@ namespace SaltsEnemies_Reseasoned
                 "Spoggle_Ruminating_EN",
             }, null);
             mainEncounters.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("Zone02_Enigma_Easy_EnemyBundle", 5, ZoneType_GameIDs.Orpheum_Easy, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("Zone02_Enigma_Easy_EnemyBundle", 3, ZoneType_GameIDs.Orpheum_Easy, BundleDifficulty.Easy);
 
             EnemyEncounter_API mainEncounters2 = new EnemyEncounter_API(0, "H_Zone02_Enigma_Easy_EnemyBundle", "Salt_EnigmaEncounters_Sign");
             mainEncounters2.MusicEvent = "event:/Hawthorne/EnigmaTheme";
@@ -64,7 +64,7 @@ namespace SaltsEnemies_Reseasoned
                 "Spoggle_Ruminating_EN",
             }, null);
             mainEncounters2.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Enigma_Easy_EnemyBundle", 4, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Enigma_Easy_EnemyBundle", 2, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Easy);
 
             EnemyEncounter_API mainEncounters3 = new EnemyEncounter_API(0, "H_Zone02_Enigma_Medium_EnemyBundle", "Salt_EnigmaEncounters_Sign");
             mainEncounters3.MusicEvent = "event:/Hawthorne/EnigmaTheme";

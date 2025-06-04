@@ -66,7 +66,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "Rabies_EN", 1, Enemies.Camera, 1, "Sigil_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Rabies.Med, 15, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Rabies.Med, 13, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
         }
         public static void Post()
         {

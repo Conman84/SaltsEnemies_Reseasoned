@@ -29,7 +29,7 @@ namespace SaltsEnemies_Reseasoned
             }, null);
 
             mainEncounters.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_YellowFlower_Easy_EnemyBundle", 2, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_YellowFlower_Easy_EnemyBundle", 1, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Easy);
 
             //Medium
             EnemyEncounter_API mainEncounters2 = new EnemyEncounter_API(0, "H_Zone02_YellowFlower_Medium_EnemyBundle", "Salt_YellowFlowerEncounters_Sign");

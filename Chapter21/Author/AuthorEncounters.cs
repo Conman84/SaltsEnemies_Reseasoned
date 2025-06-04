@@ -72,7 +72,7 @@ namespace SaltsEnemies_Reseasoned
             hard.SimpleAddEncounter(2, "Author_EN", 2, "Enigma_EN");
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Author.Hard, 5, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Author.Hard, 10, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Hard);
         }
         public static void Post()
         {

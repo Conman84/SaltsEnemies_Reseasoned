@@ -14,7 +14,7 @@ namespace SaltEnemies_Reseasoned
                 {
                     case 12: return 5;
                     case 11: return 4;
-                    case 10: return 4;
+                    case 10: return 3;
                     case 1: return 4;
                     case 2: return 4;
                     case 3: return 3;

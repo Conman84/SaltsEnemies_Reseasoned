@@ -277,7 +277,6 @@ namespace SaltsEnemies_Reseasoned
             public static class Foxtrot
             {
                 public static string Easy => "H_Zone02_Foxtrot_Easy_EnemyBundle";
-                public static string Med => "H_Zone02_Foxtrot_Medium_EnemyBundle";
             }
             public static class Author
             {
