@@ -26,7 +26,7 @@ namespace SaltsEnemies_Reseasoned
             easy.AddRandomEncounter("Windle_EN", "Wringle_EN");
 
             easy.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Windle.Easy, 5, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Windle.Easy, 4, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Easy);
         }
         public static void Post()
         {

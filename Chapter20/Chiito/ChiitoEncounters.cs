@@ -41,7 +41,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Chiito_EN", "Flarblet_EN", "LittleBeak_EN", "LostSheep_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Chiito.Med, 25, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Chiito.Med, 15, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
         }
         public static void Post()
         {

@@ -56,7 +56,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomEncounter("Clione_EN", "AFlower_EN", "DeadPixel_EN", "DeadPixel_EN");
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Clione.Hard, 20, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Clione.Hard, 18, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Hard);
         }
         public static void Post()
         {

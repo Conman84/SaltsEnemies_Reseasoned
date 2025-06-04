@@ -36,7 +36,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Sinker_EN", "ToyUfo_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Sinker.Med, 20, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Sinker.Med, 15, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
         }
         public static void Add_Hard()
         {

@@ -50,7 +50,7 @@ namespace SaltsEnemies_Reseasoned
             easy.AddRandomEncounter("NobodyGrave_EN", "Arceles_EN", "MudLung_EN");
 
             easy.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Grave.Easy, 5, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Grave.Easy, 4, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Easy);
         }
         public static void Post()
         {

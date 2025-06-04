@@ -31,7 +31,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(1, "Wall_EN", 4, "Mung_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.Wall.Med, 10, ZoneType_GameIDs.FarShore_Easy, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.Wall.Med, 12, ZoneType_GameIDs.FarShore_Easy, BundleDifficulty.Medium);
         }
         public static void Add_Easy_Hardmode()
         {
@@ -73,7 +73,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Wall_EN", "Wall_EN", "Chiito_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Wall.Med, 10, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Wall.Med, 12, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
         }
         public static void Post()
         {

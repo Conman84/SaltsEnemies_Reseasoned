@@ -38,7 +38,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(1, "2009_EN", 3, "Keko_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.TwoThousandNine.Med, 20, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.TwoThousandNine.Med, 15, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
         }
         public static void Post()
         {
