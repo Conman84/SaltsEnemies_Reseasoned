@@ -40,7 +40,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Wednesday_EN", "Sigil_EN", "MusicMan_EN", "MusicMan_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Wednesday.Med, 8, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Wednesday.Med, 8 * April.Mod, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
         }
         public static void Post()
         {

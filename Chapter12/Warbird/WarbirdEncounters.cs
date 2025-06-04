@@ -40,7 +40,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomEncounter("Warbird_EN", "AFlower_EN", Enemies.Camera);
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Warbird.Hard, 20, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Warbird.Hard, 20 * April.Mod, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Hard);
         }
         public static void Post()
         {

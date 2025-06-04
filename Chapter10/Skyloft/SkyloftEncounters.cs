@@ -27,7 +27,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Skyloft_EN", "MudLung_EN", "MudLung_EN", "Mung_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Skyloft.Easy, 4, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Skyloft.Easy, 4 * April.Mod, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Easy);
         }
 
         public static void Post()

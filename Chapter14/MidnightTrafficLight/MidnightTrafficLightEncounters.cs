@@ -78,7 +78,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomEncounter("Stoplight_EN", "Indicator_EN", Enemies.Minister, "BlackStar_EN");
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Stoplight.Hard, 10, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Stoplight.Hard, 10 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
         }
         public static void Post()
         {

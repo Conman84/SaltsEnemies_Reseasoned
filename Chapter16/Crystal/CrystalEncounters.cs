@@ -48,7 +48,7 @@ namespace SaltEnemies_Reseasoned
             med.AddRandomEncounter("Crystal_EN", Jumble.Purple, "Rabies_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Crystal.Med, 5 * Winter.Mod, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Crystal.Med, 5 * Winter.Mod * April.Mod, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
         }
         public static void Post()
         {

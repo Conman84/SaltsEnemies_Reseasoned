@@ -30,7 +30,7 @@ namespace SaltsEnemies_Reseasoned
             easy.AddRandomEncounter("NobodyGrave_EN", "Flarblet_EN", "Flarblet_EN");
 
             easy.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.Grave.Easy, 3, ZoneType_GameIDs.FarShore_Easy, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.Grave.Easy, 3 * April.Mod, ZoneType_GameIDs.FarShore_Easy, BundleDifficulty.Easy);
         }
         public static void Add_Hardmode()
         {

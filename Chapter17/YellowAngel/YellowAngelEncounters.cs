@@ -38,7 +38,7 @@ namespace SaltEnemies_Reseasoned
             med.AddRandomEncounter("YellowAngel_EN", "Evileye_EN", Enemies.Suckle, Enemies.Suckle);
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.YellowAngel.Med, 15, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.YellowAngel.Med, 15 * April.Mod, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
         }
         public static void Post()
         {

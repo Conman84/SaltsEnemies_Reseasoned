@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -118,7 +119,7 @@ namespace SaltsEnemies_Reseasoned
                 "Spoggle_Resonant_EN",
             }, null);
             mainEncounters3.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Enigma_Medium_EnemyBundle", 12, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Enigma_Medium_EnemyBundle", 12 * April.Mod, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
 
             //Secondary
             List<RandomEnemyGroup> list1 = new List<RandomEnemyGroup>(((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("Zone02_MusicMan_Medium_EnemyBundle"))._enemyBundles);

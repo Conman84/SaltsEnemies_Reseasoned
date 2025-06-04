@@ -59,7 +59,7 @@ namespace SaltsEnemies_Reseasoned
             easy.AddRandomEncounter("Pinano_EN", "Keko_EN", "Keko_EN");
 
             easy.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Pinano.Easy, 8, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Pinano.Easy, 8 * April.Mod, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Easy);
         }
         public static void Add_Med_Hardmode()
         {

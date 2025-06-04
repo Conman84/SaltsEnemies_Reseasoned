@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -111,7 +112,7 @@ namespace SaltsEnemies_Reseasoned
                 "MudLung_EN",
             }, null);
             mainEncounters.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone01_MechanicalLens_Hard_EnemyBundle", 10, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone01_MechanicalLens_Hard_EnemyBundle", 10 * April.Mod, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Hard);
 
             //Orpheum
             EnemyEncounter_API mainEncounters2 = new EnemyEncounter_API(0, "H_Zone02_MechanicalLens_Medium_EnemyBundle", "Salt_MechanicalLensEncounters_Sign");

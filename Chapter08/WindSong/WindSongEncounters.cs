@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -83,7 +84,7 @@ namespace SaltsEnemies_Reseasoned
             }, null);
 
             mainEncounters.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_WindSong_Medium_EnemyBundle", 15, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_WindSong_Medium_EnemyBundle", 15 * April.Mod, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
 
             //Garden
             //Easy

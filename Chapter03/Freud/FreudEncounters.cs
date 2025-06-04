@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -139,7 +140,7 @@ namespace SaltsEnemies_Reseasoned
                 "SingingStone_EN",
             }, null);
             mainEncounters2.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Freud_Medium_EnemyBundle", 15, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Freud_Medium_EnemyBundle", 15 * April.Mod, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
 
             //Secondary
             if (SaltsReseasoned.silly < 25)

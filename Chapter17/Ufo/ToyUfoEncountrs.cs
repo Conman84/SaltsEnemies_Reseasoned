@@ -63,7 +63,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("ToyUfo_EN", "Arceles_EN", "Pinano_EN", "MudLung_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Ufo.Med, 25, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Ufo.Med, 25 * April.Mod, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
         }
         public static void Post()
         {

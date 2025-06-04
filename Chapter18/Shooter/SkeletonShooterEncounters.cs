@@ -52,7 +52,7 @@ namespace SaltsEnemies_Reseasoned
             easy.AddRandomEncounter("SkeletonShooter_EN", "SkeletonShooter_EN", "TortureMeNot_EN");
 
             easy.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Shooter.Easy, 5, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Shooter.Easy, 5 * April.Mod, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Easy);
         }
         public static void Add_Normal_Med()
         {

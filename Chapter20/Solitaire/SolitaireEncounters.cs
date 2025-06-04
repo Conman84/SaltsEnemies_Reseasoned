@@ -63,7 +63,7 @@ namespace SaltsEnemies_Reseasoned
             hard.SimpleAddEncounter(4, "Solitaire_EN", 1, Enemies.Suckle);
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Solitaire.Hard, 1, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Solitaire.Hard, 1 * April.MoreMod, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Hard);
         }
         public static void Post()
         {

@@ -53,7 +53,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Starless_EN", "BlackStar_EN", "EyePalm_EN", "EyePalm_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Starless.Med, 10, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Starless.Med, 10 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
         }
         public static void Add_Hard()
         {
@@ -95,7 +95,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomEncounter("Eyeless_EN", Enemies.Minister, "LittleAngel_EN", "Children6_EN");
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Eyeless.Hard, 10, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Eyeless.Hard, 10 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
         }
         public static void Post()
         {

@@ -57,7 +57,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Shua_EN", "Grandfather_EN", "InHisImage_EN", "InHisImage_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Shua.Med, 7, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Shua.Med, 7 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
         }
         public static void Post()
         {

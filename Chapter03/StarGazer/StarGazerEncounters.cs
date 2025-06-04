@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,7 +27,7 @@ namespace SaltsEnemies_Reseasoned
                 "StarGazer_EN",
             }, null);
             mainEncounters.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone03_StarGazer_Easy_EnemyBundle", 1, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone03_StarGazer_Easy_EnemyBundle", 1 * April.MoreMod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
         }
     }
 }

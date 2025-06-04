@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SaltEnemies_Reseasoned
 {
-    public static class Misc
+    public static class April
     {
         public static bool Birthday
         {

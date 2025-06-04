@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -82,7 +83,7 @@ namespace SaltsEnemies_Reseasoned
                 "Keko_EN",
             }, null);
             mainEncounters2.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone01_DeadPixel_Medium_EnemyBundle", 15, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone01_DeadPixel_Medium_EnemyBundle", 15 * April.Mod, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
             
             //Orpheum
             EnemyEncounter_API mainEncounters3 = new EnemyEncounter_API(0, "H_Zone02_DeadPixel_Easy_EnemyBundle", "Salt_DeadPixelEncounters_Sign");

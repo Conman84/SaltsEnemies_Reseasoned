@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -85,7 +86,7 @@ namespace SaltsEnemies_Reseasoned
                 "Keko_EN",
             }, null);
             mainEncounters.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone01_TeachaMantoFish_Hard_EnemyBundle", 3, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone01_TeachaMantoFish_Hard_EnemyBundle", 3 * April.Mod, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Hard);
         }
     }
 }

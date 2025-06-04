@@ -45,7 +45,7 @@ namespace SaltEnemies_Reseasoned
             med.AddRandomEncounter("Hunter_EN", Flower.Grey, "Shua_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Hunter.Med, 7, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Hunter.Med, 7 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
         }
 
         public static void Post()

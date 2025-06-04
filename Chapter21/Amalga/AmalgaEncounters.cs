@@ -41,7 +41,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomEncounter("33_EN", Enemies.Camera, Spoggle.Blue);
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Amalga.Hard, 5, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Amalga.Hard, 5 * April.Mod, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Hard);
         }
     }
 }

@@ -68,7 +68,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Evileye_EN", Bots.Blue, Bots.Purple);
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Evileye.Med, 15, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Evileye.Med, 15 * April.Mod, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
         }
         public static void Post()
         {

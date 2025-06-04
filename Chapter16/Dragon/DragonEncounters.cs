@@ -44,7 +44,7 @@ namespace SaltsEnemies_Reseasoned
 
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Dragon.Hard, 15, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Dragon.Hard, 15 * April.Mod, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Hard);
         }
 
         public static void Post()
