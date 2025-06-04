@@ -49,7 +49,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Author_EN", "Scrungie_EN", Flower.Purple);
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Author.Med, 10, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Author.Med, 8, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
         }
         public static void Add_Hard()
         {
@@ -72,7 +72,7 @@ namespace SaltsEnemies_Reseasoned
             hard.SimpleAddEncounter(2, "Author_EN", 2, "Enigma_EN");
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Author.Hard, 15, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Author.Hard, 5, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Hard);
         }
         public static void Post()
         {
