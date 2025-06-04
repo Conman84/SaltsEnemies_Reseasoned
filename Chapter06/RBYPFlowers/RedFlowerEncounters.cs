@@ -99,7 +99,7 @@ namespace SaltsEnemies_Reseasoned
             }, null);
 
             mainEncounters2.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone03_RedFlower_Medium_EnemyBundle", 4, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone03_RedFlower_Medium_EnemyBundle", 3, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
 
             //Secondary
             AddTo bundle1 = new AddTo("H_Zone03_InHisImage_Medium_EnemyBundle");

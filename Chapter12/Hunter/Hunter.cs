@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy hunting = new Enemy("Hunter", "Hunter_EN")
             {
-                Health = 28,
+                Health = 42,
                 HealthColor = Pigments.Purple,
                 CombatSprite = ResourceLoader.LoadSprite("HunterIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("HunterWorld.png", new Vector2(0.5f, 0f), 32),

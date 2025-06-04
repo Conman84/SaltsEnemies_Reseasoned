@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy yin = new Enemy("Yin", "Yin_EN")
             {
-                Health = 30,
+                Health = 35,
                 HealthColor = Pigments.Purple,
                 CombatSprite = ResourceLoader.LoadSprite("YinIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("YinWorld.png", new Vector2(0.5f, 0f), 32),
