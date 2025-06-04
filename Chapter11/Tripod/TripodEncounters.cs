@@ -31,7 +31,7 @@ namespace SaltEnemies_Reseasoned
             hard.AddRandomEncounter("Tripod_EN", "FlaMinGoa_EN", "MudLung_EN");
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.Tripod.Hard, 15, ZoneType_GameIDs.FarShore_Easy, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.Tripod.Hard, 5, ZoneType_GameIDs.FarShore_Easy, BundleDifficulty.Hard);
         }
         public static void Add_Hardmode()
         {
@@ -55,7 +55,7 @@ namespace SaltEnemies_Reseasoned
             hard.AddRandomEncounter("Tripod_EN", Enemies.Camera, "AFlower_EN", "LostSheep_EN");
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Tripod.Hard, 15, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Tripod.Hard, 10, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Hard);
         }
     }
 }
