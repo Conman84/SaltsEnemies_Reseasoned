@@ -29,7 +29,7 @@ namespace SaltsEnemies_Reseasoned
             easy.SimpleAddEncounter(2, "PawnA_EN", 1, "Indicator_EN");
 
             easy.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Pawn.Easy, 5, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Pawn.Easy, 10, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
         }
         public static void Add_Med()
         {

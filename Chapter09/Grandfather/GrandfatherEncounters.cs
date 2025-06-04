@@ -27,7 +27,7 @@ namespace SaltEnemies_Reseasoned
             med.AddRandomEncounter("Grandfather_EN", "InHerImage_EN", "InHerImage_EN", "WindSong_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Grandfather.Med, 6, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Grandfather.Med, 5, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
         }
 
         public static void Post()

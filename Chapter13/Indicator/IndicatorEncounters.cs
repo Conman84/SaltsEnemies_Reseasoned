@@ -36,7 +36,7 @@ namespace SaltsEnemies_Reseasoned
             easy.SimpleAddEncounter(1, "Indicator_EN", 2, Enemies.Shivering, 1, "GlassFigurine_EN");
 
             easy.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Indicator.Easy, 5, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Indicator.Easy, 3, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
         }
         public static void Add_Med()
         {

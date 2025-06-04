@@ -42,7 +42,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("EyePalm_EN", "EyePalm_EN", "EyePalm_EN", "EyePalm_EN", "EyePalm_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.EyePalm.Med, 6, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.EyePalm.Med, 5, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
         }
 
         public static void Post()

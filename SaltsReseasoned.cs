@@ -283,7 +283,6 @@ namespace SaltsEnemies_Reseasoned
             SolventEncounters.Add();
             WindSongEncounters.Add();
 
-            //I think the next update should be chapters 9-12. ive made changes to reflect as much.
             //CH9 Encounters
             PCall(GrandfatherEncounters.Add);
             PCall(GreyFlowerEncounters.Add);

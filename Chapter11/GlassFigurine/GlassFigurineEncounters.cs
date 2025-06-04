@@ -18,7 +18,7 @@ namespace SaltEnemies_Reseasoned
             easy.AddRandomEncounter("GlassFigurine_EN", Flower.Purple, Flower.Yellow);
 
             easy.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.GlassFigurine.Easy, 5, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.GlassFigurine.Easy, 4, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
         }
         public static void Post()
         {

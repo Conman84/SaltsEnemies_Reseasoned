@@ -27,7 +27,7 @@ namespace SaltsEnemies_Reseasoned
             easy.SimpleAddEncounter(2, "BlackStar_EN", 1, "GlassFigurine_EN");
 
             easy.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.BlackStar.Easy, 8, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.BlackStar.Easy, 7, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
         }
         public static void Post()
         {

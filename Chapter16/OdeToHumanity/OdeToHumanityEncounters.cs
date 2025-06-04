@@ -41,7 +41,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("OdeToHumanity_EN", "Shua_EN", "LittleAngel_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Ode.Med, 8, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Ode.Med, 6, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
         }
         public static void Post()
         {
