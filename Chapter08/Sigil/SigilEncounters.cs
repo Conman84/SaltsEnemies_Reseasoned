@@ -231,7 +231,7 @@ namespace SaltsEnemies_Reseasoned
             }, null);
 
             mainEncounters2.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Sigil_Medium_EnemyBundle", 12, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Sigil_Medium_EnemyBundle", 10, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
 
             //Secondary
             AddTo bundle1 = new AddTo("Zone02_MusicMan_Medium_EnemyBundle");
