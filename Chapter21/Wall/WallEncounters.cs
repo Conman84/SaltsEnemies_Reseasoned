@@ -73,7 +73,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Wall_EN", "Wall_EN", "Chiito_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Wall.Med, 12, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Wall.Med, 10, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
         }
         public static void Post()
         {
