@@ -67,7 +67,7 @@ namespace SaltsEnemies_Reseasoned
             focus._characterDescription = focus._enemyDescription;
             focus.doesPassiveTriggerInformationPanel = false;
             focus._triggerOn = [TriggerCalls.Count];
-            focus.connectionEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Slots.Self).SelfArray();
+            focus.connectionEffects = Effects.GenerateEffect(CasterRootActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Slots.Self).SelfArray())).SelfArray();
             focus.disconnectionEffects = [];
 
             //bonus attack
@@ -193,7 +193,7 @@ namespace SaltsEnemies_Reseasoned
             focus._characterDescription = focus._enemyDescription;
             focus.doesPassiveTriggerInformationPanel = false;
             focus._triggerOn = [TriggerCalls.Count];
-            focus.connectionEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Slots.Self).SelfArray();
+            focus.connectionEffects = Effects.GenerateEffect(CasterRootActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Slots.Self).SelfArray())).SelfArray();
             focus.disconnectionEffects = [];
 
             //bonus attack
