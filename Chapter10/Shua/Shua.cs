@@ -50,7 +50,7 @@ namespace SaltsEnemies_Reseasoned
             combative.fleeting_USD = "FleetingPA";
 
             //add pasives
-            shua.AddPassives(new BasePassiveAbilitySO[] { incomprehend, combative });
+            shua.AddPassives(new BasePassiveAbilitySO[] { incomprehend, combative, Passives.Slippery });
             shua.UnitTypes = new List<string> { "FemaleID" };
 
             //whisper
