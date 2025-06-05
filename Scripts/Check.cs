@@ -12,12 +12,12 @@ namespace SaltsEnemies_Reseasoned
         public static List<string> Printeds = new List<string>();
         public static bool EnemyExist(string name)
         {
-            if (!LoadedAssetsHandler.LoadedEnemies.Keys.Contains(name) && LoadedAssetsHandler.LoadEnemy(name) == null) { if (DoDebugs.EnemyNull && !Printeds.Contains(name)) { Debug.LogWarning("Enemy: " + name + " is null"); Printeds.Add(name); } return false; }
+            if (!LoadedAssetsHandler.LoadedEnemies.ContainsKey(name) && LoadedAssetsHandler.LoadEnemy(name) == null) { if (DoDebugs.EnemyNull && !Printeds.Contains(name)) { Debug.LogWarning("Enemy: " + name + " is null"); Printeds.Add(name); } return false; }
             return LoadedAssetsHandler.GetEnemy(name) != null;
         }
         public static bool BundleExist(string name)
         {
-            if (!LoadedAssetsHandler.LoadedEnemyBundles.Keys.Contains(name) && LoadedAssetsHandler.LoadEnemyBundle(name) == null) { if (DoDebugs.EnemyNull) Debug.LogWarning("Bundle: " + name + " is null"); return false; }
+            if (!LoadedAssetsHandler.LoadedEnemyBundles.ContainsKey(name) && LoadedAssetsHandler.LoadEnemyBundle(name) == null) { if (DoDebugs.EnemyNull) Debug.LogWarning("Bundle: " + name + " is null"); return false; }
             return LoadedAssetsHandler.GetEnemyBundle(name) != null;
         }
         public static bool MultiENExistInternal(string[] names)
