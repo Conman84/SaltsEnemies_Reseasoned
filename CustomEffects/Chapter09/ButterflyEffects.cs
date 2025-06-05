@@ -1101,6 +1101,17 @@ namespace SaltEnemies_Reseasoned
                     {
                         if (index < upTo)
                         {
+                            IntentLayoutAnimator[] array = self._intents[index].gameObject.GetComponents<IntentLayoutAnimator>();
+                            foreach (IntentLayoutAnimator ain in array)
+                            {
+                                ain.enabled = false;
+                                ain.IsActive = false;
+                            }
+                            foreach (IntentLayoutSelective_BySolitaire old in self._intents[index].gameObject.GetComponents<IntentLayoutSelective_BySolitaire>())
+                            {
+                                old.IsActive = false;
+                                old.enabled = false;
+                            }
                             self._intents[index].SetInformation(icons[index], colors[index]);
                             self._intents[index].SetActivation(true);
                         }
@@ -1110,6 +1121,17 @@ namespace SaltEnemies_Reseasoned
                         }
                         else 
                         {
+                            IntentLayoutAnimator[] array = self._intents[index].gameObject.GetComponents<IntentLayoutAnimator>();
+                            foreach (IntentLayoutAnimator ain in array)
+                            {
+                                ain.enabled = false;
+                                ain.IsActive = false;
+                            }
+                            foreach (IntentLayoutSelective_BySolitaire old in self._intents[index].gameObject.GetComponents<IntentLayoutSelective_BySolitaire>())
+                            {
+                                old.IsActive = false;
+                                old.enabled = false;
+                            }
                             self._intents[index].SetInformation(icons[icons.Length - 1], colors[colors.Length - 1]);
                             self._intents[index].SetActivation(true);
                             IntentLayoutAnimator grah = self._intents[index].gameObject.AddComponent<IntentLayoutAnimator>();
@@ -1145,6 +1167,17 @@ namespace SaltEnemies_Reseasoned
                     {
                         if (index < upTo)
                         {
+                            IntentLayoutAnimator[] array = self._intents[index].gameObject.GetComponents<IntentLayoutAnimator>();
+                            foreach (IntentLayoutAnimator ain in array)
+                            {
+                                ain.enabled = false;
+                                ain.IsActive = false;
+                            }
+                            foreach (IntentLayoutSelective_BySolitaire old in self._intents[index].gameObject.GetComponents<IntentLayoutSelective_BySolitaire>())
+                            {
+                                old.IsActive = false;
+                                old.enabled = false;
+                            }
                             self._intents[index].SetInformation(icons[index], colors[index]);
                             self._intents[index].SetActivation(true);
                         }
@@ -1154,6 +1187,17 @@ namespace SaltEnemies_Reseasoned
                         }
                         else
                         {
+                            IntentLayoutAnimator[] array = self._intents[index].gameObject.GetComponents<IntentLayoutAnimator>();
+                            foreach (IntentLayoutAnimator ain in array)
+                            {
+                                ain.enabled = false;
+                                ain.IsActive = false;
+                            }
+                            foreach (IntentLayoutSelective_BySolitaire old in self._intents[index].gameObject.GetComponents<IntentLayoutSelective_BySolitaire>())
+                            {
+                                old.IsActive = false;
+                                old.enabled = false;
+                            }
                             self._intents[index].SetInformation(icons[icons.Length - 1], colors[colors.Length - 1]);
                             self._intents[index].SetActivation(true);
                             IntentLayoutAnimator grah = self._intents[index].gameObject.AddComponent<IntentLayoutAnimator>();
@@ -1189,6 +1233,17 @@ namespace SaltEnemies_Reseasoned
                     {
                         if (index < upTo)
                         {
+                            IntentLayoutAnimator[] array = self._intents[index].gameObject.GetComponents<IntentLayoutAnimator>();
+                            foreach (IntentLayoutAnimator ain in array)
+                            {
+                                ain.enabled = false;
+                                ain.IsActive = false;
+                            }
+                            foreach (IntentLayoutSelective_BySolitaire old in self._intents[index].gameObject.GetComponents<IntentLayoutSelective_BySolitaire>())
+                            {
+                                old.IsActive = false;
+                                old.enabled = false;
+                            }
                             self._intents[index].SetInformation(icons[index], colors[index]);
                             self._intents[index].SetActivation(true);
                         }
@@ -1198,6 +1253,17 @@ namespace SaltEnemies_Reseasoned
                         }
                         else
                         {
+                            IntentLayoutAnimator[] array = self._intents[index].gameObject.GetComponents<IntentLayoutAnimator>();
+                            foreach (IntentLayoutAnimator ain in array)
+                            {
+                                ain.enabled = false;
+                                ain.IsActive = false;
+                            }
+                            foreach (IntentLayoutSelective_BySolitaire old in self._intents[index].gameObject.GetComponents<IntentLayoutSelective_BySolitaire>())
+                            {
+                                old.IsActive = false;
+                                old.enabled = false;
+                            }
                             self._intents[index].SetInformation(icons[icons.Length - 1], colors[colors.Length - 1]);
                             self._intents[index].SetActivation(true);
                             IntentLayoutAnimator grah = self._intents[index].gameObject.AddComponent<IntentLayoutAnimator>();
@@ -1233,6 +1299,17 @@ namespace SaltEnemies_Reseasoned
                     {
                         if (index < upTo)
                         {
+                            IntentLayoutAnimator[] array = self._intents[index].gameObject.GetComponents<IntentLayoutAnimator>();
+                            foreach (IntentLayoutAnimator ain in array)
+                            {
+                                ain.enabled = false;
+                                ain.IsActive = false;
+                            }
+                            foreach (IntentLayoutSelective_BySolitaire old in self._intents[index].gameObject.GetComponents<IntentLayoutSelective_BySolitaire>())
+                            {
+                                old.IsActive = false;
+                                old.enabled = false;
+                            }
                             self._intents[index].SetInformation(icons[index], colors[index]);
                             self._intents[index].SetActivation(true);
                         }
@@ -1242,6 +1319,17 @@ namespace SaltEnemies_Reseasoned
                         }
                         else
                         {
+                            IntentLayoutAnimator[] array = self._intents[index].gameObject.GetComponents<IntentLayoutAnimator>();
+                            foreach (IntentLayoutAnimator ain in array)
+                            {
+                                ain.enabled = false;
+                                ain.IsActive = false;
+                            }
+                            foreach (IntentLayoutSelective_BySolitaire old in self._intents[index].gameObject.GetComponents<IntentLayoutSelective_BySolitaire>())
+                            {
+                                old.IsActive = false;
+                                old.enabled = false;
+                            }
                             int count = SolitaireHandler.DreamScanner;
                             if (count > icons.Length) count = icons.Length - 1;
                             if (count > colors.Length) count = colors.Length - 1;
