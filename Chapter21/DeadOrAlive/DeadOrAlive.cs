@@ -35,7 +35,7 @@ namespace SaltEnemies_Reseasoned
             produce.doesPassiveTriggerInformationPanel = true;
             SpawnEnemyByStringNameEffect spawnWaltz = ScriptableObject.CreateInstance<SpawnEnemyByStringNameEffect>();
             spawnWaltz.enemyName = "Waltz_EN";
-            produce.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnEnemyByStringNameEffect>(), 1, Slots.Self).SelfArray();
+            produce.effects = Effects.GenerateEffect(spawnWaltz, 1, Slots.Self).SelfArray();
             produce._triggerOn = [ClownPassiveAbility.Trigger];
 
             clown.AddPassives(new BasePassiveAbilitySO[] { produce, Passives.Dying });
