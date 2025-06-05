@@ -34,7 +34,7 @@ namespace SaltsEnemies_Reseasoned
             exhaust.Rarity = Rarity.GetCustomRarity("rarity5");
             exhaust.Effects = new EffectInfo[2];
             exhaust.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
-            exhaust.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 2, Slots.Self);
+            exhaust.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 2, Slots.Self);
             exhaust.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Sides.ToString(), IntentType_GameIDs.Field_Constricted.ToString()]);
             exhaust.Visuals = LoadedAssetsHandler.GetEnemyAbility("Boil_A").visuals;
             exhaust.AnimationTarget = Slots.Self;
