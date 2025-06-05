@@ -1264,6 +1264,11 @@ namespace SaltEnemies_Reseasoned
                             ain.enabled = false;
                             ain.IsActive = false;
                         }
+                        foreach (IntentLayoutSelective_BySolitaire old in lay.gameObject.GetComponents<IntentLayoutSelective_BySolitaire>())
+                        {
+                            old.IsActive = false;
+                            old.enabled = false;
+                        }
                     }
                 }
             }
@@ -1287,6 +1292,11 @@ namespace SaltEnemies_Reseasoned
                 foreach (IntentLayoutAnimator old in targetIntentLayout.gameObject.GetComponents<IntentLayoutAnimator>())
                 {
                     old.IsActive = false;
+                }
+                foreach (IntentLayoutSelective_BySolitaire old in targetIntentLayout.gameObject.GetComponents<IntentLayoutSelective_BySolitaire>())
+                {
+                    old.IsActive = false;
+                    old.enabled = false;
                 }
 
                 List<Sprite> animateSprites = new List<Sprite>();
@@ -1320,6 +1330,11 @@ namespace SaltEnemies_Reseasoned
                 {
                     old.IsActive = false;
                 }
+                foreach (IntentLayoutSelective_BySolitaire old in targetIntentLayout.gameObject.GetComponents<IntentLayoutSelective_BySolitaire>())
+                {
+                    old.IsActive = false;
+                    old.enabled = false;
+                }
 
                 List<Sprite> animateSprites = new List<Sprite>();
                 List<Color> animateColors = new List<Color>();
@@ -1351,6 +1366,11 @@ namespace SaltEnemies_Reseasoned
                 foreach (IntentLayoutAnimator old in targetIntentLayout.gameObject.GetComponents<IntentLayoutAnimator>())
                 {
                     old.IsActive = false;
+                }
+                foreach (IntentLayoutSelective_BySolitaire old in targetIntentLayout.gameObject.GetComponents<IntentLayoutSelective_BySolitaire>())
+                {
+                    old.IsActive = false;
+                    old.enabled = false;
                 }
 
                 List<Sprite> animateSprites = new List<Sprite>();
@@ -1386,6 +1406,11 @@ namespace SaltEnemies_Reseasoned
                 foreach (IntentLayoutAnimator old in targetIntentLayout.gameObject.GetComponents<IntentLayoutAnimator>())
                 {
                     old.IsActive = false;
+                    old.enabled = false;
+                }
+                foreach (IntentLayoutSelective_BySolitaire old in targetIntentLayout.gameObject.GetComponents<IntentLayoutSelective_BySolitaire>())
+                {
+                    old.IsActive = false;
                 }
 
                 List<Sprite> animateSprites = new List<Sprite>();
@@ -1416,6 +1441,11 @@ namespace SaltEnemies_Reseasoned
                     {
                         ain.enabled = false;
                         ain.IsActive = false;
+                    }
+                    foreach (IntentLayoutSelective_BySolitaire old in lay.gameObject.GetComponents<IntentLayoutSelective_BySolitaire>())
+                    {
+                        old.IsActive = false;
+                        old.enabled = false;
                     }
                 }
             }
