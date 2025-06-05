@@ -53,6 +53,7 @@ namespace SaltEnemies_Reseasoned
         }
         public static bool HasMoldOther(IUnit unit, int Slot)
         {
+            if (unit.Size <= 1) return false;
             if (unit.IsUnitCharacter)
             {
                 return false;
