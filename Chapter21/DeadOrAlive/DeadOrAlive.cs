@@ -53,7 +53,7 @@ namespace SaltEnemies_Reseasoned
             special.Effects[1] = Effects.GenerateEffect(spawnWaltz, 1, Slots.Self);
             ChangeHealthColorEffect turnBlue = ScriptableObject.CreateInstance<ChangeHealthColorEffect>();
             turnBlue.color = Pigments.Blue;
-            special.Effects[0] = Effects.GenerateEffect(turnBlue, 1, Slots.Self, BasicEffects.DidThat(false));
+            special.Effects[0] = Effects.GenerateEffect(turnBlue, 1, Slots.Self);
             special.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), [IntentType_GameIDs.Mana_Modify.ToString(), IntentType_GameIDs.Other_Spawn.ToString()]);
             special.Visuals = LoadedAssetsHandler.GetCharacterAbility("Oil_1_A").visuals;
             special.AnimationTarget = TargettingSelf_NotSlot.Create();
