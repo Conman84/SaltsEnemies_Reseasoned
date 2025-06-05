@@ -71,7 +71,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddGroup(3, "Enigma_EN", 1, "Solitaire_EN");
 
             AddTo easy = new AddTo(Orph.H.Something.Med);
-            med.AddRandomGroup("Something_EN", "Solitaire_EN");
+            easy.AddRandomGroup("Something_EN", "Solitaire_EN");
 
             med = new AddTo(Orph.H.Something.Med);
             med.AddRandomGroup("Something_EN", "Solitaire_EN", "Solitaire_EN");
