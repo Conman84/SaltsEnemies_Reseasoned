@@ -30,10 +30,11 @@ namespace SaltEnemies_Reseasoned
             announce.m_PassiveID = "Announcement_PA";
             announce._enemyDescription = "On leaving combat, deal an Agonizing amount of damage to the Opposing party member.";
             announce._characterDescription = "On leaving combat, deal 10 damage to the Opposing enemy.";
-            announce.doesPassiveTriggerInformationPanel = true;
+            announce.doesPassiveTriggerInformationPanel = false;
             announce._triggerOn = [TriggerCalls.Count];
             announce.connectionEffects = [];
             announce.disconnectionEffects = new EffectInfo[3];
+            announce.disconnectionEffects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<AnnouncementPassiveEffect>(), 10);
             announce.disconnectionEffects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Bellow_A", false, Slots.Front));
             announce.disconnectionEffects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front);
 
