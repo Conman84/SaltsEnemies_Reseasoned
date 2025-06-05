@@ -141,7 +141,8 @@ namespace SaltEnemies_Reseasoned
         }
         public static BaseCombatTargettingSO Everything(bool allies)
         {
-            return Targeting.GenerateSlotTarget(new int[] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, allies);
+            return Targeting.GenerateGenericTarget([0, 1, 2, 3, 4], allies);
+            //return Targeting.GenerateSlotTarget(new int[] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, allies);
         }
     }
     public class TargettingByHealthUnits : BaseCombatTargettingSO
