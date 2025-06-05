@@ -1333,7 +1333,7 @@ namespace SaltEnemies_Reseasoned
                             int count = SolitaireHandler.DreamScanner;
                             if (count > icons.Length) count = icons.Length - 1;
                             if (count > colors.Length) count = colors.Length - 1;
-                            self._intents[index].SetInformation(icons[count], colors[count]);
+                            self._intents[index].SetInformation(animateSprites[count], animateColors[count]);
                             self._intents[index].SetActivation(true);
                             IntentLayoutSelective_BySolitaire grah = self._intents[index].gameObject.AddComponent<IntentLayoutSelective_BySolitaire>();
                             grah.animate = self._intents[index];
