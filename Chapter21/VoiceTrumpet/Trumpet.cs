@@ -13,7 +13,7 @@ namespace SaltEnemies_Reseasoned
         {
             Enemy trumpet = new Enemy("Voice Trumpet", "VoiceTrumpet_EN")
             {
-                Health = 20,
+                Health = 12,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("TrumpetIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("TrumpetWorld.png", new Vector2(0.5f, 0f), 32),
