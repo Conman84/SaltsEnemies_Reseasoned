@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -305,6 +307,21 @@ namespace SaltsEnemies_Reseasoned.Chapter1.LostSheep
                     "LostSheep_EN",
             }));
             ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone02_Conductor_Medium_EnemyBundle"))._enemyBundles = hlist18;
+
+            Add2();
+        }
+        public static void Add2()
+        {
+            Portals.AddPortalSign("Salt_LostSheepEncounter_Sign", ResourceLoader.LoadSprite("lostSheep_Icon.png"), Portals.EnemyIDColor);
+
+            EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Shore.H.CNS.Easy, "Salt_LostSheepEncounter_Sign");
+            med.MusicEvent = "event:/Hawthorne/CNSTheme";
+            med.RoarEvent = LoadedAssetsHandler.GetEnemyBundle(Garden.H.Shivering.Med)._roarReference.roarEvent;
+
+            med.SimpleAddEncounter(4, "LostSheep_EN");
+
+            med.AddEncounterToDataBases();
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.CNS.Easy, April.LessMod, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Easy);
         }
     }
 }

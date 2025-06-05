@@ -30,5 +30,13 @@ namespace SaltEnemies_Reseasoned
                 return 1;
             }
         }
+        public static int LessMod
+        {
+            get
+            {
+                if (Birthday) return 50;
+                return 0;
+            }
+        }
     }
 }

@@ -163,6 +163,10 @@ namespace SaltsEnemies_Reseasoned
 
 
             //hawthorne
+            public static class CNS
+            {
+                public static string Easy => "H_Zone01_LostSheep_Easy_EnemyBundle";
+            }
             public static class DeadPixel
             {
                 public static string Easy => "H_Zone01_DeadPixel_Easy_EnemyBundle";
