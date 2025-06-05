@@ -29,6 +29,10 @@ namespace SaltsEnemies_Reseasoned
 
             waltz.AddPassives(new BasePassiveAbilitySO[] { Passives.Infantile, Passives.ParentalGenerator(nibble) });
 
+            AbilitySelector_Bots selector = ScriptableObject.CreateInstance<AbilitySelector_Bots>();
+            selector.Isolate = ["Salt_Exhaustion_A"];
+            waltz.AbilitySelector = selector;
+
             Ability exhaust = new Ability("Exhaustion", "Salt_Exhaustion_A");
             exhaust.Description = "Move to the Left or Right and inflict 2 Constricted on this enemy.";
             exhaust.Rarity = Rarity.GetCustomRarity("rarity5");

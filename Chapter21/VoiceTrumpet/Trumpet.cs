@@ -33,9 +33,9 @@ namespace SaltEnemies_Reseasoned
             announce.doesPassiveTriggerInformationPanel = true;
             announce._triggerOn = [TriggerCalls.Count];
             announce.connectionEffects = [];
-            announce.disconnectionEffects = new EffectInfo[2];
-            announce.disconnectionEffects[0] = Effects.GenerateEffect(BasicEffects.GetVisuals("Bellow_A", false, Slots.Front));
-            announce.disconnectionEffects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front);
+            announce.disconnectionEffects = new EffectInfo[3];
+            announce.disconnectionEffects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Bellow_A", false, Slots.Front));
+            announce.disconnectionEffects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front);
 
             trumpet.AddPassives(new BasePassiveAbilitySO[] { announce, Passives.Fleeting3, Passives.Formless });
 
