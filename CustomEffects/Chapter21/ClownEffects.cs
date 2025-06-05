@@ -37,4 +37,21 @@ namespace SaltEnemies_Reseasoned
             }
         }
     }
+    public class AbilitySelector_Clown : AbilitySelector_ByRarity
+    {
+        public string Ability;
+        public string CheckPassive;
+        public override int GetNextAbilitySlotUsage(List<CombatAbility> abilities, IUnit unit)
+        {
+            foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+            {
+                if (enemy.ContainsPassiveAbility(CheckPassive)) return base.GetNextAbilitySlotUsage(abilities, unit);
+            }
+
+            int ret = (unit as EnemyCombat).GetLastAbilityIDFromName(Ability);
+            if (ret > -1) return ret;
+
+            return base.GetNextAbilitySlotUsage(abilities, unit);
+        }
+    }
 }
