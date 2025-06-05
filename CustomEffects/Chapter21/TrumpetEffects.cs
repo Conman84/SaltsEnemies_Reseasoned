@@ -9,7 +9,7 @@ namespace SaltEnemies_Reseasoned
     {
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
-            CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, caster.IsUnitCharacter, "Announcement (" + entryVariable.ToString() + ")", ResourceLoader.LoadSprite("AnnoucementPassive.png")));
+            CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, caster.IsUnitCharacter, "Announcement (" + entryVariable.ToString() + ")", ResourceLoader.LoadSprite("AnnouncementPassive.png")));
             exitAmount = 0;
             return true;
         }
