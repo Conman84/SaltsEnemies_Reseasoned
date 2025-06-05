@@ -1209,6 +1209,50 @@ namespace SaltEnemies_Reseasoned
                         }
                     }
                 }
+                else if (colors.Contains(FallColor._color4))
+                {
+                    List<Sprite> animateSprites = new List<Sprite>();
+                    List<Color> animateColors = new List<Color>();
+                    bool animateThese = false;
+                    int upTo = colors.Length;
+                    for (int checkColor = 0; checkColor < colors.Length; checkColor++)
+                    {
+                        if (animateThese)
+                        {
+                            animateSprites.Add(icons[checkColor]);
+                            animateColors.Add(colors[checkColor]);
+                        }
+                        if (colors[checkColor] == FallColor._color2 || colors[checkColor].Equals(FallColor._color2))
+                        {
+                            animateThese = true;
+                            upTo = checkColor;
+                        }
+                    }
+                    while (self._intents.Count <= upTo) self.GenerateNewIntent();
+                    for (int index = 0; index < self._intents.Count; ++index)
+                    {
+                        if (index < upTo)
+                        {
+                            self._intents[index].SetInformation(icons[index], colors[index]);
+                            self._intents[index].SetActivation(true);
+                        }
+                        else if (index > upTo)
+                        {
+                            self._intents[index].SetActivation(false);
+                        }
+                        else
+                        {
+                            self._intents[index].SetInformation(icons[icons.Length - 1], colors[colors.Length - 1]);
+                            self._intents[index].SetActivation(true);
+                            IntentLayoutSelective_BySolitaire grah = self._intents[index].gameObject.AddComponent<IntentLayoutSelective_BySolitaire>();
+                            grah.animate = self._intents[index];
+                            grah.icons = animateSprites.ToArray();
+                            grah.colors = animateColors.ToArray();
+                            grah.IsActive = true;
+                            grah.limit = 0.5f;
+                        }
+                    }
+                }
                 else
                 {
                     orig(self, icons, colors);
@@ -1324,6 +1368,38 @@ namespace SaltEnemies_Reseasoned
                 grah.colors = animateColors.ToArray();
                 grah.IsActive = true;
                 grah.limit = 1f;
+                //Debug.Log("TARGET INTENT ");
+                //new IntentLayoutAnimator(targetIntentLayout, icons, colors);
+            }
+            else if (colors.Contains(FallColor._color4))
+            {
+                if (self._unusedIntents.Count <= 0)
+                    self.GenerateUnusedIntent();
+                TargetIntentLayout targetIntentLayout = self._unusedIntents.Dequeue();
+                targetIntentLayout.MoveToLast();
+                targetIntentLayout.SetInformation(icons[icons.Length - 1], colors[colors.Length - 1]);
+                targetIntentLayout.SetActivation(true);
+                self._intentsInUse.Add(targetIntentLayout);
+                foreach (IntentLayoutAnimator old in targetIntentLayout.gameObject.GetComponents<IntentLayoutAnimator>())
+                {
+                    old.IsActive = false;
+                }
+
+                List<Sprite> animateSprites = new List<Sprite>();
+                List<Color> animateColors = new List<Color>();
+                for (int i = 0; i < colors.Length; i++)
+                {
+                    if (colors[i] == FallColor._color2 || colors[i].Equals(FallColor._color2)) continue;
+                    animateSprites.Add(icons[i]);
+                    animateColors.Add(colors[i]);
+                }
+
+                IntentLayoutSelective_BySolitaire grah = targetIntentLayout.gameObject.AddComponent<IntentLayoutSelective_BySolitaire>();
+                grah.mutilate = targetIntentLayout;
+                grah.icons = animateSprites.ToArray();
+                grah.colors = animateColors.ToArray();
+                grah.IsActive = true;
+                grah.limit = 0.5f;
                 //Debug.Log("TARGET INTENT ");
                 //new IntentLayoutAnimator(targetIntentLayout, icons, colors);
             }
@@ -1645,6 +1721,48 @@ namespace SaltEnemies_Reseasoned
                 RunFirstCheck = true;
                 //Debug.Log("force train colors " + ForceTrainColors);
                 //Debug.Log("run first check " + RunFirstCheck);
+            }
+        }
+        public class IntentLayoutSelective_BySolitaire : MonoBehaviour
+        {
+            public TimelineIntentLayout animate;
+            public TargetIntentLayout mutilate;
+
+            public Sprite[] icons;
+            public Color[] colors;
+
+            public bool IsActive = true;
+            public float limit = 20f;
+            public float time = 0f;
+            public void Update()
+            {
+                if (!IsActive) return;
+                time += Time.deltaTime;
+                if (time >= limit)
+                {
+                    try
+                    {
+                        Sprite[] icons = this.icons;
+                        Color[] colors = this.colors;
+                        int index = SolitaireHandler.DreamScanner;
+                        if (index > icons.Length) index = icons.Length - 1;
+                        if (index > colors.Length) index = colors.Length - 1;
+                        time = 0f;
+                        if (animate != null && !animate.Equals(null) && animate.isActiveAndEnabled)
+                        {
+                            animate.SetInformation(icons[index], colors[index]);
+                            //Debug.Log("timeline");
+                        }
+                        if (mutilate != null && !mutilate.Equals(null) && mutilate.isActiveAndEnabled)
+                        {
+                            mutilate.SetInformation(icons[index], colors[index]);
+                        }
+                    }
+                    catch
+                    {
+                        UnityEngine.Debug.LogError("intent icon sprite changer FUCKING BROKE");
+                    }
+                }
             }
         }
     }

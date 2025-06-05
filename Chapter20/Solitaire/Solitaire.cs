@@ -111,7 +111,32 @@ namespace SaltsEnemies_Reseasoned
             scanner.Description = "Deal damage to the Opposing party member equal to the amount of times any Solitaire has taken any damage this run.";
             scanner.Rarity = radio.Rarity;
             scanner.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<DreamScannerEffect>(), 1, Slots.Front).SelfArray();
-            scanner.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_7_10.ToString()]);
+            scanner.AddIntentsToTarget(Slots.Front, new string[]
+            {
+                FallColor.Intent4,
+                IntentType_GameIDs.Misc.ToString(),
+                IntentType_GameIDs.Damage_1_2.ToString(),
+                IntentType_GameIDs.Damage_1_2.ToString(),
+                IntentType_GameIDs.Damage_3_6.ToString(),
+                IntentType_GameIDs.Damage_3_6.ToString(),
+                IntentType_GameIDs.Damage_3_6.ToString(),
+                IntentType_GameIDs.Damage_3_6.ToString(),
+                IntentType_GameIDs.Damage_7_10.ToString(),
+                IntentType_GameIDs.Damage_7_10.ToString(),
+                IntentType_GameIDs.Damage_7_10.ToString(),
+                IntentType_GameIDs.Damage_7_10.ToString(),
+                IntentType_GameIDs.Damage_11_15.ToString(),
+                IntentType_GameIDs.Damage_11_15.ToString(),
+                IntentType_GameIDs.Damage_11_15.ToString(),
+                IntentType_GameIDs.Damage_11_15.ToString(),
+                IntentType_GameIDs.Damage_11_15.ToString(),
+                IntentType_GameIDs.Damage_16_20.ToString(),
+                IntentType_GameIDs.Damage_16_20.ToString(),
+                IntentType_GameIDs.Damage_16_20.ToString(),
+                IntentType_GameIDs.Damage_16_20.ToString(),
+                IntentType_GameIDs.Damage_16_20.ToString(),
+                IntentType_GameIDs.Damage_21.ToString(),
+            });
             scanner.Visuals = CustomVisuals.GetVisuals("Salt/Class");
             scanner.AnimationTarget = Slots.Front;
 
