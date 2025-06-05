@@ -27,15 +27,15 @@ namespace SaltsEnemies_Reseasoned
             //armmor
             ArmorManager.Setup();
             HeavilyArmoredPassive armor = ScriptableObject.CreateInstance<HeavilyArmoredPassive>();
-            armor._passiveName = "Heavily Armored (10)";
+            armor._passiveName = "Heavily Armored (9)";
             armor.passiveIcon = ResourceLoader.LoadSprite("heavily_armored");
-            armor._enemyDescription = "If any of this enemy's positions have no Shield, apply 10 Shield there.";
-            armor._characterDescription = "If this party member's position has no Shield, apply 10 Shield there.";
+            armor._enemyDescription = "If any of this enemy's positions have no Shield, apply 9 Shield there.";
+            armor._characterDescription = "If this party member's position has no Shield, apply 9 Shield there.";
             armor.m_PassiveID = ArmorManager.Armor;
             armor.doesPassiveTriggerInformationPanel = false;
             armor._triggerOn = new TriggerCalls[] { TriggerCalls.OnMoved };
             armor.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ArmorEffect>(), 1, Targetting.AllSelfSlots).SelfArray();
-            armor.Amount = 10;
+            armor.Amount = 9;
 
             //painless
             PainCondition.Setup();
@@ -97,16 +97,16 @@ namespace SaltsEnemies_Reseasoned
             Ability disembowel = new Ability("Disemboweling_A")
             {
                 Name = "Disemboweling",
-                Description = "If this enemy is defended by more than 8 Shield, deal a Painful amount of damage and inflict 2 Frail on all party members.\nOtherwise, decrease Algophobia's threshold by 5 and produce 3 Blue pigment.",
+                Description = "If this enemy is defended by more than 7 Shield, deal a Painful amount of damage and inflict 2 Frail on all party members.\nOtherwise, decrease Algophobia's threshold by 5 and produce 3 Blue pigment.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(BasicEffects.GetVisuals("Weep_A", false, TargettingSelf_NotSlot.Create()), 1, Targeting.Slot_SelfSlot, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 8, false, true)),
-                    Effects.GenerateEffect(BasicEffects.ChangeValue(PainCondition.Modifier, true), 5, Targeting.Slot_SelfSlot, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 8, false, true)),
-                    Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Blue), 3, Targeting.Slot_SelfSlot, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 8, false, true)),
-                    Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Shatter", false, TargettingSelf_NotSlot.Create()), 1, Targeting.Slot_SelfSlot, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 8, true, true)),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Targeting.Unit_AllOpponents, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 8, true, true)),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 2, Targeting.Unit_AllOpponents, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 8, true, true)),
+                    Effects.GenerateEffect(BasicEffects.GetVisuals("Weep_A", false, TargettingSelf_NotSlot.Create()), 1, Targeting.Slot_SelfSlot, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 7, false, true)),
+                    Effects.GenerateEffect(BasicEffects.ChangeValue(PainCondition.Modifier, true), 5, Targeting.Slot_SelfSlot, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 7, false, true)),
+                    Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Blue), 3, Targeting.Slot_SelfSlot, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 7, false, true)),
+                    Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Shatter", false, TargettingSelf_NotSlot.Create()), 1, Targeting.Slot_SelfSlot, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 7, true, true)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Targeting.Unit_AllOpponents, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 7, true, true)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 2, Targeting.Unit_AllOpponents, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 7, true, true)),
                 },
                 Visuals = null,
                 AnimationTarget = Targetting.AllSelfSlots,
