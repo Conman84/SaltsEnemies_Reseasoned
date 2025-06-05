@@ -1,6 +1,7 @@
 ﻿using BrutalAPI;
 using SaltsEnemies_Reseasoned;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -50,6 +51,21 @@ namespace SaltEnemies_Reseasoned
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
         }
+        public static bool HasMoldOther(IUnit unit, int Slot)
+        {
+            if (unit.IsUnitCharacter)
+            {
+                return false;
+            }
+            foreach (CombatSlot slot in CombatManager.Instance._stats.combatSlots.EnemySlots)
+            {
+                if (slot.Unit == unit && slot.SlotID != Slot)
+                {
+                    if (slot.ContainsFieldEffect(FieldID)) return true;
+                }
+            }
+            return false;
+        }
     }
 
     public class MoldFE_SO : FieldEffect_SO
@@ -67,23 +83,48 @@ namespace SaltEnemies_Reseasoned
         {
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnDirectHealed.ToString(), caller);
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnDirectDamaged.ToString(), caller);
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, TriggerCalls.OnAbilityUsed.ToString(), caller);
+            if (Mold.HasMoldOther(caller, holder.SlotID)) return;
+            CombatManager.Instance.AddObserver(ConsumeHealthMana, TriggerCalls.OnDirectHealed.ToString(), caller);
+            CombatManager.Instance.AddObserver(ConsumeHealthMana, TriggerCalls.OnDirectDamaged.ToString(), caller);
+            CombatManager.Instance.AddObserver(ChangeHealthColor, TriggerCalls.OnAbilityUsed.ToString(), caller);
         }
         public override void OnTriggerDettached(FieldEffect_Holder holder, IUnit caller)
         {
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnDirectHealed.ToString(), caller);
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnDirectDamaged.ToString(), caller);
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, TriggerCalls.OnAbilityUsed.ToString(), caller);
+            if (Mold.HasMoldOther(caller, holder.SlotID)) return;
+            CombatManager.Instance.RemoveObserver(ConsumeHealthMana, TriggerCalls.OnDirectHealed.ToString(), caller);
+            CombatManager.Instance.RemoveObserver(ConsumeHealthMana, TriggerCalls.OnDirectDamaged.ToString(), caller);
+            CombatManager.Instance.RemoveObserver(ChangeHealthColor, TriggerCalls.OnAbilityUsed.ToString(), caller);
         }
         public override void OnEventCall_01(FieldEffect_Holder holder, object sender, object args)
         {
             if (args is IntegerReference num) ReduceDurationbyAmount(holder, num.value);
+            return;
             if (sender is IUnit caster)
             {
                 CombatStats stats = CombatManager.Instance._stats;
                 JumpAnimationInformation jumpInfo = stats.GenerateUnitJumpInformation(caster.ID, caster.IsUnitCharacter);
                 string manaConsumedSound = stats.audioController.manaConsumedSound;
                 stats.MainManaBar.ConsumeAmountMana(caster.HealthColor, 1, jumpInfo, manaConsumedSound);
+            }
+        }
+        public void ConsumeHealthMana(object sender, object args)
+        {
+            if (sender is IUnit caster)
+            {
+                CombatManager.Instance.AddSubAction(new MoldConsumeManaSubAction(caster));
+            }
+        }
+        public void ChangeHealthColor(object sender, object args)
+        {
+            if (sender is IUnit unit)
+            {
+                List<ManaColorSO> colors = new List<ManaColorSO>() { Pigments.Red, Pigments.Blue, Pigments.Yellow, Pigments.Purple, Pigments.Grey };
+                if (unit is EnemyCombat enemy && !colors.Contains(enemy.Enemy.healthColor)) colors.Add(enemy.Enemy.healthColor);
+                else if (unit is CharacterCombat chara && !colors.Contains(chara.Character.healthColor)) colors.Add(chara.Character.healthColor);
+                if (colors.Contains(unit.HealthColor)) colors.Remove(unit.HealthColor);
+                unit.ChangeHealthColor(colors.GetRandom());
             }
         }
         public override void OnEventCall_02(FieldEffect_Holder holder, object sender, object args)
@@ -119,6 +160,21 @@ namespace SaltEnemies_Reseasoned
             {
                 holder.Effector.FieldEffectValuesChanged(_FieldID, useSpecialSound: false, holder.m_ContentMain - contentMain);
             }
+        }
+    }
+    public class MoldConsumeManaSubAction : CombatAction
+    {
+        public IUnit caster;
+        public MoldConsumeManaSubAction(IUnit _caster)
+        {
+            caster = _caster;
+        }
+        public override IEnumerator Execute(CombatStats stats)
+        {
+            JumpAnimationInformation jumpInfo = stats.GenerateUnitJumpInformation(caster.ID, caster.IsUnitCharacter);
+            string manaConsumedSound = stats.audioController.manaConsumedSound;
+            stats.MainManaBar.ConsumeAmountMana(caster.HealthColor, 1, jumpInfo, manaConsumedSound);
+            yield return null;
         }
     }
     public class ApplyMoldFieldEffect : FieldEffect_Apply_Effect
