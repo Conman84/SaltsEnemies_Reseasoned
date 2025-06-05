@@ -107,19 +107,32 @@ namespace SaltEnemies_Reseasoned
         public override bool IsPositive => true;
         public override void OnTriggerAttached(StatusEffect_Holder holder, IStatusEffector caller)
         {
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, Dodge.Call, caller);
+            CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, Dodge.Call, caller);
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnStart.ToString(), caller);
         }
 
         public override void OnTriggerDettached(StatusEffect_Holder holder, IStatusEffector caller)
         {
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, Dodge.Call, caller);
+            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, Dodge.Call, caller);
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnStart.ToString(), caller);
         }
 
         public override void OnEventCall_01(StatusEffect_Holder holder, object sender, object args)
         {
             ReduceDuration(holder, sender as IStatusEffector);
+        }
+        public override void OnEventCall_02(StatusEffect_Holder holder, object sender, object args)
+        {
+            ForceReduceDuration(holder, sender as IStatusEffector);
+        }
+        public void ForceReduceDuration(StatusEffect_Holder holder, IStatusEffector effector)
+        {
+            int contentMain = holder.m_ContentMain;
+            holder.m_ContentMain = Mathf.Max(0, contentMain - 1);
+            if (!TryRemoveStatusEffect(holder, effector) && contentMain != holder.m_ContentMain)
+            {
+                effector.StatusEffectValuesChanged(_StatusID, holder.m_ContentMain - contentMain, doesPopUp: true);
+            }
         }
     }
     public class ApplyDodgeEffect : StatusEffect_Apply_Effect
