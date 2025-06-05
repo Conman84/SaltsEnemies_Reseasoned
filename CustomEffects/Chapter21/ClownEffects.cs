@@ -24,6 +24,7 @@ namespace SaltEnemies_Reseasoned
             {
                 if (sender is IUnit unit && !CombatManager.Instance._stats.IsPassiveLocked(PassiveType_GameIDs.Infantile.ToString()))
                 {
+                    if (!unit.ContainsPassiveAbility(PassiveType_GameIDs.Infantile.ToString())) return;
                     if (unit.IsUnitCharacter)
                     {
                         foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
