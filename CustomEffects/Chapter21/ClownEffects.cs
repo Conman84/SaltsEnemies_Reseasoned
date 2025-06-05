@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using MonoMod.RuntimeDetour;
 using SaltsEnemies_Reseasoned;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -25,18 +26,31 @@ namespace SaltEnemies_Reseasoned
                 if (sender is IUnit unit && !CombatManager.Instance._stats.IsPassiveLocked(PassiveType_GameIDs.Infantile.ToString()))
                 {
                     if (!unit.ContainsPassiveAbility(PassiveType_GameIDs.Infantile.ToString())) return;
-                    if (unit.IsUnitCharacter)
-                    {
-                        foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
-                            CombatManager.Instance.PostNotification(Trigger.ToString(), chara, unit);
-                    }
-                    else
-                    {
-                        foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
-                            CombatManager.Instance.PostNotification(Trigger.ToString(), enemy, unit);
-                    }
+                    CombatManager.Instance.AddRootAction(new ClownPassiveSubAction(unit));
                 }
             }
+        }
+    }
+    public class ClownPassiveSubAction : CombatAction
+    {
+        IUnit unit;
+        public ClownPassiveSubAction(IUnit Unit)
+        {
+            unit = Unit;
+        }
+        public override IEnumerator Execute(CombatStats stats)
+        {
+            if (unit.IsUnitCharacter)
+            {
+                foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
+                    CombatManager.Instance.PostNotification(ClownPassiveAbility.Trigger.ToString(), chara, unit);
+            }
+            else
+            {
+                foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+                    CombatManager.Instance.PostNotification(ClownPassiveAbility.Trigger.ToString(), enemy, unit);
+            }
+            yield return null;
         }
     }
     public class AbilitySelector_Clown : AbilitySelector_ByRarity
