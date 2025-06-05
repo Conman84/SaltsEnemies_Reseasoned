@@ -159,8 +159,8 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("AFlower_EN", "ToyUfo_EN", "Waltz_EN", "Waltz_EN");
 
             hard = new AddTo(Shore.H.Sinker.Hard);
-            hard.AddRandomGroup("Sinker_EN", "2009_EN", "Waltz_EN", 'Waltz_EN');
-            hard.AddRandomGroup("Sinker_EN", "Chiito_EN", "Waltz_EN", 'Waltz_EN');
+            hard.AddRandomGroup("Sinker_EN", "2009_EN", "Waltz_EN", "Waltz_EN");
+            hard.AddRandomGroup("Sinker_EN", "Chiito_EN", "Waltz_EN", "Waltz_EN");
 
             hard = new AddTo(Shore.H.Clione.Hard);
             hard.AddRandomGroup("Clione_EN", "VoiceTrumpet_EN", "Waltz_EN", "Waltz_EN");
