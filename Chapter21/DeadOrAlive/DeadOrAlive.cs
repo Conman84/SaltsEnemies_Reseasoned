@@ -35,6 +35,7 @@ namespace SaltEnemies_Reseasoned
             produce.doesPassiveTriggerInformationPanel = true;
             SpawnEnemyByStringNameEffect spawnWaltz = ScriptableObject.CreateInstance<SpawnEnemyByStringNameEffect>();
             spawnWaltz.enemyName = "Waltz_EN";
+            spawnWaltz._spawnTypeID = CombatType_GameIDs.Spawn_Basic.ToString();
             produce.effects = Effects.GenerateEffect(spawnWaltz, 1, Slots.Self).SelfArray();
             produce._triggerOn = [ClownPassiveAbility.Trigger];
 
@@ -46,13 +47,13 @@ namespace SaltEnemies_Reseasoned
             clown.AbilitySelector = selector;
 
             Ability special = new Ability("My Special Attack", "MySpecialAttack_A");
-            special.Description = "Turn Blue.\nIf this enemy was already Blue, spawn a Waltz.";
+            special.Description = "Turn Blue.\nSpawn a Waltz.";
             special.Rarity = Rarity.GetCustomRarity("rarity5");
             special.Effects = new EffectInfo[2];
-            special.Effects[0] = Effects.GenerateEffect(spawnWaltz, 1, Slots.Self, ScriptableObject.CreateInstance<IsBlueEffectCondition>());
+            special.Effects[1] = Effects.GenerateEffect(spawnWaltz, 1, Slots.Self);
             ChangeHealthColorEffect turnBlue = ScriptableObject.CreateInstance<ChangeHealthColorEffect>();
             turnBlue.color = Pigments.Blue;
-            special.Effects[1] = Effects.GenerateEffect(turnBlue, 1, Slots.Self, BasicEffects.DidThat(false));
+            special.Effects[0] = Effects.GenerateEffect(turnBlue, 1, Slots.Self, BasicEffects.DidThat(false));
             special.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), [IntentType_GameIDs.Mana_Modify.ToString(), IntentType_GameIDs.Other_Spawn.ToString()]);
             special.Visuals = LoadedAssetsHandler.GetCharacterAbility("Oil_1_A").visuals;
             special.AnimationTarget = TargettingSelf_NotSlot.Create();
