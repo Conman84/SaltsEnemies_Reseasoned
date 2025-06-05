@@ -1222,7 +1222,7 @@ namespace SaltEnemies_Reseasoned
                             animateSprites.Add(icons[checkColor]);
                             animateColors.Add(colors[checkColor]);
                         }
-                        if (colors[checkColor] == FallColor._color2 || colors[checkColor].Equals(FallColor._color2))
+                        if (colors[checkColor] == FallColor._color4 || colors[checkColor].Equals(FallColor._color4))
                         {
                             animateThese = true;
                             upTo = checkColor;
@@ -1377,7 +1377,10 @@ namespace SaltEnemies_Reseasoned
                     self.GenerateUnusedIntent();
                 TargetIntentLayout targetIntentLayout = self._unusedIntents.Dequeue();
                 targetIntentLayout.MoveToLast();
-                targetIntentLayout.SetInformation(icons[icons.Length - 1], colors[colors.Length - 1]);
+                int index = SolitaireHandler.DreamScanner;
+                if (index > icons.Length) index = icons.Length - 1;
+                if (index > colors.Length) index = colors.Length - 1;
+                targetIntentLayout.SetInformation(icons[index], colors[index]);
                 targetIntentLayout.SetActivation(true);
                 self._intentsInUse.Add(targetIntentLayout);
                 foreach (IntentLayoutAnimator old in targetIntentLayout.gameObject.GetComponents<IntentLayoutAnimator>())
@@ -1389,7 +1392,7 @@ namespace SaltEnemies_Reseasoned
                 List<Color> animateColors = new List<Color>();
                 for (int i = 0; i < colors.Length; i++)
                 {
-                    if (colors[i] == FallColor._color2 || colors[i].Equals(FallColor._color2)) continue;
+                    if (colors[i] == FallColor._color4 || colors[i].Equals(FallColor._color4)) continue;
                     animateSprites.Add(icons[i]);
                     animateColors.Add(colors[i]);
                 }
