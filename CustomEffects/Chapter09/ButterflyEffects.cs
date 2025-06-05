@@ -1400,7 +1400,6 @@ namespace SaltEnemies_Reseasoned
                 int index = SolitaireHandler.DreamScanner;
                 if (index > icons.Length) index = icons.Length - 1;
                 if (index > colors.Length) index = colors.Length - 1;
-                targetIntentLayout.SetInformation(icons[index], colors[index]);
                 targetIntentLayout.SetActivation(true);
                 self._intentsInUse.Add(targetIntentLayout);
                 foreach (IntentLayoutAnimator old in targetIntentLayout.gameObject.GetComponents<IntentLayoutAnimator>())
@@ -1421,6 +1420,7 @@ namespace SaltEnemies_Reseasoned
                     animateSprites.Add(icons[i]);
                     animateColors.Add(colors[i]);
                 }
+                targetIntentLayout.SetInformation(animateSprites[index], animateColors[index]);
 
                 IntentLayoutSelective_BySolitaire grah = targetIntentLayout.gameObject.AddComponent<IntentLayoutSelective_BySolitaire>();
                 grah.mutilate = targetIntentLayout;
