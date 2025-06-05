@@ -249,6 +249,16 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Hard => "H_Zone01_Amalga_Hard_EnemyBundle";
             }
+            public static class Clown
+            {
+                public static string Easy => "H_Zone01_Waltz_Easy_EnemyBundle";
+                public static string Hard => "H_Zone01_DeadOrAlive_Hard_EnemyBundle";
+            }
+            public static class Trumpet
+            {
+                public static string Easy => "H_Zone01_VoiceTrumpet_Easy_EnemyBundle";
+                public static string Med => "H_Zone01_VoiceTrumpet_Medium_EnemyBundle";
+            }
 
 
             //marmo

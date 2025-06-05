@@ -369,6 +369,9 @@ namespace SaltsEnemies_Reseasoned
             PCall(AuthorEncounters.Add);
             PCall(WallEncounters.Add);
             PCall(AmalgaEncounters.Add);
+            PCall(DeadOrAliveEncounters.Add);
+            PCall(WaltzEncounters.Add);
+            PCall(VoiceTrumpetEncounters.Add);
 
             //moving the passives glossary here.
 

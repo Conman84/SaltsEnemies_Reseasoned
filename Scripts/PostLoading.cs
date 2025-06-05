@@ -90,6 +90,9 @@ namespace SaltEnemies_Reseasoned
             PCall(FoxtrotEncounters.Post);
             PCall(AuthorEncounters.Post);
             PCall(WallEncounters.Post);
+            PCall(DeadOrAliveEncounters.Post);
+            PCall(WaltzEncounters.Post);
+            PCall(VoiceTrumpetEncounters.Post);
 
             //Crossovers
 
