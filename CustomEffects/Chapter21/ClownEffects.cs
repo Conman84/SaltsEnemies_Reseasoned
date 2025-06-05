@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using BrutalAPI;
+using JetBrains.Annotations;
 using MonoMod.RuntimeDetour;
 using SaltsEnemies_Reseasoned;
 using System;
@@ -52,6 +53,13 @@ namespace SaltEnemies_Reseasoned
             if (ret > -1) return ret;
 
             return base.GetNextAbilitySlotUsage(abilities, unit);
+        }
+    }
+    public class IsBlueEffectCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            return caster.HealthColor == Pigments.Blue;
         }
     }
 }

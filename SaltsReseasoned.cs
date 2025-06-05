@@ -242,6 +242,9 @@ namespace SaltsEnemies_Reseasoned
             PCall(Monster.Add);
             PCall(Wall.Add);
             PCall(Amalga.Add);
+            PCall(DeadOrAlive.Add);
+            PCall(Waltz.Add);
+            PCall(Trumpet.Add);
 
             //CH1 Encounters
             LostSheepEncounters.Add();
