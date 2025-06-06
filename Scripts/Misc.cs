@@ -34,7 +34,7 @@ namespace SaltEnemies_Reseasoned
         {
             get
             {
-                if (Birthday) return 50;
+                if (Birthday) return 25;
                 return 0;
             }
         }
