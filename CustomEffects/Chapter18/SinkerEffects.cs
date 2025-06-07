@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using SaltsEnemies_Reseasoned;
+using UnityEngine;
 
 namespace SaltEnemies_Reseasoned
 {
@@ -59,34 +60,52 @@ namespace SaltEnemies_Reseasoned
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             _spawnTypeID = CombatType_GameIDs.Spawn_Basic.ToString();
-            List<EnemySO> fish = new List<EnemySO>();
-            for (int i = 0; i < 12; i++) fish.Add(LoadedAssetsHandler.GetEnemy("MudLung_EN"));
-            for (int i = 0; i < 2; i++) fish.Add(LoadedAssetsHandler.GetEnemy("Mung_EN"));
-            fish.Add(LoadedAssetsHandler.GetEnemy("Goa_EN"));
-            for (int i = 0; i < 4; i++) fish.Add(LoadedAssetsHandler.GetEnemy(Enemies.Mungling));
-            for (int i = 0; i < 4; i++) fish.Add(LoadedAssetsHandler.GetEnemy("FlaMinGoa_EN"));
-            for (int i = 0; i < 3; i++) fish.Add(LoadedAssetsHandler.GetEnemy("Mungie_EN"));
-            for (int i = 0; i < 3; i++) fish.Add(LoadedAssetsHandler.GetEnemy("Keko_EN"));
-            if (Check.EnemyExist("Pinano_EN"))
+            try
             {
-                fish.Add(LoadedAssetsHandler.GetEnemy("Minana_EN"));
-                for (int i = 0; i < 5; i++) fish.Add(LoadedAssetsHandler.GetEnemy("Pinano_EN"));
-            }
-            fish.Add(LoadedAssetsHandler.GetEnemy("Wringle_EN"));
-            for (int i = 0; i < 2; i++) fish.Add(LoadedAssetsHandler.GetEnemy(Spoggle.Yellow));
-            fish.Add(LoadedAssetsHandler.GetEnemy("ManicHips_EN"));
-            if (Check.EnemyExist("AFlower_EN")) for (int i = 0; i < 3; i++) fish.Add(LoadedAssetsHandler.GetEnemy("AFlower_EN"));
-            if (Check.EnemyExist(Enemies.Unmung)) fish.Add(LoadedAssetsHandler.GetEnemy(Enemies.Unmung));
-            foreach (EnemySO en in LoadedAssetsHandler.LoadedEnemies.Values)
-            {
-                if (en.unitTypes == null) continue;
-                if (en.unitTypes.Contains(UnitType_GameIDs.Fish.ToString()) && en.size == 1 && en.health <= 30)
+                List<EnemySO> fish = new List<EnemySO>();
+                for (int i = 0; i < 12; i++) fish.Add(LoadedAssetsHandler.GetEnemy("MudLung_EN"));
+                for (int i = 0; i < 2; i++) fish.Add(LoadedAssetsHandler.GetEnemy("Mung_EN"));
+                fish.Add(LoadedAssetsHandler.GetEnemy("Goa_EN"));
+                for (int i = 0; i < 4; i++) fish.Add(LoadedAssetsHandler.GetEnemy(Enemies.Mungling));
+                for (int i = 0; i < 4; i++) fish.Add(LoadedAssetsHandler.GetEnemy("FlaMinGoa_EN"));
+                for (int i = 0; i < 3; i++) fish.Add(LoadedAssetsHandler.GetEnemy("Mungie_EN"));
+                for (int i = 0; i < 3; i++) fish.Add(LoadedAssetsHandler.GetEnemy("Keko_EN"));
+                if (Check.EnemyExist("Pinano_EN"))
                 {
-                    if (!fish.Contains(en)) fish.Add(en);
+                    fish.Add(LoadedAssetsHandler.GetEnemy("Minana_EN"));
+                    for (int i = 0; i < 5; i++) fish.Add(LoadedAssetsHandler.GetEnemy("Pinano_EN"));
                 }
+                fish.Add(LoadedAssetsHandler.GetEnemy("Wringle_EN"));
+                for (int i = 0; i < 2; i++) fish.Add(LoadedAssetsHandler.GetEnemy(Spoggle.Yellow));
+                fish.Add(LoadedAssetsHandler.GetEnemy("ManicHips_EN"));
+                if (Check.EnemyExist("AFlower_EN")) for (int i = 0; i < 3; i++) fish.Add(LoadedAssetsHandler.GetEnemy("AFlower_EN"));
+                if (Check.EnemyExist(Enemies.Unmung)) fish.Add(LoadedAssetsHandler.GetEnemy(Enemies.Unmung));
+                foreach (EnemySO en in LoadedAssetsHandler.LoadedEnemies.Values)
+                {
+                    try
+                    {
+                        if (en.unitTypes == null) continue;
+                        if (en.unitTypes.Contains(UnitType_GameIDs.Fish.ToString()) && en.size == 1 && en.health <= 30)
+                        {
+                            if (!fish.Contains(en)) fish.Add(en);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.LogWarning("null enemy i think. Sinker effect going through entire loadedenemies list.");
+                        Debug.LogWarning(ex.ToString());
+                        continue;
+                    }
+                }
+                enemy = fish.GetRandom();
+                return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
             }
-            enemy = fish.GetRandom();
-            return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+            catch (Exception ex)
+            {
+                Debug.LogWarning("sinker effect fail, default to spawning MudLung");
+                enemy = LoadedAssetsHandler.GetEnemy("MudLung_EN");
+                return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+            }
         }
     }
     public class AlarmCondition : HasEnemySpaceEffectCondition
