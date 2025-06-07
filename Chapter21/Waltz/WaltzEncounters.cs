@@ -29,7 +29,7 @@ namespace SaltsEnemies_Reseasoned
             easy.SimpleAddEncounter(2, "Waltz_EN", 1, "MudLung_EN");
 
             easy.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Clown.Easy, 7, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Clown.Easy, 5, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Easy);
         }
         public static void Post()
         {
