@@ -60,6 +60,15 @@ namespace SaltEnemies_Reseasoned
                 CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { left }, unit));
             }
         }
+        public override void ReduceDuration(StatusEffect_Holder holder, IStatusEffector effector)
+        {
+            int contentMain = holder.m_ContentMain;
+            holder.m_ContentMain = Mathf.Max(0, contentMain - 1);
+            if (!TryRemoveStatusEffect(holder, effector) && contentMain != holder.m_ContentMain)
+            {
+                effector.StatusEffectValuesChanged(_StatusID, holder.m_ContentMain - contentMain, doesPopUp: true);
+            }
+        }
     }
     public class ApplyLeftEffect : StatusEffect_Apply_Effect
     {
