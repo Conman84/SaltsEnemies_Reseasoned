@@ -28,7 +28,7 @@ namespace SaltEnemies_Reseasoned
             announce._passiveName = "Announcement (7)";
             announce.passiveIcon = ResourceLoader.LoadSprite("AnnouncementPassive.png");
             announce.m_PassiveID = "Announcement_PA";
-            announce._enemyDescription = "On exiting combat, deal an Agonizing amount of damage to the Opposing party member.";
+            announce._enemyDescription = "On dying and on fleeing, deal an Agonizing amount of damage to the Opposing party member.";
             announce._characterDescription = "On exiting combat, deal 7 damage to the Opposing enemy.";
             announce.doesPassiveTriggerInformationPanel = false;
             announce._triggerOn = [TriggerCalls.Count];
