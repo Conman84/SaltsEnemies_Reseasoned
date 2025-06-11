@@ -85,7 +85,7 @@ namespace SaltsEnemies_Reseasoned
 
             //overthrown
             Ability over = new Ability("Overthrown", "Overthrown_A");
-            over.Description = "Deal an Agonizing amount of damage to this enemy, this damgae is fully blocked by Shield.\nIf no damage is dealt, Curse the Opposing party member.";
+            over.Description = "Deal an Agonizing amount of damage to this enemy, this damage is fully blocked by Shield.\nIf no damage is dealt, Curse the Opposing party member.";
             over.Rarity = cruel.Rarity;
             over.Effects = new EffectInfo[2];
             over.Effects[0] = cruel.Effects[0];
