@@ -14,7 +14,7 @@ namespace SaltsEnemies_Reseasoned
             Enemy miriam = new Enemy("Miriam", "Miriam_EN")
             {
                 Health = 60,
-                HealthColor = Pigments.Grey,
+                HealthColor = Pigments.Blue,
                 CombatSprite = ResourceLoader.LoadSprite("MiriamIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("MiriamWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("MiriamDead.png", new Vector2(0.5f, 0f), 32),
@@ -23,7 +23,17 @@ namespace SaltsEnemies_Reseasoned
             };
             miriam.PrepareEnemyPrefab("assets/group4/Miriam/Miriam_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Miriam/Miriam_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            miriam.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, Passives.MultiAttack2, Passives.Formless });
+            //miss faced
+            BasePassiveAbilitySO mf = ScriptableObject.Instantiate(Passives.TwoFaced);
+            mf._locID = "";
+            mf.passiveIcon = ResourceLoader.LoadSprite("MissFaced.png");
+            mf._passiveName = "Miss-Faced";
+            mf._enemyDescription = "On being direct damaged and at the end of each round, this unit's health color changes between Red and Blue.";
+            mf.m_PassiveID = "MissFaced_PA";
+            mf._characterDescription = mf._enemyDescription;
+            mf._triggerOn = new List<TriggerCalls>(Passives.TwoFaced._triggerOn) { TriggerCalls.OnRoundFinished }.ToArray();
+
+            miriam.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, mf, Passives.MultiAttack2, Passives.Formless });
             miriam.AddLootData(new EnemyLootItemProbability[] { new EnemyLootItemProbability() { isItemTreasure = true, amount = 3, probability = 100 } });
 
 
