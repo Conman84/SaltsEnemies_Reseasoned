@@ -487,8 +487,8 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("TraitorPassive.png"), "Traitor", "On receiving damage from an ally, deal a Painful amount of damage to the Opposing position.\nOn receiving damage from an opponent, deal a Little damage to the Left and Right allies.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MelancholyPassive.png"), "Melancholy", "On taking direct damage, apply 1 Left on this unit and the Opposing position.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("GluttonyPassive.png"), "Gluttony", "On receiving direct damage, move Left and deal a Painful amount of damage to the Opposing position.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AllSeeingPassive.png"), "All-Seeing", "On ending the round on the Rightmost tile, deal an Agonizing amount of damage to all opponents and transform into a specific unit.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AllKnowingPassive.png"), "All-Knowing", "On moving to the Leftmost position, transform into a specific unit.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AllSeeingPassive.png"), "All-Seeing", "On ending the round on the Rightmost tile, deal an Agonizing amount of damage to all opponents and transform into a specific unit.\n(If this unit starts combat on the rightmost tile, they will move Left 4 times.)");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AllKnowingPassive.png"), "All-Knowing", "On moving to the Leftmost position, transform into a specific unit.\n(If this unit starts combat on the Leftmost tile, they will move Right 4 times.)");
 
             //CH20
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("RotaryPassive.png"), "Rotary", "On being damaged, move all the way to the Left or Right.");
