@@ -143,6 +143,8 @@ namespace SaltsEnemies_Reseasoned
 
             hard = new AddTo(Garden.H.Miriam.Hard);
             hard.AddRandomGroup("Miriam_EN", "Attrition_EN", "Attrition_EN");
+            hard.SimpleAddGroup(1, "Miriam_EN", 3, "Romantic_EN");
+            hard.SimpleAddGroup(1, "Miriam_EN", 3, "Surrogate_EN");
         }
     }
 }
