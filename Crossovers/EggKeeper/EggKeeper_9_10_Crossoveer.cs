@@ -26,7 +26,24 @@ namespace SaltEnemies_Reseasoned
             med.AddRandomGroup("MiniReaper_EN", "Grandfather_EN", "EggKeeper_EN", Flower.Blue);
 
             AddTo easy = new AddTo(Garden.H.EyePalm.Easy);
-            easy.AddRandomGroup("EyePalm_EN", "EyePalm_EN", "EggKeeper_EN", "EyePalm_EN");
+            easy.AddRandomGroup("EyePalm_EN", "EyePalm_EN", "EggKeeper_EN");
+
+            med = new AddTo(Garden.H.EyePalm.Med);
+            med.SimpleAddGroup(2, "EyePalm_EN", 1, "EggKeeper_EN", 1, Enemies.Shivering);
+            med.SimpleAddGroup(3, "EyePalm_EN", 1, "EggKeeper_EN");
+
+            easy = new AddTo(Garden.H.Merced.Easy);
+            easy.SimpleAddGroup(4, "EggKeeper_EN", 1, "Merced_EN");
+
+            easy = new AddTo(Garden.H.Shua.Easy);
+            easy.AddRandomGroup("Shua_EN", "EyePalm_EN", "EggKeeper_EN");
+
+            med = new AddTo(Garden.H.Shua.Med);
+            med.AddRandomGroup("Shua_EN", "ChoirBoy_EN", "EggKeeper_EN");
+            med.AddRandomGroup("Shua_EN", "EyePalm_EN", "EyePalm_EN", "EggKeeper_EN");
+
+            AddTo hard = new AddTo(Garden.H.Miriam.Hard);
+            hard.SimpleAddGroup(1, "Miriam_EN", 2, "EggKeeper_EN");
         }
     }
 }
