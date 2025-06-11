@@ -11,6 +11,7 @@ namespace SaltsEnemies_Reseasoned
         {
             FarShore();
             Orpheum();
+            TheGarden();
         }
         public static void FarShore()
         {
