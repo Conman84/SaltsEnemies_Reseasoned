@@ -75,11 +75,11 @@ namespace SaltsEnemies_Reseasoned
             //pigs in blue
             Ability blue = new Ability("PigsInBlue_A");
             blue.Name = "Pigs in Blue";
-            blue.Description = "If any enemies share this enemy's health color, deal a Little amount damage to their Opposing position.\nInflict 1 Constricted on the Opposing position.";
+            blue.Description = "If any enemies share this enemy's health color, deal a Painful amount of damage to their Opposing position.\nInflict 1 Constricted on the Opposing position.";
             blue.Rarity = Rarity.GetCustomRarity("rarity5");
             blue.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Targetting.Reverse(targettingCasterColor)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Targetting.Reverse(targettingCasterColor)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 1, Slots.Front)
             };
             blue.AddIntentsToTarget(Targetting.Reverse(targettingCasterColor), new string[] { IntentType_GameIDs.Damage_1_2.ToString() });
@@ -114,7 +114,7 @@ namespace SaltsEnemies_Reseasoned
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Targeting.Slot_Front),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Targeting.Slot_Front),
                             Effects.GenerateEffect(effect, 1, Targeting.Slot_SelfSlot)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Class"),
