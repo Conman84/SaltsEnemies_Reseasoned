@@ -59,6 +59,13 @@ namespace SaltsEnemies_Reseasoned
             AddTo hard = new AddTo(Orph.H.Tortoise.Hard);
             hard.AddRandomGroup("StalwartTortoise_EN", Enemies.Shuffler, Enemies.Suckle);
             hard.AddRandomGroup("StalwartTortoise_EN", Enemies.Shuffler, "LostSheep_EN");
+
+            med = new AddTo(Orph.H.Conductor.Med);
+            med.AddRandomGroup("Conductor_EN", Enemies.Shuffler, "Sigil_EN");
+            med.AddRandomGroup("Conductor_EN", Enemies.Shuffler, "Delusion_EN");
+
+            hard = new AddTo(Orph.H.Conductor.Hard);
+            hard.AddRandomGroup("Conductor_EN", Enemies.Shuffler, "WindSong_EN");
         }
     }
 }
