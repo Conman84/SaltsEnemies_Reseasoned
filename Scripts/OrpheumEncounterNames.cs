@@ -291,6 +291,12 @@ namespace SaltsEnemies_Reseasoned
                 public static string Med => "Marmo_Errant_Medium_Bundle";
                 public static string Hard => "Marmo_Errant_Hard_Bundle";
             }
+            //tay
+            public static class Shuffler
+            {
+                public static string Easy => "RR_Zone02_Shawled_Shuffler_Easy_EnemyBundle";
+                public static string Med => "RR_Zone02_Shawled_Shuffler_Medium_EnemyBundle";
+            }
         }
     }
 }

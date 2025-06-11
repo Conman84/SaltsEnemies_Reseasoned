@@ -172,5 +172,6 @@ namespace SaltsEnemies_Reseasoned
         public static string Unmung => "TeachaMantoFish_EN";
         public static string Mungling => "MunglingMudLung_EN";
         public static string Shooter => "SkeletonShooter_EN";
+        public static string Shuffler => "Shawled_Shuffler_EN";
     }
 }
