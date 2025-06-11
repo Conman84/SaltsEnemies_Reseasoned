@@ -32,6 +32,7 @@ namespace SaltsEnemies_Reseasoned
             mf._triggerOn = new List<TriggerCalls>(Passives.TwoFaced._triggerOn) { TriggerCalls.OnRoundFinished }.ToArray();
 
             //scramble
+            /*
             ParentalPassiveAbility baseParent = LoadedAssetsHandler.GetEnemy("Flarb_EN").passiveAbilities[1] as ParentalPassiveAbility;
             ParentalPassiveAbility scramble = ScriptableObject.Instantiate<ParentalPassiveAbility>(baseParent);
             scramble._passiveName = "Parental";
@@ -46,6 +47,17 @@ namespace SaltsEnemies_Reseasoned
             parental.AnimationTarget = Targeting.Slot_SelfSlot;
             AbilitySO ability = parental.GenerateEnemyAbility(true).ability;
             scramble._parentalAbility.ability = ability;
+            */
+            ClownPassiveAbility.Setup();
+            PerformEffectPassiveAbility scramble = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            scramble._passiveName = "Scramble";
+            scramble.passiveIcon = ResourceLoader.LoadSprite("ScramblePassive.png");
+            scramble.m_PassiveID = "Scramble_PA";
+            scramble._enemyDescription = "On any Infantile enemy being damaged, randomize the positions of all enemies.";
+            scramble._characterDescription = "idk";
+            scramble.doesPassiveTriggerInformationPanel = true;
+            scramble.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<MassSwapZoneEffect>(), 1, Targetting.AllAlly).SelfArray();
+            scramble._triggerOn = [ClownPassiveAbility.Trigger];
 
             //add passives
             template.AddPassives(new BasePassiveAbilitySO[] { mf, scramble });

@@ -38,6 +38,7 @@
 	  <None Remove="Chapter10\Medamaude\EyePalmIcon.png" />
 	  <None Remove="Chapter10\Medamaude\EyePalmWorld.png" />
 	  <None Remove="Chapter10\Medamaude\MissFaced.png" />
+	  <None Remove="Chapter10\Medamaude\ScramblePassive.png" />
 	  <None Remove="Chapter10\Merced\MercedDead.png" />
 	  <None Remove="Chapter10\Merced\MercedIcon.png" />
 	  <None Remove="Chapter10\Merced\MercedWorld.png" />
@@ -492,6 +493,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="Chapter10\Medamaude\ScramblePassive.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaDead.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaIcon.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaPortal.png" />

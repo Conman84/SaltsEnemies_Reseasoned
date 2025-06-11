@@ -424,6 +424,7 @@ namespace SaltsEnemies_Reseasoned
 
             //CH10
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MissFaced.png"), "Miss-Faced", "On being direct damaged and at the end of each round, this unit's health color changes between Red and Blue.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ScramblePassive.png"), "Scramble", "On any Infantile ally being directly damaged, randomly shuffle the positions of all allied units.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WellPreservedPassive.png"), "Well-Preserved", "This unit is immune to indirect damage and damage from its allies.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Incomprehensible.png"), "Incomprehensible", "When an opponent moves in front of this unit, inflict 1 Muted on them.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Dodge.png"), "Evasive", "Permenantly applies Dodge to this unit.");
