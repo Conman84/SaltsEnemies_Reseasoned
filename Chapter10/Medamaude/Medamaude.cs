@@ -75,7 +75,7 @@ namespace SaltsEnemies_Reseasoned
             //pigs in blue
             Ability blue = new Ability("PigsInBlue_A");
             blue.Name = "Pigs in Blue";
-            blue.Description = "If any enemies share this enemy's health color, deal a Painful amount of damage to their Opposing position.\nInflict 1 Constricted on the Opposing position.";
+            blue.Description = "If any enemies share this enemy's health color, deal a Painful amount of damage to their Opposing positions.\nInflict 1 Constricted on the Opposing position.";
             blue.Rarity = Rarity.GetCustomRarity("rarity5");
             blue.Effects = new EffectInfo[]
             {
