@@ -44,5 +44,21 @@ namespace SaltsEnemies_Reseasoned
             hard = new AddTo("H_Zone02_WrigglingSacrifice_Hard_EnemyBundle");
             hard.AddRandomGroup("WrigglingSacrifice_EN", shuffler, "Enigma_EN");
         }
+        public static void Shufflers_5_10()
+        {
+            AddTo easy = new AddTo(Orph.H.Shuffler.Easy);
+            easy.SimpleAddGroup(1, Enemies.Shuffler, 2, "Delusion_EN");
+            if (SaltsReseasoned.rando == 83) easy.SimpleAddGroup(1, Enemies.Shuffler, 2, "Spectre_EN");
+
+            AddTo med = new AddTo(Orph.H.Shuffler.Med);
+            med.AddRandomGroup(Enemies.Shuffler, Flower.Yellow, Flower.Purple);
+            med.AddRandomGroup(Enemies.Shuffler, Enemies.Shuffler, "Sigil_EN");
+            med.SimpleAddGroup(2, Enemies.Shuffler, 1, Enemies.Solvent);
+            med.AddRandomGroup(Enemies.Shuffler, Enemies.Shuffler, "WindSong_EN");
+
+            AddTo hard = new AddTo(Orph.H.Tortoise.Hard);
+            hard.AddRandomGroup("StalwartTortoise_EN", Enemies.Shuffler, Enemies.Suckle);
+            hard.AddRandomGroup("StalwartTortoise_EN", Enemies.Shuffler, "LostSheep_EN");
+        }
     }
 }
