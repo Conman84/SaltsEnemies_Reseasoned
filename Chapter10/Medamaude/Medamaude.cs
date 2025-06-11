@@ -11,7 +11,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy template = new Enemy("Medamaude", "EyePalm_EN")
             {
-                Health = 20,
+                Health = 24,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("EyePalmIcon.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("EyePalmDead.png", new Vector2(0.5f, 0f), 32),
