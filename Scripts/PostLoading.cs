@@ -106,6 +106,7 @@ namespace SaltEnemies_Reseasoned
             PCall(MarmoGitEncounters.Add);
             PCall(MarmoAttritionEncounters.Add);
             PCall(Marmo_Grey_Crossovers.Add);
+            PCall(MarmoCrossover_9_10.Add);
 
             //eggkeeper
             PCall(MinichibisEggkeeperEncounters.Add);

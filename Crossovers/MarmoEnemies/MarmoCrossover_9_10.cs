@@ -121,6 +121,28 @@ namespace SaltsEnemies_Reseasoned
             easy = new AddTo(Garden.H.EyePalm.Easy);
             easy.AddRandomGroup("EyePalm_EN", Enemies.Shivering, "EyePalm_EN", "Romantic_EN");
             easy.AddRandomGroup("EyePalm_EN", Enemies.Shivering, Enemies.Shivering, "Romantic_EN");
+
+            med = new AddTo(Garden.H.Skinning.Med);
+            med.AddRandomGroup(Enemies.Skinning, "MiniReaper_EN", "Attrition_EN");
+            med.AddRandomGroup(Enemies.Skinning, "MiniReaper_EN", "Git_EN");
+
+            med = new AddTo(Garden.H.InHerImage.Med);
+            med.SimpleAddGroup(2, "InHerImage_EN", 1, "EyePalm_EN", 1, "Surrogate_EN");
+            med.SimpleAddGroup(2, "InHerImage_EN", 1, "EyePalm_EN", 1, "Romantic_EN");
+            med.SimpleAddGroup(2, "InHerImage_EN", 1, "EyePalm_EN", 1, "Git_EN");
+            med = new AddTo(Garden.H.InHisImage.Med);
+            med.AddRandomGroup("InHisImage_EN", "InHisImage_EN", "EyePalm_EN", "Romantic_EN");
+            med.AddRandomGroup("InHisImage_EN", "InHisImage_EN", "EyePalm_EN", "Surrogate_EN");
+            med.AddRandomGroup("InHisImage_EN", "InHisImage_EN", "EyePalm_EN", "Git_EN");
+
+            hard = new AddTo(Garden.H.Skinning.Hard);
+            hard.AddRandomGroup(Enemies.Skinning, "EyePalm_EN", "EyePalm_EN", "Attrition_EN");
+
+            hard = new AddTo(Garden.H.Minister.Hard);
+            hard.AddRandomGroup(Enemies.Minister, "Attrition_EN", "MiniReaper_EN");
+
+            hard = new AddTo(Garden.H.Miriam.Hard);
+            hard.AddRandomGroup("Miriam_EN", "Attrition_EN", "Attrition_EN");
         }
     }
 }
