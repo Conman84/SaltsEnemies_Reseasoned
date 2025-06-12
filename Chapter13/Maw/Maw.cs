@@ -30,7 +30,7 @@ namespace SaltsEnemies_Reseasoned
             bad._passiveName = "Bad Dog";
             bad.m_PassiveID = "BadDog_PA";
             bad.passiveIcon = ResourceLoader.LoadSprite("MawPassive.png");
-            bad._enemyDescription = "During the player's turn, whenever anything moves, if this enemy has an Opposing party member, remove all of its actions from the timeline. \nOtherwise, return all lost actions.";
+            bad._enemyDescription = "On anything moving during the player's turn, if this enemy has an Opposing party member, remove all of its actions from the timeline. \nOtherwise, return all lost actions.";
             bad._characterDescription = "wont work";
             bad.doesPassiveTriggerInformationPanel = true;
             bad.effects = new EffectInfo[0];
