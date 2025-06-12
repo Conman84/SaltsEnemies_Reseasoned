@@ -54,6 +54,23 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup(Enemies.Camera, "AFlower_EN", "Surimi_EN");
 
             //ORPHEmUM
+
+            med = new AddTo(Orph.H.Rabies.Med);
+            med.AddRandomGroup("Rabies_EN", "Rabies_EN", "Gungrot_EN", "Gungrot_EN");
+            med.AddRandomGroup("Rabies_EN", "Rabies_EN", "Romantic_EN", "Enigma_EN");
+            med.AddRandomGroup("Rabies_EN", "Rabies_EN", "Romantic_EN", "Romantic_EN");
+            med.AddRandomGroup("Rabies_EN", "Rabies_EN", "Gungrot_EN", "Gungrot_EN", "Romantic_EN");
+
+            //garben
+            hard = new AddTo(Garden.H.SnakeGod.Hard);
+            if (SaltsReseasoned.trolling > 50) hard.AddRandomGroup("SnakeGod_EN", "Git_EN");
+            hard.SimpleAddGroup(1, "SnakeGod_EN", 2, "Attrition_EN");
+            if (SaltsReseasoned.trolling < 50) hard.SimpleAddGroup(1, "SnakeGod_EN", 2, "Git_EN");
+            if (SaltsReseasoned.silly < 33) hard.SimpleAddGroup(1, "SnakeGod_EN", 1, "Romantic_EN");
+            if (SaltsReseasoned.silly > 33 && SaltsReseasoned.silly < 66) hard.SimpleAddGroup(1, "SnakeGod_EN", 2, "Romantic_EN");
+            if (SaltsReseasoned.silly > 66) hard.SimpleAddGroup(1, "SnakeGod_EN", 3, "Romantic_EN");
+            hard.AddRandomGroup("SnakeGod_EN", "WindSong_EN", "Romantic_EN");
+            hard.AddRandomGroup("SnakeGod_EN", "Surrogate_EN");
         }
     }
 }
