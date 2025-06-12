@@ -23,7 +23,7 @@ namespace SaltsEnemies_Reseasoned
 
             med.AddRandomEncounter("Clione_EN", "MudLung_EN", "MudLung_EN");
             med.AddRandomEncounter("Clione_EN", Enemies.Mungling);
-            med.AddRandomEncounter("Cione_EN", "Flarblet_EN", "Flarblet_EN", "LostSheep_EN");
+            med.AddRandomEncounter("Clione_EN", "Flarblet_EN", "Flarblet_EN", "LostSheep_EN");
             med.SimpleAddEncounter(1, "Clione_EN", 3, "Keko_EN");
             med.AddRandomEncounter("Clione_EN", Jumble.Red, "MudLung_EN");
             med.AddRandomEncounter("Clione_EN", "Windle_EN", "LostSheep_EN");
