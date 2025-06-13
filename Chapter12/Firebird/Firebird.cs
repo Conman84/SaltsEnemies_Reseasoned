@@ -88,7 +88,7 @@ namespace SaltsEnemies_Reseasoned
             veins.Effects[0] = Effects.GenerateEffect(BasicEffects.GetVisuals("Sear_1_A", true, Slots.LeftRight), 0, null, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.OnFire_ID.ToString(), 0, true, true));
             veins.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.LeftRight, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.OnFire_ID.ToString(), 0, true, true));
             veins.AddIntentsToTarget(Targeting.Slot_SelfAll, [IntentType_GameIDs.Misc_Hidden.ToString()]);
-            veins.AddIntentsToTarget(Slots.LeftRight, [IntentType_GameIDs.Damage_3_6.ToString()]);
+            veins.AddIntentsToTarget(Slots.LeftRight, [IntentType_GameIDs.Damage_7_10.ToString()]);
             veins.Visuals = null;
             veins.AnimationTarget = Slots.Self;
 
