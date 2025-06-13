@@ -73,20 +73,20 @@ namespace SaltsEnemies_Reseasoned
 
             //cruel
             Ability cruel = new Ability("Cruel Games", "CruelGames_A");
-            cruel.Description = "Deal an Agonizing amount of damage to this enemy, this damage is fully blocked by Shield.\nIf no damage is dealt, deal an Agonizing amount of damage to the Opposing party member.";
-            cruel.Rarity = Rarity.GetCustomRarity("rarity5");
+            cruel.Description = "Deal an Agonizing amount of damage to this enemy, this damage is fully blocked by Shield.\nIf no damage is dealt, inflict 2 Frail on all party members.";
+            cruel.Rarity = Rarity.CreateAndAddCustomRarityToPool("yin2", 2);
             cruel.Effects = new EffectInfo[2];
             cruel.Effects[0] = Effects.GenerateEffect(BasicEffects.ShieldBlocked, 10, Slots.Self);
-            cruel.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front, BasicEffects.DidThat(false));
+            cruel.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 2, Targetting.Everything(false), BasicEffects.DidThat(false));
             cruel.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_7_10.ToString()]);
-            cruel.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_7_10.ToString()]);
+            cruel.AddIntentsToTarget(Targetting.Everything(false), [IntentType_GameIDs.Status_Frail.ToString()]);
             cruel.Visuals = CustomVisuals.GetVisuals("Salt/StarBomb");
             cruel.AnimationTarget = Slots.Self;
 
             //overthrown
             Ability over = new Ability("Overthrown", "Overthrown_A");
             over.Description = "Deal an Agonizing amount of damage to this enemy, this damage is fully blocked by Shield.\nIf no damage is dealt, Curse the Opposing party member.";
-            over.Rarity = cruel.Rarity;
+            over.Rarity = Rarity.CreateAndAddCustomRarityToPool("yin8", 8);
             over.Effects = new EffectInfo[2];
             over.Effects[0] = cruel.Effects[0];
             over.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.Front, BasicEffects.DidThat(false));

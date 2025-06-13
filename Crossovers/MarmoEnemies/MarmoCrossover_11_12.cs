@@ -71,6 +71,49 @@ namespace SaltsEnemies_Reseasoned
             if (SaltsReseasoned.silly > 66) hard.SimpleAddGroup(1, "SnakeGod_EN", 3, "Romantic_EN");
             hard.AddRandomGroup("SnakeGod_EN", "WindSong_EN", "Romantic_EN");
             hard.AddRandomGroup("SnakeGod_EN", "Surrogate_EN");
+
+            AddTo easy = new AddTo(Garden.H.GlassFigurine.Easy);
+            easy.SimpleAddGroup(1, "GlassFigurine_EN", 3, "Romantic_EN");
+
+            easy = new AddTo(Garden.H.Attrition.Easy);
+            easy.SimpleAddGroup(2, "Attrition_EN", 1, "Damocles_EN");
+            easy.SimpleAddGroup(2, "Attrition_EN", 1, "GlassFigurine_EN");
+
+            easy = new AddTo(Garden.H.Git.Easy);
+            easy.SimpleAddGroup(2, "Git_EN", 2, "Damocles_EN");
+            easy.SimpleAddGroup(2, "Git_EN", 1, "GlassFigurine_EN");
+
+            med = new AddTo(Garden.H.Attrition.Med);
+            med.SimpleAddGroup(3, "Attrition_EN", 1, "Damocles_EN");
+            med.AddRandomGroup("Attrition_EN", "Attrition_EN", "Hunter_EN");
+
+            med = new AddTo(Garden.H.InHerImage.Med);
+            med.AddRandomGroup("InHerImage_EN", "InHerImage_EN", "Git_EN", "GlassFigurine_EN");
+            med = new AddTo(Garden.H.InHisImage.Med);
+            med.SimpleAddGroup(2, "InHisImage_EN", 1, "Git_EN", 1, "Damocles_EN");
+
+            med = new AddTo(Garden.H.Hunter.Med);
+            med.SimpleAddGroup(1, "Hunter_EN", 2, "Attrition_EN", 1, "Damocles_EN");
+            med.SimpleAddGroup(1, "Hunter_EN", 2, "Attrition_EN", 1, "Surrogate_EN");
+            med.AddRandomGroup("Hunter_EN", "Attrition_EN", Enemies.Shivering, Enemies.Shivering);
+
+            med = new AddTo(Garden.H.Firebird.Med);
+            med.SimpleAddGroup(1, "Firebird_EN", 3, "Git_EN");
+            med.SimpleAddGroup(1, "Firebird_EN", 2, "Attrition_EN");
+            med.AddRandomGroup("Firebird_EN", "InHisImage_EN", "InHerImage_EN", "Git_EN");
+            med.AddRandomGroup("Firebird_EN", "Attrition_EN", "Attrition_EN", "Damocles_EN");
+            med.AddRandomGroup("Firebird_EN", "Attrition_EN", "Attrition_EN", "Romantic_EN");
+
+            med = new AddTo(Garden.H.Skinning.Med);
+            med.AddRandomGroup(Enemies.Skinning, "Hunter_EN", "Surrogate_EN");
+
+            hard = new AddTo(Garden.H.Minister.Hard);
+            hard.AddRandomGroup(Enemies.Minister, "Attrition_EN", "Attrition_EN", "GlassFigurine_EN");
+
+            hard = new AddTo(Garden.H.Skinning.Hard);
+            hard.AddRandomGroup(Enemies.Skinning, "Hunter_EN", "Surrogate_EN", "MiniReaper_EN");
+
+            
         }
     }
 }
