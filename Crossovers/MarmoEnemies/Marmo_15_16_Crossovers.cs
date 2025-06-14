@@ -56,6 +56,20 @@ namespace SaltsEnemies_Reseasoned
 
             easy = new AddTo(Orph.H.Spoggle.Unstable.Easy);
             if (SaltsReseasoned.silly > 50) easy.AddRandomGroup(Spoggle.Unstable, Spoggle.Blue, "TortureMeNot_EN", "TortureMeNot_EN", "TortureMeNot_EN");
+            if (SaltsReseasoned.silly < 50) easy.AddRandomGroup(Spoggle.Unstable, Spoggle.Yellow, "TortureMeNot_EN", "TortureMeNot_EN", "TortureMeNot_EN");
+
+            med = new AddTo(Orph.H.Errant.Med);
+            med.AddRandomGroup("Errant_EN", "TortureMeNot_EN", "TortureMeNot_EN");
+            med.AddRandomGroup("Errant_EN", Bots.Red, Bots.Yellow);
+            med.AddRandomGroup("Errant_EN", Bots.Blue, Bots.Purple);
+
+            hard = new AddTo(Orph.H.Errant.Hard);
+            hard.AddRandomGroup("Errant_EN", "Errant_EN", "TortureMeNot_EN");
+            if (SaltsReseasoned.trolling < 25) hard.AddRandomGroup("Errant_EN", Bots.Red, Bots.Blue, Bots.Yellow);
+            if (SaltsReseasoned.trolling > 25 && SaltsReseasoned.trolling < 50) hard.AddRandomGroup("Errant_EN", Bots.Red, Bots.Blue, Bots.Purple);
+            if (SaltsReseasoned.trolling > 50 && SaltsReseasoned.trolling < 75) hard.AddRandomGroup("Errant_EN", Bots.Red, Bots.Yellow, Bots.Purple);
+            if (SaltsReseasoned.trolling > 75) hard.AddRandomGroup("Errant_EN", Bots.Blue, Bots.Yellow, Bots.Purple);
+            hard.AddRandomGroup("Errant_EN", "Crystal_EN", "SingingStone_EN");
         }
     }
 }
