@@ -130,6 +130,7 @@ namespace SaltEnemies_Reseasoned
 
             //HIF
             PCall(HIF_Crossovers.Add_1_4);
+            PCall(HIF_5_10_Crossover.TheGarden);
 
             //giltch freakazoids
             PCall(GlitchCrossovers_1_4.Add);
