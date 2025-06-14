@@ -93,7 +93,7 @@ namespace SaltsEnemies_Reseasoned
             hard.SimpleAddEncounter(2, "Yang_EN", 1, "ChoirBoy_EN", 2, "PawnA_EN");
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Yang.Hard, 10 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Yang.Hard, 5 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
         }
         public static void Post()
         {

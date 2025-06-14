@@ -213,8 +213,12 @@ namespace SaltsEnemies_Reseasoned
             }
             public static class Yang
             {
-                public static string Med => "H_Zone03_Yin_Yang_Medium_EnemyBundle";
-                public static string Hard => "H_Zone03_Yin_Yang_Hard_EnemyBundle";
+                public static string Med => "H_Zone03_Yang_Medium_EnemyBundle";
+                public static string Hard => "H_Zone03_Yang_Hard_EnemyBundle";
+            }
+            public static class Yin
+            {
+                public static string Hard => "H_Zone03_Yin_Hard_EnemyBundle";
             }
             public static class TortureMeNot
             {

@@ -358,6 +358,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(StarlessEncounters.Add);
             PCall(PawnAEncounters.Add);
             PCall(YangEncounters.Add);
+            PCall(YinEncounters.Add);
 
             //CH20 Encounters
             PCall(TwoThousandNineEncounters.Add);
