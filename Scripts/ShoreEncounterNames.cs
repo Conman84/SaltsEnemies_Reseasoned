@@ -276,6 +276,29 @@ namespace SaltsEnemies_Reseasoned
                 public static string Easy => "Marmo_Surimi_Easy_Bundle";
                 public static string Med => "Marmo_Surimi_Medium_Bundle";
             }
+
+            //colophons
+            public static class Colophon
+            {
+                public static class Red
+                {
+                    public static string Easy => "DefeatedEasy";
+                    public static string Med => "DefeatedMedium";
+                }
+                public static class Blue
+                {
+                    public static string Easy => "ComposedEasy";
+                    public static string Med => "ComposedMedium";
+                }
+                public static class Yellow
+                {
+                    public static string Hard => "MaladjustedFarShoreHard";
+                }
+                public static class Purple
+                {
+                    public static string Hard => "DelightedFarShoreHard";
+                }
+            }
         }
     }
 }

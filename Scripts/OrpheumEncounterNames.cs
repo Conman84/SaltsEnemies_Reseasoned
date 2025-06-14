@@ -297,6 +297,20 @@ namespace SaltsEnemies_Reseasoned
                 public static string Easy => "RR_Zone02_Shawled_Shuffler_Easy_EnemyBundle";
                 public static string Med => "RR_Zone02_Shawled_Shuffler_Medium_EnemyBundle";
             }
+
+            //colophon
+
+            public static class Colophon
+            {
+                public static class Purple
+                {
+                    public static string Med => "DelightedMedium";
+                }
+                public static class Yellow
+                {
+                    public static string Med => "MaladjustedMedium";
+                }
+            }
         }
     }
 }

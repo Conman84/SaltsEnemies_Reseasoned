@@ -242,6 +242,36 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "ChoirBoy_Medium_Eggkeeper";
             }
+
+            //HIF
+            public static class Nosestone
+            {
+                public static class Red
+                {
+                    public static string Med => "H_Zone03_ProlificNosestone_Medium_EnemyBundle";
+                    public static string Hard => "H_Zone03_ProlificNosestone_Hard_EnemyBundle";
+                }
+                public static class Blue
+                {
+                    public static string Med => "H_Zone03_ScatterbrainedNosestone_Medium_EnemyBundle";
+                    public static string Hard => "H_Zone03_ScatterbrainedNosestone_Hard_EnemyBundle";
+                }
+                public static class Yellow
+                {
+                    public static string Med => "H_Zone03_SweatingNosestone_Medium_EnemyBundle";
+                    public static string Hard => "H_Zone03_SweatingNosestone_Hard_EnemyBundle";
+                }
+                public static class Purple
+                {
+                    public static string Med => "H_Zone03_MesmerizingNosestone_Medium_EnemyBundle";
+                    public static string Hard => "H_Zone03_MesmerizingNosestone_Hard_EnemyBundle";
+                }
+                public static class Grey
+                {
+                    public static string Med => "H_Zone03_UninspiredNosestone_Medium_EnemyBundle";
+                    public static string Hard => "H_Zone03_UninspiredNosestone_Hard_EnemyBundle";
+                }
+            }
         }
     }
 }
