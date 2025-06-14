@@ -34,6 +34,16 @@ namespace SaltEnemies_Reseasoned
             List<EnemySO> lists = new List<EnemySO>();
             foreach (EnemyBundleData data in bundle.Enemies)
             {
+                bool skip = false;
+                foreach (BasePassiveAbilitySO passive in data.enemy.passiveAbilities)
+                {
+                    if (passive.m_PassiveID == "Forgetting_PA")
+                    {
+                        skip = true;
+                        break;
+                    }
+                }
+                if (skip) continue;
                 if (data.enemy.size == 1) lists.Add(data.enemy);
             };
             if (lists.Count <= 0) return GetRandomEnemy();
