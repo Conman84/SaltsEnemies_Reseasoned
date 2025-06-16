@@ -274,6 +274,7 @@ namespace SaltEnemies_Reseasoned
         }
         public static string ButterflyPassive => "Salt_Ethereal_PA";
         public static string SkyloftPassive => "Salt_Lazy_PA";
+        public static string FlowersPassive => "Flowers_PA";
         public static IEnumerator Execute(Func<FleetingUnitAction, CombatStats, IEnumerator> orig, FleetingUnitAction self, CombatStats stats)
         {
             bool flag = false;
@@ -282,12 +283,13 @@ namespace SaltEnemies_Reseasoned
                 CharacterCombat characterCombat = stats.TryGetCharacterOnField(self._unitID);
                 if (characterCombat != null && characterCombat.CurrentHealth > 0)
                 {
-                    if (characterCombat != null && characterCombat.ContainsPassiveAbility(ButterflyPassive))
+                    if (characterCombat != null && (characterCombat.ContainsPassiveAbility(ButterflyPassive) && !stats.IsPassiveLocked(ButterflyPassive)))
                     {
                         flag = true;
                         stats.TryBoxCharacter(self._unitID, ButterflyUnboxer.GetDefault(self._unitID), CombatType_GameIDs.Exit_Obliterate.ToString());
                     }
-                    else if (characterCombat != null && characterCombat.ContainsPassiveAbility(SkyloftPassive))
+                    else if (characterCombat != null && 
+                        (characterCombat.ContainsPassiveAbility(SkyloftPassive) && !stats.IsPassiveLocked(SkyloftPassive)))
                     {
                         flag = true;
                         stats.TryBoxCharacter(self._unitID, ButterflyUnboxer.GetDefault(self._unitID, true), CombatType_GameIDs.Exit_Fleeting.ToString());
@@ -299,13 +301,14 @@ namespace SaltEnemies_Reseasoned
                 EnemyCombat enemyCombat = stats.TryGetEnemyOnField(self._unitID);
                 if (enemyCombat != null && enemyCombat.CurrentHealth > 0)
                 {
-                    if (enemyCombat != null && enemyCombat.ContainsPassiveAbility(ButterflyPassive))
+                    if (enemyCombat != null && ((enemyCombat.ContainsPassiveAbility(ButterflyPassive) && !stats.IsPassiveLocked(ButterflyPassive)) || (enemyCombat.ContainsPassiveAbility(FlowersPassive) && !stats.IsPassiveLocked(FlowersPassive))))
                     {
                         flag = true;
                         stats.TryBoxEnemy(self._unitID, ButterflyUnboxer.GetDefault(enemyCombat.ID), CombatType_GameIDs.Exit_Obliterate.ToString());
                         Boxeds.Add(enemyCombat.ID);
                     }
-                    else if (enemyCombat != null && enemyCombat.ContainsPassiveAbility(SkyloftPassive))
+                    else if (enemyCombat != null &&
+                        (enemyCombat.ContainsPassiveAbility(SkyloftPassive) && !stats.IsPassiveLocked(SkyloftPassive)))
                     {
                         flag = true;
                         stats.TryBoxEnemy(self._unitID, ButterflyUnboxer.GetDefault(enemyCombat.ID, true), CombatType_GameIDs.Exit_Fleeting.ToString());
