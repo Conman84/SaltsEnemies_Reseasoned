@@ -68,14 +68,11 @@ namespace SaltEnemies_Reseasoned
         {
             int start = 0;
             if (CombatManager.Instance._stats.audioController.MusicCombatEvent.getParameterByName("Amalga", out float num) == FMOD.RESULT.OK) start = (int)num;
-            //UnityEngine.Debug.Log("going: " + start);
             for (int i = start; i <= 100 && Amount > 0; i++)
             {
                 CombatManager.Instance._stats.audioController.MusicCombatEvent.setParameterByName("Amalga", i);
                 System.Threading.Thread.Sleep(20);
-                //if (i > 95) UnityEngine.Debug.Log("we;re getting there properly");
             }
-            //UnityEngine.Debug.Log("done");
         }
     }
     public class AmalgaDropFishEffect : EffectSO
