@@ -34,6 +34,7 @@ namespace SaltEnemies_Reseasoned
             vil._enemyDescription = "On receiving direct damage, deal " + amount.ToString() + " damage to the Opposing position.\nThis passive does not trigger if the damage received kills.";
             vil._characterDescription = vil._enemyDescription;
             vil.m_PassiveID = "Violent_PA";
+            vil.name = "Violent_" + amount.ToString() + "_PA";
             vil.doesPassiveTriggerInformationPanel = false;
             vil._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged };
             ShowViolentPassiveEffect e = ScriptableObject.CreateInstance<ShowViolentPassiveEffect>();

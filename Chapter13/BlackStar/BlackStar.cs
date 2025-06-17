@@ -44,7 +44,7 @@ namespace SaltsEnemies_Reseasoned
             turb.m_PassiveID = "Turbulent_PA";
             turb.passiveIcon = ResourceLoader.LoadSprite("BlackstarPassive.png");
             turb._enemyDescription = "On being directly damaged, shuffle the position of all enemies.";
-            turb._characterDescription = turb._enemyDescription;
+            turb._characterDescription = "On being directly damaged, shuffle the positions of all party members.";
             turb.doesPassiveTriggerInformationPanel = true;
             turb.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<MassSwapZoneEffect>(), 1, Targeting.GenerateSlotTarget(new int[] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, true)).SelfArray();
             turb._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
