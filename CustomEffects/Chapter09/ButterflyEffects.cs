@@ -718,6 +718,7 @@ namespace SaltEnemies_Reseasoned
             CombatStats stats = CombatManager.Instance._stats;
             foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
             {
+                if (enemy.CurrentHealth <= 0) continue;
                 if (enemy.HasBadDog())
                 {
                     if (enemy.IsFacing())
