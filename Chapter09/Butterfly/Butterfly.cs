@@ -77,7 +77,7 @@ namespace SaltsEnemies_Reseasoned
             Ability dissolver = new Ability("Witch_Dissolver_A")
             {
                 Name = "Dissolver",
-                Description = "Deal an Agonizing amount of damage to the Left and Right party members and apply 3 Anesthetics to them.",
+                Description = "Deal an Agonizing amount of damage to the Left and Right party members and apply 3 Acid to them.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
