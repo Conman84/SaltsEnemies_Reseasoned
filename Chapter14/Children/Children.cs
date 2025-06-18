@@ -21,7 +21,6 @@ namespace SaltsEnemies_Reseasoned
             whimsy.doesPassiveTriggerInformationPanel = false;
             whimsy._triggerOn = new TriggerCalls[] { TriggerCalls.OnBeingDamaged, TriggerCalls.OnRoundFinished, TriggerCalls.OnDeath };
             whimsy.AddToPassiveDatabase();
-            Debug.Log("testing extension method: " + whimsy.name);
 
             PerformEffectPassiveAbility degay = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             degay._passiveName = "Decay";
