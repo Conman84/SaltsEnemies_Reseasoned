@@ -31,7 +31,7 @@ namespace SaltsEnemies_Reseasoned
             warp.m_PassiveID = WarpingHandler.Type;
             warp.passiveIcon = WarpingHandler.Icon;
             warp._enemyDescription = "Whenever anything damages this enemy, move the attacker to the Left or Right.";
-            warp._characterDescription = warp._enemyDescription;
+            warp._characterDescription = "Whenever anything damages this party member, move the attacker to the Left or Right.";
             warp.doesPassiveTriggerInformationPanel = false;
             warp.effects = new EffectInfo[0];
             warp._triggerOn = new TriggerCalls[1] { TriggerCalls.Count };
