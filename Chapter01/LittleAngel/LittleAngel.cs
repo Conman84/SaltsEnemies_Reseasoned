@@ -28,6 +28,7 @@ namespace SaltsEnemies_Reseasoned
             PercentageEffectorCondition light50P = ScriptableObject.CreateInstance<PercentageEffectorCondition>();
             light50P.triggerPercentage = 50;
             lightweight.conditions = new EffectorConditionSO[1] { light50P };
+            lightweight.AddToPassiveDatabase();
             
 
             //Enemy Code

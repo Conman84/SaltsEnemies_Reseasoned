@@ -34,6 +34,7 @@ namespace SaltsEnemies_Reseasoned
             tooth.effects = new EffectInfo[0];
             tooth._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDidApplyDamage };
             tooth.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<PowerByDamageCondition>() };
+            tooth.AddToPassiveDatabase();
 
             //decay
             PerformEffectPassiveAbility decay = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();

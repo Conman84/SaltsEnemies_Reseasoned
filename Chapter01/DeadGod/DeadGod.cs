@@ -42,6 +42,8 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDeterminedEffect>(), 3, Targeting.Slot_SelfSlot),
             };
             desperate._triggerOn = new TriggerCalls[] { TriggerCalls.OnBeingDamaged };
+            desperate.name = "Desperate_3_PA";
+            desperate.AddToPassiveDatabase();
 
             //Enemy Code
             Enemy DeadGod = new Enemy("Embers of a Dead God", "EmbersofaDeadGod_EN")

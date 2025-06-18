@@ -33,7 +33,7 @@ namespace SaltsEnemies_Reseasoned
             warn.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomNegativeStatusEffect>(), 1, Targetting.AllEnemy) };
             warn._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDamaged };
             warn.conditions = Passives.Slippery.conditions;
-            
+            warn.AddToPassiveDatabase();
 
             //backlash
             PerformEffectPassiveAbility backlash = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
@@ -46,6 +46,7 @@ namespace SaltsEnemies_Reseasoned
             backlash.conditions = new List<EffectorConditionSO>(Passives.Slippery.conditions) { ScriptableObject.CreateInstance<BacklashCondition>() }.ToArray();
             backlash._triggerOn = [TriggerCalls.OnDirectDamaged];
             backlash.effects = [];
+            backlash.AddToPassiveDatabase();
             
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, Passives.Formless, warn, backlash });

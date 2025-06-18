@@ -57,6 +57,7 @@ namespace SaltsEnemies_Reseasoned
             rewrite.doesPassiveTriggerInformationPanel = true;
             rewrite.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeTargetHealthColorEffect>(), 1, Targeting.AllUnits).SelfArray();
             rewrite._triggerOn = [TriggerCalls.OnDirectDamaged];
+            rewrite.AddToPassiveDatabase();
 
             vase.AddPassives(new BasePassiveAbilitySO[] { weakness, rewrite, Passives.Transfusion, Passives.Skittish });
             vase.CombatEnterEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<OdeEnterEffect>()).SelfArray();

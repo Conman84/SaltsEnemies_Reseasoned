@@ -39,6 +39,7 @@ namespace SaltsEnemies_Reseasoned
             burning._passiveName = "Burning (1)";
             burning.passiveIcon = ResourceLoader.LoadSprite("burningIcon.png");
             burning.m_PassiveID = "Burning_PA";
+            burning.name = "Burning_1_PA";
             burning._enemyDescription = "On receiving direct damage, inflict 1 Fire on this position and the Opposing position.";
             burning._characterDescription = burning._enemyDescription;
             burning.doesPassiveTriggerInformationPanel = true;
@@ -47,6 +48,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 1, MultiTargetting.Create(Targeting.Slot_SelfAll, Slots.Front))
             }), 1, Slots.Self)];
             burning._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged };
+            burning.AddToPassiveDatabase();
 
             //combative
             CombativePassiveAbility combative = ScriptableObject.CreateInstance<CombativePassiveAbility>();

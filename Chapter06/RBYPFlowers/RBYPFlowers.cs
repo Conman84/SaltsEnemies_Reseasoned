@@ -20,6 +20,8 @@ namespace SaltsEnemies_Reseasoned
             splatter.doesPassiveTriggerInformationPanel = true;
             splatter._triggerOn = new TriggerCalls[] { TriggerCalls.OnDeath };
             splatter.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateCasterHealthManaEffect>(), 4, Targeting.Slot_SelfSlot) };
+            splatter.name = "Splatter_4_PA";
+            splatter.AddToPassiveDatabase();
 
             PerformEffectPassiveAbility grow = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             grow._passiveName = "Overgrowth (3)";
@@ -31,6 +33,8 @@ namespace SaltsEnemies_Reseasoned
             grow.effects = new EffectInfo[] { Effects.GenerateEffect(CasterRootActionEffect.Create(new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRootsSlotEffect>(), 3, Targeting.Slot_Front) }), 1, Targeting.Slot_SelfSlot) };
             grow._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
             grow.conditions = Passives.Slippery.conditions;
+            grow.name = "Flowers_Overgrowth_3_PA";
+            grow.AddToPassiveDatabase();
 
             //AROMA
             Ability aroma_1 = new Ability("Flower_Aroma_A")

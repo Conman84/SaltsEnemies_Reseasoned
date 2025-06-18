@@ -34,6 +34,7 @@ namespace SaltsEnemies_Reseasoned
             scary.doesPassiveTriggerInformationPanel = true;
             scary.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.Front).SelfArray();
             scary._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
+            scary.AddToPassiveDatabase();
 
 
             monster.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, Passives.MultiAttack2, scary });

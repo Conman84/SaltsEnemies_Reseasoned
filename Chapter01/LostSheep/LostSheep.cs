@@ -18,6 +18,7 @@ namespace SaltsEnemies_Reseasoned
             PerformEffectPassiveAbility freakout = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             freakout._passiveName = "Freak Out";
             freakout.m_PassiveID = "FreakOut_PA";
+            freakout.name = "FreakOut_1_PA";
             freakout.passiveIcon = ResourceLoader.LoadSprite("Freakout.png");
             freakout._enemyDescription = "Upon receiving any damage, apply 0-1 Power to all allies that aren't Lost Sheep.";
             freakout._characterDescription = "Upon receiving any damage, apply 0-1 Power to all allies that aren't Lost Sheep.";
@@ -30,6 +31,7 @@ namespace SaltsEnemies_Reseasoned
                  Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerRangePlusOneEffect>(), 0, allAlly)
             };
             freakout._triggerOn = new TriggerCalls[] { TriggerCalls.OnDamaged };
+            Passives.AddCustomPassiveToPool(freakout.name, "Freak Out", freakout);
             
 
             //Enemy Code

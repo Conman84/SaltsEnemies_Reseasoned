@@ -29,6 +29,7 @@ namespace SaltsEnemies_Reseasoned
             pillar.effects = Effects.GenerateEffect(RandomizeTargetHealthColorsNotSameEffect.Create(true), 1, Targetting.AllAlly).SelfArray();
             pillar._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDeath };
             Pillar = pillar;
+            pillar.AddToPassiveDatabase();
 
             Ability petrify = new Ability("Bot_Petrify_A")
             {

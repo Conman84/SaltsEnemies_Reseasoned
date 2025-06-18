@@ -48,6 +48,7 @@ namespace SaltEnemies_Reseasoned
                     }), 1, Slots.Self)
             };
             vil.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<IsAliveCondition>() };
+            if (!LoadedAssetsHandler.LoadedPassives.ContainsKey(vil.name)) vil.AddToPassiveDatabase();
             return vil;
         }
     }

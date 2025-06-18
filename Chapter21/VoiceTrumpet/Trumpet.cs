@@ -28,8 +28,9 @@ namespace SaltEnemies_Reseasoned
             announce._passiveName = "Announcement (7)";
             announce.passiveIcon = ResourceLoader.LoadSprite("AnnouncementPassive.png");
             announce.m_PassiveID = "Announcement_PA";
+            announce.name = "Announcement_7_PA";
             announce._enemyDescription = "Upon being removed from combat by any means, deal an Agonizing amount of damage to the Opposing party member.";
-            announce._characterDescription = "On exiting combat, deal 7 damage to the Opposing enemy.";
+            announce._characterDescription = "Upon being removed from combat by any means, deal 7 damage to the Opposing enemy.";
             announce.doesPassiveTriggerInformationPanel = false;
             announce._triggerOn = [TriggerCalls.Count];
             announce.connectionEffects = [];
@@ -37,6 +38,7 @@ namespace SaltEnemies_Reseasoned
             announce.disconnectionEffects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<AnnouncementPassiveEffect>(), 7);
             announce.disconnectionEffects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Bellow_A", false, Slots.Front));
             announce.disconnectionEffects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front);
+            announce.AddToPassiveDatabase();
 
             trumpet.AddPassives(new BasePassiveAbilitySO[] { announce, Passives.Fleeting3, Passives.Formless });
 

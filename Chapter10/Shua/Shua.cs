@@ -34,6 +34,7 @@ namespace SaltsEnemies_Reseasoned
             incomprehend.doesPassiveTriggerInformationPanel = true;
             incomprehend.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 1, Slots.Front).SelfArray();
             incomprehend._triggerOn = new TriggerCalls[1] { (TriggerCalls)AmbushManager.Patiently };
+            incomprehend.AddToPassiveDatabase();
 
             //combative
             CombativePassiveAbility combative = ScriptableObject.CreateInstance<CombativePassiveAbility>();

@@ -21,6 +21,7 @@ namespace SaltsEnemies_Reseasoned
             PerformEffectPassiveAbility jumpy = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             jumpy._passiveName = "Jumpy";
             jumpy.m_PassiveID = "Jumpy_PA";
+            jumpy.name = "Jumpy_PA";
             jumpy.passiveIcon = ResourceLoader.LoadSprite("Jumpy.png");
             jumpy._characterDescription = "Upon being damaged, move to a random position. Upon performing an ability, move to a random position.";
             jumpy._enemyDescription = "Upon being damaged, move to a random position. Upon performing an ability, move to a random position.";
@@ -30,12 +31,13 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToRandomZoneEffect>(), 1, Targeting.GenerateSlotTarget(new int[9] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, true)),
             };
             jumpy._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged, TriggerCalls.OnAbilityUsed };
-            
+            Passives.AddCustomPassiveToPool("Jumpy_PA", "Jumpy", jumpy);
 
             //Numb
             PerformEffectPassiveAbility numb = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             numb._passiveName = "Numb (1)";
             numb.m_PassiveID = "Numb_PA";
+            numb.name = "Numb_1_PA";
             numb.passiveIcon = ResourceLoader.LoadSprite("Anesthetics.png");
             numb._enemyDescription = "Apply 1 Anesthetics to this enemy at the start of each turn.";
             numb._characterDescription = "Apply 1 Anesthetics to this character at the start of each turn.";
@@ -45,6 +47,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyAnestheticsEffect>(), 1, Targeting.Slot_SelfSlot),
             };
             numb._triggerOn = new TriggerCalls[] { TriggerCalls.OnTurnStart };
+            Passives.AddCustomPassiveToPool(numb.name, numb._passiveName, numb);
 
             //Enemy Code
             Enemy DeadPixel = new Enemy("Dead Pixel", "DeadPixel_EN")

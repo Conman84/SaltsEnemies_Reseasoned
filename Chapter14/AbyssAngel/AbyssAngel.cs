@@ -26,12 +26,14 @@ namespace SaltsEnemies_Reseasoned
             PerformEffectPassiveAbility waves = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             waves._passiveName = "Waves (2)";
             waves.m_PassiveID = "Waves_PA";
+            waves.name = "Waves_2_PA";
             waves.passiveIcon = ResourceLoader.LoadSprite("WavesPassive.png");
             waves._enemyDescription = "On moving, inflict 2 Deep Water on the Opposing position.";
             waves._characterDescription = waves._enemyDescription;
             waves.doesPassiveTriggerInformationPanel = true;
             waves.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyWaterSlotEffect>(), 2, Slots.Front).SelfArray();
             waves._triggerOn = new TriggerCalls[1] { TriggerCalls.OnMoved };
+            waves.AddToPassiveDatabase();
 
             cliome.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, waves });
             cliome.UnitTypes = new List<string> { "Fish", "Angel" };

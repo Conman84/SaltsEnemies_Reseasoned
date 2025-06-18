@@ -128,4 +128,12 @@ namespace SaltEnemies_Reseasoned
             self.CreateNewEnemyEncounterData(ret.ToArray());
         }
     }
+    public static class PassiveExtensions
+    {
+        public static void AddToPassiveDatabase(this BasePassiveAbilitySO self)
+        {
+            if (self.name == "" || self.name.Length <= 0) self.name = self.m_PassiveID;
+            Passives.AddCustomPassiveToPool(self.name, self._passiveName, self);
+        }
+    }
 }

@@ -46,6 +46,7 @@ namespace SaltsEnemies_Reseasoned
             rupture.connectionEffects = Effects.GenerateEffect(CasterSubActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPermanentRupturedEffect>(), 1, Slots.Self).SelfArray()), 1, Slots.Self).SelfArray();
             rupture.disconnectionEffects = new EffectInfo[0];
             rupture._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
+            rupture.AddToPassiveDatabase();
 
             coffin.AddPassives(new BasePassiveAbilitySO[] { disabled, Passives.LeakyGenerator(8), rupture });
 

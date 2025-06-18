@@ -36,17 +36,20 @@ namespace SaltsEnemies_Reseasoned
             warp.effects = new EffectInfo[0];
             warp._triggerOn = new TriggerCalls[1] { TriggerCalls.Count };
             warp.conditions = new EffectorConditionSO[0];
+            warp.AddToPassiveDatabase();
 
             //nylon
             PerformEffectPassiveAbility nylon = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             nylon._passiveName = "Nylon (1)";
             nylon.m_PassiveID = "Nylon_PA";
+            nylon.name = "Nylon_1_PA";
             nylon.passiveIcon = ResourceLoader.LoadSprite("NylonPassive.png");
             nylon._enemyDescription = "On being directly damaged, apply 1 Slip on the Opposing position.";
             nylon._characterDescription = nylon._enemyDescription;
             nylon.doesPassiveTriggerInformationPanel = false;
             nylon.effects = Effects.GenerateEffect(RootActionEffect.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<NylonPassiveEffect>()), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.Front)]), 1, Slots.Self).SelfArray();
             nylon._triggerOn = [TriggerCalls.OnDirectDamaged];
+            nylon.AddToPassiveDatabase();
 
             //addpassives
             dog.AddPassives(new BasePassiveAbilitySO[] { Passives.TwoFaced, warp, Passives.Slippery, nylon });
