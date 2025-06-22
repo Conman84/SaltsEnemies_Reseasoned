@@ -124,13 +124,19 @@ namespace SaltsEnemies_Reseasoned
             };
             gone.AddIntentsToTarget(Slots.Self, IntentType_GameIDs.PA_Fleeting.ToString().SelfArray());
 
+            EnemyAbilityInfo hearbreaker = new EnemyAbilityInfo()
+            {
+                ability = LoadedAssetsHandler.GetEnemyAbility("HeartBreaker_A"),
+                rarity = Rarity.CreateAndAddCustomRarityToPool("skyloft4", 4)
+            };
 
             //ADD ENEMY
             skyloft.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 lose.GenerateEnemyAbility(true),
                 sing.GenerateEnemyAbility(true),
-                gone.GenerateEnemyAbility(true)
+                gone.GenerateEnemyAbility(true),
+                hearbreaker
             });
             skyloft.AddEnemy(true, true, true);
         }
