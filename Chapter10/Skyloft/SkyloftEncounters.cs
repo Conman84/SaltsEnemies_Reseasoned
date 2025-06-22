@@ -12,21 +12,24 @@ namespace SaltsEnemies_Reseasoned
         {
             Portals.AddPortalSign("Salt_SkyloftEncounter_Sign", ResourceLoader.LoadSprite("SkyloftPortal.png"), Portals.EnemyIDColor);
 
-            EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Shore.H.Skyloft.Easy, "Salt_SkyloftEncounter_Sign");
-            med.MusicEvent = "event:/Hawthorne/SkyloftSong";
-            med.RoarEvent = LoadedAssetsHandler.GetCharacter("Mordrake_CH").dxSound;
+            EnemyEncounter_API easy = new EnemyEncounter_API(EncounterType.Random, Shore.H.Skyloft.Easy, "Salt_SkyloftEncounter_Sign");
+            easy.MusicEvent = "event:/Hawthorne/SkyloftSong";
+            easy.RoarEvent = LoadedAssetsHandler.GetCharacter("Mordrake_CH").dxSound;
 
-            med.AddRandomEncounter("Skyloft_EN", "Mung_EN", "Mung_EN", "Mung_EN");
-            med.AddRandomEncounter("Skyloft_EN", "MudLung_EN");
-            med.AddRandomEncounter("Skyloft_EN", Jumble.Red);
-            med.AddRandomEncounter("Skyloft_EN", Jumble.Yellow);
-            med.AddRandomEncounter("Skyloft_EN", "MudLung_EN", "MudLung_EN");
-            med.AddRandomEncounter("Skyloft_EN", Jumble.Yellow, "MudLung_EN");
-            med.AddRandomEncounter("Skyloft_EN", Jumble.Red, "MudLung_EN");
-            med.AddRandomEncounter("Skyloft_EN", "MudLung_EN", "Mung_EN");
-            med.AddRandomEncounter("Skyloft_EN", "MudLung_EN", "MudLung_EN", "Mung_EN");
+            easy.AddRandomEncounter("Skyloft_EN", "Mung_EN", "Mung_EN", "Mung_EN");
+            easy.AddRandomEncounter("Skyloft_EN", "MudLung_EN");
+            easy.AddRandomEncounter("Skyloft_EN", Jumble.Red);
+            easy.AddRandomEncounter("Skyloft_EN", Jumble.Yellow);
+            easy.AddRandomEncounter("Skyloft_EN", "MudLung_EN", "MudLung_EN");
+            easy.AddRandomEncounter("Skyloft_EN", Jumble.Yellow, "MudLung_EN");
+            easy.AddRandomEncounter("Skyloft_EN", Jumble.Red, "MudLung_EN");
+            easy.AddRandomEncounter("Skyloft_EN", "MudLung_EN", "Mung_EN");
+            easy.AddRandomEncounter("Skyloft_EN", "MudLung_EN", "MudLung_EN", "Mung_EN");
+            easy.SimpleAddEncounter(3, "Skyloft_EN");
+            easy.SimpleAddEncounter(2, "Skyloft_EN");
+            easy.SimpleAddEncounter(1, "Skyloft_EN");
 
-            med.AddEncounterToDataBases();
+            easy.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Skyloft.Easy, 4 * April.Mod, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Easy);
         }
 
