@@ -1272,6 +1272,7 @@ namespace SaltEnemies_Reseasoned
 
         public override void OnPassiveDisconnected(IUnit unit)
         {
+            if (!unit.IsAlive) return;
             ExtraAbilityInfo extraAbilityInfo;
             if (!this.extraAbilities.TryGetValue(unit, out extraAbilityInfo))
                 return;

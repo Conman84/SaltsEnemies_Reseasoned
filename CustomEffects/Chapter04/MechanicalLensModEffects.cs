@@ -18,6 +18,19 @@ namespace SaltEnemies_Reseasoned
             CameraEffects.AddPassive(ClockTowerManager.Acceleration);
             CameraEffects.AddPassive("MissFaced_PA");
             CameraEffects.AddPassive("Unmasking_PA");
+            CameraEffects.AddPassive("Backlash_PA");
+            CameraEffects.AddPassive("Flowers_PA");
+            CameraEffects.AddPassive("Incomprehensible_PA");
+            CameraEffects.AddPassive("Burning_PA");
+            CameraEffects.AddPassive("Waves_PA");
+            CameraEffects.AddPassive("Whimsy_PA");
+            CameraEffects.AddPassive("SweetTooth_PA");
+            CameraEffects.AddPassive("Rewrite_PA");
+            CameraEffects.AddPassive("Warping_PA");
+            CameraEffects.AddPassive("Nylon_PA");
+            CameraEffects.AddPassive("Scary_PA");
+            CameraEffects.AddPassive("Announcement_PA");
+            CameraEffects.AddPassive("Violent_PA");
             //Add Every single passive ID you've made for all salt enemies thus far. and also do this in the future too. unless it shares a passiveID with a base game passive. or if its like a unique passive to the enemy or something. or a bonus attack
             //Specifically:
             /*
