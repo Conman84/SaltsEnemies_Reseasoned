@@ -19,7 +19,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API easy = new EnemyEncounter_API(EncounterType.Random, Shore.Minana.Easy, "Salt_MinanaEncounter_Sign");
             easy.MusicEvent = "event:/Hawthorne/MinanaTheme";
-            easy.RoarEvent = LoadedAssetsHandler.GetEnemyBundle("H_Zone01_MunglingMudLung_Medium_EnemyBundle")._roarReference.roarEvent;
+            easy.RoarEvent = "event:/Hawthorne/Sound2/MinanaHurt";
 
             easy.AddRandomEncounter("Minana_EN");
             easy.AddRandomEncounter("Minana_EN", "Mung_EN");
@@ -33,7 +33,7 @@ namespace SaltsEnemies_Reseasoned
         {
             EnemyEncounter_API easy = new EnemyEncounter_API(EncounterType.Random, Shore.H.Minana.Easy, "Salt_MinanaEncounter_Sign");
             easy.MusicEvent = "event:/Hawthorne/MinanaTheme";
-            easy.RoarEvent = LoadedAssetsHandler.GetEnemyBundle("H_Zone01_MunglingMudLung_Medium_EnemyBundle")._roarReference.roarEvent;
+            easy.RoarEvent = "event:/Hawthorne/Sound2/MinanaHurt";
 
             easy.AddRandomEncounter("Minana_EN");
             easy.AddRandomEncounter("Minana_EN", "Mung_EN");

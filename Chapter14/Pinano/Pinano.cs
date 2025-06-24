@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("PinanoIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("PinanoWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("PinanoDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("MudLung_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("MudLung_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Sound2/PinanoHurt",
+                DeathSound = "event:/Hawthorne/Sound2/PinanoDie",
             };
             pinano.PrepareMultiEnemyPrefab("assets/Pinano/Pinano_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/Pinano/Pinano_Gibs.prefab").GetComponent<ParticleSystem>());
             (pinano.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]

@@ -20,7 +20,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Shore.Pinano.Med, "Salt_PinanoEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/PinanoThemeNew";
-            med.RoarEvent = LoadedAssetsHandler.GetEnemyBundle("H_Zone01_MunglingMudLung_Medium_EnemyBundle")._roarReference.roarEvent;
+            med.RoarEvent = "event:/Hawthorne/Sound2/PinanoHurt";
 
             med.SimpleAddEncounter(2, "Pinano_EN");
             med.AddRandomEncounter("Pinano_EN", "MudLung_EN");
@@ -42,7 +42,7 @@ namespace SaltsEnemies_Reseasoned
         {
             EnemyEncounter_API easy = new EnemyEncounter_API(EncounterType.Random, Shore.H.Pinano.Easy, "Salt_PinanoEncounter_Sign");
             easy.MusicEvent = "event:/Hawthorne/PinanoThemeNew";
-            easy.RoarEvent = LoadedAssetsHandler.GetEnemyBundle("H_Zone01_MunglingMudLung_Medium_EnemyBundle")._roarReference.roarEvent;
+            easy.RoarEvent = "event:/Hawthorne/Sound2/PinanoHurt";
 
             easy.SimpleAddEncounter(2, "Pinano_EN");
             easy.AddRandomEncounter("Pinano_EN", "MudLung_EN");
@@ -65,7 +65,7 @@ namespace SaltsEnemies_Reseasoned
         {
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Shore.H.Pinano.Med, "Salt_PinanoEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/PinanoThemeNew";
-            med.RoarEvent = LoadedAssetsHandler.GetEnemyBundle("H_Zone01_MunglingMudLung_Medium_EnemyBundle")._roarReference.roarEvent;
+            med.RoarEvent = "event:/Hawthorne/Sound2/PinanoHurt";
 
             med.SimpleAddEncounter(3, "Pinano_EN");
             med.AddRandomEncounter("Pinano_EN", "Pinano_EN", "MudLung_EN");

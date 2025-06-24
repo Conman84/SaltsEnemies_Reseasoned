@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("MinanaIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("MinanaWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("MinanaDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("Mung_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("Mung_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Sound2/MinanaHurt",
+                DeathSound = "event:/Hawthorne/Sound2/MinanaDie",
             };
             minana.PrepareMultiEnemyPrefab("assets/Pinano/Minana_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/Pinano/Minana_Gibs.prefab").GetComponent<ParticleSystem>());
             (minana.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
