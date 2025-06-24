@@ -127,7 +127,7 @@ namespace SaltsEnemies_Reseasoned
             EnemyAbilityInfo hearbreaker = new EnemyAbilityInfo()
             {
                 ability = LoadedAssetsHandler.GetEnemyAbility("HeartBreaker_A"),
-                rarity = Rarity.CreateAndAddCustomRarityToPool("skyloft4", 4)
+                rarity = Rarity.CreateAndAddCustomRarityToPool("skyloft8", 8)
             };
 
             //ADD ENEMY
