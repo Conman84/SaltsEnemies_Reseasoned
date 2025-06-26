@@ -105,7 +105,7 @@ namespace SaltEnemies_Reseasoned
             EffectInfo[] lefting = new EffectInfo[] { LeftEffect, LeftEffect, LeftEffect };
             EffectInfo[] righting = new EffectInfo[] { RightEffect, RightEffect, RightEffect };
             if (caster.SlotID == 0) CombatManager.Instance.AddSubAction(new EffectAction(righting, caster));
-            else if (caster.SlotID + caster.Size == 4 || UnityEngine.Random.Range(0, 100) < 50) CombatManager.Instance.AddSubAction(new EffectAction(lefting, caster));
+            else if (caster.SlotID + caster.Size == 5 || UnityEngine.Random.Range(0, 100) < 50) CombatManager.Instance.AddSubAction(new EffectAction(lefting, caster));
             else CombatManager.Instance.AddSubAction(new EffectAction(righting, caster));
             return true;
         }
