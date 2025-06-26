@@ -176,7 +176,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(abil, 1, Slots.Self),
                 Effects.GenerateEffect(pas, 1, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ResetFleetingEffect>(), 1, Slots.Self),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsPlayerTurnEffectCondition>()),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DragonSongEffect>(), 1, Slots.Self),
                 Effects.GenerateEffect(RootActionEffect.Create(new EffectInfo[]
                 {
@@ -188,7 +188,7 @@ namespace SaltsEnemies_Reseasoned
             asleep.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<DragonOnceCondition>(), ScriptableObject.CreateInstance<IsAliveCondition>() };
 
             //addpassives
-            dargon.AddPassives(new BasePassiveAbilitySO[] { asleep });
+            dargon.AddPassives(new BasePassiveAbilitySO[] { asleep, Passives.Forgetful });
             dargon.CombatExitEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<DragonSongEffect>()).SelfArray();
 
             //ASLEEP MOVESET
@@ -244,8 +244,8 @@ namespace SaltsEnemies_Reseasoned
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity2", 2),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(BasicEffects.GetVisuals("Scream_1_A", true, TargettingSelf_NotSlot.Create()), 1, Slots.Self, Effects.ChanceCondition(50)),
-                    Effects.GenerateEffect(BasicEffects.Indirect, 1, Slots.Self, BasicEffects.DidThat(true)),
+                    Effects.GenerateEffect(BasicEffects.GetVisuals("Scream_1_A", true, TargettingSelf_NotSlot.Create()), 1, Slots.Self, Effects.ChanceCondition(65)),
+                    Effects.GenerateEffect(BasicEffects.Indirect, 2, Slots.Self, BasicEffects.DidThat(true)),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<WasteTimeEffect>(), 1, Slots.Self, BasicEffects.DidThat(false, 2))
                 },
                 Visuals = null,
