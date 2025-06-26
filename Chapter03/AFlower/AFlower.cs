@@ -48,7 +48,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability catching = new Ability("Catch", "Salt_Catch_A");
             catching.Description = "If the opposing party member is Constricted, deal an Agonizing damage to them. \nThen, move this enemy to a random position and apply 4 Stunned to itself. \nIf damage was dealt, reset this enemy's fleeting.";
-            catching.Rarity = Rarity.GetCustomRarity("rarity5");
+            catching.Rarity = Rarity.CreateAndAddCustomRarityToPool("AnglerAwesome", 55);
             catching.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(chomp, 1, Targeting.Slot_SelfSlot),
@@ -114,7 +114,7 @@ namespace SaltsEnemies_Reseasoned
             AFlower.enemy.passiveAbilities[1]._passiveName = "Allure";
             AFlower.enemy.passiveAbilities[1]._enemyDescription = "A 'Flower' will perforn an extra ability \"Allure\" each turn.";
             ((ExtraAttackPassiveAbility)AFlower.enemy.passiveAbilities[1])._extraAbility.ability = baiting.GenerateEnemyAbility(true).ability;
-            
+            ((ExtraAttackPassiveAbility)AFlower.enemy.passiveAbilities[1])._extraAbility.rarity = Rarity.GetCustomRarity("rarity5");
             //Add
             AFlower.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
