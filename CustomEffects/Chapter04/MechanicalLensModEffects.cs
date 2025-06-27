@@ -86,16 +86,16 @@ namespace SaltEnemies_Reseasoned
     {
         public static void Setup()
         {
-            CameraEffects.AddPassive("Pyrophilia");
+            CameraEffects.AddPassive("Marmo_Pyrophilia_PA");
             CameraEffects.AddPassive("Marmo_Exchange_PA");
-            CameraEffects.AddPassive("Impetus");
-            CameraEffects.AddPassive("Bloodlust");
+            CameraEffects.AddPassive("Marmo_Impetus_PA");
+            CameraEffects.AddPassive("Marmo_Bloodlust_PA");
             CameraEffects.AddPassive("Marmo_InvisibleBystander_PA");
             CameraEffects.AddPassive("Marmo_Docile_PA");
             CameraEffects.AddPassive("Marmo_Chaotic_PA");
             CameraEffects.AddPassive("TwoFaced_Nuzzles_PA");
             CameraEffects.AddPassive("Nuzzles_Kidcore_5_PA");
-            CameraEffects.AddPassive("Marmo_Grating_3_PA");
+            CameraEffects.AddPassive("Marmo_Grating_PA");
             CameraEffects.AddPassive("Marmo_Everchanging_PA");
             CameraEffects.AddPassive("Clueless_TornApart");
             CameraEffects.AddPassive("Volatile");
