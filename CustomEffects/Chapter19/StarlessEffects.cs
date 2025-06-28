@@ -92,7 +92,9 @@ namespace SaltEnemies_Reseasoned
                         if (slotgroup.slot.TimelineSlotID == i)
                         {
                             if (slotgroup.slot.TimelineSlotID <= stats.timeline.CurrentTurn) break;
-
+                            AbilitySO newAbil = timeline.ability;
+                            if ((caster as EnemyCombat).AbilityCount > timeline.abilitySlotID) newAbil = (caster as EnemyCombat).Abilities[timeline.abilitySlotID].ability;
+                            timeline.ability = newAbil;
                             Sprite[] intents = null;
                             Color[] spriteColors = null;
                             bool cansee = timeline.timelineIcon != null && !timeline.timelineIcon.Equals(null);
