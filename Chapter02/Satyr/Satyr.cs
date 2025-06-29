@@ -60,7 +60,7 @@ namespace SaltsEnemies_Reseasoned
             sweet.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnEnemyFromDeadListEffect>(), 1, Targeting.Slot_SelfSlot),
-                Effects.GenerateEffect(indirect, 30, Targeting.Slot_SelfSlot, didThat),
+                Effects.GenerateEffect(indirect, 25, Targeting.Slot_SelfSlot, didThat),
             };
             sweet.Visuals = LoadedAssetsHandler.GetEnemy("HeavensGateRed_BOSS").abilities[1].ability.visuals;
             sweet.AnimationTarget = Targeting.Slot_SelfSlot;
