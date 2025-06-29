@@ -218,7 +218,7 @@ namespace SaltEnemies_Reseasoned
                     {
                         exitAmount++;
                         CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(enemy.ID, enemy.IsUnitCharacter, "Wihering Removed", Passives.Withering.passiveIcon));
-                        CombatManager.Instance.AddUIAction(new ShowAttackInformationUIAction(enemy.ID, enemy.IsUnitCharacter, "Extra Ability Interrupt Added"));
+                        //CombatManager.Instance.AddUIAction(new ShowAttackInformationUIAction(enemy.ID, enemy.IsUnitCharacter, "Extra Ability Interrupt Added"));
                         enemy.AddExtraAbility(interrupt_a);
                     }
                 }
