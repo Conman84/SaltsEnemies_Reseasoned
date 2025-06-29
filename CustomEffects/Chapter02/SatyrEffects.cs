@@ -180,7 +180,6 @@ namespace SaltEnemies_Reseasoned
         }
         public bool CanLive(EnemyCombat enemy)
         {
-            if (ContainsPassiveAbility(enemy.Enemy, PassiveType_GameIDs.Dying.ToString())) return false;
             if (ContainsPassiveAbility(enemy.Enemy, PassiveType_GameIDs.Inanimate.ToString())) return false;
             return true;
         }
@@ -287,7 +286,6 @@ namespace SaltEnemies_Reseasoned
         }
         public bool CanLive(EnemyCombat enemy)
         {
-            if (ContainsPassiveAbility(enemy.Enemy, PassiveType_GameIDs.Dying.ToString())) return false;
             if (ContainsPassiveAbility(enemy.Enemy, PassiveType_GameIDs.Inanimate.ToString())) return false;
             return true;
         }
