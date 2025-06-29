@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -166,6 +167,10 @@ namespace SaltsEnemies_Reseasoned
                 adoration.GenerateEnemyAbility(true),
             });
             LittleAngel.AddEnemy(true, false, true);
+
+            EnemySO clone = UnityEngine.Object.Instantiate(LoadedAssetsHandler.GetEnemy("LittleAngel_EN"));
+            clone.passiveAbilities = [lightweight];
+            EnemyUtils.AddEnemyToHealthSpawnPool(clone, PoolList_GameIDs.Sepulchre);
         }
     }
 }
