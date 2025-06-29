@@ -214,7 +214,7 @@ namespace SaltEnemies_Reseasoned
                     }
                 }
             }
-            for (int i = 0; i < entryVariable; i++)
+            for (int i = 0; i < 1; i++)
             {
                 int picking = UnityEngine.Random.Range(0, candidates.Length);
                 int choosing = candidates[picking];
@@ -224,7 +224,7 @@ namespace SaltEnemies_Reseasoned
                     int num = stats.GetRandomEnemySlot(targetEnemy.Enemy.size);
                     if (num != -1)
                     {
-                        float newMax = targetEnemy.MaximumHealth / 2f;
+                        float newMax = targetEnemy.MaximumHealth / entryVariable;
                         if (stats.AddNewEnemy(targetEnemy.Enemy, num, false, _spawnType, Math.Max(1, (int)Math.Floor(newMax))))
                         {
                             targetEnemy.HasFled = true;

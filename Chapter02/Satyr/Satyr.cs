@@ -60,7 +60,7 @@ namespace SaltsEnemies_Reseasoned
             sweet.Rarity = Rarity.GetCustomRarity("rarity5");
             sweet.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnEnemyFromDeadListEffect>(), 1, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnEnemyFromDeadListEffect>(), 2, Targeting.Slot_SelfSlot),
                 Effects.GenerateEffect(indirect, 1, Targeting.Slot_SelfSlot, didThat),
             };
             sweet.Visuals = LoadedAssetsHandler.GetEnemy("HeavensGateRed_BOSS").abilities[1].ability.visuals;
@@ -88,11 +88,11 @@ namespace SaltsEnemies_Reseasoned
 
             Ability savory = new Ability("Savory Flavour", "Salt_SavoryFlavour_A");
             if (UnityEngine.Random.Range(0, 100) < 50) { savory.Name = "Savory Flavor"; }
-            savory.Description = "Deal a Painful amount of damage to the Opposing party member.\nIf there is no Opposing party member, attempt to revive a dead enemy with half of its maximum health.\nCannot revive Inanimate enemies.";
+            savory.Description = "Deal a Painful amount of damage to the Opposing party member.\nIf there is no Opposing party member, attempt to revive a dead enemy with a third of its maximum health.\nCannot revive Inanimate enemies.";
             savory.Rarity = Rarity.GetCustomRarity("rarity5");
             savory.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnEnemyFromDeadListEffect>(), 1, Targeting.Slot_SelfSlot, IsFrontTargetCondition.Create(false)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnEnemyFromDeadListEffect>(), 3, Targeting.Slot_SelfSlot, IsFrontTargetCondition.Create(false)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Front),
             };
             savory.Visuals = CustomVisuals.GetVisuals("Salt/Unlock");
