@@ -224,11 +224,11 @@ namespace SaltEnemies_Reseasoned
                     int num = stats.GetRandomEnemySlot(targetEnemy.Enemy.size);
                     if (num != -1)
                     {
-                        float newMax = targetEnemy.MaximumHealth / 3f;
+                        float newMax = targetEnemy.MaximumHealth / 2f;
                         if (stats.AddNewEnemy(targetEnemy.Enemy, num, false, _spawnType, Math.Max(1, (int)Math.Floor(newMax))))
                         {
                             targetEnemy.HasFled = true;
-                            exitAmount++;
+                            exitAmount += (int)newMax;
                         }
                     }
                 }

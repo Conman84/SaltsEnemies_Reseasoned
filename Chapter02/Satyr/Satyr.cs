@@ -52,15 +52,16 @@ namespace SaltsEnemies_Reseasoned
             didThat.wasSuccessful = true;
             DamageEffect indirect = ScriptableObject.CreateInstance<DamageEffect>();
             indirect._indirect = true;
+            indirect._usePreviousExitValue = true;
 
             Ability sweet = new Ability("Sweet Flavour", "Salt_SweetFlavour_A");
             if (UnityEngine.Random.Range(0, 100) < 50) { sweet.Name = "Sweet Flavor"; }
-            sweet.Description = "Attempt to revive a dead enemy with a third of its maximum health. If successful, deal a Mortal amount of indirect damage to this enemy. \nCannot revive Inanimate enemies.";
+            sweet.Description = "Attempt to revive a dead enemy with half of its maximum health. If successful, deal a indirect damage to this enemy equal to the revived enemy's maximum health.\nCannot revive Inanimate enemies.";
             sweet.Rarity = Rarity.GetCustomRarity("rarity5");
             sweet.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnEnemyFromDeadListEffect>(), 1, Targeting.Slot_SelfSlot),
-                Effects.GenerateEffect(indirect, 22, Targeting.Slot_SelfSlot, didThat),
+                Effects.GenerateEffect(indirect, 1, Targeting.Slot_SelfSlot, didThat),
             };
             sweet.Visuals = LoadedAssetsHandler.GetEnemy("HeavensGateRed_BOSS").abilities[1].ability.visuals;
             sweet.AnimationTarget = Targeting.Slot_SelfSlot;
@@ -87,19 +88,18 @@ namespace SaltsEnemies_Reseasoned
 
             Ability savory = new Ability("Savory Flavour", "Salt_SavoryFlavour_A");
             if (UnityEngine.Random.Range(0, 100) < 50) { savory.Name = "Savory Flavor"; }
-            savory.Description = "Attempt to revive a dead enemy. If successful, apply 1 Divine Protection to the enemy, deal its current health as indirect damage to it, then remove all Divine Protection from it. \nCannot revive Inanimate enemies.";
+            savory.Description = "Deal a Painful amount of damage to the Opposing party member.\nIf there is no Opposing party member, attempt to revive a dead enemy with half of its maximum health.\nCannot revive Inanimate enemies.";
             savory.Rarity = Rarity.GetCustomRarity("rarity5");
             savory.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ReviveReKillEnemyEffect>(), 1, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnEnemyFromDeadListEffect>(), 1, Targeting.Slot_SelfSlot, IsFrontTargetCondition.Create(false)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Front),
             };
             savory.Visuals = CustomVisuals.GetVisuals("Salt/Unlock");
-            savory.AnimationTarget = Targeting.Slot_SelfSlot;
-            savory.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
-            {
-                "Misc",
-            });
-            savory.AddIntentsToTarget(EmptyTargetting.Create(true), new string[] { IntentType_GameIDs.Status_DivineProtection.ToString(), IntentType_GameIDs.Damage_21.ToString() });
+            savory.AnimationTarget = Slots.Front;
+            savory.AddIntentsToTarget(Slots.Front, ["Damage_3_6"]);
+            savory.AddIntentsToTarget(Slots.Self, ["Misc"]);
+            savory.AddIntentsToTarget(EmptyTargetting.Create(true), IntentType_GameIDs.Other_MaxHealth.ToString().SelfArray());
 
             //Sour
             IncreaseStatusEffectsEffect increaseAllStatus = ScriptableObject.CreateInstance<IncreaseStatusEffectsEffect>();
