@@ -38,17 +38,22 @@ namespace SaltEnemies_Reseasoned
         public override void OnTriggerAttached(StatusEffect_Holder holder, IStatusEffector caller)
         {
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnWillApplyDamage.ToString(), caller);
+            CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, TriggerCalls.OnDidApplyDamage.ToString(), caller);
         }
 
         public override void OnTriggerDettached(StatusEffect_Holder holder, IStatusEffector caller)
         {
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnWillApplyDamage.ToString(), caller);
+            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, TriggerCalls.OnDidApplyDamage.ToString(), caller);
         }
 
         public override void OnEventCall_01(StatusEffect_Holder holder, object sender, object args)
         {
             int Amount = holder.m_ContentMain + holder.Restrictor;
             (args as DamageDealtValueChangeException).AddModifier((IntValueModifier)new PowerValueModifier(Amount));
+        }
+        public override void OnEventCall_02(StatusEffect_Holder holder, object sender, object args)
+        {
             ReduceDuration(holder, sender as IStatusEffector);
         }
         public override void ReduceDuration(StatusEffect_Holder holder, IStatusEffector effector)
