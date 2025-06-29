@@ -93,6 +93,10 @@ namespace SaltsEnemies_Reseasoned
                 picture.GenerateEnemyAbility(true)
             });
             MechanicalLens.AddEnemy(true, false, false);
+
+            EnemySO clone = UnityEngine.Object.Instantiate(LoadedAssetsHandler.GetEnemy("MechanicalLens_EN"));
+            clone.health = 20;
+            EnemyUtils.AddEnemyToHealthSpawnPool(clone, PoolList_GameIDs.Sepulchre);
         }
     }
 }
