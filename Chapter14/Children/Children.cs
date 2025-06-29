@@ -211,7 +211,7 @@ namespace SaltsEnemies_Reseasoned
             child.PrepareEnemyPrefab("assets/Children/Children1_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/Children/Children_Gibs.prefab").GetComponent<ParticleSystem>());
             child.AddPassives(passives);
             child.AddEnemyAbilities(abilities);
-            child.AddEnemy();
+            child.AddEnemy(false, true);
         }
         public static void Add0(BasePassiveAbilitySO[] passives, EnemyAbilityInfo[] abilities)
         {
