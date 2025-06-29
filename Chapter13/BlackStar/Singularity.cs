@@ -54,7 +54,7 @@ namespace SaltsEnemies_Reseasoned
 
             //addpassives
             blackhole.AddPassives(new BasePassiveAbilitySO[] { jumpy, Passives.Unstable, Passives.Constricting, armor });
-            blackhole.AddLootData(new EnemyLootItemProbability[] { new EnemyLootItemProbability() { isItemTreasure = false, amount = 3, probability = 100 } });
+            blackhole.AddLootData(new EnemyLootItemProbability[] { new EnemyLootItemProbability() { isItemTreasure = false, amount = 1, probability = 100 } });
 
             BlackHoleEffect add = ScriptableObject.CreateInstance<BlackHoleEffect>();
             add.Add = true;
