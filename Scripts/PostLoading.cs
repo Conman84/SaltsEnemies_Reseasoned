@@ -110,6 +110,7 @@ namespace SaltEnemies_Reseasoned
             PCall(MarmoCrossover_11_12.Add);
             PCall(MarmoCrossovers13_14.Add);
             PCall(Marmo_15_16_Crossovers.Add);
+            PCall(Marmo17_18.AddShore);
 
             //eggkeeper
             PCall(MinichibisEggkeeperEncounters.Add);
@@ -140,6 +141,7 @@ namespace SaltEnemies_Reseasoned
 
             //colophon
             PCall(Colophon_1_5.Crossovers);
+            PCall(Colophon_6_10_Cross.Ad);
         }
     }
 }

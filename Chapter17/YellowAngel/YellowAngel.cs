@@ -75,6 +75,7 @@ namespace SaltsEnemies_Reseasoned
                 Name = "Track the Prints",
                 Description = "Apply 0-2 Slip to every party member position. \nMove Left or Right and gain another action.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("yellow_3", 3),
+                Priority = Priority.Slow,
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<MaybeApplySlipUpToEntryEffect>(), 2, Targeting.GenerateSlotTarget(new int[]{-4, -3, -2, -1, 0, 1, 2, 3, 4}, false)),
