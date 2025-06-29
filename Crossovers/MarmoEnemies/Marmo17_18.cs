@@ -93,7 +93,94 @@ namespace SaltsEnemies_Reseasoned
         }
         public static void AddOrpheum()
         {
+            AddTo easy = new AddTo(Orph.Shooter.Easy);
+            easy.AddRandomGroup(Enemies.Shooter, "Romantic_EN");
+            easy.AddRandomGroup(Enemies.Shooter, Jumble.Red, "Romantic_EN");
+            easy.AddRandomGroup(Enemies.Shooter, Jumble.Unstable, "Romantic_EN");
+            easy.AddRandomGroup(Enemies.Shooter, "Gungrot_EN", "Gungrot_EN");
 
+            AddTo med = new AddTo(Orph.H.Shooter.Med);
+            med.AddRandomGroup(Enemies.Shooter, Enemies.Shooter, "Romantic_EN");
+            med.AddRandomGroup(Enemies.Shooter, Enemies.Shooter, "Surrogate_EN");
+            med.SimpleAddGroup(1, Enemies.Shooter, 3, "Gungrot_EN");
+
+            med = new AddTo(Orph.H.Freud.Med);
+            med.AddRandomGroup("Freud_EN", Enemies.Shooter, Spoggle.Unstable);
+
+            med = new AddTo(Orph.H.Crow.Med);
+            med.AddRandomGroup("TheCrow_EN", Enemies.Shooter, Jumble.Unstable, Jumble.Yellow);
+
+            AddTo hard = new AddTo(Orph.H.Dragon.Hard);
+            hard.AddRandomGroup("TheDragon_EN", Enemies.Shooter, "Romantic_EN");
+            hard.AddRandomGroup("TheDragon_EN", "Evileye_EN", "Gungrot_EN", "Gungrot_EN");
+            hard.AddRandomGroup("TheDragon_EN", "YellowAngel_EN", "Romantic_EN");
+
+            med = new AddTo(Orph.H.WindSong.Med);
+            med.AddRandomGroup("WindSong_EN", Enemies.Shooter, "Gungrot_EN", "Gungrot_EN");
+
+            med = new AddTo(Orph.H.Maw.Med);
+            med.AddRandomGroup("Maw_EN", Enemies.Shooter, "Gungrot_EN", "Gungrot_EN");
+
+            med = new AddTo(Orph.H.Bot.Blue.Med);
+            med.AddRandomGroup(Bots.Blue, Enemies.Shooter, "Gungrot_EN", "Gungrot_EN");
+
+            med = new AddTo(Orph.H.Bot.Purple.Med);
+            med.AddRandomGroup(Bots.Purple, Enemies.Shooter, "Gungrot_EN", "Gungrot_EN");
+
+            med = new AddTo(Orph.H.Crystal.Med);
+            med.AddRandomGroup("Crystal_EN", Enemies.Shooter, "Romantic_EN", "Romantic_EN");
+            med.AddRandomGroup("Crystal_EN", Enemies.Shooter, "Gungrot_EN", "Gungrot_EN");
+            med.AddRandomGroup("Crystal_EN", Enemies.Shooter, "Surrogate_EN");
+
+            med = new AddTo(Orph.H.Evileye.Med);
+            med.SimpleAddGroup(1, "Evileye_EN", 4, "Gungrot_EN");
+            med.SimpleAddGroup(1, "Evileye_EN", 3, "Gungrot_EN");
+            med.SimpleAddGroup(1, "Evileye_EN", 3, "Surrogate_EN");
+            med.AddRandomGroup("Evileye_EN", Bots.Blue, Bots.Purple, "Surrogate_EN");
+            med.AddRandomGroup("Evileye_EN", Jumble.Blue, Jumble.Purple, "Surrogate_EN");
+            med.AddRandomGroup("Evileye_EN", Flower.Yellow, Flower.Purple, "Surrogate_EN");
+            med.AddRandomGroup("Evileye_EN", Enemies.Shooter, "Gungrot_EN", "Gungrot_EN");
+            med.AddRandomGroup("Evileye_EN", "Delusion_EN", "Gungrot_EN", "Gungrot_EN");
+            med.AddRandomGroup("Evileye_EN", "Gungrot_EN", "Gungrot_EN", "Gungrot_EN");
+            med.AddRandomGroup("Evileye_EN", "MusicMan_EN", "Gungrot_EN", "Gungrot_EN");
+            med.AddRandomGroup("Evileye_EN", Jumble.Yellow, Jumble.Unstable, Jumble.Red);
+            med.AddRandomGroup("Evileye_EN", Spoggle.Red, Spoggle.Unstable);
+
+            med = new AddTo(Orph.H.YellowAngel.Med);
+            med.AddRandomGroup("YellowAngel_EN", Jumble.Yellow, Jumble.Red, Jumble.Unstable);
+            med.SimpleAddGroup(1, "YellowAngel_EN", 3, "Gungrot_EN");
+            med.AddRandomGroup("YellowAngel_EN", "MusicMan_EN", "MusicMan_EN", "Romantic_EN");
+            med.AddRandomGroup("YellowAngel_EN", "Delusion_EN", "Delusion_EN", "Surrogate_EN");
+            med.AddRandomGroup("YellowAngel_EN", "Gungrot_EN", "Gungrot_EN", Jumble.Blue);
+            med.AddRandomGroup("YellowAngel_EN", "Gungrot_EN", "Gungrot_EN", Jumble.Purple);
+            med.AddRandomGroup("YellowAngel_EN", "Romantic_EN", "Romantic_EN", Spoggle.Red);
+            med.AddRandomGroup("YellowAngel_EN", "Romantic_EN", Bots.Red, Bots.Yellow);
+            med.AddRandomGroup("YellowAngel_EN", Enemies.Shooter, "Surrogate_EN");
+            med.AddRandomGroup("YellowAngel_EN", Spoggle.Unstable, "Spectre_EN", "Spectre_EN");
+
+            med = new AddTo(Orph.H.Errant.Med);
+            med.AddRandomGroup("Errant_EN", Enemies.Shooter, Jumble.Unstable);
+            med.AddRandomGroup("Errant_EN", Enemies.Shooter, Spoggle.Unstable);
+            med.AddRandomGroup("Errant_EN", Enemies.Shooter, Bots.Red);
+            med.AddRandomGroup("Errant_EN", Enemies.Shooter, Bots.Yellow);
+
+            hard = new AddTo(Orph.H.Errant.Hard);
+            hard.AddRandomGroup("Errant_EN", "Evileye_EN", "LostSheep_EN");
+            hard.AddRandomGroup("Errant_EN", "Evileye_EN", "Nameless_EN");
+            hard.AddRandomGroup("Errant_EN", "YellowAngel_EN", "Romantic_EN");
+            hard.AddRandomGroup("Errant_EN", "YellowAngel_EN", "Surrogate_EN");
+
+            med = new AddTo(Orph.H.Jumble.Blue.Med);
+            med.AddRandomGroup(Jumble.Blue, Enemies.Shooter, "Surrogate_EN");
+            med.AddRandomGroup(Jumble.Blue, Enemies.Shooter, "Romantic_EN");
+
+            med = new AddTo(Orph.H.Jumble.Purple.Med);
+            med.AddRandomGroup(Jumble.Purple, Enemies.Shooter, "Gungrot_EN", "Gungrot_EN");
+            med.AddRandomGroup(Jumble.Purple, Enemies.Shooter, Jumble.Unstable);
+
+            hard = new AddTo(Orph.H.Conductor.Hard);
+            hard.AddRandomGroup("Conductor_EN", "Evileye_EN", "Gungrot_EN", "Gungrot_EN");
+            hard.AddRandomGroup("Conductor_EN", "YellowAngel_EN", "Romantic_EN", "Romantic_EN");
         }
     }
 }
