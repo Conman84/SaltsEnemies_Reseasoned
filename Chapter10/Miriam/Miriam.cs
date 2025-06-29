@@ -34,7 +34,7 @@ namespace SaltsEnemies_Reseasoned
             mf._triggerOn = new List<TriggerCalls>(Passives.TwoFaced._triggerOn) { TriggerCalls.OnRoundFinished }.ToArray();
 
             miriam.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, mf, Passives.MultiAttack2, Passives.Formless });
-            miriam.AddLootData(new EnemyLootItemProbability[] { new EnemyLootItemProbability() { isItemTreasure = true, amount = 3, probability = 100 } });
+            miriam.AddLootData(new EnemyLootItemProbability[] { new EnemyLootItemProbability() { isItemTreasure = true, amount = 2, probability = 100 } });
 
 
             Intents.CreateAndAddCustom_Damage_IntentToPool("Damage_Delay", ResourceLoader.LoadSprite("DelayedAttackIcon.png"), (Intents.GetInGame_IntentInfo(IntentType_GameIDs.Damage_11_15) as IntentInfoDamage).GetColor(true),
