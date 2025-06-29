@@ -37,7 +37,7 @@ namespace SaltsEnemies_Reseasoned
             hate.specialStoredData = LoadedDBsHandler.MiscDB.GetUnitStoreData(SnakeGodManager.Last);
 
             snakegod.AddPassives(new BasePassiveAbilitySO[] { hate, Passives.Formless });
-            snakegod.AddLootData([new EnemyLootItemProbability() { isItemTreasure = true, amount = 3, probability = 100 }]);
+            snakegod.AddLootData([new EnemyLootItemProbability() { isItemTreasure = true, amount = 2, probability = 100 }]);
 
             //silence
             Ability silence = new Ability("SilenceTheFoolish_A")
