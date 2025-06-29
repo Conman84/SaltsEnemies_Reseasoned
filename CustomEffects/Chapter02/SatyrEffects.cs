@@ -228,7 +228,7 @@ namespace SaltEnemies_Reseasoned
                         if (stats.AddNewEnemy(targetEnemy.Enemy, num, false, _spawnType, Math.Max(1, (int)Math.Floor(newMax))))
                         {
                             targetEnemy.HasFled = true;
-                            exitAmount += (int)newMax;
+                            exitAmount += Math.Max(1, (int)Math.Floor(newMax));
                         }
                     }
                 }
