@@ -56,15 +56,16 @@ namespace SaltsEnemies_Reseasoned
 
             //ringer
             Ability ringer = new Ability("Ringer", "Ringer_A");
-            ringer.Description = "Apply 1 Slip on the Opposing position.\nIf there was already Slip on the Opposing position, queue the ability \"Flip Flop\" and move to the Left or Right.";
+            ringer.Description = "Apply 1 Slip on the Opposing position and take a Little indirect damage.\nIf there was already Slip on the Opposing position, queue the ability \"Flip Flop\" and move to the Left or Right.";
             ringer.Rarity = Rarity.GetCustomRarity("rarity5");
             ringer.Priority = Priority.Fast;
-            ringer.Effects = new EffectInfo[3];
+            ringer.Effects = new EffectInfo[4];
             ringer.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.Front);
-            ringer.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<FlipFlopEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<FrontHas2SlipEffectCondition>());
-            ringer.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self, BasicEffects.DidThat(true));
+            ringer.Effects[1] = Effects.GenerateEffect(BasicEffects.Indirect, 2, Slots.Self);
+            ringer.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<FlipFlopEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<FrontHas2SlipEffectCondition>());
+            ringer.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self, BasicEffects.DidThat(true));
             ringer.AddIntentsToTarget(Slots.Front, [Slip.Intent]);
-            ringer.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Swap_Sides.ToString()]);
+            ringer.AddIntentsToTarget(Slots.Self, ["Damage_1_2", IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Swap_Sides.ToString()]);
             ringer.Visuals = CustomVisuals.GetVisuals("Salt/Class");
             ringer.AnimationTarget = Slots.Front;
 
