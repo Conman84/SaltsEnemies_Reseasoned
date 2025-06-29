@@ -182,5 +182,47 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("Conductor_EN", "Evileye_EN", "Gungrot_EN", "Gungrot_EN");
             hard.AddRandomGroup("Conductor_EN", "YellowAngel_EN", "Romantic_EN", "Romantic_EN");
         }
+        public static void AddGarden()
+        {
+            AddTo med = new AddTo(Garden.H.EvilDog.Med);
+            med.SimpleAddGroup(3, "EvilDog_EN", 1, "Romantic_EN");
+            med.SimpleAddGroup(3, "EvilDog_EN", 1, "Surrogate_EN");
+            med.SimpleAddGroup(3, "EvilDog_EN", 1, "Git_EN");
+
+            med = new AddTo(Garden.H.PersonalAngel.Med);
+            med.AddRandomGroup("PersonalAngel_EN", "Attrition_EN", "Attrition_EN");
+            med.AddRandomGroup("PersonalAngel_EN", "Git_EN", "Git_EN");
+            med.AddRandomGroup("PersonalAngel_EN", "YNL_EN", "Surrogate_EN", "Surrogate_EN");
+            med.AddRandomGroup("PersonalAngel_EN", "ChoirBoy_EN", "Surrogate_EN");
+            med.AddRandomGroup("PersonalAngel_EN", "Firebird_EN", "Romantic_EN");
+            med.AddRandomGroup("PersonalAngel_EN", Spoggle.Grey, "Surrogate_EN", "Skyloft_EN");
+
+            med = new AddTo(Garden.H.Complimentary.Med);
+            med.AddRandomGroup("Complimentary_EN", "Attrition_EN", "Attrition_EN");
+            med.AddRandomGroup("Complimentary_EN", "Git_EN", "Git_EN");
+            med.AddRandomGroup("Complimentary_EN", "Attrition_EN", "Romantic_EN");
+            med.AddRandomGroup("Complimentary_EN", "Git_EN", "Surrogate_EN");
+            med.AddRandomGroup("Complimentary_EN", "Git_EN", "MiniReaper_EN");
+            med.AddRandomGroup("Complimentary_EN", "Git_EN", "Romantic_EN");
+            med.AddRandomGroup("Complimentary_EN", "Romantic_EN", "Merced_EN");
+
+            AddTo hard = new AddTo(Garden.H.Stoplight.Hard);
+            hard.AddRandomGroup("Stoplight_EN", "PersonalAngel_EN", "Git_EN");
+
+            hard = new AddTo(Garden.H.ClockTower.Hard);
+            hard.AddRandomGroup("ClockTower_EN", "Complimentary_EN", "Romantic_EN");
+
+            med = new AddTo(Garden.H.Ode.Med);
+            med.AddRandomGroup("OdeToHumanity_EN", "EvilDog_EN", "EvilDog_EN", "Surrogate_EN");
+
+            hard = new AddTo(Garden.H.Minister.Hard);
+            hard.AddRandomGroup(Enemies.Minister, "PersonalAngel_EN", "Romantic_EN", "Romantic_EN");
+
+            hard = new AddTo(Garden.H.Skinning.Hard);
+            hard.AddRandomGroup(Enemies.Skinning, "Complimentary_EN", "Romantic_EN");
+
+            med = new AddTo(Garden.H.Shua.Med);
+            med.AddRandomGroup("Shua_EN", "Git_EN", "EvilDog_EN", "EvilDog_EN");
+        }
     }
 }
