@@ -312,7 +312,7 @@ namespace SaltEnemies_Reseasoned
             for (int index = 0; index < stats.Enemies.Count; index++)
             {
                 EnemyCombat targetEnemy = stats.Enemies[index];
-                if (!targetEnemy.IsAlive && !targetEnemy.HasFled)
+                if (!targetEnemy.IsAlive && !targetEnemy.HasFled && IsntSuperboss(targetEnemy) && CanLive(targetEnemy) && IsntBronzo(targetEnemy))
                 {
                     if (addAt < candidates.Length)
                     {
