@@ -70,6 +70,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(AuthorHandler.Setup);
             //PCall(ShieldPiercer.Setup);
             PCall(Debugger.Setup);
+            PCall(DeterminedHandler.Setup);
             #endregion
 
             //Add To Glossary
