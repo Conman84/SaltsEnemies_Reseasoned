@@ -45,21 +45,21 @@ namespace SaltsEnemies_Reseasoned
             }, null);
             mainEncounters2.CreateNewEnemyEncounterData(new string[]
             {
-                Flower.Yellow,
+                Flower.Purple,
                 "Delusion_EN",
                 "Delusion_EN",
                 "FakeAngel_EN",
             }, null);
             mainEncounters2.CreateNewEnemyEncounterData(new string[]
             {
-                Flower.Yellow,
+                Flower.Purple,
                 "Delusion_EN",
                 "Delusion_EN",
                 "Enigma_EN",
             }, null);
             mainEncounters2.CreateNewEnemyEncounterData(new string[]
             {
-                Flower.Yellow,
+                Flower.Purple,
                 "Delusion_EN",
                 "Delusion_EN",
                 "LostSheep_EN",
