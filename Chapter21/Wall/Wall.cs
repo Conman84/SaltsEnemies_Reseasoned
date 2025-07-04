@@ -56,7 +56,7 @@ namespace SaltEnemies_Reseasoned
             };
             wall2.PrepareEnemyPrefab("assets/enem3/Wall_2_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Wall_Gibs.prefab").GetComponent<ParticleSystem>());
             wall2.AddEnemyAbilities([crush]);
-            wall2.AddEnemy(true);
+            wall2.AddEnemy();
         }
     }
 }
