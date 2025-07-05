@@ -8,6 +8,14 @@ namespace SaltEnemies_Reseasoned
 {
     public class LonelyEffect : SwapToOneSideEffect
     {
+        public bool hasFriends(IUnit caster)
+        {
+            foreach (TargetSlotInfo target in Slots.Sides.GetTargets(CombatManager.Instance._stats.combatSlots, caster.SlotID, caster.IsUnitCharacter))
+            {
+                if (target.HasUnit) return true;
+            }
+            return false;
+        }
         //public static UnitStoredValueNames value => (UnitStoredValueNames)8282501;
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
@@ -29,13 +37,21 @@ namespace SaltEnemies_Reseasoned
             if (goLeft)
             {
                 _swapRight = false;
-                for (int i = 0; i < left; i++) base.PerformEffect(stats, caster, Slots.Self.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter), Slots.Self.AreTargetSlots, entryVariable, out exitAmount);
+                for (int i = 0; i < left; i++)
+                {
+                    if (hasFriends(caster)) break;
+                    base.PerformEffect(stats, caster, Slots.Self.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter), Slots.Self.AreTargetSlots, entryVariable, out exitAmount);
+                }
             }
             else
             {
 
                 _swapRight = true;
-                for (int i = 0; i < right; i++) base.PerformEffect(stats, caster, Slots.Self.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter), Slots.Self.AreTargetSlots, entryVariable, out exitAmount);
+                for (int i = 0; i < right; i++)
+                {
+                    if (hasFriends(caster)) break;
+                    base.PerformEffect(stats, caster, Slots.Self.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter), Slots.Self.AreTargetSlots, entryVariable, out exitAmount);
+                }
             }
             //caster.SetStoredValue(value, 0);
             return left > 0 || right > 0;
