@@ -643,6 +643,10 @@ namespace SaltEnemies_Reseasoned
     }
     public class BadDogTurnStartAction : CombatAction
     {
+        public BadDogTurnStartAction()
+        {
+            BadDogHandler.Clear();
+        }
         public override IEnumerator Execute(CombatStats stats)
         {
             BadDogHandler.TurnStartFunction();
@@ -678,10 +682,14 @@ namespace SaltEnemies_Reseasoned
             return false;
         }
         public static Dictionary<int, string[]> Actions;
-        public static void TurnStartFunction()
+        public static void Clear()
         {
             Actions = new Dictionary<int, string[]>();
             Actions.Clear();
+        }
+        public static void TurnStartFunction()
+        {
+            Actions = new Dictionary<int, string[]>();
             CombatStats stats = CombatManager.Instance._stats;
             foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
             {
