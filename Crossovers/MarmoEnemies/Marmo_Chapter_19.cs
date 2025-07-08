@@ -20,5 +20,9 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Wednesday_EN", Jumble.Unstable, "Gungrot_EN", "Gungrot_EN", "Gungrot_EN");
             med.AddRandomGroup("Wednesday_EN", Spoggle.Unstable, "Gungrot_EN", "Gungrot_EN");
         }
+        public static void Garden()
+        {
+
+        }
     }
 }
