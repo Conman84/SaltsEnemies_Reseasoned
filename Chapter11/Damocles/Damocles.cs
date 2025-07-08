@@ -78,7 +78,7 @@ namespace SaltsEnemies_Reseasoned
             //dangle
             Ability dangle = new Ability("Dangle", "Dangle_A");
             dangle.Description = "Inflict 2-3 Frail and 4-6 Scars on this enemy.";
-            dangle.Rarity = Rarity.GetCustomRarity("rarity5");
+            dangle.Rarity = Rarity.CreateAndAddCustomRarityToPool("damoclesHigh", 11);
             dangle.Effects = new EffectInfo[5];
             dangle.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 2, Slots.Self);
             dangle.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 1, Slots.Self, Effects.ChanceCondition(50));
