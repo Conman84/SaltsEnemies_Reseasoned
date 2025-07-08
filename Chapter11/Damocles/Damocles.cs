@@ -41,7 +41,7 @@ namespace SaltsEnemies_Reseasoned
             decay._passiveName = "Decay";
             decay.passiveIcon = Passives.Example_Decay_MudLung.passiveIcon;
             decay.m_PassiveID = Passives.Example_Decay_MudLung.m_PassiveID;
-            decay._enemyDescription = "Upon dying, this enemy decays into 2 copies of itself.";
+            decay._enemyDescription = "Upon dying, this enemy decays into 2 copies of itself with half this enemy's maximum health.";
             decay._characterDescription = "On dying, nothing happens. This effect won't work on party members. Be glad it doesnt break the game.";
             decay.doesPassiveTriggerInformationPanel = true;
             decay._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDeath };
@@ -53,16 +53,16 @@ namespace SaltsEnemies_Reseasoned
                 detectWither
             };
             DelayRespawnEffect spawn = ScriptableObject.CreateInstance<DelayRespawnEffect>();
-            SpawnEnemyInSlotFromEntryStringNameEffect newD = ScriptableObject.CreateInstance<SpawnEnemyInSlotFromEntryStringNameEffect>();
+            SpawnEnemyInSlotFromEntryStringNameHalfMaxEffect newD = ScriptableObject.CreateInstance<SpawnEnemyInSlotFromEntryStringNameHalfMaxEffect>();
             newD.en = "Damocles_EN";
-            SpawnSelfEnemyAnywhereEffect copy = ScriptableObject.CreateInstance<SpawnSelfEnemyAnywhereEffect>();
+            SpawnSelfEnemyAnywhereHalfMaxEffect copy = ScriptableObject.CreateInstance<SpawnSelfEnemyAnywhereHalfMaxEffect>();
             decay.effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(newD, 0, Targeting.Slot_SelfSlot),
                 Effects.GenerateEffect(copy, 1, Targeting.Slot_SelfSlot),
             };
 
-            sword.AddPassives(new BasePassiveAbilitySO[] { Passives.Formless, damocles, Passives.Withering, decay });
+            sword.AddPassives(new BasePassiveAbilitySO[] { Passives.Formless, damocles, Passives.Absorb, Passives.Withering, decay });
 
             //fall
             Ability fall = new Ability("Fall", "Fall_A");

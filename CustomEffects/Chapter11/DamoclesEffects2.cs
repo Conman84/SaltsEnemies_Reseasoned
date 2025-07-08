@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 
 //damocles moveset
@@ -63,6 +64,54 @@ namespace SaltEnemies_Reseasoned
                 CombatSlot slot = CombatManager.Instance._stats.combatSlots.EnemySlots[i];
                 if (slot.HasUnit) Current_Enemy[i] = slot.Unit.ID;
             }
+        }
+    }
+    public class SpawnEnemyInSlotFromEntryStringNameHalfMaxEffect : EffectSO
+    {
+        public string en;
+
+        public bool givesExperience;
+
+        public bool trySpawnAnywhereIfFail;
+
+        [SerializeField]
+        public string _spawnType = CombatType_GameIDs.Spawn_Basic.ToString();
+
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            if (!Check.EnemyExist(en)) return false;
+            EnemySO enemy = LoadedAssetsHandler.GetEnemy(en);
+            for (int num = targets.Length - 1; num >= 0; num--)
+            {
+                int preferredSlot = entryVariable + targets[num].SlotID;
+                CombatManager.Instance.AddSubAction(new SpawnEnemyAction(enemy, preferredSlot, givesExperience, trySpawnAnywhereIfFail, _spawnType, Math.Max(1, (int)Math.Ceiling((float)caster.MaximumHealth / 2))));
+            }
+
+            exitAmount = targets.Length;
+            return true;
+        }
+    }
+    public class SpawnSelfEnemyAnywhereHalfMaxEffect : EffectSO
+    {
+        public bool givesExperience;
+
+        [SerializeField]
+        public string _spawnType = CombatType_GameIDs.Spawn_Basic.ToString();
+
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            if (!(caster is EnemyCombat)) return false;
+            EnemySO enemy = (caster as EnemyCombat).Enemy;
+
+            for (int i = 0; i < entryVariable; i++)
+            {
+                CombatManager.Instance.AddSubAction(new SpawnEnemyAction(enemy, -1, givesExperience, trySpawnAnyways: false, _spawnType, Math.Max(1, (int)Math.Ceiling((float)caster.MaximumHealth / 2))));
+            }
+
+            exitAmount = entryVariable;
+            return true;
         }
     }
 }
