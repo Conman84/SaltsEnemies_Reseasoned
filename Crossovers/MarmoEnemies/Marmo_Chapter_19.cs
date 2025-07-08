@@ -72,7 +72,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("Eyeless_EN", "Starless_EN", "Git_EN");
             hard.AddRandomGroup("Eyeless_EN", "Starless_EN", "Romantic_EN", "Romantic_EN");
             hard.AddRandomGroup("Eyeless_EN", "MiniReaper_EN", "Surrogate_EN", "Surrogate_EN");
-            hard.AddRandomGroup("Eyeless_EN", "BlackStar_EN", "GIt_EN", "Git_EN");
+            hard.AddRandomGroup("Eyeless_EN", "BlackStar_EN", "Git_EN", "Git_EN");
             hard.AddRandomGroup("Eyeless_EN", "EvilDog_EN", "EvilDog_EN", "Romantic_EN");
             hard.AddRandomGroup("Eyeless_EN", Bots.Grey, "Damocles_EN", "Romantic_EN");
             hard.AddRandomGroup("Eyeless_EN", "PawnA_EN", "PawnA_EN", "Romantic_EN");

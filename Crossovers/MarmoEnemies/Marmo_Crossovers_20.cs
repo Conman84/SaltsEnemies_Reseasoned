@@ -70,8 +70,8 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddGroup(2, "Solitaire_EN", 3, "Gungrot_EN");
             med.AddRandomGroup("Solitaire_EN", "Solitaire_EN", Jumble.Unstable, Jumble.Red);
             med.AddRandomGroup("Solitaire_EN", "Solitaire_EN", Jumble.Unstable, Jumble.Yellow);
-            med.AddRandomGroup("Solitaire_EN", "Solitiare_EN", Spoggle.Unstable, Spoggle.Yellow);
-            med.AddRandomGroup("Solitaire_EN", "Solitiare_EN", Spoggle.Unstable, Spoggle.Blue);
+            med.AddRandomGroup("Solitaire_EN", "Solitaire_EN", Spoggle.Unstable, Spoggle.Yellow);
+            med.AddRandomGroup("Solitaire_EN", "Solitaire_EN", Spoggle.Unstable, Spoggle.Blue);
 
 
             med = new AddTo(Orph.H.Errant.Med);
@@ -91,7 +91,7 @@ namespace SaltsEnemies_Reseasoned
             AddTo hard = new AddTo(Orph.H.Errant.Hard);
             hard.SimpleAddGroup(1, "Errant_EN", 3, "Solitaire_EN");
             hard.AddRandomGroup("Errant_EN", "Solitaire_EN", "Solitaire_EN", "Romantic_EN", "Romantic_EN");
-            hard.AddRandomGroup("Errant_EN", "Solitaire_EN", "Solitiare_EN", Jumble.Unstable);
+            hard.AddRandomGroup("Errant_EN", "Solitaire_EN", "Solitaire_EN", Jumble.Unstable);
             hard.AddRandomGroup("Errant_EN", "Solitaire_EN", Bots.Red, Bots.Yellow);
             hard.AddRandomGroup("Errant_EN", "Solitaire_EN", Bots.Blue, Bots.Purple);
             hard.AddRandomGroup("Errant_EN", "Solitaire_EN", Jumble.Blue, Jumble.Purple);
