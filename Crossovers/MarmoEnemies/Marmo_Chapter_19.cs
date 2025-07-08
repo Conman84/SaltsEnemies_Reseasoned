@@ -118,6 +118,32 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Garden.H.Firebird.Med);
             med.AddRandomGroup("Firebird_EN", "PawnA_EN", "PawnA_EN", "Romantic_EN", "Romantic_EN");
+
+            med = new AddTo(Garden.H.Stoplight.Med);
+            med.AddRandomGroup("Stoplight_EN", "Starless_EN", "Romantic_EN");
+            med.AddRandomGroup("Stoplight_EN", "Yang_EN", "Attrition_EN");
+            med.AddRandomGroup("Stoplight_EN", "Surrogate_EN", "PawnA_EN", "PawnA_EN", "PawnA_EN");
+
+            hard = new AddTo(Garden.H.Tank.Hard);
+            hard.AddRandomGroup(Enemies.Tank, "Starless_EN", "Romantic_EN");
+            hard.AddRandomGroup(Enemies.Tank, "Yang_EN", "Git_EN");
+
+            hard = new AddTo(Garden.H.ClockTower.Hard);
+            hard.AddRandomGroup("ClockTower_EN", "Eyeless_EN", "Attrition_EN", "Attrition_EN");
+            hard.AddRandomGroup("ClockTower_EN", "Git_EN", "Yang_EN", "Yang_EN");
+
+            med = new AddTo(Garden.H.GreyBot.Med);
+            med.AddRandomGroup(Bots.Grey, "Git_EN", "PawnA_EN", "PawnA_EN");
+
+            med = new AddTo(Garden.H.Ode.Med);
+            med.AddRandomGroup("OdeToHumanity_EN", "Attrition_EN", "PawnA_EN", "PawnA_EN");
+
+            med = new AddTo(Garden.H.PersonalAngel.Med);
+            med.AddRandomGroup("PersonalAngel_EN", "Yang_EN", "Git_EN");
+            med.AddRandomGroup("PersonalAngel_EN", "PawnA_EN", "PawnA_EN", "Romantic_EN");
+
+            med = new AddTo(Garden.H.Complimentary.Med);
+            med.AddRandomGroup("Complimentary_EN", "Starless_EN", "Romantic_EN");
         }
     }
 }
