@@ -121,6 +121,7 @@ namespace SaltEnemies_Reseasoned
             PCall(EggKeeper_13_14_Crossovers.Add);
             PCall(EggKeeper_15_16_Crossovers.Add);
             PCall(EggKeeper_17_18Crossovers.Add);
+            PCall(EggKeeper_19_21.Crossover);
 
             //marmo & eggkeeper massive lump
             PCall(Crossovers_Marmo_EggKeeper_6_7_8.Add);
