@@ -59,7 +59,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 Name = "On Sight",
                 Description = "If the Far Far Left or Far Far Right party members have either manually moved or used an ability last turn, deal an Agonizing amount of damage to them and move them to the Left or Right if damage was dealt.",
-                Rarity = Rarity.GetCustomRarity("rarity5"),
+                Rarity = Rarity.Common,
                 Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<OnSightEffect>(), 7, Targeting.GenerateSlotTarget(new int[]{-3, 3}, false)),
@@ -74,7 +74,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 Name = "Track the Prints",
                 Description = "Apply 0-2 Slip to every party member position. \nMove Left or Right and gain another action.",
-                Rarity = Rarity.CreateAndAddCustomRarityToPool("yellow_3", 3),
+                Rarity = Rarity.GetCustomRarity("rarity5"),
                 Priority = Priority.Slow,
                 Effects = new EffectInfo[]
                 {
@@ -93,7 +93,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 Name = "Mark Them",
                 Description = "If the Far Far Left or Far Far Right party members are Frailed, deal an Agonizing amount of damage to them.\nIf no party members have Frail, inflict 3 Frail on the highest and lowest health party members.",
-                Rarity = Rarity.GetCustomRarity("rarity5"),
+                Rarity = Rarity.Common,
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<MarkThemEffect>(), 10, Targeting.GenerateSlotTarget(new int[]{-3, 3}, false)),
