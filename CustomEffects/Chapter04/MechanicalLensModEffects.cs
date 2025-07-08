@@ -126,7 +126,7 @@ namespace SaltEnemies_Reseasoned
             CameraEffects.AddPassive("CleansingMucus_PA");
             CameraEffects.AddPassive("ThickSkin_PA");
             CameraEffects.AddPassive("Crystallize");
-            CameraEffects.AddPassive(Intimidating);
+            CameraEffects.AddPassive("Intimidating");
             CameraEffects.AddPassive("Chaos", enemyDesc: "At the end of the turn, perform a random effect for each Chaos level this enemy has.");
         }
         public static void PartyParental(CameraEffects.PassiveHolder passives, CharacterCombat chara, EnemyCombat enemy)
