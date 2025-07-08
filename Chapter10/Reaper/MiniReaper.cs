@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy template = new Enemy("Mini-Reaper", "MiniReaper_EN")
             {
-                Health = 30,
+                Health = 25,
                 HealthColor = Pigments.Grey,
                 CombatSprite = ResourceLoader.LoadSprite("ReaperIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("ReaperWorld.png", new Vector2(0.5f, 0f), 32),
