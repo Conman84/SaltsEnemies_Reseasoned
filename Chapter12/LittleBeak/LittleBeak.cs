@@ -78,13 +78,13 @@ namespace SaltsEnemies_Reseasoned
             Ability scratch = new Ability("LightScratches_A")
             {
                 Name = "Light Scratches",
-                Description = "Remove all Shield from the Opposing position, then move to the Left or Right.\nInflict 1 Constricted on this enemy's position.",
+                Description = "Remove all Shield from the Opposing position, then move to the Left or Right.\nInflict 1 Constricted on this enemy's position if it has none.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveAllShieldsEffect>(), 1, Slots.Front),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 1, Slots.Self)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 1, Slots.Self, HasFieldAmountEffectCondition.Create("Constricted_ID", 0, false, true))
                 },
                 Visuals = LoadedAssetsHandler.GetEnemyAbility("Talons_A").visuals,
                 AnimationTarget = Slots.Front,
