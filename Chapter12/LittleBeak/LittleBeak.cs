@@ -31,17 +31,12 @@ namespace SaltsEnemies_Reseasoned
             nervous._passiveName = "Nervous";
             nervous.passiveIcon = ResourceLoader.LoadSprite("panic.png");
             nervous.m_PassiveID = "Nervous_PA";
-            nervous._enemyDescription = "On moving, gain another action. This action cannot be \"Light Scratches.\"";
+            nervous._enemyDescription = "On moving, gain another action.";
             nervous._characterDescription = "won't work. oops!";
             nervous.doesPassiveTriggerInformationPanel = true;
             nervous.effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(BasicEffects.SetStoreValue(UnitStoredValueNames_GameIDs.DemonCoreW.ToString()), 1, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Slots.Self),
-                Effects.GenerateEffect(RootActionEffect.Create(new EffectInfo[]
-                {
-                    Effects.GenerateEffect(BasicEffects.SetStoreValue(UnitStoredValueNames_GameIDs.DemonCoreW.ToString()), 0, Slots.Self)
-                }), 0, Slots.Self)
             };
             nervous._triggerOn = new TriggerCalls[] { TriggerCalls.OnMoved };
 
@@ -83,12 +78,13 @@ namespace SaltsEnemies_Reseasoned
             Ability scratch = new Ability("LightScratches_A")
             {
                 Name = "Light Scratches",
-                Description = "Remove all Shield from the Opposing position, then move to the Left or Right.",
+                Description = "Remove all Shield from the Opposing position, then move to the Left or Right.\nApply 1 Constricted on this enemy's position.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveAllShieldsEffect>(), 1, Slots.Front),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 1, Slots.Self)
                 },
                 Visuals = LoadedAssetsHandler.GetEnemyAbility("Talons_A").visuals,
                 AnimationTarget = Slots.Front,
