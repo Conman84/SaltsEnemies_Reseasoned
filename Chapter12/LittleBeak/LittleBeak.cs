@@ -78,7 +78,7 @@ namespace SaltsEnemies_Reseasoned
             Ability scratch = new Ability("LightScratches_A")
             {
                 Name = "Light Scratches",
-                Description = "Remove all Shield from the Opposing position, then move to the Left or Right.\nApply 1 Constricted on this enemy's position.",
+                Description = "Remove all Shield from the Opposing position, then move to the Left or Right.\nInflict 1 Constricted on this enemy's position.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
@@ -90,7 +90,7 @@ namespace SaltsEnemies_Reseasoned
                 AnimationTarget = Slots.Front,
             };
             scratch.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Rem_Field_Shield.ToString().SelfArray());
-            scratch.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Sides.ToString()]);
+            scratch.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Sides.ToString(), IntentType_GameIDs.Field_Constricted.ToString()]);
 
             //gaze
             Ability stare = new Ability("HollowGaze_A")
