@@ -50,7 +50,7 @@ namespace SaltsEnemies_Reseasoned
         public static void Post()
         {
             AddTo hard = new AddTo(Orph.H.Sacrifice.Hard);
-            hard.AddRandomGroup(Enemies.Sacrifice, "TheDragon_EN", "TheDragon_EN");
+            hard.AddRandomGroup(Enemies.Sacrifice, "TheDragon_EN");
         }
     }
 }
