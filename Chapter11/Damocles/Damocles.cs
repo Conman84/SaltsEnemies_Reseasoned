@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy sword = new Enemy("Damocles", "Damocles_EN")
             {
-                Health = 30,
+                Health = 20,
                 HealthColor = Pigments.Blue,
                 CombatSprite = ResourceLoader.LoadSprite("DamoclesIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("DamoclesWorld.png", new Vector2(0.5f, 0f), 32),
@@ -62,7 +62,17 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(copy, 1, Targeting.Slot_SelfSlot),
             };
 
-            sword.AddPassives(new BasePassiveAbilitySO[] { Passives.Formless, damocles, Passives.Absorb, Passives.Withering, decay });
+            //miss faced
+            BasePassiveAbilitySO mf = ScriptableObject.Instantiate(Passives.TwoFaced);
+            mf._locID = "";
+            mf.passiveIcon = ResourceLoader.LoadSprite("MissFaced.png");
+            mf._passiveName = "Miss-Faced";
+            mf._enemyDescription = "On being direct damaged and at the end of each round, this unit's health color changes between Red and Blue.";
+            mf.m_PassiveID = "MissFaced_PA";
+            mf._characterDescription = mf._enemyDescription;
+            mf._triggerOn = new List<TriggerCalls>(Passives.TwoFaced._triggerOn) { TriggerCalls.OnRoundFinished }.ToArray();
+
+            sword.AddPassives(new BasePassiveAbilitySO[] { Passives.Formless, damocles, Passives.Absorb, mf, Passives.Withering, decay });
 
             //fall
             Ability fall = new Ability("Fall", "Fall_A");
