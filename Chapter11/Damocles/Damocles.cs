@@ -132,7 +132,7 @@ namespace SaltsEnemies_Reseasoned
             sword.AddEnemy(true);
 
             EnemySO clone = UnityEngine.Object.Instantiate(LoadedAssetsHandler.GetEnemy("Damocles_EN"));
-            clone.passiveAbilities = [Passives.Formless, damocles, Passives.Absorb, Passives.Withering];
+            clone.passiveAbilities = [Passives.Formless, damocles, Passives.Absorb, mf, Passives.Withering];
             EnemyUtils.AddEnemyToHealthSpawnPool(clone, PoolList_GameIDs.Sepulchre);
         }
     }
