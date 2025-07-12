@@ -28,7 +28,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomEncounter("SnakeGod_EN", "Grandfather_EN", Jumble.Grey);
             hard.AddRandomEncounter("SnakeGod_EN", "EyePalm_EN", "EyePalm_EN");
             hard.AddRandomEncounter("SnakeGod_EN", "Shua_EN");
-            hard.SimpleAddEncounter(1, "SnakeGod_EN", 3, "Damocles_EN");
+            hard.SimpleAddEncounter(1, "SnakeGod_EN", 1, "Damocles_EN");
             hard.AddRandomEncounter("SnakeGod_EN", "ClockTower_EN");
             hard.AddRandomEncounter("SnakeGod_EN", Enemies.Skinning);
 
