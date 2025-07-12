@@ -279,17 +279,17 @@ namespace SaltEnemies_Reseasoned
                     _drain = new Ability("Salt_Drowse_A")
                     {
                         Name = "Drowse",
-                        Description = "Increase this enemy's maximum health by 2. Consume 2 Pigment.",
+                        Description = "Increase this enemy's maximum health by 3.\nGain 3 Shield.",
                         Rarity = Rarity.CreateAndAddCustomRarityToPool("Delusion_6", 6),
                         Effects = new EffectInfo[]
                         {
-                            Effects.GenerateEffect(inc, 2, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeRandomManaEffect>(), 2, Slots.Self)
+                            Effects.GenerateEffect(inc, 3, Targeting.Slot_SelfSlot),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 3, Slots.Self)
                         },
                         Visuals = CustomVisuals.GetVisuals("Salt/Pop"),
                         AnimationTarget = Targeting.Slot_SelfSlot
                     };
-                    _drain.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Other_MaxHealth.ToString(), IntentType_GameIDs.Mana_Consume.ToString() });
+                    _drain.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Other_MaxHealth.ToString(), IntentType_GameIDs.Field_Shield.ToString() });
                 }
                 return _drain;
             }
@@ -304,11 +304,11 @@ namespace SaltEnemies_Reseasoned
                     _haunt = new Ability("Salt_Haunting_A")
                     {
                         Name = "Haunting",
-                        Description = "Apply 3 Muted to the Opposing party member.",
+                        Description = "Apply 2 Muted to the Opposing party member.",
                         Rarity = Rarity.GetCustomRarity("Delusion_5"),
                         Effects = new EffectInfo[]
                         {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 3, Targeting.Slot_Front),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 2, Targeting.Slot_Front),
                         },
                         Visuals = CustomVisuals.GetVisuals("Salt/Claws"),
                         AnimationTarget = Targeting.Slot_Front
