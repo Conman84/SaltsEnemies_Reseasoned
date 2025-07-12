@@ -163,6 +163,9 @@ namespace SaltEnemies_Reseasoned
 
         public override bool UsesRarity => true;
 
+
+        public string Track = "TrackThePrints_A";
+
         public override int GetNextAbilitySlotUsage(List<CombatAbility> abilities, IUnit unit)
         {
             int maxExclusive1 = 0;
@@ -189,6 +192,7 @@ namespace SaltEnemies_Reseasoned
                 num2 += abilities[index].rarity.rarityValue;
                 if (num1 < num2)
                 {
+                    IsTrack(abilities[index], unit);
                     return index;
                 }
             }
@@ -199,6 +203,7 @@ namespace SaltEnemies_Reseasoned
                 num4 += abilities[index].rarity.rarityValue;
                 if (num3 < num4)
                 {
+                    IsTrack(abilities[index], unit);
                     return index;
                 }
             }
@@ -207,10 +212,15 @@ namespace SaltEnemies_Reseasoned
 
         public bool ShouldBeIgnored(CombatAbility ability, IUnit unit)
         {
+            if (unit.SimpleGetStoredValue(Track) > 0) return false;
             string name = ability.ability.name;
 
 
             return unit.SlotID == 2 && NoIfCenter.Contains(name);
+        }
+        public void IsTrack(CombatAbility ability, IUnit caster)
+        {
+            if (ability.ability.name == Track) caster.SimpleSetStoredValue(Track, 1);
         }
     }
 }
