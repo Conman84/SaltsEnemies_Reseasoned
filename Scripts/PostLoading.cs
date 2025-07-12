@@ -117,6 +117,7 @@ namespace SaltEnemies_Reseasoned
             PCall(Marmo_Chapter_19.GardenCross);
             PCall(Marmo_Crossovers_20.Add20Orph);
             PCall(Marmo_Crossovers_20.Add20Shore);
+            PCall(MarmoCrossovers21.AddOrph);
 
             //eggkeeper
             PCall(MinichibisEggkeeperEncounters.Add);
