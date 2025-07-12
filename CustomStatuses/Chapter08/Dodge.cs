@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
+using static UnityEngine.UI.CanvasScaler;
 
 //call Dodge.Add() in awake
 
@@ -80,8 +81,7 @@ namespace SaltEnemies_Reseasoned
                 foreach (IUnit unit in swaps)
                 {
                     CombatManager.Instance.PostNotification(Dodge.Call.ToString(), unit, null);
-                    if (unit.SlotID < 0 || unit.SlotID >= 5) continue;
-                    SwapUnitToSides(Slots.Self.GetTargets(CombatManager.Instance._stats.combatSlots, unit.SlotID, unit.IsUnitCharacter)[0], unit);
+                    
                     //Debug.Log("Dodge Swapped");
                 }
                 //if (swaps.Count > 0) Debug.Log("Dodge: this was: " + self.effect.GetType().Name);
@@ -124,6 +124,9 @@ namespace SaltEnemies_Reseasoned
         public override void OnEventCall_02(StatusEffect_Holder holder, object sender, object args)
         {
             ForceReduceDuration(holder, sender as IStatusEffector);
+            IUnit unit = (sender as IUnit);
+            if (unit.SlotID < 0 || unit.SlotID >= 5) return;
+            DodgeHandler.SwapUnitToSides(Slots.Self.GetTargets(CombatManager.Instance._stats.combatSlots, unit.SlotID, unit.IsUnitCharacter)[0], unit);
         }
         public void ForceReduceDuration(StatusEffect_Holder holder, IStatusEffector effector)
         {
