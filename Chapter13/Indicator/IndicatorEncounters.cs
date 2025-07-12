@@ -54,7 +54,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Indicator_EN", "InHisImage_EN", "InHisImage_EN", "NextOfKin_EN");
             med.AddRandomEncounter("Indicator_EN", "InHerImage_EN", "InHerImage_EN", "EyePalm_EN");
             med.AddRandomEncounter("Indicator_EN", "InHisImage_EN", "InHisImage_EN", "EyePalm_EN");
-            med.AddRandomEncounter("Indicator_EN", "InHerImage_EN", "InHerImage_EN", "Damocles_EN");
+            med.AddRandomEncounter("Indicator_EN", "InHerImage_EN", "InHisImage_EN", "Damocles_EN");
             med.AddRandomEncounter("Indicator_EN", "InHisImage_EN", "InHisImage_EN", "Damocles_EN");
             med.AddRandomEncounter("Indicator_EN", "InHerImage_EN", "InHerImage_EN", "BlackStar_EN");
             med.AddRandomEncounter("Indicator_EN", "InHisImage_EN", "InHisImage_EN", "BlackStar_EN");
