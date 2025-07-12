@@ -47,12 +47,15 @@ namespace SaltsEnemies_Reseasoned
 
             //blast
             Ability blast = new Ability("Grand Blast", "GrandBlast_A");
-            blast.Description = "Might deal a Deadly amount of damage to all party members.";
+            blast.Description = "Might deal an Agonizing amount of damage to all party members.\nDeal an Agonizing amount of damage to this enemy.";
             blast.Rarity = Rarity.CreateAndAddCustomRarityToPool("CannonLow", 1);
-            blast.Effects = Effects.GenerateEffect(ChanceZeroDamageEffect.Create(0.5f), 11, Targeting.Unit_AllOpponents).SelfArray();
-            blast.AddIntentsToTarget(Targeting.GenerateGenericTarget([0, 1, 2, 3, 4], false), [IntentType_GameIDs.Damage_11_15.ToString()]);
+            blast.Effects = new EffectInfo[2];
+            blast.Effects[0] = Effects.GenerateEffect(ChanceZeroDamageEffect.Create(0.5f), 10, Targeting.Unit_AllOpponents);
+            blast.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Self);
+            blast.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Damage_7_10.ToString()]);
+            blast.AddIntentsToTarget(Slots.Self, ["Damage_7_10"]);
             blast.Visuals = LoadedAssetsHandler.GetCharacterAbility("Clobber_1_A").visuals;
-            blast.AnimationTarget = Targeting.GenerateGenericTarget([0, 1, 2, 3, 4], false);
+            blast.AnimationTarget = Targetting.Everything(false);
 
             //ADD ENEMY
             mortar.AddEnemyAbilities(new EnemyAbilityInfo[]
