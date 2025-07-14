@@ -183,11 +183,6 @@ namespace SaltsEnemies_Reseasoned
             AddTo bundle1 = new AddTo("H_Zone03_SkinningHomunculus_Hard_EnemyBundle");
             bundle1.AddRandomGroup("SkinningHomunculus_EN", "SkinningHomunculus_EN", "ClockTower_EN");
 
-            AddTo bundle2 = new AddTo("H_Zone03_GigglingMinister_Hard_EnemyBundle");
-            bundle2.AddRandomGroup("GigglingMinister_EN", "GigglingMinister_EN", "ClockTower_EN");
-
-            AddTo bundle3 = new AddTo("H_Zone03_Satyr_Hard_EnemyBundle");
-            bundle3.AddRandomGroup("Satyr_EN", "ChoirBoy_EN", "ClockTower_EN");
         }
     }
 }
