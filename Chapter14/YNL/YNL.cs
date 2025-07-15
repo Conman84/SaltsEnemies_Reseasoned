@@ -94,18 +94,20 @@ namespace SaltsEnemies_Reseasoned
             Ability shock = new Ability("ShockTherapy_A")
             {
                 Name = "Shock Therapy",
-                Description = "Transform the Opposing party member into a random party member. \nIf the Opposing party member has already been transformed by this ability, lower their level and produce 7 coins.",
+                Description = "Transform the Opposing party member into a random party member. \nIf the Opposing party member has already been transformed by this ability, lower their level and produce 7 coins.\nDeal an Agonizing amount of damage to this enemy.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ShockTherapyEffect>(), 3, Slots.Front),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<LobotomySongEffect>(), 0, Slots.Front, BasicEffects.DidThat(true))
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<LobotomySongEffect>(), 0, Slots.Front, BasicEffects.DidThat(true)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Self)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Zap"),
                 AnimationTarget = Slots.Front,
             };
             shock.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Misc.ToString()]);
             shock.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Misc_Currency.ToString()]);
+            shock.AddIntentsToTarget(Slots.Self, ["Damage_7_10"]);
 
             //illuminate
             Ability illuminate = new Ability("Illuminate")
