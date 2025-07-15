@@ -56,6 +56,7 @@ namespace SaltsEnemies_Reseasoned
             AddTo easy = new AddTo(Orph.H.Foxtrot.Easy);
             easy.SimpleAddGroup(3, "Foxtrot_EN", 1, Jumble.Unstable);
             easy.SimpleAddGroup(3, "Foxtrot_EN", 1, Spoggle.Unstable);
+            easy.AddRandomGroup("Foxtrot_EN", "Gungrot_EN");
 
             easy = new AddTo(Orph.H.Jumble.Unstable.Easy);
             easy.AddRandomGroup(Jumble.Yellow, Jumble.Unstable, "Foxtrot_EN");
