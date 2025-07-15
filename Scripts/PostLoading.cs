@@ -140,6 +140,7 @@ namespace SaltEnemies_Reseasoned
             //Round
             PCall(RoundCrossovers.Shufflers_1_4);
             PCall(RoundCrossovers.Shufflers_5_10);
+            PCall(RoundCrossovers.Shufflers_11_14);
 
             //HIF
             PCall(HIF_Crossovers.Add_1_4);

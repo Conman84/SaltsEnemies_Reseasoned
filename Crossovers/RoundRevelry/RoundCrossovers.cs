@@ -67,5 +67,25 @@ namespace SaltsEnemies_Reseasoned
             hard = new AddTo(Orph.H.Conductor.Hard);
             hard.AddRandomGroup("Conductor_EN", Enemies.Shuffler, "WindSong_EN");
         }
+        public static void Shufflers_11_14()
+        {
+            AddTo med = new AddTo(Orph.H.Shuffler.Med);
+            med.AddRandomGroup(Enemies.Shuffler, Enemies.Shuffler, "Rabies_EN");
+            med.AddRandomGroup(Enemies.Shuffler, "Rabies_EN", Jumble.Purple);
+            med.AddRandomGroup(Enemies.Shuffler, "Rabies_EN", "Gungrot_EN", "Gungrot_EN");
+            med.AddRandomGroup(Enemies.Shuffler, "Rabies_EN", "WindSong_EN");
+
+            med = new AddTo(Orph.H.Maw.Med);
+            med.AddRandomGroup("Maw_EN", Enemies.Shuffler, "Sigil_EN");
+            med.AddRandomGroup("Maw_EN", Enemies.Shuffler, "MusicMan_EN");
+            med.AddRandomGroup("Maw_EN", Enemies.Shuffler, Enemies.Suckle, Enemies.Suckle, Enemies.Suckle);
+            med.AddRandomGroup("Maw_EN", Enemies.Shuffler, Enemies.Solvent);
+
+            AddTo hard = new AddTo(Orph.H.Maw.Hard);
+            hard.AddRandomGroup("Maw_EN", Enemies.Shuffler, Enemies.Shuffler);
+            hard.AddRandomGroup("Maw_EN", Enemies.Shuffler, Jumble.Blue, Jumble.Purple);
+            hard.AddRandomGroup("Maw_EN", Enemies.Shuffler, Spoggle.Blue, Spoggle.Yellow);
+            hard.AddRandomGroup("Maw_EN", Enemies.Shuffler, "WindSong_EN", Enemies.Suckle, Enemies.Suckle);
+        }
     }
 }
