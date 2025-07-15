@@ -95,7 +95,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 Name = "Shock Therapy",
                 Description = "Transform the Opposing party member into a random party member. \nIf the Opposing party member has already been transformed by this ability, lower their level and produce 7 coins.",
-                Rarity = Rarity.CreateAndAddCustomRarityToPool("ynl10", 10),
+                Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ShockTherapyEffect>(), 3, Slots.Front),
@@ -112,7 +112,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 Name = "Illuminate",
                 Description = "Remove all Status Effects from the Opposing party member. If no Status Effects were removed, inflict 3 Stunned and deal a Painful amount of damage to them.",
-                Rarity = Rarity.GetCustomRarity("rarity5"),
+                Rarity = Rarity.Common,
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveAllStatusEffectsByAmountEffect>(), 3, Slots.Front),
@@ -129,7 +129,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 Name = "Replacement",
                 Description = "Apply 3 Power on the Opposing party member. \nIf the Opposing party member has killed during this combat, deal an Agonizing amount of damage to them.",
-                Rarity = Rarity.CreateAndAddCustomRarityToPool("ynl3", 3),
+                Rarity = Rarity.Common,
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 3, Slots.Front),
