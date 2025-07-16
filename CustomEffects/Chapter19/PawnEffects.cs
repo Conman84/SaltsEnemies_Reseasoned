@@ -56,11 +56,16 @@ namespace SaltEnemies_Reseasoned
             {
                 CombatManager.Instance.PostNotification(Call.ToString(), self, self.IsUnitCharacter == killer.IsUnitCharacter);
             }
+            else if (killer != null && ret.damageAmount > 0 && self.ContainsStatusEffect(Determined.StatusID) && self.CanHeal(true, (self as IUnit).GetStatusAmount(Determined.StatusID)))
+            {
+                CombatManager.Instance.PostNotification(Call.ToString(), self, self.IsUnitCharacter == killer.IsUnitCharacter);
+            }
             return ret;
         }
         public static void Setup()
         {
             IDetour hook = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.Damage), ~BindingFlags.Default), typeof(TraitorHandler).GetMethod(nameof(EnemyCombat_Damage), ~BindingFlags.Default));
+            IDetour hook2 = new Hook(typeof(WontKillDamageExtension).GetMethod(nameof(WontKillDamageExtension.NoKillDamageEN), ~BindingFlags.Default), typeof(TraitorHandler).GetMethod(nameof(EnemyCombat_Damage), ~BindingFlags.Default));
         }
     }
     public class TraitorPassiveEffect : EffectSO
