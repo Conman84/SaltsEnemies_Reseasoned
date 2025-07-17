@@ -25,14 +25,14 @@ namespace SaltEnemies_Reseasoned
             if (LoadedDBsHandler.CombatDB.m_TxtColorPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_TxtColorPool[DamageType] = PaleGradient;
             else LoadedDBsHandler.CombatDB.AddNewTextColor(DamageType, PaleGradient);
 
-            if (LoadedDBsHandler.CombatDB.m_SoundPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_SoundPool[DamageType] = LoadedDBsHandler.CombatDB.m_SoundPool[CombatType_GameIDs.Dmg_Linked.ToString()];
-            else LoadedDBsHandler.CombatDB.AddNewSound(DamageType, LoadedDBsHandler.CombatDB.m_SoundPool[CombatType_GameIDs.Dmg_Linked.ToString()]);
+            if (LoadedDBsHandler.CombatDB.m_SoundPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_SoundPool[DamageType] = "event:/Hawthorne/Misc/PaleDmg";
+            else LoadedDBsHandler.CombatDB.AddNewSound(DamageType, "event:/Hawthorne/Misc/PaleDmg");
 
             StatusEffectInfoSO PaleInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             PaleInfo.icon = ResourceLoader.LoadSprite("Pale.png");
             PaleInfo._statusName = "Pale";
             PaleInfo._description = "Upon receiving indirect damage, take damage equal to Pale% of this unit's maximum health, ignoring damage prevention. \nPale triggers on enemies even if indirect damage received was 0.";
-            PaleInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo._applied_SE_Event;
+            PaleInfo._applied_SE_Event = "event:/Hawthorne/Misc/PaleApply";
             PaleInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             PaleInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 
