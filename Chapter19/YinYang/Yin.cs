@@ -68,7 +68,7 @@ namespace SaltsEnemies_Reseasoned
             splatter.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateCasterHealthManaEffect>(), 2, Targeting.Slot_SelfSlot) };
 
             //addpassives
-            yin.AddPassives(new BasePassiveAbilitySO[] { Passives.Pure, Passives.Transfusion, Passives.Leaky3, Passives.Unstable, Passives.Slippery, Passives.Infantile, Violent.Generate(7), transform });
+            yin.AddPassives(new BasePassiveAbilitySO[] { Passives.Pure, Passives.Transfusion, Passives.Leaky3, Passives.Unstable, Passives.Slippery, Passives.Infantile, Violent.Generate(5), transform });
             yin.AddUnitType("Female_ID");
 
             //cruel
