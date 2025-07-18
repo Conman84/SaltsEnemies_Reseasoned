@@ -27,10 +27,10 @@ namespace SaltsEnemies_Reseasoned
             warn._passiveName = "Warning";
             warn.m_PassiveID = "Tank_Warning_PA";
             warn.passiveIcon = ResourceLoader.LoadSprite("WarningPassive.png");
-            warn._enemyDescription = "On taking direct damage, inflict 1 Ruptured, Acid, or Muted on all party members.";
-            warn._characterDescription = "On taking direct damage, inflict 1 Ruptured, Acid, or Muted on all enemies.";
+            warn._enemyDescription = "On receiving any damage, increase all Negative Status Effects on all party members.";
+            warn._characterDescription = "On receiving any damage, increase all Negative Status Effects on all enemies.";
             warn.doesPassiveTriggerInformationPanel = true;
-            warn.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomNegativeStatusEffect>(), 1, Slots.Front) };
+            warn.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<IncreaseStatusEffectsEffect>(), 1, Slots.Front) };
             warn._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
             warn.conditions = Passives.Slippery.conditions;
             warn.AddToPassiveDatabase();
@@ -55,18 +55,16 @@ namespace SaltsEnemies_Reseasoned
             Ability bloat = new Ability("Salt_Bloat_A")
             {
                 Name = "Bloat",
-                Description = "Deal a Barely Painful amount of damage to all party members.\nReset the Fleeting counter on all enemies.",
+                Description = "Deal a Barely Painful amount of damage to all party members.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 3, Targeting.Unit_AllOpponents),
-                    Effects.GenerateEffect(SetStoreValueTargetEffect.Create(UnitStoredValueNames_GameIDs.FleetingPA.ToString(), true), 0, Targetting.AllAlly),
                 },
                 Visuals = LoadedAssetsHandler.GetCharacterAbility("Entrenched_1_A").visuals,
                 AnimationTarget = Targeting.Slot_SelfAll,
             };
             bloat.AddIntentsToTarget(Targetting.Everything(false), new string[] { IntentType_GameIDs.Damage_3_6.ToString() });
-            bloat.AddIntentsToTarget(Targetting.AllAlly, new string[] { IntentType_GameIDs.PA_Fleeting.ToString() });
 
             //GROSS
             Ability gross = new Ability("Salt_Gross_A")
