@@ -413,7 +413,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("intimidated.png"), "Intimidated", "When an opponent moves in front of this enemy, reroll one of this unit's actions.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CodaIcon.png"), "Coda", "On death, apply 3 Dodge, 3 Haste, and 3 Power to all allies.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("sigilPassive.png"), "Sigil", "At the start of each turn, reset this unit's Sigil.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WarningPassive.png"), "Warning", "On taking any damage, inflict 1 Frail, Ruptured, Acid, or Muted on all opponents.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WarningPassive.png"), "Warning", "On receiving direct damage, increase all Negative Status Effects on the Opposing targets.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ParanoidSpeed.png"), "Acceleration", "If the opponent's portion of the turn takes longer than 60 seconds, apply 6 Entropy to all opponents.");
 
             //CH9

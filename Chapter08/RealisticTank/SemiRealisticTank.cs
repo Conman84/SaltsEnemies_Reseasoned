@@ -55,16 +55,17 @@ namespace SaltsEnemies_Reseasoned
             Ability bloat = new Ability("Salt_Bloat_A")
             {
                 Name = "Bloat",
-                Description = "Deal a Barely Painful amount of damage to all party members.",
+                Description = "Inflict 1 Ruptured and 1 Frail on all party members.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 3, Targeting.Unit_AllOpponents),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Targeting.Unit_AllOpponents),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 1, Targeting.Unit_AllOpponents),
                 },
                 Visuals = LoadedAssetsHandler.GetCharacterAbility("Entrenched_1_A").visuals,
                 AnimationTarget = Targeting.Slot_SelfAll,
             };
-            bloat.AddIntentsToTarget(Targetting.Everything(false), new string[] { IntentType_GameIDs.Damage_3_6.ToString() });
+            bloat.AddIntentsToTarget(Targetting.Everything(false), new string[] { IntentType_GameIDs.Status_Ruptured.ToString(), "Status_Frail" });
 
             //GROSS
             Ability gross = new Ability("Salt_Gross_A")
@@ -74,7 +75,7 @@ namespace SaltsEnemies_Reseasoned
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Targeting.Slot_OpponentSides),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Targeting.Slot_OpponentSides),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Targeting.Slot_Front),
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Cannon"),
