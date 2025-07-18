@@ -40,10 +40,10 @@ namespace SaltsEnemies_Reseasoned
 
             //addiction
             Ability addi = new Ability("Addiction", "Addiction_A");
-            addi.Description = "Inflict 1 Acid on the Opposing party member.";
+            addi.Description = "Curse the Opposing party member.";
             addi.Rarity = hallu.Rarity;
-            addi.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyAcidEffect>(), 1, Slots.Front).SelfArray();
-            addi.AddIntentsToTarget(Slots.Front, [Acid.Intent]);
+            addi.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.Front).SelfArray();
+            addi.AddIntentsToTarget(Slots.Front, ["Status_Cursed"]);
             addi.Visuals = CustomVisuals.GetVisuals("Salt/Shush");
             addi.AnimationTarget = Slots.Front;
 
