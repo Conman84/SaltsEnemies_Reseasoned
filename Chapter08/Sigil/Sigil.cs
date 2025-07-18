@@ -123,18 +123,20 @@ namespace SaltsEnemies_Reseasoned
             Ability pure = new Ability("Sigil_Pure_A")
             {
                 Name = "Pure Sigil",
-                Description = "This enemy does nothing.",
-                Rarity = Rarity.CreateAndAddCustomRarityToPool("Sigil_1", 1),
+                Description = "This enemy expells its sigil, dealing an Agonizing amount of damage to the Opposing party member.",
+                Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
-                        {
-                            Effects.GenerateEffect(value, 4, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterSetSigilPassiveEffect>(), 4),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilSongCheckEffect>(), 1, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilEffect>(), 3, Targeting.Slot_SelfSlot)
-                        },
-                Visuals = null,
-                AnimationTarget = Targeting.Slot_SelfSlot,
+                {
+                    Effects.GenerateEffect(value, 4, Targeting.Slot_SelfSlot),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterSetSigilPassiveEffect>(), 4),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilSongCheckEffect>(), 1, Targeting.Slot_SelfSlot),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilEffect>(), 3, Targeting.Slot_SelfSlot)
+                },
+                Visuals = CustomVisuals.GetVisuals("Salt/Cannon"),
+                AnimationTarget = Targeting.Slot_Front,
             };
+            pure.AddIntentsToTarget(Slots.Front, ["Damage_7_10"]);
             pure.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Misc.ToString() });
 
             //ADD ENEMY

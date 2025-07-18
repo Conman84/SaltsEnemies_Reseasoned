@@ -27,8 +27,8 @@ namespace SaltsEnemies_Reseasoned
             warn._passiveName = "Warning";
             warn.m_PassiveID = "Tank_Warning_PA";
             warn.passiveIcon = ResourceLoader.LoadSprite("WarningPassive.png");
-            warn._enemyDescription = "On receiving any damage, increase all Negative Status Effects on all party members.";
-            warn._characterDescription = "On receiving any damage, increase all Negative Status Effects on all enemies.";
+            warn._enemyDescription = "On receiving direct damage, increase all Negative Status Effects on the Opposing party members.";
+            warn._characterDescription = "On receiving direct damage, increase all Negative Status Effects on the Opposing enemies.";
             warn.doesPassiveTriggerInformationPanel = true;
             warn.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<IncreaseStatusEffectsEffect>(), 1, Slots.Front) };
             warn._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
