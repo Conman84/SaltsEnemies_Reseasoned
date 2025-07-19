@@ -316,6 +316,7 @@ namespace SaltEnemies_Reseasoned
             {
                 if (PlayerTurn == unit.IsUnitCharacter)
                 {
+                    if (!PlayerTurn && !unit.IsAlive) continue;
                     ReturnMultiTargets targets = ScriptableObject.CreateInstance<ReturnMultiTargets>();
                     targets.Targets = DelayedAttackManager.TargetsForUnit(unit);
                     PerformDelayedAttackEffect attack = ScriptableObject.CreateInstance<PerformDelayedAttackEffect>();
