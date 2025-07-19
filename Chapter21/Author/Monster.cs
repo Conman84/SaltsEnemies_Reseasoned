@@ -30,7 +30,7 @@ namespace SaltsEnemies_Reseasoned
             scary.passiveIcon = ResourceLoader.LoadSprite("ScaryPassive.png");
             scary.m_PassiveID = "Scary_PA";
             scary._enemyDescription = "On being directly damaged, Curse the Opposing party member.";
-            scary._characterDescription = "On being directly damaged, Curse the Opposing enemy";
+            scary._characterDescription = "On being directly damaged, Curse the Opposing enemy.";
             scary.doesPassiveTriggerInformationPanel = true;
             scary.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.Front).SelfArray();
             scary._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
