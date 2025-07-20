@@ -79,6 +79,8 @@ namespace SaltsEnemies_Reseasoned
         {
             if (!Check.EnemyExist("Solitaire_EN")) return false;
             if (enemy.Enemy == LoadedAssetsHandler.GetEnemy("Solitaire_EN") || enemy.Enemy.Equals(LoadedAssetsHandler.GetEnemy("Solitaire_EN"))) return true;
+            if (!Check.EnemyExist("Spades_EN")) return false;
+            if (enemy.Enemy == LoadedAssetsHandler.GetEnemy("Spades_EN") || enemy.Enemy.Equals(LoadedAssetsHandler.GetEnemy("Spades_EN"))) return true;
             return false;
         }
         public static bool IsSolitaireAndDead(EnemyCombat enemy)
@@ -350,6 +352,7 @@ namespace SaltsEnemies_Reseasoned
             if (senderData is IUnit iunit)
             {
                 if (iunit.SimpleGetStoredValue("Dreamer_A") > 0) return false;
+                if (iunit.CurrentHealth <= 0) return false;
             }
 
             foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
