@@ -311,6 +311,13 @@ namespace SaltsEnemies_Reseasoned
                     public static string Med => "MaladjustedMedium";
                 }
             }
+
+            //undivine
+            public static class ClayChild
+            {
+                public static string Easy => "ClayChildEasy";
+                public static string Med => "ClayChildMedium";
+            }
         }
     }
 }
