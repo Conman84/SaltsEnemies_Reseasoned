@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             BotGeneral.Add();
 
-            Enemy purple = new Enemy("Projecting Apparatus", "PurpleBot_EN")
+            Enemy purple = new Enemy("Majestic Apparatus", "PurpleBot_EN")
             {
                 Health = 26,
                 HealthColor = Pigments.Purple,
