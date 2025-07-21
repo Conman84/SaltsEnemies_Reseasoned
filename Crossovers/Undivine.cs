@@ -114,6 +114,7 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Orph.H.Shooter.Med);
             med.AddRandomGroup(Enemies.Shooter, "ClayChild_EN", "ClayChildSleep_EN", "ClayChildSleep_EN");
         }
+
         public static void Add19_21()
         {
             AddTo med = new AddTo(Orph.H.ClayChild.Med);
