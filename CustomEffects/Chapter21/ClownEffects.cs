@@ -64,8 +64,10 @@ namespace SaltEnemies_Reseasoned
                 if (enemy.ContainsPassiveAbility(CheckPassive)) return base.GetNextAbilitySlotUsage(abilities, unit);
             }
 
-            int ret = (unit as EnemyCombat).GetLastAbilityIDFromName(Ability);
-            if (ret > -1) return ret;
+            for (int i = 0; i < abilities.Count; i++)
+            {
+                if (abilities[i].ability.name == Ability) return i;
+            }
 
             return base.GetNextAbilitySlotUsage(abilities, unit);
         }
