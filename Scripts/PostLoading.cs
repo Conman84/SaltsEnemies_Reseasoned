@@ -158,6 +158,7 @@ namespace SaltEnemies_Reseasoned
             PCall(Colophon_6_10_Cross.Ad);
             PCall(Colophon11_15.AddCrossovers);
             PCall(Colophon16_18.Add);
+            PCall(Colophon_19Crossover.Add);
 
             //undivine
             PCall(UndivineCrossovers.Add1_4);
