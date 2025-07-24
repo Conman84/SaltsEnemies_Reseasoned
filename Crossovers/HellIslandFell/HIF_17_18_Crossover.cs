@@ -38,6 +38,22 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Garden.H.Complimentary.Med);
             med.AddRandomGroup("Complimentary_EN", Noses.Red, "Children6_EN");
+            med.AddRandomGroup("Complimentary_EN", Noses.Blue, "Merced_EN");
+            med.AddRandomGroup("Complimentary_EN", Noses.Yellow, "PawnA_EN");
+            med.AddRandomGroup("Complimentary_EN", Noses.Purple, "EyePalm_EN");
+            med.AddRandomGroup("Complimentary_EN", Noses.Grey, "BlackStar_EN");
+
+            AddTo hard = new AddTo(Garden.H.Satyr.Hard);
+            hard.AddRandomGroup("Satyr_EN", "EvilDog_EN", "EvilDog_EN", Noses.Blue);
+
+            hard = new AddTo(Garden.H.Stoplight.Hard);
+            hard.AddRandomGroup("Stoplight_EN", "PersonalAngel_EN", Noses.Purple);
+
+            hard = new AddTo(Garden.H.Skinning.Hard);
+            hard.AddRandomGroup(Enemies.Skinning, "Complimentary_EN", Noses.Red);
+
+            hard = new AddTo(Garden.H.ClockTower.Hard);
+            hard.AddRandomGroup("ClockTower_EN", "EvilDog_EN", "EvilDog_EN", Noses.Red);
         }
     }
 }
