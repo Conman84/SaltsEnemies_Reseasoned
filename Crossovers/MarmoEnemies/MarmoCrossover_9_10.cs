@@ -71,8 +71,8 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup(Flower.Grey, Flower.Red, Flower.Blue, "Surrogate_EN");
 
             med = new AddTo(Garden.H.MiniReaper.Med);
-            med.SimpleAddGroup(1, "MiniReaper_EN", 2, "Attrition_EN", 1, "Romantic_EN");
-            med.SimpleAddGroup(1, "MiniReaper_EN", 2, "Attrition_EN", 1, "Surrogate_EN");
+            med.SimpleAddGroup(1, "MiniReaper_EN", 1, "Attrition_EN", 1, "Romantic_EN");
+            med.SimpleAddGroup(1, "MiniReaper_EN", 1, "Attrition_EN", 1, "Surrogate_EN");
             med.AddRandomGroup("MiniReaper_EN", "Git_EN", "Attrition_EN", "Attrition_EN");
             med.AddRandomGroup("MiniReaper_EN", "Git_EN", Flower.Red, Flower.Blue);
             med.AddRandomGroup("MiniReaper_EN", "Git_EN", "InHerImage_EN", "InHisImage_EN");
@@ -107,7 +107,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddGroup(3, "Attrition_EN", 1, "EyePalm_EN");
             if (SaltsReseasoned.trolling > 50) med.AddRandomGroup("Attrition_EN", "Attrition_EN", "Attrition_EN", "Skyloft_EN");
             med.SimpleAddGroup(3, "Attrition_EN", 1, "Grandfather_EN");
-            med.AddRandomGroup("Attrition_EN", "Attrition_EN", "MiniReaper_EN");
+            med.AddRandomGroup(Enemies.Shivering, "Attrition_EN", "MiniReaper_EN");
 
             easy = new AddTo(Garden.H.Attrition.Easy);
             easy.AddRandomGroup("Attrition_EN", "Attrition_EN", "EyePalm_EN");
