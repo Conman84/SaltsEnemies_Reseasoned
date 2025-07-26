@@ -11,6 +11,16 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
+            //miss faced
+            BasePassiveAbilitySO mf = ScriptableObject.Instantiate(Passives.TwoFaced);
+            mf._locID = "";
+            mf.passiveIcon = ResourceLoader.LoadSprite("MissFaced.png");
+            mf._passiveName = "Miss-Faced";
+            mf._enemyDescription = "On being direct damaged and at the end of each round, this unit's health color changes between Red and Blue.";
+            mf.m_PassiveID = "MissFaced_PA";
+            mf._characterDescription = mf._enemyDescription;
+            mf._triggerOn = new List<TriggerCalls>(Passives.TwoFaced._triggerOn) { TriggerCalls.OnRoundFinished }.ToArray();
+
             SolitaireHandler.Setup();
             Enemy tv = new Enemy("Solitaire", "Solitaire_EN")
             {
@@ -40,7 +50,7 @@ namespace SaltsEnemies_Reseasoned
             };
             child.PrepareEnemyPrefab("Assets/enem3/Spades_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Spades_Gibs.prefab").GetComponent<ParticleSystem>());
             child.enemy.enemyTemplate.m_Data.m_Renderer = child.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").GetComponent<SpriteRenderer>();
-            child.AddPassive(Passives.TwoFaced);
+            child.AddPassive(mf);
             child.AddPassive(Passives.Withering);
             child.CombatExitEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<SolitaireExitEffect>(), 1, Slots.Self).SelfArray();
 
@@ -62,7 +72,7 @@ namespace SaltsEnemies_Reseasoned
             selector._ComeHomeAbility = "Dreamers_A";
             selector._useAfterTurns = 2;
             tv.AbilitySelector = selector;
-            tv.AddPassives(new BasePassiveAbilitySO[] { Passives.TwoFaced, Passives.Forgetful, Passives.Dying, decay });
+            tv.AddPassives(new BasePassiveAbilitySO[] { mf, Passives.Forgetful, Passives.Dying, decay });
             tv.CombatExitEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<SolitaireExitEffect>(), 1, Slots.Self).SelfArray();
 
             //sob
