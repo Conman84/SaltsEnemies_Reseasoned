@@ -41,6 +41,26 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Solitaire_EN", Enemies.Solvent, Colophon.Purple, Enemies.Suckle, Enemies.Suckle);
             med.AddRandomGroup("Solitaire_EN", "Foxtrot_EN", "Foxtrot_EN", Colophon.Yellow);
             med.AddRandomGroup("Solitaire_EN", "Solitaire_EN", Colophon.Purple, Colophon.Blue);
+
+            med = new AddTo(Orph.H.Colophon.Yellow.Med);
+            med.AddRandomGroup(Colophon.Yellow, Colophon.Purple, "Solitaire_EN");
+            med.AddRandomGroup(Colophon.Yellow, "Solitaire_EN", "Scrungie_EN");
+            med.AddRandomGroup(Colophon.Yellow, "Solitaire_EN", "Something_EN");
+            med.AddRandomGroup(Colophon.Yellow, "Solitaire_EN", "Gungrot_EN", "Gungrot_EN");
+            med.AddRandomGroup(Colophon.Yellow, "Solitaire_EN", "MusicMan_EN", "MusicMan_EN");
+
+            med = new AddTo(Orph.H.Colophon.Purple.Med);
+            med.AddRandomGroup(Colophon.Purple, "Solitaire_EN", "ManicMan_EN", "ManicMan_EN");
+            med.AddRandomGroup(Colophon.Purple, Colophon.Yellow, "Solitaire_EN");
+            med.AddRandomGroup(Colophon.Purple, "Solitaire_EN", "Solitaire_EN", "Wednesday_EN");
+            med.AddRandomGroup(Colophon.Purple, "Solitaire_EN", "Enigma_EN", "Enigma_EN");
+            med.AddRandomGroup(Colophon.Purple, "Solitaire_EN", "WindSong_EN", "LostSheep_EN");
+
+            AddTo easy = new AddTo(Orph.H.Foxtrot.Easy);
+            easy.SimpleAddGroup(3, "Foxtrot_EN", 1, Colophon.Red);
+            easy.SimpleAddGroup(3, "Foxtrot_EN", 1, Colophon.Blue);
+            easy.AddRandomGroup(Colophon.Red, Colophon.Blue, "Foxtrot_EN", "Foxtrot_EN");
+            easy.AddRandomGroup("Foxtrot_EN", Colophon.Blue, Colophon.Blue, "Foxtrot_EN");
         }
     }
 }
