@@ -104,7 +104,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Maw_EN", Colophon.Yellow, "WindSong_EN");
             med.AddRandomGroup("Maw_EN", Colophon.Purple, "WindSong_EN");
             med.AddRandomGroup("Maw_EN", Colophon.Yellow, "Enigma_EN", "Enigma_EN");
-            med.AddRandomGroup("Maw_EN", Colophon.Purple, "Engima_EN", "Enigma_EN");
+            med.AddRandomGroup("Maw_EN", Colophon.Purple, "Enigma_EN", "Enigma_EN");
             med.AddRandomGroup("Maw_EN", Colophon.Yellow, "Delusion_EN", "Delusion_EN");
             med.AddRandomGroup("Maw_EN", Colophon.Purple, "Delusion_EN", "Delusion_EN");
             med.AddRandomGroup("Maw_EN", Colophon.Yellow, "Something_EN");
