@@ -111,7 +111,7 @@ namespace SaltsEnemies_Reseasoned
                 Visuals = null,*/
                 AnimationTarget = Targetting.AllSelfSlots,
             };
-            disembowel.Effects = new EffectInfo[5s];
+            disembowel.Effects = new EffectInfo[5];
             disembowel.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, TargettingSelf_NotSlot.Create());
             disembowel.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Targeting.Unit_AllOpponents, BasicEffects.DidThat(true));
             disembowel.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 2, Targeting.Unit_AllOpponents, BasicEffects.DidThat(true, 2));
