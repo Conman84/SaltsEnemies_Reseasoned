@@ -97,9 +97,9 @@ namespace SaltsEnemies_Reseasoned
             Ability disembowel = new Ability("Disemboweling_A")
             {
                 Name = "Disemboweling",
-                Description = "If this enemy is defended by more than 7 Shield, deal a Painful amount of damage and inflict 2 Frail on all party members.\nOtherwise, decrease Algophobia's threshold by 5 and produce 3 Blue pigment.",
+                Description = "Deal 8 damage to this enemy.\nIf any damage is dealt, deal a Painful amount of damage and inflict 2 Frail on all party members.\nOtherwise, decrease Algophobia's threshold by 5 and produce 3 Blue pigment.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
-                Effects = new EffectInfo[]
+                /*Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(BasicEffects.GetVisuals("Weep_A", false, TargettingSelf_NotSlot.Create()), 1, Targeting.Slot_SelfSlot, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 7, false, true)),
                     Effects.GenerateEffect(BasicEffects.ChangeValue(PainCondition.Modifier, true), 5, Targeting.Slot_SelfSlot, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 7, false, true)),
@@ -108,9 +108,14 @@ namespace SaltsEnemies_Reseasoned
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Targeting.Unit_AllOpponents, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 7, true, true)),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 2, Targeting.Unit_AllOpponents, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.Shield_ID.ToString(), 7, true, true)),
                 },
-                Visuals = null,
+                Visuals = null,*/
                 AnimationTarget = Targetting.AllSelfSlots,
             };
+            disembowel.Effects = new EffectInfo[3];
+            disembowel.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, TargettingSelf_NotSlot.Create());
+            disembowel.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Targeting.Unit_AllOpponents, BasicEffects.DidThat(true));
+            disembowel.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 2, Targeting.Unit_AllOpponents, BasicEffects.DidThat(true, 2));
+            disembowel.Visuals = CustomVisuals.GetVisuals("Salt/Insta/Shatter");
             disembowel.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), [IntentType_GameIDs.Misc.ToString(), IntentType_GameIDs.Mana_Generate.ToString()]);
             disembowel.AddIntentsToTarget(Targeting.Unit_AllOpponentSlots, [IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Status_Frail.ToString()]);
 
