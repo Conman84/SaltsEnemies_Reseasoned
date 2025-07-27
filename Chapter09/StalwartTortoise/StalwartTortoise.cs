@@ -111,10 +111,12 @@ namespace SaltsEnemies_Reseasoned
                 Visuals = null,*/
                 AnimationTarget = Targetting.AllSelfSlots,
             };
-            disembowel.Effects = new EffectInfo[3];
+            disembowel.Effects = new EffectInfo[5s];
             disembowel.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, TargettingSelf_NotSlot.Create());
             disembowel.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Targeting.Unit_AllOpponents, BasicEffects.DidThat(true));
             disembowel.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 2, Targeting.Unit_AllOpponents, BasicEffects.DidThat(true, 2));
+            disembowel.Effects[3] = Effects.GenerateEffect(BasicEffects.ChangeValue(PainCondition.Modifier, true), 5, Targeting.Slot_SelfSlot, BasicEffects.DidThat(false, 3));
+            disembowel.Effects[4] = Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Blue), 3, Targeting.Slot_SelfSlot, BasicEffects.DidThat(false, 4));
             disembowel.Visuals = CustomVisuals.GetVisuals("Salt/Insta/Shatter");
             disembowel.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), [IntentType_GameIDs.Misc.ToString(), IntentType_GameIDs.Mana_Generate.ToString()]);
             disembowel.AddIntentsToTarget(Targeting.Unit_AllOpponentSlots, [IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Status_Frail.ToString()]);
