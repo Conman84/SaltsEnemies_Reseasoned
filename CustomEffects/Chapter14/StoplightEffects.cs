@@ -157,7 +157,7 @@ namespace SaltEnemies_Reseasoned
         public static string Intent3 => "AnimatedIntent3_Identifier";
         public static Color _color3 => new Color(28f, 78f, 130f);
         public static string Intent4 => "SelectiveIntent4_Identifier";
-        public static Color _color4 => new Color(28f, 78f, 131f);
+        public static Color _color4 => new Color(68f, 78f, 160f);
         public static void Setup()
         {
             Intents.CreateAndAddCustom_Basic_IntentToPool(Intent, ResourceLoader.LoadSprite("idk.png"), _color);

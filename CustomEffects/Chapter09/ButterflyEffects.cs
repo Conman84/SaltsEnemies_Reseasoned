@@ -1082,7 +1082,7 @@ namespace SaltEnemies_Reseasoned
         {
             try
             {
-                if (colors == null || icons == null)
+                if (colors == null || icons == null || colors.Length <= 0)
                 {
                     orig(self, icons, colors);
                     return;
@@ -1341,8 +1341,8 @@ namespace SaltEnemies_Reseasoned
                                 old.enabled = false;
                             }
                             int count = SolitaireHandler.DreamScanner;
-                            if (count > icons.Length) count = icons.Length - 1;
-                            if (count > colors.Length) count = colors.Length - 1;
+                            if (count > animateSprites.Count) count = animateSprites.Count - 1;
+                            if (count > animateColors.Count) count = animateColors.Count - 1;
                             self._intents[index].SetInformation(animateSprites[count], animateColors[count]);
                             self._intents[index].SetActivation(true);
                             IntentLayoutSelective_BySolitaire grah = self._intents[index].gameObject.AddComponent<IntentLayoutSelective_BySolitaire>();
@@ -1499,8 +1499,6 @@ namespace SaltEnemies_Reseasoned
                 TargetIntentLayout targetIntentLayout = self._unusedIntents.Dequeue();
                 targetIntentLayout.MoveToLast();
                 int index = SolitaireHandler.DreamScanner;
-                if (index > icons.Length) index = icons.Length - 1;
-                if (index > colors.Length) index = colors.Length - 1;
                 targetIntentLayout.SetActivation(true);
                 self._intentsInUse.Add(targetIntentLayout);
                 foreach (IntentLayoutAnimator old in targetIntentLayout.gameObject.GetComponents<IntentLayoutAnimator>())
@@ -1521,6 +1519,8 @@ namespace SaltEnemies_Reseasoned
                     animateSprites.Add(icons[i]);
                     animateColors.Add(colors[i]);
                 }
+                if (index > animateSprites.Count) index = animateSprites.Count - 1;
+                if (index > animateColors.Count) index = animateColors.Count - 1;
                 targetIntentLayout.SetInformation(animateSprites[index], animateColors[index]);
 
                 IntentLayoutSelective_BySolitaire grah = targetIntentLayout.gameObject.AddComponent<IntentLayoutSelective_BySolitaire>();
