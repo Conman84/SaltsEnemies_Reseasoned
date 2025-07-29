@@ -41,10 +41,10 @@ namespace SaltsEnemies_Reseasoned
             skinning._passiveName = "Skinning";
             skinning.passiveIcon = ResourceLoader.LoadSprite("SkinPeelingPassive.png");
             skinning.m_PassiveID = "Skinning_PA";
-            skinning._enemyDescription = "On being directly damaged, inflict 2 Pimples on the party member.";
-            skinning._characterDescription = "On being directly damaged, inflict 2 Pimples on the Opposing enemy.";
+            skinning._enemyDescription = "On being directly damaged, inflict 3 Pimples on the party member.";
+            skinning._characterDescription = "On being directly damaged, inflict 3 Pimples on the Opposing enemy.";
             skinning.doesPassiveTriggerInformationPanel = true;
-            skinning.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPimplesEffect>(), 2, Slots.Front).SelfArray();
+            skinning.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPimplesEffect>(), 3, Slots.Front).SelfArray();
             skinning._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
             skinning.AddToPassiveDatabase();
 
