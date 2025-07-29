@@ -48,7 +48,7 @@ namespace SaltsEnemies_Reseasoned
             skinning._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
             skinning.AddToPassiveDatabase();
 
-            maw.AddPassives(new BasePassiveAbilitySO[] { bad, skinning, Passives.MultiAttack2, Passives.Slippery });
+            maw.AddPassives(new BasePassiveAbilitySO[] { bad, Passives.MultiAttack2, Passives.Slippery, skinning });
 
             //HIDE
             Ability hide = new Ability("Hide", "BadDog_Hide_A");
