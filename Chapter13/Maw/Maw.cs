@@ -36,7 +36,19 @@ namespace SaltsEnemies_Reseasoned
             bad.effects = new EffectInfo[0];
             bad._triggerOn = new TriggerCalls[1] { TriggerCalls.Count };
 
-            maw.AddPassives(new BasePassiveAbilitySO[] { bad, Passives.MultiAttack3, Passives.Slippery });
+            //skinning
+            PerformEffectPassiveAbility skinning = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            skinning._passiveName = "Skinning";
+            skinning.passiveIcon = ResourceLoader.LoadSprite("SkinPeelingPassive.png");
+            skinning.m_PassiveID = "Skinning_PA";
+            skinning._enemyDescription = "On being directly damaged, inflict 2 Pimples on the party member.";
+            skinning._characterDescription = "On being directly damaged, inflict 2 Pimples on the Opposing enemy.";
+            skinning.doesPassiveTriggerInformationPanel = true;
+            skinning.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPimplesEffect>(), 2, Slots.Front).SelfArray();
+            skinning._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
+            skinning.AddToPassiveDatabase();
+
+            maw.AddPassives(new BasePassiveAbilitySO[] { bad, skinning, Passives.MultiAttack2, Passives.Slippery });
 
             //HIDE
             Ability hide = new Ability("Hide", "BadDog_Hide_A");

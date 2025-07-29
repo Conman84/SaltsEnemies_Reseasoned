@@ -485,6 +485,7 @@
 	  <None Remove="SpecialIcons\idk.png" />
 	  <None Remove="SpecialIcons\mindicon.png" />
 	  <None Remove="SpecialIcons\PurpleUpIcon.png" />
+	  <None Remove="SpecialIcons\SkinPeelingPassive.png" />
 	  <None Remove="SpecialIcons\spectralicon.png" />
 	  <None Remove="SpecialIcons\speedicon.png" />
 	  <None Remove="SpecialIcons\UnlockingIntent.png" />
@@ -978,6 +979,7 @@
 	  <EmbeddedResource Include="SpecialIcons\idk.png" />
 	  <EmbeddedResource Include="SpecialIcons\mindicon.png" />
 	  <EmbeddedResource Include="SpecialIcons\PurpleUpIcon.png" />
+	  <EmbeddedResource Include="CustomPassives\SkinPeelingPassive.png" />
 	  <EmbeddedResource Include="SpecialIcons\spectralicon.png" />
 	  <EmbeddedResource Include="SpecialIcons\speedicon.png" />
 	  <EmbeddedResource Include="SpecialIcons\UnlockingIntent.png" />
