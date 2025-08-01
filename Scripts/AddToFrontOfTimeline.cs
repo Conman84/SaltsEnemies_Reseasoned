@@ -192,6 +192,7 @@ namespace SaltEnemies_Reseasoned
             for (int i = 0; i < newTurns.Length; i++)
             {
                 TurnUIInfo turnUIInfo = newTurns[i];
+                if (!TimelineHandler.EnemiesInCombat.ContainsKey(turnUIInfo.enemyID)) continue;
                 EnemyCombatUIInfo enemyCombatUIInfo = TimelineHandler.EnemiesInCombat[turnUIInfo.enemyID];
                 enemyCombatUIInfo.AddTimelineTurn(turnUIInfo);
                 NewInfo[i] = new TimelineInfo(icon: turnUIInfo.isSecret ? null : enemyCombatUIInfo.Portrait, ab: enemyCombatUIInfo.Abilities[turnUIInfo.abilitySlotID].ability, info: turnUIInfo);
