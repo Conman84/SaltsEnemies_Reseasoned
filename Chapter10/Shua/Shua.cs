@@ -82,7 +82,7 @@ namespace SaltsEnemies_Reseasoned
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<IsUnitEffect>(), 1, Slots.Front),
                             Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Door", false, Slots.Front), 1, Slots.Front, BasicEffects.DidThat(true)),
                             Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Door", false, Slots.Self), 1, Slots.Front, BasicEffects.DidThat(false, 2)),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Front),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Front),
                             Effects.GenerateEffect(BasicEffects.SetStoreValue(UnitStoredValueNames_GameIDs.DemonCoreW.ToString()), 1, Slots.Self),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsFrontTargetCondition>()),
                             Effects.GenerateEffect(CasterSubActionEffect.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)]), 1, null, BasicEffects.DidThat(true)),

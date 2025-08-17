@@ -46,7 +46,7 @@ namespace SaltsEnemies_Reseasoned
                 AnimationTarget = Slots.Self,
             };
             leftKill.AddIntentsToTarget(Slots.Self, IntentType_GameIDs.Swap_Left.ToString().SelfArray());
-            leftKill.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Damage_Death.ToString().SelfArray());
+            leftKill.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Damage_11_15.ToString().SelfArray());
 
             //RIGHT
             AnimationVisualsIfUnitEffect right = ScriptableObject.CreateInstance<AnimationVisualsIfUnitEffect>();
@@ -69,7 +69,7 @@ namespace SaltsEnemies_Reseasoned
                 AnimationTarget = Slots.Self,
             };
             rightKill.AddIntentsToTarget(Slots.Self, IntentType_GameIDs.Swap_Right.ToString().SelfArray());
-            rightKill.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Damage_Death.ToString().SelfArray());
+            rightKill.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Damage_11_15.ToString().SelfArray());
 
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
