@@ -133,6 +133,7 @@ namespace SaltEnemies_Reseasoned
             List<TargetSlotInfo> targets = new List<TargetSlotInfo>();
             foreach (DelayedAttack attack in Attacks)
             {
+                if (attack.caster != null && !attack.caster.IsAlive) continue;
                 if (!targets.Contains(attack.Target) && (playerTurn == attack.caster.IsUnitCharacter || attack.caster == null)) targets.Add(attack.Target);
             }
             return targets.ToArray();
