@@ -114,4 +114,11 @@ namespace SaltEnemies_Reseasoned
             return true;
         }
     }
+    public class Above1MaxHealthCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            return effector.MaximumHealth > 1;
+        }
+    }
 }

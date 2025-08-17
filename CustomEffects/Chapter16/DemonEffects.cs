@@ -183,4 +183,21 @@ namespace SaltEnemies_Reseasoned
             return true;
         }
     }
+    public class ApplyInspirationIfMatchingHealthColorsEffect : ApplyInspirationEffect
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            if (caster == null) return false;
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit && target.Unit.HealthColor == caster.HealthColor)
+                {
+                    if (base.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, entryVariable, out int exi))
+                        exitAmount++;
+                }
+            }
+            return exitAmount > 0;
+        }
+    }
 }

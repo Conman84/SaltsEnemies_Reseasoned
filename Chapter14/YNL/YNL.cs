@@ -72,16 +72,15 @@ namespace SaltsEnemies_Reseasoned
 
             Ability bins = new Ability("Procedure_A");
             bins.Name = "Procedure";
-            bins.Description = "Move to the Left or Right. Deal an Agonizing amount of damage to the Opposing party member and destroy their held item.";
+            bins.Description = "Move to the Left or Right. Deal an Agonizing amount of damage to the Opposing party member.";
             bins.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self),
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Absolve_1_A", true, Slots.Front)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeItemEffect>(), 1, Slots.Front),
             };
             bins.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Sides.ToString()]);
-            bins.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Misc.ToString()]);
+            bins.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_7_10.ToString()]);
             bins.Visuals = null;
             bins.AnimationTarget = Slots.Self;
             bins.Priority = Priority.Slow;
@@ -118,7 +117,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveAllStatusEffectsByAmountEffect>(), 3, Slots.Front),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Slots.Front, BasicEffects.DidThat(false)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Front, BasicEffects.DidThat(false)),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyStunnedEffect>(), 3, Slots.Front, BasicEffects.DidThat(false, 2)),
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Spotlight"),
@@ -135,7 +134,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 3, Slots.Front),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ReplacementDamageEffect>(), 8, Slots.Front)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ReplacementDamageEffect>(), 7, Slots.Front)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Crush"),
                 AnimationTarget = Slots.Front,

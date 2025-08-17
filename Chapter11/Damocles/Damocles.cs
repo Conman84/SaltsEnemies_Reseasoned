@@ -50,7 +50,8 @@ namespace SaltsEnemies_Reseasoned
             detectWither._useWithering = true;
             decay.conditions = new EffectorConditionSO[]
             {
-                detectWither
+                detectWither,
+                ScriptableObject.CreateInstance<Above1MaxHealthCondition>()
             };
             DelayRespawnEffect spawn = ScriptableObject.CreateInstance<DelayRespawnEffect>();
             SpawnEnemyInSlotFromEntryStringNameHalfMaxEffect newD = ScriptableObject.CreateInstance<SpawnEnemyInSlotFromEntryStringNameHalfMaxEffect>();

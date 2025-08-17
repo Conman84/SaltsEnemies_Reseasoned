@@ -79,13 +79,13 @@ namespace SaltsEnemies_Reseasoned
             remCurse._status = StatusField.Cursed;
 
             Ability holdhands = new Ability("Hold Hands", "HoldHands_A");
-            holdhands.Description = "Attempt to remove Cursed from the Opposing party member. If successful, inflict 3 Frail on them.\nOtherwise, deal an Agonizing amount of damage to the Opposing party member.";
+            holdhands.Description = "Attempt to remove Cursed from the Opposing party member. If successful, inflict 3 Frail on them.\nOtherwise, deal a Painful amount of damage to the Opposing party member.";
             holdhands.Rarity = Rarity.GetCustomRarity("rarity5");
             holdhands.Effects = new EffectInfo[3];
             holdhands.Effects[0] = Effects.GenerateEffect(remCurse, 1, Slots.Front);
             holdhands.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 3, Slots.Front, BasicEffects.DidThat(true));
-            holdhands.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front, BasicEffects.DidThat(false, 2));
-            holdhands.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Rem_Status_Cursed.ToString(), IntentType_GameIDs.Status_Frail.ToString(), IntentType_GameIDs.Damage_7_10.ToString()]);
+            holdhands.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Front, BasicEffects.DidThat(false, 2));
+            holdhands.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Rem_Status_Cursed.ToString(), IntentType_GameIDs.Status_Frail.ToString(), IntentType_GameIDs.Damage_3_6.ToString()]);
             holdhands.Visuals = LoadedAssetsHandler.GetCharacterAbility("Weave_1_A").visuals;
             holdhands.AnimationTarget = Slots.Front;
 
@@ -103,10 +103,10 @@ namespace SaltsEnemies_Reseasoned
             lockfingers.AnimationTarget = Slots.Self;
 
             Ability yourvoice = new Ability("Your Voice", "YourVoice_A");
-            yourvoice.Description = "Apply Inspiration on the Opposing party member and deal a Little damage to them.";
+            yourvoice.Description = "If the Opposing party member shares this enemy's health color, apply Inspiration on them.\nDeal a Little damage to the Opposing party member.";
             yourvoice.Rarity = Rarity.GetCustomRarity("rarity5");
             yourvoice.Effects = new EffectInfo[2];
-            yourvoice.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyInspirationEffect>(), 1, Slots.Front);
+            yourvoice.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyInspirationIfMatchingHealthColorsEffect>(), 1, Slots.Front);
             yourvoice.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Front);
             yourvoice.AddIntentsToTarget(Slots.Front, [Inspiration.Intent, IntentType_GameIDs.Damage_1_2.ToString()]);
             yourvoice.Visuals = CustomVisuals.GetVisuals("Salt/Whisper");

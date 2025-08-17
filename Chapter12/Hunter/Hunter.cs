@@ -25,14 +25,15 @@ namespace SaltsEnemies_Reseasoned
 
             //hunting
             HuntingPassiveAbility hunter = ScriptableObject.CreateInstance<HuntingPassiveAbility>();
-            hunter._passiveName = "Horrifying";
+            hunter._passiveName = "Horrifying (10)";
             hunter.passiveIcon = ResourceLoader.LoadSprite("hunterpassive.png");
             hunter.m_PassiveID = "Horrifying_PA";
-            hunter._enemyDescription = "At the end of each round, if the Opposing party member has Terror instantly kill them.\nOn being directly damaged, inflict Terror on the Opposing party member.";
-            hunter._characterDescription = "At the end of each round, if the Opposing enemy has Terror instantly kill them.\nOn being directly damaged, inflict Terror on the Opposing enemy.";
+            hunter._enemyDescription = "At the end of each round, if the Opposing party member has Terror deal an Agonizing amount of damage to them.\nOn being directly damaged, inflict Terror on the Opposing party member.";
+            hunter._characterDescription = "At the end of each round, if the Opposing enemy has Terror deal 10 damage to them.\nOn being directly damaged, inflict Terror on the Opposing enemy.";
             hunter.doesPassiveTriggerInformationPanel = true;
             hunter.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyTerrorEffect>(), 1, Slots.Front).SelfArray();
             hunter._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
+            hunter.Amount = 10;
 
             hunting.AddPassives(new BasePassiveAbilitySO[] { Passives.Constricting, hunter });
             hunting.AddUnitType("Bird");
@@ -62,13 +63,13 @@ namespace SaltsEnemies_Reseasoned
 
             //patience
             Ability patience = new Ability("Patience", "Hunter_Patience_A");
-            patience.Description = "If either the Left or Right party members are at full health, deal an Agonizing amount of damage to both of them.";
+            patience.Description = "If either the Left or Right party members are at full health, deal a Painful amount of damage to both of them.";
             patience.Rarity = Rarity.GetCustomRarity("rarity5");
             patience.Effects = new EffectInfo[3];
             patience.Effects[0] = Effects.GenerateEffect(BasicEffects.GetVisuals("Crush_A", false, Slots.LeftRight), 1, null, AnyTargetsAtMaxHealthCondition.Create(Slots.LeftRight));
-            patience.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.LeftRight, AnyTargetsAtMaxHealthCondition.Create(Slots.LeftRight));
+            patience.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Slots.LeftRight, AnyTargetsAtMaxHealthCondition.Create(Slots.LeftRight));
             patience.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<WasteTimeEffect>(), 1, Slots.Self, BasicEffects.DidThat(false, 2));
-            patience.AddIntentsToTarget(Slots.LeftRight, [IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Damage_7_10.ToString()]);
+            patience.AddIntentsToTarget(Slots.LeftRight, [IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Damage_3_6.ToString()]);
             patience.Visuals = null;
             patience.AnimationTarget = Slots.Self;
 

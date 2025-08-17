@@ -52,13 +52,13 @@ namespace SaltsEnemies_Reseasoned
 
             //Rot
             Ability rot = new Ability("Rot", "Grandfather_Rot_A");
-            rot.Description = "Deal almost no damage to the Opposing party member and inflict 8 Ruptured on them.\nIf there is no Opposing party member, inflict 2 Ruptured on every party member.";
+            rot.Description = "Deal a Little damage to the Opposing party member and inflict 4 Ruptured on them.\nIf there is no Opposing party member, inflict 2 Ruptured on every party member.";
             rot.Rarity = Rarity.GetCustomRarity("rarity5");
             rot.Visuals = CustomVisuals.GetVisuals("Salt/Claws");
             rot.AnimationTarget = Slots.Front;
             rot.Effects = new EffectInfo[3];
-            rot.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 1, Slots.Front);
-            rot.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 8, Slots.Front);
+            rot.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Front);
+            rot.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 4, Slots.Front);
             rot.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Targeting.Unit_AllOpponents, IsFrontTargetCondition.Create(false));
             rot.AddIntentsToTarget(Slots.Front, new string[] { IntentType_GameIDs.Damage_1_2.ToString(), IntentType_GameIDs.Status_Ruptured.ToString() });
             rot.AddIntentsToTarget(Targeting.Unit_AllOpponents, new string[] { IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Status_Ruptured.ToString() });

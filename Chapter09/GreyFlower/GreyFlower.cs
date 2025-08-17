@@ -68,14 +68,14 @@ namespace SaltsEnemies_Reseasoned
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 16, Slots.Self),
-                            Effects.GenerateEffect(allpig, 12, Slots.Self),
-                            Effects.GenerateEffect(RootActionEffect.Create(new EffectInfo[]
-                            {
-                                Effects.GenerateEffect(alltray, 1, Slots.Self),
-                                Effects.GenerateEffect(allflow, 1, Slots.Self),
-                            }), 1, Slots.Self),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPhotoSynthesisEffect>(), 1, Slots.Self)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 16, Slots.Self),
+                    Effects.GenerateEffect(allpig, 12, Slots.Self),
+                    Effects.GenerateEffect(RootActionEffect.Create(new EffectInfo[]
+                    {
+                        Effects.GenerateEffect(alltray, 1, Slots.Self),
+                        Effects.GenerateEffect(allflow, 1, Slots.Self),
+                    }), 1, Slots.Self),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPhotoSynthesisEffect>(), 1, Slots.Self)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Hung"),
                 AnimationTarget = Slots.Self

@@ -24,7 +24,7 @@ namespace SaltEnemies_Reseasoned
                 if (target.HasUnit && target.Unit.ContainsStatusEffect(Terror.StatusID))
                 {
                     CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, caster.IsUnitCharacter, "Hunter", ResourceLoader.LoadSprite("hunterpassive.png")));
-                    CombatManager.Instance.AddUIAction(new TerrorAction(_visuals, target, caster));
+                    CombatManager.Instance.AddUIAction(new TerrorAction(_visuals, target, caster, entryVariable));
                     exitAmount++;
                 }
             }
@@ -39,17 +39,20 @@ namespace SaltEnemies_Reseasoned
 
         public IUnit _caster;
 
-        public TerrorAction(AttackVisualsSO visuals, TargetSlotInfo targetting, IUnit caster)
+        public int amount;
+
+        public TerrorAction(AttackVisualsSO visuals, TargetSlotInfo targetting, IUnit caster, int amount)
         {
             _visuals = visuals;
             _targetting = targetting;
             _caster = caster;
+            this.amount = amount;
         }
 
         public override IEnumerator Execute(CombatStats stats)
         {
             yield return stats.combatUI.PlayAbilityAnimation(_visuals, new TargetSlotInfo[] { _targetting }, true);
-            if (_targetting.HasUnit) _targetting.Unit.DirectDeath(_caster);
+            if (_targetting.HasUnit) _targetting.Unit.Damage(amount, _caster, DeathType_GameIDs.Basic.ToString(), -1);
         }
     }
     public class HuntDownEffect : EffectSO
@@ -165,9 +168,10 @@ namespace SaltEnemies_Reseasoned
     }
     public class HuntingPassiveAbility : PerformEffectPassiveAbility
     {
+        public int Amount;
         public void OnSecondTriggered(object sender, object args)
         {
-            CombatManager.Instance.AddSubAction(new EffectAction(Effects.GenerateEffect(ScriptableObject.CreateInstance<TerrorDeathEffect>(), 1, Slots.Front).SelfArray(), sender as IUnit));
+            CombatManager.Instance.AddSubAction(new EffectAction(Effects.GenerateEffect(ScriptableObject.CreateInstance<TerrorDeathEffect>(), Amount, Slots.Front).SelfArray(), sender as IUnit));
         }
         public override void OnPassiveConnected(IUnit unit)
         {

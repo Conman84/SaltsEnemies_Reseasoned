@@ -41,14 +41,13 @@ namespace SaltsEnemies_Reseasoned
             cannon._enemyDescription = "This enemy will perforn the extra ability \"Sound Cannon\" each turn.";
             Ability bonus = new Ability("SoundCannon_A");
             bonus.Name = "Sound Cannon";
-            bonus.Description = "Deal an Deadly amount of damage to the Opposing party member.";
+            bonus.Description = "Deal an Agonizing amount of damage to the Opposing party member.";
             bonus.Priority = Priority.VeryFast;
-            bonus.Effects = new EffectInfo[2];
-            bonus.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ExtraVariableForNextEffect>(), 11, Slots.Self);
-            bonus.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomDamageBetweenPreviousAndEntryEffect>(), 15, Targeting.Slot_Front);
+            bonus.Effects = new EffectInfo[1];
+            bonus.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front);
             bonus.Visuals = CustomVisuals.GetVisuals("Salt/Cannon");
             bonus.AnimationTarget = Targeting.Slot_Front;
-            bonus.AddIntentsToTarget(Targeting.Slot_Front, IntentType_GameIDs.Damage_11_15.ToString().SelfArray());
+            bonus.AddIntentsToTarget(Targeting.Slot_Front, IntentType_GameIDs.Damage_7_10.ToString().SelfArray());
             AbilitySO ability = bonus.GenerateEnemyAbility(true).ability;
             cannon._extraAbility.ability = ability;
 
@@ -77,13 +76,13 @@ namespace SaltsEnemies_Reseasoned
             rush.AnimationTarget = Slots.Self;
 
             Ability sweepers = new Ability("Sweepers", "Sweepers_A");
-            sweepers.Description = "Deal a Painful amount of damage to the Opposing party member.\nMove Left or Right.";
+            sweepers.Description = "Deal a Little of damage to the Opposing party member.\nMove Left or Right.";
             sweepers.Rarity = Rarity.CreateAndAddCustomRarityToPool("sweepers4", 4);
             sweepers.Priority = Priority.VeryFast;
             sweepers.Effects = new EffectInfo[2];
-            sweepers.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Front);
+            sweepers.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Front);
             sweepers.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
-            sweepers.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Damage_3_6.ToString().SelfArray());
+            sweepers.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Damage_1_2.ToString().SelfArray());
             sweepers.AddIntentsToTarget(Slots.Self, IntentType_GameIDs.Swap_Sides.ToString().SelfArray());
             sweepers.Visuals = CustomVisuals.GetVisuals("Salt/Gunshot");
             sweepers.AnimationTarget = Slots.Front;

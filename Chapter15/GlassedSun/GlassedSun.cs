@@ -93,11 +93,10 @@ namespace SaltsEnemies_Reseasoned
 
             //reflections
             Ability reflect = new Ability("Reflections", "Reflections_A");
-            reflect.Description = "Deal an Agonizing amount of damage to the Opposing party member and to this enemy.\nChange this enemy's health color to match the Opposing party member's.";
+            reflect.Description = "Deal an Agonizing amount of damage to the Opposing party member and to this enemy.";
             reflect.Rarity = Rarity.GetCustomRarity("rarity5");
-            reflect.Effects = new EffectInfo[2];
+            reflect.Effects = new EffectInfo[1];
             reflect.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, MultiTargetting.Create(Slots.Front, Slots.Self));
-            reflect.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterChangeHealthColorForTargetEffect>(), 1, Slots.Front);
             reflect.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_7_10.ToString()]);
             reflect.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Mana_Modify.ToString()]);
             reflect.Visuals = CustomVisuals.GetVisuals("Salt/Insta/Shatter");

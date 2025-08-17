@@ -71,6 +71,7 @@ namespace SaltsEnemies_Reseasoned
             //PCall(ShieldPiercer.Setup);
             PCall(Debugger.Setup);
             PCall(DeterminedHandler.Setup);
+            PCall(StarlessEncounterHandler.Setup);
             #endregion
 
             //Add To Glossary
@@ -440,7 +441,7 @@ namespace SaltsEnemies_Reseasoned
 
             //CH12
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("panic.png"), "Nervous", "On moving, gain another action.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("hunterpassive.png"), "Horrifying", "At the end of each round, if the Opposing unit has Terror instantly kill them.\nOn being directly damaged, inflict Terror on the Opposing unit.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("hunterpassive.png"), "Horrifying", "At the end of each round, if the Opposing unit has Terror deal a certain amount of damage to them.\nOn being directly damaged, inflict Terror on the Opposing unit.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CombativePassive.png"), "Combative", " This unit will flee after a set amount of turns.\nOn dealing or receiving damage, reset this unit's Fleeting counter.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("burningIcon.png"), "Burning", "On receiving direct damage, inflict a certain amount of Fire on this position and the Opposing position.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("rejuvination.png"), "Rejuvination", "On death, if this enemy is above a certain amount of maximum health, Resurrect it at half its maximum health.");
@@ -483,7 +484,7 @@ namespace SaltsEnemies_Reseasoned
             //CH18
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("LonelyIcon.png"), "Lonely", "On any ally moving, dying, or fleeing, if this unit is not next to another ally attempt to move until it is next to one, unless there are no other allied units in combat.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DivisibleIcon.png"), "Divisible", "On taking any damage, if there is available space split into 2 copies of this unit with half the health.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PunisherPassive.png"), "Punisher", "On moving, inflict 10 Pale on the Opposing target. \nIf they already had over 100 Pale, trigger it.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PunisherPassive.png"), "Punisher", "On moving, inflict a certain amount of Pale on the Opposing target. \nIf they already had over 100 Pale, trigger it.");
 
             //CH19
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("BacklashPassive.png"), "Backlash", "On taking direct damage, apply Shield to this unit's position for the amount of damage taken.");

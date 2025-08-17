@@ -34,13 +34,13 @@ namespace SaltsEnemies_Reseasoned
             Ability leftKill = new Ability("LeftToDie_A")
             {
                 Name = "Left to Die",
-                Description = "Move left. Instantly kill the Opposing party member.",
+                Description = "Move left. Deal a Deadly amount of damage to the Opposing party member.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self),
                     Effects.GenerateEffect(play, 1, Slots.Front),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 15, Slots.Front),
                 },
                 Visuals = null,
                 AnimationTarget = Slots.Self,
@@ -57,13 +57,13 @@ namespace SaltsEnemies_Reseasoned
             Ability rightKill = new Ability("RighteousExecution_A")
             {
                 Name = "Righteous Execution",
-                Description = "Move right. Instantly kill the Opposing party member.",
+                Description = "Move right. Deal a Deadly amount of damage to the Opposing party member.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(BasicEffects.GoRight, 1, Slots.Self),
                     Effects.GenerateEffect(right, 1, Slots.Front),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 15, Slots.Front),
                 },
                 Visuals = null,
                 AnimationTarget = Slots.Self,

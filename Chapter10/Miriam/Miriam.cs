@@ -62,17 +62,17 @@ namespace SaltsEnemies_Reseasoned
             Ability bones = new Ability("TakeMyBones_A")
             {
                 Name = "Take My Bones",
-                Description = "At the start of the next turn, deal an Agonizing amount of damage to this enemy's current Left and Right party member positions. Deal a Painful amount of damage to this enemy, this damage ignores Shield.",
+                Description = "At the start of the next turn, deal an Painful amount of damage to this enemy's current Left and Right party member positions. Deal a Painful amount of damage to this enemy, this damage ignores Shield.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 7, Slots.LeftRight),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 6, Slots.LeftRight),
                     Effects.GenerateEffect(BasicEffects.ShieldPierce, 3, Slots.Self)
                 },
                 Visuals = LoadedAssetsHandler.GetCharacterAbility("Wrath_1_A").visuals,
                 AnimationTarget = MultiTargetting.Create(Slots.LeftRight, Slots.Self),
             };
-            bones.AddIntentsToTarget(Slots.LeftRight, [IntentType_GameIDs.Damage_7_10.ToString(), "Damage_Delay"]);
+            bones.AddIntentsToTarget(Slots.LeftRight, [IntentType_GameIDs.Damage_3_6.ToString(), "Damage_Delay"]);
             bones.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_3_6.ToString()]);
 
             //lies
@@ -85,9 +85,9 @@ namespace SaltsEnemies_Reseasoned
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<IsUnitEffect>(), 1, Slots.Front),
                     Effects.GenerateEffect(BasicEffects.GetVisuals("Crush_A", false, Slots.Front), 1, null, BasicEffects.DidThat(true)),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Front),
                     Effects.GenerateEffect(BasicEffects.GetVisuals("Wriggle_A", false, ScriptableObject.CreateInstance<TargettingByFacingTarget>()), 1, null, BasicEffects.DidThat(false, 3)),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 5, ScriptableObject.CreateInstance<TargettingByFacingTarget>(), BasicEffects.DidThat(false, 4)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 4, ScriptableObject.CreateInstance<TargettingByFacingTarget>(), BasicEffects.DidThat(false, 4)),
                 },
                 Visuals = null,
                 AnimationTarget = Slots.Self,
