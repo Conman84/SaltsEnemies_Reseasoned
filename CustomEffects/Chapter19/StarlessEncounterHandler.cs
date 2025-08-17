@@ -77,7 +77,7 @@ namespace SaltsEnemies_Reseasoned
                         first = i;
                     }
                 }
-                if (stars >= list.Count - 1) index2 = first;
+                if (stars >= list.Count - 1 && first >= 0) index2 = first;
 
                 EnemySO enemy = list[index2];
 

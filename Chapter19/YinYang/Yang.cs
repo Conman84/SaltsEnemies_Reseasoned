@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy yang = new Enemy("Yang", "Yang_EN")
             {
-                Health = 35,
+                Health = 32,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("YangIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("YangWorld.png", new Vector2(0.5f, 0f), 32),

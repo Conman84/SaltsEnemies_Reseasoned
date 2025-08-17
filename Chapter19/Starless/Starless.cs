@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy starless = new Enemy("Starless", "Starless_EN")
             {
-                Health = 40,
+                Health = 35,
                 HealthColor = Pigments.Blue,
                 CombatSprite = ResourceLoader.LoadSprite("StarlessIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("StarlessWorld.png", new Vector2(0.5f, 0f), 32),
