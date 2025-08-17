@@ -63,11 +63,11 @@ namespace SaltsEnemies_Reseasoned
             Ability throttle = new Ability("Throttle_A")
             {
                 Name = "Throttle",
-                Description = "Deal a Deadly amount of damage to the Opposing party member and heals them a moderate amount of health. If this attack kills, it doesn't, and applies Focused and Cursed on them.",
+                Description = "Deal an Agonizing amount of damage to the Opposing party member and heals them a moderate amount of health. If this attack kills, it doesn't, and applies Focused and Cursed on them.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("WindSong_1", 1),
                 Effects = new EffectInfo[]
                 {
-                            Effects.GenerateEffect(OnKill, 13, Targeting.Slot_Front),
+                            Effects.GenerateEffect(OnKill, 10, Targeting.Slot_Front),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<WindSongEffect>(), 1, Targeting.Slot_Front),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 5, Targeting.Slot_Front),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Targeting.Slot_Front, BasicEffects.DidThat(true, 3)),
