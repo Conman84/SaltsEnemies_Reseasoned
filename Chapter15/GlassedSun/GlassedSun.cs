@@ -98,7 +98,7 @@ namespace SaltsEnemies_Reseasoned
             reflect.Effects = new EffectInfo[1];
             reflect.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, MultiTargetting.Create(Slots.Front, Slots.Self));
             reflect.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_7_10.ToString()]);
-            reflect.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Mana_Modify.ToString()]);
+            reflect.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_7_10.ToString()]);
             reflect.Visuals = CustomVisuals.GetVisuals("Salt/Insta/Shatter");
             reflect.AnimationTarget = MultiTargetting.Create(Slots.Front, Slots.Self);
 
