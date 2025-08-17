@@ -144,7 +144,7 @@ namespace SaltEnemies_Reseasoned
         }
     }
 
-    public class KillIfPowerEffect : EffectSO
+    public class KillIfPowerEffect : DamageEffect
     {
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
@@ -153,8 +153,8 @@ namespace SaltEnemies_Reseasoned
             {
                 if (target.HasUnit && target.Unit.ContainsStatusEffect(Power.StatusID))
                 {
-                    int num = target.Unit.CurrentHealth;
-                    if (target.Unit.DirectDeath(caster)) exitAmount += num;
+                    int num = 0;
+                    if (base.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, entryVariable, out num)) exitAmount += num;
                 }
             }
             return exitAmount > 0;

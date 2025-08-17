@@ -69,7 +69,7 @@ namespace SaltsEnemies_Reseasoned
 
             //Dust
             Ability dust = new Ability("Dust to Dust", "Salt_DusttoDust_A");
-            dust.Description = "Deal 1 direct damage to this enemy. Give this enemy another action. Cannot be Dust to Dust.";
+            dust.Description = "Deal almost no damage to this enemy. Give this enemy another action. Cannot be \"Dust to Dust\".";
             dust.Rarity = Rarity.GetCustomRarity("rarity3");
             dust.Effects = new EffectInfo[]
             {

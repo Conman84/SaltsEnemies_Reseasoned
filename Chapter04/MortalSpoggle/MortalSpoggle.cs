@@ -66,7 +66,7 @@ namespace SaltsEnemies_Reseasoned
 
             //Gnaw
             Ability gnaw = new Ability("Gnaw", "Salt_Gnaw_A");
-            gnaw.Description = "Deal 4 damage to the left and right party members. Consume 2 pigment not of this enemy's health color.";
+            gnaw.Description = "Deal a Painful amount of damage to the left and right party members. Consume 2 pigment not of this enemy's health color.";
             gnaw.Rarity = Rarity.GetCustomRarity("rarity5");
             gnaw.Effects = new EffectInfo[]
             {

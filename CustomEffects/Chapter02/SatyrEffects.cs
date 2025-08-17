@@ -120,7 +120,7 @@ namespace SaltEnemies_Reseasoned
         public bool ShouldBeIgnored(CombatAbility ability, IUnit unit)
         {
             string name = ability.ability._abilityName;
-            return CombatManager.Instance._stats.TurnsPassed < 2 && (name == this.flavor || name == this.flavour);
+            return (CombatManager.Instance._stats.TurnsPassed < 2 || unit.CurrentHealth > 15) && (name == this.flavor || name == this.flavour);
         }
     }
     public class ApplyDivineProtectionEffect : StatusEffect_Apply_Effect
