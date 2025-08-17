@@ -40,16 +40,16 @@ namespace SaltsEnemies_Reseasoned
             allAlly.ignoreCastSlot = true;
             coda.effects = new EffectInfo[]
             {
-                        Effects.GenerateEffect(ScriptableObject.CreateInstance<WindSongEffect>(), 1, Targeting.Slot_SelfSlot),
-                        Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDodgeEffect>(), 3, allAlly),
-                        Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyHasteEffect>(), 3, allAlly),
-                        Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 3, allAlly),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<WindSongEffect>(), 1, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDodgeEffect>(), 3, allAlly),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyHasteEffect>(), 3, allAlly),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 3, allAlly),
             };
             coda._secondDoesPerformPopUp = false;
             coda._secondTriggerOn = new TriggerCalls[] { TriggerCalls.Count };
             coda._secondEffects = new EffectInfo[]
             {
-                        Effects.GenerateEffect(ScriptableObject.CreateInstance<WindSongEffect>(), 1, Targeting.Slot_SelfSlot)
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<WindSongEffect>(), 1, Targeting.Slot_SelfSlot)
             };
 
             //ADDPASSIVES
@@ -67,11 +67,11 @@ namespace SaltsEnemies_Reseasoned
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("WindSong_1", 1),
                 Effects = new EffectInfo[]
                 {
-                            Effects.GenerateEffect(OnKill, 10, Targeting.Slot_Front),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<WindSongEffect>(), 1, Targeting.Slot_Front),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 5, Targeting.Slot_Front),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Targeting.Slot_Front, BasicEffects.DidThat(true, 3)),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Targeting.Slot_Front, BasicEffects.DidThat(true, 4))
+                    Effects.GenerateEffect(OnKill, 10, Targeting.Slot_Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<WindSongEffect>(), 1, Targeting.Slot_Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 5, Targeting.Slot_Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Targeting.Slot_Front, BasicEffects.DidThat(true, 3)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Targeting.Slot_Front, BasicEffects.DidThat(true, 4))
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Piano"),
                 AnimationTarget = Targeting.Slot_Front
@@ -82,7 +82,7 @@ namespace SaltsEnemies_Reseasoned
             Ability finale = new Ability("Coda_A")
             {
                 Name = "Coda",
-                Description = "\"The closing is near.\"\n",
+                Description = "\"The closing is near.\"",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("WindSong_20", 20),
                 Effects = new EffectInfo[]
                         {
