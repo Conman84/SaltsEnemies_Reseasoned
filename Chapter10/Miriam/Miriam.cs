@@ -99,7 +99,7 @@ namespace SaltsEnemies_Reseasoned
             Ability die = new Ability("IWantToDieWithYou_A")
             {
                 Name = "I Want to Die with You",
-                Description = "Move to a random position. At the start of the next turn, deal a really really really large amount of damage to the current Opposing party member position. \n\"As I want to live with you\"",
+                Description = "Move to a random position. At the start of the next turn, deal a Lethal amount of damage to the current Opposing party member position. \n\"As I want to live with you\"",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("miriam3", 3),
                 Effects = new EffectInfo[]
                         {
@@ -107,15 +107,14 @@ namespace SaltsEnemies_Reseasoned
                             Effects.GenerateEffect(SubActionEffect.Create(new EffectInfo[]
                             {
                                 Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Bullet", false, Slots.Front), 1, Slots.Self),
-                                Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 99, Slots.Front)
+                                Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 20, Slots.Front)
                             }), 1, Slots.Self),
-                            Effects.GenerateEffect(BasicEffects.Empty, 0, Slots.Front)
                         },
                 Visuals = null,
                 AnimationTarget = Slots.Self,
             };
             die.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Mass.ToString()]);
-            die.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_Death.ToString(), "Damage_Delay"]);
+            die.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_16_20.ToString(), "Damage_Delay"]);
 
             //ADD ENEMY
             miriam.AddEnemyAbilities(new EnemyAbilityInfo[]
