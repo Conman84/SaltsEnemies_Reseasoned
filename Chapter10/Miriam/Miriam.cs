@@ -107,7 +107,7 @@ namespace SaltsEnemies_Reseasoned
                             Effects.GenerateEffect(SubActionEffect.Create(new EffectInfo[]
                             {
                                 Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Bullet", false, Slots.Front), 1, Slots.Self),
-                                Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 20, Slots.Front)
+                                Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 16, Slots.Front)
                             }), 1, Slots.Self),
                         },
                 Visuals = null,
