@@ -76,7 +76,7 @@ namespace SaltsEnemies_Reseasoned
                 Visuals = CustomVisuals.GetVisuals("Salt/Piano"),
                 AnimationTarget = Targeting.Slot_Front
             };
-            throttle.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Damage_11_15.ToString(), IntentType_GameIDs.Heal_5_10.ToString(), IntentType_GameIDs.Status_Focused.ToString(), IntentType_GameIDs.Status_Cursed.ToString() });
+            throttle.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Heal_5_10.ToString(), IntentType_GameIDs.Status_Focused.ToString(), IntentType_GameIDs.Status_Cursed.ToString() });
 
             //CODA
             Ability finale = new Ability("Coda_A")
