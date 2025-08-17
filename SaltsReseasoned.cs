@@ -409,7 +409,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("NoMenu.png"), "Locked In", "The pause menu can no longer be accessed.");
 
             //CH8
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("survival.png"), "Survival Instinct", "On death, instantly kill the lowest health opponent.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("survival.png"), "Survival Instinct", "On death, deal a certain amount of damage to all Opponents.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("intimidated.png"), "Intimidated", "When an opponent moves in front of this enemy, reroll one of this unit's actions.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CodaIcon.png"), "Coda", "On death, apply 3 Dodge, 3 Haste, and 3 Power to all allies.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("sigilPassive.png"), "Sigil", "At the start of each turn, reset this unit's Sigil.");

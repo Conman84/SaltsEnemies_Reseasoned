@@ -28,10 +28,10 @@ namespace SaltsEnemies_Reseasoned
             core._visuals = ((AnimationVisualsEffect)((PerformEffectWearable)LoadedAssetsHandler.GetWearable("DemonCore_SW")).effects[0].effect)._visuals;
             core._animationTarget = Targeting.Slot_SelfSlot;
             PerformEffectImmediatePassiveAbility survival = ScriptableObject.CreateInstance<PerformEffectImmediatePassiveAbility>();
-            survival._passiveName = "Survival Instinct";
+            survival._passiveName = "Survival Instinct (8)";
             survival.passiveIcon = ResourceLoader.LoadSprite("survival.png");
-            survival._enemyDescription = "On death, instantly kill the lowest health party member. \nDoes not trigger on Withering.";
-            survival._characterDescription = "On death, instantly kill the lowest health enemy. \nDoes not trigger on Withering";
+            survival._enemyDescription = "On death, deal an Agonizing amount of damage to all party members. \nDoes not trigger on Withering.";
+            survival._characterDescription = "On death, deal 8 damage to all enemies. \nDoes not trigger on Withering";
             survival.m_PassiveID = "Survival_Instinct_PA";
             survival.doesPassiveTriggerInformationPanel = true;
             survival._triggerOn = new TriggerCalls[] { TriggerCalls.OnDeath };
@@ -47,8 +47,8 @@ namespace SaltsEnemies_Reseasoned
             };
             survival.effects = new EffectInfo[]
             {
-                        Effects.GenerateEffect(core, 1, Targeting.Slot_SelfSlot),
-                        Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Targetting.LowestEnemy)
+                Effects.GenerateEffect(core, 1, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Targeting.Unit_AllOpponents)
             };
 
             //FLITHERING
