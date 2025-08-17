@@ -14,7 +14,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy lobotomy = new Enemy("Your New Life!", "YNL_EN")
             {
-                Health = 35,
+                Health = 30,
                 HealthColor = Pigments.Grey,
                 CombatSprite = ResourceLoader.LoadSprite("LobotomyIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("LobotomyWorld.png", new Vector2(0.5f, 0f), 32),
