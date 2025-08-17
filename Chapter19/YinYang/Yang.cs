@@ -77,7 +77,7 @@ namespace SaltsEnemies_Reseasoned
             judge.Rarity = Rarity.GetCustomRarity("rarity5");
             judge.Effects = new EffectInfo[2];
             judge.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<IfCursedReturnFalseEffect>(), 1, Slots.Front);
-            judge.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front, BasicEffects.DidThat(false));
+            judge.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front, BasicEffects.DidThat(false));
             judge.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Status_Cursed.ToString(), IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Damage_7_10.ToString()]);
             judge.Visuals = CustomVisuals.GetVisuals("Salt/Piano");
             judge.AnimationTarget = Slots.Front;
