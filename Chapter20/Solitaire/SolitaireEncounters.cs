@@ -59,7 +59,7 @@ namespace SaltsEnemies_Reseasoned
             hard.RoarEvent = "event:/Hawthorne/Sund/SolitaireDie";
 
             hard.SimpleAddEncounter(4, "Solitaire_EN");
-            hard.SimpleAddEncounter(5, "Solitaire_EN");
+            if (SaltsReseasoned.rando < 33) hard.SimpleAddEncounter(5, "Solitaire_EN");
             hard.SimpleAddEncounter(4, "Solitaire_EN", 1, Enemies.Suckle);
 
             hard.AddEncounterToDataBases();
