@@ -40,7 +40,7 @@ namespace SaltsEnemies_Reseasoned
 
             Enemy child = new Enemy("Spades", "Spades_EN")
             {
-                Health = 10,
+                Health = 8,
                 HealthColor = Pigments.Blue,
                 CombatSprite = ResourceLoader.LoadSprite("SpadesIcon.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("SpadesDead.png", new Vector2(0.5f, 0f), 32),
