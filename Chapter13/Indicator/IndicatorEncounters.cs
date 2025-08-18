@@ -47,7 +47,6 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(1, "Indicator_EN", 3, Enemies.Shivering);
             med.SimpleAddEncounter(1, "Indicator_EN", 3, "EyePalm_EN");
             med.AddRandomEncounter("Indicator_EN", Enemies.Shivering, Enemies.Shivering, Jumble.Grey);
-            med.SimpleAddEncounter(2, "Indicator_EN", 2, Enemies.Camera);
             med.AddRandomEncounter("Indicator_EN", "EyePalm_EN", "EyePalm_EN", Flower.Red);
             med.AddRandomEncounter("Indicator_EN", "EyePalm_EN", "EyePalm_EN", Flower.Blue);
             med.AddRandomEncounter("Indicator_EN", "InHerImage_EN", "InHerImage_EN", "NextOfKin_EN");
