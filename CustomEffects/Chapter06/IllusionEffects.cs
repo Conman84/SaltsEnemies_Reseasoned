@@ -279,12 +279,12 @@ namespace SaltEnemies_Reseasoned
                     _drain = new Ability("Salt_Drowse_A")
                     {
                         Name = "Drowse",
-                        Description = "Increase this enemy's maximum health by 3.\nGain 3 Shield.",
+                        Description = "Increase this enemy's maximum health by 3.\nGain 5 Shield.",
                         Rarity = Rarity.CreateAndAddCustomRarityToPool("Delusion_6", 6),
                         Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(inc, 3, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 3, Slots.Self)
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 5, Slots.Self)
                         },
                         Visuals = CustomVisuals.GetVisuals("Salt/Pop"),
                         AnimationTarget = Targeting.Slot_SelfSlot
@@ -356,13 +356,13 @@ namespace SaltEnemies_Reseasoned
                     _insight = new Ability("Salt_Insight_A")
                     {
                         Name = "Divination",
-                        Description = "Apply Focused to this enemy. Generate 3 random pigment and apply 5 Shield to the Left and Right enemy positions.",
+                        Description = "Apply Focused to this enemy. Generate 3 random pigment and apply 3 Shield to the Left and Right enemy positions.",
                         Rarity = Rarity.GetCustomRarity("Delusion_5"),
                         Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Targeting.Slot_SelfSlot),
                             Effects.GenerateEffect(random, 3, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 5, Targeting.Slot_AllySides)
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 3, Targeting.Slot_AllySides)
                         },
                         Visuals = CustomVisuals.GetVisuals("Salt/Think"),
                         AnimationTarget = Targeting.Slot_SelfSlot,
