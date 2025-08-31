@@ -51,7 +51,7 @@ namespace SaltsEnemies_Reseasoned
                 "Spoggle_Spitfire_EN",
             }, null);
             mainEncounters.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Something_Easy_EnemyBundle", 5, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Something_Easy_EnemyBundle", 0, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Easy);
 
             //Hard
             EnemyEncounter_API mainEncounters2 = new EnemyEncounter_API(0, "H_Zone02_Something_Medium_EnemyBundle", "Salt_Something_Sign");
