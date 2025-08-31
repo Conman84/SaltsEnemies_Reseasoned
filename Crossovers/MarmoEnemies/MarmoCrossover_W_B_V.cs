@@ -10,5 +10,10 @@ namespace SaltsEnemies_Reseasoned
         {
 
         }
+
+        public static void Add_1_4()
+        {
+
+        }
     }
 }
