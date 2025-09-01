@@ -323,6 +323,18 @@ namespace SaltsEnemies_Reseasoned
                 public static string Easy => "ClayChildEasy";
                 public static string Med => "ClayChildMedium";
             }
+
+            //glitch
+            public static class Dancer
+            {
+                public static string Easy => "BDancerEasy";
+                public static string Med => "BDancerMed";
+            }
+            public static class Frostbite
+            {
+                public static string Easy => "FrostbiteEasy";
+                public static string Med => "FrostbiteMed";
+            }
         }
     }
 }
