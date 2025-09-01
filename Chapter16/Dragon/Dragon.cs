@@ -69,11 +69,11 @@ namespace SaltsEnemies_Reseasoned
             Ability phosphate = new Ability("PhosphateFumes_A")
             {
                 Name = "Phosphate Fumes",
-                Description = "Deal a Little indirect damage to all party members.",
+                Description = "Deal a Little damage to all party members.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(BasicEffects.Indirect, 1, Targetting.AllEnemy)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 1, Targetting.AllEnemy)
                 },
                 Visuals = LoadedAssetsHandler.GetCharacterAbility("OfDeath_1_A").visuals,
                 AnimationTarget = Targetting.AllEnemy,
