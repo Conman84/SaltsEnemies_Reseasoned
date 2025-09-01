@@ -299,6 +299,27 @@ namespace SaltsEnemies_Reseasoned
                     public static string Hard => "DelightedFarShoreHard";
                 }
             }
+
+            //glitch
+            public static class Bait
+            {
+                public static string Med => "BaitMed";
+                public static string Hard => "BaitHard";
+            }
+            public static class Flakkid
+            {
+                public static string Easy => "FlakkidEasy";
+                public static string Med => "FlakkidMed";
+            }
+            public static class Swine
+            {
+                public static string Easy => "SwineEasy";
+                public static string Med => "SwineMed";
+            }
+            public static class Pipe
+            {
+                public static string Med => "PipeMed";
+            }
         }
     }
 }
