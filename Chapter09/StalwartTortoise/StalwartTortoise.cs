@@ -47,7 +47,7 @@ namespace SaltsEnemies_Reseasoned
             painless.m_PassiveID = "Algophobia_PA";
             painless.doesPassiveTriggerInformationPanel = true;
             painless._triggerOn = new TriggerCalls[] { TriggerCalls.OnDamaged, TriggerCalls.OnPlayerTurnEnd_ForEnemy };
-            painless.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<PainCondition>() };
+            painless.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<PainCondition>(), Passives.Slippery.conditions[0] };
             painless.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<FleeTargetEffect>(), 1, Slots.Self).SelfArray();
             painless.specialStoredData = UnitStoreData.GetCustom_UnitStoreData(PainCondition.Modifier);
 

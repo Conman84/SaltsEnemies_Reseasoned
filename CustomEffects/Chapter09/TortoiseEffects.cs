@@ -103,7 +103,7 @@ namespace SaltEnemies_Reseasoned
                 (effector as IUnit).SimpleSetStoredValue(Pain, 0);
                 return false;
             }
-            if (!effector.IsAlive || effector.CurrentHealth <= 0) return false;
+            //if (!effector.IsAlive || effector.CurrentHealth <= 0) return false;
             return true;
         }
         public static string Pain = "Algophobia_Value_PA";
