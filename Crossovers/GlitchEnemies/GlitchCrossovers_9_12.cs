@@ -38,6 +38,10 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("Tripod_EN", "DryBait_EN", Jumble.Red, Jumble.Yellow);
             hard.AddRandomGroup("Tripod_EN", "LittleBeak_EN", "NotAn_EN");
 
+            hard = new AddTo(Shore.H.Warbird.Hard);
+            hard.AddRandomGroup("Warbird_EN", Enemies.Swine, Enemies.Swine);
+            hard.AddRandomGroup("Warbird_EN", "DryBait_EN", Jumble.Red, Jumble.Yellow);
+
             //ORPHEMUM
             easy = new AddTo(Orph.H.Frostbite.Easy);
             easy.AddRandomGroup("Frostbite_EN", "Frostbite_EN", "Spectre_EN");
