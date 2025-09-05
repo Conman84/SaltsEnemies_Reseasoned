@@ -87,5 +87,38 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("Maw_EN", Enemies.Shuffler, Spoggle.Blue, Spoggle.Yellow);
             hard.AddRandomGroup("Maw_EN", Enemies.Shuffler, "WindSong_EN", Enemies.Suckle, Enemies.Suckle);
         }
+        public static void Shufflers_15_18()
+        {
+            AddTo med = new AddTo(Orph.H.Shuffler.Med);
+            if (SaltsReseasoned.trolling < 50) med.AddRandomGroup(Enemies.Shuffler, Enemies.Shuffler, Bots.Red);
+            if (SaltsReseasoned.trolling > 50) med.AddRandomGroup(Enemies.Shuffler, Enemies.Shuffler, Bots.Yellow);
+            if (SaltsReseasoned.silly < 50) med.AddRandomGroup(Enemies.Shuffler, Enemies.Shuffler, Bots.Blue);
+            if (SaltsReseasoned.silly > 50) med.AddRandomGroup(Enemies.Shuffler, Enemies.Shuffler, Bots.Purple);
+            med.AddRandomGroup(Enemies.Shuffler, Enemies.Shuffler, Enemies.Shooter);
+
+            med = new AddTo(Orph.H.Bot.Red.Med);
+            med.AddRandomGroup(Bots.Red, Bots.Yellow, Enemies.Shuffler);
+
+            med = new AddTo(Orph.H.Bot.Yellow.Med);
+            med.AddRandomGroup(Bots.Red, Bots.Yellow, Enemies.Shuffler);
+
+            med = new AddTo(Orph.H.Bot.Blue.Med);
+            med.AddRandomGroup(Bots.Blue, Bots.Purple, Enemies.Shuffler);
+
+            med = new AddTo(Orph.H.Bot.Purple.Med);
+            med.AddRandomGroup(Bots.Blue, Bots.Purple, Enemies.Shuffler);
+
+            AddTo hard = new AddTo(Orph.H.Dragon.Hard);
+            hard.AddRandomGroup("TheDragon_EN", Enemies.Shuffler, Enemies.Shuffler);
+
+            med = new AddTo(Orph.H.Crystal.Med);
+            med.AddRandomGroup("Crystal_EN", Spoggle.Red, Enemies.Shuffler);
+
+            med = new AddTo(Orph.H.Evileye.Med);
+            med.AddRandomGroup("Evileye_EN", Enemies.Shuffler, "Something_EN");
+
+            med = new AddTo(Orph.H.YellowAngel.Med);
+            med.AddRandomGroup("YellowAngel_EN", "Scrungie_EN", Enemies.Shuffler);
+        }
     }
 }
