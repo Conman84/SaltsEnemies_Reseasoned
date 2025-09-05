@@ -159,6 +159,7 @@ namespace SaltEnemies_Reseasoned
             //giltch freakazoids
             PCall(GlitchCrossovers_1_4.Add);
             PCall(GlitchCrossover_6_8.Add);
+            PCall(GlitchCrossovers_9_12.Add);
 
             //colophon
             PCall(Colophon_1_5.Crossovers);
