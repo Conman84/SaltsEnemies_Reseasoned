@@ -6,7 +6,7 @@ namespace SaltsEnemies_Reseasoned
 {
     public static class Nosestone_CH19_Crossover
     {
-        public static void Add()
+        public static void Add_Garden()
         {
             AddTo med = new AddTo(Garden.H.Nosestone.Red.Med);
             med.SimpleAddGroup(1, Noses.Red, 3, "PawnA_EN");
