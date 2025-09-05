@@ -160,6 +160,8 @@ namespace SaltEnemies_Reseasoned
             PCall(GlitchCrossovers_1_4.Add);
             PCall(GlitchCrossover_6_8.Add);
             PCall(GlitchCrossovers_9_12.Add);
+            PCall(Glitch_Crossovers_13_16.Add_13_14);
+            PCall(Glitch_Crossovers_13_16.Add_15_16);
 
             //colophon
             PCall(Colophon_1_5.Crossovers);

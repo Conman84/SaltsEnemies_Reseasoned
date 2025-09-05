@@ -4,9 +4,9 @@ using System.Text;
 
 namespace SaltsEnemies_Reseasoned
 {
-    public static class Glitch_Crossovers_13_14
+    public static class Glitch_Crossovers_13_16
     {
-        public static void Add()
+        public static void Add_13_14()
         {
             //SHORE
             AddTo easy = new AddTo(Shore.H.Flakkid.Easy);
@@ -50,6 +50,39 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("Maw_EN", "BackupDancer_EN", "MusicMan_EN", "MusicMan_EN");
             hard.AddRandomGroup("Maw_EN", "Frostbite_EN", "Frostbite_EN", Jumble.Blue);
             hard.AddRandomGroup("Maw_EN", "Frostbite_EN", "Frostbite_EN", "TheCrow_EN");
+        }
+        public static void Add_15_16()
+        {
+            AddTo easy = new AddTo(Shore.H.Flakkid.Easy);
+            easy.SimpleAddGroup(1, "Flakkid_EN", 3, "TortureMeNot_EN");
+
+            //ORPh
+            easy = new AddTo(Orph.H.Frostbite.Easy);
+            easy.AddRandomGroup("Frostbite_EN", "Frostbite_EN", "TortureMeNot_EN", "TortureMeNot_EN", "TortureMeNot_EN");
+
+            AddTo med = new AddTo(Orph.H.Dancer.Med);
+            med.AddRandomGroup("BackupDancer_EN", "MusicMan_EN", "MusicMan_EN", Bots.Red);
+            med.AddRandomGroup("BackupDancer_EN", "MusicMan_EN", Bots.Yellow);
+            med.AddRandomGroup("BackupDancer_EN", "BackupDancer_EN", Bots.Blue);
+
+            med = new AddTo(Orph.H.Bot.Red.Med);
+            med.AddRandomGroup(Bots.Red, "Frostbite_EN", "Frostbite_EN", Bots.Yellow);
+            med = new AddTo(Orph.H.Bot.Yellow.Med);
+            med.AddRandomGroup(Bots.Red, "Frostbite_EN", "Frostbite_EN", Bots.Yellow);
+
+            med = new AddTo(Orph.H.Bot.Blue.Med);
+            med.AddRandomGroup(Bots.Blue, "Frostbite_EN", "Frostbite_EN", Bots.Purple);
+            med = new AddTo(Orph.H.Bot.Purple.Med);
+            med.AddRandomGroup(Bots.Blue, "Frostbite_EN", "Frostbite_EN", Bots.Purple);
+
+            med = new AddTo(Orph.H.Crystal.Med);
+            med.AddRandomGroup("Crystal_EN", "BackupDancer_EN", "MusicMan_EN");
+            med.AddRandomGroup("Crystal_EN", "BackupDancer_EN", Spoggle.Red);
+            med.AddRandomGroup("Crystal_EN", "Frostbite_EN", "Frostbite_EN", "Enigma_EN");
+
+            AddTo hard = new AddTo(Orph.H.Dragon.Hard);
+            hard.AddRandomGroup("TheDragon_EN", "Frostbite_EN", "Frostbite_EN", "Frostbite_EN");
+            hard.AddRandomGroup("TheDragon_EN", "BackupDancer_EN", "MusicMan_EN", "MusicMan_EN");
         }
     }
 }
