@@ -79,7 +79,7 @@ namespace SaltsEnemies_Reseasoned
         }
         public static bool BundleExist(string name)
         {
-            if (!LoadedAssetsHandler.LoadedEnemyBundles.Keys.Contains(name) && LoadedAssetsHandler.LoadEnemyBundle(name) == null) { Debug.LogWarning("Bundle: " + name + " is null"); return false; }
+            if (!LoadedAssetsHandler.LoadedEnemyBundles.Keys.Contains(name) && LoadedAssetsHandler.LoadEnemyBundle(name) == null) { if (!Printeds.Contains(name)) { Debug.LogWarning("Bundle: " + name + " is null"); Printeds.Add(name); } return false; }
             return LoadedAssetsHandler.GetEnemyBundle(name) != null;
         }
         public static bool BundleRandom(string name, bool DoDebug = true)
