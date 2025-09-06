@@ -8,11 +8,28 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void FarShore()
         {
+            AddTo hard = new AddTo(Shore.H.Tripod.Hard);
+            hard.AddRandomGroup("Tripod_EN", "Draugr_EN", "FlaMinGoa_EN");
 
+            AddTo med = new AddTo(Shore.H.LittleBeak.Med);
+            med.AddRandomGroup("LittleBeak_EN", "Draugr_EN", Jumble.Yellow);
+
+            hard = new AddTo(Shore.H.Warbird.Hard);
+            hard.AddRandomGroup("Warbird_EN", "Draugr_EN", "Sinker_EN");
         }
         public static void Orpheum()
         {
-            
+            AddTo med = new AddTo(Orph.H.Moone.Med);
+            med.AddRandomGroup("Moone_EN", "Moone_EN", "Rabies_EN");
+
+            med = new AddTo(Orph.H.Rabies.Med);
+            med.AddRandomGroup("Rabies_EN", "Rabies_EN", "Moone_EN");
+
+            med = new AddTo(Orph.H.Heehoo.Med);
+            med.AddRandomGroup("Heehoo_EN", "Heehoo_EN", "Nameless_EN");
+
+            med = new AddTo(Orph.H.Thunderdome.Med);
+            med.AddRandomGroup("Thunderdome_EN", "Thunderdome_EN", "Rabies_EN");
         }
         public static void TheGarden()
         {
