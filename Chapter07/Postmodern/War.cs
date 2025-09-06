@@ -100,7 +100,7 @@ namespace SaltsEnemies_Reseasoned
                 AnimationTarget = Targeting.Slot_SelfSlot,
             };
             librarium.AddIntentsToTarget(NoiseTargetting.Default(), new string[] { IntentType_GameIDs.Damage_Death.ToString() });
-            librarium.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[] { -2, 0, 2 }, false), new string[] {IntentType_GameIDs.Misc.ToString() });
+            librarium.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[] { -2, 2 }, false), new string[] {IntentType_GameIDs.Misc.ToString() });
 
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
