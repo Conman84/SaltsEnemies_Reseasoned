@@ -183,6 +183,7 @@ namespace SaltEnemies_Reseasoned
             PCall(UndivineCrossovers.Add13_16);
             PCall(UndivineCrossovers.Add17_18);
             PCall(UndivineCrossovers.Add19_21);
+            PCall(Undivine_Clergy_Crossovers.Add);
         }
     }
 }
