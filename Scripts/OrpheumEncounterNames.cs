@@ -351,6 +351,22 @@ namespace SaltsEnemies_Reseasoned
                 public static string Easy => "SucklerEasy";
                 public static string Med => "SucklerMed";
             }
+
+            //dui
+            public static class Moone
+            {
+                public static string Easy => "H_Zone02_Moone_Easy_EnemyBundle";
+                public static string Med => "H_Zone02_Moone_Medium_EnemyBundle";
+            }
+            public static class Heehoo
+            {
+                public static string Med => "H_Zone02_Heehoo_Medium_EnemyBundle";
+                public static string Hard => "H_Zone02_Heehoo_Hard_EnemyBundle";
+            }
+            public static class Thunderdome
+            {
+                public static string Med => "H_Zone02_Thunderdome_Medium_EnemyBundle";
+            }
         }
     }
 }

@@ -341,6 +341,12 @@ namespace SaltsEnemies_Reseasoned
                 public static string Med => "WailerMed";
                 public static string Hard => "WailerHard";
             }
+
+            //dui
+            public static class Draugr
+            {
+                public static string Easy => "H_Zone01_Draugr_Easy_EnemyBundle";
+            }
         }
     }
 }
