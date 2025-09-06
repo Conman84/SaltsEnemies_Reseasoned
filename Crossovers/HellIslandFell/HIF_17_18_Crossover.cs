@@ -6,6 +6,50 @@ namespace SaltsEnemies_Reseasoned
 {
     public static class HIF_17_18_Crossover
     {
+        public static void AddShore()
+        {
+            AddTo med = new AddTo(Shore.H.Ufo.Med);
+            med.AddRandomGroup("ToyUfo_EN", "Draugr_EN", Jumble.Yellow);
+            med.AddRandomGroup("ToyUfo_EN", "Draugr_EN", "Mungman_EN");
+
+            med = new AddTo(Shore.H.Sinker.Med);
+            med.AddRandomGroup("Sinker_EN", "Draugr_EN", "Pinano_EN");
+            med.AddRandomGroup("Sinker_EN", "Draugr_EN", "NobodyGrave_EN");
+        }
+        public static void AddOrph()
+        {
+            //moone, heehoo, thunderdome
+            AddTo med = new AddTo(Orph.H.Moone.Med);
+            med.AddRandomGroup("Moone_EN", "Moone_EN", Enemies.Shooter);
+
+            med = new AddTo(Orph.H.Evileye.Med);
+            med.AddRandomGroup("Evileye_EN", "Moone_EN", "Moone_EN");
+            med.AddRandomGroup("Evileye_EN", "Thunderdome_EN", "Enigma_EN", "Enigma_EN");
+
+            med = new AddTo(Orph.H.Shooter.Med);
+            med.AddRandomGroup(Enemies.Shooter, Enemies.Shooter, "Moone_EN");
+
+            AddTo easy = new AddTo(Orph.H.Shooter.Easy);
+            easy.AddRandomGroup(Enemies.Shooter, "Moone_EN", Jumble.Unstable);
+
+            med = new AddTo(Orph.H.YellowAngel.Med);
+            med.AddRandomGroup("YellowAngel_EN", "Moone_EN", "Moone_EN", Enemies.Suckle);
+            med.AddRandomGroup("YellowAngel_EN", "Thunderdome_EN", "Something_EN");
+
+            med = new AddTo(Orph.H.Thunderdome.Med);
+            med.AddRandomGroup("Thunderdome_EN", "Thunderdome_EN", Enemies.Shooter);
+
+            med = new AddTo(Orph.H.Heehoo.Med);
+            med.AddRandomGroup("Heehoo_EN", "Evileye_EN", Enemies.Suckle, Enemies.Suckle, Enemies.Suckle);
+            med.AddRandomGroup("Heehoo_EN", "YellowAngel_EN", "SingingStone_EN", "SingingStone_EN", "SingingStone_EN");
+            med.AddRandomGroup("Heehoo_EN", "Crystal_EN", "SingingStone_EN", "SingingStone_EN", "SingingStone_EN");
+            med.AddRandomGroup("Heehoo_EN", Enemies.Shooter, Enemies.Shooter);
+
+            AddTo hard = new AddTo(Orph.H.Heehoo.Hard);
+            hard.AddRandomGroup("Heehoo_EN", "Heehoo_EN", Enemies.Shooter);
+            hard.AddRandomGroup("Heehoo_EN", "Evileye_EN", Bots.Yellow);
+            hard.AddRandomGroup("Heehoo_EN", "YellowAngel_EN", "Scrungie_EN");
+        }
         public static void AddGarden()
         {
             AddTo med = new AddTo(Garden.H.Nosestone.Red.Med);
