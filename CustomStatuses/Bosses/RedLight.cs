@@ -17,7 +17,7 @@ namespace SaltsEnemies_Reseasoned
             SlotStatusEffectInfoSO RedInfo = ScriptableObject.CreateInstance<SlotStatusEffectInfoSO>();
             RedInfo.icon = ResourceLoader.LoadSprite("RedLight.png");
             RedInfo._fieldName = "Red Lights";
-            RedInfo._description = "Take half direct damage.\nOn being directly damaged, move Left or Right.";
+            RedInfo._description = "On being directly damaged, gain an equivalent amount of Shield.";
             RedInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo._applied_SE_Event;
             RedInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             RedInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
@@ -87,12 +87,12 @@ namespace SaltsEnemies_Reseasoned
 
         public override void OnTriggerAttached(FieldEffect_Holder holder, IUnit caller)
         {
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnBeingDamaged.ToString(), caller);
+            //CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnBeingDamaged.ToString(), caller);
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, TriggerCalls.OnDirectDamaged.ToString(), caller);
         }
         public override void OnTriggerDettached(FieldEffect_Holder holder, IUnit caller)
         {
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnBeingDamaged.ToString(), caller);
+            //CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnBeingDamaged.ToString(), caller);
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, TriggerCalls.OnDirectDamaged.ToString(), caller);
         }
         public override void OnEventCall_01(FieldEffect_Holder holder, object sender, object args)
@@ -105,11 +105,14 @@ namespace SaltsEnemies_Reseasoned
         }
         public override void OnEventCall_02(FieldEffect_Holder holder, object sender, object args)
         {
-            CombatManager.Instance.AddSubAction(new EffectAction([Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)], sender as IUnit));
+            if (args is IntegerReference reference)
+            {
+                CombatManager.Instance.AddSubAction(new EffectAction([Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), reference.value, Slots.Self)], sender as IUnit));
+            }
         }
         public void ProcessBeingDamagedSounds()
         {
-            string effectSound = (((StatusField.Spotlight as SpotlightSE_SO).EffectInfo != null) ? (StatusField.Spotlight as SpotlightSE_SO).EffectInfo.SpecialSoundEvent02 : "");
+            string effectSound = (((StatusField.Spotlight as SpotlightSE_SO).EffectInfo != null) ? (StatusField.Spotlight as SpotlightSE_SO).EffectInfo.SpecialSoundEvent01 : "");
             CombatManager.Instance.AddUIAction(new PlayStatusEffectSoundAndWaitUIAction(effectSound, (StatusField.Spotlight as SpotlightSE_SO)._PostSoundDelay));
         }
     }

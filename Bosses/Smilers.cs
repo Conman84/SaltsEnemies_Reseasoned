@@ -66,7 +66,7 @@ namespace SaltsEnemies_Reseasoned
             BasePassiveAbilitySO decay = Passives.DecayGenerator(LoadedAssetsHandler.GetEnemy("Smiler_Corpse_BOSS"));
             decay._enemyDescription = "On death, the Smiler is mortally wounded and dies.";
 
-            Rarity.CreateAndAddCustomRarityToPool("smiler_6", 6);
+            Rarity.CreateAndAddCustomRarityToPool("smiler_6", 10);
 
             AddBlood(abilities, decay);
             AddSkin(abilities, decay);

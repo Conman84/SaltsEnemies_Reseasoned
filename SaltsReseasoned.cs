@@ -257,7 +257,11 @@ namespace SaltsEnemies_Reseasoned
             //BOSSES
             if (DebugVer)
             {
+                //shore
                 PCall(Smilers.Add);
+
+                //orph
+                PCall(Tv.Add);
             }
 
             //CH1 Encounters
@@ -391,7 +395,11 @@ namespace SaltsEnemies_Reseasoned
             //BOSSES
             if (DebugVer)
             {
+                //shore
                 PCall(SmilerEncounter.Add);
+
+                //orph
+                PCall(TvEncounter.Add);
             }
 
             //moving the passives glossary here.
