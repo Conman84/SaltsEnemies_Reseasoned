@@ -456,6 +456,9 @@
 	  <None Remove="CustomPassives\Lightweight.png" />
 	  <None Remove="CustomPassives\Unmasking.png" />
 	  <None Remove="CustomStatuses\Anesthetics.png" />
+	  <None Remove="CustomStatuses\Bosses\BlueLight.png" />
+	  <None Remove="CustomStatuses\Bosses\GreenLight.png" />
+	  <None Remove="CustomStatuses\Bosses\RedLight.png" />
 	  <None Remove="CustomStatuses\Chapter04\Favor.png" />
 	  <None Remove="CustomStatuses\Chapter04\InspirationIcon.png" />
 	  <None Remove="CustomStatuses\Chapter06\MutedIcon.png" />
@@ -948,6 +951,9 @@
 	  <EmbeddedResource Include="CustomPassives\Chapter03\StarPassive.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter04\PickPocket.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter04\Revenge.png" />
+	  <EmbeddedResource Include="CustomStatuses\Bosses\BlueLight.png" />
+	  <EmbeddedResource Include="CustomStatuses\Bosses\GreenLight.png" />
+	  <EmbeddedResource Include="CustomStatuses\Bosses\RedLight.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter04\DivineSacrifice.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter01\Anesthetics.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter01\Determined.png" />

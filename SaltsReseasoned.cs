@@ -107,6 +107,12 @@ namespace SaltsEnemies_Reseasoned
             PCall(Slip.Add);
             PCall(Mold.Add);
             Pimples.Add();
+            if (DebugVer)
+            {
+                PCall(Green.Add);
+                PCall(Red.Add);
+                PCall(Blue.Add);
+            }
 
             //CH1 Enemies
             LostSheep.Add();

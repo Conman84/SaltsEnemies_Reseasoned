@@ -124,7 +124,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemySO clone = UnityEngine.Object.Instantiate(LoadedAssetsHandler.GetEnemy("War_EN"));
             clone.passiveAbilities = [silence, Passives.Unstable, Passives.Withering, abandon];
-            EnemyUtils.AddEnemyToHealthSpawnPool(clone, PoolList_GameIDs.Bronzo);
+            EnemyUtils.AddEnemyToSpawnPool(clone, PoolList_GameIDs.Bronzo);
         }
     }
 }
