@@ -45,7 +45,7 @@ namespace SaltsEnemies_Reseasoned
             })) };
             radical._triggerOn = [TriggerCalls.Count];
 
-            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, radical, Passives.Constricting });
+            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, radical, Passives.Constricting });
 
             Ability wreck = new Ability("Wreck", "Tv_Wreck_A");
             wreck.Description = "Inflict 4 Oil-Slicked and deal a Lethal amount of damage to the Opposing enemy.\nDeal a Painful amount of damage to this enemy.";
