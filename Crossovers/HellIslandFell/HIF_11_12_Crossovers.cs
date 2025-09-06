@@ -13,6 +13,7 @@ namespace SaltsEnemies_Reseasoned
 
             AddTo med = new AddTo(Shore.H.LittleBeak.Med);
             med.AddRandomGroup("LittleBeak_EN", "Draugr_EN", Jumble.Yellow);
+            med.AddRandomGroup("LittleBeak_EN", "Draugr_EN", "DeadPixel_EN", "DeadPixel_EN");
 
             hard = new AddTo(Shore.H.Warbird.Hard);
             hard.AddRandomGroup("Warbird_EN", "Draugr_EN", "Sinker_EN");
