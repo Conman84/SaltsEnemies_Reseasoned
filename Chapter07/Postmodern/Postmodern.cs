@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -81,6 +82,13 @@ namespace SaltsEnemies_Reseasoned
 
             //addpassives
             postmodern.AddPassives(new BasePassiveAbilitySO[] { passive, Passives.Infantile, pathetic, lockedIn });
+
+            StartDialogueConversationEffect itsover = ScriptableObject.CreateInstance<StartDialogueConversationEffect>();
+            itsover._dialogue = PostmodernHandler.AfterCombat;
+            postmodern.CombatExitEffects = new EffectInfo[]
+            {
+                Effects.GenerateEffect(itsover, 1, Slots.Self),
+            };
 
             //SPRAY BLOOD
             Ability spray = new Ability("Spray_Blood_A")

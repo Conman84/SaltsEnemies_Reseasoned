@@ -80,8 +80,20 @@ namespace SaltsEnemies_Reseasoned
             silence._triggerOn = CCTVHandler.Trigger.SelfArray();
             silence.effects = new EffectInfo[0];
 
+            //well presenved
+            PerformEffectPassiveAbility preserve = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            preserve._passiveName = "Well Preserved";
+            preserve.passiveIcon = ResourceLoader.LoadSprite("WellPreservedPassive.png");
+            preserve._enemyDescription = "This enemy is immune to indirect damage and damage from other enemies.";
+            preserve._characterDescription = "This party member is immune to indirect damage.";
+            preserve.m_PassiveID = PreservedHandler.Type;
+            preserve.doesPassiveTriggerInformationPanel = true;
+            preserve._triggerOn = new TriggerCalls[] { TriggerCalls.OnBeingDamaged };
+            preserve.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<WellPreservedCondition>() };
+            preserve.effects = new EffectInfo[0];
+
             //addpassives
-            template.AddPassives(new BasePassiveAbilitySO[] { silence, Passives.Unstable, Passives.Withering, decay, abandon });
+            template.AddPassives(new BasePassiveAbilitySO[] { silence, Passives.Unstable, Passives.Withering, decay, abandon, preserve });
 
             //Librarium
             Ability librarium = new Ability("Postmodern_Librarium_A")
