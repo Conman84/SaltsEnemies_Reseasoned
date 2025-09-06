@@ -63,5 +63,31 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup(Enemies.Skinning, "Stoplight_EN", Noses.Yellow);
             hard.AddRandomGroup(Enemies.Skinning, "Stoplight_EN", Noses.Red);
         }
+
+        public static void EverythingElse()
+        {
+            //SHORE!!s
+            AddTo easy = new AddTo(Shore.H.Draugr.Easy);
+            easy.AddRandomGroup("Draugr_EN", "Pinano_EN");
+
+            easy = new AddTo(Shore.H.Pinano.Easy);
+            easy.AddRandomGroup("Draugr_EN", "Pinano_EN", "Minana_EN");
+
+            AddTo med = new AddTo(Shore.H.Pinano.Med);
+            med.AddRandomGroup("Pinano_EN", "Pinano_EN", "Draugr_EN");
+
+            AddTo hard = new AddTo(Shore.H.Clione.Hard);
+            hard.AddRandomGroup("Clione_EN", "Draugr_EN", Jumble.Red, Jumble.Yellow);
+            hard.AddRandomGroup("Clione_EN", "Draugr_EN", "DeadPixel_EN", "DeadPixel_EN");
+
+            //orpheum
+            med = new AddTo(Orph.H.Maw.Med);
+            med.AddRandomGroup("Maw_EN", "Moone_EN", "Moone_EN");
+            med.AddRandomGroup("Maw_EN", "Moone_EN", Jumble.Purple);
+
+            hard = new AddTo(Orph.H.Maw.Hard);
+            hard.AddRandomGroup("Maw_EN", "Thunderdome_EN", "Thunderdome_EN");
+            hard.AddRandomGroup("Maw_EN", "Heehoo_EN", Flower.Yellow);
+        }
     }
 }
