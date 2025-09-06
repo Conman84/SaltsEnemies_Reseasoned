@@ -35,6 +35,7 @@ namespace SaltsEnemies_Reseasoned
 
         //change this to false when pushing public version
         public static bool DebugVer = true;
+        public static bool TestBosses = false;
 
         public void Awake()
         {
@@ -107,7 +108,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(Slip.Add);
             PCall(Mold.Add);
             Pimples.Add();
-            if (DebugVer)
+            if (TestBosses)
             {
                 PCall(Green.Add);
                 PCall(Red.Add);
@@ -255,7 +256,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(Trumpet.Add);
 
             //BOSSES
-            if (DebugVer)
+            if (TestBosses)
             {
                 //shore
                 PCall(Smilers.Add);
