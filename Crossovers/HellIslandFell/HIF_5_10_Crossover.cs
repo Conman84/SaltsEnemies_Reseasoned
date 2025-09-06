@@ -9,11 +9,43 @@ namespace SaltEnemies_Reseasoned
     {
         public static void FarShore()
         {
-
+            AddTo easy = new AddTo(Shore.H.Draugr.Easy);
+            easy.AddRandomGroup("Draugr_EN", "Skyloft_EN");
         }
         public static void Orpheum()
         {
+            //moone, heehoo, thunderdome
+            AddTo med = new AddTo(Orph.H.Moone.Med);
+            med.SimpleAddGroup(3, "Moone_EN", 1, Flower.Yellow);
+            med.SimpleAddGroup(3, "Moone_EN", 1, Flower.Purple);
+            med.SimpleAddGroup(3, "Moone_EN", 1, Enemies.Solvent);
+            med.AddRandomGroup("Moone_EN", "Moone_EN", "WindSong_EN", Spoggle.Yellow);
 
+            med = new AddTo(Orph.H.Flower.Yellow.Med);
+            med.AddRandomGroup(Flower.Yellow, Flower.Purple, "Moone_EN", "Moone_EN");
+            med = new AddTo(Orph.H.Flower.Purple.Med);
+            med.AddRandomGroup(Flower.Yellow, Flower.Purple, "Moone_EN", "Moone_EN");
+
+            med = new AddTo(Orph.H.WindSong.Med);
+            med.SimpleAddGroup(1, "WindSong_EN", 3, "Moone_EN");
+
+            med = new AddTo(Orph.H.Heehoo.Med);
+            med.AddRandomGroup("Heehoo_EN", "Delusion_EN", "Delusion_EN");
+            if (SaltsReseasoned.trolling < 50) med.SimpleAddGroup(1, "Heehoo_EN", 3, "Spectre_EN");
+
+            med = new AddTo(Orph.H.Thunderdome.Med);
+            med.AddRandomGroup("Thunderdome_EN", "MusicMan_EN", "MusicMan_EN", "Sigil_EN");
+            med.SimpleAddGroup(2, "Thunderdome_EN", 1, Enemies.Solvent);
+            if (SaltsReseasoned.trolling > 50) med.SimpleAddGroup(2, "Thunderdome_EN", 2, "Spectre_EN");
+
+            AddTo hard = new AddTo(Orph.H.Heehoo.Hard);
+            hard.AddRandomGroup("Heehoo_EN", "Heehoo_EN", Flower.Yellow);
+            hard.AddRandomGroup("Heehoo_EN", "Heehoo_EN", Flower.Purple);
+            hard.AddRandomGroup("Heehoo_EN", "Heehoo_EN", "WindSong_EN");
+
+            hard = new AddTo(Orph.H.Tortoise.Hard);
+            hard.AddRandomGroup("StalwartTortoise_EN", "Heehoo_EN");
+            hard.AddRandomGroup("StalwartTortoise_EN", "Moone_EN", "Moone_EN");
         }
         public static void TheGarden()
         {
