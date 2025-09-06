@@ -50,8 +50,7 @@ namespace SaltsEnemies_Reseasoned
             };
             child.PrepareEnemyPrefab("Assets/enem3/Spades_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Spades_Gibs.prefab").GetComponent<ParticleSystem>());
             child.enemy.enemyTemplate.m_Data.m_Renderer = child.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").GetComponent<SpriteRenderer>();
-            child.AddPassive(mf);
-            child.AddPassive(Passives.Withering);
+            child.AddPassives([mf, Passives.Withering, Passives.Dying]);
             child.CombatExitEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<SolitaireExitEffect>(), 1, Slots.Self).SelfArray();
 
             //decay
