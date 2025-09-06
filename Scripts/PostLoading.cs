@@ -193,6 +193,7 @@ namespace SaltEnemies_Reseasoned
 
             //psi's
             PCall(Psi_CH1_4_Crossover.Add);
+            PCall(Psi_CH_5_10_Hahaha.Add);
         }
     }
 }
