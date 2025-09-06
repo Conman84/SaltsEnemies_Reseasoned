@@ -320,6 +320,27 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "PipeMed";
             }
+
+            //psi
+            public static class Mungman
+            {
+                public static string Easy => "MungmanEasy";
+                public static string Med => "MungmanMed";
+            }
+            public static class Digger
+            {
+                public static string Med => "DiggerMed";
+            }
+            public static class Squirmer
+            {
+                public static string Easy => "SquirmerEasy";
+                public static string Med => "SquirmerMed";
+            }
+            public static class Wailer
+            {
+                public static string Med => "WailerMed";
+                public static string Hard => "WailerHard";
+            }
         }
     }
 }

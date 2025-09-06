@@ -281,6 +281,12 @@ namespace SaltsEnemies_Reseasoned
                     public static string Hard => "H_Zone03_UninspiredNosestone_Hard_EnemyBundle";
                 }
             }
+
+            //psi
+            public static class Beakart
+            {
+                public static string Med => "BeakartMed";
+            }
         }
     }
 }

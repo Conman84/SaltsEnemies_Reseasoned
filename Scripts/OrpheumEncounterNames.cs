@@ -323,6 +323,15 @@ namespace SaltsEnemies_Reseasoned
                 public static string Easy => "ClayChildEasy";
                 public static string Med => "ClayChildMedium";
             }
+            public static class Clergy
+            {
+                public static string Med => "ClergyMedium";
+                public static string Hard => "ClergyHard";
+            }
+            public static class Sonoduct
+            {
+                public static string Hard => "SonoHard";
+            }
 
             //glitch
             public static class Dancer
@@ -334,6 +343,13 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Easy => "FrostbiteEasy";
                 public static string Med => "FrostbiteMed";
+            }
+
+            //psi
+            public static class Suckler
+            {
+                public static string Easy => "SucklerEasy";
+                public static string Med => "SucklerMed";
             }
         }
     }
