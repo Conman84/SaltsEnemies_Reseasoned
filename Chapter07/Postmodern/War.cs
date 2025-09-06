@@ -28,7 +28,7 @@ namespace SaltsEnemies_Reseasoned
             decay._passiveName = "Decay";
             decay.passiveIcon = Passives.Example_Decay_MudLung.passiveIcon;
             decay. m_PassiveID = Passives.Example_Decay_MudLung.m_PassiveID;
-            decay._enemyDescription = "Upon dying, this enemy decays into itself.";
+            decay._enemyDescription = "Upon dying, this enemy decays into two of itself.";
             decay._characterDescription = "On dying, nothing happens. This effect won't work on party members. Be glad it doesnt break the game.";
             decay.doesPassiveTriggerInformationPanel = true;
             decay._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDeath };
@@ -42,7 +42,8 @@ namespace SaltsEnemies_Reseasoned
             DelayRespawnEffect spawn = ScriptableObject.CreateInstance<DelayRespawnEffect>();
             decay.effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(spawn, 1, Targeting.Slot_SelfSlot)
+                Effects.GenerateEffect(spawn, 1, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(spawn, 1, Targeting.Slot_SelfSlot),
             };
 
             //parental
@@ -93,7 +94,7 @@ namespace SaltsEnemies_Reseasoned
             preserve.effects = new EffectInfo[0];
 
             //addpassives
-            template.AddPassives(new BasePassiveAbilitySO[] { silence, Passives.Unstable, Passives.Withering, decay, abandon, preserve });
+            template.AddPassives(new BasePassiveAbilitySO[] { silence, Passives.Unstable, Passives.Enfeebled, Passives.Withering, decay, abandon });
 
             //Librarium
             Ability librarium = new Ability("Postmodern_Librarium_A")
