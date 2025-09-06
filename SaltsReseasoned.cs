@@ -254,6 +254,12 @@ namespace SaltsEnemies_Reseasoned
             PCall(Waltz.Add);
             PCall(Trumpet.Add);
 
+            //BOSSES
+            if (DebugVer)
+            {
+                PCall(Smilers.Add);
+            }
+
             //CH1 Encounters
             LostSheepEncounters.Add();
             EnigmaEncounters.Add();
@@ -381,6 +387,12 @@ namespace SaltsEnemies_Reseasoned
             PCall(DeadOrAliveEncounters.Add);
             PCall(WaltzEncounters.Add);
             PCall(VoiceTrumpetEncounters.Add);
+
+            //BOSSES
+            if (DebugVer)
+            {
+                PCall(SmilerEncounter.Add);
+            }
 
             //moving the passives glossary here.
 
