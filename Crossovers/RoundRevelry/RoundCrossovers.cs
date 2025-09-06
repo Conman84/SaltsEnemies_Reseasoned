@@ -120,5 +120,18 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Orph.H.YellowAngel.Med);
             med.AddRandomGroup("YellowAngel_EN", "Scrungie_EN", Enemies.Shuffler);
         }
+        public static void Shufflers_19_21()
+        {
+            AddTo med = new AddTo(Orph.H.Shuffler.Med);
+            med.AddRandomGroup(Enemies.Shuffler, Enemies.Shuffler, "Foxtrot_EN", "Foxtrot_EN");
+            med.AddRandomGroup(Enemies.Shuffler, "Solitaire_EN", "Solitaire_EN", "Solitaire_EN");
+            med.AddRandomGroup(Enemies.Shuffler, Enemies.Shuffler, "Solitaire_EN");
+
+            AddTo easy = new AddTo(Orph.H.Shuffler.Easy);
+            easy.SimpleAddGroup(1, Enemies.Shuffler, 3, "Foxtrot_EN");
+
+            med = new AddTo(Orph.H.Author.Med);
+            med.AddRandomGroup("Author_EN", "Author_EN", Enemies.Shuffler, "SingingStone_EN");
+        }
     }
 }
