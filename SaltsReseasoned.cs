@@ -394,7 +394,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(VoiceTrumpetEncounters.Add);
 
             //BOSSES
-            if (DebugVer)
+            if (TestBosses)
             {
                 //shore
                 PCall(SmilerEncounter.Add);
