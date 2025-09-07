@@ -61,7 +61,11 @@ namespace SaltsEnemies_Reseasoned
         {
             IDetour hook = new Hook(typeof(RunDataSO).GetMethod(nameof(RunDataSO.PopulateRoomInstance), ~BindingFlags.Default), typeof(Debugger).GetMethod(nameof(RunDataSO_PopulateRoomInstance), ~BindingFlags.Default));
             IDetour hook2 = new Hook(typeof(ZoneBGDataBaseSO).GetMethod(nameof(ZoneBGDataBaseSO.TryGenerateNewCard), ~BindingFlags.Default), typeof(Debugger).GetMethod(nameof(ZoneBGDataBaseSO_TryGenerateNewCard), ~BindingFlags.Default));
-            if (SaltsReseasoned.DebugVer) Debug.Log(b.Name);
+            if (SaltsReseasoned.DebugVer)
+            {
+                Debug.LogWarning("this will throw an error. this doesnt mean anything is broken im intentionally throwing an error to make sure the method that protects against errors is working.");
+                Debug.Log(b.Name);
+            }
         }
     }
 }
