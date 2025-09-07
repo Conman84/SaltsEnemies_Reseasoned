@@ -546,7 +546,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 try
                 {
-                    Debug.LogError(call.GetMethodInfo().Name + " FUCKING FAILED TO GET ADDED");
+                    Debug.LogError(call.GetMethodInfo().ReflectedType + " " + call.GetMethodInfo().Name + " FUCKING FAILED TO GET ADDED");
                 }
                 catch
                 {
