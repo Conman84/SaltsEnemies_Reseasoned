@@ -56,10 +56,12 @@ namespace SaltsEnemies_Reseasoned
                 Debug.Log(ex.ToString());
             }
         }
+        static EnemyCombat b;
         public static void Setup()
         {
             IDetour hook = new Hook(typeof(RunDataSO).GetMethod(nameof(RunDataSO.PopulateRoomInstance), ~BindingFlags.Default), typeof(Debugger).GetMethod(nameof(RunDataSO_PopulateRoomInstance), ~BindingFlags.Default));
             IDetour hook2 = new Hook(typeof(ZoneBGDataBaseSO).GetMethod(nameof(ZoneBGDataBaseSO.TryGenerateNewCard), ~BindingFlags.Default), typeof(Debugger).GetMethod(nameof(ZoneBGDataBaseSO_TryGenerateNewCard), ~BindingFlags.Default));
+            if (SaltsReseasoned.DebugVer) Debug.Log(b.Name);
         }
     }
 }
