@@ -60,6 +60,7 @@ namespace SaltEnemies_Reseasoned
 //Hunter
 //Warbird
 //Blackstar
+//Maw
 //Clione
 //Stoplight
 //Pinano
