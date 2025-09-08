@@ -54,6 +54,8 @@ namespace SaltEnemies_Reseasoned
 //Postmodern
 //Clock Tower
 //Wind Song
+//Solvent
+//Sigil
 //Mini-Reaper
 //Shua
 //Skyloft

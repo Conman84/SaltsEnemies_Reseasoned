@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -75,7 +76,7 @@ namespace SaltsEnemies_Reseasoned
             }, null);
 
             mainEncounters.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Solvent_Easy_EnemyBundle", 4, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_Solvent_Easy_EnemyBundle", 4 * April.Mod, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Easy);
 
             //Secondary
             AddTo bundle1 = new AddTo("H_Zone02_MusicMan_Easy_EnemyBundle");

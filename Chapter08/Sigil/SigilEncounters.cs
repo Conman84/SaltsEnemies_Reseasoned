@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -61,7 +62,7 @@ namespace SaltsEnemies_Reseasoned
             }, null);
 
             mainEncounters.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("Zone02_Sigil_Medium_EnemyBundle", 12, ZoneType_GameIDs.Orpheum_Easy, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("Zone02_Sigil_Medium_EnemyBundle", 12 * April.Mod, ZoneType_GameIDs.Orpheum_Easy, BundleDifficulty.Medium);
 
             //H
             EnemyEncounter_API mainEncounters2 = new EnemyEncounter_API(0, "H_Zone02_Sigil_Medium_EnemyBundle", "Salt_SigilEncounter_Sign");
