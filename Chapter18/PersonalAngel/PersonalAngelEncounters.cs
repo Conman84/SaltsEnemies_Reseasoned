@@ -16,7 +16,7 @@ namespace SaltsEnemies_Reseasoned
             med.MusicEvent = "event:/Hawthorne/PersonalAngelSong";
             med.RoarEvent = "event:/Hawthorne/Noisy/PA_Roar";
 
-            med.AddRandomEncounter("PersonalAngel_EN", "LittleAngel_EN", "LittleAngel_EN");
+            med.AddRandomEncounter("PersonalAngel_EN", "LittleAngel_EN", "Grandfather_EN");
             med.SimpleAddEncounter(1, "PersonalAngel_EN", 3, "InHisImage_EN");
             med.SimpleAddEncounter(1, "PersonalAngel_EN", 3, Enemies.Shivering);
             med.AddRandomEncounter("PersonalAngel_EN", "ChoirBoy_EN", "Shua_EN");
