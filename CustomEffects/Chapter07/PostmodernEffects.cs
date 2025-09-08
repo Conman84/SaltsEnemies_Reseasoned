@@ -553,7 +553,7 @@ namespace SaltEnemies_Reseasoned
 
         public static bool DidCompleteQuest(Func<InGameDataSO, string, bool> orig, InGameDataSO self, string questName)
         {
-            if (questName == Quest)
+            if (questName == Quest && !April.Birthday)
             {
                 return (UnityEngine.Random.Range(0, 100) < 75);
             }
