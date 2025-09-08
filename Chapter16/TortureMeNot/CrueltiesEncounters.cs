@@ -19,7 +19,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomEncounter("Cruelties1_EN", "Cruelties2_EN", "Cruelties3_EN", "Cruelties4_EN", "Cruelties5_EN");
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.TortureMeNot.Hard, 1, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.TortureMeNot.Hard, 1 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
         }
         public static void Post()
         {
