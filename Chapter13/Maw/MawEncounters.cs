@@ -73,7 +73,7 @@ namespace SaltsEnemies_Reseasoned
             hard.SimpleAddEncounter(1, "Maw_EN", 3, "ManicMan_EN");
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Maw.Hard, 15, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Maw.Hard, 15 * April.Mod, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Hard);
         }
         public static void Post()
         {
