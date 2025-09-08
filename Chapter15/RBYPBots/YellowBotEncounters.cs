@@ -54,7 +54,7 @@ namespace SaltEnemies_Reseasoned
             med.AddRandomEncounter(Bots.Yellow, Bots.Blue, Bots.Purple);
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Bot.Yellow.Med, 5, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Bot.Yellow.Med, 5 * April.Mod, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
         }
         public static void Post()
         {

@@ -63,6 +63,7 @@ namespace SaltEnemies_Reseasoned
 //Clione
 //Stoplight
 //Pinano
+//Projector
 //Grey Bot
 //Crystal
 //Dragon
@@ -70,6 +71,7 @@ namespace SaltEnemies_Reseasoned
 //Evileye
 //Grave
 //Yellow Angel
+//Chien
 //Shooter
 //Pawn
 //Starless
