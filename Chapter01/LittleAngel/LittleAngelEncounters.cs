@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -31,7 +32,7 @@ namespace SaltsEnemies_Reseasoned
                 "ShiveringHomunculus_EN",
             }, null);
             mainEncounters.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone03_LittleAngel_Easy_EnemyBundle", 3, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone03_LittleAngel_Easy_EnemyBundle", 3 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
 
             //Secondary
             List<RandomEnemyGroup> list1 = new List<RandomEnemyGroup>(((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone03_InHerImage_Easy_EnemyBundle"))._enemyBundles);

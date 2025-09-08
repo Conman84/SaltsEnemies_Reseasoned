@@ -40,3 +40,43 @@ namespace SaltEnemies_Reseasoned
         }
     }
 }
+
+/*---------------------CURRENT  BIRTHDAY  POOL--------------------------*/
+//Lost Sheep
+//Enigma
+//Dead Pixel
+//Little Angel
+//Unmung
+//Stargazer
+//Crow
+//Freud
+//Camera
+//Postmodern
+//Clock Tower
+//Wind Song
+//Mini-Reaper
+//Shua
+//Skyloft
+//Hunter
+//Warbird
+//Blackstar
+//Clione
+//Stoplight
+//Pinano
+//Grey Bot
+//Crystal
+//Dragon
+//Cruelties
+//Evileye
+//Grave
+//Yellow Angel
+//Shooter
+//Pawn
+//Starless
+//Wednesday
+//Yang
+//Yin
+//Solitaire
+//Author
+//Clown
+//Amalga
