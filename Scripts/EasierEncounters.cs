@@ -55,7 +55,7 @@ namespace SaltsEnemies_Reseasoned
         {
             if (!MultiENExistInternal(enemies))
             {
-                if (SaltsReseasoned.DebugVer) Debug.LogWarning("Failed to add random group to " + bundle);
+                //if (SaltsReseasoned.DebugVer) Debug.LogWarning("Failed to add random group to " + bundle);
                 return;
             }
             AddRandomGroup_Internal(new RandomEnemyGroup(enemies));
