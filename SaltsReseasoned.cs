@@ -501,7 +501,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("RewritePassive.png"), "Rewrite", "On receiving direct damage, randomize the health colors of all party members and enemies.");
 
             //CH17
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("KarmaPassive.png"), "Karma", "If this unit has a certain amount of health or less, it will perforn an extra ability each turn.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("KarmaPassive.png"), "Karma", "If this unit has a certain amount of health or less, it will perform an extra ability each turn.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("JitteryPassive.png"), "Jittery", "On any opponent manually moving, move to the Left or Right.");
             AddPassivesToGlossary.AddPassive(FlutteryCondition.Icon, "Fluttery", "On moving, move again in the same direction.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CyclicalPassive.png"), "Cyclical", "This unit performs all of its abilities in numeric order.");
