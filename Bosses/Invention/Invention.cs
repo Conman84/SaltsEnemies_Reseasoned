@@ -62,6 +62,7 @@ namespace SaltsEnemies_Reseasoned
             systemic.conditions = [SystemicCondition.Create(3, "Repeater_PA")];
             systemic.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<RepeaterEffect>())];
             systemic.specialStoredData = UnitStoreData.CreateAndAdd_IntTooltip_UnitStoreDataToPool("Repeater_PA", "Repeater: {0}", Color.magenta, false);
+            systemic._triggerOn = [TriggerCalls.OnDirectDamaged];
 
             Ability repeat = new Ability("Repeater", "Repeater_A");
             repeat.Description = "Deal a Painful amount of damage to a random party member or enemy.";
