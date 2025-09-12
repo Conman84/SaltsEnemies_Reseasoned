@@ -51,14 +51,14 @@ namespace SaltsEnemies_Reseasoned
             random.mana = [Pigments.Blue, Pigments.Yellow, Pigments.Purple, Pigments.Grey];
 
             Ability meet = new Ability("Meet Me Again", "Skies_Meet_A");
-            meet.Description = "I will change the Opposing party member's health color to Red.\nI will then deal a Little damage to them twice and generate 2 Pigment of their health color, then I will move them Left or Right.";
+            meet.Description = "I will change the Opposing party member's health color to Red.\nI will then deal a Almost No damage to them twice and generate 2 Pigment of their health color, then I will move them Left or Right.";
             meet.Rarity = Rarity.GetCustomRarity("rarity5");
             meet.Effects = new EffectInfo[4];
             meet.Effects[0] = Effects.GenerateEffect(turnRed, 1, Slots.Front);
-            meet.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, doubleFront);
+            meet.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 1, doubleFront);
             meet.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateTargetHealthManaEffect>(), 2, Slots.Front);
             meet.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
-            meet.AddIntentsToTarget(Slots.Front, ["Mana_Modify", "Damage_1_2", "Mana_Generate"]);
+            meet.AddIntentsToTarget(Slots.Front, ["Mana_Modify", "Damage_1_2", "Damage_1_2", "Mana_Generate"]);
             meet.AddIntentsToTarget(Slots.Self, ["Swap_Sides"]);
             meet.Visuals = LoadedAssetsHandler.GetCharacterAbility("Conversion_1_A").visuals;
             meet.AnimationTarget = Slots.Front;
@@ -70,7 +70,7 @@ namespace SaltsEnemies_Reseasoned
             seek.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
             seek.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Gaze", false, Slots.Front));
             seek.Effects[2] = Effects.GenerateEffect(isRed, 1, Slots.Front);
-            seek.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Front, BasicEffects.DidThat(true));
+            seek.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Front, BasicEffects.DidThat(true));
             seek.Effects[4] = Effects.GenerateEffect(turnRed, 1, Slots.Front, BasicEffects.DidThat(false, 2));
             seek.Effects[5] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 3, Slots.Front, BasicEffects.DidThat(false, 3));
             seek.AddIntentsToTarget(Slots.Self, ["Swap_Sides"]);
@@ -81,7 +81,7 @@ namespace SaltsEnemies_Reseasoned
             dont.Rarity = Rarity.GetCustomRarity("rarity5");
             dont.Effects = new EffectInfo[4];
             dont.Effects[0] = Effects.GenerateEffect(isRed, 1, Slots.Front);
-            dont.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front, BasicEffects.DidThat(false));
+            dont.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front, BasicEffects.DidThat(false));
             dont.Effects[2] = Effects.GenerateEffect(random, 1, Slots.Front, BasicEffects.DidThat(true, 2));
             dont.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 2, Slots.Self, BasicEffects.DidThat(true, 3));
             dont.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_7_10", "Mana_Modify", Power.Intent]);
@@ -100,12 +100,13 @@ namespace SaltsEnemies_Reseasoned
             please.AddIntentsToTarget(Slots.Front, ["Field_Constricted", Power.Intent]);
 
             Ability line = new Ability("Say My Line", "Skies_Line_A");
-            line.Description = "If the Opposing party member's health color is Red, they instantly die.";
+            line.Description = "If the Opposing party member's health color is Red, they instantly die.\nOtherwise, gain 2 Power.";
             line.Rarity = Rarity.CreateAndAddCustomRarityToPool("skies_7", 7);
-            line.Effects = new EffectInfo[2];
+            line.Effects = new EffectInfo[3];
             line.Effects[0] = Effects.GenerateEffect(isRed, 1, Slots.Front);
             line.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Slots.Front, BasicEffects.DidThat(true));
-            line.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_Death"]);
+            line.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 2, Slots.Self, BasicEffects.DidThat(false, 2));
+            line.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_Death", Power.Intent]);
             line.Visuals = CustomVisuals.GetVisuals("Salt/Lens");
             line.AnimationTarget = Slots.Front;
 
