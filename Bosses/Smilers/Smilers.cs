@@ -21,13 +21,13 @@ namespace SaltsEnemies_Reseasoned
             {
                 Health = 16,
                 HealthColor = Pigments.Purple,
-                CombatSprite = ResourceLoader.LoadSprite("ReplaceIcon.png"),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("ReplaceWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("ReplaceDead.png", new Vector2(0.5f, 0f), 32),
+                CombatSprite = ResourceLoader.LoadSprite("SmilersWorld.png"),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("SmilersWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("SmilersWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
             };
-            //template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
+            //template.PrepareEnemyPrefab("assets/group4/Smilers/Smilers_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Smilers/Smilers_Gibs.prefab").GetComponent<ParticleSystem>());
             template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("TaintedYolk_EN").enemyTemplate;
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Dying, Passives.Withering });
@@ -44,13 +44,13 @@ namespace SaltsEnemies_Reseasoned
             {
                 Health = 16,
                 HealthColor = Pigments.Purple,
-                CombatSprite = ResourceLoader.LoadSprite("ReplaceIcon.png"),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("ReplaceWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("ReplaceDead.png", new Vector2(0.5f, 0f), 32),
+                CombatSprite = ResourceLoader.LoadSprite("SmilersWorld.png"),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("SmilersWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("SmilersWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
             };
-            // template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
+            // template.PrepareEnemyPrefab("assets/group4/Smilers/Smilers_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Smilers/Smilers_Gibs.prefab").GetComponent<ParticleSystem>());
             template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("BronzoExtra_EN").enemyTemplate;
 
             BasePassiveAbilitySO decay = Passives.DecayGenerator(LoadedAssetsHandler.GetEnemy("Smiler_Corpse_BOSS"));

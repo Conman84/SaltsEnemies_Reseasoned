@@ -10,6 +10,8 @@
 	  <None Remove="assets\group4" />
 	  <None Remove="assets\hawthorne" />
 	  <None Remove="assets\meowy" />
+	  <None Remove="Bosses\Smilers\SmilersWorld.png" />
+	  <None Remove="Bosses\Tv\TvWorld.png" />
 	  <None Remove="Chapter07\Postmodern\Passive_Silence.png" />
 	  <None Remove="Chapter08\RealisticTank\BacklashPassive.png" />
 	  <None Remove="Chapter08\Sigil\SigilP_Green.png" />
@@ -497,6 +499,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="Bosses\Smilers\SmilersWorld.png" />
+	  <EmbeddedResource Include="Bosses\Tv\TvWorld.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\ScramblePassive.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaDead.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaIcon.png" />

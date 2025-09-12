@@ -10,7 +10,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Portals.AddPortalSign("Salt_SmilersEncounter_Sign", ResourceLoader.LoadSprite("TemplateWorld.png"), Portals.BossIDColor);
+            Portals.AddPortalSign("Salt_SmilersEncounter_Sign", ResourceLoader.LoadSprite("SmilersWorld.png"), Portals.BossIDColor);
 
             EnemyEncounter_API boss = new EnemyEncounter_API(EncounterType.Random, "BOSS_Zone01_Smilers_EnemyBundle", "Salt_SmilersEncounter_Sign");
             boss.MusicEvent = "event:/Blackwater/SmilerTheme";
