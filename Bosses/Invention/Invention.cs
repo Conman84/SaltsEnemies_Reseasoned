@@ -14,7 +14,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy template = new Enemy("Invention (ITS SIZE FIVE EVEN IF IT DOESNT LOOK IT)", "Invention_BOSS")
             {
-                Health = 150,
+                Health = 180,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("InventionWorld.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("InventionWorld.png", new Vector2(0.5f, 0f), 32),
@@ -44,7 +44,7 @@ namespace SaltsEnemies_Reseasoned
             Ability bonus = new Ability("Maintenance_A");
             bonus.Name = "Maintenance";
             bonus.Description = "Inflict 1 Scar on the Central party member.\nIf there is no Central party member, inflict 1 Scar on all party members.";
-            bonus.Rarity = Rarity.GetCustomRarity("rarity5");
+            bonus.Rarity = Rarity.CreateAndAddCustomRarityToPool("invention3", 3);
             bonus.Effects = new EffectInfo[2];
             bonus.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.GenerateGenericTarget([2]));
             bonus.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Unit_AllOpponents, HasCentralPartyMemberCondition.Create(false));
@@ -78,7 +78,7 @@ namespace SaltsEnemies_Reseasoned
             Ability encroach = new Ability("Encroach", "Encroach_A")
             {
                 Description = "Inflict 1 Ruptured on every party member who moved since the start of the last turn.",
-                Rarity = Rarity.GetCustomRarity("rarity5"),
+                Rarity = Rarity.GetCustomRarity("invention3"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Targetting_By_Moved.Create(false)),
@@ -89,8 +89,8 @@ namespace SaltsEnemies_Reseasoned
             encroach.AddIntentsToTarget(Targetting.Everything(false), [IntentType_GameIDs.Misc_Hidden.ToString()]);
             encroach.AddIntentsToTarget(Targetting_By_Moved.Create(false), [IntentType_GameIDs.Status_Ruptured.ToString()]);
 
-            CustomChangeToRandomHealthColorEffect randomize = ScriptableObject.CreateInstance<CustomChangeToRandomHealthColorEffect>();
-            randomize._healthColors = new ManaColorSO[4]
+            GenerateRandomManaBetweenEffect randomize = ScriptableObject.CreateInstance<GenerateRandomManaBetweenEffect>();
+            randomize.possibleMana = new ManaColorSO[4]
             {
                 Pigments.Red,
                 Pigments.Blue,
@@ -99,11 +99,11 @@ namespace SaltsEnemies_Reseasoned
             };
 
             Ability series = new Ability("Series", "Series_A");
-            series.Description = "Fill the pigment bar with random pigment colors.";
-            series.Rarity = Rarity.GetCustomRarity("rarity5");
+            series.Description = "Produce 5 random Pigment.";
+            series.Rarity = Rarity.GetCustomRarity("invention3");
             series.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateFullBarManaEffect>(), 1, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(randomize, 5, Targeting.Slot_SelfSlot),
             };
             series.Visuals = CustomVisuals.GetVisuals("Salt/Cube");
             series.AnimationTarget = TargettingSelf_NotSlot.Create();
