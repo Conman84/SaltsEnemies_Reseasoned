@@ -88,14 +88,15 @@ namespace SaltsEnemies_Reseasoned
             dont.AnimationTarget = Slots.Front;
 
             Ability please = new Ability("Please.", "Skies_Please_A");
-            please.Description = "I will move in front of the closest Opposing party member and change their health color to Red.";
+            please.Description = "I will move in front of the closest Opposing party member and change their health color to Red.\nI will inflict 2 Constricted on the Opposing position.";
             please.Rarity = Rarity.CreateAndAddCustomRarityToPool("skies_3", 3);
-            please.Effects = new EffectInfo[3];
+            please.Effects = new EffectInfo[4];
             please.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToClosestTargetEffect>(), 1, Targeting.GenerateSlotTarget(new int[9] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, false));
             please.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Weep_A", false, Slots.Front));
             please.Effects[2] = Effects.GenerateEffect(turnRed, 1, Slots.Front);
+            please.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 2, Slots.Front);
             please.AddIntentsToTarget(Slots.Self, ["Swap_Mass"]);
-            please.AddIntentsToTarget(Slots.Front, ["Field_Constricted"]);
+            please.AddIntentsToTarget(Slots.Front, ["Mana_Modify", "Field_Constricted"]);
 
             Ability line = new Ability("Say My Line", "Skies_Line_A");
             line.Description = "If the Opposing party member's health color is Red, they instantly die.";
