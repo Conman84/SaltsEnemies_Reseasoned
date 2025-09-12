@@ -93,7 +93,7 @@ namespace SaltsEnemies_Reseasoned
                 second.GenerateEnemyAbility(true),
                 third.GenerateEnemyAbility(true)
             });
-            template.AddEnemy(true, true);
+            template.AddEnemy(true);
         }
     }
 }

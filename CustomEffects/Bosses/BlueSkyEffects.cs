@@ -186,4 +186,50 @@ namespace SaltsEnemies_Reseasoned
             else yield return orig(self, stats);
         }
     }
+
+    public class ChangeTargetHealthColorEffect : EffectSO
+    {
+        public ManaColorSO mana;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit)
+                {
+                    if (target.Unit.ChangeHealthColor(mana)) exitAmount++;
+                }
+            }
+            return exitAmount > 0;
+        }
+    }
+    public class TargetIsHealthColorEffect : EffectSO
+    {
+        public ManaColorSO mana;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit && target.Unit.HealthColor.SharesPigmentColor(mana)) exitAmount++;
+            }
+            return exitAmount > 0;
+        }
+    }
+    public class RandomizeTargetHealthColorEffect : EffectSO
+    {
+        public ManaColorSO[] mana;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit)
+                {
+                    if (target.Unit.ChangeHealthColor(mana.GetRandom())) exitAmount++;
+                }
+            }
+            return exitAmount > 0;
+        }
+    }
 }

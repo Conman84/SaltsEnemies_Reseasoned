@@ -263,6 +263,9 @@ namespace SaltsEnemies_Reseasoned
 
                 //orph
                 PCall(Tv.Add);
+
+                //garden
+                PCall(BlueSky.Add);
             }
 
             //CH1 Encounters
@@ -401,6 +404,9 @@ namespace SaltsEnemies_Reseasoned
 
                 //orph
                 PCall(TvEncounter.Add);
+
+                //garden
+                PCall(BlueSkyEncounters.Add);
             }
 
             //moving the passives glossary here.
