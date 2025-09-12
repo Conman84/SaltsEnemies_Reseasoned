@@ -72,7 +72,7 @@ namespace SaltsEnemies_Reseasoned
             second.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Slots.LeftRight)];
             second.AddIntentsToTarget(Slots.LeftRight, ["Status_Ruptured"]);
             second.Visuals = LoadedAssetsHandler.GetEnemyAbility("Boil_A").visuals;
-            second.AnimationTarget = Slots.Front;
+            second.AnimationTarget = Slots.LeftRight;
 
             Ability third = new Ability("Smiler C", "Smiler_Ability3_A");
             third.Description = "If the Opposing party member is Ruptured, deal an Agonizing amount of damage to them.";
