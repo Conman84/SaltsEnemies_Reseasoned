@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy template = new Enemy("Blue Skies", "BlueSky_BOSS")
             {
-                Health = 200,
+                Health = 160,
                 HealthColor = Pigments.Blue,
                 CombatSprite = ResourceLoader.LoadSprite("MikuWorld.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("MikuWorld.png", new Vector2(0.5f, 0f), 32),
@@ -51,14 +51,15 @@ namespace SaltsEnemies_Reseasoned
             random.mana = [Pigments.Blue, Pigments.Yellow, Pigments.Purple, Pigments.Grey];
 
             Ability meet = new Ability("Meet Me Again", "Skies_Meet_A");
-            meet.Description = "I will change the Opposing party member's health color to Red.\nI will then deal a Little damage to them twice and generate 2 Pigment of their health color, then move them Left or Right.";
+            meet.Description = "I will change the Opposing party member's health color to Red.\nI will then deal a Little damage to them twice and generate 2 Pigment of their health color, then I will move them Left or Right.";
             meet.Rarity = Rarity.GetCustomRarity("rarity5");
             meet.Effects = new EffectInfo[4];
             meet.Effects[0] = Effects.GenerateEffect(turnRed, 1, Slots.Front);
             meet.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, doubleFront);
             meet.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateTargetHealthManaEffect>(), 2, Slots.Front);
-            meet.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Front);
-            meet.AddIntentsToTarget(Slots.Front, ["Mana_Modify", "Damage_1_2", "Mana_Generate", "Swap_Sides"]);
+            meet.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
+            meet.AddIntentsToTarget(Slots.Front, ["Mana_Modify", "Damage_1_2", "Mana_Generate"]);
+            meet.AddIntentsToTarget(Slots.Self, ["Swap_Sides"]);
             meet.Visuals = LoadedAssetsHandler.GetCharacterAbility("Conversion_1_A").visuals;
             meet.AnimationTarget = Slots.Front;
 
@@ -87,12 +88,12 @@ namespace SaltsEnemies_Reseasoned
             dont.AnimationTarget = Slots.Front;
 
             Ability please = new Ability("Please.", "Skies_Please_A");
-            please.Description = "I will move in front of the Opposing party member and inflict 2 Constricted on them.";
+            please.Description = "I will move in front of the closest Opposing party member and change their health color to Red.";
             please.Rarity = Rarity.CreateAndAddCustomRarityToPool("skies_3", 3);
             please.Effects = new EffectInfo[3];
             please.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToClosestTargetEffect>(), 1, Targeting.GenerateSlotTarget(new int[9] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, false));
             please.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Weep_A", false, Slots.Front));
-            please.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 2, Slots.Front);
+            please.Effects[2] = Effects.GenerateEffect(turnRed, 1, Slots.Front);
             please.AddIntentsToTarget(Slots.Self, ["Swap_Mass"]);
             please.AddIntentsToTarget(Slots.Front, ["Field_Constricted"]);
 
@@ -106,7 +107,7 @@ namespace SaltsEnemies_Reseasoned
             line.Visuals = CustomVisuals.GetVisuals("Salt/Lens");
             line.AnimationTarget = Slots.Front;
 
-            //ADD ENEMY
+
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 meet.GenerateEnemyAbility(true),
@@ -115,6 +116,36 @@ namespace SaltsEnemies_Reseasoned
                 please.GenerateEnemyAbility(true),
                 line.GenerateEnemyAbility(true)
             });
+
+            //sub decay
+            Enemy second = new Enemy("Red Skies", "RedSky_BOSS")
+            {
+                Health = 40,
+                HealthColor = Pigments.Red,
+                CombatSprite = ResourceLoader.LoadSprite("MikuWorld.png"),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("MikuWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("MikuWorld.png", new Vector2(0.5f, 0f), 32),
+                DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
+                DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
+            };
+            second.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("WindSong_EN").enemyTemplate;
+
+            second.CombatEnterEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("RedSky"), 1)];
+
+            second.AddPassives(new BasePassiveAbilitySO[] { acting, Passives.MultiAttack4, Passives.EssenceBlue });
+            second.AddEnemyAbilities(new EnemyAbilityInfo[]
+            {
+                meet.GenerateEnemyAbility(),
+                seek.GenerateEnemyAbility(),
+                dont.GenerateEnemyAbility(),
+                please.GenerateEnemyAbility(),
+                line.GenerateEnemyAbility()
+            });
+            second.AddEnemy(true);
+
+            template.AddPassive(Passives.DecayGenerator(LoadedAssetsHandler.GetEnemy("RedSky_BOSS")));
+
+            //ADD ENEMY
             template.AddEnemy(true);
         }
     }
