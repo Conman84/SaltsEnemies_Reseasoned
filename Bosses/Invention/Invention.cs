@@ -43,14 +43,14 @@ namespace SaltsEnemies_Reseasoned
             maintain._triggerOn = baseExtra._triggerOn;
             Ability bonus = new Ability("Maintenance_A");
             bonus.Name = "Maintenance";
-            bonus.Description = "Inflict 1 Scar on the Opposing party member.\nIf there is no Opposing party member, inflict 1 Scar on all party members.";
+            bonus.Description = "Inflict 1 Scar on the Central party member.\nIf there is no Central party member, inflict 1 Scar on all party members.";
             bonus.Rarity = Rarity.GetCustomRarity("rarity5");
             bonus.Effects = new EffectInfo[2];
             bonus.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Slots.Front);
-            bonus.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Unit_AllOpponents, IsFrontTargetCondition.Create(false));
+            bonus.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Unit_AllOpponents, HasCentralPartyMemberCondition.Create(false));
             bonus.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Status_Scars"]);
             bonus.Visuals = CustomVisuals.GetVisuals("Salt/Crush");
-            bonus.AnimationTarget = Slots.Front;
+            bonus.AnimationTarget = Targeting.GenerateGenericTarget([2]);
             AbilitySO ability = bonus.GenerateEnemyAbility(false).ability;
             maintain._extraAbility.ability = ability;
 
@@ -106,7 +106,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateFullBarManaEffect>(), 1, Targeting.Slot_SelfSlot),
             };
             series.Visuals = CustomVisuals.GetVisuals("Salt/Cube");
-            series.AnimationTarget = Targeting.Slot_SelfSlot;
+            series.AnimationTarget = TargettingSelf_NotSlot.Create();
             series.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
                 "Mana_Generate",

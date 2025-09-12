@@ -1,4 +1,5 @@
-﻿using SaltEnemies_Reseasoned;
+﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -59,6 +60,26 @@ namespace SaltsEnemies_Reseasoned
             ret.m_unitStoredDataID = value;
             ret._increase = increase;
             ret._minimumValue = min;
+            return ret;
+        }
+    }
+    public class HasCentralPartyMemberCondition : EffectConditionSO
+    {
+        public bool returnTrue = false;
+
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            TargetSlotInfo[] check = Targeting.GenerateGenericTarget([2]).GetTargets(CombatManager.Instance._stats.combatSlots, caster.SlotID, caster.IsUnitCharacter);
+            foreach (TargetSlotInfo target in check)
+            {
+                if (target.HasUnit) return returnTrue;
+            }
+            return !returnTrue;
+        }
+        public static HasCentralPartyMemberCondition Create(bool should)
+        {
+            HasCentralPartyMemberCondition ret = ScriptableObject.CreateInstance<HasCentralPartyMemberCondition>();
+            ret.returnTrue = should;
             return ret;
         }
     }
