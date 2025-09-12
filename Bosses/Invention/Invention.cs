@@ -46,7 +46,7 @@ namespace SaltsEnemies_Reseasoned
             bonus.Description = "Inflict 1 Scar on the Central party member.\nIf there is no Central party member, inflict 1 Scar on all party members.";
             bonus.Rarity = Rarity.GetCustomRarity("rarity5");
             bonus.Effects = new EffectInfo[2];
-            bonus.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Slots.Front);
+            bonus.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.GenerateGenericTarget([2]));
             bonus.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Unit_AllOpponents, HasCentralPartyMemberCondition.Create(false));
             bonus.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Status_Scars"]);
             bonus.Visuals = CustomVisuals.GetVisuals("Salt/Crush");
