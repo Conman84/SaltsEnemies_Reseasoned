@@ -12,7 +12,7 @@ namespace SaltsEnemies_Reseasoned
             Portals.AddPortalSign("Salt_BlueSkyEncounter_Sign", ResourceLoader.LoadSprite("MikuWorld.png"), Portals.BossIDColor);
 
             EnemyEncounter_API boss = new EnemyEncounter_API(EncounterType.Specific, "BOSS_Zone03_BlueSky_EnemyBundle", "Salt_BlueSkyEncounter_Sign");
-            boss.MusicEvent = "event:/Blackwater/TVSong";
+            boss.MusicEvent = "event:/Blackwater/BlueSkySong";
             boss.RoarEvent = LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN").deathSound;
             boss.BossID = "BlueSky_BOSS";
 
