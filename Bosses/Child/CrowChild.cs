@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy template = new Enemy("Crow Child", "CrowChild_BOSS")
             {
-                Health = 55,
+                Health = 60,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("CrowChildWorld.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("CrowChildWorld.png", new Vector2(0.5f, 0f), 32),
