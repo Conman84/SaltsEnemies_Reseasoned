@@ -46,7 +46,6 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Heehoo_EN", Enemies.Shooter, Enemies.Shooter);
 
             AddTo hard = new AddTo(Orph.H.Heehoo.Hard);
-            hard.AddRandomGroup("Heehoo_EN", "Heehoo_EN", Enemies.Shooter);
             hard.AddRandomGroup("Heehoo_EN", "Evileye_EN", Bots.Yellow);
             hard.AddRandomGroup("Heehoo_EN", "YellowAngel_EN", "Scrungie_EN");
         }

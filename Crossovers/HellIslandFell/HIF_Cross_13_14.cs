@@ -87,7 +87,10 @@ namespace SaltsEnemies_Reseasoned
 
             hard = new AddTo(Orph.H.Maw.Hard);
             hard.AddRandomGroup("Maw_EN", "Thunderdome_EN", "Thunderdome_EN");
-            hard.AddRandomGroup("Maw_EN", "Heehoo_EN", Flower.Yellow);
+            //hard.AddRandomGroup("Maw_EN", "Heehoo_EN", Flower.Yellow);
+
+            hard = new AddTo(Orph.H.Heehoo.Hard);
+            hard.AddRandomGroup("Heehoo_EN", "Maw_EN", "SingingStone_EN", "SingingStone_EN", "SingingStone_EN");
         }
     }
 }

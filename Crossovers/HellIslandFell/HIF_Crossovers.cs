@@ -58,12 +58,9 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Heehoo_EN", "Scrungie_EN", "Enigma_EN");
 
             AddTo hard = new AddTo("H_Zone02_Heehoo_Hard_EnemyBundle");
-            hard.AddRandomGroup("Heehoo_EN", "Heehoo_EN", "TheCrow_EN", "SingingStone_EN");
+            hard.AddRandomGroup("Heehoo_EN", "TheCrow_EN", "MusicMan_EN", "SingingStone_EN");
             hard.AddRandomGroup("Heehoo_EN", "Something_EN", "Something_EN");
             hard.AddRandomGroup("Heehoo_EN", "MechanicalLens_EN", "Freud_EN");
-
-            med = new AddTo("H_Zone02_Crow_Medium_EnemyBundle");
-            med.AddRandomGroup("TheCrow_EN", "Heehoo_EN", "SIngingStone_EN", "SingingStone_EN");
         }
         public static void NoseStones()
         {

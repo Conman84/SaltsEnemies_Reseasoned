@@ -41,14 +41,12 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Crystal_EN", "Thunderdome_EN", Enemies.Solvent);
 
             med = new AddTo(Orph.H.Heehoo.Med);
-            med.AddRandomGroup("Heehoo_EN", Bots.Red, Bots.Yellow);
-            med.AddRandomGroup("Heehoo_EN", Bots.Blue, Bots.Purple);
+            med.AddRandomGroup("Heehoo_EN", Bots.Yellow, Bots.Red);
 
             AddTo hard = new AddTo(Orph.H.Heehoo.Hard);
-            hard.AddRandomGroup("Heehoo_EN", "Heehoo_EN", Bots.Red);
-            hard.AddRandomGroup("Heehoo_EN", "Heehoo_EN", Bots.Yellow);
-            hard.AddRandomGroup("Heehoo_EN", "Heehoo_EN", Bots.Blue);
-            hard.AddRandomGroup("Heehoo_EN", "Heehoo_EN", Bots.Purple);
+            hard.AddRandomGroup("Heehoo_EN", Bots.Purple, Bots.Blue);
+            hard.AddRandomGroup("Heehoo_EN", Bots.Purple, Bots.Yellow);
+            hard.AddRandomGroup("Heehoo_EN", Bots.Yellow, Bots.Blue);
             hard.AddRandomGroup("Heehoo_EN", "Crystal_EN", "Scrungie_EN");
 
             hard = new AddTo(Orph.H.Dragon.Hard);

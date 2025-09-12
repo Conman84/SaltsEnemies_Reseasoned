@@ -26,7 +26,7 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Orph.H.Rabies.Med);
             med.AddRandomGroup("Rabies_EN", "Rabies_EN", "Moone_EN");
 
-            med = new AddTo(Orph.H.Heehoo.Med);
+            med = new AddTo(Orph.H.Heehoo.Hard);
             med.AddRandomGroup("Heehoo_EN", "Heehoo_EN", "Nameless_EN");
 
             med = new AddTo(Orph.H.Thunderdome.Med);

@@ -39,8 +39,7 @@ namespace SaltEnemies_Reseasoned
             if (SaltsReseasoned.trolling > 50) med.SimpleAddGroup(2, "Thunderdome_EN", 2, "Spectre_EN");
 
             AddTo hard = new AddTo(Orph.H.Heehoo.Hard);
-            hard.AddRandomGroup("Heehoo_EN", "Heehoo_EN", Flower.Yellow);
-            hard.AddRandomGroup("Heehoo_EN", "Heehoo_EN", Flower.Purple);
+            hard.AddRandomGroup("Heehoo_EN", Flower.Purple, Flower.Yellow);
             hard.AddRandomGroup("Heehoo_EN", "Heehoo_EN", "WindSong_EN");
 
             hard = new AddTo(Orph.H.Tortoise.Hard);

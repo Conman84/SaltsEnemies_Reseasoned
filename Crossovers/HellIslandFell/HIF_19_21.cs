@@ -49,13 +49,11 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Orph.H.Heehoo.Med);
             med.AddRandomGroup("Heehoo_EN", "Solitaire_EN", "Solitaire_EN");
-            med.AddRandomGroup("Heehoo_EN", "Wednesday_EN", "MusicMan_EN", "MusicMan_EN");
             med.AddRandomGroup("Heehoo_EN", "Author_EN", Jumble.Purple);
             med.SimpleAddGroup(1, "Heehoo_EN", 3, "Foxtrot_EN");
 
             hard = new AddTo(Orph.H.Heehoo.Hard);
-            hard.AddRandomGroup("Heehoo_EN", "Heehoo_EN", "Solitaire_EN", "Solitaire_EN");
-            hard.AddRandomGroup("Heehoo_EN", "Heehoo_EN", "Author_EN");
+            hard.AddRandomGroup("Heehoo_EN", "Heehoo_EN", "Wednesday_EN");
 
             //I ALREADY DID THE GARDENS
         }
