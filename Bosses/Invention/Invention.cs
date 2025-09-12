@@ -61,7 +61,7 @@ namespace SaltsEnemies_Reseasoned
             systemic.m_PassiveID = "Systemic_PA";
             systemic.conditions = [SystemicCondition.Create(3, "Repeater_PA")];
             systemic.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<RepeaterEffect>())];
-            systemic.specialStoredData = UnitStoreData.CreateAndAdd_IntTooltip_UnitStoreDataToPool("Repeater_PA", "Repeater: {0}", Color.magenta, false);
+            systemic.specialStoredData = UnitStoreData.CreateAndAdd_IntTooltip_UnitStoreDataToPool("Repeater_PA", "Repeater: {0}", Color.magenta, true, -1);
             systemic._triggerOn = [TriggerCalls.OnDirectDamaged];
 
             Ability repeat = new Ability("Repeater", "Repeater_A");
@@ -129,7 +129,7 @@ namespace SaltsEnemies_Reseasoned
             limit.AddIntentsToTarget(Targeting.GenerateGenericTarget([2]), ["Damage_7_10", "Misc"]);
             limit.Visuals = CustomVisuals.GetVisuals("Salt/Censor");
             limit.AnimationTarget = Targeting.GenerateGenericTarget([2]);
-            limit.UnitStoreData = UnitStoreData.CreateAndAdd_IntTooltip_UnitStoreDataToPool("Limit_A", "Limit -{0}", Color.red);
+            limit.UnitStoreData = UnitStoreData.CreateAndAdd_IntTooltip_UnitStoreDataToPool("Limit_A", "Limit -{0}", Misc.GetInGame_UITextColor(Misc.UITextColorIDs.Negative));
 
 
             //ADD ENEMY
