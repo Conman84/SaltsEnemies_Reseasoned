@@ -9,7 +9,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Portals.AddPortalSign("Salt_MegalaniaEncounter_Sign", ResourceLoader.LoadSprite("TemplateWorld.png"), Portals.BossIDColor);
+            Portals.AddPortalSign("Salt_MegalaniaEncounter_Sign", ResourceLoader.LoadSprite("TvWorld.png"), Portals.BossIDColor);
 
             EnemyEncounter_API boss = new EnemyEncounter_API(EncounterType.Specific, "BOSS_Zone02_Megalania_EnemyBundle", "Salt_MegalaniaEncounter_Sign");
             boss.MusicEvent = "event:/Blackwater/TVSong";

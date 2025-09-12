@@ -24,7 +24,7 @@ namespace SaltsEnemies_Reseasoned
 
             GameObject Fool = SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Lights/BlueLight_Fool.prefab");
             GameObject_CFE_Layout LayoutFool = Fool.AddComponent<GameObject_CFE_Layout>();
-            LayoutFool.m_Front = new RectTransform[] { Fool.GetComponent<RectTransform>() };
+            LayoutFool.m_Back = new RectTransform[] { Fool.GetComponent<RectTransform>() };
             LayoutFool.m_Objects = new GameObject[] { Fool };
             BlueInfo.m_CharacterLayoutTemplate = LayoutFool;
             GameObject Enemy = SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Lights/BlueLight_Enemy.prefab");

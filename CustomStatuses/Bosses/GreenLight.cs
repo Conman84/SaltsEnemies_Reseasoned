@@ -18,14 +18,14 @@ namespace SaltsEnemies_Reseasoned
             SlotStatusEffectInfoSO GreenInfo = ScriptableObject.CreateInstance<SlotStatusEffectInfoSO>();
             GreenInfo.icon = ResourceLoader.LoadSprite("GreenLight.png");
             GreenInfo._fieldName = "Green Lights";
-            GreenInfo._description = "Deal and take double direct damage.";
+            GreenInfo._description = "Deal double direct damage while in Green Lights.";
             GreenInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo._applied_SE_Event;
             GreenInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             GreenInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 
             GameObject Fool = SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Lights/GreenLight_Fool.prefab");
             GameObject_CFE_Layout LayoutFool = Fool.AddComponent<GameObject_CFE_Layout>();
-            LayoutFool.m_Front = new RectTransform[] { Fool.GetComponent<RectTransform>() };
+            LayoutFool.m_Back = new RectTransform[] { Fool.GetComponent<RectTransform>() };
             LayoutFool.m_Objects = new GameObject[] { Fool };
             GreenInfo.m_CharacterLayoutTemplate = LayoutFool;
             GameObject Enemy = SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Lights/GreenLight_Enemy.prefab");
@@ -88,12 +88,12 @@ namespace SaltsEnemies_Reseasoned
 
         public override void OnTriggerAttached(FieldEffect_Holder holder, IUnit caller)
         {
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnBeingDamaged.ToString(), caller);
+            //CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnBeingDamaged.ToString(), caller);
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, TriggerCalls.OnWillApplyDamage.ToString(), caller);
         }
         public override void OnTriggerDettached(FieldEffect_Holder holder, IUnit caller)
         {
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnBeingDamaged.ToString(), caller);
+            //CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnBeingDamaged.ToString(), caller);
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, TriggerCalls.OnWillApplyDamage.ToString(), caller);
         }
         public override void OnEventCall_01(FieldEffect_Holder holder, object sender, object args)

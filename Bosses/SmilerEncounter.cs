@@ -17,7 +17,7 @@ namespace SaltsEnemies_Reseasoned
             boss.RoarEvent = LoadedAssetsHandler.GetEnemyBundle("BOSS_Zone01_Roids_EnemyBundle")._roarReference.roarEvent;
             boss.BossID = "Smilers_BOSS";
 
-            boss.AddRandomEncounter("Smiler1_BOSS", "Smiler2_BOSS", "Smiler3_BOSS", "Smiler4_BOSS", "Smiler5_BOSS");
+            boss.SimpleAddEncounter(5, "Smilers_BOSS");
 
             boss.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector("BOSS_Zone01_Smilers_EnemyBundle", 10, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Boss);

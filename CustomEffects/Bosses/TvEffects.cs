@@ -15,6 +15,9 @@ namespace SaltsEnemies_Reseasoneds
                 RemoveFieldEffect("GreenLight_ID", stats, target);
                 RemoveFieldEffect("RedLight_ID", stats, target);
                 RemoveFieldEffect("BlueLight_ID", stats, target);
+            }
+            foreach (TargetSlotInfo target in targets)
+            {
                 stats.combatSlots.ApplyFieldEffect(target.SlotID, target.IsTargetCharacterSlot, (new FieldEffect_SO[] { Green.Object, Red.Object, Blue.Object }).GetRandom(), 1);
             }
             exitAmount = 0;
