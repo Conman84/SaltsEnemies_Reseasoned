@@ -19,7 +19,7 @@ namespace SaltsEnemies_Reseasoned
             boss.CreateNewEnemyEncounterData(["BlackAndBlue_BOSS"], [2]);
 
             boss.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("BOSS_Zone01_BlackAndBlue_EnemyBundle", 5, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Boss);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("BOSS_Zone01_BlackAndBlue_EnemyBundle", 999, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Boss);
         }
     }
 }

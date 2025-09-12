@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy template = new Enemy("Black And Blue", "BlackAndBlue_BOSS")
             {
-                Health = 80,
+                Health = 60,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("WarCriminalWorld.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("WarCriminalWorld.png", new Vector2(0.5f, 0f), 32),
@@ -33,15 +33,15 @@ namespace SaltsEnemies_Reseasoned
             sunk.connectionEffects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<PermenantApplyWaterEffect>(), 1, MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false)))];
             sunk.disconnectionEffects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveRestrictorWaterEffect>(), 1, MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false)))];
             
-            template.AddPassives(new BasePassiveAbilitySO[] { sunk, Passives.OverexertGenerator(3), Passives.Slippery });
+            template.AddPassives(new BasePassiveAbilitySO[] { sunk, Passives.Skittish, Passives.Constricting });
 
             Ability bb = new Ability("Idk!", "BlackAndBlue_A");
-            bb.Description = "Deal a Painful amount of damage to the Opposing party member.\nRemove all Status Effects from them.";
+            bb.Description = "Deal a Painful amount of damage to the Opposing party member.\nRemove all Status Effects from them and from this enemy.";
             bb.Rarity = Rarity.Common;
             bb.Effects = new EffectInfo[2];
             bb.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Front);
-            bb.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveAllStatusEffectsEffect>(), 1, Slots.Front);
-            bb.AddIntentsToTarget(Slots.Front, ["Misc", "Damage_3_6"]);
+            bb.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveAllStatusEffectsEffect>(), 1, MultiTargetting.Create(Slots.Front, Slots.Self));
+            bb.AddIntentsToTarget(Slots.Front, ["Damage_3_6", "Misc"]);
             bb.Visuals = LoadedAssetsHandler.GetEnemyAbility("UglyOnTheInside_A").visuals;
             bb.AnimationTarget = Slots.Front;
 
