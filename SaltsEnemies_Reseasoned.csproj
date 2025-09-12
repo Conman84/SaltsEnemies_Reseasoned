@@ -13,6 +13,7 @@
 	  <None Remove="Bosses\Black\WarCriminalWorld.png" />
 	  <None Remove="Bosses\Blue\Miku.png" />
 	  <None Remove="Bosses\Blue\MikuWorld.png" />
+	  <None Remove="Bosses\Invention\InventionWorld.png" />
 	  <None Remove="Bosses\Smilers\SmilersWorld.png" />
 	  <None Remove="Bosses\Tv\TvWorld.png" />
 	  <None Remove="Chapter07\Postmodern\Passive_Silence.png" />
@@ -505,6 +506,7 @@
 	  <EmbeddedResource Include="Bosses\Black\WarCriminalWorld.png" />
 	  <EmbeddedResource Include="Bosses\Blue\Miku.png" />
 	  <EmbeddedResource Include="Bosses\Blue\MikuWorld.png" />
+	  <EmbeddedResource Include="Bosses\Invention\InventionWorld.png" />
 	  <EmbeddedResource Include="Bosses\Smilers\SmilersWorld.png" />
 	  <EmbeddedResource Include="Bosses\Tv\TvWorld.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\ScramblePassive.png" />

@@ -570,6 +570,21 @@ namespace SaltEnemies_Reseasoned
                             self._tooltip.DelayShow(content, header, extraContent);
                             return;
                         }
+                        if (abilityBySlotID.name == "Limit_A")
+                        {
+                            IReadOnlyDictionary<string, UnitStoreDataHolder> readOnlyDictionary = value.StoredValues;
+                            string extraContent = "";
+                            if (readOnlyDictionary.TryGetValue("Limit_A", out var value3))
+                            {
+                                if (value3.TryGetUnitStoreDataToolTip(out string ret))
+                                    extraContent = ret;
+                            }
+                            StringPairData abilityLocData = abilityBySlotID.GetAbilityLocData();
+                            header = abilityLocData.text;
+                            content = abilityLocData.description;
+                            self._tooltip.DelayShow(content, header, extraContent);
+                            return;
+                        }
                     }
                 }
             }

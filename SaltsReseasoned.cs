@@ -264,6 +264,7 @@ namespace SaltsEnemies_Reseasoned
 
                 //orph
                 PCall(Tv.Add);
+                PCall(Invention.Add);
 
                 //garden
                 PCall(BlueSky.Add);
@@ -406,6 +407,7 @@ namespace SaltsEnemies_Reseasoned
 
                 //orph
                 PCall(TvEncounter.Add);
+                PCall(InventionEncounter.Add);
 
                 //garden
                 PCall(BlueSkyEncounters.Add);
