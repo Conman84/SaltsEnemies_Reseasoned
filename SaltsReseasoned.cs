@@ -34,8 +34,8 @@ namespace SaltsEnemies_Reseasoned
         public static AssetBundle Meow;
 
         //change this to false when pushing public version
-        public static bool DebugVer = false;
-        public static bool TestBosses = false;
+        public static bool DebugVer = true;
+        public static bool TestBosses = true;
 
         public void Awake()
         {
