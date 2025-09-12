@@ -66,15 +66,6 @@ namespace SaltEnemies_Reseasoned
         {
             if (Water.InWater(CombatManager.Instance._stats, effector as IUnit))
             {
-                int num = holder.m_ContentMain + holder.Restrictor;
-                if (num >= 10 && effector is IUnit iunit)
-                {
-                    float c = iunit.CurrentHealth;
-                    c /= 2;
-                    int r = (int)Math.Floor(c);
-                    if (r > 0) iunit.SetHealthTo(r);
-                    else iunit.DirectDeath(null);
-                }
                 return;
             }
             base.ReduceDuration(holder, effector);

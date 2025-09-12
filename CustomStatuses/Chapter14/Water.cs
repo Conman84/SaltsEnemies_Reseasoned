@@ -220,6 +220,16 @@ namespace SaltEnemies_Reseasoned
             {
                 if (Drowning.Object == null || Drowning.Object.Equals(null)) Drowning.Add();
                 unit.ApplyStatusEffect(Drowning.Object, unit.GetStatusAmount(Drowning.StatusID, true));
+
+                int num = unit.GetStatusAmount("Drowning_ID", true);
+                if (num >= 10)
+                {
+                    float c = unit.CurrentHealth;
+                    c /= 2;
+                    int r = (int)Math.Floor(c);
+                    if (r > 0) unit.SetHealthTo(r);
+                    else unit.DirectDeath(null);
+                }
             }
             ReduceDuration(holder);
         }
