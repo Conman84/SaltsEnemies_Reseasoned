@@ -17,17 +17,17 @@ namespace SaltsEnemies_Reseasoned
             SlotStatusEffectInfoSO BlueInfo = ScriptableObject.CreateInstance<SlotStatusEffectInfoSO>();
             BlueInfo.icon = ResourceLoader.LoadSprite("BlueLight.png");
             BlueInfo._fieldName = "Blue Lights";
-            BlueInfo._description = "On moving into, on using an ability in, and on receiving any damage within Blue Lights, randomize all pigment in the tray.";
+            BlueInfo._description = "On moving into Blue Lights, randomize all pigment in the tray.";
             BlueInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo._applied_SE_Event;
             BlueInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             BlueInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 
-            GameObject Fool = SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Roots/RootsCharacter.prefab");
+            GameObject Fool = SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Lights/BlueLight_Fool.prefab");
             GameObject_CFE_Layout LayoutFool = Fool.AddComponent<GameObject_CFE_Layout>();
             LayoutFool.m_Front = new RectTransform[] { Fool.GetComponent<RectTransform>() };
             LayoutFool.m_Objects = new GameObject[] { Fool };
             BlueInfo.m_CharacterLayoutTemplate = LayoutFool;
-            GameObject Enemy = SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Roots/RootsEnemy.prefab");
+            GameObject Enemy = SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Lights/BlueLight_Enemy.prefab");
             GameObject_EFE_Layout LayoutEnemy = Enemy.AddComponent<GameObject_EFE_Layout>();
             LayoutEnemy.m_Objects = new GameObject[] { Enemy };
             BlueInfo.m_EnemyLayoutTemplate = LayoutEnemy;
@@ -88,20 +88,16 @@ namespace SaltsEnemies_Reseasoned
         public override void OnTriggerAttached(FieldEffect_Holder holder, IUnit caller)
         {
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, TriggerCalls.OnMoved.ToString(), caller);
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, TriggerCalls.OnAbilityUsed.ToString(), caller);
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, TriggerCalls.OnDirectDamaged.ToString(), caller);
         }
         public override void OnTriggerDettached(FieldEffect_Holder holder, IUnit caller)
         {
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, TriggerCalls.OnMoved.ToString(), caller);
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, TriggerCalls.OnAbilityUsed.ToString(), caller);
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, TriggerCalls.OnDirectDamaged.ToString(), caller);
         }
         public override void OnEventCall_02(FieldEffect_Holder holder, object sender, object args)
         {
             RandomizeAllManaEffect random = ScriptableObject.CreateInstance<RandomizeAllManaEffect>();
             random.manaRandomOptions = [Pigments.Red, Pigments.Blue, Pigments.Yellow, Pigments.Purple, Pigments.Grey];
-            CombatManager.Instance.AddSubAction(new EffectAction([Effects.GenerateEffect(random)], sender as IUnit));
+            CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction([Effects.GenerateEffect(random)], sender as IUnit));
         }
     }
 }

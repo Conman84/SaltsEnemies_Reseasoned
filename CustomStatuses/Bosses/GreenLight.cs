@@ -23,12 +23,12 @@ namespace SaltsEnemies_Reseasoned
             GreenInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             GreenInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 
-            GameObject Fool = SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Roots/RootsCharacter.prefab");
+            GameObject Fool = SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Lights/GreenLight_Fool.prefab");
             GameObject_CFE_Layout LayoutFool = Fool.AddComponent<GameObject_CFE_Layout>();
             LayoutFool.m_Front = new RectTransform[] { Fool.GetComponent<RectTransform>() };
             LayoutFool.m_Objects = new GameObject[] { Fool };
             GreenInfo.m_CharacterLayoutTemplate = LayoutFool;
-            GameObject Enemy = SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Roots/RootsEnemy.prefab");
+            GameObject Enemy = SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Lights/GreenLight_Enemy.prefab");
             GameObject_EFE_Layout LayoutEnemy = Enemy.AddComponent<GameObject_EFE_Layout>();
             LayoutEnemy.m_Objects = new GameObject[] { Enemy };
             GreenInfo.m_EnemyLayoutTemplate = LayoutEnemy;
