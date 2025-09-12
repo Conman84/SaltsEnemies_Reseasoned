@@ -10,6 +10,7 @@
 	  <None Remove="assets\group4" />
 	  <None Remove="assets\hawthorne" />
 	  <None Remove="assets\meowy" />
+	  <None Remove="Bosses\Black\WarCriminalWorld.png" />
 	  <None Remove="Bosses\Blue\Miku.png" />
 	  <None Remove="Bosses\Blue\MikuWorld.png" />
 	  <None Remove="Bosses\Smilers\SmilersWorld.png" />
@@ -501,6 +502,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="Bosses\Black\WarCriminalWorld.png" />
 	  <EmbeddedResource Include="Bosses\Blue\Miku.png" />
 	  <EmbeddedResource Include="Bosses\Blue\MikuWorld.png" />
 	  <EmbeddedResource Include="Bosses\Smilers\SmilersWorld.png" />

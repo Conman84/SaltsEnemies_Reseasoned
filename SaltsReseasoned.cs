@@ -260,6 +260,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 //shore
                 PCall(Smilers.Add);
+                PCall(BlackAndBlue.Add);
 
                 //orph
                 PCall(Tv.Add);
@@ -401,6 +402,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 //shore
                 PCall(SmilerEncounter.Add);
+                PCall(BlackAndBlueEncounters.Add);
 
                 //orph
                 PCall(TvEncounter.Add);
