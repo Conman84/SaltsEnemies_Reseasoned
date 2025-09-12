@@ -24,7 +24,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     if (enemy.TurnsInTimeline <= 0) continue;
 
-                    for (int i = stats.timeline.CurrentTurn; i < stats.timeline.Round.Count; i++)
+                    for (int i = stats.timeline.CurrentTurn + (stats.IsPlayerTurn ? 0 : 1); i < stats.timeline.Round.Count; i++)
                     {
                         if (stats.timeline.Round[i].isPlayer) continue;
 

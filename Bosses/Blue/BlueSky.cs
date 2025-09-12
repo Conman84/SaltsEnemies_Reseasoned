@@ -63,7 +63,7 @@ namespace SaltsEnemies_Reseasoned
             meet.AnimationTarget = Slots.Front;
 
             Ability seek = new Ability("Seeking You Out", "Skies_Seek_A");
-            seek.Description = "I will move Left or Right.\nIf the Opposing party member is Red, I will deal a Painful amount of damage to them.\nOtherwise, I will change their health color to Red and inflict 3 Frail on them.";
+            seek.Description = "I will move Left or Right.\nIf the Opposing party member is Red, I will deal a Painful amount of damage to them.\nOtherwise, I will change their health color to Red and inflict 3 Ruptured on them.";
             seek.Rarity = Rarity.GetCustomRarity("rarity5");
             seek.Effects = new EffectInfo[6];
             seek.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
@@ -71,9 +71,9 @@ namespace SaltsEnemies_Reseasoned
             seek.Effects[2] = Effects.GenerateEffect(isRed, 1, Slots.Front);
             seek.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Front, BasicEffects.DidThat(true));
             seek.Effects[4] = Effects.GenerateEffect(turnRed, 1, Slots.Front, BasicEffects.DidThat(false, 2));
-            seek.Effects[5] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 3, Slots.Front, BasicEffects.DidThat(false, 3));
+            seek.Effects[5] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 3, Slots.Front, BasicEffects.DidThat(false, 3));
             seek.AddIntentsToTarget(Slots.Self, ["Swap_Sides"]);
-            seek.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_3_6", "Mana_Modify", "Status_Frail"]);
+            seek.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_3_6", "Mana_Modify", "Status_Ruptured"]);
 
             Ability dont = new Ability("Don't Leave Me", "Skies_Dont_A");
             dont.Description = "If the Opposing party member's health is not Red, I will deal an Agonizing amount of damage to them.\nOtherwise, I will randomize their health color.";
@@ -88,7 +88,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability please = new Ability("Please.", "Skies_Please_A");
             please.Description = "I will move in front of the Opposing party member and inflict 2 Constricted on them.";
-            please.Rarity = Rarity.GetCustomRarity("rarity5");
+            please.Rarity = Rarity.CreateAndAddCustomRarityToPool("skies_3", 3);
             please.Effects = new EffectInfo[3];
             please.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToClosestTargetEffect>(), 1, Targeting.GenerateSlotTarget(new int[9] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, false));
             please.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Weep_A", false, Slots.Front));
@@ -98,7 +98,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability line = new Ability("Say My Line", "Skies_Line_A");
             line.Description = "If the Opposing party member's health color is Red, they instantly die.";
-            line.Rarity = Rarity.GetCustomRarity("rarity5");
+            line.Rarity = Rarity.CreateAndAddCustomRarityToPool("skies_7", 3);
             line.Effects = new EffectInfo[2];
             line.Effects[0] = Effects.GenerateEffect(isRed, 1, Slots.Front);
             line.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Slots.Front, BasicEffects.DidThat(true));
