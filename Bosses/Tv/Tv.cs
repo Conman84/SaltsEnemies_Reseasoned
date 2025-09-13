@@ -69,7 +69,7 @@ namespace SaltsEnemies_Reseasoned
             ambiance.Description = "Generate 5 random Pigment.";
             ambiance.Rarity = Rarity.GetCustomRarity("rarity5");
             ambiance.Effects = new EffectInfo[1];
-            ambiance.Effects[0] = Effects.GenerateEffect(random, 4, Slots.Self);
+            ambiance.Effects[0] = Effects.GenerateEffect(random, 5, Slots.Self);
             ambiance.AddIntentsToTarget(Slots.Self, ["Mana_Generate"]);
             ambiance.Visuals = CustomVisuals.GetVisuals("Salt/Unlock");
             ambiance.AnimationTarget = Slots.Self;
