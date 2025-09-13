@@ -21,9 +21,9 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
             };
-            //template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.PrepareEnemyPrefab("Assets/TestSprites/Test_BlackAndBlue_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("WrigglingSacrifice_EN").enemyTemplate;
+            //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("WrigglingSacrifice_EN").enemyTemplate;
 
             Connection_PerformEffectPassiveAbility sunk = ScriptableObject.CreateInstance<Connection_PerformEffectPassiveAbility>();
             sunk.name = "Sunk_PA";

@@ -21,8 +21,8 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
             };
-            //template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
-            template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("WindSong_EN").enemyTemplate;
+            template.PrepareEnemyPrefab("Assets/TestSprites/Test_BlueSky_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
+            //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("WindSong_EN").enemyTemplate;
 
             PerformEffectPassiveAbility acting = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             acting.name = "Acting_PA";
@@ -135,7 +135,8 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
             };
-            second.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("WindSong_EN").enemyTemplate;
+            second.PrepareEnemyPrefab("Assets/TestSprites/Test_RedSky_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
+            //second.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("WindSong_EN").enemyTemplate;
 
             second.CombatEnterEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("RedSky"), 1)];
 

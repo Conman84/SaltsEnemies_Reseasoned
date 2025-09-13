@@ -50,8 +50,8 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
             };
-            // template.PrepareEnemyPrefab("assets/group4/Smilers/Smilers_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Smilers/Smilers_Gibs.prefab").GetComponent<ParticleSystem>());
-            template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("BronzoExtra_EN").enemyTemplate;
+            template.PrepareEnemyPrefab("Assets/TestSprites/Test_Smilers_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
+            //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("BronzoExtra_EN").enemyTemplate;
 
             BasePassiveAbilitySO decay = Passives.DecayGenerator(LoadedAssetsHandler.GetEnemy("Smiler_Corpse_BOSS"));
             decay._enemyDescription = "On death, the Smiler is mortally wounded and dies.";

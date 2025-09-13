@@ -22,8 +22,8 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
             };
-            //template.PrepareEnemyPrefab("assets/group4/Tv/Tv_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Tv/Tv_Gibs.prefab").GetComponent<ParticleSystem>());
-            template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("Solitaire_EN").enemyTemplate;
+            template.PrepareEnemyPrefab("Assets/TestSprites/Test_Megalania_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
+            //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("Solitaire_EN").enemyTemplate;
 
             //radical
             PerformEffectPassiveAbility radical = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
