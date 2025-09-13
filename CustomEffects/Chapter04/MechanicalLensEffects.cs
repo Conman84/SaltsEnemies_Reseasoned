@@ -646,6 +646,7 @@ namespace SaltEnemies_Reseasoned
     }
     public class MoveToClosestTargetEffect : EffectSO
     {
+        public bool Immediate;
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             exitAmount = 0;
@@ -720,7 +721,10 @@ namespace SaltEnemies_Reseasoned
                     effects.Add(effort1);
 
                 }
-                CombatManager.Instance.AddSubAction(new EffectAction(effects.ToArray(), caster));
+                if (Immediate)
+                    CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(effects.ToArray(), caster));
+                else
+                    CombatManager.Instance.AddSubAction(new EffectAction(effects.ToArray(), caster));
                 return true;
             }
 

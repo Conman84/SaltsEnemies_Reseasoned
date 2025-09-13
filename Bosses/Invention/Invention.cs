@@ -65,10 +65,9 @@ namespace SaltsEnemies_Reseasoned
             systemic._triggerOn = [TriggerCalls.OnDirectDamaged];
 
             Ability repeat = new Ability("Repeater", "Repeater_A");
-            repeat.Description = "Deal a Painful amount of damage to a random party member or enemy.";
+            repeat.Description = "Deal a Painful amount of damage to a random party member.";
             repeat.Rarity = Rarity.Impossible;
-            repeat.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageTargetRandomEffect>(), 5, Targeting.AllUnits)];
-            repeat.AddIntentsToTarget(Targeting.Unit_AllAllies, ["Damage_3_6"]);
+            repeat.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageTargetRandomEffect>(), 5, Targeting.Unit_AllOpponents)];
             repeat.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Damage_3_6"]);
             repeat.Visuals = CustomVisuals.GetVisuals("Salt/Insta/Shatter");
             repeat.AnimationTarget = TargettingSelf_NotSlot.Create();
