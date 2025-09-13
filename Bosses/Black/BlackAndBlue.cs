@@ -35,7 +35,7 @@ namespace SaltsEnemies_Reseasoned
             
             template.AddPassives(new BasePassiveAbilitySO[] { sunk, Passives.Skittish, Passives.Constricting });
 
-            Ability bb = new Ability("Idk!", "BlackAndBlue_A");
+            Ability bb = new Ability("Hoist", "BlackAndBlue_A");
             bb.Description = "Deal a Painful amount of damage to the Opposing party member.\nRemove all Status Effects from them.";
             bb.Rarity = Rarity.Common;
             bb.Effects = new EffectInfo[2];
@@ -45,11 +45,50 @@ namespace SaltsEnemies_Reseasoned
             bb.Visuals = LoadedAssetsHandler.GetEnemyAbility("UglyOnTheInside_A").visuals;
             bb.AnimationTarget = Slots.Front;
 
+            SwapToOneSideEffect goLeft = ScriptableObject.CreateInstance<SwapToOneSideEffect>();
+            goLeft._swapRight = false;
+            SwapToOneSideEffect goRight = ScriptableObject.CreateInstance<SwapToOneSideEffect>();
+            goRight._swapRight = true;
+
+            RemoveStatusEffectEffect remDrown = ScriptableObject.CreateInstance<RemoveStatusEffectEffect>();
+            remDrown._status = Drowning.Object;
+
+            Ability cc = new Ability("Submerge", "BlueAndBlack_A");
+            cc.Description = "Remove all Drowning from this enemy.\nMove all party members towards this enemy.";
+            cc.Rarity = Rarity.CreateAndAddCustomRarityToPool("bb30", 30);
+            cc.Effects = [
+                Effects.GenerateEffect(remDrown, 1, Slots.Self),
+                Effects.GenerateEffect(goRight, 1, Targeting.GenerateSlotTarget(new int[1] { -1 })),
+                Effects.GenerateEffect(goRight, 1, Targeting.GenerateSlotTarget(new int[1] { -2 })),
+                Effects.GenerateEffect(goRight, 1, Targeting.GenerateSlotTarget(new int[1] { -3 })),
+                Effects.GenerateEffect(goRight, 1, Targeting.GenerateSlotTarget(new int[1] { -4 })),
+                Effects.GenerateEffect(goLeft, 1, Targeting.GenerateSlotTarget(new int[1] { 1 })),
+                Effects.GenerateEffect(goLeft, 1, Targeting.GenerateSlotTarget(new int[1] { 2 })),
+                Effects.GenerateEffect(goLeft, 1, Targeting.GenerateSlotTarget(new int[1] { 3 })),
+                Effects.GenerateEffect(goLeft, 1, Targeting.GenerateSlotTarget(new int[1] { 4 })),
+                ];
+
+            Intents.CreateAndAddCustom_Basic_IntentToPool("Rem_Status_Drowning", ResourceLoader.LoadSprite("Drowning.png"), Intents.GetInGame_IntentInfo(IntentType_GameIDs.Rem_Status_Frail)._color);
+
+            cc.AddIntentsToTarget(Slots.Self, ["Rem_Status_Drowning"]);
+            cc.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[4] { -1, -2, -3, -4 }, false), new string[]
+            {
+                "Swap_Right",
+            });
+            cc.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[4] { 1, 2, 3, 4 }, false), new string[]
+            {
+                "Swap_Left",
+            });
+            cc.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
+            cc.AnimationTarget = Slots.Self;
+
+            template.AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_BlackAndBlue>();
 
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 bb.GenerateEnemyAbility(true),
+                cc.GenerateEnemyAbility(true),
             });
             template.AddEnemy(true);
         }
