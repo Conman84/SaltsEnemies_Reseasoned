@@ -74,4 +74,18 @@ namespace SaltsEnemies_Reseasoneds
             }
         }
     }
+    public class HotspotEffect : DamageEffect
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            List<TargetSlotInfo> ret = new List<TargetSlotInfo>();
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.GetFieldAmount("GreenLight_ID") > 0 && StatusExtensions.GetFieldAmountFromID(caster.SlotID, caster.IsUnitCharacter, "GreenLight_ID") > 0) ret.Add(target);
+                if (target.GetFieldAmount("RedLight_ID") > 0 && StatusExtensions.GetFieldAmountFromID(caster.SlotID, caster.IsUnitCharacter, "RedLight_ID") > 0) ret.Add(target);
+                if (target.GetFieldAmount("BlueLight_ID") > 0 && StatusExtensions.GetFieldAmountFromID(caster.SlotID, caster.IsUnitCharacter, "BlueLight_ID") > 0) ret.Add(target);
+            }
+            return base.PerformEffect(stats, caster, ret.ToArray(), areTargetSlots, entryVariable, out exitAmount);
+        }
+    }
 }

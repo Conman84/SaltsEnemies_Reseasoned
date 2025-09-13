@@ -55,11 +55,11 @@ namespace SaltsEnemies_Reseasoned
             wreck.AnimationTarget = Slots.Front;
 
             Ability hotspot = new Ability("Hotspot", "Tv_Hotspot_A");
-            hotspot.Description = "Inflict 1 Ruptured on all party members not facing this enemy.";
+            hotspot.Description = "Deal a Barely Painful amount of damage to all party members in the same Light color as this enemy.";
             hotspot.Rarity = Rarity.GetCustomRarity("rarity5");
             hotspot.Effects = new EffectInfo[1];
-            hotspot.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.SlotTarget([-4, -3, -2, -1, 1, 2, 3, 4], false));
-            hotspot.AddIntentsToTarget(Slots.SlotTarget([-4, -3, -2, -1, 1, 2, 3, 4], false), ["Status_Ruptured"]);
+            hotspot.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<HotspotEffect>(), 3, Slots.SlotTarget([-4, -3, -2, -1, 0, 1, 2, 3, 4], false));
+            hotspot.AddIntentsToTarget(Slots.SlotTarget([-4, -3, -2, -1, 0, 1, 2, 3, 4], false), ["Damage_3_6"]);
             hotspot.Visuals = LoadedAssetsHandler.GetCharacterAbility("Sear_1_A").visuals;
             hotspot.AnimationTarget = Slots.Self;
 

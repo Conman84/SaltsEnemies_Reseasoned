@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy template = new Enemy("Blue Skies", "BlueSky_BOSS")
             {
-                Health = 160,
+                Health = 140,
                 HealthColor = Pigments.Blue,
                 CombatSprite = ResourceLoader.LoadSprite("MikuWorld.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("MikuWorld.png", new Vector2(0.5f, 0f), 32),
@@ -127,7 +127,7 @@ namespace SaltsEnemies_Reseasoned
             //sub decay
             Enemy second = new Enemy("Red Skies", "RedSky_BOSS")
             {
-                Health = 40,
+                Health = 60,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("MikuWorld.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("MikuWorld.png", new Vector2(0.5f, 0f), 32),
