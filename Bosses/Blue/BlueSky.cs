@@ -78,13 +78,13 @@ namespace SaltsEnemies_Reseasoned
             seek.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_3_6", "Mana_Modify", "Status_Ruptured"]);
 
             Ability dont = new Ability("Don't Leave Me", "Skies_Dont_A");
-            dont.Description = "If the Opposing party member's health is not Red, I will deal an Agonizing amount of damage to them.\nOtherwise, I will randomize their health color and gain 2 Power.";
+            dont.Description = "If the Opposing party member's health is not Red, I will deal an Agonizing amount of damage to them.\nOtherwise, I will randomize their health color and gain 1 Power.";
             dont.Rarity = Rarity.GetCustomRarity("rarity5");
             dont.Effects = new EffectInfo[4];
             dont.Effects[0] = Effects.GenerateEffect(isRed, 1, Slots.Front);
             dont.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front, BasicEffects.DidThat(false));
             dont.Effects[2] = Effects.GenerateEffect(random, 1, Slots.Front, BasicEffects.DidThat(true, 2));
-            dont.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 2, Slots.Self, BasicEffects.DidThat(true, 3));
+            dont.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 1, Slots.Self, BasicEffects.DidThat(true, 3));
             dont.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_7_10", "Mana_Modify", Power.Intent]);
             dont.Visuals = LoadedAssetsHandler.GetEnemyAbility("UglyOnTheInside_A").visuals;
             dont.AnimationTarget = Slots.Front;
@@ -93,23 +93,23 @@ namespace SaltsEnemies_Reseasoned
             immediate.Immediate = true;
 
             Ability please = new Ability("Please.", "Skies_Please_A");
-            please.Description = "I will move in front of the closest Opposing party member and inflict 2 Constricted on them.\nI will gain 2 Power.";
+            please.Description = "I will move in front of the closest Opposing party member and inflict 2 Constricted on them.\nI will gain 1 Power.";
             please.Rarity = Rarity.CreateAndAddCustomRarityToPool("skies_3", 3);
             please.Effects = new EffectInfo[4];
             please.Effects[0] = Effects.GenerateEffect(immediate, 1, Targeting.GenerateSlotTarget(new int[9] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, false));
             please.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Weep_A", false, Slots.Front));
             please.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 2, Slots.Front);
-            please.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 2, Slots.Self);
+            please.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 1, Slots.Self);
             please.AddIntentsToTarget(Slots.Self, ["Swap_Mass"]);
             please.AddIntentsToTarget(Slots.Front, ["Field_Constricted", Power.Intent]);
 
             Ability line = new Ability("Say My Line", "Skies_Line_A");
-            line.Description = "If the Opposing party member's health color is Red, they instantly die.\nOtherwise, gain 2 Power.";
+            line.Description = "If the Opposing party member's health color is Red, they instantly die.\nOtherwise, gain 1 Power.";
             line.Rarity = Rarity.CreateAndAddCustomRarityToPool("skies_7", 7);
             line.Effects = new EffectInfo[3];
             line.Effects[0] = Effects.GenerateEffect(isRed, 1, Slots.Front);
             line.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Slots.Front, BasicEffects.DidThat(true));
-            line.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 2, Slots.Self, BasicEffects.DidThat(false, 2));
+            line.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 1, Slots.Self, BasicEffects.DidThat(false, 2));
             line.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_Death", Power.Intent]);
             line.Visuals = CustomVisuals.GetVisuals("Salt/Lens");
             line.AnimationTarget = Slots.Front;
@@ -150,7 +150,9 @@ namespace SaltsEnemies_Reseasoned
             });
             second.AddEnemy(true);
 
-            template.AddPassive(Passives.DecayGenerator(LoadedAssetsHandler.GetEnemy("RedSky_BOSS")));
+            BasePassiveAbilitySO decay = Passives.DecayGenerator(LoadedAssetsHandler.GetEnemy("RedSky_BOSS"));
+            decay._enemyDescription = "On death, this enemy gets a second chance.";
+            template.AddPassive(decay);
 
             //ADD ENEMY
             template.AddEnemy(true);
