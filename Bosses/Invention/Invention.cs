@@ -12,7 +12,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Enemy template = new Enemy("Invention (ITS SIZE FIVE EVEN IF IT DOESNT LOOK IT)", "Invention_BOSS")
+            Enemy template = new Enemy("Invention", "Invention_BOSS")
             {
                 Health = 180,
                 HealthColor = Pigments.Red,
