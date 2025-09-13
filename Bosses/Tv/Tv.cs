@@ -66,7 +66,7 @@ namespace SaltsEnemies_Reseasoned
             GenerateRandomManaBetweenEffect random = ScriptableObject.CreateInstance<GenerateRandomManaBetweenEffect>();
             random.possibleMana = [Pigments.Red, Pigments.Blue, Pigments.Yellow, Pigments.Purple];
             Ability ambiance = new Ability("Ambiance", "Tv_Ambiance_A");
-            ambiance.Description = "Generate 4 random Pigment.";
+            ambiance.Description = "Generate 5 random Pigment.";
             ambiance.Rarity = Rarity.GetCustomRarity("rarity5");
             ambiance.Effects = new EffectInfo[1];
             ambiance.Effects[0] = Effects.GenerateEffect(random, 4, Slots.Self);
