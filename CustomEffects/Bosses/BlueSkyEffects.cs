@@ -216,7 +216,7 @@ namespace SaltsEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
-    public class RandomizeTargetHealthColorEffect : EffectSO
+    public class RandomizeTargetHealthColorNormalEffect : EffectSO
     {
         public ManaColorSO[] mana;
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)

@@ -48,7 +48,7 @@ namespace SaltsEnemies_Reseasoned
             doubleFront.secondTargetting = Slots.Front;
             TargetIsHealthColorEffect isRed = ScriptableObject.CreateInstance<TargetIsHealthColorEffect>();
             isRed.mana = Pigments.Red;
-            RandomizeTargetHealthColorEffect random = ScriptableObject.CreateInstance<RandomizeTargetHealthColorEffect>();
+            RandomizeTargetHealthColorNormalEffect random = ScriptableObject.CreateInstance<RandomizeTargetHealthColorNormalEffect>();
             random.mana = [Pigments.Blue, Pigments.Yellow, Pigments.Purple, Pigments.Grey];
 
             Ability meet = new Ability("Meet Me Again", "Skies_Meet_A");
