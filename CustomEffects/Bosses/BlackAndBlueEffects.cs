@@ -78,7 +78,7 @@ namespace SaltsEnemies_Reseasoned
 
         public bool ShouldBeIgnored(CombatAbility ability, IUnit unit)
         {
-            string name = ability.ability._abilityName;
+            string name = ability.ability.name;
             return unit.GetStatusAmount("Drowning_ID") <= 6 && name == submerge;
         }
     }
