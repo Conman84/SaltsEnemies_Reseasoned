@@ -35,7 +35,7 @@ namespace SaltsEnemies_Reseasoned
             acting._triggerOn = [TriggerCalls.OnDirectDamaged];
             acting.effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetForceFirstActionEffect>(), 1, Slots.Self),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1)
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Slots.Self, BasicEffects.DidThat(true))
                 ];
             acting.conditions = Passives.Slippery.conditions;
 
