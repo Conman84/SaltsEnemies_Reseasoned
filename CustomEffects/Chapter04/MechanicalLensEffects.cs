@@ -706,7 +706,10 @@ namespace SaltEnemies_Reseasoned
                     effects.Add(effort1);
 
                 }
-                CombatManager.Instance.AddSubAction(new EffectAction(effects.ToArray(), caster));
+                if (Immediate)
+                    CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(effects.ToArray(), caster));
+                else
+                    CombatManager.Instance.AddSubAction(new EffectAction(effects.ToArray(), caster));
                 return true;
             }
             else if (TargetSlot > caster.SlotID)
