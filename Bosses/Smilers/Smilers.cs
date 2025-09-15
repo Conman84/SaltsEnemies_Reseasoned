@@ -32,9 +32,25 @@ namespace SaltsEnemies_Reseasoned
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Dying, Passives.Withering });
 
+            Ability first = new Ability("ability 1", "Corpse1_A");
+            first.Description = "Inflict 2 Ruptured on the Opposing party member.";
+            first.Rarity = Rarity.GetCustomRarity("rarity5");
+            first.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Slots.Front)];
+            first.AddIntentsToTarget(Slots.Front, ["Status_Ruptured"]);
+            first.Visuals = LoadedAssetsHandler.GetCharacterAbility("OfDeath_1_A").visuals;
+            first.AnimationTarget = Slots.Front;
+
+            Ability second = new Ability("ability 2", "Corpse2_A");
+            second.Description = "Do nothing.";
+            second.Rarity = Rarity.Common;
+            second.Effects = [];
+            second.Visuals = null;
+
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
+                first.GenerateEnemyAbility(true),
+                second.GenerateEnemyAbility()
             });
             template.AddEnemy(true);
         }
