@@ -7,8 +7,14 @@ namespace SaltsEnemies_Reseasoned
 {
     public static class ItemExtensions
     {
-        public static void AddItem(this BaseWearableSO item, string lockedSprite, string linkedACH)
+        public static void AddItem(this BaseWearableSO item, string lockedSprite, string linkedACH, bool test = false)
         {
+            if (test)
+            {
+                item.name += "_TEST";
+                item.startsLocked = true;
+            }
+
             if (item.isShopItem)
             {
                 ItemUtils.AddItemToShopStatsCategoryAndGamePool(item, new ItemModdedUnlockInfo(item.name, ResourceLoader.LoadSprite(lockedSprite), linkedACH));
@@ -18,8 +24,14 @@ namespace SaltsEnemies_Reseasoned
                 ItemUtils.AddItemToTreasureStatsCategoryAndGamePool(item, new ItemModdedUnlockInfo(item.name, ResourceLoader.LoadSprite(lockedSprite), linkedACH));
             }
         }
-        public static void AddFishItem(this BaseWearableSO item, int rarity, string lockedSprite, string linkedACH)
+        public static void AddFishItem(this BaseWearableSO item, int rarity, string lockedSprite, string linkedACH, bool test = false)
         {
+            if (test)
+            {
+                item.name += "_TEST";
+                item.startsLocked = true;
+            }
+
             ItemUtils.AddItemFishingRodPool(item, rarity, true);
             ItemUtils.AddItemCanOfWormsPool(item, rarity, true);
 

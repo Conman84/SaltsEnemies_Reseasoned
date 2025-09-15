@@ -114,6 +114,10 @@ namespace SaltsEnemies_Reseasoned
                 PCall(Red.Add);
                 PCall(Blue.Add);
             }
+            if (DebugVer)
+            {
+                PCall(Chocolate.Hook);
+            }
 
             //CH1 Enemies
             LostSheep.Add();
