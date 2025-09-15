@@ -154,7 +154,6 @@ namespace SaltsEnemies_Reseasoned
             easy.AddRandomGroup("Frostbite_EN", "Frostbite_EN", "LostSheep_EN");
 
             AddTo med = new AddTo("FrostbiteMed");
-            if (SaltsReseasoned.silly < 50) med.AddRandomGroup("Frostbite_EN", "Frostbite_EN", "DeadPixel_EN", "DeadPixel_EN");
             med.AddRandomGroup("Frostbite_EN", "Frostbite_EN", "Frostbite_EN", "LostSheep_EN");
             if (SaltsReseasoned.silly > 50) med.AddRandomGroup("Frostbite_EN", "Frostbite_EN", "Frostbite_EN", "Enigma_EN");
 
@@ -165,10 +164,6 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Enigma_EN", "Enigma_EN", "Enigma_EN", "Frostbite_EN");
             med.AddRandomGroup("Enigma_EN", "Enigma_EN", "Frostbite_EN", "Frostbite_EN");
 
-            easy = new AddTo("H_Zone02_Something_Easy_EnemyBundle");
-            easy.AddRandomGroup("Something_EN", "Frostbite_EN");
-            easy.AddRandomGroup("Something_EN", "Frostbite_EN", "LostSheep_EN");
-
             med = new AddTo("H_Zone02_Something_Medium_EnemyBundle");
             med.AddRandomGroup("Something_EN", "Frostbite_EN", "Frostbite_EN");
             med.AddRandomGroup("Something_EN", "Frostbite_EN", "MusicMan_EN");
@@ -176,25 +171,15 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo("H_Zone02_Crow_Medium_EnemyBundle");
             med.AddRandomGroup("TheCrow_EN", "Frostbite_EN", "Frostbite_EN");
             med.AddRandomGroup("TheCrow_EN", "Frostbite_EN", "Frostbite_EN", "Frostbite_EN");
-            med.AddRandomGroup("TheCrow_EN", "Frostbite_EN", "Enigma_EN", "SilverSuckle_EN", "SilverSuckle_EN");
+            med.AddRandomGroup("TheCrow_EN", "Frostbite_EN", "Enigma_EN", "Frostbite_EN", "SilverSuckle_EN");
 
             med = new AddTo("H_Zone02_Freud_Medium_EnemyBundle");
-            med.AddRandomGroup("Freud_EN", "Frostbite_EN", "Frostbite_EN");
-            med.AddRandomGroup("Freud_EN", "Frostbite_EN", Jumble.Blue);
-            med.AddRandomGroup("Freud_EN", "Frostbite_EN", "Scrungie_EN");
+            med.AddRandomGroup("Freud_EN", "Frostbite_EN", "Frostbite_EN", "Frostbite_EN");
+            med.AddRandomGroup("Freud_EN", "Frostbite_EN", Jumble.Blue, "Frostbite_EN");
+            med.AddRandomGroup("Freud_EN", "Frostbite_EN", "Scrungie_EN", "Frostbite_EN");
 
             med = new AddTo("H_Zone02_MechanicalLens_Medium_EnemyBundle");
             med.AddRandomGroup("MechanicalLens_EN", "MechanicalLens_EN", "Frostbite_EN", "Frostbite_EN");
-            med.AddRandomGroup("MechanicalLens_EN", "MechanicalLens_EN", "Frostbite_EN", Jumble.Purple);
-
-            AddTo hard = new AddTo("H_Zone02_WrigglingSacrifice_Hard_EnemyBundle");
-            hard.AddRandomGroup("WrigglingSacrifice_EN", "Frostbite_EN", "Enigma_EN", "Enigma_EN");
-
-            hard = new AddTo("H_Zone02_Revola_Hard_EnemyBundle");
-            hard.AddRandomGroup("Revola_EN", "Frostbite_EN", "LostSheep_EN");
-
-            med = new AddTo("H_Zone02_Scrungie_Medium_EnemyBundle");
-            med.AddRandomGroup("Scrungie_EN", "Scrungie_EN", "Frostbite_EN", "LostSheep_EN");
         }
     }
 }
