@@ -27,11 +27,11 @@ namespace SaltsEnemies_Reseasoned
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.SlipperyGenerator(3), Violent.Generate(5) });
 
             Ability first = new Ability("Ability A", "CrowChild1_A");
-            first.Description = "Inflict 1 Constricted and 1 Frail to the Left and Right party members.";
+            first.Description = "Inflict 1 Constricted and 3 Frail to the Left and Right party members.";
             first.Rarity = Rarity.GetCustomRarity("rarity5");
             first.Effects = new EffectInfo[2];
             first.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 1, Slots.LeftRight);
-            first.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 1, Slots.LeftRight);
+            first.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 3, Slots.LeftRight);
             first.AddIntentsToTarget(Slots.LeftRight, ["Field_Constricted", "Status_Frail"]);
             first.Visuals = CustomVisuals.GetVisuals("Salt/Gaze");
             first.AnimationTarget = Slots.LeftRight;
@@ -45,12 +45,12 @@ namespace SaltsEnemies_Reseasoned
             second.AnimationTarget = Slots.Self;
 
             Ability third = new Ability("Ability C", "CrowChild3_A");
-            third.Description = "Consume 3 random pigment.";
+            third.Description = "Deal an Evil amount of damage to the Opposing party member.";
             third.Rarity = Rarity.GetCustomRarity("rarity5");
-            third.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeRandomManaEffect>(), 3, Slots.Self)];
-            third.AddIntentsToTarget(Slots.Self, ["Mana_Consume"]);
-            third.Visuals = LoadedAssetsHandler.GetEnemyAbility("Gulp_A").visuals;
-            third.AnimationTarget = Slots.Self;
+            third.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front)];
+            third.AddIntentsToTarget(Slots.Front, ["Damage_7_10"]);
+            third.Visuals = CustomVisuals.GetVisuals("Salt/Needle");
+            third.AnimationTarget = Slots.Front;
 
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
