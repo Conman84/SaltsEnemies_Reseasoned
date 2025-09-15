@@ -75,10 +75,14 @@ namespace SaltsEnemies_Reseasoned
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Unstable, Passives.Skittish, decay });
 
             Ability first = new Ability("Smiler A", "Smiler_Ability1_A");
-            first.Description = "Deal a Little damage to the Opposing party member.";
+            first.Description = "Deal a Little damage to the Opposing party member.\nMove Left or Right.";
             first.Rarity = Rarity.GetCustomRarity("rarity5");
-            first.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Front)];
+            first.Effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)
+                ];
             first.AddIntentsToTarget(Slots.Front, ["Damage_1_2"]);
+            first.AddIntentsToTarget(Slots.Self, ["Swap_Sides"]);
             first.Visuals = LoadedAssetsHandler.GetCharacterAbility("Shank_1_A").visuals;
             first.AnimationTarget = Slots.Front;
 
