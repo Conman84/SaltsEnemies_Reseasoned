@@ -425,16 +425,107 @@ namespace SaltsEnemies_Reseasoned
             hat.SpecialUnlockID = UILocID.None;
             hat.item.AddItem("Locked_GlowingHat.png", AchievementIDs.Chapter16, Test);
 
-            //its wings
-            //condition that applies.
-            //apply 5 front, if successful, gain 10
-            //Magic
+            PerformEffect_Item wings = new PerformEffect_Item("Salt_ItsWings_TW", [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 5, Slots.Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 10, Slots.Self, BasicEffects.DidThat(true))
+                ]);
+            wings.Name = "Its Wings";
+            wings.Flavour = "\"As it spreads its wings for an old god, a heaven just for you burrows its way.\"";
+            wings.Description = "At the start of combat, apply 5 Power to the Opposing enemy.\nIf successful, gain 10 Power.";
+            wings.Icon = ResourceLoader.LoadSprite("Item_ItsWings.png");
+            wings.EquippedModifiers = [];
+            wings.TriggerOn = TriggerCalls.OnCombatStart;
+            wings.DoesPopUpInfo = true;
+            wings.Conditions = [];
+            wings.DoesActionOnTriggerAttached = false;
+            wings.ConsumeOnTrigger = TriggerCalls.Count;
+            wings.ConsumeOnUse = false;
+            wings.ConsumeConditions = [];
+            wings.ShopPrice = 7;
+            wings.IsShopItem = false;
+            wings.StartsLocked = true;
+            wings.OnUnlockUsesTHE = false;
+            wings.UsesSpecialUnlockText = false;
+            wings.SpecialUnlockID = UILocID.None;
+            wings.item._ItemTypeIDs = ["Magic"];
+            wings.item.AddItem("Locked_ItsWings.png", AchievementIDs.DeadGod, Test);
 
-            //deep water
-            //on any damage, +3 anesthetics
+            PerformEffect_Item water = new PerformEffect_Item("Salt_DeepWater_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyAnestheticsEffect>(), 2, Slots.Self)]);
+            water.Name = "Deep Waters";
+            water.Flavour = "\"So blue it's pitch black.\"";
+            water.Description = "On taking any damage, gain 2 Anesthetics.";
+            water.Icon = ResourceLoader.LoadSprite("Item_DeepWater.png");
+            water.EquippedModifiers = [];
+            water.TriggerOn = TriggerCalls.OnDamaged;
+            water.DoesPopUpInfo = true;
+            water.Conditions = [];
+            water.DoesActionOnTriggerAttached = false;
+            water.ConsumeOnTrigger = TriggerCalls.Count;
+            water.ConsumeOnUse = false;
+            water.ConsumeConditions = [];
+            water.ShopPrice = 6;
+            water.IsShopItem = false;
+            water.StartsLocked = true;
+            water.OnUnlockUsesTHE = true;
+            water.UsesSpecialUnlockText = false;
+            water.SpecialUnlockID = UILocID.None;
+            water.item.AddItem("Locked_DeepWater.png", AchievementIDs.Deep, Test);
 
-            //nine key. as usual
-            //Magic
+            LockedInPassiveAbility lockedIn = ScriptableObject.CreateInstance<LockedInPassiveAbility>();
+            lockedIn._passiveName = "Locked In";
+            lockedIn.passiveIcon = ResourceLoader.LoadSprite("NoMenu.png");
+            lockedIn._enemyDescription = "The Pause Menu can no longer be accessed.";
+            lockedIn._characterDescription = "The Pause Menu can no longer be accessed.";
+            lockedIn.m_PassiveID = "NoPause_PA";
+            lockedIn.doesPassiveTriggerInformationPanel = false;
+            lockedIn._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
+            AddPassiveEffect add_locked = ScriptableObject.CreateInstance<AddPassiveEffect>();
+            add_locked._passiveToAdd = lockedIn;
+
+            AnimationVisualsEffect visuals = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
+            visuals._visuals = ((LoadedAssetsHandler.GetEnemy("OsmanSinnoks_BOSS").passiveAbilities[0] as ExtraAttackPassiveAbility)._extraAbility.ability.effects[0].effect as AnimationVisualsIfUnitEffect)._visuals;
+            visuals._animationTarget = Slots.Self;
+            DoubleEffectCondition awaken_double = ScriptableObject.CreateInstance<DoubleEffectCondition>();
+            awaken_double.first = BasicEffects.DidThat(true);
+            awaken_double.second = Effects.ChanceCondition(50);
+            MultiPreviousEffectCondition awaken_prev = ScriptableObject.CreateInstance<MultiPreviousEffectCondition>();
+            awaken_prev.previousAmount = [1, 2];
+            awaken_prev.wasSuccessful = [false, true];
+            Ability awaken = new Ability("Awaken", "Salt_Awaken_A");
+            awaken.Description = "10% chance to kill either a random enemy or this party member.";
+            awaken.Cost = [Pigments.Purple];
+            awaken.Effects = new EffectInfo[3];
+            awaken.Effects[0] = Effects.GenerateEffect(visuals, 1, Slots.Self, Effects.ChanceCondition(10));
+            awaken.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Slots.Self, awaken_double);
+            awaken.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Targetting.Random(false), awaken_prev);
+            awaken.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Damage_Death"]);
+            awaken.AddIntentsToTarget(Slots.Self, ["Damage_Death"]);
+            awaken.Visuals = null;
+            awaken.GenerateEnemyAbility();
+            ExtraAbility_Wearable_SMS awaken_a = ScriptableObject.CreateInstance<ExtraAbility_Wearable_SMS>();
+            awaken_a._extraAbility = awaken.GenerateCharacterAbility();
+
+            PerformEffect_Item nine = new PerformEffect_Item("Salt_NineKey_TW", [Effects.GenerateEffect(add_locked, 1, Targeting.Unit_AllAllies)]);
+            nine.Name = "Nine Key";
+            nine.Flavour = "\"It's all just a dream.\"";
+            nine.Description = "Adds the extra ability \"Awaken\", which has a chance to kill either them or a random enemy.\nAdds \"Locked In\" as a passive to all party members on combat start.";
+            nine.Icon = ResourceLoader.LoadSprite("Item_NineKey.png");
+            nine.EquippedModifiers = [];
+            nine.TriggerOn = TriggerCalls.OnCombatStart;
+            nine.DoesPopUpInfo = false;
+            nine.Conditions = [];
+            nine.DoesActionOnTriggerAttached = false;
+            nine.ConsumeOnTrigger = TriggerCalls.Count;
+            nine.ConsumeOnUse = false;
+            nine.ConsumeConditions = [];
+            nine.ShopPrice = 4;
+            nine.IsShopItem = false;
+            nine.StartsLocked = true;
+            nine.OnUnlockUsesTHE = true;
+            nine.UsesSpecialUnlockText = false;
+            nine.SpecialUnlockID = UILocID.None;
+            nine.item._ItemTypeIDs = ["Magic"];
+            nine.item.AddItem("Locked_NineKey.png", AchievementIDs.Postmodern, Test);
 
             //abandoned artifact
             //as usual
