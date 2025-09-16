@@ -2,6 +2,7 @@
 using BrutalAPI.Items;
 using HarmonyLib;
 using SaltEnemies_Reseasoned;
+using SaltsEnemies_Reseasoneds;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,10 +10,10 @@ using UnityEngine;
 
 namespace SaltsEnemies_Reseasoned
 {
-    public static class Items
+    public static class ItemsFirst
     {
         public static bool Test = true;
-        public static void AddFirst()
+        public static void Add()
         {
             Basic_Item choco = new Basic_Item("Salt_ChocolateCoin_TW");
             choco.Name = "Chocolate Coin";
@@ -719,9 +720,163 @@ namespace SaltsEnemies_Reseasoned
             mask.TriggerOn = TriggerCalls.Count;
             mask.DoesPopUpInfo = false;
             mask.Conditions = [];
+            mask.DoesActionOnTriggerAttached = false;
+            mask.ConsumeOnTrigger = TriggerCalls.Count;
+            mask.ConsumeOnUse = false;
+            mask.ConsumeConditions = [];
+            mask.ShopPrice = 4;
+            mask.IsShopItem = false;
+            mask.StartsLocked = true;
+            mask.OnUnlockUsesTHE = true;
+            mask.UsesSpecialUnlockText = false;
+            mask.SpecialUnlockID = UILocID.None;
+            mask.item._ItemTypeIDs = ["Face"];
+            mask.item.AddItem("Locked_SmilerMask.png", AchievementIDs.Smilers, Test);
 
+            PerformEffect_Item grudge = new PerformEffect_Item("Salt_Grudge_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleEffect>(), 5, Targeting.Unit_AllOpponents)]);
+            grudge.Name = "Grudge";
+            grudge.Flavour = "\"The little crow answered with its deepest, darkest desire.\"";
+            grudge.Description = "On taking any damage, inflict 5 Pale on all enemies.";
+            grudge.Icon = ResourceLoader.LoadSprite("Item_Grudge.png");
+            grudge.EquippedModifiers = [];
+            grudge.TriggerOn = TriggerCalls.OnDamaged;
+            grudge.DoesPopUpInfo = true;
+            grudge.Conditions = [];
+            grudge.DoesActionOnTriggerAttached = false;
+            grudge.ConsumeOnTrigger = TriggerCalls.Count;
+            grudge.ConsumeOnUse = false;
+            grudge.ConsumeConditions = [];
+            grudge.ShopPrice = 6;
+            grudge.IsShopItem = false;
+            grudge.StartsLocked = true;
+            grudge.OnUnlockUsesTHE = true;
+            grudge.UsesSpecialUnlockText = false;
+            grudge.SpecialUnlockID = UILocID.None;
+            grudge.item.AddItem("Locked_Grudge.png", AchievementIDs.Crow, Test);
 
+            PerformEffect_Item bodybag = new PerformEffect_Item("Salt_Bodybag_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyWaterSlotEffect>(), 2, Slots.Front)]);
+            bodybag.Name = "Bodybag";
+            bodybag.Flavour = "\"Zip it up and dump it.\"";
+            bodybag.Description = "On moving, inflict 2 Deep Water on the Opposing position.";
+            bodybag.Icon = ResourceLoader.LoadSprite("Item_Bodybag.png");
+            bodybag.EquippedModifiers = [];
+            bodybag.TriggerOn = TriggerCalls.OnMoved;
+            bodybag.DoesPopUpInfo = true;
+            bodybag.Conditions = [];
+            bodybag.DoesActionOnTriggerAttached = false;
+            bodybag.ConsumeOnTrigger = TriggerCalls.Count;
+            bodybag.ConsumeOnUse = false;
+            bodybag.ConsumeConditions = [];
+            bodybag.ShopPrice = 4;
+            bodybag.IsShopItem = false;
+            bodybag.StartsLocked = true;
+            bodybag.OnUnlockUsesTHE = true;
+            bodybag.UsesSpecialUnlockText = false;
+            bodybag.SpecialUnlockID = UILocID.None;
+            bodybag.item.AddItem("Locked_Bodybag.png", AchievementIDs.Black, Test);
 
+            PerformEffect_Item rgb = new PerformEffect_Item("Salt_RGB_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeLightsEffects>(), 1, MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false)))]);
+            rgb.Name = "RGB";
+            rgb.Flavour = "\"Looks like crap\"";
+            rgb.Description = "At the start of each turn, Adjust all Lights.";
+            rgb.Icon = ResourceLoader.LoadSprite("Item_RGB.png");
+            rgb.EquippedModifiers = [];
+            rgb.TriggerOn = TriggerCalls.OnTurnStart;
+            rgb.DoesPopUpInfo = true;
+            rgb.Conditions = [];
+            rgb.DoesActionOnTriggerAttached = false;
+            rgb.ConsumeOnTrigger = TriggerCalls.Count;
+            rgb.ConsumeOnUse = false;
+            rgb.ConsumeConditions = [];
+            rgb.ShopPrice = 4;
+            rgb.IsShopItem = false;
+            rgb.StartsLocked = true;
+            rgb.OnUnlockUsesTHE = false;
+            rgb.UsesSpecialUnlockText = false;
+            rgb.SpecialUnlockID = UILocID.None;
+            rgb.item.AddItem("Locked_RGB.png", AchievementIDs.Tv, Test);
+
+            PerformEffect_Item glass = new PerformEffect_Item("Salt_GlassDiamond_TW", [
+                Effects.GenerateEffect(BasicEffects.Empty, 1, Slots.Self, Effects.ChanceCondition(50)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageFromNoOneEffect>(), 2, Slots.Self, BasicEffects.DidThat(true)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 5, Slots.Self, BasicEffects.DidThat(false, 2))
+                ]);
+            glass.Name = "Glass Diamond";
+            glass.Flavour = "\"Takes a lot of effort to keep it clean.\"";
+            glass.Description = "On taking any damage, either heal 5 health or take 2 damage, from no one.";
+            glass.Icon = ResourceLoader.LoadSprite("Item_GlassDiamond.png");
+            glass.EquippedModifiers = [];
+            glass.TriggerOn = TriggerCalls.OnDamaged;
+            glass.DoesPopUpInfo = true;
+            glass.Conditions = [];
+            glass.DoesActionOnTriggerAttached = false;
+            glass.ConsumeOnTrigger = TriggerCalls.Count;
+            glass.ConsumeOnUse = false;
+            glass.ConsumeConditions = [];
+            glass.ShopPrice = 3;
+            glass.IsShopItem = false;
+            glass.StartsLocked = true;
+            glass.OnUnlockUsesTHE = true;
+            glass.UsesSpecialUnlockText = false;
+            glass.SpecialUnlockID = UILocID.None;
+            glass.item.AddItem("Locked_GlassDiamond.png", AchievementIDs.Invention, Test);
+
+            CurrencyMultiplierChange_Wearable_SMS doubleMoney = ScriptableObject.CreateInstance<CurrencyMultiplierChange_Wearable_SMS>();
+            doubleMoney._currencyMultiplier = 2;
+
+            PerformEffect_Item dream = new PerformEffect_Item("Salt_RedDream_TW", [
+                Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Curtains", false, Slots.Self)),
+                Effects.GenerateEffect(UIActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToGardenEffect>(), 1, Slots.Self).SelfArray()), 1, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<BoxAllEnemiesEffect>()),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnGardenEnemyBundleEffect>()),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Targeting.Unit_AllOpponents)
+                ]);
+            dream.Name = "Red Dream";
+            dream.Flavour = "\"Exit into heaven.\"";
+            dream.Description = "Double the rewards from combat.\nOnce per combat, on taking direct damage enter a dream.";
+            dream.Icon = ResourceLoader.LoadSprite("Item_RedDream.png");
+            dream.EquippedModifiers = [doubleMoney];
+            dream.TriggerOn = TriggerCalls.OnDirectDamaged;
+            dream.DoesPopUpInfo = true;
+            dream.Conditions = [TriggerOnceEffectorCondition.Create("RedDream_TW")];
+            dream.DoesActionOnTriggerAttached = false;
+            dream.ConsumeOnTrigger = TriggerCalls.Count;
+            dream.ConsumeOnUse = false;
+            dream.ConsumeConditions = [];
+            dream.ShopPrice = 10;
+            dream.IsShopItem = false;
+            dream.StartsLocked = true;
+            dream.OnUnlockUsesTHE = true;
+            dream.UsesSpecialUnlockText = false;
+            dream.SpecialUnlockID = UILocID.None;
+            dream.item._ItemTypeIDs = ["Magic", "Fabric"];
+            dream.item.AddItem("Locked_RedDream.png", AchievementIDs.Blue, Test);
+
+            MultiPerformEffectItem knife = new MultiPerformEffectItem("Salt_Knife_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyTerrorEffect>(), 1, Targetting.Random(false))]);
+            knife.Name = "Knife That Tells You To Do Things";
+            knife.Flavour = "\"You should cut your face off.\"";
+            knife.Description = "At the start of each turn, apply Terror to a random enemy.\nDeal 40% more damage to enemies with Terror.\nAt the end of each turn, gain Terror.";
+            knife.Icon = ResourceLoader.LoadSprite("Item_Knife.png");
+            knife.EquippedModifiers = [];
+            knife.TriggerOn = TriggerCalls.OnTurnStart;
+            knife.DoesPopUpInfo = true;
+            knife.Conditions = [];
+            knife.DoesActionOnTriggerAttached = false;
+            knife.ConsumeOnTrigger = TriggerCalls.Count;
+            knife.ConsumeOnUse = false;
+            knife.ConsumeConditions = [];
+            knife.ShopPrice = 6;
+            knife.IsShopItem = true;
+            knife.StartsLocked = true;
+            knife.OnUnlockUsesTHE = true;
+            knife.UsesSpecialUnlockText = false;
+            knife.SpecialUnlockID = UILocID.None;
+            knife.item._ItemTypeIDs = ["Knife"];
+            EffectTrigger knife_second = new EffectTrigger([], [TriggerCalls.OnWillApplyDamage], [DamageToStatusCondition.Create(1.4f, Terror.StatusID)], false);
+            EffectTrigger knife_third = new EffectTrigger([Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyTerrorEffect>(), 1, Slots.Self)], [TriggerCalls.OnTurnFinished], []);
+            knife.AddEffectTrigger(knife_second);
+            knife.AddEffectTrigger(knife_third);
+            knife.item.AddItem("Locked_Knife.png", AchievementIDs.ChapterBoss, Test);
 
 
 

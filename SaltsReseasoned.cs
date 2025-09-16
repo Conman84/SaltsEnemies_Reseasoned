@@ -424,7 +424,7 @@ namespace SaltsEnemies_Reseasoned
             //items
             if (DebugVer)
             {
-                PCall(Items.AddFirst);
+                PCall(ItemsFirst.Add);
             }
 
             //moving the passives glossary here.

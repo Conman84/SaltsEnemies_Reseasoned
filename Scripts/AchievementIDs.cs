@@ -35,5 +35,11 @@ namespace SaltsEnemies_Reseasoned
         public static string Chapter21 => "Salt_Chapter21_ACH";
         public static string ChapterBoss => "Salt_ChapterBoss_ACH";
         public static string HelpMe => "Salt_HelpMe_ACH";
+        public static string Smilers => "Salt_Smilers_ACH";
+        public static string Crow => "Salt_CrowChild_ACH";
+        public static string Black => "Salt_BlackBlue_ACH";
+        public static string Tv => "Salt_Megalania_ACH";
+        public static string Invention => "Salt_Invention_ACH";
+        public static string Blue => "Salt_BlueSky_ACH";
     }
 }
