@@ -627,7 +627,7 @@ namespace SaltsEnemies_Reseasoned
 
             ExtraLootOptionsEffect more_angel = ScriptableObject.CreateInstance<ExtraLootOptionsEffect>();
             more_angel._itemName = "Salt_Angel_TW";
-            if (Test) more_angel._itemName += "_TEST";
+
             MultiPerformEffectItem angel = new MultiPerformEffectItem("Salt_Angel_TW", [Effects.GenerateEffect(more_angel, 1)]);
             angel.Name = "Angel";
             angel.Flavour = "\"My little friend.\"";
