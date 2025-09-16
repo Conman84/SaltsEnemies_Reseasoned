@@ -119,6 +119,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(Chocolate.Hook);
                 PCall(FeatherGunCondition.AddTypes);
                 PCall(GlowingHatManager.Setup);
+                PCall(Tracker.Setup);
             }
 
             //CH1 Enemies
@@ -426,6 +427,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 PCall(ItemsFirst.Add);
                 PCall(Achievements.AddBosses);
+                PCall(Achievements.AddChapters);
             }
 
             //moving the passives glossary here.

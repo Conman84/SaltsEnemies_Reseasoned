@@ -165,5 +165,42 @@ namespace SaltsEnemies_Reseasoned
 
 
         }
+        public static void AddChapters()
+        {
+            AddSaltEnemiesQuest(AchievementIDs.Chapter1, "Salt_PomPoms_SW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter2, "Salt_SilverBullet_SW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter3, "Salt_Dues_SW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter4, "Salt_CheatingMaterials_TW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter6, "Salt_UnknownFossil_TW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter7, "Salt_TinCan_EW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter8, "Salt_FeedingFrenzy_TW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter9, "Salt_SpareEar_SW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter10, "Salt_Torturepedia_SW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter11, "Salt_LittleBell_TW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter12, "Salt_FeatherGun_TW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter13, "Salt_StageFright_SW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter14, "Salt_Coelacanth_EW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter15, "Salt_HormoneGasses_SW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter16, "Salt_GlowingHat_SW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter17, "Salt_Strepnut_SW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter18, "Salt_Angel_TW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter19, "Salt_ImperfectLullaby_TW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter20, "Salt_KarmicOffloading_TW");
+            AddSaltEnemiesQuest(AchievementIDs.Chapter21, "Salt_GlueEye_SW");
+            AddSaltEnemiesQuest(AchievementIDs.ChapterBoss, "Salt_Knife_SW");
+            AddSaltEnemiesQuest(AchievementIDs.HelpMe, "AbandonedArtifact_TW");
+        }
+
+        public static void AddSaltEnemiesQuest(string name, string item)
+        {
+            UnlockableModData data = new UnlockableModData(name);
+            data.hasModdedAchievementUnlock = true;
+            data.moddedAchievementID = name;
+            data.hasItemUnlock = true;
+            data.items = [item];
+            ModdedAchievements ach = new ModdedAchievements(name, "Progress Defacer's Quest", null, name);
+            ach.AddHiddenAchievement();
+            Unlocks.AddUnlock_ByID(data);
+        }
     }
 }
