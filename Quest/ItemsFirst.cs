@@ -12,7 +12,7 @@ namespace SaltsEnemies_Reseasoned
 {
     public static class ItemsFirst
     {
-        public static bool Test = true;
+        public static bool Test = false;
         public static void Add()
         {
             Basic_Item choco = new Basic_Item("Salt_ChocolateCoin_TW");
@@ -113,7 +113,7 @@ namespace SaltsEnemies_Reseasoned
             dues.ConsumeOnTrigger = TriggerCalls.Count;
             dues.ConsumeOnUse = false;
             dues.ConsumeConditions = [];
-            dues.ShopPrice = 5;
+            dues.ShopPrice = 7;
             dues.IsShopItem = true;
             dues.StartsLocked = true;
             dues.OnUnlockUsesTHE = false;
