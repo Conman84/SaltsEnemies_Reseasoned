@@ -59,6 +59,14 @@ namespace SaltEnemies_Reseasoned
 
         public static DamageInfo Damage(Func<IUnit, int, IUnit, string, int, bool, bool, bool, string, DamageInfo> orig, IUnit self, int amount, IUnit killer, string deathType, int targetSlotOffset = -1, bool addHealthMana = true, bool directDamage = true, bool ignoresShield = false, string specialDamage = "")
         {
+            if (specialDamage == CombatType_GameIDs.Dmg_Ruptured.ToString())
+            {
+                foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
+                {
+                    if (chara.HasUsableItem && chara.HeldItem.name.Contains("Salt_SmilerMask")) amount *= 2;
+                }
+            }
+
             CombatManager.Instance.PostNotification(GlowingHatCondition.Trigger.ToString(), self, null);
             bool addDet = false;
             if (killer != null && killer.HasUsableItem && killer.HeldItem.name.Contains("Salt_SilverBullet") && !self.ContainsStatusEffect(Determined.StatusID))

@@ -33,6 +33,7 @@ namespace SaltsEnemies_Reseasoned
         public static string Chapter19 => "Salt_Chapter19_ACH";
         public static string Chapter20 => "Salt_Chapter20_ACH";
         public static string Chapter21 => "Salt_Chapter21_ACH";
+        public static string ChapterBoss => "Salt_ChapterBoss_ACH";
         public static string HelpMe => "Salt_HelpMe_ACH";
     }
 }

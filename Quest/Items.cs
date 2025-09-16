@@ -710,7 +710,16 @@ namespace SaltsEnemies_Reseasoned
             strepnut.SpecialUnlockID = UILocID.None;
             strepnut.item.AddItem("Locked_Strepnut.png", AchievementIDs.Chapter17, Test);
 
-            //boss items
+            Basic_Item mask = new Basic_Item("Salt_SmilerMask_TW");
+            mask.Name = "Smiler Mask";
+            mask.Flavour = "\"Grins!\"";
+            mask.Description = "Ruptured deals double damage.";
+            mask.Icon = ResourceLoader.LoadSprite("Item_SmilerMask.png");
+            mask.EquippedModifiers = [];
+            mask.TriggerOn = TriggerCalls.Count;
+            mask.DoesPopUpInfo = false;
+            mask.Conditions = [];
+
 
 
 

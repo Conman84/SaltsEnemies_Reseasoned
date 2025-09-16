@@ -514,6 +514,7 @@
 	  <None Remove="Quest\Sprites\Item\Item_ImperfectLullaby.png" />
 	  <None Remove="Quest\Sprites\Item\Item_ItsWings.png" />
 	  <None Remove="Quest\Sprites\Item\Item_KarmicOffloading.png" />
+	  <None Remove="Quest\Sprites\Item\Item_Knife.png" />
 	  <None Remove="Quest\Sprites\Item\Item_LittleBell.png" />
 	  <None Remove="Quest\Sprites\Item\Item_NineKey.png" />
 	  <None Remove="Quest\Sprites\Item\Item_PassiveFruit.png" />
@@ -549,6 +550,7 @@
 	  <None Remove="Quest\Sprites\Locked\Locked_ImperfectLullaby.png" />
 	  <None Remove="Quest\Sprites\Locked\Locked_ItsWings.png" />
 	  <None Remove="Quest\Sprites\Locked\Locked_KarmicOffloading.png" />
+	  <None Remove="Quest\Sprites\Locked\Locked_Knife.png" />
 	  <None Remove="Quest\Sprites\Locked\Locked_LittleBell.png" />
 	  <None Remove="Quest\Sprites\Locked\Locked_NineKey.png" />
 	  <None Remove="Quest\Sprites\Locked\Locked_PassiveFruit.png" />
@@ -1095,6 +1097,7 @@
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_ImperfectLullaby.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_ItsWings.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_KarmicOffloading.png" />
+	  <EmbeddedResource Include="Quest\Sprites\Item\Item_Knife.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_LittleBell.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_NineKey.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_PassiveFruit.png" />
@@ -1128,6 +1131,7 @@
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_ImperfectLullaby.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_ItsWings.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_KarmicOffloading.png" />
+	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_Knife.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_LittleBell.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_NineKey.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_PassiveFruit.png" />
