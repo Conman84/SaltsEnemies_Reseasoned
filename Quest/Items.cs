@@ -428,22 +428,27 @@ namespace SaltsEnemies_Reseasoned
             //its wings
             //condition that applies.
             //apply 5 front, if successful, gain 10
+            //Magic
 
             //deep water
             //on any damage, +3 anesthetics
 
             //nine key. as usual
+            //Magic
 
-            //abandoned archive
+            //abandoned artifact
             //as usual
+            //Magic
 
             //torturepedia (10)
 
             //imperfect lullaby (19)
+            //Magic
 
             //angel (18)
 
             //karmic offloading (20)
+            //Magic
 
             //glue eye (21)
 
