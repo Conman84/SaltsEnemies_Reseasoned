@@ -487,6 +487,11 @@
 	  <None Remove="CustomStatuses\Pale.png" />
 	  <None Remove="CustomStatuses\Power.png" />
 	  <None Remove="Quest\Sprites\AbandonedArtifact.png" />
+	  <None Remove="Quest\Sprites\Achievements\CoinAch.png" />
+	  <None Remove="Quest\Sprites\Achievements\DeepAch.png" />
+	  <None Remove="Quest\Sprites\Achievements\DGAch.png" />
+	  <None Remove="Quest\Sprites\Achievements\PMAch.png" />
+	  <None Remove="Quest\Sprites\Achievements\SnakeAch.png" />
 	  <None Remove="Quest\Sprites\CheatingMaterials.png" />
 	  <None Remove="Quest\Sprites\Coelocanth.png" />
 	  <None Remove="Quest\Sprites\DeepWater.png" />
@@ -1083,6 +1088,11 @@
 	  <EmbeddedResource Include="CustomStatuses\Chapter14\Drowning.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter14\SlipIcon.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter14\WaterRemove.png" />
+	  <EmbeddedResource Include="Quest\Sprites\Achievements\CoinAch.png" />
+	  <EmbeddedResource Include="Quest\Sprites\Achievements\DeepAch.png" />
+	  <EmbeddedResource Include="Quest\Sprites\Achievements\DGAch.png" />
+	  <EmbeddedResource Include="Quest\Sprites\Achievements\PMAch.png" />
+	  <EmbeddedResource Include="Quest\Sprites\Achievements\SnakeAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_AbandonedArtifact.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_Angel.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_Bodybag.png" />

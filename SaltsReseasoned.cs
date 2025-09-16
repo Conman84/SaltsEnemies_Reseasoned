@@ -425,6 +425,7 @@ namespace SaltsEnemies_Reseasoned
             if (DebugVer)
             {
                 PCall(ItemsFirst.Add);
+                PCall(Achievements.AddBosses);
             }
 
             //moving the passives glossary here.
