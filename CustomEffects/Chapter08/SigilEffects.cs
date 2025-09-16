@@ -336,6 +336,33 @@ namespace SaltEnemies_Reseasoned
             return value;
         }
     }
+    public class FloatModMin1 : IntValueModifier
+    {
+        public readonly float mod;
+        public readonly bool roundUp;
+        public FloatModMin1(float _mod, bool _RoundUp) : base(74)
+        {
+            this.mod = _mod;
+            this.roundUp = _RoundUp;
+        }
+
+        public override int Modify(int value)
+        {
+            int orig = value;
+            float gap = value;
+            gap *= mod;
+            if (roundUp)
+            {
+                value = (int)Math.Ceiling(gap);
+            }
+            else
+            {
+                value = (int)Math.Floor(gap);
+            }
+            if (value <= orig) value++;
+            return value;
+        }
+    }
     public static class SigilSongHandler
     {
         public static int Spectre = 0;

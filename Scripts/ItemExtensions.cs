@@ -12,7 +12,7 @@ namespace SaltsEnemies_Reseasoned
             if (test)
             {
                 item.name += "_TEST";
-                item.startsLocked = true;
+                item.startsLocked = false;
             }
 
             if (item.isShopItem)
@@ -29,11 +29,11 @@ namespace SaltsEnemies_Reseasoned
             if (test)
             {
                 item.name += "_TEST";
-                item.startsLocked = true;
+                item.startsLocked = false;
             }
 
-            ItemUtils.AddItemFishingRodPool(item, rarity, true);
-            ItemUtils.AddItemCanOfWormsPool(item, rarity, true);
+            ItemUtils.AddItemFishingRodPool(item, rarity, item.startsLocked);
+            ItemUtils.AddItemCanOfWormsPool(item, rarity, item.startsLocked);
 
             ItemUtils.AddItemToCustomStatsCategoryAndGamePool(item, "Fish", "Fish", new ItemModdedUnlockInfo(item.name, ResourceLoader.LoadSprite(lockedSprite), linkedACH));
         }
@@ -55,6 +55,13 @@ namespace SaltsEnemies_Reseasoned
                 moddedItemCategory.lockedItemNames.Add(unlockInfo);
 
                 LoadedDBsHandler.ItemUnlocksDB._ModdedItemCategories.Add(moddedItemCategory);
+            }
+        }
+        public static void ShowItem(this IUnit self)
+        {
+            if (self.IsUnitCharacter)
+            {
+                CombatManager.Instance.AddUIAction(new ShowItemInformationUIAction(self.ID, self.HeldItem.GetItemLocData().text, false, self.HeldItem.wearableImage));
             }
         }
     }

@@ -4,11 +4,12 @@ using System.Text;
 
 namespace SaltsEnemies_Reseasoned
 {
-    public static class AchivementIDs
+    public static class AchievementIDs
     {
         public static string Shiny => "Salt_Shiny_ACH";
         public static string DeadGod => "Salt_DeadGod_ACH";
         public static string Deep => "Salt_Deep_ACH";
+        public static string Miriam => "Salt_Miriam_ACH";
         public static string Postmodern => "Salt_Postmodern_ACH";
         public static string SnakeGod => "Salt_SnakeGod_ACH";
         public static string Chapter1 => "Salt_Chapter1_ACH";
@@ -32,5 +33,6 @@ namespace SaltsEnemies_Reseasoned
         public static string Chapter19 => "Salt_Chapter19_ACH";
         public static string Chapter20 => "Salt_Chapter20_ACH";
         public static string Chapter21 => "Salt_Chapter21_ACH";
+        public static string HelpMe => "Salt_HelpMe_ACH";
     }
 }

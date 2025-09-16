@@ -60,7 +60,7 @@ namespace SaltEnemies_Reseasoned
         {
             CombatManager.Instance.PostNotification(GlowingHatCondition.Trigger.ToString(), self, null);
             bool addDet = false;
-            if (killer != null && killer.HasUsableItem && killer.HeldItem._itemName == "Silver Bullet" && !self.ContainsStatusEffect(Determined.StatusID))
+            if (killer != null && killer.HasUsableItem && killer.HeldItem.name.Contains("Salt_SilverBullet") && !self.ContainsStatusEffect(Determined.StatusID))
             {
                 addDet = true;
             }
@@ -70,7 +70,7 @@ namespace SaltEnemies_Reseasoned
                 CombatManager.Instance.AddUIAction(new ShowItemInformationUIAction(killer.ID, killer.HeldItem.GetItemLocData().text, false, killer.HeldItem.wearableImage));
                 ScriptableObject.CreateInstance<ApplyDeterminedEffect>().PerformEffect(CombatManager.Instance._stats, self, Targeting.Slot_SelfSlot.GetTargets(CombatManager.Instance._stats.combatSlots, self.SlotID, self.IsUnitCharacter), Targeting.Slot_SelfSlot.AreTargetSlots, 3, out int exi);
             }
-            if (killer != null && killer.HasUsableItem && killer.HeldItem._itemName == "Echo" && ret.damageAmount > 0)
+            if (killer != null && killer.HasUsableItem && killer.HeldItem.name.Contains("Salt_Echo") && ret.damageAmount > 0)
             {
                 try
                 {
@@ -120,7 +120,7 @@ namespace SaltEnemies_Reseasoned
             int currentHealth = targetUnit.CurrentHealth;
             bool opponentHealthIsBigger = self.CurrentHealth <= currentHealth;
             int ret = orig(self, amount, targetUnit);
-            if (self.HasUsableItem && self.HeldItem._itemName == "Silver Bullet" && targetUnit.ContainsStatusEffect(Determined.StatusID))
+            if (self.HasUsableItem && self.HeldItem.name.Contains("Salt_SilverBullet") && targetUnit.ContainsStatusEffect(Determined.StatusID))
             {
                 CombatManager.Instance.AddUIAction(new ShowItemInformationUIAction(self.ID, self.HeldItem.GetItemLocData().text, false, self.HeldItem.wearableImage));
                 ret *= 2;
@@ -176,7 +176,7 @@ namespace SaltEnemies_Reseasoned
         }
         public static void UseAbilityChara(Action<CharacterCombat, int, FilledManaCost[]> orig, CharacterCombat self, int abilityID, FilledManaCost[] filledCost)
         {
-            if (self.CombatAbilities.Count > abilityID) if (self.CombatAbilities[abilityID].ability._abilityName != "Replicate") CopyLastAbilityEffect.LastAbility = self.CombatAbilities[abilityID].ability;
+            if (self.CombatAbilities.Count > abilityID) if (self.CombatAbilities[abilityID].ability.name != "Salt_Replicate_A") CopyLastAbilityEffect.LastAbility = self.CombatAbilities[abilityID].ability;
             orig(self, abilityID, filledCost);
         }
         public static void UseAbilityEnemy(Action<EnemyCombat, int> orig, EnemyCombat self, int abilityID)

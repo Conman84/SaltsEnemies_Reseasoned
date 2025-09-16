@@ -117,6 +117,8 @@ namespace SaltsEnemies_Reseasoned
             if (DebugVer)
             {
                 PCall(Chocolate.Hook);
+                PCall(FeatherGunCondition.AddTypes);
+                PCall(GlowingHatManager.Setup);
             }
 
             //CH1 Enemies
