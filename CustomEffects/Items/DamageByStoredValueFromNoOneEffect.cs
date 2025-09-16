@@ -36,7 +36,7 @@ namespace SaltsEnemies_Reseasoned
         public string Value;
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
-            return (effector as IUnit).SimpleGetStoredValue(Value) > 0):
+            return (effector as IUnit).SimpleGetStoredValue(Value) > 0;
         }
 
         public static StoredValueCondition Create(string value)
