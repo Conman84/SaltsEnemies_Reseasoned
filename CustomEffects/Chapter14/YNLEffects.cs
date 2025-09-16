@@ -178,7 +178,7 @@ namespace SaltEnemies_Reseasoned
                         {
                             CombatManager.Instance.AddUIAction(new PlayCurrencyEffectUIAction(caster.ID, caster.IsUnitCharacter, coins, isMultiplier: false));
                         }
-                        base.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, entryVariable, out int exi);
+                        //base.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, entryVariable, out int exi);
                     }
                     else
                     {
