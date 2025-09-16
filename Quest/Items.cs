@@ -543,7 +543,7 @@ namespace SaltsEnemies_Reseasoned
             PercentageEffectorCondition p30 = ScriptableObject.CreateInstance<PercentageEffectorCondition>();
             p30.triggerPercentage = 30;
 
-            Basic_Item fone = new Basic_Item("AbandonedArtifact_TW");
+            PerformEffect_Item fone = new PerformEffect_Item("AbandonedArtifact_TW", []);
             fone.Name = "Abandoned Artifact";
             fone.Flavour = "\"Give AbandonedArtifact_TW\"";
             fone.Description = "Adds the extra ability \"Reconfigure,\" an unpredictable transformation.\n30% chance to be destroyed on taking any damage.";
@@ -565,19 +565,150 @@ namespace SaltsEnemies_Reseasoned
             fone.item._ItemTypeIDs = ["Magic"];
             fone.item.AddItem("Locked_AbandonedArtifact.png", AchievementIDs.HelpMe, Test);
 
-            //torturepedia (10)
+            PerformEffect_Item torture = new PerformEffect_Item("Salt_Torturepedia_SW", []);
+            torture.Name = "Torturepedia";
+            torture.Flavour = "\"I was just doing it like they tought me.\"";
+            torture.Description = "Increase damage by 50%. Damaged targets gain an additional action.";
+            torture.Icon = ResourceLoader.LoadSprite("Item_Torturepedia.png");
+            torture.EquippedModifiers = [];
+            torture.TriggerOn = TriggerCalls.OnWillApplyDamage;
+            torture.DoesPopUpInfo = false;
+            torture.Conditions = [IncreaseDamageMultiplyCondition.Create(1.5f)];
+            torture.DoesActionOnTriggerAttached = false;
+            torture.ConsumeOnTrigger = TriggerCalls.Count;
+            torture.ConsumeOnUse = false;
+            torture.ConsumeConditions = [];
+            torture.ShopPrice = 7;
+            torture.IsShopItem = true;
+            torture.StartsLocked = true;
+            torture.OnUnlockUsesTHE = true;
+            torture.UsesSpecialUnlockText = false;
+            torture.SpecialUnlockID = UILocID.None;
+            torture.item._ItemTypeIDs = ["Magic"];
+            torture.item.AddItem("Locked_Torturepedia.png", AchievementIDs.Chapter10, Test);
 
-            //imperfect lullaby (19)
-            //Magic
+            AddPassiveEffect confuse = ScriptableObject.CreateInstance<AddPassiveEffect>();
+            confuse._passiveToAdd = Passives.Confusion;
 
-            //angel (18)
+            MultiPerformEffectItem lullaby = new MultiPerformEffectItem("Salt_ImperfectLullaby_TW", [Effects.GenerateEffect(confuse, 1, Slots.Front)]);
+            lullaby.Name = "Imperfect Lullaby";
+            lullaby.Flavour = "\"Close your eyes. When you wake up, it will all be over.\"";
+            lullaby.Description = "This party member is immune to all damage below 2.\nGain \"Confusion\" as a passive on taking any damage.";
+            lullaby.Icon = ResourceLoader.LoadSprite("Item_ImperfectLullaby.png");
+            lullaby.EquippedModifiers = [];
+            lullaby.TriggerOn = TriggerCalls.OnDamaged;
+            lullaby.DoesPopUpInfo = true;
+            lullaby.Conditions = [];
+            lullaby.DoesActionOnTriggerAttached = false;
+            lullaby.ConsumeOnTrigger = TriggerCalls.Count;
+            lullaby.ConsumeOnUse = false;
+            lullaby.ConsumeConditions = [];
+            lullaby.ShopPrice = 6;
+            lullaby.IsShopItem = false;
+            lullaby.StartsLocked = true;
+            lullaby.OnUnlockUsesTHE = true;
+            lullaby.UsesSpecialUnlockText = false;
+            lullaby.SpecialUnlockID = UILocID.None;
+            EffectTrigger lullaby_second = new EffectTrigger([], [TriggerCalls.OnBeingDamaged], [BulwarkCondition.Create(2)], false);
+            lullaby.AddEffectTrigger(lullaby_second);
+            lullaby.item._ItemTypeIDs = ["Magic"];
+            lullaby.item.AddItem("Locked_ImperfectLullaby.png", AchievementIDs.Chapter19, Test);
 
-            //karmic offloading (20)
-            //Magic
+            ExtraLootOptionsEffect more_angel = ScriptableObject.CreateInstance<ExtraLootOptionsEffect>();
+            more_angel._itemName = "Salt_Angel_TW";
+            if (Test) more_angel._itemName += "_TEST";
+            MultiPerformEffectItem angel = new MultiPerformEffectItem("Salt_Angel_TW", [Effects.GenerateEffect(more_angel, 1)]);
+            angel.Name = "Angel";
+            angel.Flavour = "\"My little friend.\"";
+            angel.Description = "This party member is now considered an Angel.\nIncrease all damage and healing dealt by 2 for each Angel in combat.\nOn combat start, if this party member is the only party member in combat, produce another Angel.";
+            angel.Icon = ResourceLoader.LoadSprite("Item_Angel.png");
+            angel.EquippedModifiers = [];
+            angel.TriggerOn = TriggerCalls.OnCombatStart;
+            angel.DoesPopUpInfo = true;
+            angel.Conditions = [ScriptableObject.CreateInstance<OnlyPartyMemberCondition>()];
+            angel.DoesActionOnTriggerAttached = false;
+            angel.ConsumeOnTrigger = TriggerCalls.Count;
+            angel.ConsumeOnUse = false;
+            angel.ConsumeConditions = [];
+            angel.ShopPrice = 8;
+            angel.IsShopItem = false;
+            angel.StartsLocked = true;
+            angel.OnUnlockUsesTHE = true;
+            angel.UsesSpecialUnlockText = false;
+            angel.SpecialUnlockID = UILocID.None;
+            EffectTrigger angel_second = new EffectTrigger([], [TriggerCalls.OnWillApplyDamage, TriggerCalls.OnWillApplyHeal], [ScriptableObject.CreateInstance<AngelCondition>()], false);
+            angel.AddEffectTrigger(angel_second);
+            angel.item._ItemTypeIDs = ["Heart"];
+            angel.item.AddItem("Locked_Angel.png", AchievementIDs.Chapter18, Test);
 
-            //glue eye (21)
+            PercentageEffectorCondition p4 = ScriptableObject.CreateInstance<PercentageEffectorCondition>();
+            p4.triggerPercentage = 4;
 
-            //strepnut (17)
+            MultiPerformEffectItem karma = new MultiPerformEffectItem("Salt_KarmicOffloading_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 3, Slots.Self)]);
+            karma.Name = "Karmic Offloading";
+            karma.Flavour = "\"You've got all the time in the world.\"";
+            karma.Description = "On taking any damage, heal 3 health.\nAt the end of each turn, 96% chance to do nothing.";
+            karma.Icon = ResourceLoader.LoadSprite("Item_KarmicOffloading.png");
+            karma.EquippedModifiers = [];
+            karma.TriggerOn = TriggerCalls.OnDamaged;
+            karma.DoesPopUpInfo = true;
+            karma.Conditions = [];
+            karma.DoesActionOnTriggerAttached = false;
+            karma.ConsumeOnTrigger = TriggerCalls.Count;
+            karma.ConsumeOnUse = false;
+            karma.ConsumeConditions = [];
+            karma.ShopPrice = 3;
+            karma.IsShopItem = false;
+            karma.StartsLocked = true;
+            karma.OnUnlockUsesTHE = false;
+            karma.UsesSpecialUnlockText = false;
+            karma.SpecialUnlockID = UILocID.None;
+            EffectTrigger karma_second = new EffectTrigger([Effects.GenerateEffect(ScriptableObject.CreateInstance<KarmicOffloadingEffect>())], [TriggerCalls.OnTurnFinished], [p4]);
+            karma.AddEffectTrigger(karma_second);
+            karma.item._ItemTypeIDs = ["Magic"];
+            karma.item.AddItem("Locked_KarmicOffloading.png", AchievementIDs.Chapter20, Test);
+
+            PerformEffect_Item glue = new PerformEffect_Item("Salt_GlueEye_SW", []);
+            glue.Name = "Glue Eye";
+            glue.Flavour = "\"Stares at you grossly.\"";
+            glue.Description = "Apply 1 Divine Protection to targets before damaging them.";
+            glue.Icon = ResourceLoader.LoadSprite("Item_GlueEye.png");
+            glue.EquippedModifiers = [];
+            glue.TriggerOn = TriggerCalls.OnWillApplyDamage;
+            glue.DoesPopUpInfo = false;
+            glue.Conditions = [ScriptableObject.CreateInstance<GlueEyeCondition>()];
+            glue.DoesActionOnTriggerAttached = false;
+            glue.ConsumeOnTrigger = TriggerCalls.Count;
+            glue.ConsumeOnUse = false;
+            glue.ConsumeConditions = [];
+            glue.ShopPrice = 2;
+            glue.IsShopItem = true;
+            glue.StartsLocked = true;
+            glue.OnUnlockUsesTHE = true;
+            glue.UsesSpecialUnlockText = false;
+            glue.SpecialUnlockID = UILocID.None;
+            glue.item.AddItem("Locked_GlueEye.png", AchievementIDs.Chapter21, Test);
+
+            Basic_Item strepnut = new Basic_Item("Salt_Strepnut_SW");
+            strepnut.Name = "Strepnut";
+            strepnut.Flavour = "\"Madness, madness\"";
+            strepnut.Description = "On dealing odd damage, 50% chance to deal it again.\nOn taking odd damage, 50% chance to take it again.";
+            strepnut.Icon = ResourceLoader.LoadSprite("Item_Strepnut.png");
+            strepnut.EquippedModifiers = [];
+            strepnut.TriggerOn = TriggerCalls.Count;
+            strepnut.DoesPopUpInfo = false;
+            strepnut.Conditions = [];
+            strepnut.DoesActionOnTriggerAttached = false;
+            strepnut.ConsumeOnTrigger = TriggerCalls.Count;
+            strepnut.ConsumeOnUse = false;
+            strepnut.ConsumeConditions = [];
+            strepnut.ShopPrice = 6;
+            strepnut.IsShopItem = true;
+            strepnut.StartsLocked = true;
+            strepnut.OnUnlockUsesTHE = true;
+            strepnut.UsesSpecialUnlockText = false;
+            strepnut.SpecialUnlockID = UILocID.None;
+            strepnut.item.AddItem("Locked_Strepnut.png", AchievementIDs.Chapter17, Test);
 
             //boss items
 

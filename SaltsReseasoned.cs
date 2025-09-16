@@ -420,6 +420,12 @@ namespace SaltsEnemies_Reseasoned
                 //garden
                 PCall(BlueSkyEncounters.Add);
             }
+            
+            //items
+            if (DebugVer)
+            {
+                PCall(Items.AddFirst);
+            }
 
             //moving the passives glossary here.
 

@@ -11,6 +11,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 using SaltsEnemies_Reseasoned;
+using static UnityEngine.UI.CanvasScaler;
 
 //call HooksGeneral.Setup() in awake
 
@@ -111,6 +112,46 @@ namespace SaltEnemies_Reseasoned
                 if (killerHas) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(self.ID, self.IsUnitCharacter));
                 if (killerHas) CombatManager.Instance.AddPrioritySubAction(new RemoveInspirationAction(killer.ID, killer.IsUnitCharacter));
                 if (selfHas && ret.damageAmount > 0) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(killer.ID, killer.IsUnitCharacter));
+            }
+
+            if (killer != null && ret.damageAmount > 0 && killer.HasUsableItem && killer.HeldItem.name.Contains("Salt_Torturepedia"))
+            {
+                if (self.IsUnitCharacter)
+                {
+                    if (!self.RefreshAbilityUse())
+                    {
+                        self.SimpleSetStoredValue(Inspiration.Multiattack, self.SimpleGetStoredValue(Inspiration.Multiattack) + 1);
+                    }
+                }
+                else if (self is EnemyCombat enemy)
+                {
+                    CombatManager.Instance._stats.timeline.TryAddNewExtraEnemyTurns(enemy, 1);
+                }
+            }
+            if (killer != null && ret.damageAmount > 0 && killer.HasUsableItem && killer.HeldItem.name.Contains("Salt_Strepnut"))
+            {
+                if (UnityEngine.Random.Range(0, 100) < 50 && ret.damageAmount % 2 != 0)
+                {
+                    CombatManager.Instance.AddSubAction(new EffectAction([
+                        Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterShowItemEffect>()),
+                        Effects.GenerateEffect(DamageTargetEffect.Create(self), ret.damageAmount)
+                        ], killer));
+                }
+            }
+            if (ret.damageAmount > 0 && self.HasUsableItem && self.HeldItem.name.Contains("Salt_Strepnut"))
+            {
+                if (UnityEngine.Random.Range(0, 100) < 50 && ret.damageAmount % 2 != 0)
+                {
+                    DamageFromtTargetEffect hit = ScriptableObject.CreateInstance<DamageFromtTargetEffect>();
+                    hit.Unit = self;
+                    hit.Dealer = killer;
+                    hit._indirect = !directDamage;
+
+                    CombatManager.Instance.AddSubAction(new EffectAction([
+                        Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterShowItemEffect>()),
+                        Effects.GenerateEffect(hit, ret.damageAmount)
+                        ], self));
+                }
             }
 
             return ret;
