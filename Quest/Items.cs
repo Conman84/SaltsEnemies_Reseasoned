@@ -494,6 +494,7 @@ namespace SaltsEnemies_Reseasoned
             Ability awaken = new Ability("Awaken", "Salt_Awaken_A");
             awaken.Description = "10% chance to kill either a random enemy or this party member.";
             awaken.Cost = [Pigments.Purple];
+            awaken.Rarity = Rarity.GetCustomRarity("rarity5");
             awaken.Effects = new EffectInfo[3];
             awaken.Effects[0] = Effects.GenerateEffect(visuals, 1, Slots.Self, Effects.ChanceCondition(10));
             awaken.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Slots.Self, awaken_double);
@@ -510,7 +511,7 @@ namespace SaltsEnemies_Reseasoned
             nine.Flavour = "\"It's all just a dream.\"";
             nine.Description = "Adds the extra ability \"Awaken\", which has a chance to kill either them or a random enemy.\nAdds \"Locked In\" as a passive to all party members on combat start.";
             nine.Icon = ResourceLoader.LoadSprite("Item_NineKey.png");
-            nine.EquippedModifiers = [];
+            nine.EquippedModifiers = [awaken_a];
             nine.TriggerOn = TriggerCalls.OnCombatStart;
             nine.DoesPopUpInfo = false;
             nine.Conditions = [];
@@ -527,10 +528,42 @@ namespace SaltsEnemies_Reseasoned
             nine.item._ItemTypeIDs = ["Magic"];
             nine.item.AddItem("Locked_NineKey.png", AchievementIDs.Postmodern, Test);
 
+            Ability reconfigure = new Ability("Reconfigure", "Salt_Reconfigure_A");
+            reconfigure.Description = "Permenantly transform into a random party member of the same level.";
+            reconfigure.Cost = [Pigments.Purple];
+            reconfigure.Rarity = Rarity.GetCustomRarity("rarity5");
+            reconfigure.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<PermenantTransformationEffect>(), 1, Slots.Self)];
+            reconfigure.AddIntentsToTarget(Slots.Self, ["Misc_Hidden"]);
+            reconfigure.Visuals = LoadedAssetsHandler.GetEnemyAbility("Repent_A").visuals;
+            reconfigure.AnimationTarget = Slots.Self;
+            reconfigure.GenerateEnemyAbility();
+            ExtraAbility_Wearable_SMS add_recon = ScriptableObject.CreateInstance<ExtraAbility_Wearable_SMS>();
+            add_recon._extraAbility = reconfigure.GenerateCharacterAbility();
 
-            //abandoned artifact
-            //as usual
-            //Magic
+            PercentageEffectorCondition p30 = ScriptableObject.CreateInstance<PercentageEffectorCondition>();
+            p30.triggerPercentage = 30;
+
+            Basic_Item fone = new Basic_Item("AbandonedArtifact_TW");
+            fone.Name = "Abandoned Artifact";
+            fone.Flavour = "\"Give AbandonedArtifact_TW\"";
+            fone.Description = "Adds the extra ability \"Reconfigure,\" an unpredictable transformation.\n30% chance to be destroyed on taking any damage.";
+            fone.Icon = ResourceLoader.LoadSprite("Item_AbandonedArtifact.png");
+            fone.EquippedModifiers = [add_recon];
+            fone.TriggerOn = TriggerCalls.Count;
+            fone.DoesPopUpInfo = false;
+            fone.Conditions = [];
+            fone.DoesActionOnTriggerAttached = false;
+            fone.ConsumeOnTrigger = TriggerCalls.OnDamaged;
+            fone.ConsumeOnUse = false;
+            fone.ConsumeConditions = [p30];
+            fone.ShopPrice = 4;
+            fone.IsShopItem = false;
+            fone.StartsLocked = true;
+            fone.OnUnlockUsesTHE = true;
+            fone.UsesSpecialUnlockText = false;
+            fone.SpecialUnlockID = UILocID.None;
+            fone.item._ItemTypeIDs = ["Magic"];
+            fone.item.AddItem("Locked_AbandonedArtifact.png", AchievementIDs.HelpMe, Test);
 
             //torturepedia (10)
 

@@ -28,10 +28,7 @@ namespace SaltsEnemies_Reseasoned
                     CharacterSO c = getRandom();
                     for (int i = 0; i < 144 && (!c.HasRankedData || c.rankedData.Count <= chara.Rank); i++) c = getRandom();
                     if (stats.TryTransformCharacter(chara.ID, c, false, false, false)) exitAmount++;
-                    if (YNLHandler2.DoPerm)
-                    {
-                        YNLHandler2.Transforms.Add(chara.ID);
-                    }
+                    YNLHandler2.Transforms.Add(chara.ID);
                 }
             }
             return exitAmount > 0;
