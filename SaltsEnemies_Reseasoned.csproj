@@ -500,6 +500,7 @@
 	  <None Remove="Quest\Sprites\Item\Item_Angel.png" />
 	  <None Remove="Quest\Sprites\Item\Item_Bodybag.png" />
 	  <None Remove="Quest\Sprites\Item\Item_CheatingMaterials.png" />
+	  <None Remove="Quest\Sprites\Item\Item_ChocolateCoin.png" />
 	  <None Remove="Quest\Sprites\Item\Item_Coelocanth.png" />
 	  <None Remove="Quest\Sprites\Item\Item_DeepWater.png" />
 	  <None Remove="Quest\Sprites\Item\Item_Dues.png" />
@@ -525,6 +526,7 @@
 	  <None Remove="Quest\Sprites\Item\Item_SmilerMask.png" />
 	  <None Remove="Quest\Sprites\Item\Item_SpareEar.png" />
 	  <None Remove="Quest\Sprites\Item\Item_StageFreight.png" />
+	  <None Remove="Quest\Sprites\Item\Item_Strepnut.png" />
 	  <None Remove="Quest\Sprites\Item\Item_TheGoop.png" />
 	  <None Remove="Quest\Sprites\Item\Item_TinCan.png" />
 	  <None Remove="Quest\Sprites\Item\Item_Torturepedia.png" />
@@ -536,6 +538,7 @@
 	  <None Remove="Quest\Sprites\Locked\Locked_Angel.png" />
 	  <None Remove="Quest\Sprites\Locked\Locked_Bodybag.png" />
 	  <None Remove="Quest\Sprites\Locked\Locked_CheatingMaterials.png" />
+	  <None Remove="Quest\Sprites\Locked\Locked_ChocolateCoin.png" />
 	  <None Remove="Quest\Sprites\Locked\Locked_Coelocanth.png" />
 	  <None Remove="Quest\Sprites\Locked\Locked_DeepWater.png" />
 	  <None Remove="Quest\Sprites\Locked\Locked_Dues.png" />
@@ -561,6 +564,7 @@
 	  <None Remove="Quest\Sprites\Locked\Locked_SmilerMask.png" />
 	  <None Remove="Quest\Sprites\Locked\Locked_SpareEar.png" />
 	  <None Remove="Quest\Sprites\Locked\Locked_StageFreight.png" />
+	  <None Remove="Quest\Sprites\Locked\Locked_Strepnut.png" />
 	  <None Remove="Quest\Sprites\Locked\Locked_TheGoop.png" />
 	  <None Remove="Quest\Sprites\Locked\Locked_TinCan.png" />
 	  <None Remove="Quest\Sprites\Locked\Locked_Torturepedia.png" />
@@ -1083,6 +1087,7 @@
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_Angel.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_Bodybag.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_CheatingMaterials.png" />
+	  <EmbeddedResource Include="Quest\Sprites\Item\Item_ChocolateCoin.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_Coelocanth.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_DeepWater.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_Dues.png" />
@@ -1108,6 +1113,7 @@
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_SmilerMask.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_SpareEar.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_StageFreight.png" />
+	  <EmbeddedResource Include="Quest\Sprites\Item\Item_Strepnut.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_TheGoop.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_TinCan.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_Torturepedia.png" />
@@ -1117,6 +1123,7 @@
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_Angel.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_Bodybag.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_CheatingMaterials.png" />
+	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_ChocolateCoin.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_Coelocanth.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_DeepWater.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_Dues.png" />
@@ -1142,6 +1149,7 @@
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_SmilerMask.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_SpareEar.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_StageFreight.png" />
+	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_Strepnut.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_TheGoop.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_TinCan.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_Torturepedia.png" />

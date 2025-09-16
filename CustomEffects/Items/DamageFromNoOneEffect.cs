@@ -46,7 +46,7 @@ namespace SaltsEnemies_Reseasoned
         public string Status;
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
-            if (args is DamageReceivedValueChangeException value)
+            if (args is DamageDealtValueChangeException value)
             {
                 if (value.damagedUnit.ContainsStatusEffect(Status))
                 {

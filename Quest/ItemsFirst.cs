@@ -36,7 +36,7 @@ namespace SaltsEnemies_Reseasoned
             choco.SpecialUnlockID = UILocID.None;
             choco.item.AddItem("Locked_ChocolateCoin.png", AchievementIDs.Shiny, Test);
 
-            PerformEffect_Item sign = new PerformEffect_Item("Salt__CardboardSign_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 5, Slots.Self)], true);
+            PerformEffect_Item sign = new PerformEffect_Item("Salt_CardboardSign_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 5, Slots.Self)], true);
             sign.Name = "Cardboard Sign";
             sign.Flavour = "\"Barely fooled me.\"";
             sign.Description = "On an enemy moving in front of this party member, gain 5 Shield.";
@@ -100,7 +100,7 @@ namespace SaltsEnemies_Reseasoned
             silver.item._ItemTypeIDs = ["Magic"];
             silver.item.AddItem("Locked_SilverBullet.png", AchievementIDs.Chapter2, Test);
 
-            PerformEffect_Item dues = new PerformEffect_Item("Salt_Dues_SW");
+            PerformEffect_Item dues = new PerformEffect_Item("Salt_Dues_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<TimelineClearEffect>())]);
             dues.Name = "Dues";
             dues.Flavour = "\"You'll never catch me!\"";
             dues.Description = "At the start of the third turn, cancel all enemy abilities.";
@@ -154,14 +154,23 @@ namespace SaltsEnemies_Reseasoned
             cheat.item.AddItem("Locked_CheatingMaterials.png", AchievementIDs.Chapter4, Test);
 
             //passive fruit we'll have to think about this one later. because.you know.
+            ChildrenPassiveAbility whimsy = ScriptableObject.CreateInstance<ChildrenPassiveAbility>();
+            whimsy._passiveName = "Whimsy";
+            whimsy.m_PassiveID = "Whimsy_PA";
+            whimsy.passiveIcon = ResourceLoader.LoadSprite("WileyPassive.png");
+            whimsy._enemyDescription = "Most Status Effects and some Field Effects will no longer decrease while this unit is in combat.";
+            whimsy._characterDescription = whimsy._enemyDescription;
+            whimsy.doesPassiveTriggerInformationPanel = false;
+            whimsy._triggerOn = [];
+
             AddPassiveEffect addWhimsy = ScriptableObject.CreateInstance<AddPassiveEffect>();
-            addWhimsy._passiveToAdd = Passives.GetCustomPassive("Whimsy");
+            addWhimsy._passiveToAdd = whimsy;
 
             PerformEffect_Item scary = new PerformEffect_Item("Salt_Passivefruit_TW", [Effects.GenerateEffect(addWhimsy, 1, Slots.Front)]);
             scary.Name = "Passivefruit";
             scary.Flavour = "\"Scary.\"";
             scary.Description = "At the start of combat, add \"Whimsy\" as a passive to the Opposing enemy.";
-            scary.Icon = ResourceLoader.LoadSprite("Item_Passivefruit.png");
+            scary.Icon = ResourceLoader.LoadSprite("Item_PassiveFruit.png");
             scary.EquippedModifiers = [];
             scary.TriggerOn = TriggerCalls.OnCombatStart;
             scary.DoesPopUpInfo = true;
@@ -177,7 +186,7 @@ namespace SaltsEnemies_Reseasoned
             scary.UsesSpecialUnlockText = false;
             scary.SpecialUnlockID = UILocID.None;
             scary.item._ItemTypeIDs = ["Magic"];
-            scary.item.AddItem("Locked_Passivefruit.png", AchievementIDs.Chapter5, Test);
+            scary.item.AddItem("Locked_PassiveFruit.png", AchievementIDs.Chapter5, Test);
 
             PerformEffect_Item fossil = new PerformEffect_Item("Salt_UnknownFossil_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRootsSlotEffect>(), 3, Targetting.Everything(false))]);
             fossil.Name = "Unknown Fossil";
@@ -207,7 +216,7 @@ namespace SaltsEnemies_Reseasoned
             can.Icon = ResourceLoader.LoadSprite("Item_TinCan.png");
             can.EquippedModifiers = [];
             can.TriggerOn = TriggerCalls.CanDie;
-            can.DoesPopUpInfo = false;
+            can.DoesPopUpInfo = true;
             can.Conditions = [ScriptableObject.CreateInstance<TinCanCondition>()];
             can.DoesActionOnTriggerAttached = false;
             can.ConsumeOnTrigger = TriggerCalls.OnCombatEnd;
@@ -279,7 +288,7 @@ namespace SaltsEnemies_Reseasoned
             frenzy.Description = "On getting a kill, apply 1 Haste to all party members and enemies.";
             frenzy.Icon = ResourceLoader.LoadSprite("Item_FeedingFrenzy.png");
             frenzy.EquippedModifiers = [];
-            frenzy.TriggerOn = TriggerCalls.OnDeath;
+            frenzy.TriggerOn = TriggerCalls.OnKill;
             frenzy.DoesPopUpInfo = true;
             frenzy.Conditions = [];
             frenzy.DoesActionOnTriggerAttached = false;
@@ -326,7 +335,7 @@ namespace SaltsEnemies_Reseasoned
             feather.EquippedModifiers = [];
             feather.TriggerOn = TriggerCalls.OnWillApplyDamage;
             feather.DoesPopUpInfo = false;
-            feather.Conditions = [];
+            feather.Conditions = [ScriptableObject.CreateInstance<FeatherGunCondition>()];
             feather.DoesActionOnTriggerAttached = false;
             feather.ConsumeOnTrigger = TriggerCalls.Count;
             feather.ConsumeOnUse = false;
@@ -489,6 +498,7 @@ namespace SaltsEnemies_Reseasoned
             DoubleEffectCondition awaken_double = ScriptableObject.CreateInstance<DoubleEffectCondition>();
             awaken_double.first = BasicEffects.DidThat(true);
             awaken_double.second = Effects.ChanceCondition(50);
+            awaken_double.And = true;
             MultiPreviousEffectCondition awaken_prev = ScriptableObject.CreateInstance<MultiPreviousEffectCondition>();
             awaken_prev.previousAmount = [1, 2];
             awaken_prev.wasSuccessful = [false, true];
@@ -648,12 +658,12 @@ namespace SaltsEnemies_Reseasoned
             MultiPerformEffectItem karma = new MultiPerformEffectItem("Salt_KarmicOffloading_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 3, Slots.Self)]);
             karma.Name = "Karmic Offloading";
             karma.Flavour = "\"You've got all the time in the world.\"";
-            karma.Description = "On taking any damage, heal 3 health.\nAt the end of each turn, 96% chance to do nothing.";
+            karma.Description = "On taking any damage, heal 3 health if this party member is not dead.\nAt the end of each turn, 96% chance to do nothing.";
             karma.Icon = ResourceLoader.LoadSprite("Item_KarmicOffloading.png");
             karma.EquippedModifiers = [];
             karma.TriggerOn = TriggerCalls.OnDamaged;
             karma.DoesPopUpInfo = true;
-            karma.Conditions = [];
+            karma.Conditions = Passives.Slippery.conditions;
             karma.DoesActionOnTriggerAttached = false;
             karma.ConsumeOnTrigger = TriggerCalls.Count;
             karma.ConsumeOnUse = false;
@@ -829,7 +839,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(UIActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToGardenEffect>(), 1, Slots.Self).SelfArray()), 1, Targeting.Slot_SelfSlot),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<BoxAllEnemiesEffect>()),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnGardenEnemyBundleEffect>()),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Targeting.Unit_AllOpponents)
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Targeting.Unit_AllAllies)
                 ]);
             dream.Name = "Red Dream";
             dream.Flavour = "\"Exit into heaven.\"";

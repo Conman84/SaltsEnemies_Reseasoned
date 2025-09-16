@@ -69,7 +69,7 @@ namespace SaltEnemies_Reseasoned
 
             CombatManager.Instance.PostNotification(GlowingHatCondition.Trigger.ToString(), self, null);
             bool addDet = false;
-            if (killer != null && killer.HasUsableItem && killer.HeldItem.name.Contains("Salt_SilverBullet") && !self.ContainsStatusEffect(Determined.StatusID))
+            if (killer != null && killer.HasUsableItem && killer.HeldItem.name.Contains("Salt_SilverBullet") && !self.ContainsStatusEffect(Determined.StatusID) && ScriptableObject.CreateInstance<IsAliveEffectorCondition>().MeetCondition(self as IEffectorChecks, null))
             {
                 addDet = true;
             }
