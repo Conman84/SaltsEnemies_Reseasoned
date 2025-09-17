@@ -120,7 +120,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 bool hasItemSpace = run.playerData.HasItemSpace;
                 StringTrioData itemLocData = item.GetItemLocData();
-                string text = string.Format(LocUtils.GameLoc.GetUIData(UILocID.BronzoItemGetLabel), itemLocData.text);
+                string text = string.Format(LocUtils.GameLoc.GetUIData(UILocID.PrizeGetLabel), itemLocData.text);
                 if (!hasItemSpace)
                 {
                     text = text + "\n" + LocUtils.GameLoc.GetUIData(UILocID.ItemNotEnoughSpace);
