@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Tools;
+using Yarn;
 using Yarn.Unity;
 
 namespace SaltsEnemies_Reseasoned
@@ -13,6 +14,7 @@ namespace SaltsEnemies_Reseasoned
         {
             runner.AddCommandHandler("ChangeCurrentBoss", SwapCurrentZoneBossByDialogue);
             runner.AddCommandHandler("GiftShopItem", GenerateItemPresent);
+            runner.AddFunction("IsBlueSky", 0, (Value[] parameters) => CheckCurrentBossIsBlueSky());
         }
         public static void SwapCurrentZoneBossByDialogue(string[] info)
         {
@@ -22,7 +24,7 @@ namespace SaltsEnemies_Reseasoned
             }
             string text = info[0];
             RunDataSO run = LoadedDBsHandler.InfoHolder.Run;
-            if (run.CurrentZoneID + 1 >= run.zoneData.Count)
+            if (run.CurrentZoneID >= run.zoneData.Count)
             {
                 return;
             }
@@ -50,6 +52,27 @@ namespace SaltsEnemies_Reseasoned
         public static void GenerateItemPresent(string[] info)
         {
             World.StartCoroutine(World.ProcessBronzoPresent(BronzoPresentType.ShopItem));
+        }
+        public static bool CheckCurrentBossIsBlueSky()
+        {
+            RunDataSO run = LoadedDBsHandler.InfoHolder.Run;
+            if (run.CurrentZoneID >= run.zoneData.Count)
+            {
+                return false;
+            }
+            RunZoneData runZoneData = run.zoneData[run.CurrentZoneID];
+            ZoneDataBaseSO zoneDataBaseSO = runZoneData.LoadZoneDB();
+            if (zoneDataBaseSO == null || zoneDataBaseSO.Equals(null))
+            {
+                return false;
+            }
+            EnemyCombatBundle[] bossBundleArray = runZoneData.BossBundleArray;
+            if (bossBundleArray.Length == 0)
+            {
+                return false;
+            }
+            EnemyCombatBundle enemyCombatBundle = bossBundleArray[bossBundleArray.Length - 1];
+            return "BlueSky_BOSS" == enemyCombatBundle.BossID;
         }
     }
 }

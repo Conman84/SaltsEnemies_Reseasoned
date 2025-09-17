@@ -495,6 +495,7 @@
 	  <None Remove="Quest\Sprites\CheatingMaterials.png" />
 	  <None Remove="Quest\Sprites\Coelocanth.png" />
 	  <None Remove="Quest\Sprites\DeepWater.png" />
+	  <None Remove="Quest\Sprites\DefacerAch.png" />
 	  <None Remove="Quest\Sprites\DefacerFront.png" />
 	  <None Remove="Quest\Sprites\DefacerWorld.png" />
 	  <None Remove="Quest\Sprites\Dues.png" />
@@ -1095,6 +1096,7 @@
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\DGAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\PMAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\SnakeAch.png" />
+	  <EmbeddedResource Include="Quest\Sprites\DefacerAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\DefacerFront.png" />
 	  <EmbeddedResource Include="Quest\Sprites\DefacerWorld.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Item\Item_AbandonedArtifact.png" />
