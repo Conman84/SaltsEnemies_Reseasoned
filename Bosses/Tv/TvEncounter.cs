@@ -39,8 +39,8 @@ namespace SaltsEnemies_Reseasoned
             List<SpriteRenderer> list = new List<SpriteRenderer>();
             for (int i = 0; i < 22; i++)
             {
-                list.Add(left.GetChild(i).GetComponentInChildren<SpriteRenderer>());
-                list.Add(right.GetChild(i).GetComponentInChildren<SpriteRenderer>());
+                list.Add(left.GetChild(i).GetChild(0).GetComponent<SpriteRenderer>());
+                list.Add(right.GetChild(i).GetChild(0).GetComponent<SpriteRenderer>());
             }
 
             matcher.Renderers = list.ToArray();
