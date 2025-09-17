@@ -14,7 +14,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy template = new Enemy("", "Nameless_EN")
             {
-                Health = 6,
+                Health = 44,
                 HealthColor = Pigments.Grey,
                 CombatSprite = ResourceLoader.LoadSprite("NamelessIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("NamelessWorld.png", new Vector2(0.5f, 0f), 32),
@@ -46,7 +46,7 @@ namespace SaltsEnemies_Reseasoned
                 ScriptableObject.CreateInstance<CowardCondition>()
             };
 
-            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Immortal, Passives.Fleeting4, Passives.Withering });
+            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Fleeting4, Passives.Withering });
             //template.CombatExitEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnCasterGibsEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsDieCondition>()).SelfArray();
 
 
