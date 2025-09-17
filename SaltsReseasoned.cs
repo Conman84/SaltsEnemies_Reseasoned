@@ -428,6 +428,8 @@ namespace SaltsEnemies_Reseasoned
                 PCall(ItemsFirst.Add);
                 PCall(Achievements.AddBosses);
                 PCall(Achievements.AddChapters);
+
+                PCall(Defacer.Add);
             }
 
             //moving the passives glossary here.
