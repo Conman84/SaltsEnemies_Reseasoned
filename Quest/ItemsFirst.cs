@@ -391,7 +391,7 @@ namespace SaltsEnemies_Reseasoned
             fish.OnUnlockUsesTHE = true;
             fish.UsesSpecialUnlockText = true;
             fish.SpecialUnlockID = UILocID.ItemFishLocationLabel;
-            fish.item.AddItem("Locked_Coelocanth.png", AchievementIDs.Chapter14, Test);
+            fish.item.AddFishItem(2, "Locked_Coelocanth.png", AchievementIDs.Chapter14, Test);
 
             PerformEffect_Item gas = new PerformEffect_Item("Salt_HormoneGasses_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPimplesEffect>(), 2, Slots.Front), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPimplesEffect>(), 1, Slots.Front, Effects.ChanceCondition(50))]);
             gas.Name = "Hormone Gasses";
