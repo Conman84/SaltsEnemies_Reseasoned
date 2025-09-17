@@ -7,6 +7,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="assets\dreams" />
 	  <None Remove="assets\group4" />
 	  <None Remove="assets\hawthorne" />
 	  <None Remove="assets\meowy" />
@@ -16,6 +17,7 @@
 	  <None Remove="Bosses\Child\CrowChildWorld.png" />
 	  <None Remove="Bosses\Invention\InventionWorld.png" />
 	  <None Remove="Bosses\Smilers\SmilersWorld.png" />
+	  <None Remove="Bosses\Tv\MegalaniaIcon.png" />
 	  <None Remove="Bosses\Tv\TvWorld.png" />
 	  <None Remove="Chapter07\Postmodern\Passive_Silence.png" />
 	  <None Remove="Chapter08\RealisticTank\BacklashPassive.png" />
@@ -605,12 +607,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="assets\dreams" />
 	  <EmbeddedResource Include="Bosses\Black\WarCriminalWorld.png" />
 	  <EmbeddedResource Include="Bosses\Blue\Miku.png" />
 	  <EmbeddedResource Include="Bosses\Blue\MikuWorld.png" />
 	  <EmbeddedResource Include="Bosses\Child\CrowChildWorld.png" />
 	  <EmbeddedResource Include="Bosses\Invention\InventionWorld.png" />
 	  <EmbeddedResource Include="Bosses\Smilers\SmilersWorld.png" />
+	  <EmbeddedResource Include="Bosses\Tv\MegalaniaIcon.png" />
 	  <EmbeddedResource Include="Bosses\Tv\TvWorld.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\ScramblePassive.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaDead.png" />

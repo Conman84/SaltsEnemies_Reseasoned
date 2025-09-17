@@ -16,14 +16,14 @@ namespace SaltsEnemies_Reseasoned
             {
                 Health = 180,
                 HealthColor = Pigments.Red,
-                CombatSprite = ResourceLoader.LoadSprite("TvWorld.png"),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("TvWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("TvWorld.png", new Vector2(0.5f, 0f), 32),
+                CombatSprite = ResourceLoader.LoadSprite("MegalaniaIcon.png"),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("MegalaniaIcon.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("MegalaniaIcon.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
             };
-            template.PrepareEnemyPrefab("Assets/TestSprites/Test_Megalania_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
-            //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("Solitaire_EN").enemyTemplate;
+            template.PrepareEnemyPrefab("Assets/Bosses/Tv/Megalania_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/Tv/Megalania_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.enemy.enemyTemplate.m_Data.m_Renderer = template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").GetComponent<SpriteRenderer>();
 
             //radical
             PerformEffectPassiveAbility radical = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();

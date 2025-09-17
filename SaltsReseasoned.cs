@@ -32,6 +32,7 @@ namespace SaltsEnemies_Reseasoned
         public static AssetBundle saltsAssetBundle;
         public static AssetBundle Group4;
         public static AssetBundle Meow;
+        public static AssetBundle Dreams;
 
         //change this to false when pushing public version
         public static bool DebugVer = true;
@@ -41,9 +42,10 @@ namespace SaltsEnemies_Reseasoned
         {
             Logger.LogInfo("they salt on my enemies till i season?");
 
-            SaltsReseasoned.saltsAssetBundle = AssetBundle.LoadFromMemory(ResourceLoader.ResourceBinary("hawthorne"));//changed because i think repeatedly renaming it is a waste
-            SaltsReseasoned.Group4 = AssetBundle.LoadFromMemory(ResourceLoader.ResourceBinary("group4"));
-            SaltsReseasoned.Meow = AssetBundle.LoadFromMemory(ResourceLoader.ResourceBinary("meowy"));
+            saltsAssetBundle = AssetBundle.LoadFromMemory(ResourceLoader.ResourceBinary("hawthorne"));//changed because i think repeatedly renaming it is a waste
+            Group4 = AssetBundle.LoadFromMemory(ResourceLoader.ResourceBinary("group4"));
+            Meow = AssetBundle.LoadFromMemory(ResourceLoader.ResourceBinary("meowy"));
+            Dreams = AssetBundle.LoadFromMemory(ResourceLoader.ResourceBinary("dreams"));
 
             //Setup
             #region Setup
