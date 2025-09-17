@@ -420,6 +420,8 @@ namespace SaltsEnemies_Reseasoned
 
                 //garden
                 PCall(BlueSkyEncounters.Add);
+
+                PCall(DeathQuotes.Add);
             }
             
             //items
