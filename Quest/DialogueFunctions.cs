@@ -51,6 +51,7 @@ namespace SaltsEnemies_Reseasoned
         }
         public static void GenerateItemPresent(string[] info)
         {
+            World = UnityEngine.Object.FindObjectOfType<OverworldManagerBG>();
             World.StartCoroutine(World.ProcessBronzoPresent(BronzoPresentType.ShopItem));
         }
         public static bool CheckCurrentBossIsBlueSky()
