@@ -222,7 +222,7 @@ namespace SaltsEnemies_Reseasoned
             data.moddedAchievementID = name;
             data.hasItemUnlock = true;
             data.items = [item];
-            ModdedAchievements ach = new ModdedAchievements(name, "Complete Defacer's Quest", ResourceLoader.LoadSprite("DefacerAch.png"), name);
+            ModdedAchievements ach = new ModdedAchievements("Defacer's Quest", "Complete Defacer's Quest", ResourceLoader.LoadSprite("DefacerAch.png"), name);
             ach.AddNewAchievementToInGameCategory(AchievementCategoryIDs.StrangersTitleLabel);
             Unlocks.AddUnlock_ByID(data);
         }
