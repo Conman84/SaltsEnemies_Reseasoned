@@ -41,6 +41,7 @@ namespace SaltsEnemies_Reseasoned
                     ]))
             })) };
             radical._triggerOn = [TriggerCalls.OnDirectDamaged];
+            radical.conditions = Passives.Slippery.conditions;
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, radical, Passives.MultiAttack2 });
 
