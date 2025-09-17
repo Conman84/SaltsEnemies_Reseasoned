@@ -80,7 +80,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     if (!render.gameObject.activeSelf) render.gameObject.SetActive(true);
                     render.sprite = original.sprite;
-                    render.color = original.color * new Color32(255, 255, 255, 200);
+                    render.color = original.color * new Color32(255, 255, 255, 225);
                 }
             }
         }
