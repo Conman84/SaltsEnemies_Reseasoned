@@ -348,6 +348,7 @@ namespace SaltEnemies_Reseasoned
         {
             orig(self, dialogueRunner);
             dialogueRunner.AddCommandHandler("SaltPostmodernity", TriggerPostmodern);
+            DialogueFunctions.Setup(dialogueRunner, self);
         }
 
         public static void TriggerPostmodern(string[] info)

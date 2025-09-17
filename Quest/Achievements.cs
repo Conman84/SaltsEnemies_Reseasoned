@@ -187,7 +187,7 @@ namespace SaltsEnemies_Reseasoned
             AddSaltEnemiesQuest(AchievementIDs.Chapter19, "Salt_ImperfectLullaby_TW");
             AddSaltEnemiesQuest(AchievementIDs.Chapter20, "Salt_KarmicOffloading_TW");
             AddSaltEnemiesQuest(AchievementIDs.Chapter21, "Salt_GlueEye_SW");
-            AddSaltEnemiesQuest(AchievementIDs.ChapterBoss, "Salt_Knife_SW");
+            FinishSaltEnemiesQuest(AchievementIDs.ChapterBoss, "Salt_Knife_SW");
             AddSaltEnemiesQuest(AchievementIDs.HelpMe, "AbandonedArtifact_TW");
         }
 
@@ -200,6 +200,17 @@ namespace SaltsEnemies_Reseasoned
             data.items = [item];
             ModdedAchievements ach = new ModdedAchievements(name, "Progress Defacer's Quest", null, name);
             ach.AddHiddenAchievement();
+            Unlocks.AddUnlock_ByID(data);
+        }
+        public static void FinishSaltEnemiesQuest(string name, string item)
+        {
+            UnlockableModData data = new UnlockableModData(name);
+            data.hasModdedAchievementUnlock = true;
+            data.moddedAchievementID = name;
+            data.hasItemUnlock = true;
+            data.items = [item];
+            ModdedAchievements ach = new ModdedAchievements(name, "Complete Defacer's Quest", null, name);
+            ach.AddNewAchievementToInGameCategory(AchievementCategoryIDs.StrangersTitleLabel);
             Unlocks.AddUnlock_ByID(data);
         }
     }

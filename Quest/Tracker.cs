@@ -23,10 +23,14 @@ namespace SaltsEnemies_Reseasoned
                     LoadedDBsHandler.InfoHolder.Game.SetBoolData(value, true);
                 }
                 Killed.Clear();
+
+                Check();
             }
 
             if (name == TriggerCalls.OnDeath.ToString())
             {
+                if (args is DeathReference reference && reference.witheringDeath) return;
+
                 if (sender is EnemyCombat enemy)
                 {
                     if (enemy.Enemy.name == "EmbersofaDeadGod_EN") Killed.Add("DeadGod_EN");
@@ -137,6 +141,7 @@ namespace SaltsEnemies_Reseasoned
             "TheDragon_EN",
             "OdeToHumanity_EN",
             "TortureMeNot_EN",
+            "ToyUfo_EN",
             "EvilDog_EN",
             "Evileye_EN",
             "NobodyGrave_EN",
@@ -171,5 +176,73 @@ namespace SaltsEnemies_Reseasoned
             "Megalania_BOSS",
             "Invention_BOSS",
             ];
+
+        public static void Check()
+        {
+            InGameDataSO game = LoadedDBsHandler.InfoHolder.Game;
+
+            if (game.GetBoolData("LostSheep_EN") && game.GetBoolData("Enigma_EN") && game.GetBoolData("DeadPixel_EN") && game.GetBoolData("LittleAngel_EN") && game.GetBoolData("DeadGod_EN"))
+                game.SetBoolData("Chapter1", true);
+
+            if (game.GetBoolData("Satyr_EN") && game.GetBoolData("Unmung_EN") && game.GetBoolData("Something_EN") && game.GetBoolData("Derogatory_EN") && game.GetBoolData("Denial_EN"))
+                game.SetBoolData("Chapter2", true);
+
+            if (game.GetBoolData("TheCrow_EN") && game.GetBoolData("Freud_EN") && game.GetBoolData("AFlower_EN") && game.GetBoolData("StarGazer_EN"))
+                game.SetBoolData("Chapter3", true);
+
+            if (game.GetBoolData("CoinHunter_EN") && game.GetBoolData(Jumble.Grey) && game.GetBoolData(Spoggle.Grey) && game.GetBoolData(Enemies.Camera))
+                game.SetBoolData("Chapter4", true);
+
+            if (game.GetBoolData("Delusion_EN") && game.GetBoolData("FakeAngel_EN") && game.GetBoolData(Flower.Red) && game.GetBoolData(Flower.Blue) && game.GetBoolData(Flower.Yellow) && game.GetBoolData(Flower.Purple))
+                game.SetBoolData("Chapter6", true);
+
+            if (game.GetBoolData("TheDeep_EN") && game.GetBoolData("Postmodern_EN") && game.GetBoolData("War_EN"))
+                game.SetBoolData("Chapter7", true);
+
+            if (game.GetBoolData("Sigil_EN") && game.GetBoolData("ClockTower_EN") && game.GetBoolData(Enemies.Tank) && game.GetBoolData(Enemies.Solvent) && game.GetBoolData("WindSong_EN"))
+                game.SetBoolData("Chapter8", true);
+
+            if (game.GetBoolData("Grandfather_EN") && game.GetBoolData(Flower.Grey) && game.GetBoolData("StalwartTortoise_EN") && game.GetBoolData("Butterfly_EN"))
+                game.SetBoolData("Chapter9", true);
+
+            if (game.GetBoolData("MiniReaper_EN") && game.GetBoolData("EyePalm_EN") && game.GetBoolData("Merced_EN") && game.GetBoolData("Miriam_EN") && game.GetBoolData("Skyloft_EN") && game.GetBoolData("Shua_EN"))
+                game.SetBoolData("Chapter10", true);
+
+            if (game.GetBoolData("Tripod_EN") && game.GetBoolData("Nameless_EN") && game.GetBoolData("Damocles_EN") && game.GetBoolData("GlassFigurine_EN") && game.GetBoolData("Rabies_EN") && game.GetBoolData("SnakeGod_EN"))
+                game.SetBoolData("Chapter11", true);
+
+            if (game.GetBoolData("LittleBeak_EN") && game.GetBoolData("Hunter_EN") && game.GetBoolData("Firebird_EN") && game.GetBoolData("Warbird_EN"))
+                game.SetBoolData("Chapter12", true);
+
+            if (game.GetBoolData("Windle_EN") && game.GetBoolData("BlackStar_EN") && game.GetBoolData("Singularity_EN") && game.GetBoolData("Indicator_EN") && game.GetBoolData("Maw_EN"))
+                game.SetBoolData("Chapter13", true);
+
+            if (game.GetBoolData("Clione_EN") && game.GetBoolData("YNL_EN") && game.GetBoolData("Arceles_EN") && game.GetBoolData("Stoplight_EN") && game.GetBoolData("Children_EN") && game.GetBoolData("Minana_EN") && game.GetBoolData("Pinano_EN"))
+                game.SetBoolData("Chapter14", true);
+
+            if (game.GetBoolData(Bots.Red) && game.GetBoolData(Bots.Yellow) && game.GetBoolData(Bots.Blue) && game.GetBoolData(Bots.Purple) && game.GetBoolData(Bots.Grey) && game.GetBoolData("GlassedSun_EN"))
+                game.SetBoolData("Chapter15", true);
+
+            if (game.GetBoolData("Crystal_EN") && game.GetBoolData("CandyStone_EN") && game.GetBoolData("TortureMeNot_EN") && game.GetBoolData("TheDragon_EN") && game.GetBoolData("OdeToHumanity_EN"))
+                game.SetBoolData("Chapter16", true);
+
+            if (game.GetBoolData("ToyUfo_EN") && game.GetBoolData("Evileye_EN") && game.GetBoolData("YellowAngel_EN") && game.GetBoolData("NobodyGrave_EN") && game.GetBoolData("Defender_EN") && game.GetBoolData("EvilDog_EN"))
+                game.SetBoolData("Chapter17", true);
+
+            if (game.GetBoolData("Sinker_EN") && game.GetBoolData(Enemies.Shooter) && game.GetBoolData("SkeletonHead_EN") && game.GetBoolData("PersonalAngel_EN") && game.GetBoolData("Complimentary_EN"))
+                game.SetBoolData("Chapter18", true);
+
+            if (game.GetBoolData("Wednesday_EN") && game.GetBoolData("Starless_EN") && game.GetBoolData("Eyeless_EN") && game.GetBoolData("Yin_EN") && game.GetBoolData("Yang_EN") && game.GetBoolData("PawnA_EN"))
+                game.SetBoolData("Chapter19", true);
+
+            if (game.GetBoolData("2009_EN") && game.GetBoolData("Chiito_EN") && game.GetBoolData("Solitaire_EN") && game.GetBoolData("Spades_EN") && game.GetBoolData("Foxtrot_EN"))
+                game.SetBoolData("Chapter20", true);
+
+            if (game.GetBoolData("Author_EN") && game.GetBoolData("Monster_EN") && game.GetBoolData("Wall_EN") && game.GetBoolData("Clown_EN") && game.GetBoolData("Waltz_EN") && game.GetBoolData("VoiceTrumpet_EN") && game.GetBoolData("Amalga_EN"))
+                game.SetBoolData("Chapter21", true);
+
+            if (game.GetBoolData("Smilers_BOSS") && game.GetBoolData("CrowChild_BOSS") && game.GetBoolData("BlackAndBlue_BOSS") && game.GetBoolData("Megalania_BOSS") && game.GetBoolData("Invention_BOSS") && game.GetBoolData("BlueSky_BOSS"))
+                game.SetBoolData("ChapterBoss", true);
+        }
     }
 }

@@ -68,6 +68,15 @@ namespace SaltEnemies_Reseasoned
             _killer = killer;
             _deathType = deathType;
         }
+        public static void SilentEnemyDeath(EnemyCombat self, DeathReference deathReference, string deathTypeID)
+        {
+            self.IsAlive = false;
+            self.DeathBy = deathTypeID;
+
+            self.DisconnectPassives();
+            self.RemoveAllStatusEffects(showInfo: false);
+            self.FinalizationEnd(disconnectPassives: false);
+        }
 
         public override IEnumerator Execute(CombatStats stats)
         {
@@ -75,7 +84,7 @@ namespace SaltEnemies_Reseasoned
             if (enemyCombat != null && (!enemyCombat.IsAlive || enemyCombat.CurrentHealth <= 0) && enemyCombat.CanUnitDie)
             {
                 DeathReference deathReference = new DeathReference(_killer, witheringDeath: false, _deathType);
-                enemyCombat.EnemyDeath(deathReference, _deathType);
+                SilentEnemyDeath(enemyCombat, deathReference, _deathType);
                 CombatManager.Instance.AddUIAction(new EnemyDeathUIAction(enemyCombat.ID, playDeathSound: true));
                 stats.RemoveEnemy(_enemyID);
             }
