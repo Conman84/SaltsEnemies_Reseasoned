@@ -12,10 +12,14 @@ namespace SaltsEnemies_Reseasoned
         {
             Portals.AddPortalSign("Salt_InventionEncounter_Sign", ResourceLoader.LoadSprite("InventionWorld.png"), Portals.BossIDColor);
 
+            EnvironmentTools.PrepareCombatEnvPrefab("Assets/Defacer/Arena_HalfOrpheum.prefab", "Half_Orpheum_Arena", SaltsReseasoned.Dreams);
+
             EnemyEncounter_API boss = new EnemyEncounter_API(EncounterType.Random, "BOSS_Zone02_Invention_EnemyBundle", "Salt_InventionEncounter_Sign");
             boss.MusicEvent = "event:/Blackwater/InventionSong";
             boss.RoarEvent = LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN").deathSound;
             boss.BossID = "Invention_BOSS";
+            boss.SpecialEnvironmentID = "Half_Orpheum_Arena";
+            boss.UsesSpecialEnvironment = true;
 
             boss.AddRandomEncounter("Invention_BOSS");
 
