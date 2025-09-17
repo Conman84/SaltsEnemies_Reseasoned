@@ -198,7 +198,7 @@ namespace SaltsEnemies_Reseasoned
             data.moddedAchievementID = name;
             data.hasItemUnlock = true;
             data.items = [item];
-            ModdedAchievements ach = new ModdedAchievements(name, "Progress Defacer's Quest", null, name);
+            ModdedAchievements ach = new ModdedAchievements("Defacer's Quest", "Progress Defacer's Quest", null, name);
             ach.AddHiddenAchievement();
             Unlocks.AddUnlock_ByID(data);
         }
@@ -211,7 +211,7 @@ namespace SaltsEnemies_Reseasoned
             data.items = [item];
             data.hasQuestCompletion = true;
             data.questID = "Defacer_Quest";
-            ModdedAchievements ach = new ModdedAchievements(name, "Progress Defacer's Quest", null, name);
+            ModdedAchievements ach = new ModdedAchievements("Defacer's Quest", "Progress Defacer's Quest", null, name);
             ach.AddHiddenAchievement();
             Unlocks.AddUnlock_ByID(data);
         }
