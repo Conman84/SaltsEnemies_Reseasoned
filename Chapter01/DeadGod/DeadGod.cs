@@ -67,6 +67,8 @@ namespace SaltsEnemies_Reseasoned
                 desperate
             });
 
+            DeadGod.AddLootData(new EnemyLootItemProbability[] { new EnemyLootItemProbability() { isItemTreasure = false, amount = 3, probability = 100 } });
+
             //Faith
             PreviousEffectCondition didntThat = ScriptableObject.CreateInstance<PreviousEffectCondition>();
             didntThat.wasSuccessful = false;
