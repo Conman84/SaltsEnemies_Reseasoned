@@ -37,7 +37,7 @@ namespace SaltsEnemies_Reseasoned
             Transform right = obj.transform.Find("TvHolder_Right");
 
             List<SpriteRenderer> list = new List<SpriteRenderer>();
-            for (int i = 0; i < 22; i++)
+            for (int i = 0; i < 27; i++)
             {
                 list.Add(left.GetChild(i).GetChild(0).GetComponent<SpriteRenderer>());
                 list.Add(right.GetChild(i).GetChild(0).GetComponent<SpriteRenderer>());
