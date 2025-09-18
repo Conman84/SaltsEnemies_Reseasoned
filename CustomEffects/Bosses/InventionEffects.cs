@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using JetBrains.Annotations;
 using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
@@ -81,6 +82,29 @@ namespace SaltsEnemies_Reseasoned
             HasCentralPartyMemberCondition ret = ScriptableObject.CreateInstance<HasCentralPartyMemberCondition>();
             ret.returnTrue = should;
             return ret;
+        }
+    }
+    public class NobodyMovedCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            return NobodyMoveHandler.Chara.Count <= 0;
+        }
+    }
+    public class TargetingUnit_NotManuallyMoved : Targetting_ByUnit_Side
+    {
+        public override TargetSlotInfo[] GetTargets(SlotsCombat slots, int casterSlotID, bool isCasterCharacter)
+        {
+            TargetSlotInfo[] orig = base.GetTargets(slots, casterSlotID, isCasterCharacter);
+
+            List<TargetSlotInfo> ret = new List<TargetSlotInfo>();
+
+            foreach (TargetSlotInfo target in orig)
+            {
+                if (target.HasUnit && !target.Unit.HasManuallySwappedThisTurn) ret.Add(target);
+            }
+
+            return ret.ToArray();
         }
     }
 }

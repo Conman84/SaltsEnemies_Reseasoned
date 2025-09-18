@@ -64,11 +64,16 @@ namespace SaltsEnemies_Reseasoned
             systemic.specialStoredData = UnitStoreData.CreateAndAdd_IntTooltip_UnitStoreDataToPool("Repeater_PA", "Repeater: {0}", Color.magenta, true, -1);
             systemic._triggerOn = [TriggerCalls.OnDirectDamaged];
 
+            TargetingUnit_NotManuallyMoved allenemy = ScriptableObject.CreateInstance<TargetingUnit_NotManuallyMoved>();
+            allenemy.getAllies = false;
+            allenemy.getAllUnitSlots = false;
+
             Ability repeat = new Ability("Repeater", "Repeater_A");
-            repeat.Description = "Deal a Painful amount of damage to a random party member.";
+            repeat.Description = "Deal a Painful amount of damage to a random party member that did not manually move this turn.";
             repeat.Rarity = Rarity.Impossible;
-            repeat.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageTargetRandomEffect>(), 5, Targeting.Unit_AllOpponents)];
-            repeat.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Damage_3_6"]);
+            repeat.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageTargetRandomEffect>(), 5, allenemy)];
+            repeat.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
+            repeat.AddIntentsToTarget(allenemy, ["Damage_3_6"]);
             repeat.Visuals = CustomVisuals.GetVisuals("Salt/Insta/Shatter");
             repeat.AnimationTarget = TargettingSelf_NotSlot.Create();
 
@@ -76,17 +81,17 @@ namespace SaltsEnemies_Reseasoned
 
             Ability encroach = new Ability("Encroach", "Encroach_A")
             {
-                Description = "Inflict 1 Ruptured on every party member who moved since the start of the last turn.",
+                Description = "Inflict 1 Ruptured on every party member who moved since the start of the last turn.\nIf no party members moved last turn, deal a Little damage to all party members.",
                 Rarity = Rarity.GetCustomRarity("invention3"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Targetting_By_Moved.Create(false)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Targeting.Unit_AllOpponents, ScriptableObject.CreateInstance<NobodyMovedCondition>())
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Class"),
                 AnimationTarget = Targetting_By_Moved.Create(false),
             };
-            encroach.AddIntentsToTarget(Targetting.Everything(false), [IntentType_GameIDs.Misc_Hidden.ToString()]);
-            encroach.AddIntentsToTarget(Targetting_By_Moved.Create(false), [IntentType_GameIDs.Status_Ruptured.ToString()]);
+            encroach.AddIntentsToTarget(Targetting.Everything(false), ["Misc_Hidden", "Status_Ruptured", "Damage_1_2"]);
 
             GenerateRandomManaBetweenEffect randomize = ScriptableObject.CreateInstance<GenerateRandomManaBetweenEffect>();
             randomize.possibleMana = new ManaColorSO[4]
