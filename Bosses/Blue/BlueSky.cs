@@ -24,6 +24,15 @@ namespace SaltsEnemies_Reseasoned
             template.PrepareEnemyPrefab("Assets/TestSprites/Test_BlueSky_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_BlueSky_Gibs.prefab").GetComponent<ParticleSystem>());
             //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("WindSong_EN").enemyTemplate;
 
+
+            SpecialSceneEndingSetUpEffect gameover = ScriptableObject.CreateInstance<SpecialSceneEndingSetUpEffect>();
+            gameover._shouldCombatEnd = false;
+            gameover._specialScene = SpecialSceneType.HardEnding;
+
+            template.CombatEnterEffects = [Effects.GenerateEffect(gameover)];
+
+            Unlocks.GetOrCreateUnlock_CustomFinalBoss("BlueSky_BOSS", ResourceLoader.LoadSprite("BlueSkyPearl.png"));
+
             PerformEffectPassiveAbility acting = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             acting.name = "Acting_PA";
             acting._passiveName = "Acting";
