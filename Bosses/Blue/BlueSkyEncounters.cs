@@ -33,7 +33,7 @@ namespace SaltsEnemies_Reseasoned
 
             Material use = GettingTheShader();
 
-            for (int i = 0; i < 193; i++)
+            for (int i = 0; i < 192; i++)
             {
                 holder.GetChild(i).GetComponent<SpriteRenderer>().material = use;
             }
