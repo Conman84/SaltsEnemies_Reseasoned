@@ -24,7 +24,7 @@ namespace SaltsEnemies_Reseasoned
             template.PrepareEnemyPrefab("Assets/TestSprites/Tset_CrowChild_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
             //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("LittleBeak_EN").enemyTemplate;
 
-            template.AddPassives(new BasePassiveAbilitySO[] { Passives.SlipperyGenerator(3), Violent.Generate(5) });
+            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Forgetful, Passives.SlipperyGenerator(3), Violent.Generate(5) });
 
             Ability first = new Ability("Ability A", "CrowChild1_A");
             first.Description = "Inflict 1 Constricted and 3 Frail to the Left and Right party members.";
