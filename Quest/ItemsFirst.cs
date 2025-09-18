@@ -865,7 +865,7 @@ namespace SaltsEnemies_Reseasoned
             MultiPerformEffectItem knife = new MultiPerformEffectItem("Salt_Knife_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyTerrorEffect>(), 1, Targetting.Random(false))]);
             knife.Name = "Knife That Tells You To Do Things";
             knife.Flavour = "\"You should cut your face off.\"";
-            knife.Description = "At the start of each turn, apply Terror to a random enemy.\nDeal 40% more damage to enemies with Terror.\nAt the end of each turn, gain Terror.";
+            knife.Description = "At the start of each turn, apply Terror to a random enemy.\nDeal 40% more damage to enemies with Terror.\nOn using an ability, gain Terror.";
             knife.Icon = ResourceLoader.LoadSprite("Item_Knife.png");
             knife.EquippedModifiers = [];
             knife.TriggerOn = TriggerCalls.OnTurnStart;
@@ -883,7 +883,7 @@ namespace SaltsEnemies_Reseasoned
             knife.SpecialUnlockID = UILocID.None;
             knife.item._ItemTypeIDs = ["Knife"];
             EffectTrigger knife_second = new EffectTrigger([], [TriggerCalls.OnWillApplyDamage], [DamageToStatusCondition.Create(1.4f, Terror.StatusID)], false);
-            EffectTrigger knife_third = new EffectTrigger([Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyTerrorEffect>(), 1, Slots.Self)], [TriggerCalls.OnTurnFinished], []);
+            EffectTrigger knife_third = new EffectTrigger([Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyTerrorEffect>(), 1, Slots.Self)], [TriggerCalls.OnAbilityUsed], []);
             knife.AddEffectTrigger(knife_second);
             knife.AddEffectTrigger(knife_third);
             knife.item.AddItem("Locked_Knife.png", AchievementIDs.ChapterBoss, Test);
