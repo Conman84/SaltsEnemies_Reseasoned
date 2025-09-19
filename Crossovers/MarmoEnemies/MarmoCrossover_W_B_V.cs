@@ -108,12 +108,8 @@ namespace SaltsEnemies_Reseasoned
         }
         public static void Add_Garden()
         {
-            AddTo hard = new AddTo(Garden.H.Satyr.Hard);
-            hard.SimpleAddGroup(1, "Satyr_EN", 3, "Violator_EN");
-
             AddTo med = new AddTo(Garden.H.Spoggle.Grey.Med);
             med.AddRandomGroup(Spoggle.Grey, "Bonsai_EN", "Bonsai_EN");
-            med.SimpleAddGroup(2, "Bonsai_EN", 1, "Grandfather_EN");
 
             med = new AddTo(Garden.H.Bonsai.Med);
             med.AddRandomGroup("Bonsai_EN", "Bonsai_EN", Enemies.Camera, Enemies.Camera);
@@ -124,6 +120,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddGroup(2, "Bonsai_EN", 2, "EvilDog_EN");
             med.SimpleAddGroup(1, "Bonsai_EN", 3, "PawnA_EN");
             med.SimpleAddGroup(3, "Bonsai_EN", 1, "PawnA_EN");
+            med.SimpleAddGroup(2, "Bonsai_EN", 1, "Grandfather_EN");
 
             med = new AddTo(Garden.H.Flower.Red.Med);
             med.AddRandomGroup(Flower.Red, Flower.Blue, "Bonsai_EN");
@@ -133,14 +130,11 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup(Flower.Blue, Flower.Red, "Bonsai_EN");
             med.AddRandomGroup(Flower.Blue, "Bonsai_EN", "PawnA_EN", "PawnA_EN");
 
-            hard = new AddTo(Garden.H.Tank.Hard);
+            AddTo hard = new AddTo(Garden.H.Tank.Hard);
             hard.AddRandomGroup(Enemies.Tank, "Bonsai_EN", "Bonsai_EN");
 
             med = new AddTo(Garden.H.Flower.Grey.Med);
             med.AddRandomGroup(Flower.Grey, "Bonsai_EN", "Bonsai_EN");
-
-            hard = new AddTo(Garden.H.Flower.Grey.Hard);
-            hard.SimpleAddGroup(1, Flower.Grey, 2, "Bonsai_EN");
 
             med = new AddTo(Garden.H.InHisImage.Med);
             med.AddRandomGroup("InHisImage_EN", "InHerImage_EN", "Bonsai_EN", "MiniReaper_EN");

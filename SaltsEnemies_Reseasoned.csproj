@@ -1503,6 +1503,7 @@
 	<ItemGroup>
 	  <Folder Include="CustomEffects\Chapter06\" />
 	  <Folder Include="CustomEffects\Chapter12\" />
+	  <Folder Include="Quest\Unlocks\Sprites\" />
 	</ItemGroup>
 
 
