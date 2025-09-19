@@ -108,35 +108,12 @@ namespace SaltsEnemies_Reseasoned
         }
         public static void Add_Garden()
         {
-            AddTo med = new AddTo(Garden.H.Violator.Med);
-            med.SimpleAddGroup(2, "Violator_EN", 1, "LittleAngel_EN");
-            med.SimpleAddGroup(2, "Violator_EN", 1, "Grandfather_EN");
-            med.SimpleAddGroup(2, "Violator_EN", 2, "EyePalm_EN");
-            med.SimpleAddGroup(2, "Violator_EN", 1, "Shua_EN");
-            med.SimpleAddGroup(3, "Violator_EN", 1, "Damocles_EN");
-            med.SimpleAddGroup(2, "Violator_EN", 1, "BlackStar_EN");
-            med.SimpleAddGroup(2, "Violator_EN", 1, "MiniReaper_EN");
-            med.SimpleAddGroup(2, "Violator_EN", 2, "PawnA_EN");
-
             AddTo hard = new AddTo(Garden.H.Satyr.Hard);
             hard.SimpleAddGroup(1, "Satyr_EN", 3, "Violator_EN");
 
-            med = new AddTo(Garden.H.Spoggle.Grey.Med);
+            AddTo med = new AddTo(Garden.H.Spoggle.Grey.Med);
             med.AddRandomGroup(Spoggle.Grey, "Bonsai_EN", "Bonsai_EN");
             med.SimpleAddGroup(2, "Bonsai_EN", 1, "Grandfather_EN");
-
-            hard = new AddTo(Garden.H.Violator.Hard);
-            hard.SimpleAddGroup(3, "Violator_EN", 1, Jumble.Grey);
-            hard.SimpleAddGroup(3, "Violator_EN", 1, "Merced_EN");
-            hard.SimpleAddGroup(2, "Violator_EN", 1, "YNL_EN");
-            hard.SimpleAddGroup(2, "Violator_EN", 1, Bots.Grey);
-            hard.AddRandomGroup("OdeToHumanity_EN", "Violator_EN", "Violator_EN");
-            hard.SimpleAddGroup(2, "Violator_EN", 2, "EvilDog_EN");
-            hard.SimpleAddGroup(2, "Violator_EN", 1, "PersonalAngel_EN");
-            hard.SimpleAddGroup(2, "Violator_EN", 1, "Starless_EN");
-            hard.SimpleAddGroup(2, "Violator_EN", 1, "Eyeless_EN");
-            hard.SimpleAddGroup(2, "Violator_EN", 1, "Yang_EN");
-            hard.SimpleAddGroup(2, "Violator_EN", 1, "Yin_EN");
 
             med = new AddTo(Garden.H.Bonsai.Med);
             med.AddRandomGroup("Bonsai_EN", "Bonsai_EN", Enemies.Camera, Enemies.Camera);
@@ -156,11 +133,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup(Flower.Blue, Flower.Red, "Bonsai_EN");
             med.AddRandomGroup(Flower.Blue, "Bonsai_EN", "PawnA_EN", "PawnA_EN");
 
-            hard = new AddTo(Garden.H.ClockTower.Hard);
-            hard.SimpleAddGroup(1, "ClockTower_EN", 3, "Violator_EN");
-
             hard = new AddTo(Garden.H.Tank.Hard);
-            hard.AddRandomGroup(Enemies.Tank, "Violator_EN", "Violator_EN");
             hard.AddRandomGroup(Enemies.Tank, "Bonsai_EN", "Bonsai_EN");
 
             med = new AddTo(Garden.H.Flower.Grey.Med);
@@ -175,14 +148,10 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Garden.H.InHerImage.Med);
             med.AddRandomGroup("InHisImage_EN", "InHerImage_EN", "Bonsai_EN", "MiniReaper_EN");
 
-            hard = new AddTo(Garden.H.Miriam.Hard);
-            hard.AddRandomGroup("Miriam_EN", "Violator_EN", "Violator_EN");
-
             med = new AddTo(Garden.H.Shua.Med);
             med.AddRandomGroup("Shua_EN", "Bonsai_EN", "Bonsai_EN");
 
             med = new AddTo(Garden.H.Hunter.Med);
-            med.AddRandomGroup("Hunter_EN", "Violator_EN", "Violator_EN");
             med.AddRandomGroup("Hunter_EN", "Bonsai_EN", "EyePalm_EN", "EyePalm_EN");
 
             med = new AddTo(Garden.H.Firebird.Med);
@@ -198,7 +167,6 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Stoplight_EN", "Bonsai_EN", "Damocles_EN", "Damocles_EN");
 
             hard = new AddTo(Garden.H.Stoplight.Hard);
-            hard.AddRandomGroup("Stoplight_EN", "Violator_EN", "Violator_EN");
             hard.AddRandomGroup("Stoplight_EN", "Bonsai_EN", "EvilDog_EN", "EvilDog_EN");
 
             med = new AddTo(Garden.H.GreyBot.Med);
@@ -219,14 +187,12 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Garden.H.Complimentary.Med);
             med.AddRandomGroup("Complimentary_EN", "Bonsai_EN", "Bonsai_EN");
-            med.AddRandomGroup("Complimentary_EN", "Violator_EN");
 
             med = new AddTo(Garden.H.Starless.Med);
             med.AddRandomGroup("Starless_EN", "PawnA_EN", "Bonsai_EN");
             med.AddRandomGroup("Starless_EN", "Bonsai_EN", "Bonsai_EN");
 
             hard = new AddTo(Garden.H.Eyeless.Hard);
-            hard.AddRandomGroup("Eyeless_EN", "Violator_EN", "Violator_EN");
             hard.AddRandomGroup("Eyeless_EN", "Bonsai_EN", "PawnA_EN", "PawnA_EN");
 
             med = new AddTo(Garden.H.Yang.Med);
@@ -235,10 +201,6 @@ namespace SaltsEnemies_Reseasoned
 
             hard = new AddTo(Garden.H.Yang.Hard);
             hard.AddRandomGroup("Yang_EN", "Yang_EN", "Bonsai_EN");
-
-            hard = new AddTo(Garden.H.Yin.Hard);
-            hard.AddRandomGroup("Yin_EN", "Yin_EN", "Violator_EN");
-            hard.AddRandomGroup("Yin_EN", "Yang_EN", "Violator_EN");
 
             med = new AddTo(Garden.H.Skinning.Med);
             med.AddRandomGroup(Enemies.Skinning, "Bonsai_EN", "PawnA_EN", "PawnA_EN");

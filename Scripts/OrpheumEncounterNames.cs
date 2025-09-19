@@ -296,6 +296,10 @@ namespace SaltsEnemies_Reseasoned
                 public static string Easy => "Marmo_WeepingWillow_Easy_Bundle";
                 public static string Med => "Marmo_WeepingWillow_Medium_Bundle";
             }
+            public static class Feckle
+            {
+                public static string Med => "Marmo_Feckle_Medium_Bundle";
+            }
             //tay
             public static class Shuffler
             {
