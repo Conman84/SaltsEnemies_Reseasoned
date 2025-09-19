@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +17,9 @@ namespace SaltsEnemies_Reseasoned
             EnvironmentTools.PrepareCombatEnvPrefab("Assets/Defacer/Tv_Arena.prefab", "Megalania_Arena", SaltsReseasoned.Dreams);
             LoadedAssetsHandler.TryGetCombatEnvironmentPrefab("Megalania_Arena").gameObject.AddMatcherComponent();
 
-            LoadedDBsHandler._PortalDB.AddBackgroundPortal("Megalania_BOSS", ResourceLoader.LoadSprite("MegalaniaPortal.png"));
+            LoadedDBsHandler._PortalDB.AddBackgroundPortal("Megalania_BOSS", EncounterExtensions.SetBossPortalMaterial("MegalaniaPortal.png", "02"));
+            
+            //LoadedDBsHandler._PortalDB.GetBackgroundSprite("TriggerFingers").r
 
             EnemyEncounter_API boss = new EnemyEncounter_API(EncounterType.Specific, "BOSS_Zone02_Megalania_EnemyBundle", "Salt_MegalaniaEncounter_Sign");
             boss.MusicEvent = "event:/Blackwater/TVSong";

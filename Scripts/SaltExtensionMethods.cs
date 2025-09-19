@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 
 namespace SaltEnemies_Reseasoned
 {
@@ -126,6 +127,15 @@ namespace SaltEnemies_Reseasoned
             if (enemy4 != "") ret.Add(enemy4);
             if (enemy5 != "") ret.Add(enemy5);
             self.CreateNewEnemyEncounterData(ret.ToArray());
+        }
+        public static Sprite SetBossPortalMaterial(string name, string zone)
+        {
+            BossRoomHandler orph = LoadedAssetsHandler.GetRoomPrefab(CardType.Boss, (LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_" + zone) as ZoneBGDataBaseSO).EnemyEncounterData.m_BossSelector._defaultRoomPrefab) as BossRoomHandler;
+            GameObject temp = new GameObject();
+            temp.AddComponent<SpriteRenderer>().material = orph._bossPortalRenderer.material;
+            temp.GetComponent<SpriteRenderer>().sprite = ResourceLoader.LoadSprite(name);
+
+            return temp.GetComponent<SpriteRenderer>().sprite;
         }
     }
     public static class PassiveExtensions
