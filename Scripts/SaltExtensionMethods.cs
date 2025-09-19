@@ -134,9 +134,18 @@ namespace SaltEnemies_Reseasoned
             SpriteRenderer temp = GameObject.Instantiate(orph._bossPortalRenderer);
             //temp.AddComponent<SpriteRenderer>().material = orph._bossPortalRenderer.material;
             temp.sprite = ResourceLoader.LoadSprite(name);
-            temp.sortingOrder--;
 
             return temp.GetComponent<SpriteRenderer>().sprite;
+        }
+        public static void SortingOrderOriginal(string zone)
+        {
+            (LoadedAssetsHandler.GetRoomPrefab(CardType.Boss, (LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_" + zone) as ZoneBGDataBaseSO).EnemyEncounterData.m_BossSelector._defaultRoomPrefab) as BossRoomHandler)._bossPortalRenderer.sortingOrder--;
+        }
+        public static void PrepareSortingOrders()
+        {
+            SortingOrderOriginal("01");
+            SortingOrderOriginal("02");
+            SortingOrderOriginal("03");
         }
     }
     public static class PassiveExtensions

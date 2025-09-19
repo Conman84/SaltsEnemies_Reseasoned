@@ -75,6 +75,17 @@ namespace SaltsEnemies_Reseasoned
             PCall(Debugger.Setup);
             PCall(DeterminedHandler.Setup);
             PCall(StarlessEncounterHandler.Setup);
+            if (DebugVer)
+            {
+                PCall(Chocolate.Hook);
+                PCall(FeatherGunCondition.AddTypes);
+                PCall(GlowingHatManager.Setup);
+                PCall(Tracker.Setup);
+            }
+            if (TestBosses)
+            {
+                PCall(EncounterExtensions.PrepareSortingOrders);
+            }
             #endregion
 
             //Add To Glossary
@@ -115,13 +126,6 @@ namespace SaltsEnemies_Reseasoned
                 PCall(Green.Add);
                 PCall(Red.Add);
                 PCall(Blue.Add);
-            }
-            if (DebugVer)
-            {
-                PCall(Chocolate.Hook);
-                PCall(FeatherGunCondition.AddTypes);
-                PCall(GlowingHatManager.Setup);
-                PCall(Tracker.Setup);
             }
 
             //CH1 Enemies
