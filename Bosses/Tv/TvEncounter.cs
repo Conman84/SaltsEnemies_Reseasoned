@@ -16,6 +16,8 @@ namespace SaltsEnemies_Reseasoned
             EnvironmentTools.PrepareCombatEnvPrefab("Assets/Defacer/Tv_Arena.prefab", "Megalania_Arena", SaltsReseasoned.Dreams);
             LoadedAssetsHandler.TryGetCombatEnvironmentPrefab("Megalania_Arena").gameObject.AddMatcherComponent();
 
+            LoadedDBsHandler._PortalDB.AddBackgroundPortal("Megalania_BOSS", ResourceLoader.LoadSprite("MegalaniaPortal.png"));
+
             EnemyEncounter_API boss = new EnemyEncounter_API(EncounterType.Specific, "BOSS_Zone02_Megalania_EnemyBundle", "Salt_MegalaniaEncounter_Sign");
             boss.MusicEvent = "event:/Blackwater/TVSong";
             boss.RoarEvent = LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN").deathSound;
