@@ -134,6 +134,7 @@ namespace SaltEnemies_Reseasoned
             SpriteRenderer temp = GameObject.Instantiate(orph._bossPortalRenderer);
             //temp.AddComponent<SpriteRenderer>().material = orph._bossPortalRenderer.material;
             temp.sprite = ResourceLoader.LoadSprite(name);
+            temp.sortingOrder--;
 
             return temp.GetComponent<SpriteRenderer>().sprite;
         }
