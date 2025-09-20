@@ -124,6 +124,17 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddGroup(1, "Bonsai_EN", 3, "PawnA_EN");
             med.SimpleAddGroup(3, "Bonsai_EN", 1, "PawnA_EN");
             med.SimpleAddGroup(2, "Bonsai_EN", 1, "Grandfather_EN");
+            med.SimpleAddGroup(3, "Bonsai_EN", 1, "Damocles_EN");
+
+            AddTo easy = new AddTo(Garden.H.Bonsai.Easy);
+            easy.AddRandomGroup("Bonsai_EN", "Bonsai_EN", Flower.Yellow);
+            easy.AddRandomGroup("Bonsai_EN", "Bonsai_EN", Flower.Purple);
+            med.SimpleAddGroup(1, "Bonsai_EN", 2, "PawnA_EN");
+            med.SimpleAddGroup(1, "Bonsai_EN", 2, "EyePalm_EN");
+            med.SimpleAddGroup(2, "Bonsai_EN", 1, "BlackStar_EN");
+            med.SimpleAddGroup(2, "Bonsai_EN", 1, "GlassFigurine_EN");
+            med.SimpleAddGroup(2, "Bonsai_EN", 1, "Skyloft_EN");
+            med.SimpleAddGroup(2, "Bonsai_EN", 1, "Merced_EN");
 
             med = new AddTo(Garden.H.Flower.Red.Med);
             med.AddRandomGroup(Flower.Red, Flower.Blue, "Bonsai_EN");

@@ -238,12 +238,8 @@ namespace SaltsEnemies_Reseasoned
             }
             public static class Bonsai
             {
+                public static string Easy => "Marmo_Bonsai_Easy_Bundle";
                 public static string Med => "Marmo_Bonsai_Medium_Bundle";
-            }
-            public static class Violator
-            {
-                public static string Med => "Marmo_Violator_Medium_Bundle";
-                public static string Hard => "Marmo_Violator_Hard_Bundle";
             }
 
             //eggkeeper
