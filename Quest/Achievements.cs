@@ -93,7 +93,7 @@ namespace SaltsEnemies_Reseasoned
             smiler.moddedAchievementID = AchievementIDs.Smilers;
             smiler.hasItemUnlock = true;
             smiler.items = ["Salt_SmilerMask_TW"];
-            ModdedAchievements smilerach = new ModdedAchievements("Smiler Achievement", "Murder the Smilers.", ResourceLoader.LoadSprite("SmilerAch.png"), AchievementIDs.Smilers);
+            ModdedAchievements smilerach = new ModdedAchievements("The Hedonists", "Murder the Smilers.", ResourceLoader.LoadSprite("SmilerAch.png"), AchievementIDs.Smilers);
             smilerach.AddNewAchievementToInGameCategory(AchievementCategoryIDs.BossesTitleLabel);
             ListedUnlockCheck smilerkill = ScriptableObject.CreateInstance<ListedUnlockCheck>();
             smilerkill.unlockID = "Smilers_BOSS";
@@ -105,7 +105,7 @@ namespace SaltsEnemies_Reseasoned
             crow.moddedAchievementID = AchievementIDs.Crow;
             crow.hasItemUnlock = true;
             crow.items = ["Salt_Grudge_TW"];
-            ModdedAchievements crowach = new ModdedAchievements("Crow Child Achievement", "Murder the Crow Child.", ResourceLoader.LoadSprite("CrowAch.png"), AchievementIDs.Crow);
+            ModdedAchievements crowach = new ModdedAchievements("The Abandoned", "Murder the Crow Child.", ResourceLoader.LoadSprite("CrowAch.png"), AchievementIDs.Crow);
             crowach.AddNewAchievementToInGameCategory(AchievementCategoryIDs.BossesTitleLabel);
             ListedUnlockCheck crowkill = ScriptableObject.CreateInstance<ListedUnlockCheck>();
             crowkill.unlockID = "CrowChild_BOSS";
@@ -117,7 +117,7 @@ namespace SaltsEnemies_Reseasoned
             black.moddedAchievementID = AchievementIDs.Black;
             black.hasItemUnlock = true;
             black.items = ["Salt_Bodybag_TW"];
-            ModdedAchievements blackach = new ModdedAchievements("Black And Blue Achievement", "Murder Black And Blue.", ResourceLoader.LoadSprite("BBAch.png"), AchievementIDs.Black);
+            ModdedAchievements blackach = new ModdedAchievements("The Beaten", "Murder Black And Blue.", ResourceLoader.LoadSprite("BBAch.png"), AchievementIDs.Black);
             blackach.AddNewAchievementToInGameCategory(AchievementCategoryIDs.BossesTitleLabel);
             ListedUnlockCheck blackkill = ScriptableObject.CreateInstance<ListedUnlockCheck>();
             blackkill.unlockID = "BlackAndBlue_BOSS";
@@ -129,7 +129,7 @@ namespace SaltsEnemies_Reseasoned
             tv.moddedAchievementID = AchievementIDs.Tv;
             tv.hasItemUnlock = true;
             tv.items = ["Salt_RGB_TW"];
-            ModdedAchievements tvach = new ModdedAchievements("MEGALANIA Achievement", "Slay MEGALANIA.", ResourceLoader.LoadSprite("TvAch.png"), AchievementIDs.Tv);
+            ModdedAchievements tvach = new ModdedAchievements("The Record-Keeper", "Slay MEGALANIA.", ResourceLoader.LoadSprite("TvAch.png"), AchievementIDs.Tv);
             tvach.AddNewAchievementToInGameCategory(AchievementCategoryIDs.BossesTitleLabel);
             ListedUnlockCheck tvkill = ScriptableObject.CreateInstance<ListedUnlockCheck>();
             tvkill.unlockID = "Megalania_BOSS";
@@ -141,7 +141,7 @@ namespace SaltsEnemies_Reseasoned
             invention.moddedAchievementID = AchievementIDs.Invention;
             invention.hasItemUnlock = true;
             invention.items = ["Salt_GlassDiamond_TW"];
-            ModdedAchievements inventionach = new ModdedAchievements("Invention Achievement", "Slay the Invention.", ResourceLoader.LoadSprite("InventionAch.png"), AchievementIDs.Invention);
+            ModdedAchievements inventionach = new ModdedAchievements("The Urbanity", "Slay the Invention.", ResourceLoader.LoadSprite("InventionAch.png"), AchievementIDs.Invention);
             inventionach.AddNewAchievementToInGameCategory(AchievementCategoryIDs.BossesTitleLabel);
             ListedUnlockCheck inventkill = ScriptableObject.CreateInstance<ListedUnlockCheck>();
             inventkill.unlockID = "Invention_BOSS";
