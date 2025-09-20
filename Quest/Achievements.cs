@@ -93,7 +93,7 @@ namespace SaltsEnemies_Reseasoned
             smiler.moddedAchievementID = AchievementIDs.Smilers;
             smiler.hasItemUnlock = true;
             smiler.items = ["Salt_SmilerMask_TW"];
-            ModdedAchievements smilerach = new ModdedAchievements("The Hedonists", "Murder the Smilers.", ResourceLoader.LoadSprite("SmilerAch.png"), AchievementIDs.Smilers);
+            ModdedAchievements smilerach = new ModdedAchievements("The Opportunists", "Murder the Smilers.", ResourceLoader.LoadSprite("SmilerAch.png"), AchievementIDs.Smilers);
             smilerach.AddNewAchievementToInGameCategory(AchievementCategoryIDs.BossesTitleLabel);
             ListedUnlockCheck smilerkill = ScriptableObject.CreateInstance<ListedUnlockCheck>();
             smilerkill.unlockID = "Smilers_BOSS";
