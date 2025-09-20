@@ -38,12 +38,12 @@ namespace SaltsEnemies_Reseasoned
             disorient._passiveName = "Disorienting";
             disorient.passiveIcon = ResourceLoader.LoadSprite("DisorientingPassive.png");
             disorient.m_PassiveID = "Disorienting_PA";
-            disorient._enemyDescription = "On taking direct damage, randomize all party member ability costs.";
+            disorient._enemyDescription = "On taking direct damage, reroll the entire timeline.";
             disorient._characterDescription = "wont work loll";
             disorient._triggerOn = [TriggerCalls.OnDirectDamaged];
-            disorient.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeCostsEffect>(), 1, Targeting.Unit_AllOpponents)];
+            disorient.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<RerollTimelineEffect>())];
 
-            glass.AddPassives(new BasePassiveAbilitySO[] { Passives.Unstable, disorient, Passives.Obscure });
+            glass.AddPassives(new BasePassiveAbilitySO[] { Passives.Unstable, disorient });
 
             AbilitySelector_GlassFigurine sel = ScriptableObject.CreateInstance<AbilitySelector_GlassFigurine>();
             sel._WoodChipsAbility = "WoodChips_A";
