@@ -95,7 +95,7 @@ namespace SaltEnemies_Reseasoned
                     UnityEngine.Debug.LogError("Echo failed");
                 }
             }
-            if (killer != null && self.ContainsPassiveAbility(WarpingHandler.Type) && ret.damageAmount > 0)
+            if (killer != null && self.ContainsPassiveAbility(WarpingHandler.Type) && self.CanPassiveTrigger(WarpingHandler.Type) && ret.damageAmount > 0)
             {
                 WarpingPassiveEffect w = ScriptableObject.CreateInstance<WarpingPassiveEffect>();
                 w.ID = self.ID;

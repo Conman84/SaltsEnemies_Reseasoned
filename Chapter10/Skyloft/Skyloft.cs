@@ -26,16 +26,17 @@ namespace SaltsEnemies_Reseasoned
 
 
             //EVASIVE
-            Connection_PerformEffectPassiveAbility evasive = ScriptableObject.CreateInstance<Connection_PerformEffectPassiveAbility>();
+            StatusEffectPassiveAbility evasive = ScriptableObject.CreateInstance<StatusEffectPassiveAbility>();
             evasive._passiveName = "Evasive";
             evasive.passiveIcon = ResourceLoader.LoadSprite("Dodge.png");
             evasive.m_PassiveID = "Evasive_PA";
             evasive._enemyDescription = "Permanently applies Dodge to this enemy.";
             evasive._characterDescription = "Permanently applies Dodge to this character.";
             evasive.doesPassiveTriggerInformationPanel = true;
-            evasive.connectionEffects = new EffectInfo[] { Effects.GenerateEffect(CasterSubActionEffect.Create(new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPermanentDodgeEffect>(), 1, Slots.Self) }), 1, Slots.Self) };
-            evasive.disconnectionEffects = new EffectInfo[0];
+            //evasive.connectionEffects = new EffectInfo[] { Effects.GenerateEffect(CasterSubActionEffect.Create(new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPermanentDodgeEffect>(), 1, Slots.Self) }), 1, Slots.Self) };
+            //evasive.disconnectionEffects = new EffectInfo[0];
             evasive._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
+            evasive._Status = Dodge.Object;
 
             //LAZY
             PerformEffectPassiveAbility lazy = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
