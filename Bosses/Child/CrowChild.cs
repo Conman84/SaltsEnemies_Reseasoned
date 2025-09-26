@@ -39,7 +39,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability second = new Ability("Ability B", "CrowChild2_A");
             second.Description = "Deal a Little damage to this enemy.";
-            second.Rarity = Rarity.CreateAndAddCustomRarityToPool("crowChildHigh", 7);
+            second.Rarity = Rarity.CreateAndAddCustomRarityToPool("crowChildHigh", 8);
             second.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Self)];
             second.AddIntentsToTarget(Slots.Self, ["Damage_1_2"]);
             second.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
