@@ -24,7 +24,8 @@ namespace SaltsEnemies_Reseasoned
             template.PrepareEnemyPrefab("Assets/TestSprites/Tset_CrowChild_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
             //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("LittleBeak_EN").enemyTemplate;
 
-            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Forgetful, Passives.SlipperyGenerator(3), Violent.Generate(5) });
+            template.AddPassives(new BasePassiveAbilitySO[] { Passives.MultiAttack2, Passives.SlipperyGenerator(3), Violent.Generate(5) });
+            template.AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_NoRepeats>();
 
             Ability first = new Ability("Ability A", "CrowChild1_A");
             first.Description = "Inflict 1 Constricted and 3 Frail to the Left and Right party members.";
@@ -38,7 +39,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability second = new Ability("Ability B", "CrowChild2_A");
             second.Description = "Deal a Little damage to this enemy.";
-            second.Rarity = Rarity.GetCustomRarity("rarity5");
+            second.Rarity = Rarity.CreateAndAddCustomRarityToPool("crowChildHigh", 7);
             second.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Self)];
             second.AddIntentsToTarget(Slots.Self, ["Damage_1_2"]);
             second.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
@@ -52,12 +53,21 @@ namespace SaltsEnemies_Reseasoned
             third.Visuals = CustomVisuals.GetVisuals("Salt/Needle");
             third.AnimationTarget = Slots.Front;
 
+            Ability fourth = new Ability("Ability D", "CrowChild4_A");
+            fourth.Description = "Move Left or Right.";
+            fourth.Rarity = Rarity.CreateAndAddCustomRarityToPool("crowSmall", 2);
+            fourth.Priority = Priority.Fast;
+            fourth.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)];
+            fourth.AddIntentsToTarget(Slots.Self, ["Swap_Sides"]);
+            fourth.Visuals = null;
+
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 first.GenerateEnemyAbility(true),
                 second.GenerateEnemyAbility(true),
-                third.GenerateEnemyAbility(true)
+                third.GenerateEnemyAbility(true),
+                fourth.GenerateEnemyAbility(true)
             });
             template.AddEnemy(true);
         }
