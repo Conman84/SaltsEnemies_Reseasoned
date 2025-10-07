@@ -132,7 +132,7 @@ namespace SaltsEnemies_Reseasoned
             }, null);
 
             mainEncounters2.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone03_WindSong_Easy_EnemyBundle", 3, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone03_WindSong_Easy_EnemyBundle", 2, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
 
             //Secondary
             //Orpheum
@@ -314,8 +314,9 @@ namespace SaltsEnemies_Reseasoned
             bundle39.AddRandomGroup("MechanicalLens_EN", "MechanicalLens_EN", "MechanicalLens_EN", "WindSong_EN");
 
             AddTo bundle40 = new AddTo("H_Zone03_TheEndOfTime_Hard_EnemyBundle");
-            bundle40.AddRandomGroup("ClockTower_EN", "SkinningHomunculus_EN", "SkinningHomunculus_EN", "WindSong_EN");
+            bundle40.AddRandomGroup("ClockTower_EN", "SkinningHomunculus_EN", "WindSong_EN");
             bundle40.AddRandomGroup("ClockTower_EN", "LittleAngel_EN", "ChoirBoy_EN", "WindSong_EN");
+            bundle40.AddRandomGroup("ClockTower_EN", "WindSong_EN", "InHisImage_EN", "InHisImage_EN");
 
             AddTo bundle41 = new AddTo("H_Zone03_SemiRealisticTank_Hard_EnemyBundle");
             bundle41.AddRandomGroup("RealisticTank_EN", "WindSong_EN");
