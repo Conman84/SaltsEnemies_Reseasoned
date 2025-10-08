@@ -30,21 +30,29 @@ namespace SaltsEnemies_Reseasoned
             //template.PrepareEnemyPrefab("assets/group4/Smilers/Smilers_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Smilers/Smilers_Gibs.prefab").GetComponent<ParticleSystem>());
             template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("TaintedYolk_EN").enemyTemplate;
 
-            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Dying, Passives.Withering });
+            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Overexert1, Passives.Dying, Passives.Withering });
 
             Ability first = new Ability("ability 1", "Corpse1_A");
-            first.Description = "Inflict 2 Ruptured on the Opposing party member.";
+            first.Description = "Inflict 3 Ruptured on the Opposing party member.";
             first.Rarity = Rarity.GetCustomRarity("rarity5");
-            first.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Slots.Front)];
+            first.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 3, Slots.Front)];
             first.AddIntentsToTarget(Slots.Front, ["Status_Ruptured"]);
             first.Visuals = LoadedAssetsHandler.GetCharacterAbility("OfDeath_1_A").visuals;
             first.AnimationTarget = Slots.Front;
 
             Ability second = new Ability("ability 2", "Corpse2_A");
             second.Description = "Do nothing.";
-            second.Rarity = Rarity.Common;
+            second.Rarity = first.Rarity;
             second.Effects = [];
             second.Visuals = null;
+
+            Ability third = new Ability("Flakes", "Corpse3_A");
+            third.Description = "Inflict 1 Ruptured on all party members not Opposing this enemy.";
+            third.AnimationTarget = Targeting.GenerateSlotTarget([-4, -3, -2, -1, 1, 2, 3, 4], false);
+            third.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, third.ability.animationTarget)];
+            third.AddIntentsToTarget(third.ability.animationTarget, ["Status_Ruptured"]);
+            third.Visuals = first.ability.visuals;
+            third.Rarity = first.Rarity;
 
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]

@@ -44,6 +44,8 @@ namespace SaltsEnemies_Reseasoned
             radical.conditions = Passives.Slippery.conditions;
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, radical, Passives.MultiAttack2 });
+            AbilitySelector_Bots isolate = ScriptableObject.CreateInstance<AbilitySelector_Bots>();
+            isolate.Isolate = ["Tv_Propaganda_A"];
 
             Ability wreck = new Ability("Wreck", "Tv_Wreck_A");
             wreck.Description = "Deal an Agonizing amount of damage to the Opposing party member.\nInflict 1 Slip on the Opposing position.";
@@ -86,13 +88,22 @@ namespace SaltsEnemies_Reseasoned
             future.Visuals = LoadedAssetsHandler.GetEnemyAbility("Boil_A").visuals;
             future.AnimationTarget = Slots.Front;
 
+            Ability propaganda = new Ability("Propaganda", "Tv_Propaganda_A");
+            propaganda.Description = "Shift the Pigment costs of the abilities of all party members not Opposing this enemy.";
+            propaganda.Rarity = Rarity.GetCustomRarity("rarity5");
+            propaganda.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ShiftCostsEffect>(), 1, Targeting.GenerateSlotTarget([-4, -3, -2, -1, 1, 2, 3, 4], false))];
+            propaganda.AddIntentsToTarget(propaganda.Effects[0].targets, [IntentType_GameIDs.Mana_Modify.ToString()]);
+            propaganda.Visuals = CustomVisuals.GetVisuals("Salt/Claws");
+            propaganda.AnimationTarget = propaganda.Effects[0].targets;
+
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 wreck.GenerateEnemyAbility(true),
                 hotspot.GenerateEnemyAbility(true),
                 ambiance.GenerateEnemyAbility(true),
-                future.GenerateEnemyAbility(true)
+                future.GenerateEnemyAbility(true),
+                propaganda.GenerateEnemyAbility(true)
             });
             template.AddEnemy(true);
         }
