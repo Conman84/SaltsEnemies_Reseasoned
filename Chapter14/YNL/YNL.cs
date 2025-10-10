@@ -94,7 +94,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 Name = "Shock Therapy",
                 Description = "Permenantly transform the Opposing party member into a random party member. \nIf the Opposing party member has already been transformed by this ability, lower their level and produce 7 coins.\nDeal an Agonizing amount of damage to this enemy.",
-                Rarity = Rarity.GetCustomRarity("rarity5"),
+                Rarity = Rarity.Common,
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ShockTherapyEffect>(), 3, Slots.Front),
