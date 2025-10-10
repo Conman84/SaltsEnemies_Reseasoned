@@ -57,6 +57,8 @@ namespace SaltsEnemies_Reseasoned
             doubleFront.secondTargetting = Slots.Front;
             TargetIsHealthColorEffect isRed = ScriptableObject.CreateInstance<TargetIsHealthColorEffect>();
             isRed.mana = Pigments.Red;
+            IsTargetIsHealthColorEffect realRed = ScriptableObject.CreateInstance<IsTargetIsHealthColorEffect>();
+            realRed.mana = Pigments.Red;
             RandomizeTargetHealthColorNormalEffect random = ScriptableObject.CreateInstance<RandomizeTargetHealthColorNormalEffect>();
             random.mana = [Pigments.Blue, Pigments.Yellow, Pigments.Purple, Pigments.Grey];
 
@@ -90,7 +92,7 @@ namespace SaltsEnemies_Reseasoned
             dont.Description = "If the Opposing party member's health is not Red, I will deal an Agonizing amount of damage to them.\nOtherwise, I will randomize their health color and inflict 1 Scar on all other party members.";
             dont.Rarity = Rarity.GetCustomRarity("rarity5");
             dont.Effects = new EffectInfo[4];
-            dont.Effects[0] = Effects.GenerateEffect(isRed, 1, Slots.Front);
+            dont.Effects[0] = Effects.GenerateEffect(realRed, 1, Slots.Front);
             dont.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front, BasicEffects.DidThat(false));
             dont.Effects[2] = Effects.GenerateEffect(random, 1, Slots.Front, BasicEffects.DidThat(true, 2));
             dont.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Slots.SlotTarget([-4, -3, -2, -1, 1, 2, 3, 4], false), BasicEffects.DidThat(true, 3));
@@ -161,8 +163,18 @@ namespace SaltsEnemies_Reseasoned
             });
             second.AddEnemy(true);
 
-            BasePassiveAbilitySO decay = Passives.DecayGenerator(LoadedAssetsHandler.GetEnemy("RedSky_BOSS"));
+            //decay
+            PerformEffectPassiveAbility decay = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            decay._passiveName = "Decay";
+            decay.m_PassiveID = PassiveType_GameIDs.Decay.ToString();
+            decay.passiveIcon = Passives.Example_Decay_MudLung.passiveIcon;
             decay._enemyDescription = "On death, this enemy gets a second chance.";
+            decay._characterDescription = decay._enemyDescription;
+            decay.doesPassiveTriggerInformationPanel = true;
+            decay.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<RedSkyDecayCondition>() };
+            decay._triggerOn = new TriggerCalls[] { TriggerCalls.OnDeath };
+            decay.effects = new EffectInfo[0];
+
             template.AddPassive(decay);
 
             //ADD ENEMY

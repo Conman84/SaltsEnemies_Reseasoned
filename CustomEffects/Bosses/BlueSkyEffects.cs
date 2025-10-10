@@ -1,4 +1,5 @@
-﻿using MonoMod.RuntimeDetour;
+﻿using BrutalAPI;
+using MonoMod.RuntimeDetour;
 using SaltEnemies_Reseasoned;
 using System;
 using System.Collections;
@@ -216,6 +217,20 @@ namespace SaltsEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
+    public class IsTargetIsHealthColorEffect : EffectSO
+    {
+        public ManaColorSO mana;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit && target.Unit.HealthColor.SharesPigmentColor(mana)) exitAmount++;
+                else if (!target.HasUnit) exitAmount++;
+            }
+            return exitAmount > 0;
+        }
+    }
     public class RandomizeTargetHealthColorNormalEffect : EffectSO
     {
         public ManaColorSO[] mana;
@@ -230,6 +245,25 @@ namespace SaltsEnemies_Reseasoned
                 }
             }
             return exitAmount > 0;
+        }
+    }
+    public class RedSkyDecayCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (!CombatManager.Instance._stats.EnemiesAlive) return false;
+            if (effector is IUnit unit)
+            {
+                int amount = 0;
+                foreach (IStatusEffect status in (unit as IStatusEffector).StatusEffects)
+                {
+                    if (status.StatusID == Power.StatusID) amount = status.StatusContent;
+                }
+                SpawnEnemyWithPowerEffect e = SpawnEnemyWithPowerEffect.Create("RedSky_BOSS", amount, true);
+                CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<ShowDecayInfoEffect>(), 1, Slots.Self), Effects.GenerateEffect(e, 0, Slots.Self) }, unit));
+                return false;
+            }
+            return true;
         }
     }
 }
