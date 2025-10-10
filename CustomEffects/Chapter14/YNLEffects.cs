@@ -172,12 +172,16 @@ namespace SaltEnemies_Reseasoned
                     {
                         CharacterSO c = getRandom();
                         for (int i = 0; i < 144 && (!c.HasRankedData || c.rankedData.Count < chara.Rank); i++) c = getRandom();
-                        if (stats.TryTransformCharacterLowerLevel(chara.ID, c, false, false, false)) exitAmount++;
-                        int coins = stats.TryGainCurrency(7, true);
+                        if (chara.Rank <= 1)
+                        {
+                            if (chara.DirectDeath(caster)) exitAmount++;
+                        }
+                        else if (stats.TryTransformCharacterLowerLevel(chara.ID, c, false, false, false)) exitAmount++;
+                        /*int coins = stats.TryGainCurrency(7, true);
                         if (coins > 0)
                         {
                             CombatManager.Instance.AddUIAction(new PlayCurrencyEffectUIAction(caster.ID, caster.IsUnitCharacter, coins, isMultiplier: false));
-                        }
+                        }*/
                         //base.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, entryVariable, out int exi);
                     }
                     else
@@ -189,7 +193,7 @@ namespace SaltEnemies_Reseasoned
                     }
                     if (YNLHandler2.DoPerm && !chara.IsMainCharacter)
                     {
-                        YNLHandler2.Transforms.Add(chara.ID);
+                        //YNLHandler2.Transforms.Add(chara.ID);
                     }
                 }
             }

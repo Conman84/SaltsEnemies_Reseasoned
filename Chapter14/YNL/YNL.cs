@@ -14,7 +14,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy lobotomy = new Enemy("Your New Life!", "YNL_EN")
             {
-                Health = 30,
+                Health = 35,
                 HealthColor = Pigments.Grey,
                 CombatSprite = ResourceLoader.LoadSprite("LobotomyIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("LobotomyWorld.png", new Vector2(0.5f, 0f), 32),
@@ -93,20 +93,17 @@ namespace SaltsEnemies_Reseasoned
             Ability shock = new Ability("ShockTherapy_A")
             {
                 Name = "Shock Therapy",
-                Description = "Permenantly transform the Opposing party member into a random party member. \nIf the Opposing party member has already been transformed by this ability, lower their level and produce 7 coins.\nDeal an Agonizing amount of damage to this enemy.",
+                Description = "Permenantly transform the Opposing party member into a random party member. \nIf the Opposing party member has already been transformed by this ability, lower their level.\nWhen attempting to lower a party member's level below 1, instantly kill them.",
                 Rarity = Rarity.Common,
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ShockTherapyEffect>(), 3, Slots.Front),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<LobotomySongEffect>(), 0, Slots.Front, BasicEffects.DidThat(true)),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Self)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Zap"),
                 AnimationTarget = Slots.Front,
             };
-            shock.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Misc.ToString()]);
-            shock.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Misc_Currency.ToString()]);
-            shock.AddIntentsToTarget(Slots.Self, ["Damage_7_10"]);
+            shock.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Misc_Hidden.ToString(), "Damage_Death"]);
 
             //illuminate
             Ability illuminate = new Ability("Illuminate")
@@ -129,17 +126,20 @@ namespace SaltsEnemies_Reseasoned
             Ability Replace = new Ability("Replacement_A")
             {
                 Name = "Replacement",
-                Description = "Apply 3 Power on the Opposing party member. \nIf the Opposing party member has killed during this combat, deal an Agonizing amount of damage to them.",
+                Description = "Randomize the Opposing party member's ability costs and health color.\nAttempt to fill the pigment tray with random Pigment.",
                 Rarity = Rarity.Common,
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 3, Slots.Front),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ReplacementDamageEffect>(), 7, Slots.Front)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeCostsEffect>(), 1, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeTargetHealthColorEffect>(), 1, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateFullBarManaEffect>(), 1, Targeting.Slot_SelfSlot),
+                    //Effects.GenerateEffect(ScriptableObject.CreateInstance<ReplacementDamageEffect>(), 8, Slots.Front)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Crush"),
                 AnimationTarget = Slots.Front,
             };
-            Replace.AddIntentsToTarget(Slots.Front, [Power.Intent, IntentType_GameIDs.Damage_7_10.ToString()]);
+            Replace.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Mana_Modify.ToString()]);
+            Replace.AddIntentsToTarget(Slots.Self, ["Mana_Generate"]);
 
             //ADD ENEMY
             lobotomy.AddEnemyAbilities(new EnemyAbilityInfo[]
