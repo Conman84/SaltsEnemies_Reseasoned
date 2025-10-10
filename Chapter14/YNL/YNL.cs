@@ -93,7 +93,7 @@ namespace SaltsEnemies_Reseasoned
             Ability shock = new Ability("ShockTherapy_A")
             {
                 Name = "Shock Therapy",
-                Description = "Permenantly transform the Opposing party member into a random party member. \nIf the Opposing party member has already been transformed by this ability, lower their level.\nWhen attempting to lower a party member's level below 1, instantly kill them.",
+                Description = "Temporarily transform the Opposing party member into a random party member. \nIf the Opposing party member has already been transformed by this ability, lower their level.\nWhen attempting to lower a party member's level below 1, instantly kill them.",
                 Rarity = Rarity.Common,
                 Effects = new EffectInfo[]
                 {
