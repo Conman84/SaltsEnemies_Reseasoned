@@ -109,18 +109,18 @@ namespace SaltsEnemies_Reseasoned
             Ability illuminate = new Ability("Illuminate")
             {
                 Name = "Illuminate",
-                Description = "Remove all Status Effects from the Opposing party member. If no Status Effects were removed, inflict 3 Stunned and deal a Painful amount of damage to them.",
+                Description = "Remove all Status Effects from the Opposing party member. If no Status Effects were removed, inflict 3 Muted and deal a Painful amount of damage to them.",
                 Rarity = Rarity.Common,
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveAllStatusEffectsByAmountEffect>(), 3, Slots.Front),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Front, BasicEffects.DidThat(false)),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyStunnedEffect>(), 3, Slots.Front, BasicEffects.DidThat(false, 2)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 3, Slots.Front, BasicEffects.DidThat(false, 2)),
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Spotlight"),
                 AnimationTarget = Slots.Front,
             };
-            illuminate.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Misc.ToString(), IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Status_Stunned.ToString()]);
+            illuminate.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Misc.ToString(), IntentType_GameIDs.Damage_3_6.ToString(), Muted.Intent]);
 
             //Replacement
             Ability Replace = new Ability("Replacement_A")
