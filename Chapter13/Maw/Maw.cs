@@ -36,15 +36,21 @@ namespace SaltsEnemies_Reseasoned
             bad.effects = new EffectInfo[0];
             bad._triggerOn = new TriggerCalls[1] { TriggerCalls.Count };
 
+            RefreshAbilityUseEffect exhaust = ScriptableObject.CreateInstance<RefreshAbilityUseEffect>();
+            exhaust._doesExhaustInstead = true;
+
             //skinning
             PerformEffectPassiveAbility skinning = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             skinning._passiveName = "Skinning";
             skinning.passiveIcon = ResourceLoader.LoadSprite("SkinPeelingPassive.png");
             skinning.m_PassiveID = "Skinning_PA";
-            skinning._enemyDescription = "On being directly damaged, inflict 3 Pimples on the party member.";
-            skinning._characterDescription = "On being directly damaged, inflict 3 Pimples on the Opposing enemy.";
+            skinning._enemyDescription = "On being directly damaged, exhaust the Opposing party member's ability and swap usage.";
+            skinning._characterDescription = "wont work";
             skinning.doesPassiveTriggerInformationPanel = true;
-            skinning.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPimplesEffect>(), 3, Slots.Front).SelfArray();
+            skinning.effects = [
+                    Effects.GenerateEffect(exhaust, 1, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ExhaustMovementEffect>(), 1, Slots.Front)
+                ];
             skinning._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
             skinning.AddToPassiveDatabase();
 
