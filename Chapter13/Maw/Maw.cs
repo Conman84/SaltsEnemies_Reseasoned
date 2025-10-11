@@ -52,6 +52,7 @@ namespace SaltsEnemies_Reseasoned
                     //Effects.GenerateEffect(ScriptableObject.CreateInstance<ExhaustMovementEffect>(), 1, Slots.Front)
                 ];
             skinning._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
+            skinning.conditions = Passives.Slippery.conditions;
             skinning.AddToPassiveDatabase();
 
             maw.AddPassives(new BasePassiveAbilitySO[] { bad, Passives.MultiAttack2, Passives.Slippery, skinning });
