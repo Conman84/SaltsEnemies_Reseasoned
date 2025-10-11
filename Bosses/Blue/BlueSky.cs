@@ -116,12 +116,12 @@ namespace SaltsEnemies_Reseasoned
             please.AddIntentsToTarget(Slots.Front, ["Field_Constricted", Power.Intent]);
 
             Ability line = new Ability("Say My Line", "Skies_Line_A");
-            line.Description = "If the Opposing party member's health color is Red, they instantly die.\nOtherwise, gain 2 Power.";
+            line.Description = "If the Opposing party member's health color is Red, they instantly die.\nOtherwise, gain 1 Power.";
             line.Rarity = Rarity.CreateAndAddCustomRarityToPool("skies_7", 7);
             line.Effects = new EffectInfo[3];
             line.Effects[0] = Effects.GenerateEffect(isRed, 1, Slots.Front);
             line.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Slots.Front, BasicEffects.DidThat(true));
-            line.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 2, Slots.Self, BasicEffects.DidThat(false, 2));
+            line.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 1, Slots.Self, BasicEffects.DidThat(false, 2));
             line.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_Death", Power.Intent]);
             line.Visuals = CustomVisuals.GetVisuals("Salt/Lens");
             line.AnimationTarget = Slots.Front;
