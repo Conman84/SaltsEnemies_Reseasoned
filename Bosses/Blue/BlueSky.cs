@@ -105,13 +105,13 @@ namespace SaltsEnemies_Reseasoned
             immediate.Immediate = true;
 
             Ability please = new Ability("Please.", "Skies_Please_A");
-            please.Description = "I will move in front of the closest Opposing party member and inflict 2 Constricted on them.\nI will gain 2 Power.";
+            please.Description = "I will move in front of the closest Opposing party member and inflict 2 Constricted on them.\nI will gain 1 Power.";
             please.Rarity = Rarity.CreateAndAddCustomRarityToPool("skies_3", 3);
             please.Effects = new EffectInfo[4];
             please.Effects[0] = Effects.GenerateEffect(immediate, 1, Targeting.GenerateSlotTarget(new int[9] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, false));
             please.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Weep_A", false, Slots.Front));
             please.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 2, Slots.Front);
-            please.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 2, Slots.Self);
+            please.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 1, Slots.Self);
             please.AddIntentsToTarget(Slots.Self, ["Swap_Mass"]);
             please.AddIntentsToTarget(Slots.Front, ["Field_Constricted", Power.Intent]);
 
