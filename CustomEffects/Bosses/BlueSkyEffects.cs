@@ -251,7 +251,6 @@ namespace SaltsEnemies_Reseasoned
     {
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
-            if (!CombatManager.Instance._stats.EnemiesAlive) return false;
             if (effector is IUnit unit)
             {
                 int amount = 0;
