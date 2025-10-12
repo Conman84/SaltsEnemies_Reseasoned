@@ -21,8 +21,16 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
             };
-            template.PrepareEnemyPrefab("Assets/Bosses/Crow/CrowChild_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/Crow/CrowChild_Gibs.prefab").GetComponent<ParticleSystem>());
-            //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("LittleBeak_EN").enemyTemplate;
+            template.PrepareMultiEnemyPrefab("Assets/Bosses/Crow/CrowChild_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/Crow/CrowChild_Gibs.prefab").GetComponent<ParticleSystem>());
+            (template.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
+            {
+                template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Body").Find("Outline").GetComponent<SpriteRenderer>(),
+                template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("LeftLeg").Find("Outline").GetComponent<SpriteRenderer>(),
+                template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("RightLeg").Find("Outline").GetComponent<SpriteRenderer>(),
+                template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").Find("LeftEar").Find("Outline").GetComponent<SpriteRenderer>(),
+                template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").Find("RightEar").Find("Outline").GetComponent<SpriteRenderer>(),
+                template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").Find("Face").Find("Outline").GetComponent<SpriteRenderer>(),
+            };
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.MultiAttack2, Passives.SlipperyGenerator(3), Violent.Generate(5) });
             template.AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_NoRepeats>();
