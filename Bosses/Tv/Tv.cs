@@ -46,6 +46,7 @@ namespace SaltsEnemies_Reseasoned
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, radical, Passives.MultiAttack2 });
             AbilitySelector_Bots isolate = ScriptableObject.CreateInstance<AbilitySelector_Bots>();
             isolate.Isolate = ["Tv_Propaganda_A"];
+            template.AbilitySelector = isolate;
 
             Ability wreck = new Ability("Wreck", "Tv_Wreck_A");
             wreck.Description = "Deal an Agonizing amount of damage to the Opposing party member.\nInflict 1 Slip on the Opposing position.";
@@ -57,14 +58,18 @@ namespace SaltsEnemies_Reseasoned
             wreck.Visuals = CustomVisuals.GetVisuals("Salt/Cannon");
             wreck.AnimationTarget = Slots.Front;
 
+            HotspotTargetting hst = ScriptableObject.CreateInstance<HotspotTargetting>();
+            hst.getAllies = false;
+            hst.getAllUnitSlots = true;
+
             Ability hotspot = new Ability("Hotspot", "Tv_Hotspot_A");
             hotspot.Description = "Deal a Barely Painful amount of damage to all party members in the same Light color as this enemy.";
             hotspot.Rarity = Rarity.GetCustomRarity("rarity5");
             hotspot.Effects = new EffectInfo[1];
             hotspot.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<HotspotEffect>(), 3, Slots.SlotTarget([-4, -3, -2, -1, 0, 1, 2, 3, 4], false));
             hotspot.AddIntentsToTarget(Slots.SlotTarget([-4, -3, -2, -1, 0, 1, 2, 3, 4], false), ["Damage_3_6"]);
-            hotspot.Visuals = LoadedAssetsHandler.GetCharacterAbility("Sear_1_A").visuals;
-            hotspot.AnimationTarget = Slots.Self;
+            hotspot.Visuals = CustomVisuals.GetVisuals("Salt/StageLights");
+            hotspot.AnimationTarget = hst;
 
             GenerateRandomManaBetweenEffect random = ScriptableObject.CreateInstance<GenerateRandomManaBetweenEffect>();
             random.possibleMana = [Pigments.Red, Pigments.Blue, Pigments.Yellow, Pigments.Purple];
@@ -73,7 +78,7 @@ namespace SaltsEnemies_Reseasoned
             ambiance.Rarity = Rarity.GetCustomRarity("rarity5");
             ambiance.Effects = new EffectInfo[1];
             ambiance.Effects[0] = Effects.GenerateEffect(random, 5, Slots.Self);
-            ambiance.AddIntentsToTarget(Slots.Self, ["Mana_Generate"]);
+            ambiance.AddIntentsToTarget(Slots.Self, ["Mana_Generate", "Mana_Generate", "Mana_Generate", "Mana_Generate", "Mana_Generate"]);
             ambiance.Visuals = CustomVisuals.GetVisuals("Salt/Unlock");
             ambiance.AnimationTarget = Slots.Self;
 
@@ -89,12 +94,13 @@ namespace SaltsEnemies_Reseasoned
             future.AnimationTarget = Slots.Front;
 
             Ability propaganda = new Ability("Propaganda", "Tv_Propaganda_A");
-            propaganda.Description = "Shift the Pigment costs of the abilities of all party members not Opposing this enemy.";
+            propaganda.Description = "Shift the Pigment costs of the abilities of all party members.";
             propaganda.Rarity = Rarity.GetCustomRarity("rarity5");
-            propaganda.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ShiftCostsEffect>(), 1, Targeting.GenerateSlotTarget([-4, -3, -2, -1, 1, 2, 3, 4], false))];
+            propaganda.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ShiftCostsEffect>(), 1, Targeting.Unit_AllOpponents)];
             propaganda.AddIntentsToTarget(propaganda.Effects[0].targets, [IntentType_GameIDs.Mana_Modify.ToString()]);
-            propaganda.Visuals = CustomVisuals.GetVisuals("Salt/Claws");
-            propaganda.AnimationTarget = propaganda.Effects[0].targets;
+            propaganda.Visuals = CustomVisuals.GetVisuals("Salt/Propaganda");
+            propaganda.AnimationTarget = Slots.Self;
+            propaganda.Priority = Priority.Slow;
 
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]

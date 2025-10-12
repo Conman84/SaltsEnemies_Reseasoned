@@ -19,6 +19,9 @@
 	  <None Remove="Bosses\Child\CrowChildWorld.png" />
 	  <None Remove="Bosses\Invention\InventionWorld.png" />
 	  <None Remove="Bosses\Smilers\SmilersWorld.png" />
+	  <None Remove="Bosses\Tv\Anim\Art_Tv.png" />
+	  <None Remove="Bosses\Tv\Anim\Splash_Tv.png" />
+	  <None Remove="Bosses\Tv\Anim\TvEnv.png" />
 	  <None Remove="Bosses\Tv\MegalaniaIcon.png" />
 	  <None Remove="Bosses\Tv\MegalaniaPortal.png" />
 	  <None Remove="Bosses\Tv\TvWorld.png" />
@@ -620,6 +623,9 @@
 	  <EmbeddedResource Include="Bosses\Child\CrowChildWorld.png" />
 	  <EmbeddedResource Include="Bosses\Invention\InventionWorld.png" />
 	  <EmbeddedResource Include="Bosses\Smilers\SmilersWorld.png" />
+	  <EmbeddedResource Include="Bosses\Tv\Anim\Art_Tv.png" />
+	  <EmbeddedResource Include="Bosses\Tv\Anim\Splash_Tv.png" />
+	  <EmbeddedResource Include="Bosses\Tv\Anim\TvEnv.png" />
 	  <EmbeddedResource Include="Bosses\Tv\MegalaniaIcon.png" />
 	  <EmbeddedResource Include="Bosses\Tv\MegalaniaPortal.png" />
 	  <EmbeddedResource Include="Bosses\Tv\TvWorld.png" />

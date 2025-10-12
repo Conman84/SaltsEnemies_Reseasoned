@@ -23,7 +23,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API boss = new EnemyEncounter_API(EncounterType.Specific, "BOSS_Zone02_Megalania_EnemyBundle", "Salt_MegalaniaEncounter_Sign");
             boss.MusicEvent = "event:/Blackwater/TVSong";
-            boss.RoarEvent = LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN").deathSound;
+            boss.RoarEvent = "event:/Blackwater/Roar/TvRoar";
             boss.BossID = "Megalania_BOSS";
             boss.SpecialEnvironmentID = "Megalania_Arena";
             boss.UsesSpecialEnvironment = true;
@@ -31,6 +31,17 @@ namespace SaltsEnemies_Reseasoned
             boss.CreateNewEnemyEncounterData(["Megalania_BOSS"], [2]);
 
             boss.AddEncounterToDataBases();
+
+            VsBossData vsBossData = new VsBossData();
+            vsBossData.animation = SaltsReseasoned.Dreams.LoadAsset<AnimationClip>("Assets/Bosses/Tv/TvSplash.anim");
+            vsBossData.roarTime = 4f;
+            vsBossData.arenaSprite = ResourceLoader.LoadSprite("TvEnv.png");
+            vsBossData.extraArenaSprite = ResourceLoader.LoadSprite("TvEnv.png");
+            vsBossData.bossSprite = ResourceLoader.LoadSprite("Art_Tv.png");
+            vsBossData.signatureSprite = ResourceLoader.LoadSprite("Splash_Tv.png");
+            vsBossData.extraSignatureSprite = ResourceLoader.LoadSprite("Splash_Tv.png");
+            Misc.AddCustom_VSAnimationData("Megalania_BOSS", vsBossData);
+
             EnemyEncounterUtils.AddEncounterToZoneSelector("BOSS_Zone02_Megalania_EnemyBundle", 10, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Boss);
         }
 

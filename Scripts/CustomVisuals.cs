@@ -123,6 +123,8 @@ namespace SaltsEnemies_Reseasoned
             LoadVisuals("Salt/YinYang", SaltsReseasoned.Meow, "Assets/attacks3/YinYang.anim", "event:/Hawthorne/Attack4/ReverseSwirl");
             LoadVisuals("Salt/Curtains", SaltsReseasoned.Meow, "Assets/attacks3/Curtains.anim", "event:/Hawthorne/Attack4/Curtains", true);
             LoadVisuals("Salt/Monster", SaltsReseasoned.Meow, "Assets/attacks3/Monster.anim", LoadedAssetsHandler.GetCharacterAbility("Oil_1_A").visuals.audioReference);
+            LoadVisuals("Salt/StageLights", SaltsReseasoned.Meow, "Assets/BossAttack/StageLights.anim", "event:/Blackwater/Attacks/StageLights");
+            LoadVisuals("Salt/Propaganda", SaltsReseasoned.Meow, "Assets/BossAttack/Propaganda.anim", "event:/Blackwater/Attacks/Propaganda", true);
         }
     }
 }

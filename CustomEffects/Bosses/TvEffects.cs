@@ -4,6 +4,7 @@ using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static UnityEngine.GraphicsBuffer;
 
 namespace SaltsEnemies_Reseasoneds
 {
@@ -161,6 +162,20 @@ namespace SaltsEnemies_Reseasoneds
                 instance.AddUIAction(new CharacterUpdateAllAttacksUIAction(iD, array2));
             }
             return exitAmount > 0;
+        }
+    }
+    public class HotspotTargetting : Targetting_ByUnit_Side
+    {
+        public override TargetSlotInfo[] GetTargets(SlotsCombat slots, int casterSlotID, bool isCasterCharacter)
+        {
+            List<TargetSlotInfo> ret = new List<TargetSlotInfo>();
+            foreach (CombatSlot target in isCasterCharacter == getAllies ? slots.CharacterSlots : slots.EnemySlots)
+            {
+                if (target.GetFieldAmount("GreenLight_ID") > 0 && StatusExtensions.GetFieldAmountFromID(casterSlotID, isCasterCharacter, "GreenLight_ID") > 0) ret.Add(target.TargetSlotInformation);
+                else if (target.GetFieldAmount("RedLight_ID") > 0 && StatusExtensions.GetFieldAmountFromID(casterSlotID, isCasterCharacter, "RedLight_ID") > 0) ret.Add(target.TargetSlotInformation);
+                else if (target.GetFieldAmount("BlueLight_ID") > 0 && StatusExtensions.GetFieldAmountFromID(casterSlotID, isCasterCharacter, "BlueLight_ID") > 0) ret.Add(target.TargetSlotInformation);
+            }
+            return ret.ToArray();
         }
     }
 }
