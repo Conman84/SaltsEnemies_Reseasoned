@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("CrowChildWorld.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("CrowChildWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("CrowChildWorld.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
+                DamageSound = LoadedAssetsHandler.GetEnemy("TheCrow_EN").damageSound,
+                DeathSound = LoadedAssetsHandler.GetEnemy("TheCrow_EN").deathSound,
             };
             template.PrepareMultiEnemyPrefab("Assets/Bosses/Crow/CrowChild_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/Crow/CrowChild_Gibs.prefab").GetComponent<ParticleSystem>());
             (template.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
