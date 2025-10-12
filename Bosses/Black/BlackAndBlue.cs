@@ -42,7 +42,7 @@ namespace SaltsEnemies_Reseasoned
             bb.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Front);
             bb.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveAllStatusEffectsEffect>(), 1, Slots.Front);
             bb.AddIntentsToTarget(Slots.Front, ["Damage_3_6", "Misc"]);
-            bb.Visuals = LoadedAssetsHandler.GetEnemyAbility("UglyOnTheInside_A").visuals;
+            bb.Visuals = CustomVisuals.GetVisuals("Salt/Anchoring");
             bb.AnimationTarget = Slots.Front;
 
             SwapToOneSideEffect goLeft = ScriptableObject.CreateInstance<SwapToOneSideEffect>();
@@ -79,7 +79,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 "Swap_Left",
             });
-            cc.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
+            cc.Visuals = CustomVisuals.GetVisuals("Salt/Submerge");
             cc.AnimationTarget = Slots.Self;
 
             template.AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_BlackAndBlue>();

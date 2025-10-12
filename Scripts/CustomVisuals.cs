@@ -125,6 +125,8 @@ namespace SaltsEnemies_Reseasoned
             LoadVisuals("Salt/Monster", SaltsReseasoned.Meow, "Assets/attacks3/Monster.anim", LoadedAssetsHandler.GetCharacterAbility("Oil_1_A").visuals.audioReference);
             LoadVisuals("Salt/StageLights", SaltsReseasoned.Meow, "Assets/BossAttack/StageLights.anim", "event:/Blackwater/Attacks/StageLights");
             LoadVisuals("Salt/Propaganda", SaltsReseasoned.Meow, "Assets/BossAttack/Propaganda.anim", "event:/Blackwater/Attacks/Propaganda", true);
+            LoadVisuals("Salt/Anchoring", SaltsReseasoned.Meow, "Assets/BossAttack/Anchoring.anim", "event:/Blackwater/Attacks/Anchoring");
+            LoadVisuals("Salt/Submerge", SaltsReseasoned.Meow, "Assets/BossAttack/Submerge.anim", "event:/Blackwater/Attacks/Submerge", true);
         }
     }
 }
