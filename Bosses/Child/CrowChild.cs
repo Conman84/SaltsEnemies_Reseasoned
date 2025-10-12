@@ -27,7 +27,7 @@ namespace SaltsEnemies_Reseasoned
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.MultiAttack2, Passives.SlipperyGenerator(3), Violent.Generate(5) });
             template.AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_NoRepeats>();
 
-            Ability first = new Ability("Ability A", "CrowChild1_A");
+            Ability first = new Ability("Masquerade", "CrowChild1_A");
             first.Description = "Inflict 1 Constricted and 3 Frail to the Left and Right party members.";
             first.Rarity = Rarity.GetCustomRarity("rarity5");
             first.Effects = new EffectInfo[2];
@@ -37,7 +37,7 @@ namespace SaltsEnemies_Reseasoned
             first.Visuals = CustomVisuals.GetVisuals("Salt/Gaze");
             first.AnimationTarget = Slots.LeftRight;
 
-            Ability second = new Ability("Ability B", "CrowChild2_A");
+            Ability second = new Ability("Charades", "CrowChild2_A");
             second.Description = "Deal a Little damage to this enemy.";
             second.Rarity = Rarity.CreateAndAddCustomRarityToPool("crowChildHigh", 8);
             second.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Self)];
@@ -45,15 +45,15 @@ namespace SaltsEnemies_Reseasoned
             second.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
             second.AnimationTarget = Slots.Self;
 
-            Ability third = new Ability("Ability C", "CrowChild3_A");
+            Ability third = new Ability("Adulting", "CrowChild3_A");
             third.Description = "Deal an Evil amount of damage to the Opposing party member.";
             third.Rarity = Rarity.GetCustomRarity("rarity5");
-            third.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front)];
-            third.AddIntentsToTarget(Slots.Front, ["Damage_7_10"]);
+            third.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 13, Slots.Front)];
+            third.AddIntentsToTarget(Slots.Front, ["Damage_11_15"]);
             third.Visuals = CustomVisuals.GetVisuals("Salt/Needle");
             third.AnimationTarget = Slots.Front;
 
-            Ability fourth = new Ability("Ability D", "CrowChild4_A");
+            Ability fourth = new Ability("Regression", "CrowChild4_A");
             fourth.Description = "Move Left or Right.";
             fourth.Rarity = Rarity.CreateAndAddCustomRarityToPool("crowSmall", 2);
             fourth.Priority = Priority.Fast;
