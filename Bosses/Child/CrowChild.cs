@@ -21,7 +21,7 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
             };
-            template.PrepareEnemyPrefab("Assets/TestSprites/Tset_CrowChild_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.PrepareEnemyPrefab("Assets/Bosses/Crow/CrowChild_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/Crow/CrowChild_Gibs.prefab").GetComponent<ParticleSystem>());
             //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("LittleBeak_EN").enemyTemplate;
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.MultiAttack2, Passives.SlipperyGenerator(3), Violent.Generate(5) });
