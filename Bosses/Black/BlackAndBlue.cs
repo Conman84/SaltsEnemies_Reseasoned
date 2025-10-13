@@ -18,10 +18,10 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("WarCriminalWorld.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("WarCriminalWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("WarCriminalWorld.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
+                DamageSound = "event:/Blackwater/Noise/BBHurt",
+                DeathSound = "event:/Blackwater/Noise/BBDeath",
             };
-            template.PrepareEnemyPrefab("Assets/TestSprites/Test_BlackAndBlue_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.PrepareEnemyPrefab("Assets/Bosses/BB/BlackAndBlue_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
 
             //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("WrigglingSacrifice_EN").enemyTemplate;
 
