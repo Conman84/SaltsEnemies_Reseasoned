@@ -40,6 +40,28 @@ namespace SaltsEnemies_Reseasoned
             cog.SpecialUnlockID = UILocID.None;
             cog.item._ItemTypeIDs = [];
             cog.item.AddBlueSkyUnlock("Gospel_CH", "locked_cog.png", "ach_cog.png");
+
+            PerformEffect_Item sword = new PerformEffect_Item("Aprils_PaperSword_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Slots.Front)]);
+            sword.Name = "Paper Sword";
+            sword.Flavour = "\"As sharp as it is feeble\"";
+            sword.Description = "On dealing damage, inflict 2 Ruptured on the Opposing enemy.";
+            sword.Icon = ResourceLoader.LoadSprite("item_papersword.png");
+            sword.EquippedModifiers = [];
+            sword.TriggerOn = TriggerCalls.OnDidApplyDamage;
+            sword.DoesPopUpInfo = true;
+            sword.Conditions = [];
+            sword.DoesActionOnTriggerAttached = false;
+            sword.ConsumeOnTrigger = TriggerCalls.Count;
+            sword.ConsumeOnUse = false;
+            sword.ConsumeConditions = [];
+            sword.ShopPrice = 2;
+            sword.IsShopItem = true;
+            sword.StartsLocked = true;
+            sword.OnUnlockUsesTHE = true;
+            sword.UsesSpecialUnlockText = false;
+            sword.SpecialUnlockID = UILocID.None;
+            sword.item._ItemTypeIDs = ["Knife"];
+            sword.item.AddBlueSkyUnlock("Boyle_CH", "locked_papersword.png", "ach_papersword.png");
         }
     }
 }
