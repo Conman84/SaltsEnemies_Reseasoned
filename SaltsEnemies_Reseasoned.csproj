@@ -16,6 +16,9 @@
 	  <None Remove="Bosses\Blue\Miku.png" />
 	  <None Remove="Bosses\Blue\MikuWorld.png" />
 	  <None Remove="Bosses\Blue\RedMikuWorld.png" />
+	  <None Remove="Bosses\Child\Anim\art_crow_head.png" />
+	  <None Remove="Bosses\Child\Anim\CrowChildEnv.png" />
+	  <None Remove="Bosses\Child\Anim\splash_crow.png" />
 	  <None Remove="Bosses\Child\CrowChildEnvImage.png" />
 	  <None Remove="Bosses\Child\CrowChildPortal.png" />
 	  <None Remove="Bosses\Child\CrowChildWorld.png" />
@@ -623,7 +626,9 @@
 	  <EmbeddedResource Include="Bosses\Blue\Miku.png" />
 	  <EmbeddedResource Include="Bosses\Blue\MikuWorld.png" />
 	  <EmbeddedResource Include="Bosses\Blue\RedMikuWorld.png" />
-	  <EmbeddedResource Include="Bosses\Child\CrowChildEnvImage.png" />
+	  <EmbeddedResource Include="Bosses\Child\Anim\art_crow_head.png" />
+	  <EmbeddedResource Include="Bosses\Child\Anim\CrowChildEnv.png" />
+	  <EmbeddedResource Include="Bosses\Child\Anim\splash_crow.png" />
 	  <EmbeddedResource Include="Bosses\Child\CrowChildPortal.png" />
 	  <EmbeddedResource Include="Bosses\Child\CrowChildWorld.png" />
 	  <EmbeddedResource Include="Bosses\Invention\InventionWorld.png" />
