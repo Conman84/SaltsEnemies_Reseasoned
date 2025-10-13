@@ -67,7 +67,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 13, Slots.Front)
                 ];
             third.AddIntentsToTarget(Slots.Front, ["Damage_11_15"]);
-            third.Visuals = CustomVisuals.GetVisuals("Salt/Needle");
+            third.Visuals = null;
             third.AnimationTarget = Slots.Front;
 
             Ability fourth = new Ability("Regression", "CC_Regression_A");
