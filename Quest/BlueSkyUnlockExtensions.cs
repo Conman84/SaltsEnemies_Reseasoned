@@ -2,11 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 
 namespace SaltsEnemies_Reseasoned
 {
     public static class BlueSkyUnlockExtensions
     {
+        public static bool Test => SaltsReseasoned.DebugVer;
         public static void AddBlueSkyUnlock(this BaseWearableSO item, string charID, string lockedSprite, string achSprite, int fish = 0)
         {
             if (LoadedAssetsHandler.LoadedCharacters.ContainsKey(charID) || LoadedAssetsHandler.LoadCharacter(charID) != null)
@@ -19,6 +21,7 @@ namespace SaltsEnemies_Reseasoned
                 GenerateBlueSkyAchievement(item._itemName, ACH, achSprite);
                 AddSinglePearl(charID, ACH);
             }
+            if (Test) Debug.Log("added skies unlock: " + item._itemName);
         }
 
         public static void GenerateBlueSkyUnlock(string characterID, string itemID, string unlock, string ACH)
