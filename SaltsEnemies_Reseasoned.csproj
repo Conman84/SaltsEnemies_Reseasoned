@@ -602,6 +602,9 @@
 	  <None Remove="Quest\Sprites\TinCan.png" />
 	  <None Remove="Quest\Sprites\UnknownFossil.png" />
 	  <None Remove="Quest\Sprites\WoodSign.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_cog.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_cog.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_cog.png" />
 	  <None Remove="SpecialIcons\atkicon.png" />
 	  <None Remove="SpecialIcons\blueUpIcon.png" />
 	  <None Remove="SpecialIcons\counticon.png" />
@@ -1200,6 +1203,9 @@
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_Torturepedia.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_UnknownFossil.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_WoodSign.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_cog.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_cog.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_cog.png" />
 	  <EmbeddedResource Include="SpecialIcons\atkicon.png" />
 	  <EmbeddedResource Include="SpecialIcons\blueUpIcon.png" />
 	  <EmbeddedResource Include="SpecialIcons\counticon.png" />
@@ -1520,7 +1526,6 @@
 	<ItemGroup>
 	  <Folder Include="CustomEffects\Chapter06\" />
 	  <Folder Include="CustomEffects\Chapter12\" />
-	  <Folder Include="Quest\Unlocks\Sprites\" />
 	</ItemGroup>
 
 
