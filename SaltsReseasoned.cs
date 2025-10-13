@@ -439,6 +439,10 @@ namespace SaltsEnemies_Reseasoned
 
                 PCall(Defacer.Add);
             }
+            if (TestBosses)
+            {
+                PCall(UnlocksOne.Add);
+            }
 
             //moving the passives glossary here.
 
