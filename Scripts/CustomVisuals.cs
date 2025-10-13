@@ -127,6 +127,8 @@ namespace SaltsEnemies_Reseasoned
             LoadVisuals("Salt/Propaganda", SaltsReseasoned.Meow, "Assets/BossAttack/Propaganda.anim", "event:/Blackwater/Attacks/Propaganda", true);
             LoadVisuals("Salt/Anchoring", SaltsReseasoned.Meow, "Assets/BossAttack/Anchoring.anim", "event:/Blackwater/Attacks/Anchoring");
             LoadVisuals("Salt/Submerge", SaltsReseasoned.Meow, "Assets/BossAttack/Submerge.anim", "event:/Blackwater/Attacks/Submerge", true);
+            LoadVisuals("Salt/Hunt", SaltsReseasoned.Meow, "Assets/BossAttack/Hunt.anim", LoadedAssetsHandler.GetEnemyAbility("Mandibles_A").visuals.audioReference);
+            LoadVisuals("Salt/Adulting", SaltsReseasoned.Meow, "Assets/BossAttack/Adulting.anim", "event:/Blackwater/Attacks/Adulting", true);
         }
     }
 }

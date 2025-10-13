@@ -101,7 +101,7 @@ namespace SaltsEnemies_Reseasoned
             red.AddIntentsToTarget(allAlly, new string[] { IntentType_GameIDs.Misc.ToString() });
             red.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
             red.AnimationTarget = targettingSingleSizeColor;
-            red.Priority = Priority.Fast;
+            red.Priority = Priority.ExtremelyFast;
 
             //PINCH
             ChangeCasterHealthColorBetweenColorsEffect effect = ScriptableObject.CreateInstance<ChangeCasterHealthColorBetweenColorsEffect>();

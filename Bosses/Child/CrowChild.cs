@@ -53,10 +53,19 @@ namespace SaltsEnemies_Reseasoned
             second.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
             second.AnimationTarget = Slots.Self;
 
+            AnimationVisualsIfUnitEffect adulting = ScriptableObject.CreateInstance<AnimationVisualsIfUnitEffect>();
+            adulting._animationTarget = Slots.Front;
+            adulting._visuals = CustomVisuals.GetVisuals("Salt/Adulting");
+            adulting._noUnitAnimationTarget = Slots.Front;
+            adulting._noUnitVisuals = CustomVisuals.GetVisuals("Salt/Hunt");
+
             Ability third = new Ability("Adulting", "CC_Adulting_A");
             third.Description = "Deal an Evil amount of damage to the Opposing party member.";
             third.Rarity = Rarity.GetCustomRarity("rarity5");
-            third.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 13, Slots.Front)];
+            third.Effects = [
+                Effects.GenerateEffect(adulting, 1, Slots.Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 13, Slots.Front)
+                ];
             third.AddIntentsToTarget(Slots.Front, ["Damage_11_15"]);
             third.Visuals = CustomVisuals.GetVisuals("Salt/Needle");
             third.AnimationTarget = Slots.Front;
