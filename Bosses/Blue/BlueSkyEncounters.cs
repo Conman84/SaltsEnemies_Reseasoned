@@ -25,6 +25,8 @@ namespace SaltsEnemies_Reseasoned
             boss.CreateNewEnemyEncounterData(["BlueSky_BOSS"], [2]);
 
             boss.AddEncounterToDataBases();
+
+            //consider setting rarity to 0
             EnemyEncounterUtils.AddEncounterToZoneSelector("BOSS_Zone03_BlueSky_EnemyBundle", 5, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Boss);
         }
         public static void SetGrassMaterial(this GameObject self)
