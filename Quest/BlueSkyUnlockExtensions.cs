@@ -15,7 +15,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 string ACH = charID + "_BlueSky_ACH";
 
-                if (fish >= 0) item.AddItem(lockedSprite, ACH);
+                if (fish <= 0) item.AddItem(lockedSprite, ACH);
                 else item.AddFishItem(fish, lockedSprite, ACH);
                 GenerateBlueSkyUnlock(charID, item.name, charID + "_BlueSky_Unlock", ACH);
                 GenerateBlueSkyAchievement(item._itemName, ACH, achSprite);
