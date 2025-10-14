@@ -232,6 +232,28 @@ namespace SaltsEnemies_Reseasoned
             return ret;
         }
     }
+    public class DamageDealerEffectsCondition : EffectorConditionSO
+    {
+        public EffectInfo[] Effects;
+        public bool ShowItem;
+
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is AdvancedDamageInfo info)
+            {
+                CombatManager.Instance.AddSubAction(new DamageTargetEffectsConditionAction(info.Killer, effector as IUnit, Effects, ShowItem));
+            }
+            return true;
+        }
+
+        public static DamageDealerEffectsCondition Create(EffectInfo[] effects, bool showitem)
+        {
+            DamageDealerEffectsCondition ret = ScriptableObject.CreateInstance<DamageDealerEffectsCondition>();
+            ret.Effects = effects;
+            ret.ShowItem = showitem;
+            return ret;
+        }
+    }
 
     public class DamageTargetEffectsConditionAction : CombatAction
     {

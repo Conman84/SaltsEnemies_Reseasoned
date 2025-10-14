@@ -71,7 +71,7 @@ namespace SaltsEnemies_Reseasoned
             nail.EquippedModifiers = [];
             nail.TriggerOn = AdvancedDamageTrigger.Received;
             nail.DoesPopUpInfo = true;
-            nail.Conditions = [DamageTargetEffectsCondition.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterGainActionEffect>(), 1, Slots.Self)], false)];
+            nail.Conditions = [DamageDealerEffectsCondition.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterGainActionEffect>(), 1, Slots.Self)], false)];
             nail.DoesActionOnTriggerAttached = false;
             nail.ConsumeOnTrigger = TriggerCalls.Count;
             nail.ConsumeOnUse = true;
@@ -130,6 +130,63 @@ namespace SaltsEnemies_Reseasoned
             match.SpecialUnlockID = UILocID.None;
             match.item._ItemTypeIDs = [];
             match.item.AddBlueSkyUnlock("Kleiver_CH", "locked_littlematchbox.png", "ach_littlematchbox.png");
+
+            PerformEffect_Item inkwell = new PerformEffect_Item("Salt_Inkwell_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Slots.Front)]);
+            inkwell.Name = "Ink Well";
+            inkwell.Flavour = "\"Gets messy fast\"";
+            inkwell.Description = "On using an ability, apply 2 Slip to the Opposing position.";
+            inkwell.Icon = ResourceLoader.LoadSprite("item_inkwell.png");
+            inkwell.EquippedModifiers = [];
+            inkwell.TriggerOn = TriggerCalls.OnAbilityUsed;
+            inkwell.DoesPopUpInfo = true;
+            inkwell.Conditions = [];
+            inkwell.DoesActionOnTriggerAttached = false;
+            inkwell.ConsumeOnTrigger = TriggerCalls.Count;
+            inkwell.ConsumeOnUse = false;
+            inkwell.ConsumeConditions = [];
+            inkwell.ShopPrice = 2;
+            inkwell.IsShopItem = true;
+            inkwell.StartsLocked = true;
+            inkwell.OnUnlockUsesTHE = true;
+            inkwell.UsesSpecialUnlockText = false;
+            inkwell.SpecialUnlockID = UILocID.None;
+            inkwell.item._ItemTypeIDs = [];
+            inkwell.item.AddBlueSkyUnlock("Hans_CH", "locked_inkwell.png", "ach_inkwell.png");
+
+            PostFireEffect.Setup();
+            Ability postfire = new Ability("Post-Fire", "PostFire_A");
+            postfire.Description = "Deal 6-9 damage to the last enemy this party member dealt damage to.";
+            postfire.Cost = [Pigments.Red, Pigments.Red];
+            postfire.Rarity = Rarity.GetCustomRarity("rarity5");
+            postfire.AbilitySprite = ResourceLoader.LoadSprite("ability_postfire.png");
+            postfire.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<PostFireEffect>(), 6, Targeting.Unit_AllOpponents)];
+            postfire.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden", "Damage_7_10"]);
+            postfire.Visuals = null;
+            postfire.AnimationTarget = Slots.Self;
+
+            ExtraAbility_Wearable_SMS add_postfire = ScriptableObject.CreateInstance<ExtraAbility_Wearable_SMS>();
+            add_postfire._extraAbility = postfire.GenerateCharacterAbility(true);
+
+            Basic_Item receiver = new Basic_Item("Salt_Receiver_SW");
+            receiver.Name = "Receiver";
+            receiver.Flavour = "\"Voice from beyond\"";
+            receiver.Description = "Adds the extra ability \"Post-Fire,\", a cheap long range damage ability.";
+            receiver.Icon = ResourceLoader.LoadSprite("item_receiver.png");
+            receiver.EquippedModifiers = [add_postfire];
+            receiver.TriggerOn = TriggerCalls.Count;
+            receiver.DoesPopUpInfo = false;
+            receiver.Conditions = [];
+            receiver.DoesActionOnTriggerAttached = false;
+            receiver.ConsumeOnTrigger = TriggerCalls.Count;
+            receiver.ConsumeOnUse = false;
+            receiver.ConsumeConditions = [];
+            receiver.ShopPrice = 5;
+            receiver.IsShopItem = true;
+            receiver.StartsLocked = true;
+            receiver.OnUnlockUsesTHE = true;
+            receiver.SpecialUnlockID = UILocID.None;
+            receiver.item._ItemTypeIDs = [];
+            receiver.item.AddBlueSkyUnlock("Rags_CH", "locked_receiver.png", "ach_receiver.png");
         }
     }
 }
