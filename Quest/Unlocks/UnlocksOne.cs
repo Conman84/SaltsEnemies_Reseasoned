@@ -19,7 +19,7 @@ namespace SaltsEnemies_Reseasoned
                 "Lonely_PA", "Melancholy_PA", "Gluttony_PA", "Rotary_PA", MarchingHandler.Passive, "Hiding_PA", "Seeking_PA"
                 ];
 
-            PerformEffect_Item cog = new PerformEffect_Item("Aprils_Cog_SW", [Effects.GenerateEffect(cogEffect)]);
+            PerformEffect_Item cog = new PerformEffect_Item("Salt_Cog_SW", [Effects.GenerateEffect(cogEffect)]);
             cog.Name = "The Cog";
             cog.Flavour = "\"it's a metaphor.\"";
             cog.Description = "Disable most movement passives.";
@@ -41,7 +41,7 @@ namespace SaltsEnemies_Reseasoned
             cog.item._ItemTypeIDs = [];
             cog.item.AddBlueSkyUnlock("Gospel_CH", "locked_cog.png", "ach_cog.png");
 
-            PerformEffect_Item sword = new PerformEffect_Item("Aprils_PaperSword_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Slots.Front)]);
+            PerformEffect_Item sword = new PerformEffect_Item("Salt_PaperSword_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Slots.Front)]);
             sword.Name = "Paper Sword";
             sword.Flavour = "\"As sharp as it is feeble\"";
             sword.Description = "On dealing damage, inflict 2 Ruptured on the Opposing enemy.";
