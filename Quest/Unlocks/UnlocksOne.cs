@@ -187,6 +187,68 @@ namespace SaltsEnemies_Reseasoned
             receiver.SpecialUnlockID = UILocID.None;
             receiver.item._ItemTypeIDs = [];
             receiver.item.AddBlueSkyUnlock("Rags_CH", "locked_receiver.png", "ach_receiver.png");
+
+            PerformEffect_Item scope = new PerformEffect_Item("Salt_HexedScope_TW", []);
+            scope.Name = "Hexed Scope";
+            scope.Flavour = "\"Sin of Sloth\"";
+            scope.Description = "Deal 15% less damage.\nDeal 50% more damage instead if the first this is the first ability used this turn.";
+            scope.Icon = ResourceLoader.LoadSprite("item_hexedscope.png");
+            scope.EquippedModifiers = [];
+            scope.TriggerOn = TriggerCalls.OnWillApplyDamage;
+            scope.DoesPopUpInfo = false;
+            scope.Conditions = [ScriptableObject.CreateInstance<HexedScopeCondition>()];
+            scope.DoesActionOnTriggerAttached = false;
+            scope.ConsumeOnTrigger = TriggerCalls.Count;
+            scope.ConsumeOnUse = false;
+            scope.ConsumeConditions = [];
+            scope.ShopPrice = 5;
+            scope.IsShopItem = false;
+            scope.StartsLocked = true;
+            scope.OnUnlockUsesTHE = true;
+            scope.SpecialUnlockID = UILocID.None;
+            scope.item._ItemTypeIDs = [];
+            scope.item.AddBlueSkyUnlock("Hare_CH", "locked_hexedscope.png", "ach_hexedscope.png");
+
+            PerformEffect_Item plug = new PerformEffect_Item("Salt_ThePlug_SW", []);
+            plug.Name = "The Plug";
+            plug.Flavour = "\"Hole In The Wall\"";
+            plug.Description = "Damaged targets gain 10 Pale.";
+            plug.Icon = ResourceLoader.LoadSprite("item_theplug.png");
+            plug.EquippedModifiers = [];
+            plug.TriggerOn = AdvancedDamageTrigger.Dealt;
+            plug.DoesPopUpInfo = false;
+            plug.Conditions = [DamageTargetEffectsCondition.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleByTenEffect>(), 1, Slots.Self)], true)];
+            plug.DoesActionOnTriggerAttached = false;
+            plug.ConsumeOnTrigger = TriggerCalls.Count;
+            plug.ConsumeOnUse = false;
+            plug.ConsumeConditions = [];
+            plug.ShopPrice = 5;
+            plug.IsShopItem = true;
+            plug.StartsLocked = true;
+            plug.OnUnlockUsesTHE = false;
+            plug.SpecialUnlockID = UILocID.None;
+            plug.item._ItemTypeIDs = [];
+            plug.item.AddBlueSkyUnlock("Saturn_CH", "locked_theplug.png", "ach_theplug.png");
+
+            PerformEffect_Item time = new PerformEffect_Item("Salt_MarchOfTime_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageByTurnsEffect>(), 1, Slots.Front)]);
+            time.Name = "March of Time";
+            time.Flavour = "\"Two by Two\"";
+            time.Description = "At the end of each turn, deal damage to the Opposing enemy equal to the amount of turns passed.";
+            time.Icon = ResourceLoader.LoadSprite("item_marchoftime.png");
+            time.EquippedModifiers = [];
+            time.TriggerOn = TriggerCalls.OnTurnFinished;
+            time.DoesPopUpInfo = true;
+            time.Conditions = [];
+            time.DoesActionOnTriggerAttached = false;
+            time.ConsumeOnTrigger = TriggerCalls.Count;
+            time.ConsumeOnUse = false;
+            time.ConsumeConditions = [];
+            time.ShopPrice = 3;
+            time.IsShopItem = false;
+            time.StartsLocked = true;
+            time.SpecialUnlockID = UILocID.None;
+            time.item._ItemTypeIDs = [];
+            time.item.AddBlueSkyUnlock("Esther_CH", "locked_marchoftime.png", "ach_marchoftime.png");
         }
     }
 }

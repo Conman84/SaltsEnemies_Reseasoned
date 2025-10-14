@@ -86,6 +86,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 PCall(EncounterExtensions.PrepareSortingOrders);
                 PCall(CascadingDamageItemHandler.Setup);
+                PCall(FirstPerTurnHandler.Setup);
             }
             #endregion
 
