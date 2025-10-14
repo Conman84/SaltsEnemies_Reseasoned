@@ -86,6 +86,50 @@ namespace SaltsEnemies_Reseasoned
             EffectTrigger nail_second = new EffectTrigger([], [TriggerCalls.OnWillApplyDamage], [ItemExtensions.Damage(30, true)], false);
             nail.AddEffectTrigger(nail_second);
             nail.item.AddBlueSkyUnlock("Fennec_CH", "locked_leftnail.png", "ach_leftnail.png");
+
+            PerformEffect_Item play = new PerformEffect_Item("Salt_ThePlay_SW", [], true);
+            play.Name = "The Play";
+            play.Flavour = "\"Your role isn't done yet.\"";
+            play.Description = "On death, prevent it and heal 1 health.\nThis item is destroyed upon taking any damage.";
+            play.Icon = ResourceLoader.LoadSprite("item_theplay.png");
+            play.EquippedModifiers = [];
+            play.TriggerOn = TriggerCalls.CanDie;
+            play.DoesPopUpInfo = true;
+            play.Conditions = [ScriptableObject.CreateInstance<TinCanCondition>()];
+            play.DoesActionOnTriggerAttached = false;
+            play.ConsumeOnTrigger = TriggerCalls.OnDamaged;
+            play.ConsumeOnUse = false;
+            play.ConsumeConditions = [];
+            play.ShopPrice = 5;
+            play.IsShopItem = true;
+            play.StartsLocked = true;
+            play.OnUnlockUsesTHE = false;
+            play.UsesSpecialUnlockText = false;
+            play.SpecialUnlockID = UILocID.None;
+            play.item._ItemTypeIDs = [];
+            play.item.AddBlueSkyUnlock("Agon_CH", "locked_theplay.png", "ach_theplay.png");
+
+            PerformEffect_Item match = new PerformEffect_Item("Salt_LittleMatchbox_SW", [], true);
+            match.Name = "Little Matchbox";
+            match.Flavour = "\"Warm forever.\"";
+            match.Description = "Fire no longer decreases on this party member's position.\nThis party member receives -100% Fire damage.";
+            match.Icon = ResourceLoader.LoadSprite("item_littlematchbox.png");
+            match.EquippedModifiers = [];
+            match.TriggerOn = TriggerCalls.OnBeingDamaged;
+            match.DoesPopUpInfo = true;
+            match.Conditions = [ScriptableObject.CreateInstance<ColdHealCondition>()];
+            match.DoesActionOnTriggerAttached = false;
+            match.ConsumeOnTrigger = TriggerCalls.Count;
+            match.ConsumeOnUse = false;
+            match.ConsumeConditions = [];
+            match.ShopPrice = 8;
+            match.IsShopItem = true;
+            match.StartsLocked = true;
+            match.OnUnlockUsesTHE = true;
+            match.UsesSpecialUnlockText = false;
+            match.SpecialUnlockID = UILocID.None;
+            match.item._ItemTypeIDs = [];
+            match.item.AddBlueSkyUnlock("Kleiver_CH", "locked_littlematchbox.png", "ach_littlematchbox.png");
         }
     }
 }

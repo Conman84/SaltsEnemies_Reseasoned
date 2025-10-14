@@ -29,7 +29,7 @@ namespace SaltEnemies_Reseasoned
         {
             if (holder.Effector is CombatSlot slot && slot.HasUnit && self is OnFireFE_SO)
             {
-                if (slot.Unit.ContainsPassiveAbility(PassiveID))
+                if (slot.Unit.ContainsPassiveAbility(PassiveID) || (slot.Unit.HasUsableItem && slot.Unit.HeldItem.name == "Salt_LittleMatchbox_SW"))
                 {
                     return;
                 }
