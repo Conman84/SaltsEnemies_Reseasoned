@@ -20,8 +20,9 @@ namespace SaltsEnemies_Reseasoned
                 GenerateBlueSkyUnlock(charID, item.name, charID + "_BlueSky_Unlock", ACH);
                 GenerateBlueSkyAchievement(item._itemName, ACH, achSprite);
                 AddSinglePearl(charID, ACH);
+
+                if (Test) Debug.Log("added skies unlock: " + item._itemName);
             }
-            if (Test) Debug.Log("added skies unlock: " + item._itemName);
         }
 
         public static void GenerateBlueSkyUnlock(string characterID, string itemID, string unlock, string ACH)
