@@ -66,7 +66,7 @@ namespace SaltsEnemies_Reseasoned
             photo.TriggerOn = AllyTriggersHandler.AllyDirectDamaged;
             photo.DoesPopUpInfo = true;
             photo.Conditions = [];
-            photo.DoesActionOnTriggerAttached = fales;
+            photo.DoesActionOnTriggerAttached = false;
             photo.ConsumeOnTrigger = TriggerCalls.Count;
             photo.ConsumeOnUse = false;
             photo.ConsumeConditions = [];
@@ -78,6 +78,54 @@ namespace SaltsEnemies_Reseasoned
             photo.SpecialUnlockID = UILocID.None;
             photo.item._ItemTypeIDs = [];
             photo.item.AddBlueSkyUnlock("Thype_CH", "locked_redphoto.png", "ach_redphoto.png");
+
+            ApplyFoundStatusEffect wildcard = ScriptableObject.CreateInstance<ApplyFoundStatusEffect>();
+            wildcard.useStatus = "WildCard_ID";
+
+            MultiPerformEffectItem entropy = new MultiPerformEffectItem("Salt_EntropicAnalysis_TW", [Effects.GenerateEffect(wildcard, 2, Slots.Self)]);
+            entropy.Name = "Entropic Analysis";
+            entropy.Flavour = "\"Are you truly ready to pay the debt this machine has incurred?\"";
+            entropy.Description = "At the start of each turn, gain 2 Wild Card.\nAt the end of each turn, give the Opposing enemy 2 Wild Card.";
+            entropy.Icon = ResourceLoader.LoadSprite("item_entropicanalysis.png");
+            entropy.EquippedModifiers = [];
+            entropy.TriggerOn = TriggerCalls.OnTurnStart;
+            entropy.DoesPopUpInfo = true;
+            entropy.Conditions = [];
+            entropy.DoesActionOnTriggerAttached = false;
+            entropy.ConsumeOnTrigger = TriggerCalls.Count;
+            entropy.ConsumeOnUse = false;
+            entropy.ConsumeConditions = [];
+            entropy.ShopPrice = 4;
+            entropy.IsShopItem = false;
+            entropy.StartsLocked = true;
+            entropy.OnUnlockUsesTHE = true;
+            entropy.UsesSpecialUnlockText = false;
+            entropy.SpecialUnlockID = UILocID.None;
+            entropy.item._ItemTypeIDs = [];
+            entropy.AddEffectTrigger(new EffectTrigger([Effects.GenerateEffect(wildcard, 2, Slots.Front)], [TriggerCalls.OnTurnFinished], []));
+            entropy.item.AddBlueSkyUnlock("Andy_CH", "locked_entropicanalysis.png", "ach_entropicanalysis.png");
+
+            PerformEffect_Item death = new PerformEffect_Item("Salt_DeathCertificate_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<FullHealEffect>(), 1, Slots.Self), Effects.GenerateEffect(ScriptableObject.CreateInstance<FleeTargetEffect>(), 1, Slots.Self)]);
+            death.Name = "Death Certificate";
+            death.Flavour = "\"Who's in that grave!?\"";
+            death.Description = "On taking any damage, fully heal this party member and instantly flee.";
+            death.Icon = ResourceLoader.LoadSprite("item_deathcertificate.png");
+            death.EquippedModifiers = [];
+            death.TriggerOn = TriggerCalls.OnDamaged;
+            death.DoesPopUpInfo = true;
+            death.Conditions = [];
+            death.DoesActionOnTriggerAttached = false;
+            death.ConsumeOnTrigger = TriggerCalls.Count;
+            death.ConsumeOnUse = false;
+            death.ConsumeConditions = [];
+            death.ShopPrice = 4;
+            death.IsShopItem = true;
+            death.StartsLocked = true;
+            death.OnUnlockUsesTHE = true;
+            death.UsesSpecialUnlockText = false;
+            death.SpecialUnlockID = UILocID.None;
+            death.item._ItemTypeIDs = [];
+            death.item.AddBlueSkyUnlock("SmokeStacks_CH", "locked_deathcertificate.png", "ach_deathcertificate.png");
         }
     }
 }

@@ -605,6 +605,8 @@
 	  <None Remove="Quest\Unlocks\Sprites\ability\ability_postfire.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_abstractwar.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_cog.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_deathcertificate.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_entropicanalysis.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_friendshipbriefcase.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_hexedscope.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_inkwell.png" />
@@ -618,6 +620,8 @@
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_theplug.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_abstractwar.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_cog.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_deathcertificate.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_entropicanalysis.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_friendshipbriefcase.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_hexedscope.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_inkwell.png" />
@@ -631,6 +635,8 @@
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_theplug.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_abstractwar.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_cog.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_deathcertificate.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_entropicanalysis.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_friendshipbriefcase.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_hexedscope.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_inkwell.png" />
@@ -1243,6 +1249,8 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ability\ability_postfire.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_abstractwar.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_cog.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_deathcertificate.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_entropicanalysis.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_friendshipbriefcase.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_hexedscope.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_inkwell.png" />
@@ -1256,6 +1264,8 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_theplug.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_abstractwar.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_cog.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_deathcertificate.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_entropicanalysis.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_friendshipbriefcase.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_hexedscope.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_inkwell.png" />
@@ -1269,6 +1279,8 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_theplug.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_abstractwar.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_cog.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_deathcertificate.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_entropicanalysis.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_friendshipbriefcase.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_hexedscope.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_inkwell.png" />
