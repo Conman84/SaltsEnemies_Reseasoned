@@ -444,6 +444,7 @@ namespace SaltsEnemies_Reseasoned
             if (TestBosses)
             {
                 PCall(UnlocksOne.Add);
+                PCall(UnlocksTwo.Add);
             }
 
             //moving the passives glossary here.
