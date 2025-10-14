@@ -89,14 +89,13 @@ namespace SaltsEnemies_Reseasoned
             seek.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_3_6", "Mana_Modify", "Status_Ruptured"]);
 
             Ability dont = new Ability("Don't Leave Me", "Skies_Dont_A");
-            dont.Description = "If the Opposing party member's health is Red, I will deal an Agonizing amount of damage to them and randomize their health color.\nOtherwise, I will change their health color to Red.";
+            dont.Description = "If the Opposing party member's health color is Red or cannot be changed to Red, I will deal an Agonizing amount of damage to them and randomize their health color.\nOtherwise, I will change their health color to Red.";
             dont.Rarity = Rarity.GetCustomRarity("rarity5");
-            dont.Effects = new EffectInfo[4];
-            dont.Effects[0] = Effects.GenerateEffect(isRed, 1, Slots.Front);
-            dont.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front, BasicEffects.DidThat(true));
-            dont.Effects[2] = Effects.GenerateEffect(random, 1, Slots.Front, BasicEffects.DidThat(true, 2));
-            dont.Effects[3] = Effects.GenerateEffect(turnRed, 1, Slots.Front, BasicEffects.DidThat(false, 3));
-            dont.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_7_10", "Mana_Modify"]);
+            dont.Effects = new EffectInfo[3];
+            dont.Effects[0] = Effects.GenerateEffect(turnRed, 1, Slots.Front);
+            dont.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front, BasicEffects.DidThat(false));
+            dont.Effects[2] = Effects.GenerateEffect(random, 1, Slots.Front, BasicEffects.DidThat(false, 2));
+            dont.AddIntentsToTarget(Slots.Front, ["Mana_Modify", "Misc_Hidden", "Damage_7_10"]);
             dont.Visuals = LoadedAssetsHandler.GetEnemyAbility("UglyOnTheInside_A").visuals;
             dont.AnimationTarget = Slots.Front;
 

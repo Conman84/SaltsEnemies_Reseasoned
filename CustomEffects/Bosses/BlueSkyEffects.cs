@@ -196,7 +196,7 @@ namespace SaltsEnemies_Reseasoned
             exitAmount = 0;
             foreach (TargetSlotInfo target in targets)
             {
-                if (target.HasUnit)
+                if (target.HasUnit && !target.Unit.HealthColor.SharesPigmentColor(mana))
                 {
                     if (target.Unit.ChangeHealthColor(mana)) exitAmount++;
                 }
