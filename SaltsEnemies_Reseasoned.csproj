@@ -603,10 +603,13 @@
 	  <None Remove="Quest\Sprites\UnknownFossil.png" />
 	  <None Remove="Quest\Sprites\WoodSign.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_cog.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_leftnail.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_papersword.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_cog.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_leftnail.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_papersword.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_cog.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_leftnail.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_papersword.png" />
 	  <None Remove="SpecialIcons\atkicon.png" />
 	  <None Remove="SpecialIcons\blueUpIcon.png" />
@@ -1207,10 +1210,13 @@
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_UnknownFossil.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_WoodSign.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_cog.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_leftnail.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_papersword.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_cog.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_leftnail.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_papersword.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_cog.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_leftnail.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_papersword.png" />
 	  <EmbeddedResource Include="SpecialIcons\atkicon.png" />
 	  <EmbeddedResource Include="SpecialIcons\blueUpIcon.png" />

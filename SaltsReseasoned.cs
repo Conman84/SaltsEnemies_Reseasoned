@@ -85,6 +85,7 @@ namespace SaltsEnemies_Reseasoned
             if (TestBosses)
             {
                 PCall(EncounterExtensions.PrepareSortingOrders);
+                PCall(CascadingDamageItemHandler.Setup);
             }
             #endregion
 

@@ -62,6 +62,30 @@ namespace SaltsEnemies_Reseasoned
             sword.SpecialUnlockID = UILocID.None;
             sword.item._ItemTypeIDs = ["Knife"];
             sword.item.AddBlueSkyUnlock("Boyle_CH", "locked_papersword.png", "ach_papersword.png");
+
+            MultiPerformEffectItem nail = new MultiPerformEffectItem("Salt_LeftNail_TW", []);
+            nail.Name = "Nail of the Left Eye";
+            nail.Flavour = "\"It hates you so much\"";
+            nail.Description = "Deal 30% more damage. \nOn taking damage, attempt to give the attacker another action and 30% chance to destroy this item.";
+            nail.Icon = ResourceLoader.LoadSprite("item_leftnail.png");
+            nail.EquippedModifiers = [];
+            nail.TriggerOn = AdvancedDamageTrigger.Received;
+            nail.DoesPopUpInfo = true;
+            nail.Conditions = [DamageTargetEffectsCondition.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterGainActionEffect>(), 1, Slots.Self)], false)];
+            nail.DoesActionOnTriggerAttached = false;
+            nail.ConsumeOnTrigger = TriggerCalls.Count;
+            nail.ConsumeOnUse = true;
+            nail.ConsumeConditions = [ItemExtensions.Chance(30)];
+            nail.ShopPrice = 4;
+            nail.IsShopItem = false;
+            nail.StartsLocked = true;
+            nail.OnUnlockUsesTHE = true;
+            nail.UsesSpecialUnlockText = false;
+            nail.SpecialUnlockID = UILocID.None;
+            nail.item._ItemTypeIDs = ["Knife"];
+            EffectTrigger nail_second = new EffectTrigger([], [TriggerCalls.OnWillApplyDamage], [ItemExtensions.Damage(30, true)], false);
+            nail.AddEffectTrigger(nail_second);
+            nail.item.AddBlueSkyUnlock("Fennec_CH", "locked_leftnail.png", "ach_leftnail.png");
         }
     }
 }

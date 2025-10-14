@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -63,6 +64,36 @@ namespace SaltsEnemies_Reseasoned
             {
                 CombatManager.Instance.AddUIAction(new ShowItemInformationUIAction(self.ID, self.HeldItem.GetItemLocData().text, false, self.HeldItem.wearableImage));
             }
+        }
+
+        public static PercentageEffectorCondition Chance(int chance)
+        {
+            PercentageEffectorCondition ret = ScriptableObject.CreateInstance<PercentageEffectorCondition>();
+            ret.triggerPercentage = chance;
+            return ret;
+        }
+        public static DamageIncreasePercentCondition Damage(int percent, bool increase)
+        {
+            DamageIncreasePercentCondition ret = ScriptableObject.CreateInstance<DamageIncreasePercentCondition>();
+            ret.percentage = percent;
+            ret.increase = increase;
+            return ret;
+        }
+    }
+
+    public class DamageIncreasePercentCondition : EffectorConditionSO
+    {
+        public int percentage;
+        public bool increase;
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is DamageDealtValueChangeException value)
+            {
+                (effector as IUnit).ShowItem();
+                value.AddModifier(new PercentageValueModifier(true, percentage, increase));
+                return false;
+            }
+            return true;
         }
     }
 }
