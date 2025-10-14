@@ -32,7 +32,7 @@ namespace SaltsEnemies_Reseasoned
                 template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").Find("Face").Find("Outline").GetComponent<SpriteRenderer>(),
             };
 
-            template.AddPassives(new BasePassiveAbilitySO[] { Passives.MultiAttack2, Passives.SlipperyGenerator(3), Violent.Generate(5) });
+            template.AddPassives(new BasePassiveAbilitySO[] { Passives.MultiAttack2, Passives.SlipperyGenerator(3), Violent.Generate(4) });
             template.AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_NoRepeats>();
 
             Ability first = new Ability("Masquerade", "CC_Masquerade_A");
