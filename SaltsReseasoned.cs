@@ -87,6 +87,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(EncounterExtensions.PrepareSortingOrders);
                 PCall(CascadingDamageItemHandler.Setup);
                 PCall(FirstPerTurnHandler.Setup);
+                PCall(AllyTriggersHandler.Setup);
             }
             #endregion
 
@@ -579,11 +580,14 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ProductionPassive.png"), "Production", "On any infantile enemy being damaged, spawn a specific enemy.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AnnouncementPassive.png"), "Announcement", "Upon being removed from combat by any means, deal a certain amount of damage to the Opposing position.");
 
-            //BOSSES
-            //sunk (BB)
-            //Radical (TV)
-            //Systemic (Invention)
-            //Acting (Bluesky)
+            if (TestBosses)
+            {
+                //BOSSES
+                //sunk (BB)
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("RadicalPassive.png"), "Radical", "On being damaged, Adjust All Lights.");
+                //Systemic (Invention)
+                //Acting (Bluesky)
+            }
 
             Logger.LogInfo("Seasons greasons");
         }

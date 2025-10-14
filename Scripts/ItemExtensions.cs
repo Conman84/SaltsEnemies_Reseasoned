@@ -72,9 +72,32 @@ namespace SaltsEnemies_Reseasoned
             ret.triggerPercentage = chance;
             return ret;
         }
-        public static DamageIncreasePercentCondition Damage(int percent, bool increase)
+        public static EffectorConditionSO Damage(int percent, bool increase, bool ispercent = true)
         {
+            if (!ispercent)
+            {
+                DamageIncreaseCondition dam = ScriptableObject.CreateInstance<DamageIncreaseCondition>();
+                if (!increase) percent *= -1;
+                dam.amount = percent;
+                return dam;
+            }
+
             DamageIncreasePercentCondition ret = ScriptableObject.CreateInstance<DamageIncreasePercentCondition>();
+            ret.percentage = percent;
+            ret.increase = increase;
+            return ret;
+        }
+        public static EffectorConditionSO Heal(int percent, bool increase, bool ispercent = true)
+        {
+            if (!ispercent)
+            {
+                HealIncreaseCondition dam = ScriptableObject.CreateInstance<HealIncreaseCondition>();
+                if (!increase) percent *= -1;
+                dam.amount = percent;
+                return dam;
+            }
+
+            HealIncreasePercentCondition ret = ScriptableObject.CreateInstance<HealIncreasePercentCondition>();
             ret.percentage = percent;
             ret.increase = increase;
             return ret;
@@ -91,6 +114,49 @@ namespace SaltsEnemies_Reseasoned
             {
                 (effector as IUnit).ShowItem();
                 value.AddModifier(new PercentageValueModifier(true, percentage, increase));
+                return false;
+            }
+            return true;
+        }
+    }
+    public class HealIncreasePercentCondition : EffectorConditionSO
+    {
+        public int percentage;
+        public bool increase;
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is HealingDealtValueChangeException value)
+            {
+                (effector as IUnit).ShowItem();
+                value.AddModifier(new PercentageValueModifier(true, percentage, increase));
+                return false;
+            }
+            return true;
+        }
+    }
+    public class DamageIncreaseCondition : EffectorConditionSO
+    {
+        public int amount;
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is DamageDealtValueChangeException value)
+            {
+                (effector as IUnit).ShowItem();
+                value.AddModifier(new AdditionValueModifier(true, amount));
+                return false;
+            }
+            return true;
+        }
+    }
+    public class HealIncreaseCondition : EffectorConditionSO
+    {
+        public int amount;
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is HealingDealtValueChangeException value)
+            {
+                (effector as IUnit).ShowItem();
+                value.AddModifier(new AdditionValueModifier(true, amount));
                 return false;
             }
             return true;

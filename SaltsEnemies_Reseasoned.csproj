@@ -603,7 +603,9 @@
 	  <None Remove="Quest\Sprites\UnknownFossil.png" />
 	  <None Remove="Quest\Sprites\WoodSign.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ability\ability_postfire.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_abstractwar.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_cog.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_friendshipbriefcase.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_hexedscope.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_inkwell.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_leftnail.png" />
@@ -611,9 +613,12 @@
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_marchoftime.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_papersword.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_receiver.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_redphoto.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_theplay.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_theplug.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_abstractwar.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_cog.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_friendshipbriefcase.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_hexedscope.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_inkwell.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_leftnail.png" />
@@ -621,9 +626,12 @@
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_marchoftime.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_papersword.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_receiver.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_redphoto.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_theplay.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_theplug.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_abstractwar.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_cog.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_friendshipbriefcase.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_hexedscope.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_inkwell.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_leftnail.png" />
@@ -631,6 +639,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_marchoftime.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_papersword.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_receiver.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_redphoto.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_theplay.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_theplug.png" />
 	  <None Remove="SpecialIcons\atkicon.png" />
@@ -1232,7 +1241,9 @@
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_UnknownFossil.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Locked\Locked_WoodSign.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ability\ability_postfire.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_abstractwar.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_cog.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_friendshipbriefcase.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_hexedscope.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_inkwell.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_leftnail.png" />
@@ -1240,9 +1251,12 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_marchoftime.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_papersword.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_receiver.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_redphoto.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_theplay.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_theplug.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_abstractwar.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_cog.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_friendshipbriefcase.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_hexedscope.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_inkwell.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_leftnail.png" />
@@ -1250,9 +1264,12 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_marchoftime.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_papersword.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_receiver.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_redphoto.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_theplay.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_theplug.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_abstractwar.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_cog.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_friendshipbriefcase.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_hexedscope.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_inkwell.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_leftnail.png" />
@@ -1260,6 +1277,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_marchoftime.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_papersword.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_receiver.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_redphoto.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_theplay.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_theplug.png" />
 	  <EmbeddedResource Include="SpecialIcons\atkicon.png" />
