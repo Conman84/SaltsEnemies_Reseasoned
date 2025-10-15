@@ -114,7 +114,6 @@ namespace SaltsEnemies_Reseasoned
             {
                 (effector as IUnit).ShowItem();
                 value.AddModifier(new PercentageValueModifier(true, percentage, increase));
-                return false;
             }
             return true;
         }
@@ -129,7 +128,6 @@ namespace SaltsEnemies_Reseasoned
             {
                 (effector as IUnit).ShowItem();
                 value.AddModifier(new PercentageValueModifier(true, percentage, increase));
-                return false;
             }
             return true;
         }
@@ -143,7 +141,6 @@ namespace SaltsEnemies_Reseasoned
             {
                 (effector as IUnit).ShowItem();
                 value.AddModifier(new AdditionValueModifier(true, amount));
-                return false;
             }
             return true;
         }
@@ -157,7 +154,6 @@ namespace SaltsEnemies_Reseasoned
             {
                 (effector as IUnit).ShowItem();
                 value.AddModifier(new AdditionValueModifier(true, amount));
-                return false;
             }
             return true;
         }

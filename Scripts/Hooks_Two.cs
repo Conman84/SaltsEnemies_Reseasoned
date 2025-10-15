@@ -271,7 +271,11 @@ namespace SaltEnemies_Reseasoned
             }
             if (notificationName == TriggerCalls.OnSwapTo.ToString())
             {
-                if (sender is CharacterCombat) foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values) CombatManager.Instance.PostNotification(JitteryHandler.Call.ToString(), enemy, sender);
+                if (sender is CharacterCombat)
+                {
+                    foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values) CombatManager.Instance.PostNotification(JitteryHandler.Call.ToString(), enemy, sender);
+                    foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values) CombatManager.Instance.PostNotification(JitteryHandler.Ally.ToString(), chara, sender);
+                }
             }
             if (sender is IUnit uuu && !uuu.IsUnitCharacter)
             {
@@ -640,6 +644,7 @@ namespace SaltEnemies_Reseasoned
     public static class JitteryHandler
     {
         public static TriggerCalls Call => (TriggerCalls)831209474;
+        public static TriggerCalls Ally => (TriggerCalls)108610363;
     }
     public static class EyePalmHandler
     {
