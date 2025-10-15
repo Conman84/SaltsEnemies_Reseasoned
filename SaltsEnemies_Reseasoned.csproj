@@ -606,6 +606,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\ability\ability_postfire.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_abstractwar.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_blatantpropaganda.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_bluespores.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_cog.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_deathcertificate.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_entropicanalysis.png" />
@@ -624,11 +625,13 @@
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_papersword.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_receiver.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_redphoto.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_stalkinglens.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_theplay.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_theplug.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_unloadedrogers.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_abstractwar.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_blatantpropaganda.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_bluespores.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_cog.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_deathcertificate.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_entropicanalysis.png" />
@@ -647,11 +650,13 @@
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_papersword.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_receiver.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_redphoto.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_stalkinglens.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_theplay.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_theplug.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_unloadedrogers.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_abstractwar.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_blatantpropaganda.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_bluespores.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_cog.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_deathcertificate.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_entropicanalysis.png" />
@@ -670,6 +675,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_papersword.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_receiver.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_redphoto.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_stalkinglens.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_theplay.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_theplug.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_unloadedrogers.png" />
@@ -1275,6 +1281,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ability\ability_postfire.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_abstractwar.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_blatantpropaganda.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_bluespores.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_cog.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_deathcertificate.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_entropicanalysis.png" />
@@ -1293,11 +1300,13 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_papersword.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_receiver.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_redphoto.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_stalkinglens.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_theplay.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_theplug.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_unloadedrogers.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_abstractwar.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_blatantpropaganda.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_bluespores.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_cog.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_deathcertificate.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_entropicanalysis.png" />
@@ -1316,11 +1325,13 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_papersword.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_receiver.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_redphoto.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_stalkinglens.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_theplay.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_theplug.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_unloadedrogers.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_abstractwar.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_blatantpropaganda.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_bluespores.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_cog.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_deathcertificate.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_entropicanalysis.png" />
@@ -1339,6 +1350,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_papersword.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_receiver.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_redphoto.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_stalkinglens.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_theplay.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_theplug.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_unloadedrogers.png" />

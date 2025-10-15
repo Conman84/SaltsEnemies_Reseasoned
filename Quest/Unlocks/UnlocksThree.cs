@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using SaltEnemies_Reseasoned;
+using System.Runtime.Versioning;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -72,7 +73,7 @@ namespace SaltsEnemies_Reseasoned
             roger.DoesActionOnTriggerAttached = false;
             roger.ConsumeOnTrigger = AdvancedDamageTrigger.Dealt;
             roger.ConsumeOnUse = false;
-            roger.Conditions = [EntropyToTargetsCondition.Create()];
+            roger.ConsumeConditions = [EntropyToTargetsCondition.Create()];
             roger.ShopPrice = 4;
             roger.IsShopItem = true;
             roger.StartsLocked = true;
@@ -81,6 +82,52 @@ namespace SaltsEnemies_Reseasoned
             roger.SpecialUnlockID = UILocID.None;
             roger.item._ItemTypeIDs = [];
             roger.item.AddBlueSkyUnlock("Wtmiyr_CH", "locked_unloadedrogers.png", "ach_unloadedrogers.png");
+
+            Basic_Item spores = new Basic_Item("Salt_BlueSpores_TW");
+            spores.Name = "Blue Spores";
+            spores.Flavour = "\"Glows in the night\"";
+            spores.Description = "All damage dealt by this party member ignores Shield.";
+            spores.Icon = ResourceLoader.LoadSprite("item_bluespores.png");
+            spores.EquippedModifiers = [];
+            spores.TriggerOn = TriggerCalls.Count;
+            spores.DoesPopUpInfo = false;
+            spores.Conditions = [];
+            spores.DoesActionOnTriggerAttached = false;
+            spores.ConsumeOnTrigger = TriggerCalls.Count;
+            spores.ConsumeOnUse = false;
+            spores.ConsumeConditions = [];
+            spores.ShopPrice = 6;
+            spores.IsShopItem = false;
+            spores.StartsLocked = true;
+            spores.OnUnlockUsesTHE = true;
+            spores.UsesSpecialUnlockText = false;
+            spores.SpecialUnlockID = UILocID.None;
+            spores.item._ItemTypeIDs = ["PierceShield"];
+            spores.item.AddBlueSkyUnlock("Didion_CH", "locked_bluespores.png", "ach_bluespores.png");
+
+            PerformEffect_Item lens = new PerformEffect_Item("Salt_StalkingLens_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterCloneItemEffect>(), 2)]);
+            lens.Name = "Stalking Lens";
+            lens.Flavour = "\"See through the dark\"";
+            lens.Description = "All damage dealt by this party member ignores Shield.\nOn taking any damage, destroy this item and produce 2 copies of it.";
+            lens.Icon = ResourceLoader.LoadSprite("item_stalkinglens.png");
+            lens.EquippedModifiers = [];
+            lens.TriggerOn = TriggerCalls.OnDamaged;
+            lens.DoesPopUpInfo = true;
+            lens.Conditions = [];
+            lens.DoesActionOnTriggerAttached = false;
+            lens.ConsumeOnTrigger = TriggerCalls.Count;
+            lens.ConsumeOnUse = true;
+            lens.ConsumeConditions = [];
+            lens.ShopPrice = 6;
+            lens.IsShopItem = true;
+            lens.StartsLocked = true;
+            lens.OnUnlockUsesTHE = true;
+            lens.UsesSpecialUnlockText = false;
+            lens.SpecialUnlockID = UILocID.None;
+            lens.item._ItemTypeIDs = ["PierceShield"];
+            lens.item.AddBlueSkyUnlock("Rose_CH", "locked_stalkinglens.png", "ach_stalkinglens.png");
+
+
         }
     }
 }
