@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,6 +15,8 @@ namespace SaltsEnemies_Reseasoned
 
             EnvironmentTools.PrepareCombatEnvPrefab("Assets/Defacer/BlueSky_Arena.prefab", "BlueSky_Arena", SaltsReseasoned.Dreams);
             LoadedAssetsHandler.TryGetCombatEnvironmentPrefab("BlueSky_Arena").gameObject.SetGrassMaterial();
+
+            LoadedDBsHandler._PortalDB.AddBackgroundPortal("BlueSky_BOSS", EncounterExtensions.SetBossPortalMaterial("BlueSkyPortal.png", "03"));
 
             EnemyEncounter_API boss = new EnemyEncounter_API(EncounterType.Specific, "BOSS_Zone03_BlueSky_EnemyBundle", "Salt_BlueSkyEncounter_Sign");
             boss.MusicEvent = "event:/Blackwater/BlueSkySong";

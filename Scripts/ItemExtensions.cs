@@ -102,6 +102,14 @@ namespace SaltsEnemies_Reseasoned
             ret.increase = increase;
             return ret;
         }
+        public static EffectorConditionSO Defense(int percent, bool increase, bool direct)
+        {
+            DefenseCondition ret = ScriptableObject.CreateInstance<DefenseCondition>();
+            ret.percentage = percent;
+            ret.increase = increase;
+            ret.directOnly = direct;
+            return ret;
+        }
     }
 
     public class DamageIncreasePercentCondition : EffectorConditionSO
@@ -154,6 +162,21 @@ namespace SaltsEnemies_Reseasoned
             {
                 (effector as IUnit).ShowItem();
                 value.AddModifier(new AdditionValueModifier(true, amount));
+            }
+            return true;
+        }
+    }
+    public class DefenseCondition : EffectorConditionSO
+    {
+        public int percentage;
+        public bool increase;
+        public bool directOnly;
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is DamageReceivedValueChangeException value && (value.directDamage || !directOnly))
+            {
+                (effector as IUnit).ShowItem();
+                value.AddModifier(new PercentageValueModifier(false, percentage, increase));
             }
             return true;
         }

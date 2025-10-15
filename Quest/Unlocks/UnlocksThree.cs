@@ -162,6 +162,29 @@ namespace SaltsEnemies_Reseasoned
             halo.SpecialUnlockID = UILocID.None;
             halo.item._ItemTypeIDs = ["Angel"];
             halo.item.AddBlueSkyUnlock("Burnout_CH", "locked_steelhalo.png", "ach_steelhalo.png");
+
+            MultiPerformEffectItem charcoal = new MultiPerformEffectItem("Salt_Charcoal_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 1, Slots.Self)]);
+            charcoal.Name = "Charcoal";
+            charcoal.Flavour = "\"Leftover fire\"";
+            charcoal.Description = "On moving, gain 1 Fire.\nTake 50% less direct damage.";
+            charcoal.Icon = ResourceLoader.LoadSprite("item_charcoal.png");
+            charcoal.EquippedModifiers = [];
+            charcoal.DoesPopUpInfo = true;
+            charcoal.Conditions = [];
+            charcoal.DoesActionOnTriggerAttached = false;
+            charcoal.ConsumeOnTrigger = TriggerCalls.Count;
+            charcoal.ConsumeOnUse = false;
+            charcoal.ConsumeConditions = [];
+            charcoal.ShopPrice = 4;
+            charcoal.IsShopItem = true;
+            charcoal.StartsLocked = true;
+            charcoal.OnUnlockUsesTHE = true;
+            charcoal.UsesSpecialUnlockText = false;
+            charcoal.SpecialUnlockID = UILocID.None;
+            charcoal.item._ItemTypeIDs = [];
+            charcoal.AddEffectTrigger(new EffectTrigger([], [TriggerCalls.OnBeingDamaged], [ItemExtensions.Defense(0, false, true)], false));
+            charcoal.item.AddBlueSkyUnlock("Ash_CH", "locked_charcoal.png", "ach_charcoal.png");
+
         }
     }
 }
