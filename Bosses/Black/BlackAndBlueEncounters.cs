@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,6 +15,8 @@ namespace SaltsEnemies_Reseasoned
 
             EnvironmentTools.PrepareCombatEnvPrefab("Assets/Defacer/BB_Arena.prefab", "BlackAndBlue_Arena", SaltsReseasoned.Dreams);
             LoadedAssetsHandler.TryGetCombatEnvironmentPrefab("BlackAndBlue_Arena").gameObject.SetMinesMaterial();
+
+            LoadedDBsHandler._PortalDB.AddBackgroundPortal("BlackAndBlue_BOSS", EncounterExtensions.SetBossPortalMaterial("BB_Portal.png", "01"));
 
             EnemyEncounter_API boss = new EnemyEncounter_API(EncounterType.Specific, "BOSS_Zone01_BlackAndBlue_EnemyBundle", "Salt_BlackAndBlueEncounter_Sign");
             boss.MusicEvent = "event:/Blackwater/BlackAndBlueSong";
