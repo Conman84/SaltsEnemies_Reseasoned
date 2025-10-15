@@ -228,7 +228,34 @@ namespace SaltsEnemies_Reseasoned
             smile.UsesSpecialUnlockText = false;
             smile.SpecialUnlockID = UILocID.None;
             smile.item._ItemTypeIDs = ["Face"];
+            smile.AddEffectTrigger(new EffectTrigger([], [AdvancedDamageTrigger.Dealt], [DamageTargetEffectsCondition.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyAnestheticsEffect>(), 3, Slots.Self)], true)], false));
             smile.item.AddBlueSkyUnlock("Mordrake_CH", "locked_smilemask.png", "ach_smilemask.png");
+
+            CopyAndSpawnCustomCharacterAnywhereEffect windle = ScriptableObject.CreateInstance<CopyAndSpawnCustomCharacterAnywhereEffect>();
+            windle._characterCopy = "Windle_CH";
+            windle._permanentSpawn = true;
+
+            PerformEffect_Item key = new PerformEffect_Item("Salt_WindleKey_TW", [Effects.GenerateEffect(windle, 1)]);
+            key.Name = "Windle Key";
+            key.Flavour = "\"The key to my mechanical heart.\"";
+            key.Description = "On taking any damage, spawn a Windle.";
+            key.Icon = ResourceLoader.LoadSprite("item_windlekey.png");
+            key.EquippedModifiers = [];
+            key.TriggerOn = TriggerCalls.OnDamaged;
+            key.DoesPopUpInfo = true;
+            key.Conditions = [];
+            key.DoesActionOnTriggerAttached = false;
+            key.ConsumeOnTrigger = TriggerCalls.Count;
+            key.ConsumeOnUse = false;
+            key.ConsumeConditions = [];
+            key.ShopPrice = 10;
+            key.IsShopItem = false;
+            key.StartsLocked = true;
+            key.OnUnlockUsesTHE = true;
+            key.UsesSpecialUnlockText = false;
+            key.SpecialUnlockID = UILocID.None;
+            key.item._ItemTypeIDs = [];
+            key.item.AddBlueSkyUnlock("Kafka_CH", "locked_windlekey.png", "ach_windlekey.png");
 
         }
     }
