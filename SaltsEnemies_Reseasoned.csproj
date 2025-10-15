@@ -635,6 +635,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_theplay.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_theplug.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_unloadedrogers.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_windlekey.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_abstractwar.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_antigloves.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_blatantpropaganda.png" />
@@ -664,6 +665,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_theplay.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_theplug.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_unloadedrogers.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_windlekey.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_abstractwar.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_antigloves.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_blatantpropaganda.png" />
@@ -693,6 +695,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_theplay.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_theplug.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_unloadedrogers.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_windlekey.png" />
 	  <None Remove="SpecialIcons\atkicon.png" />
 	  <None Remove="SpecialIcons\blueUpIcon.png" />
 	  <None Remove="SpecialIcons\counticon.png" />
@@ -1324,6 +1327,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_theplay.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_theplug.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_unloadedrogers.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_windlekey.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_abstractwar.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_antigloves.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_blatantpropaganda.png" />
@@ -1353,6 +1357,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_theplay.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_theplug.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_unloadedrogers.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_windlekey.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_abstractwar.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_antigloves.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_blatantpropaganda.png" />
@@ -1382,6 +1387,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_theplay.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_theplug.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_unloadedrogers.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_windlekey.png" />
 	  <EmbeddedResource Include="SpecialIcons\atkicon.png" />
 	  <EmbeddedResource Include="SpecialIcons\blueUpIcon.png" />
 	  <EmbeddedResource Include="SpecialIcons\counticon.png" />
