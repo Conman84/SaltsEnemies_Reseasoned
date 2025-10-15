@@ -172,6 +172,28 @@ namespace SaltsEnemies_Reseasoned
             mercycheck.item._ItemTypeIDs = [];
             mercycheck.AddEffectTrigger(new EffectTrigger([Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomHealBetweenPreviousAndEntryEffect>(), 4, Slots.Self)], [TriggerCalls.OnTurnFinished], []));
             mercycheck.item.AddBlueSkyUnlock("Clerk_CH", "locked_mercycheck.png", "ach_mercycheck.png");
+
+            PerformEffect_Item flower = new PerformEffect_Item("Salt_LittleFlower_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDeterminedEffect>(), 3, Slots.Self)]);
+            flower.Name = "Little Flower";
+            flower.Flavour = "\"So delicate yet full of hope...\"";
+            flower.Description = "At the start of combat gain 3 Determined.\nThis item is destroyed on death.";
+            flower.Icon = ResourceLoader.LoadSprite("item_littleflower.png");
+            flower.EquippedModifiers = [];
+            flower.TriggerOn = TriggerCalls.OnCombatStart;
+            flower.DoesPopUpInfo = true;
+            flower.Conditions = [];
+            flower.DoesActionOnTriggerAttached = false;
+            flower.ConsumeOnTrigger = TriggerCalls.OnDeath;
+            flower.ConsumeOnUse = false;
+            flower.ConsumeConditions = [];
+            flower.ShopPrice = 3;
+            flower.IsShopItem = false;
+            flower.StartsLocked = true;
+            flower.OnUnlockUsesTHE = true;
+            flower.UsesSpecialUnlockText = false;
+            flower.SpecialUnlockID = UILocID.None;
+            flower.item._ItemTypeIDs = ["Magic"];
+            flower.item.AddBlueSkyUnlock("Splig_CH", "locked_littleflower.png", "ach_littleflower.png");
         }
     }
 }

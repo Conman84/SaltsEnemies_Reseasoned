@@ -611,6 +611,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_hexedscope.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_inkwell.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_leftnail.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_littleflower.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_littlematchbox.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_logicsink.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_marchoftime.png" />
@@ -628,6 +629,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_hexedscope.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_inkwell.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_leftnail.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_littleflower.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_littlematchbox.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_logicsink.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_marchoftime.png" />
@@ -645,6 +647,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_hexedscope.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_inkwell.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_leftnail.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_littleflower.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_littlematchbox.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_logicsink.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_marchoftime.png" />
@@ -1261,6 +1264,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_hexedscope.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_inkwell.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_leftnail.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_littleflower.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_littlematchbox.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_logicsink.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_marchoftime.png" />
@@ -1278,6 +1282,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_hexedscope.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_inkwell.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_leftnail.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_littleflower.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_littlematchbox.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_logicsink.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_marchoftime.png" />
@@ -1295,6 +1300,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_hexedscope.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_inkwell.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_leftnail.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_littleflower.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_littlematchbox.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_logicsink.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_marchoftime.png" />
