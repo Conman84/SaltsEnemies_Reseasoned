@@ -126,6 +126,52 @@ namespace SaltsEnemies_Reseasoned
             death.SpecialUnlockID = UILocID.None;
             death.item._ItemTypeIDs = [];
             death.item.AddBlueSkyUnlock("SmokeStacks_CH", "locked_deathcertificate.png", "ach_deathcertificate.png");
+
+            MultiPerformEffectItem logicsink = new MultiPerformEffectItem("Salt_LogicSink_SW", [Effects.GenerateEffect(BasicEffects.GoRight, 1, Slots.Self)]);
+            logicsink.Name = "Logic Sink";
+            logicsink.Flavour = "\"Spiral down your own mind\"";
+            logicsink.Description = "Deal 20% more damage.\nOn moving left, move right.";
+            logicsink.Icon = ResourceLoader.LoadSprite("item_logicsink.png");
+            logicsink.EquippedModifiers = [];
+            logicsink.TriggerOn = TriggerCalls.OnMoved;
+            logicsink.DoesPopUpInfo = true;
+            logicsink.Conditions = [SwapDirectionCondition.Create(false)];
+            logicsink.DoesActionOnTriggerAttached = false;
+            logicsink.ConsumeOnTrigger = TriggerCalls.Count;
+            logicsink.ConsumeOnUse = false;
+            logicsink.ConsumeConditions = [];
+            logicsink.ShopPrice = 4;
+            logicsink.IsShopItem = true;
+            logicsink.StartsLocked = true;
+            logicsink.OnUnlockUsesTHE = true;
+            logicsink.UsesSpecialUnlockText = false;
+            logicsink.SpecialUnlockID = UILocID.None;
+            logicsink.item._ItemTypeIDs = [];
+            logicsink.AddEffectTrigger(new EffectTrigger([], [TriggerCalls.OnWillApplyDamage], [ItemExtensions.Damage(20, true)], false));
+            logicsink.item.AddBlueSkyUnlock("Moon_CH", "locked_logicsink.png", "ach_logicsink.png");
+
+            MultiPerformEffectItem mercycheck = new MultiPerformEffectItem("Salt_MercyCheck_SW", [Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self)]);
+            mercycheck.Name = "Mercy Check";
+            mercycheck.Flavour = "\"Pray for everything and receive nothing.\"";
+            mercycheck.Description = "At the end of each turn heal 0-4 health.\nOn moving right, move left.";
+            mercycheck.Icon = ResourceLoader.LoadSprite("item_mercycheck.png");
+            mercycheck.EquippedModifiers = [];
+            mercycheck.TriggerOn = TriggerCalls.OnMoved;
+            mercycheck.DoesPopUpInfo = true;
+            mercycheck.Conditions = [SwapDirectionCondition.Create(true)];
+            mercycheck.DoesActionOnTriggerAttached = false;
+            mercycheck.ConsumeOnTrigger = TriggerCalls.Count;
+            mercycheck.ConsumeOnUse = false;
+            mercycheck.ConsumeConditions = [];
+            mercycheck.ShopPrice = 4;
+            mercycheck.IsShopItem = true;
+            mercycheck.StartsLocked = true;
+            mercycheck.OnUnlockUsesTHE = true;
+            mercycheck.UsesSpecialUnlockText = false;
+            mercycheck.SpecialUnlockID = UILocID.None;
+            mercycheck.item._ItemTypeIDs = [];
+            mercycheck.AddEffectTrigger(new EffectTrigger([Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomHealBetweenPreviousAndEntryEffect>(), 4, Slots.Self)], [TriggerCalls.OnTurnFinished], []));
+            mercycheck.item.AddBlueSkyUnlock("Clerk_CH", "locked_mercycheck.png", "ach_mercycheck.png");
         }
     }
 }
