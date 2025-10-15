@@ -21,7 +21,7 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = "event:/Blackwater/Noise/BBHurt",
                 DeathSound = "event:/Blackwater/Noise/BBDeath",
             };
-            template.PrepareEnemyPrefab("Assets/Bosses/BB/BlackAndBlue_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.PrepareEnemyPrefab("Assets/Bosses/BB/BlackAndBlue_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/BB/Gibs_Anchor.png").GetComponent<ParticleSystem>());
 
             //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("WrigglingSacrifice_EN").enemyTemplate;
 
