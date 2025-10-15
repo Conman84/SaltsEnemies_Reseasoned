@@ -10,11 +10,12 @@ namespace SaltEnemies_Reseasoned
     {
         public static void Setup()
         {
-            IDetour addThingsToSepulchreAndBronzoIDetour = (IDetour)new Hook((MethodBase)typeof(MainMenuController).GetMethod(nameof(MainMenuController.FinalizeMainMenuSounds), ~BindingFlags.Default), typeof(PostLoading).GetMethod(nameof(ProcessGameStart), ~BindingFlags.Default));
+            IDetour addThingsToSepulchreAndBronzoIDetour = (IDetour)new Hook((MethodBase)typeof(MainMenuController).GetMethod(nameof(MainMenuController.FinalizeMainMenuSounds), ~BindingFlags.Default), typeof(PostLoading).GetMethod(nameof(ProcessGameStart), ~BindingFlags.Default));IDetour addThingsToSepulchreAndBronzoIDetour = (IDetour)new Hook((MethodBase)typeof(MainMenuController).GetMethod(nameof(MainMenuController.FinalizeMainMenuSounds), ~BindingFlags.Default), typeof(PostLoading).GetMethod(nameof(ProcessGameStart), ~BindingFlags.Default));
+            IDetour hook2 = (IDetour)new Hook((MethodBase)typeof(MainMenuController).GetMethod(nameof(MainMenuController.Start), ~BindingFlags.Default), typeof(PostLoading).GetMethod(nameof(BeforeGameStart), ~BindingFlags.Default));
         }
 
         static bool Called;
-        public static void ProcessGameStart(Action<MainMenuController> orig, MainMenuController self)
+        public static void BeforeGameStart(Action<MainMenuController> orig, MainMenuController self)
         {
             if (!Called)
             {
@@ -25,6 +26,10 @@ namespace SaltEnemies_Reseasoned
                 }
             }
 
+            orig(self);
+        }
+        public static void ProcessGameStart(Action<MainMenuController> orig, MainMenuController self)
+        {
             orig(self);
             if (Called) return;
             Called = true;
