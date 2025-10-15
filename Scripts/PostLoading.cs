@@ -16,6 +16,15 @@ namespace SaltEnemies_Reseasoned
         static bool Called;
         public static void ProcessGameStart(Action<MainMenuController> orig, MainMenuController self)
         {
+            if (!Called)
+            {
+                if (TestBosses)
+                {
+                    PCall(UnlocksOne.Add);
+                    PCall(UnlocksTwo.Add);
+                }
+            }
+
             orig(self);
             if (Called) return;
             Called = true;
