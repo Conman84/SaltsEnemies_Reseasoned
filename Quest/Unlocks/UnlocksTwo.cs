@@ -194,6 +194,64 @@ namespace SaltsEnemies_Reseasoned
             flower.SpecialUnlockID = UILocID.None;
             flower.item._ItemTypeIDs = ["Magic"];
             flower.item.AddBlueSkyUnlock("Splig_CH", "locked_littleflower.png", "ach_littleflower.png");
+
+            PerformEffect_Item hammer = new PerformEffect_Item("Salt_GlassHammer_SW", []);
+            hammer.Name = "Glass Hammer";
+            hammer.Flavour = "\"Decorative power.\"";
+            hammer.Description = "Damage dealt spreads indirectly Left and Right.\nThis item is destroyed upon being directly damaged.";
+            hammer.Icon = ResourceLoader.LoadSprite("item_glasshammer.png");
+            hammer.EquippedModifiers = [];
+            hammer.TriggerOn = CascadingDamageItemHandler.Call;
+            hammer.DoesPopUpInfo = false;
+            hammer.Conditions = [BooleanSetterCondition.Create(true, true, false)];
+            hammer.DoesActionOnTriggerAttached = false;
+            hammer.ConsumeOnTrigger = TriggerCalls.OnDirectDamaged;
+            hammer.ConsumeOnUse = false;
+            hammer.ConsumeConditions = [];
+            hammer.ShopPrice = 9;
+            hammer.IsShopItem = true;
+            hammer.StartsLocked = true;
+            hammer.OnUnlockUsesTHE = true;
+            hammer.UsesSpecialUnlockText = false;
+            hammer.SpecialUnlockID = UILocID.None;
+            hammer.item._ItemTypeIDs = [];
+            hammer.item.AddBlueSkyUnlock("Lilian_CH", "locked_glasshammer.png", "ach_glasshammer.png");
+
+            Ability cat = new Ability("Cataclysm", "Salt_Cataclysm_A");
+            cat.Description = "Deal 15 damage to all enemies.";
+            cat.Cost = [Pigments.Purple, Pigments.Purple, Pigments.Purple];
+            cat.Rarity = Rarity.GetCustomRarity("rarity5");
+            cat.AbilitySprite = ResourceLoader.LoadSprite("ability_cataclysm.png");
+            cat.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 15, Targeting.Unit_AllOpponents)];
+            cat.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Damage_11_15"]);
+            cat.Visuals = CustomVisuals.GetVisuals("Salt/StarBomb");
+            cat.AnimationTarget = Targetting.Everything(false);
+
+            ExtraAbility_Wearable_SMS add_cat = ScriptableObject.CreateInstance<ExtraAbility_Wearable_SMS>();
+            add_cat._extraAbility = cat.GenerateCharacterAbility(true);
+
+            PerformEffect_Item lunar = new PerformEffect_Item("Salt_LunarCharm_SW", []);
+            lunar.Name = "Lunar Charm";
+            lunar.Flavour = "\"Skyfall\"";
+            lunar.Description = "Adds the extra ability \"Cataclysm\", an expensive but powerful mass damaging move.\nThis item is destroyed upon taking any damage.";
+            lunar.Icon = ResourceLoader.LoadSprite("item_lunarcharm.png");
+            lunar.EquippedModifiers = [add_cat];
+            lunar.TriggerOn = TriggerCalls.Count;
+            lunar.DoesPopUpInfo = false;
+            lunar.Conditions = [];
+            lunar.DoesActionOnTriggerAttached = false;
+            lunar.ConsumeOnTrigger = TriggerCalls.OnDamaged;
+            lunar.ConsumeOnUse = false;
+            lunar.ConsumeConditions = [];
+            lunar.ShopPrice = 4;
+            lunar.IsShopItem = true;
+            lunar.StartsLocked = true;
+            lunar.OnUnlockUsesTHE = true;
+            lunar.UsesSpecialUnlockText = false;
+            lunar.SpecialUnlockID = UILocID.None;
+            lunar.item._ItemTypeIDs = ["Magic"];
+            lunar.item.AddBlueSkyUnlock("Bimini_CH", "locked_lunarcharm.png", "ach_lunarcharm.png");
+
         }
     }
 }
