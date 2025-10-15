@@ -18,7 +18,7 @@ namespace SaltsEnemies_Reseasoned
                 }
                 foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
                 {
-                    if (chara.UnitTypes.Contains("Angel") || (chara.HasUsableItem && chara.HeldItem.name.Contains("Salt_Angel"))) num += 2;
+                    if (chara.UnitTypes.Contains("Angel") || (chara.HasUsableItem && chara.HeldItem.IsItemType("Angel"))) num += 2;
                 }
 
                 if (num > 0) (effector as IUnit).ShowItem();

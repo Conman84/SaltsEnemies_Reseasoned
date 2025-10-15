@@ -37,4 +37,13 @@ namespace SaltsEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
+    public class RerollTargetConstructEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (TargetSlotInfo target in targets) if (target.HasUnit) target.Unit.TriggerNotification(((TriggerCalls)889532).ToString(), null);
+            return true;
+        }
+    }
 }

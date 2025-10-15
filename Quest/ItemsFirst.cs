@@ -649,7 +649,7 @@ namespace SaltsEnemies_Reseasoned
             angel.SpecialUnlockID = UILocID.None;
             EffectTrigger angel_second = new EffectTrigger([], [TriggerCalls.OnWillApplyDamage, TriggerCalls.OnWillApplyHeal], [ScriptableObject.CreateInstance<AngelCondition>()], false);
             angel.AddEffectTrigger(angel_second);
-            angel.item._ItemTypeIDs = ["Heart"];
+            angel.item._ItemTypeIDs = ["Angel"];
             angel.item.AddItem("Locked_Angel.png", AchievementIDs.Chapter18, Test);
 
             PercentageEffectorCondition p4 = ScriptableObject.CreateInstance<PercentageEffectorCondition>();

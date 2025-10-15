@@ -127,7 +127,41 @@ namespace SaltsEnemies_Reseasoned
             lens.item._ItemTypeIDs = ["PierceShield"];
             lens.item.AddBlueSkyUnlock("Rose_CH", "locked_stalkinglens.png", "ach_stalkinglens.png");
 
+            RandomAbilityPassive construct = ScriptableObject.CreateInstance<RandomAbilityPassive>();
+            construct._passiveName = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._passiveName;
+            construct.passiveIcon = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0].passiveIcon;
+            construct.m_PassiveID = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0].m_PassiveID;
+            construct._enemyDescription = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._enemyDescription;
+            construct._characterDescription = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._characterDescription;
+            construct._triggerOn = new TriggerCalls[]
+            {
+                (TriggerCalls) 889532//old zensuke trigger
+            };
 
+            ExtraPassiveAbility_Wearable_SMS add_construct = ScriptableObject.CreateInstance<ExtraPassiveAbility_Wearable_SMS>();
+            add_construct._extraPassiveAbility = construct;
+
+            PerformEffect_Item halo = new PerformEffect_Item("Salt_SteelHalo_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<RerollTargetConstructEffect>(), 1, Slots.Self)]);
+            halo.Name = "Steel Halo";
+            halo.Flavour = "\"Artificial Angel\"";
+            halo.Description = "This party member has \"Construct\" as a passive.\nOn taking any damage, reroll this party member's Construct ability.";
+            halo.Icon = ResourceLoader.LoadSprite("item_steelhalo.png");
+            halo.EquippedModifiers = [add_construct];
+            halo.TriggerOn = TriggerCalls.OnDamaged;
+            halo.DoesPopUpInfo = true;
+            halo.Conditions = [];
+            halo.DoesActionOnTriggerAttached = false;
+            halo.ConsumeOnTrigger = TriggerCalls.Count;
+            halo.ConsumeOnUse = false;
+            halo.ConsumeConditions = [];
+            halo.ShopPrice = 5;
+            halo.IsShopItem = false;
+            halo.StartsLocked = true;
+            halo.OnUnlockUsesTHE = true;
+            halo.UsesSpecialUnlockText = false;
+            halo.SpecialUnlockID = UILocID.None;
+            halo.item._ItemTypeIDs = ["Angel"];
+            halo.item.AddBlueSkyUnlock("Burnout_CH", "locked_steelhalo.png", "ach_steelhalo.png");
         }
     }
 }
