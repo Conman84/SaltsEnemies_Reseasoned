@@ -11,10 +11,13 @@ namespace SaltsEnemies_Reseasoned
         {
             Portals.AddPortalSign("Salt_BlackAndBlueEncounter_Sign", ResourceLoader.LoadSprite("WarCriminalWorld.png"), Portals.BossIDColor);
 
+            EnvironmentTools.PrepareCombatEnvPrefab("Assets/Defacer/BB_Arena.prefab", "BlackAndBlue_Arena", SaltsReseasoned.Dreams);
+
             EnemyEncounter_API boss = new EnemyEncounter_API(EncounterType.Specific, "BOSS_Zone01_BlackAndBlue_EnemyBundle", "Salt_BlackAndBlueEncounter_Sign");
             boss.MusicEvent = "event:/Blackwater/BlackAndBlueSong";
             boss.RoarEvent = LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN").deathSound;
             boss.BossID = "BlackAndBlue_BOSS";
+            boss.AddSpecialEnvironment("BlackAndBlue_Arena");
 
             boss.CreateNewEnemyEncounterData(["BlackAndBlue_BOSS"], [2]);
 

@@ -606,6 +606,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\ability\ability_cataclysm.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ability\ability_postfire.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_abstractwar.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_antigloves.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_blatantpropaganda.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_bluespores.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_charcoal.png" />
@@ -633,6 +634,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_theplug.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_unloadedrogers.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_abstractwar.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_antigloves.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_blatantpropaganda.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_bluespores.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_charcoal.png" />
@@ -660,6 +662,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_theplug.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_unloadedrogers.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_abstractwar.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_antigloves.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_blatantpropaganda.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_bluespores.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_charcoal.png" />
@@ -1288,6 +1291,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ability\ability_cataclysm.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ability\ability_postfire.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_abstractwar.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_antigloves.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_blatantpropaganda.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_bluespores.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_charcoal.png" />
@@ -1315,6 +1319,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_theplug.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_unloadedrogers.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_abstractwar.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_antigloves.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_blatantpropaganda.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_bluespores.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_charcoal.png" />
@@ -1342,6 +1347,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_theplug.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_unloadedrogers.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_abstractwar.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_antigloves.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_blatantpropaganda.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_bluespores.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_charcoal.png" />

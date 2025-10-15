@@ -185,6 +185,27 @@ namespace SaltsEnemies_Reseasoned
             charcoal.AddEffectTrigger(new EffectTrigger([], [TriggerCalls.OnBeingDamaged], [ItemExtensions.Defense(0, false, true)], false));
             charcoal.item.AddBlueSkyUnlock("Ash_CH", "locked_charcoal.png", "ach_charcoal.png");
 
+            PerformEffect_Item gloves = new PerformEffect_Item("Salt_Antigloves_SW", []);
+            gloves.Name = "Antigloves";
+            gloves.Flavour = "\"From Antiworld.\"";
+            gloves.Description = "Apply 1 Slip to damaged targets.";
+            gloves.Icon = ResourceLoader.LoadSprite("item_antigloves.png");
+            gloves.EquippedModifiers = [];
+            gloves.DoesPopUpInfo = false;
+            gloves.Conditions = [DamageTargetEffectsCondition.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.Self)], true)];
+            gloves.DoesActionOnTriggerAttached = false;
+            gloves.ConsumeOnTrigger = TriggerCalls.Count;
+            gloves.ConsumeOnUse = false;
+            gloves.ConsumeConditions = [];
+            gloves.ShopPrice = 2;
+            gloves.IsShopItem = true;
+            gloves.StartsLocked = true;
+            gloves.OnUnlockUsesTHE = true;
+            gloves.UsesSpecialUnlockText = false;
+            gloves.SpecialUnlockID = UILocID.None;
+            gloves.item._ItemTypeIDs = ["Fabric"];
+            gloves.item.AddBlueSkyUnlock("Macy_CH", "locked_antigloves.png", "ach_antigloves.png");
+
         }
     }
 }
