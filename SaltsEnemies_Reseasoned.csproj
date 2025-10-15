@@ -629,6 +629,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_papersword.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_receiver.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_redphoto.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_smilemask.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_stalkinglens.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_steelhalo.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_theplay.png" />
@@ -657,6 +658,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_papersword.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_receiver.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_redphoto.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_smilemask.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_stalkinglens.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_steelhalo.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_theplay.png" />
@@ -685,6 +687,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_papersword.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_receiver.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_redphoto.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_smilemask.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_stalkinglens.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_steelhalo.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_theplay.png" />
@@ -1315,6 +1318,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_papersword.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_receiver.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_redphoto.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_smilemask.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_stalkinglens.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_steelhalo.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_theplay.png" />
@@ -1343,6 +1347,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_papersword.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_receiver.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_redphoto.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_smilemask.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_stalkinglens.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_steelhalo.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_theplay.png" />
@@ -1371,6 +1376,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_papersword.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_receiver.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_redphoto.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_smilemask.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_stalkinglens.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_steelhalo.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_theplay.png" />

@@ -169,6 +169,7 @@ namespace SaltsEnemies_Reseasoned
             charcoal.Description = "On moving, gain 1 Fire.\nTake 50% less direct damage.";
             charcoal.Icon = ResourceLoader.LoadSprite("item_charcoal.png");
             charcoal.EquippedModifiers = [];
+            charcoal.TriggerOn = TriggerCalls.OnMoved;
             charcoal.DoesPopUpInfo = true;
             charcoal.Conditions = [];
             charcoal.DoesActionOnTriggerAttached = false;
@@ -191,6 +192,7 @@ namespace SaltsEnemies_Reseasoned
             gloves.Description = "Apply 1 Slip to damaged targets.";
             gloves.Icon = ResourceLoader.LoadSprite("item_antigloves.png");
             gloves.EquippedModifiers = [];
+            gloves.TriggerOn = AdvancedDamageTrigger.Dealt;
             gloves.DoesPopUpInfo = false;
             gloves.Conditions = [DamageTargetEffectsCondition.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.Self)], true)];
             gloves.DoesActionOnTriggerAttached = false;
@@ -205,6 +207,28 @@ namespace SaltsEnemies_Reseasoned
             gloves.SpecialUnlockID = UILocID.None;
             gloves.item._ItemTypeIDs = ["Fabric"];
             gloves.item.AddBlueSkyUnlock("Macy_CH", "locked_antigloves.png", "ach_antigloves.png");
+
+            MultiPerformEffectItem smile = new MultiPerformEffectItem("Salt_SmileMask_TW", []);
+            smile.Name = "Smile Mask";
+            smile.Flavour = "\"People like you better this way.\"";
+            smile.Description = "Deal 50% more damage.\nApply 3 Anesthetics to damaged targets.";
+            smile.Icon = ResourceLoader.LoadSprite("item_smilemask.png");
+            smile.EquippedModifiers = [];
+            smile.TriggerOn = TriggerCalls.OnWillApplyDamage;
+            smile.DoesPopUpInfo = false;
+            smile.Conditions = [ItemExtensions.Damage(50, true)];
+            smile.DoesActionOnTriggerAttached = false;
+            smile.ConsumeOnTrigger = TriggerCalls.Count;
+            smile.ConsumeOnUse = false;
+            smile.ConsumeConditions = [];
+            smile.ShopPrice = 5;
+            smile.IsShopItem = false;
+            smile.StartsLocked = true;
+            smile.OnUnlockUsesTHE = true;
+            smile.UsesSpecialUnlockText = false;
+            smile.SpecialUnlockID = UILocID.None;
+            smile.item._ItemTypeIDs = ["Face"];
+            smile.item.AddBlueSkyUnlock("Mordrake_CH", "locked_smilemask.png", "ach_smilemask.png");
 
         }
     }
