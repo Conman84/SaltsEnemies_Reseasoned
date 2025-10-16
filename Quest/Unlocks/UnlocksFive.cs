@@ -108,7 +108,7 @@ namespace SaltsEnemies_Reseasoned
             rubber.UsesSpecialUnlockText = false;
             rubber.SpecialUnlockID = UILocID.None;
             rubber.item._ItemTypeIDs = ["Knife"];
-            rubber.item.AddBlueSkyUnlock("Rhys_CH", "locked_rubberknife.png", "ach_rubberknife.png");
+            rubber.item.AddBlueSkyUnlock("Dimitri_CH", "locked_rubberknife.png", "ach_rubberknife.png");
 
             PerformEffect_Item boot = new PerformEffect_Item("Salt_MuddyBoot_SW", [Effects.GenerateEffect(BasicEffects.Empty, 2), Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomHealBetweenPreviousAndEntryEffect>(), 3, Slots.Self), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Slots.Self)]);
             boot.Name = "Muddy Boot";
@@ -175,7 +175,7 @@ namespace SaltsEnemies_Reseasoned
             challenger.UsesSpecialUnlockText = false;
             challenger.SpecialUnlockID = UILocID.None;
             challenger.item._ItemTypeIDs = [];
-            challenger.AddEffectTrigger(new EffectTrigger([Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Slots.Self)], [TriggerCalls.OnSwapTo], []);
+            challenger.AddEffectTrigger(new EffectTrigger([Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Slots.Self)], [TriggerCalls.OnSwapTo], []));
             challenger.item.AddBlueSkyUnlock("Hangman_CH", "locked_challenger.png", "ach_challenger.png");
 
             PerformEffect_Item rations = new PerformEffect_Item("Salt_RadioactiveRations_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 1, Slots.Self)]);
@@ -194,7 +194,7 @@ namespace SaltsEnemies_Reseasoned
             rations.ShopPrice = 8;
             rations.IsShopItem = true;
             rations.StartsLocked = true;
-            \rations.OnUnlockUsesTHE = true;
+            rations.OnUnlockUsesTHE = true;
             rations.UsesSpecialUnlockText = false;
             rations.SpecialUnlockID = UILocID.None;
             rations.item._ItemTypeIDs = [];
