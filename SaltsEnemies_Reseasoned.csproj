@@ -616,6 +616,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_deathcertificate.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_deathtoken.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_entropicanalysis.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_falseimmortality.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_fantasytoken.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_friendshipbriefcase.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_glasshammer.png" />
@@ -653,6 +654,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_deathcertificate.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_deathtoken.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_entropicanalysis.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_falseimmortality.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_fantasytoken.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_friendshipbriefcase.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_glasshammer.png" />
@@ -690,6 +692,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_deathcertificate.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_deathtoken.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_entropicanalysis.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_falseimmortality.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_fantasytoken.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_friendshipbriefcase.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_glasshammer.png" />
@@ -1329,6 +1332,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_deathcertificate.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_deathtoken.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_entropicanalysis.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_falseimmortality.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_fantasytoken.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_friendshipbriefcase.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_glasshammer.png" />
@@ -1366,6 +1370,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_deathcertificate.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_deathtoken.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_entropicanalysis.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_falseimmortality.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_fantasytoken.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_friendshipbriefcase.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_glasshammer.png" />
@@ -1403,6 +1408,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_deathcertificate.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_deathtoken.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_entropicanalysis.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_falseimmortality.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_fantasytoken.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_friendshipbriefcase.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_glasshammer.png" />

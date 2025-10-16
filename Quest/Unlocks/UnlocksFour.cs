@@ -167,6 +167,30 @@ namespace SaltsEnemies_Reseasoned
             guide.item._ItemTypeIDs = [];
             guide.item.AddBlueSkyUnlock("Warsaw_CH", "locked_harmguide.png", "ach_harmguide.png");
 
+            PerformEffect_Item recipe = new PerformEffect_Item("Salt_FalseImmortalityRecipe_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ResurrectEffect>(), 1, Slots.Self)]);
+            recipe.Name = "False Immortality Recipe";
+            recipe.Flavour = "\"Worked in my head...\"";
+            recipe.Description = "On death, attempt to resurrect a random party member in this party member's former position if it is empty.";
+            recipe.Icon = ResourceLoader.LoadSprite("item_falseimmortality.png");
+            recipe.EquippedModifiers = [];
+            recipe.TriggerOn = TriggerCalls.OnDeath;
+            recipe.DoesPopUpInfo = true;
+            recipe.Conditions = [];
+            recipe.DoesActionOnTriggerAttached = false;
+            recipe.ConsumeOnTrigger = TriggerCalls.Count;
+            recipe.ConsumeOnUse = false;
+            recipe.ConsumeConditions = [];
+            recipe.ShopPrice = 10;
+            recipe.IsShopItem = true;
+            recipe.StartsLocked = true;
+            recipe.OnUnlockUsesTHE = true;
+            recipe.UsesSpecialUnlockText = false;
+            recipe.SpecialUnlockID = UILocID.None;
+            recipe.item._ItemTypeIDs = ["Magic"];
+            recipe.item.AddBlueSkyUnlock("Clive_CH", "locked_falseimmortality.png", "ach_falseimmortality.png");
+
+
+
         }
     }
 }
