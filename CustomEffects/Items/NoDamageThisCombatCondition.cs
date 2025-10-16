@@ -33,7 +33,7 @@ namespace SaltsEnemies_Reseasoned
         {
             if (name == TriggerCalls.OnWillApplyDamage.ToString() && sender is IUnit unit && args is DamageDealtValueChangeException value)
             {
-                if (value.damagedUnit != null && value.damagedUnit.ContainsFieldEffect("Shield_ID"))
+                if (value.damagedUnit != null && value.damagedUnit.ContainsFieldEffect("Shield_ID") && unit.HasUsableItem && unit.HeldItem.name == "Salt_Crowbar_SW")
                 {
                     unit.ShowItem();
                     value.damagedUnit.ApplyStatusEffect(StatusField.Frail, 1);
