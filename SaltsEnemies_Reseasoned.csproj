@@ -13,6 +13,8 @@
 	  <None Remove="assets\meowy" />
 	  <None Remove="Bosses\Black\BB_Portal.png" />
 	  <None Remove="Bosses\Black\WarCriminalWorld.png" />
+	  <None Remove="Bosses\Blue\Anim\Art_BS.png" />
+	  <None Remove="Bosses\Blue\Anim\Splash_BlueSky.png" />
 	  <None Remove="Bosses\Blue\BlueSkyPearl.png" />
 	  <None Remove="Bosses\Blue\BlueSkyPortal.png" />
 	  <None Remove="Bosses\Blue\Miku.png" />
@@ -747,6 +749,8 @@
 	  <EmbeddedResource Include="assets\dreams" />
 	  <EmbeddedResource Include="Bosses\Black\BB_Portal.png" />
 	  <EmbeddedResource Include="Bosses\Black\WarCriminalWorld.png" />
+	  <EmbeddedResource Include="Bosses\Blue\Anim\Art_BS.png" />
+	  <EmbeddedResource Include="Bosses\Blue\Anim\Splash_BlueSky.png" />
 	  <EmbeddedResource Include="Bosses\Blue\BlueSkyPearl.png" />
 	  <EmbeddedResource Include="Bosses\Blue\BlueSkyPortal.png" />
 	  <EmbeddedResource Include="Bosses\Blue\Miku.png" />
