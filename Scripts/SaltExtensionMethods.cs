@@ -140,6 +140,7 @@ namespace SaltEnemies_Reseasoned
         }
         public static void SortingOrderOriginal(string zone)
         {
+            if (zone == "03") return;
             (LoadedAssetsHandler.GetRoomPrefab(CardType.Boss, (LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_" + zone) as ZoneBGDataBaseSO).EnemyEncounterData.m_BossSelector._defaultRoomPrefab) as BossRoomHandler)._bossPortalRenderer.sortingOrder--;
         }
         public static void PrepareSortingOrders()
