@@ -100,7 +100,7 @@ namespace SaltsEnemies_Reseasoned
             play.ConsumeOnTrigger = TriggerCalls.OnDamaged;
             play.ConsumeOnUse = false;
             play.ConsumeConditions = [];
-            play.ShopPrice = 5;
+            play.ShopPrice = 4;
             play.IsShopItem = true;
             play.StartsLocked = true;
             play.OnUnlockUsesTHE = false;
