@@ -149,6 +149,10 @@ namespace SaltEnemies_Reseasoned
             SortingOrderOriginal("02");
             SortingOrderOriginal("03");
         }
+        public static void IncreaseGardenPortalOrder()
+        {
+            (LoadedAssetsHandler.GetRoomPrefab(CardType.Boss, (LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_03") as ZoneBGDataBaseSO).EnemyEncounterData.m_BossSelector._defaultRoomPrefab) as BossRoomHandler)._bossPortalSelectable._renderers[0].sortingOrder++;
+        }
     }
     public static class PassiveExtensions
     {

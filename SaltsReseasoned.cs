@@ -85,6 +85,7 @@ namespace SaltsEnemies_Reseasoned
             if (TestBosses)
             {
                 PCall(EncounterExtensions.PrepareSortingOrders);
+                PCall(EncounterExtensions.IncreaseGardenPortalOrder);
                 PCall(CascadingDamageItemHandler.Setup);
                 PCall(FirstPerTurnHandler.Setup);
                 PCall(AllyTriggersHandler.Setup);
