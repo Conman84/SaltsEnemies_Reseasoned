@@ -23,6 +23,7 @@ namespace SaltsEnemies_Reseasoned
 
                 if (Test) Debug.Log("added skies unlock: " + item._itemName);
             }
+            else if (Test) Debug.LogWarning("character: " + charID + " does not exist!");
         }
 
         public static void GenerateBlueSkyUnlock(string characterID, string itemID, string unlock, string ACH)

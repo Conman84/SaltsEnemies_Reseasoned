@@ -58,4 +58,33 @@ namespace SaltsEnemies_Reseasoned
             return true;
         }
     }
+
+    public class FullHealthEffectorCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            return effector.CurrentHealth >= effector.MaximumHealth;
+        }
+    }
+    public class NotRupturedCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            return !caster.ContainsStatusEffect("Ruptured_ID");
+        }
+    }
+
+    public class KaleidoscopeCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is CascadeSpecialBooleanReference reference)
+            {
+                if (reference.Info.Target.HealthColor.SharesPigmentColor(Pigments.Red)) return false;
+                (effector as IUnit).ShowItem();
+                reference.value = true;
+            }
+            return true;
+        }
+    }
 }

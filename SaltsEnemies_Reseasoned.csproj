@@ -613,6 +613,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_antigloves.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_blatantpropaganda.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_bluespores.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_challenger.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_charcoal.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_cog.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_complexityalgorithm.png" />
@@ -629,6 +630,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_hercrown.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_hexedscope.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_inkwell.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_kaleidoscope.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_leftnail.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_littleflower.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_littlematchbox.png" />
@@ -640,11 +642,14 @@
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_muddyboot.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_nautilus.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_papersword.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_radioactiverations.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_receiver.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_redphoto.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_replicator.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_rubberknife.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_sawblade.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_smilemask.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_soundgun.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_stalkinglens.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_steelhalo.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_theplay.png" />
@@ -658,6 +663,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_antigloves.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_blatantpropaganda.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_bluespores.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_challenger.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_charcoal.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_cog.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_complexityalgorithm.png" />
@@ -674,6 +680,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_hercrown.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_hexedscope.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_inkwell.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_kaleidoscope.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_leftnail.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_littleflower.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_littlematchbox.png" />
@@ -685,11 +692,14 @@
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_muddyboot.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_nautilus.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_papersword.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_radioactiverations.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_receiver.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_redphoto.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_replicator.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_rubberknife.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_sawblade.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_smilemask.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_soundgun.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_stalkinglens.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_steelhalo.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_theplay.png" />
@@ -703,6 +713,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_antigloves.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_blatantpropaganda.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_bluespores.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_challenger.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_charcoal.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_cog.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_complexityalgorithm.png" />
@@ -719,6 +730,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_hercrown.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_hexedscope.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_inkwell.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_kaleidoscope.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_leftnail.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_littleflower.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_littlematchbox.png" />
@@ -730,11 +742,14 @@
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_muddyboot.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_nautilus.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_papersword.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_radioactiverations.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_receiver.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_redphoto.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_replicator.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_rubberknife.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_sawblade.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_smilemask.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_soundgun.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_stalkinglens.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_steelhalo.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_theplay.png" />
@@ -1352,6 +1367,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_antigloves.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_blatantpropaganda.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_bluespores.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_challenger.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_charcoal.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_cog.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_complexityalgorithm.png" />
@@ -1368,6 +1384,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_hercrown.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_hexedscope.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_inkwell.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_kaleidoscope.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_leftnail.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_littleflower.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_littlematchbox.png" />
@@ -1379,11 +1396,14 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_muddyboot.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_nautilus.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_papersword.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_radioactiverations.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_receiver.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_redphoto.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_replicator.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_rubberknife.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_sawblade.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_smilemask.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_soundgun.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_stalkinglens.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_steelhalo.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_theplay.png" />
@@ -1397,6 +1417,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_antigloves.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_blatantpropaganda.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_bluespores.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_challenger.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_charcoal.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_cog.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_complexityalgorithm.png" />
@@ -1413,6 +1434,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_hercrown.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_hexedscope.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_inkwell.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_kaleidoscope.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_leftnail.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_littleflower.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_littlematchbox.png" />
@@ -1424,11 +1446,14 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_muddyboot.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_nautilus.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_papersword.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_radioactiverations.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_receiver.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_redphoto.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_replicator.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_rubberknife.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_sawblade.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_smilemask.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_soundgun.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_stalkinglens.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_steelhalo.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_theplay.png" />
@@ -1442,6 +1467,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_antigloves.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_blatantpropaganda.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_bluespores.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_challenger.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_charcoal.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_cog.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_complexityalgorithm.png" />
@@ -1458,6 +1484,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_hercrown.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_hexedscope.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_inkwell.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_kaleidoscope.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_leftnail.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_littleflower.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_littlematchbox.png" />
@@ -1469,11 +1496,14 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_muddyboot.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_nautilus.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_papersword.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_radioactiverations.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_receiver.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_redphoto.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_replicator.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_rubberknife.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_sawblade.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_smilemask.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_soundgun.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_stalkinglens.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_steelhalo.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_theplay.png" />
