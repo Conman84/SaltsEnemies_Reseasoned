@@ -632,6 +632,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_marchoftime.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_materialtoken.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_mercycheck.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_nautilus.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_papersword.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_receiver.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_redphoto.png" />
@@ -670,6 +671,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_marchoftime.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_materialtoken.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_mercycheck.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_nautilus.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_papersword.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_receiver.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_redphoto.png" />
@@ -708,6 +710,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_marchoftime.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_materialtoken.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_mercycheck.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_nautilus.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_papersword.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_receiver.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_redphoto.png" />
@@ -1348,6 +1351,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_marchoftime.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_materialtoken.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_mercycheck.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_nautilus.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_papersword.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_receiver.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_redphoto.png" />
@@ -1386,6 +1390,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_marchoftime.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_materialtoken.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_mercycheck.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_nautilus.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_papersword.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_receiver.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_redphoto.png" />
@@ -1424,6 +1429,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_marchoftime.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_materialtoken.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_mercycheck.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_nautilus.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_papersword.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_receiver.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_redphoto.png" />

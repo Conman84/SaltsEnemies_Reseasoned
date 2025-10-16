@@ -189,7 +189,27 @@ namespace SaltsEnemies_Reseasoned
             recipe.item._ItemTypeIDs = ["Magic"];
             recipe.item.AddBlueSkyUnlock("Clive_CH", "locked_falseimmortality.png", "ach_falseimmortality.png");
 
-
+            PerformEffect_Item nautilus = new PerformEffect_Item("Salt_Nautilus_EW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 4, Slots.Self), Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveAllStatusEffectsEffect>(), 1, Slots.Self)]);
+            nautilus.Name = "Nautilus";
+            nautilus.Flavour = "\"You caught a... Chambered Nautilus! 18cm.\"";
+            nautilus.Description = "At the end of each turn, heal this party member 4 health and remove all their Status Effects.\n35% chance to be consumed upon activation.";
+            nautilus.Icon = ResourceLoader.LoadSprite("item_nautilus.png");
+            nautilus.EquippedModifiers = [];
+            nautilus.TriggerOn = TriggerCalls.OnTurnFinished;
+            nautilus.DoesPopUpInfo = true;
+            nautilus.Conditions = [];
+            nautilus.DoesActionOnTriggerAttached = false;
+            nautilus.ConsumeOnTrigger = TriggerCalls.Count;
+            nautilus.ConsumeOnUse = true;
+            nautilus.ConsumeConditions = [ItemExtensions.Chance(35)];
+            nautilus.ShopPrice = 6;
+            nautilus.IsShopItem = false;
+            nautilus.StartsLocked = true;
+            nautilus.OnUnlockUsesTHE = true;
+            nautilus.UsesSpecialUnlockText = true;
+            nautilus.SpecialUnlockID = UILocID.ItemFishLocationLabel;
+            nautilus.item._ItemTypeIDs = [];
+            nautilus.item.AddBlueSkyUnlock("Mung_CH", "locked_nautilus.png", "ach_nautilus.png", 2);
 
         }
     }
