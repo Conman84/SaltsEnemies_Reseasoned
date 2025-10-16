@@ -1,0 +1,150 @@
+﻿using BrutalAPI.Items;
+using BrutalAPI;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using static SaltsEnemies_Reseasoned.Shore.H;
+using UnityEngine;
+using SaltEnemies_Reseasoned;
+
+namespace SaltsEnemies_Reseasoned
+{
+    public static class UnlocksFour
+    {
+        public static void Add()
+        {
+            PerformEffect_Item waste = new PerformEffect_Item("Salt_WasteDisposal_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Front)]);
+            waste.Name = "Waste Disposal";
+            waste.Flavour = "\"Full of sharps and biohazards.\"";
+            waste.Description = "On any ability being used, deal 2 damage to the Opposing enemy.";
+            waste.Icon = ResourceLoader.LoadSprite("item_wastedisposal.png");
+            waste.EquippedModifiers = [];
+            waste.TriggerOn = TriggerCalls.OnAnyAbilityUsed;
+            waste.DoesPopUpInfo = true;
+            waste.Conditions = [];
+            waste.DoesActionOnTriggerAttached = false;
+            waste.ConsumeOnTrigger = TriggerCalls.Count;
+            waste.ConsumeOnUse = false;
+            waste.ConsumeConditions = [];
+            waste.ShopPrice = 0;
+            waste.IsShopItem = true;
+            waste.StartsLocked = true;
+            waste.OnUnlockUsesTHE = true;
+            waste.UsesSpecialUnlockText = false;
+            waste.SpecialUnlockID = UILocID.None;
+            waste.item._ItemTypeIDs = [];
+            waste.item.AddBlueSkyUnlock("Pearl_CH", "locked_wastedisposal.png", "ach_wastedisposal.png");
+
+            PerformEffect_Item agony = new PerformEffect_Item("Salt_AgonyToken_TW", [Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Red), 1, Slots.Self)]);
+            agony.Name = "Agony Token";
+            agony.Flavour = "\"The air is filled with pain.\"";
+            agony.Description = "On dealing damage, generate 1 Red pigment.";
+            agony.Icon = ResourceLoader.LoadSprite("item_agonytoken.png");
+            agony.EquippedModifiers = [];
+            agony.TriggerOn = TriggerCalls.OnDidApplyDamage;
+            agony.DoesPopUpInfo = true;
+            agony.Conditions = [];
+            agony.DoesActionOnTriggerAttached = false;
+            agony.ConsumeOnTrigger = TriggerCalls.Count;
+            agony.ConsumeOnUse = false;
+            agony.ConsumeConditions = [];
+            agony.ShopPrice = 4;
+            agony.IsShopItem = false;
+            agony.StartsLocked = true;
+            agony.OnUnlockUsesTHE = true;
+            agony.UsesSpecialUnlockText = false;
+            agony.SpecialUnlockID = UILocID.None;
+            agony.item._ItemTypeIDs = [];
+            agony.item.AddBlueSkyUnlock("Merced_CH", "locked_agonytoken.png", "ach_agonytoken.png");
+
+            PerformEffect_Item fantasy = new PerformEffect_Item("Salt_FantasyToken_TW", [Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Purple), 1, Slots.Self)]);
+            fantasy.Name = "Fantasy Token";
+            fantasy.Flavour = "\"The desire to be anywhere but here.\"";
+            fantasy.Description = "At the start of each turn generate 1 Purple pigment.";
+            fantasy.Icon = ResourceLoader.LoadSprite("item_fantasytoken.png");
+            fantasy.EquippedModifiers = [];
+            fantasy.TriggerOn = TriggerCalls.OnTurnStart;
+            fantasy.DoesPopUpInfo = true;
+            fantasy.Conditions = [];
+            fantasy.DoesActionOnTriggerAttached = false;
+            fantasy.ConsumeOnTrigger = TriggerCalls.Count;
+            fantasy.ConsumeOnUse = false;
+            fantasy.ConsumeConditions = [];
+            fantasy.ShopPrice = 4;
+            fantasy.IsShopItem = false;
+            fantasy.StartsLocked = true;
+            fantasy.OnUnlockUsesTHE = true;
+            fantasy.UsesSpecialUnlockText = false;
+            fantasy.SpecialUnlockID = UILocID.None;
+            fantasy.item._ItemTypeIDs = [];
+            fantasy.item.AddBlueSkyUnlock("Cora_CH", "locked_fantasytoken.png", "ach_fantasytoken.png");
+
+            PerformEffect_Item material = new PerformEffect_Item("Salt_MaterialToken_TW", [Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Yellow), 1, Slots.Self)]);
+            material.Name = "Material Token";
+            material.Flavour = "\"The world abstracts into its simplest components\"";
+            material.Description = "On using an ability, generate 1 Yellow pigment.";
+            material.Icon = ResourceLoader.LoadSprite("item_materialtoken.png");
+            material.EquippedModifiers = [];
+            material.TriggerOn = TriggerCalls.OnAbilityUsed;
+            material.DoesPopUpInfo = true;
+            material.Conditions = [];
+            material.DoesActionOnTriggerAttached = false;
+            material.ConsumeOnTrigger = TriggerCalls.Count;
+            material.ConsumeOnUse = false;
+            material.ConsumeConditions = [];
+            material.ShopPrice = 4;
+            material.IsShopItem = false;
+            material.StartsLocked = true;
+            material.OnUnlockUsesTHE = true;
+            material.UsesSpecialUnlockText = false;
+            material.SpecialUnlockID = UILocID.None;
+            material.item._ItemTypeIDs = [];
+            material.item.AddBlueSkyUnlock("Xet_CH", "locked_materialtoken.png", "ach_materialtoken.png");
+
+            PerformEffect_Item death = new PerformEffect_Item("Salt_DeathToken_TW", [Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Blue), 1, Slots.Self)]);
+            death.Name = "Death Token";
+            death.Flavour = "\"When the dead are forgotten...\"";
+            death.Description = "On taking any damage, generate 1 Blue pigment.";
+            death.Icon = ResourceLoader.LoadSprite("item_deathtoken.png");
+            death.EquippedModifiers = [];
+            death.TriggerOn = TriggerCalls.OnDamaged;
+            death.DoesPopUpInfo = true;
+            death.Conditions = [];
+            death.DoesActionOnTriggerAttached = false;
+            death.ConsumeOnTrigger = TriggerCalls.Count;
+            death.ConsumeOnUse = false;
+            death.ConsumeConditions = [];
+            death.ShopPrice = 4;
+            death.IsShopItem = false;
+            death.StartsLocked = true;
+            death.OnUnlockUsesTHE = true;
+            death.UsesSpecialUnlockText = false;
+            death.SpecialUnlockID = UILocID.None;
+            death.item._ItemTypeIDs = [];
+            death.item.AddBlueSkyUnlock("Saline_CH", "locked_deathtoken.png", "ach_deathtoken.png");
+
+            PerformEffect_Item anchor = new PerformEffect_Item("Salt_WoodenAnchor_SW", []);
+            anchor.Name = "Wooden Anchor";
+            anchor.Flavour = "\"Sinks as well as it floats\"";
+            anchor.Description = "Direct heaing received by this party member is instead distributed amongst all other party members.";
+            anchor.Icon = ResourceLoader.LoadSprite("item_woodenanchor.png");
+            anchor.EquippedModifiers = [];
+            anchor.TriggerOn = TriggerCalls.OnBeingHealed;
+            anchor.DoesPopUpInfo = false;
+            anchor.Conditions = [ScriptableObject.CreateInstance<DistributeHealCondition>()];
+            anchor.DoesActionOnTriggerAttached = false;
+            anchor.ConsumeOnTrigger = TriggerCalls.Count;
+            anchor.ConsumeOnUse = false;
+            anchor.ConsumeConditions = [];
+            anchor.ShopPrice = 3;
+            anchor.IsShopItem = true;
+            anchor.StartsLocked = true;
+            anchor.OnUnlockUsesTHE = true;
+            anchor.UsesSpecialUnlockText = false;
+            anchor.SpecialUnlockID = UILocID.None;
+            anchor.item._ItemTypeIDs = [];
+            anchor.item.AddBlueSkyUnlock("Lawrence_CH", "locked_woodenanchor.png", "ach_woodenanchor.png");
+
+        }
+    }
+}
