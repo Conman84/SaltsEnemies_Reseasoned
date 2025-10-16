@@ -659,6 +659,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_receiver.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_redphoto.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_replicator.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_ring.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_rubberknife.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_sanddial.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_sawblade.png" />
@@ -725,6 +726,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_receiver.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_redphoto.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_replicator.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_ring.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_rubberknife.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_sanddial.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_sawblade.png" />
@@ -791,6 +793,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_receiver.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_redphoto.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_replicator.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_ring.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_rubberknife.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_sanddial.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_sawblade.png" />
@@ -1464,6 +1467,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_receiver.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_redphoto.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_replicator.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_ring.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_rubberknife.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_sanddial.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_sawblade.png" />
@@ -1530,6 +1534,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_receiver.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_redphoto.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_replicator.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_ring.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_rubberknife.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_sanddial.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_sawblade.png" />
@@ -1596,6 +1601,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_receiver.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_redphoto.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_replicator.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_ring.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_rubberknife.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_sanddial.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_sawblade.png" />
