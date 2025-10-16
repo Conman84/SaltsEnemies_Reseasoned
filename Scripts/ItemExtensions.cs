@@ -60,7 +60,7 @@ namespace SaltsEnemies_Reseasoned
         }
         public static void ShowItem(this IUnit self)
         {
-            if (self.IsUnitCharacter)
+            if (self.IsUnitCharacter && self.HasUsableItem)
             {
                 CombatManager.Instance.AddUIAction(new ShowItemInformationUIAction(self.ID, self.HeldItem.GetItemLocData().text, false, self.HeldItem.wearableImage));
             }
