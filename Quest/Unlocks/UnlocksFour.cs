@@ -211,6 +211,28 @@ namespace SaltsEnemies_Reseasoned
             nautilus.item._ItemTypeIDs = [];
             nautilus.item.AddBlueSkyUnlock("Mung_CH", "locked_nautilus.png", "ach_nautilus.png", 2);
 
+            PerformEffect_Item copy = new PerformEffect_Item("Salt_Replicator_TW", []);
+            copy.Name = "Replicator";
+            copy.Flavour = "\"No, you're copying me!\"";
+            copy.Description = "On manually using an ability, use it again.\nAdds the used ability to the Opposing enemy's moveset.";
+            copy.Icon = ResourceLoader.LoadSprite("item_replicator.png");
+            copy.EquippedModifiers = [];
+            copy.TriggerOn = TriggerCalls.OnAbilityWillBeUsed;
+            copy.DoesPopUpInfo = false;
+            copy.Conditions = [ScriptableObject.CreateInstance<ReplicatorCondition>()];
+            copy.DoesActionOnTriggerAttached = false;
+            copy.ConsumeOnTrigger = TriggerCalls.Count;
+            copy.ConsumeOnUse = false;
+            copy.ConsumeConditions = [];
+            copy.ShopPrice = 7;
+            copy.IsShopItem = false;
+            copy.StartsLocked = true;
+            copy.OnUnlockUsesTHE = true;
+            copy.UsesSpecialUnlockText = false;
+            copy.SpecialUnlockID = UILocID.None;
+            copy.item._ItemTypeIDs = [];
+            copy.item.AddBlueSkyUnlock("Rhys_CH", "locked_replicator.png", "ach_replicator.png");
+
         }
     }
 }
