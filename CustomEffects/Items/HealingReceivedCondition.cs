@@ -102,4 +102,44 @@ namespace SaltsEnemies_Reseasoned
             return false;
         }
     }
+    public class HealMoreByBlueCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is HealingDealtValueChangeException reference && reference.healingUnit != null)
+            {
+                int num = 0;
+                foreach (ManaBarSlot slot in CombatManager.Instance._stats.MainManaBar.ManaBarSlots)
+                {
+                    if (!slot.IsEmpty && slot.ManaColor.SharesPigmentColor(Pigments.Blue)) num++;
+                }
+
+                if (num > 0)
+                {
+                    (effector as IUnit).ShowItem();
+                    reference.AddModifier(new AdditionValueModifier(true, num));
+                }
+            }
+            return false;
+        }
+    }
+    public class SymbioteCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is IntegerReference reference)
+            {
+                if (reference.value <= 0) return false;
+
+                ApplyFoundStatusEffect growth = ScriptableObject.CreateInstance<ApplyFoundStatusEffect>();
+                growth.useStatus = "Growth_ID";
+
+                CombatManager.Instance.AddSubAction(new EffectAction([
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterShowItemEffect>()),
+                    Effects.GenerateEffect(growth, reference.value, Slots.Self),
+                    ], effector as IUnit));
+            }
+            return false;
+        }
+    }
 }

@@ -21,6 +21,21 @@ namespace SaltEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
+    public class DecreaseLuckyBluePercentageEffect : EffectSO
+    {
+        public override bool PerformEffect(
+          CombatStats stats,
+          IUnit caster,
+          TargetSlotInfo[] targets,
+          bool areTargetSlots,
+          int entryVariable,
+          out int exitAmount)
+        {
+            exitAmount = entryVariable;
+            stats.SetLuckyBluePercentage(stats.LuckyManaPercentage - entryVariable);
+            return exitAmount > 0;
+        }
+    }
     public class AbilitySelector_GreyJumble : BaseAbilitySelectorSO
     {
         [Header("Special Abilities")]

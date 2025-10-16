@@ -27,6 +27,7 @@ namespace SaltEnemies_Reseasoned
                     PCall(UnlocksFour.Add);
                     PCall(UnlocksFive.Add);
                     PCall(UnlocksSix.Add);
+                    PCall(UnlocksSeven.Add);
                 }
             }
 

@@ -184,6 +184,7 @@ namespace SaltsEnemies_Reseasoned
             receiver.IsShopItem = true;
             receiver.StartsLocked = true;
             receiver.OnUnlockUsesTHE = true;
+            receiver.UsesSpecialUnlockText = false;
             receiver.SpecialUnlockID = UILocID.None;
             receiver.item._ItemTypeIDs = [];
             receiver.item.AddBlueSkyUnlock("Rags_CH", "locked_receiver.png", "ach_receiver.png");
@@ -205,6 +206,7 @@ namespace SaltsEnemies_Reseasoned
             scope.IsShopItem = false;
             scope.StartsLocked = true;
             scope.OnUnlockUsesTHE = true;
+            scope.UsesSpecialUnlockText = false;
             scope.SpecialUnlockID = UILocID.None;
             scope.item._ItemTypeIDs = [];
             scope.item.AddBlueSkyUnlock("Hare_CH", "locked_hexedscope.png", "ach_hexedscope.png");
@@ -226,6 +228,7 @@ namespace SaltsEnemies_Reseasoned
             plug.IsShopItem = true;
             plug.StartsLocked = true;
             plug.OnUnlockUsesTHE = false;
+            plug.UsesSpecialUnlockText = false;
             plug.SpecialUnlockID = UILocID.None;
             plug.item._ItemTypeIDs = [];
             plug.item.AddBlueSkyUnlock("Saturn_CH", "locked_theplug.png", "ach_theplug.png");
@@ -246,6 +249,8 @@ namespace SaltsEnemies_Reseasoned
             time.ShopPrice = 3;
             time.IsShopItem = false;
             time.StartsLocked = true;
+            time.OnUnlockUsesTHE = true;
+            time.UsesSpecialUnlockText = false;
             time.SpecialUnlockID = UILocID.None;
             time.item._ItemTypeIDs = [];
             time.item.AddBlueSkyUnlock("Esther_CH", "locked_marchoftime.png", "ach_marchoftime.png");
