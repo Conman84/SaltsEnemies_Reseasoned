@@ -145,6 +145,28 @@ namespace SaltsEnemies_Reseasoned
             anchor.item._ItemTypeIDs = [];
             anchor.item.AddBlueSkyUnlock("Lawrence_CH", "locked_woodenanchor.png", "ach_woodenanchor.png");
 
+            PerformEffect_Item guide = new PerformEffect_Item("Salt_HarmGuide_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<RestoreSwapUseEffect>(), 1, Slots.Self)]);
+            guide.Name = "Guide to Harming Others";
+            guide.Flavour = "\"Simpler than it seems!\"";
+            guide.Description = "On using an ability while in Shield, refresh movement.";
+            guide.Icon = ResourceLoader.LoadSprite("item_harmguide.png");
+            guide.EquippedModifiers = [];
+            guide.TriggerOn = TriggerCalls.OnAbilityUsed;
+            guide.DoesPopUpInfo = true;
+            guide.Conditions = [ScriptableObject.CreateInstance<InShieldEffectorCondition>()];
+            guide.DoesActionOnTriggerAttached = false;
+            guide.ConsumeOnTrigger = TriggerCalls.Count;
+            guide.ConsumeOnUse = false;
+            guide.ConsumeConditions = [];
+            guide.ShopPrice = 3;
+            guide.IsShopItem = true;
+            guide.StartsLocked = true;
+            guide.OnUnlockUsesTHE = true;
+            guide.UsesSpecialUnlockText = false;
+            guide.SpecialUnlockID = UILocID.None;
+            guide.item._ItemTypeIDs = [];
+            guide.item.AddBlueSkyUnlock("Warsaw_CH", "locked_harmguide.png", "ach_harmguide.png");
+
         }
     }
 }

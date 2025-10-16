@@ -90,4 +90,12 @@ namespace SaltsEnemies_Reseasoned
             }
         }
     }
+
+    public class InShieldEffectorCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            return (effector as IUnit).ContainsFieldEffect("Shield_ID");
+        }
+    }
 }

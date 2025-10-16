@@ -619,6 +619,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_fantasytoken.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_friendshipbriefcase.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_glasshammer.png" />
+	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_harmguide.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_hercrown.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_hexedscope.png" />
 	  <None Remove="Quest\Unlocks\Sprites\ACH\ach_inkwell.png" />
@@ -655,6 +656,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_fantasytoken.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_friendshipbriefcase.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_glasshammer.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Item\item_harmguide.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_hercrown.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_hexedscope.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Item\item_inkwell.png" />
@@ -691,6 +693,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_fantasytoken.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_friendshipbriefcase.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_glasshammer.png" />
+	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_harmguide.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_hercrown.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_hexedscope.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_inkwell.png" />
@@ -1329,6 +1332,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_fantasytoken.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_friendshipbriefcase.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_glasshammer.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_harmguide.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_hercrown.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_hexedscope.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\ACH\ach_inkwell.png" />
@@ -1365,6 +1369,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_fantasytoken.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_friendshipbriefcase.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_glasshammer.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_harmguide.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_hercrown.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_hexedscope.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Item\item_inkwell.png" />
@@ -1401,6 +1406,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_fantasytoken.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_friendshipbriefcase.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_glasshammer.png" />
+	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_harmguide.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_hercrown.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_hexedscope.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_inkwell.png" />
