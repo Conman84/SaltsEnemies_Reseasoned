@@ -237,7 +237,7 @@ namespace SaltsEnemies_Reseasoned
             lunar.Icon = ResourceLoader.LoadSprite("item_lunarcharm.png");
             lunar.EquippedModifiers = [add_cat];
             lunar.TriggerOn = TriggerCalls.Count;
-            lunar.DoesPopUpInfo = false;
+            lunar.DoesPopUpInfo = true;
             lunar.Conditions = [];
             lunar.DoesActionOnTriggerAttached = false;
             lunar.ConsumeOnTrigger = TriggerCalls.OnDamaged;

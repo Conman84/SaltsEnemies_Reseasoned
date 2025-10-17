@@ -41,7 +41,7 @@ namespace SaltsEnemies_Reseasoned
             MultiPerformEffectItem manual = new MultiPerformEffectItem("Salt_DissectionManual_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<GainPlayerCurrencyEffect>(), 5, Slots.Self)]);
             manual.Name = "Dissection Manual";
             manual.Flavour = "\"Follow precise instructions.\"";
-            manual.Description = "On getting a kill, gain 5 coins.\nOn using an ability, lose 3 coins.";
+            manual.Description = "On getting a kill, gain 5 coins.\nOn using an ability, lose 2 coins.";
             manual.Icon = ResourceLoader.LoadSprite("item_dissectionmanual.png");
             manual.TriggerOn = TriggerCalls.OnKill;
             manual.EquippedModifiers = [];
@@ -58,7 +58,7 @@ namespace SaltsEnemies_Reseasoned
             manual.UsesSpecialUnlockText = false;
             manual.SpecialUnlockID = UILocID.None;
             manual.item._ItemTypeIDs = [];
-            manual.AddEffectTrigger(new EffectTrigger([Effects.GenerateEffect(ScriptableObject.CreateInstance<LosePlayerCurrencyEffect>(), 3, Slots.Self)], [TriggerCalls.OnAbilityWillBeUsed], []));
+            manual.AddEffectTrigger(new EffectTrigger([Effects.GenerateEffect(ScriptableObject.CreateInstance<LosePlayerCurrencyEffect>(), 2, Slots.Self)], [TriggerCalls.OnAbilityWillBeUsed], []));
             manual.AddEffectTrigger(new EffectTrigger([Effects.GenerateEffect(ScriptableObject.CreateInstance<ShowPlayerCurrencyEffect>(), 1, Slots.Self)], [TriggerCalls.OnCombatStart], [], false));
             manual.item.AddBlueSkyUnlock("Leviat_CH", "locked_dissectionmanual.png", "ach_dissectionmanual.png");
 
