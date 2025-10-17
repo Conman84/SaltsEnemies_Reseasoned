@@ -469,6 +469,9 @@
 	  <None Remove="Chapter21\Waltz\WaltzDead.png" />
 	  <None Remove="Chapter21\Waltz\WaltzIcon.png" />
 	  <None Remove="Chapter21\Waltz\WaltzWorld.png" />
+	  <None Remove="Chapter22\Hauntling\HauntlingDead.png" />
+	  <None Remove="Chapter22\Hauntling\HauntlingIcon.png" />
+	  <None Remove="Chapter22\Hauntling\HauntlingWorld.png" />
 	  <None Remove="CustomPassives\Chapter02\Decay.png" />
 	  <None Remove="CustomPassives\Chapter03\DontTouchMe.png" />
 	  <None Remove="CustomPassives\Chapter03\StarPassive.png" />
@@ -1297,6 +1300,9 @@
 	  <EmbeddedResource Include="Chapter21\Waltz\WaltzDead.png" />
 	  <EmbeddedResource Include="Chapter21\Waltz\WaltzIcon.png" />
 	  <EmbeddedResource Include="Chapter21\Waltz\WaltzWorld.png" />
+	  <EmbeddedResource Include="Chapter22\Hauntling\HauntlingDead.png" />
+	  <EmbeddedResource Include="Chapter22\Hauntling\HauntlingIcon.png" />
+	  <EmbeddedResource Include="Chapter22\Hauntling\HauntlingWorld.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter01\Desperate.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Decay.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Fishing.png" />

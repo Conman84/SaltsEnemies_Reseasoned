@@ -63,18 +63,18 @@ namespace SaltsEnemies_Reseasoned
             sword.item._ItemTypeIDs = ["Knife"];
             sword.item.AddBlueSkyUnlock("Boyle_CH", "locked_papersword.png", "ach_papersword.png");
 
-            MultiPerformEffectItem nail = new MultiPerformEffectItem("Salt_LeftNail_TW", []);
+            MultiPerformEffectItem nail = new MultiPerformEffectItem("Salt_LeftNail_TW", [Effects.GenerateEffect(Hauntling.Spawn, 1, Slots.Self)]);
             nail.Name = "Nail of the Left Eye";
             nail.Flavour = "\"It hates you so much\"";
-            nail.Description = "Deal 30% more damage. \nOn taking damage, attempt to give the attacker another action and 30% chance to destroy this item.";
+            nail.Description = "Deal 30% more damage. \nOn taking direct damage, spawn something else.";
             nail.Icon = ResourceLoader.LoadSprite("item_leftnail.png");
             nail.EquippedModifiers = [];
-            nail.TriggerOn = AdvancedDamageTrigger.Received;
+            nail.TriggerOn = TriggerCalls.OnDamaged;
             nail.DoesPopUpInfo = true;
-            nail.Conditions = [DamageDealerEffectsCondition.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterGainActionEffect>(), 1, Slots.Self)], false)];
+            nail.Conditions = [];
             nail.DoesActionOnTriggerAttached = false;
             nail.ConsumeOnTrigger = TriggerCalls.Count;
-            nail.ConsumeOnUse = true;
+            nail.ConsumeOnUse = false;
             nail.ConsumeConditions = [ItemExtensions.Chance(30)];
             nail.ShopPrice = 4;
             nail.IsShopItem = false;

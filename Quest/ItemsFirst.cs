@@ -674,7 +674,7 @@ namespace SaltsEnemies_Reseasoned
             karma.OnUnlockUsesTHE = false;
             karma.UsesSpecialUnlockText = false;
             karma.SpecialUnlockID = UILocID.None;
-            EffectTrigger karma_second = new EffectTrigger([Effects.GenerateEffect(ScriptableObject.CreateInstance<KarmicOffloadingEffect>())], [TriggerCalls.OnTurnFinished], [p4]);
+            EffectTrigger karma_second = new EffectTrigger([Effects.GenerateEffect(Hauntling.Spawn, 5, Slots.Self)], [TriggerCalls.OnTurnFinished], [p4]);
             karma.AddEffectTrigger(karma_second);
             karma.item._ItemTypeIDs = ["Magic"];
             karma.item.AddItem("Locked_KarmicOffloading.png", AchievementIDs.Chapter20, Test);

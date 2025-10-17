@@ -273,6 +273,12 @@ namespace SaltsEnemies_Reseasoned
             PCall(Waltz.Add);
             PCall(Trumpet.Add);
 
+            //CH22 Enemies
+            if (DebugVer)
+            {
+                PCall(Hauntling.Add);
+            }
+
             //BOSSES
             if (TestBosses)
             {
