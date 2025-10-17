@@ -234,6 +234,7 @@ namespace SaltsEnemies_Reseasoned
             CopyAndSpawnCustomCharacterAnywhereEffect windle = ScriptableObject.CreateInstance<CopyAndSpawnCustomCharacterAnywhereEffect>();
             windle._characterCopy = "Windle_CH";
             windle._permanentSpawn = true;
+            windle._extraModifiers = [];
 
             PerformEffect_Item key = new PerformEffect_Item("Salt_WindleKey_TW", [Effects.GenerateEffect(windle, 1)]);
             key.Name = "Windle Key";
