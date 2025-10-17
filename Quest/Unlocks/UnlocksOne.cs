@@ -69,7 +69,7 @@ namespace SaltsEnemies_Reseasoned
             nail.Description = "Deal 30% more damage. \nOn taking direct damage, spawn something else.";
             nail.Icon = ResourceLoader.LoadSprite("item_leftnail.png");
             nail.EquippedModifiers = [];
-            nail.TriggerOn = TriggerCalls.OnDamaged;
+            nail.TriggerOn = TriggerCalls.OnDirectDamaged;
             nail.DoesPopUpInfo = true;
             nail.Conditions = [];
             nail.DoesActionOnTriggerAttached = false;
