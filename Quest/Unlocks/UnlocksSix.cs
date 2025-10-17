@@ -87,7 +87,7 @@ namespace SaltsEnemies_Reseasoned
             dmz.item._ItemTypeIDs = [];
             dmz.item.AddBlueSkyUnlock("Bingo_CH", "locked_dmz.png", "ach_dmz.png");
 
-            PerformEffect_Item blood = new PerformEffect_Item("Salt_BloodSword_SW", []);
+            MultiPerformEffectItem blood = new MultiPerformEffectItem("Salt_BloodSword_SW", []);
             blood.Name = "Blood Sword";
             blood.Flavour = "\"Hurts a lot to use.\"";
             blood.Description = "Deal 25% more damage while at full health.\nThis item is destroyed on death.";
@@ -97,7 +97,7 @@ namespace SaltsEnemies_Reseasoned
             blood.DoesPopUpInfo = false;
             blood.Conditions = [ScriptableObject.CreateInstance<FullHealthEffectorCondition>(), ItemExtensions.Damage(25, true)];
             blood.DoesActionOnTriggerAttached = false;
-            blood.ConsumeOnTrigger = TriggerCalls.OnDeath;
+            blood.ConsumeOnTrigger = TriggerCalls.Count;
             blood.ConsumeOnUse = false;
             blood.ConsumeConditions = [];
             blood.ShopPrice = 4;
@@ -107,6 +107,7 @@ namespace SaltsEnemies_Reseasoned
             blood.UsesSpecialUnlockText = false;
             blood.SpecialUnlockID = UILocID.None;
             blood.item._ItemTypeIDs = ["Knife", "Meat"];
+            blood.AddEffectTrigger(new EffectTrigger([Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeItemEffect>(), 1, Slots.Self)], [TriggerCalls.OnDeath], [], false));
             blood.item.AddBlueSkyUnlock("Otto_CH", "locked_bloodsword.png", "ach_bloodsword.png");
 
             PerformEffect_Item ring = new PerformEffect_Item("Salt_TheRing_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleByTenEffect>(), 1, Slots.Front)]);
