@@ -202,7 +202,7 @@ namespace SaltsEnemies_Reseasoned
             hammer.Icon = ResourceLoader.LoadSprite("item_glasshammer.png");
             hammer.EquippedModifiers = [];
             hammer.TriggerOn = CascadingDamageItemHandler.Call;
-            hammer.DoesPopUpInfo = false;
+            hammer.DoesPopUpInfo = true;
             hammer.Conditions = [BooleanSetterCondition.Create(true, true, false)];
             hammer.DoesActionOnTriggerAttached = false;
             hammer.ConsumeOnTrigger = TriggerCalls.OnDirectDamaged;
