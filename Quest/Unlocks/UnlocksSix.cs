@@ -33,8 +33,8 @@ namespace SaltsEnemies_Reseasoned
             six.IsShopItem = false;
             six.StartsLocked = true;
             six.OnUnlockUsesTHE = true;
-            six.UsesSpecialUnlockText = false;
-            six.SpecialUnlockID = UILocID.None;
+            six.UsesSpecialUnlockText = true;
+            six.SpecialUnlockID = UILocID.ItemFishLocationLabel;
             six.item._ItemTypeIDs = [];
             six.item.AddBlueSkyUnlock("Six_CH", "locked_six.png", "ach_six.png", 1);
 
