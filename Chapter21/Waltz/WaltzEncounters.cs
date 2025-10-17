@@ -47,7 +47,7 @@ namespace SaltsEnemies_Reseasoned
             easy.SimpleAddGroup(1, "Arceles_EN", 2, "Waltz_EN");
 
             easy = new AddTo(Shore.H.DeadPixel.Easy);
-            easy.SimpleAddGroup(2, "DeadPixel_EN", 2, "Waltz_EN");
+            easy.SimpleAddGroup(2, "DeadPixel_EN", 1, "Waltz_EN");
 
             easy = new AddTo(Shore.H.Wall.Easy);
             easy.SimpleAddGroup(1, "Wall_EN", 2, "Waltz_EN");
@@ -77,7 +77,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Wall_EN", "VoiceTrumpet_EN", "Waltz_EN", "Waltz_EN");
 
             med = new AddTo(Shore.H.DeadPixel.Med);
-            med.SimpleAddGroup(2, "DeadPixel_EN", 3, "Waltz_EN");
+            med.SimpleAddGroup(2, "DeadPixel_EN", 2, "Waltz_EN");
 
             med = new AddTo(Shore.H.Pinano.Med);
             med.SimpleAddGroup(2, "Pinano_EN", 2, "Waltz_EN");
