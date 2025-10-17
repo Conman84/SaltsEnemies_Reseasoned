@@ -24,14 +24,17 @@ namespace SaltsEnemies_Reseasoned
             };
             hauntling.PrepareEnemyPrefab("Assets/Item/Hauntling_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Item/Hauntling_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            hauntling.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, Passives.Overexert1, Passives.Infantile, Passives.Leaky3 });
+            hauntling.AddPassives(new BasePassiveAbilitySO[] { Passives.Overexert1, Passives.Infantile, Passives.Leaky3 });
 
             Ability antisoftlock = new Ability("Antisoftlock", "Antisoftlock_A");
-            antisoftlock.Description = "Inflict 10 Entropy to the Opposing party member and this enemy.";
+            antisoftlock.Description = "Inflict 11 Entropy to the Opposing party member and this enemy.\nMove Left or Right.";
             antisoftlock.Rarity = Rarity.Common;
-            antisoftlock.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyEntropyEffect>(), 10, MultiTargetting.Create(Slots.Front, Slots.Self))];
+            antisoftlock.Effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyEntropyEffect>(), 11, MultiTargetting.Create(Slots.Front, Slots.Self)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)
+                ];
             antisoftlock.AddIntentsToTarget(Slots.Front, [Entropy.Intent]);
-            antisoftlock.AddIntentsToTarget(Slots.Self, [Entropy.Intent]);
+            antisoftlock.AddIntentsToTarget(Slots.Self, [Entropy.Intent, "Swap_Sides"]);
             antisoftlock.Visuals = CustomVisuals.GetVisuals("Salt/Nailing");
             antisoftlock.AnimationTarget = Slots.Front;
 
