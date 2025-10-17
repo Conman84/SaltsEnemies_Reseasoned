@@ -90,6 +90,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(FirstPerTurnHandler.Setup);
                 PCall(AllyTriggersHandler.Setup);
                 PCall(PierceShieldHandler.Setup);
+                PCall(FireNoReduce.Setup);
             }
             #endregion
 
