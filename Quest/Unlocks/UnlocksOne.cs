@@ -192,7 +192,7 @@ namespace SaltsEnemies_Reseasoned
             PerformEffect_Item scope = new PerformEffect_Item("Salt_HexedScope_TW", []);
             scope.Name = "Hexed Scope";
             scope.Flavour = "\"Sin of Sloth\"";
-            scope.Description = "Deal 15% less damage.\nDeal 50% more damage instead if the first this is the first ability used this turn.";
+            scope.Description = "Deal 15% less damage.\nDeal 50% more damage instead if this is the first ability used this turn.";
             scope.Icon = ResourceLoader.LoadSprite("item_hexedscope.png");
             scope.EquippedModifiers = [];
             scope.TriggerOn = TriggerCalls.OnWillApplyDamage;
