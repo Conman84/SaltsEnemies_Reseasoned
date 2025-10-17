@@ -36,14 +36,15 @@ namespace SaltsEnemies_Reseasoned
             antisoftlock.AnimationTarget = Slots.Front;
 
             Ability twice = new Ability("Twice Twice", "TwiceTwice_A");
-            twice.Description = "Instantly kill the Opposing party member.\nAttempt to revive a random party member in the Opposing position at 1 health.";
+            twice.Description = "Instantly kill the Opposing party member.\nAttempt to revive a random party member in the Opposing position at the health of the killed target.";
             twice.Rarity = Rarity.Common;
             twice.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathWithExitValueEffect>(), 1, Slots.Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ExitOrOneMaxEffect>()),
                 Effects.GenerateEffect(CasterRootActionByExitEffect.Create([
                     Effects.GenerateEffect(CarryExitPastEffect.Create(BasicEffects.GetVisuals("Salt/Hunt", false, Slots.Front)), 1, Slots.Front),
                     Effects.GenerateEffect(UseExitAsEntryEffect.Create(ScriptableObject.CreateInstance<ResurrectEffect>()), 1, Slots.Front),
-                    ]), 1, Slots.Self, BasicEffects.DidThat(true))
+                    ]), 1, Slots.Self)
                 ];
             twice.AddIntentsToTarget(Slots.Front, ["Damage_Death", IntentType_GameIDs.Other_Resurrect.ToString()]);
             twice.Visuals = CustomVisuals.GetVisuals("Salt/Hunt");
