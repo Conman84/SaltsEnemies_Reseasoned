@@ -36,7 +36,7 @@ namespace SaltsEnemies_Reseasoned
             antisoftlock.AnimationTarget = Slots.Front;
 
             Ability twice = new Ability("Twice Twice", "TwiceTwice_A");
-            twice.Description = "Instantly kill the Opposing party member.\nAttempt to revive a random party member in the Opposing position at the health of the killed target.";
+            twice.Description = "Instantly kill the Opposing party member.\nAttempt to revive a random party member in the Opposing position at the health of the killed target or 1, whichever is higher.";
             twice.Rarity = Rarity.Common;
             twice.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathWithExitValueEffect>(), 1, Slots.Front),
