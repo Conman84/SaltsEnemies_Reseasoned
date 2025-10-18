@@ -44,7 +44,7 @@ namespace SaltsEnemies_Reseasoned
             Ability bonus = new Ability("Maintenance_A");
             bonus.Name = "Maintenance";
             bonus.Description = "Inflict 1 Scar on the Central party member.\nIf there is no Central party member, inflict 1 Scar on all party members.";
-            bonus.Rarity = Rarity.CreateAndAddCustomRarityToPool("invention3", 3);
+            bonus.Rarity = Rarity.GetCustomRarity("rarity5");
             bonus.Effects = new EffectInfo[2];
             bonus.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.GenerateGenericTarget([2]));
             bonus.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Unit_AllOpponents, HasCentralPartyMemberCondition.Create(false));
@@ -82,7 +82,7 @@ namespace SaltsEnemies_Reseasoned
             Ability encroach = new Ability("Encroach", "Encroach_A")
             {
                 Description = "Inflict 1 Ruptured on every party member who moved since the start of the last turn.\nIf no party members moved last turn, deal a Little damage to all party members.",
-                Rarity = Rarity.GetCustomRarity("invention3"),
+                Rarity = Rarity.Common,
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Targetting_By_Moved.Create(false)),
@@ -104,7 +104,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability series = new Ability("Series", "Series_A");
             series.Description = "Consume all Pigment.\nDouble the maximum health of all party members";
-            series.Rarity = Rarity.GetCustomRarity("invention3");
+            series.Rarity = Rarity.CreateAndAddCustomRarityToPool("invention3", 3);
             series.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeAllManaEffect>(), 1, Slots.Self),
@@ -126,7 +126,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability limit = new Ability("Limit", "Limit_A");
             limit.Description = "Deal an Agonizing amount of damage to the Center position.\nReduce this ability's damage by the damage dealt.\nReset if no damage is dealt.";
-            limit.Rarity = Rarity.GetCustomRarity("rarity5");
+            limit.Rarity = Rarity.Common;
             limit.Effects = [
                 Effects.GenerateEffect(limitdamage, 10, Targeting.GenerateGenericTarget([2])),
                 Effects.GenerateEffect(ChanageValueByPreviousEffect.Create("Limit_A", true), 1, Slots.Self),
