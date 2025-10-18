@@ -29,7 +29,7 @@ namespace SaltsEnemies_Reseasoned
 
             VsBossData vsBossData = new VsBossData();
             vsBossData.animation = SaltsReseasoned.Dreams.LoadAsset<AnimationClip>("Assets/Bosses/Crow/CrowChildSplash.anim");
-            vsBossData.roarTime = 4f;
+            vsBossData.roarTime = 4.5f;
             vsBossData.arenaSprite = ResourceLoader.LoadSprite("CrowChildEnv.png");
             vsBossData.extraArenaSprite = ResourceLoader.LoadSprite("CrowChildEnv.png");
             vsBossData.bossSprite = ResourceLoader.LoadSprite("art_crow_head.png");
