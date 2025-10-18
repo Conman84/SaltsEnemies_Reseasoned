@@ -97,4 +97,21 @@ namespace SaltsEnemies_Reseasoned
             return true;
         }
     }
+    public class CasterPriorityRootActionByExitEffect : EffectSO
+    {
+        public EffectInfo[] effects;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            EffectInfo[] effectInfoArray = effects;
+            exitAmount = 0;
+            CombatManager.Instance.AddPriorityRootAction(new EffectAction(effectInfoArray, caster, base.PreviousExitValue));
+            return true;
+        }
+        public static CasterPriorityRootActionByExitEffect Create(EffectInfo[] e)
+        {
+            CasterPriorityRootActionByExitEffect instance = CreateInstance<CasterPriorityRootActionByExitEffect>();
+            instance.effects = e;
+            return instance;
+        }
+    }
 }

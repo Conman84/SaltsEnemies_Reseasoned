@@ -24,7 +24,17 @@ namespace SaltsEnemies_Reseasoned
             };
             hauntling.PrepareEnemyPrefab("Assets/Item/Hauntling_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Item/Hauntling_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            hauntling.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, Passives.Overexert1, Passives.Infantile, Passives.Leaky3 });
+            //Don't Touch Me
+            OnClickPassiveAbility noTouch = ScriptableObject.CreateInstance<OnClickPassiveAbility>();
+            noTouch._passiveName = "Don't Touch Me";
+            noTouch.m_PassiveID = "DontTouchMe_PA";
+            noTouch.passiveIcon = ResourceLoader.LoadSprite("DontTouchMe.png");
+            noTouch._characterDescription = "whoops";
+            noTouch._enemyDescription = "Upon being clicked, gain an additional ability on the timeline.";
+            noTouch.doesPassiveTriggerInformationPanel = false;
+            noTouch._triggerOn = new TriggerCalls[] { OnClickPassiveAbility.Trigger };
+
+            hauntling.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, Passives.Slippery, Passives.Masochism1, noTouch, Passives.Infantile, Passives.Leaky3 });
 
             Ability antisoftlock = new Ability("Antisoftlock", "Antisoftlock_A");
             antisoftlock.Description = "Inflict 11 Entropy to the Opposing party member and this enemy.";
@@ -36,24 +46,28 @@ namespace SaltsEnemies_Reseasoned
             antisoftlock.AnimationTarget = Slots.Front;
 
             Ability twice = new Ability("Twice Twice", "TwiceTwice_A");
-            twice.Description = "Instantly kill the Opposing party member.\nAttempt to revive a random party member in the Opposing position at the health of the killed target or 1, whichever is higher.";
+            twice.Description = "Instantly kill the Opposing party member.\nAttempt to revive a random party member in the Opposing position at the health of the killed target or 1 (whichever is higher) then Curse them.";
             twice.Rarity = Rarity.Common;
             twice.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathWithExitValueEffect>(), 1, Slots.Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ExitOrOneMaxEffect>()),
-                Effects.GenerateEffect(CasterRootActionByExitEffect.Create([
+                Effects.GenerateEffect(CasterPriorityRootActionByExitEffect.Create([
                     Effects.GenerateEffect(CarryExitPastEffect.Create(BasicEffects.GetVisuals("Salt/Hunt", false, Slots.Front)), 1, Slots.Front),
                     Effects.GenerateEffect(UseExitAsEntryEffect.Create(ScriptableObject.CreateInstance<ResurrectEffect>()), 1, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.Front, BasicEffects.DidThat(true))
                     ]), 1, Slots.Self)
                 ];
-            twice.AddIntentsToTarget(Slots.Front, ["Damage_Death", IntentType_GameIDs.Other_Resurrect.ToString()]);
+            twice.AddIntentsToTarget(Slots.Front, ["Damage_Death", IntentType_GameIDs.Other_Resurrect.ToString(), "Status_Cursed"]);
             twice.Visuals = CustomVisuals.GetVisuals("Salt/Hunt");
             twice.AnimationTarget = Slots.Front;
 
             Ability test = new Ability("Crashes Your Game", "CrashesYourGame_A");
-            test.Description = "Low chance to crash your game.\n\"I'm done messing around.\"";
+            test.Description = "Curse the Opposing party member. Low chance to crash your game.\n\"I'm done messing around.\"";
             test.Rarity = Rarity.Common;
-            test.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<CrashesYourGameEffect>(), 1, Slots.Self, Effects.ChanceCondition(0))];
+            test.Effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<CrashesYourGameEffect>(), 1, Slots.Self, Effects.ChanceCondition(0))];
+            test.AddIntentsToTarget(Slots.Front, ["Status_Cursed"]);
             test.AddIntentsToTarget(Slots.Self, ["Misc"]);
             test.Visuals = LoadedAssetsHandler.GetCharacterAbility("Insult_1_A").visuals;
             test.AnimationTarget = Slots.Self;

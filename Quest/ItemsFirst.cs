@@ -653,12 +653,12 @@ namespace SaltsEnemies_Reseasoned
             angel.item.AddItem("Locked_Angel.png", AchievementIDs.Chapter18, Test);
 
             PercentageEffectorCondition p4 = ScriptableObject.CreateInstance<PercentageEffectorCondition>();
-            p4.triggerPercentage = 4;
+            p4.triggerPercentage = 10;
 
             MultiPerformEffectItem karma = new MultiPerformEffectItem("Salt_KarmicOffloading_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 3, Slots.Self)]);
             karma.Name = "Karmic Offloading";
             karma.Flavour = "\"You've got all the time in the world.\"";
-            karma.Description = "On taking any damage, heal 3 health if this party member is not dead.\nAt the end of each turn, 96% chance to do nothing.";
+            karma.Description = "On taking any damage, heal 3 health if this party member is not dead.\nAt the end of each turn, 90% chance to do nothing.";
             karma.Icon = ResourceLoader.LoadSprite("Item_KarmicOffloading.png");
             karma.EquippedModifiers = [];
             karma.TriggerOn = TriggerCalls.OnDamaged;
