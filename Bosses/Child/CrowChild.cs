@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy template = new Enemy("Crow Child", "CrowChild_BOSS")
             {
-                Health = 60,
+                Health = 50,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("CrowChildWorld.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("CrowChildWorld.png", new Vector2(0.5f, 0f), 32),
@@ -36,12 +36,12 @@ namespace SaltsEnemies_Reseasoned
             template.AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_NoRepeats>();
 
             Ability first = new Ability("Masquerade", "CC_Masquerade_A");
-            first.Description = "Inflict 1 Constricted and 3 Frail to the Left and Right party members.";
+            first.Description = "Inflict 1 Ruptured and 2 Frail to the Left and Right party members.";
             first.Rarity = Rarity.GetCustomRarity("rarity5");
             first.Effects = new EffectInfo[2];
-            first.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 1, Slots.LeftRight);
-            first.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 3, Slots.LeftRight);
-            first.AddIntentsToTarget(Slots.LeftRight, ["Field_Constricted", "Status_Frail"]);
+            first.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.LeftRight);
+            first.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 2, Slots.LeftRight);
+            first.AddIntentsToTarget(Slots.LeftRight, ["Status_Ruptured", "Status_Frail"]);
             first.Visuals = CustomVisuals.GetVisuals("Salt/Gaze");
             first.AnimationTarget = Slots.LeftRight;
 
