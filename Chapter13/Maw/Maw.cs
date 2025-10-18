@@ -55,7 +55,7 @@ namespace SaltsEnemies_Reseasoned
             skinning.conditions = Passives.Slippery.conditions;
             skinning.AddToPassiveDatabase();
 
-            maw.AddPassives(new BasePassiveAbilitySO[] { bad, Passives.MultiAttack2, Passives.Slippery, skinning });
+            maw.AddPassives(new BasePassiveAbilitySO[] { bad, Passives.MultiAttack3, Passives.Slippery, skinning });
 
             //HIDE
             Ability hide = new Ability("Hide", "BadDog_Hide_A");

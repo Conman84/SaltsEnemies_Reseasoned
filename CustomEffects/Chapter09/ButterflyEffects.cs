@@ -743,10 +743,14 @@ namespace SaltEnemies_Reseasoned
             CombatStats stats = CombatManager.Instance._stats;
             foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
             {
-                if (enemy.CurrentHealth <= 0) continue;
                 if (enemy.HasBadDog())
                 {
-                    if (enemy.IsFacing())
+                    if (enemy.CurrentHealth <= 0)
+                    {
+                        stats.timeline.TryRemoveAllNextEnemyTurns(enemy);
+                        Actions.Remove(enemy.ID);
+                    }
+                    else if (enemy.IsFacing())
                     {
                         List<string> turns = Actions.Keys.Contains(enemy.ID) ? new List<string>(Actions[enemy.ID]) : new List<string>();
                         int amount = 0;
