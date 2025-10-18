@@ -287,7 +287,7 @@ namespace SaltsEnemies_Reseasoned
                 "Spoggle_Writhing_EN",
                 "Enigma_EN",
             }));
-            ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone02_Spoggle_Resonant_Medium_EnemyBundle"))._enemyBundles = list9;
+            ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone02_Spoggle_Resonant_Medium_EnemyBundle"))._enemyBundles = oopslist9;
 
             if (SaltsReseasoned.trolling < 50)
             {
