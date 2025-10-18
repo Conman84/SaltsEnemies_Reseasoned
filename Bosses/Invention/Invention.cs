@@ -103,18 +103,20 @@ namespace SaltsEnemies_Reseasoned
             };
 
             Ability series = new Ability("Series", "Series_A");
-            series.Description = "Produce 3 random Pigment.";
+            series.Description = "Consume all Pigment.\nDouble the maximum health of all party members";
             series.Rarity = Rarity.GetCustomRarity("invention3");
             series.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(randomize, 3, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeAllManaEffect>(), 1, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DoubleMaxHealthTargetEffect>(), 1, Targeting.Unit_AllOpponents)
             };
             series.Visuals = CustomVisuals.GetVisuals("Salt/Cube");
             series.AnimationTarget = TargettingSelf_NotSlot.Create();
-            series.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
+            series.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), new string[]
             {
-                "Mana_Generate",
+                "Mana_Consume",
             });
+            series.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Other_MaxHealth_Alt.ToString()]);
 
             DamageByStoredValueEffect limitdamage = ScriptableObject.CreateInstance<DamageByStoredValueEffect>();
             limitdamage._increaseDamage = false;
