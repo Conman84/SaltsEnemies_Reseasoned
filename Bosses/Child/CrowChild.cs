@@ -35,6 +35,8 @@ namespace SaltsEnemies_Reseasoned
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.MultiAttack2, Passives.SlipperyGenerator(3), Violent.Generate(4) });
             template.AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_NoRepeats>();
 
+            template.AddUnitType("Bird");
+
             Ability first = new Ability("Masquerade", "CC_Masquerade_A");
             first.Description = "Inflict 1 Ruptured and 2 Frail to the Left and Right party members.";
             first.Rarity = Rarity.GetCustomRarity("rarity5");
