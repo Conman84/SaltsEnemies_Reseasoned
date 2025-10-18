@@ -194,7 +194,7 @@ namespace SaltsEnemies_Reseasoned
             gloves.EquippedModifiers = [];
             gloves.TriggerOn = AdvancedDamageTrigger.Dealt;
             gloves.DoesPopUpInfo = false;
-            gloves.Conditions = [DamageTargetEffectsCondition.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.Self)], true)];
+            gloves.Conditions = [DamageTargetEffectsCondition.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Targeting.Slot_SelfAll)], true)];
             gloves.DoesActionOnTriggerAttached = false;
             gloves.ConsumeOnTrigger = TriggerCalls.Count;
             gloves.ConsumeOnUse = false;
