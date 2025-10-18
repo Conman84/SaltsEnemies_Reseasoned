@@ -103,11 +103,11 @@ namespace SaltsEnemies_Reseasoned
             };
 
             Ability series = new Ability("Series", "Series_A");
-            series.Description = "Produce 5 random Pigment.";
+            series.Description = "Produce 3 random Pigment.";
             series.Rarity = Rarity.GetCustomRarity("invention3");
             series.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(randomize, 5, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(randomize, 3, Targeting.Slot_SelfSlot),
             };
             series.Visuals = CustomVisuals.GetVisuals("Salt/Cube");
             series.AnimationTarget = TargettingSelf_NotSlot.Create();
