@@ -27,6 +27,14 @@ namespace SaltsEnemies_Reseasoned
             //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("Wall_EN").enemyTemplate;
 
             //maintain
+            GenerateRandomManaBetweenEffect randomize = ScriptableObject.CreateInstance<GenerateRandomManaBetweenEffect>();
+            randomize.possibleMana = new ManaColorSO[]
+            {
+                Pigments.Blue,
+                Pigments.Yellow,
+                Pigments.Purple
+            };
+
             ExtraAttackPassiveAbility baseExtra = LoadedAssetsHandler.GetEnemy("Xiphactinus_EN").passiveAbilities[1] as ExtraAttackPassiveAbility;
             ExtraAttackPassiveAbility maintain = ScriptableObject.CreateInstance<ExtraAttackPassiveAbility>();
             maintain.conditions = baseExtra.conditions;
@@ -43,12 +51,14 @@ namespace SaltsEnemies_Reseasoned
             maintain._triggerOn = baseExtra._triggerOn;
             Ability bonus = new Ability("Maintenance_A");
             bonus.Name = "Maintenance";
-            bonus.Description = "Inflict 1 Scar on the Central party member.\nIf there is no Central party member, inflict 1 Scar on all party members.";
+            bonus.Description = "Inflict 1 Scar on the Central party member and generate 3 random non-Red Pigment.\nIf there is no Central party member, inflict 1 Scar on all party members.";
             bonus.Rarity = Rarity.GetCustomRarity("rarity5");
-            bonus.Effects = new EffectInfo[2];
+            bonus.Effects = new EffectInfo[3];
             bonus.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.GenerateGenericTarget([2]));
             bonus.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Unit_AllOpponents, HasCentralPartyMemberCondition.Create(false));
-            bonus.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Status_Scars"]);
+            bonus.Effects[2] = Effects.GenerateEffect(randomize, 3, Slots.Self);
+            bonus.AddIntentsToTarget(Targetting.Everything(false), ["Status_Scars"]);
+            bonus.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), ["Mana_Generate"]);
             bonus.Visuals = CustomVisuals.GetVisuals("Salt/Crush");
             bonus.AnimationTarget = Targeting.GenerateGenericTarget([2]);
             AbilitySO ability = bonus.GenerateEnemyAbility(false).ability;
@@ -92,15 +102,6 @@ namespace SaltsEnemies_Reseasoned
                 AnimationTarget = Targetting_By_Moved.Create(false),
             };
             encroach.AddIntentsToTarget(Targetting.Everything(false), ["Misc_Hidden", "Status_Ruptured", "Damage_1_2"]);
-
-            GenerateRandomManaBetweenEffect randomize = ScriptableObject.CreateInstance<GenerateRandomManaBetweenEffect>();
-            randomize.possibleMana = new ManaColorSO[4]
-            {
-                Pigments.Red,
-                Pigments.Blue,
-                Pigments.Yellow,
-                Pigments.Purple
-            };
 
             Ability series = new Ability("Series", "Series_A");
             series.Description = "Consume all Pigment.\nDouble the maximum health of all party members";
