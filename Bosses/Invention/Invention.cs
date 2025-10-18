@@ -125,14 +125,14 @@ namespace SaltsEnemies_Reseasoned
             resetlimit._valueName = "Limit_A";
 
             Ability limit = new Ability("Limit", "Limit_A");
-            limit.Description = "Deal an Agonizing amount of damage to the Center position.\nReduce this ability's damage by the damage dealt.\nReset if no damage is dealt.";
+            limit.Description = "Deal an Agonizing amount of damage to the Center position.\nCurse the highest health party member if there is no Central Opposing party member.";
             limit.Rarity = Rarity.Common;
             limit.Effects = [
                 Effects.GenerateEffect(limitdamage, 10, Targeting.GenerateGenericTarget([2])),
-                Effects.GenerateEffect(ChanageValueByPreviousEffect.Create("Limit_A", true), 1, Slots.Self),
-                Effects.GenerateEffect(resetlimit, 0, Slots.Self, BasicEffects.DidThat(false, 2))
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Targetting.HighestEnemy, HasCentralPartyMemberCondition.Create(false))
                 ];
-            limit.AddIntentsToTarget(Targeting.GenerateGenericTarget([2]), ["Damage_7_10", "Misc"]);
+            limit.AddIntentsToTarget(Targeting.GenerateGenericTarget([2]), ["Damage_7_10"]);
+            limit.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Status_Cursed"]);
             limit.Visuals = CustomVisuals.GetVisuals("Salt/Censor");
             limit.AnimationTarget = Targeting.GenerateGenericTarget([2]);
             limit.UnitStoreData = UnitStoreData.CreateAndAdd_IntTooltip_UnitStoreDataToPool("Limit_A", "Limit -{0}", Misc.GetInGame_UITextColor(Misc.UITextColorIDs.Negative));
