@@ -15,7 +15,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 if (target.HasUnit && target.Unit.ID == caster.SimpleGetStoredValue(PostFire))
                 {
-                    CombatManager.Instance.AddUIAction(new PlayAbilityAnimationNoCasterAction(CustomVisuals.GetVisuals("Salt/Cannon"), target.SelfArray()));
+                    CombatManager.Instance.AddUIAction(new PlayAbilityAnimationNoCasterAction(CustomVisuals.GetVisuals("Salt/Cannon"), TargettingSelf_NotSlot.Create().GetTargets(stats.combatSlots, target.Unit.SlotID, target.Unit.IsUnitCharacter)));
                     return base.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, UnityEngine.Random.Range(6, 10), out exitAmount);
                 }
             }
