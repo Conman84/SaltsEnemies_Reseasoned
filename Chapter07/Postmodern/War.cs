@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("WarIcon.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("WarDead.png", new Vector2(0.5f, 0f), 32),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("WarWorld.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Soisenay/HauntlingHit",
+                DeathSound = "event:/Hawthorne/Soisenay/HauntlingDie",
             };
             template.PrepareEnemyPrefab("assets/group4/War/War_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/War/War_Gibs.prefab").GetComponent<ParticleSystem>());
 
