@@ -19,8 +19,8 @@ namespace SaltsEnemies_Reseasoned
             friend.Icon = ResourceLoader.LoadSprite("item_friendshipbriefcase.png");
             friend.EquippedModifiers = [];
             friend.TriggerOn = TriggerCalls.OnWillApplyHeal;
-            friend.DoesPopUpInfo = false;
-            friend.Conditions = [ItemExtensions.Heal(2, true, false)];
+            friend.DoesPopUpInfo = true;
+            friend.Conditions = [ItemExtensions.Heal(2, true, false, false)];
             friend.DoesActionOnTriggerAttached = false;
             friend.ConsumeOnTrigger = TriggerCalls.OnDidApplyDamage;
             friend.ConsumeOnUse = false;

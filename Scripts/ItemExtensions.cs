@@ -1,6 +1,7 @@
 ﻿using BrutalAPI;
 using System;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using System.Text;
 using UnityEngine;
 
@@ -87,19 +88,21 @@ namespace SaltsEnemies_Reseasoned
             ret.increase = increase;
             return ret;
         }
-        public static EffectorConditionSO Heal(int percent, bool increase, bool ispercent = true)
+        public static EffectorConditionSO Heal(int percent, bool increase, bool ispercent = true, bool retVal = true)
         {
             if (!ispercent)
             {
                 HealIncreaseCondition dam = ScriptableObject.CreateInstance<HealIncreaseCondition>();
                 if (!increase) percent *= -1;
                 dam.amount = percent;
+                dam.ret = retVal;
                 return dam;
             }
 
             HealIncreasePercentCondition ret = ScriptableObject.CreateInstance<HealIncreasePercentCondition>();
             ret.percentage = percent;
             ret.increase = increase;
+            ret.ret = retVal;
             return ret;
         }
         public static EffectorConditionSO Defense(int percent, bool increase, bool direct)
@@ -130,6 +133,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public int percentage;
         public bool increase;
+        public bool ret;
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
             if (args is HealingDealtValueChangeException value)
@@ -137,7 +141,7 @@ namespace SaltsEnemies_Reseasoned
                 (effector as IUnit).ShowItem();
                 value.AddModifier(new PercentageValueModifier(true, percentage, increase));
             }
-            return true;
+            return ret;
         }
     }
     public class DamageIncreaseCondition : EffectorConditionSO
@@ -156,6 +160,7 @@ namespace SaltsEnemies_Reseasoned
     public class HealIncreaseCondition : EffectorConditionSO
     {
         public int amount;
+        public bool ret;
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
             if (args is HealingDealtValueChangeException value)
@@ -163,7 +168,7 @@ namespace SaltsEnemies_Reseasoned
                 (effector as IUnit).ShowItem();
                 value.AddModifier(new AdditionValueModifier(true, amount));
             }
-            return true;
+            return ret;
         }
     }
     public class DefenseCondition : EffectorConditionSO
