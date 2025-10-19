@@ -34,7 +34,7 @@ namespace SaltsEnemies_Reseasoned
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Overexert1, Passives.Dying, Passives.Withering });
 
-            Ability first = new Ability("ability 1", "Corpse1_A");
+            Ability first = new Ability("Ripper", "Corpse1_A");
             first.Description = "Inflict 3 Ruptured on the Opposing party member.";
             first.Rarity = Rarity.GetCustomRarity("rarity5");
             first.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 3, Slots.Front)];
@@ -42,13 +42,13 @@ namespace SaltsEnemies_Reseasoned
             first.Visuals = LoadedAssetsHandler.GetCharacterAbility("OfDeath_1_A").visuals;
             first.AnimationTarget = Slots.Front;
 
-            Ability second = new Ability("ability 2", "Corpse2_A");
-            second.Description = "Do nothing.";
+            Ability second = new Ability("Corpse", "Corpse2_A");
+            second.Description = "Do nothing.\n\"It's literally a corpse what do you expect?\"";
             second.Rarity = first.Rarity;
             second.Effects = [];
             second.Visuals = null;
 
-            Ability third = new Ability("Flakes", "Corpse3_A");
+            Ability third = new Ability("Shear", "Corpse3_A");
             third.Description = "Inflict 1 Ruptured on all party members not Opposing this enemy.";
             third.AnimationTarget = Targeting.GenerateSlotTarget([-4, -3, -2, -1, 1, 2, 3, 4], false);
             third.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, third.ability.animationTarget)];
@@ -87,7 +87,7 @@ namespace SaltsEnemies_Reseasoned
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Unstable, Passives.Skittish, decay });
 
-            Ability first = new Ability("Smiler A", "Smiler_Ability1_A");
+            Ability first = new Ability("Pry", "Smiler_Ability1_A");
             first.Description = "Deal a Little damage to the Opposing party member.\nMove them Left or Right.";
             first.Rarity = Rarity.GetCustomRarity("rarity5");
             first.Effects = [
@@ -98,7 +98,7 @@ namespace SaltsEnemies_Reseasoned
             first.Visuals = LoadedAssetsHandler.GetCharacterAbility("Shank_1_A").visuals;
             first.AnimationTarget = Slots.Front;
 
-            Ability second = new Ability("Smiler B", "Smiler_Ability2_A");
+            Ability second = new Ability("Razors", "Smiler_Ability2_A");
             second.Description = "Inflict 2 Ruptured on the Left and Right party members.";
             second.Rarity = first.Rarity;
             second.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Slots.LeftRight)];
@@ -106,7 +106,7 @@ namespace SaltsEnemies_Reseasoned
             second.Visuals = LoadedAssetsHandler.GetEnemyAbility("Boil_A").visuals;
             second.AnimationTarget = Slots.LeftRight;
 
-            Ability third = new Ability("Smiler C", "Smiler_Ability3_A");
+            Ability third = new Ability("Peel", "Smiler_Ability3_A");
             third.Description = "If the Opposing party member is Ruptured, deal an Agonizing amount of damage to them.";
             third.Rarity = first.Rarity;
             third.Effects = new EffectInfo[2];
