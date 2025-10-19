@@ -219,14 +219,17 @@ namespace SaltsEnemies_Reseasoneds
     public class StatusFieldSpeedSecondUIAction : CombatAction
     {
         public static float Origin;
+        public static bool Sped;
         public static void SpeedUp(CombatStats stats)
         {
-            Origin = stats.combatUI._popUpHandler3D._StatusWaitTime;
+            if (!Sped) Origin = stats.combatUI._popUpHandler3D._StatusWaitTime;
             stats.combatUI._popUpHandler3D._StatusWaitTime = 0;
+            Sped = true;
         }
         public override IEnumerator Execute(CombatStats stats)
         {
             stats.combatUI._popUpHandler3D._StatusWaitTime = Origin;
+            Sped = false;
             yield break;
         }
     }
