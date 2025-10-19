@@ -27,8 +27,10 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
             };
-            //template.PrepareEnemyPrefab("assets/group4/Smilers/Smilers_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Smilers/Smilers_Gibs.prefab").GetComponent<ParticleSystem>());
-            template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("TaintedYolk_EN").enemyTemplate;
+            template.PrepareEnemyPrefab("Assets/Bosses/Smiler/SmilerCorpse_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.enemy.enemyTemplate.m_Data.m_Renderer = template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Body").Find("Face").GetComponent<SpriteRenderer>();
+
+            //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("TaintedYolk_EN").enemyTemplate;
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Overexert1, Passives.Dying, Passives.Withering });
 
@@ -58,6 +60,7 @@ namespace SaltsEnemies_Reseasoned
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 first.GenerateEnemyAbility(true),
+                third.GenerateEnemyAbility(true),
                 second.GenerateEnemyAbility()
             });
             template.AddEnemy(true);
@@ -74,7 +77,9 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
             };
-            template.PrepareEnemyPrefab("Assets/TestSprites/Test_Smilers_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.PrepareEnemyPrefab("Assets/Bosses/Smiler/Smilers_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.enemy.enemyTemplate.m_Data.m_Renderer = template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Body").Find("Face").GetComponent<SpriteRenderer>();
+
             //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("BronzoExtra_EN").enemyTemplate;
 
             BasePassiveAbilitySO decay = Passives.DecayGenerator(LoadedAssetsHandler.GetEnemy("Smiler_Corpse_BOSS"));
