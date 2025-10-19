@@ -12,6 +12,7 @@ using Tools;
 using Yarn.Unity;
 using UnityEngine.SceneManagement;
 using SaltsEnemies_Reseasoned;
+using HarmonyLib;
 
 /*I DO ALL THESE*/
 //call NoiseHandler.Setup() in awake
@@ -338,7 +339,7 @@ namespace SaltEnemies_Reseasoned
         {
             IDetour awakening = new Hook(typeof(OverworldManagerBG).GetMethod(nameof(OverworldManagerBG.Awake), ~BindingFlags.Default), typeof(PostmodernHandler).GetMethod(nameof(Awake), ~BindingFlags.Default));
             IDetour diologo = new Hook(typeof(OverworldManagerBG).GetMethod(nameof(OverworldManagerBG.InitializeDialogueFunctions), ~BindingFlags.Default), typeof(PostmodernHandler).GetMethod(nameof(InitializeDialogueFunctions), ~BindingFlags.Default));
-            IDetour hook = new Hook(typeof(InGameDataSO).GetMethod(nameof(InGameDataSO.DidCompleteQuest), ~BindingFlags.Default), typeof(PostmodernHandler).GetMethod(nameof(DidCompleteQuest), ~BindingFlags.Default));
+            //IDetour hook = new Hook(typeof(InGameDataSO).GetMethod(nameof(InGameDataSO.DidCompleteQuest), ~BindingFlags.Default), typeof(PostmodernHandler).GetMethod(nameof(DidCompleteQuest), ~BindingFlags.Default));
             Add();
             Hacks.Setup();
             postmodernevent();
@@ -466,6 +467,8 @@ namespace SaltEnemies_Reseasoned
 
             room._npcSelectable._renderers[0].material = SpriteMat;
 
+            //(room._npcSelectable as PostmodernRoomItem).Room = room;
+
             LoadedAssetsHandler.TryAddExternalOWRoom(RoomPrefab, room);
             //if (!LoadedAssetsHandler.LoadedRoomPrefabs.Keys.Contains(PathUtils.encounterRoomsResPath + RoomPrefab)) LoadedAssetsHandler.LoadedRoomPrefabs.Add(PathUtils.encounterRoomsResPath + RoomPrefab, room);
             //else LoadedAssetsHandler.LoadedRoomPrefabs[PathUtils.encounterRoomsResPath + RoomPrefab] = room;
@@ -494,18 +497,21 @@ namespace SaltEnemies_Reseasoned
             ret.encounterRoom = RoomPrefab;
             ret.signID = Sign;
             ret.encounterEntityIDs = new string[] { Entity };
-            ret.m_QuestsCompletedNeeded = new string[0];
-            if (!LoadedAssetsHandler.LoadedBasicEncounters.Keys.Contains(Encounter)) LoadedAssetsHandler.LoadedBasicEncounters.Add(Encounter, ret);
-            else LoadedAssetsHandler.LoadedBasicEncounters[Encounter] = ret;
+            ret.m_QuestsCompletedNeeded = [];
+            //if (!LoadedAssetsHandler.LoadedBasicEncounters.Keys.Contains(Encounter)) LoadedAssetsHandler.LoadedBasicEncounters.Add(Encounter, ret);
+            //else LoadedAssetsHandler.LoadedBasicEncounters[Encounter] = ret;
 
+            ModdedNPCs.AddCustom_ConditionEncounter(Encounter, ret);
 
             ZoneBGDataBaseSO gardE = LoadedAssetsHandler.GetZoneDB("ZoneDB_03") as ZoneBGDataBaseSO;
             ZoneBGDataBaseSO gardH = LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_03") as ZoneBGDataBaseSO;
 
             CardTypeInfo card = new CardTypeInfo();
-            card._cardInfo = new CardInfo() { cardType = CardType.Flavour, pilePosition = PilePositionType.Any };
-            card._percentage = 15;
-            card._usePercentage = true;
+            card._cardInfo = new CardInfo() { cardType = CardType.QuestSpecial, pilePosition = PilePositionType.Any };
+            card._minimumAmount = 1;
+            card._maximumAmount = 1;
+            card._usePercentage = !April.Birthday;
+            card._percentage = 5;
 
             //RunDataSO.PopulateRoomInstance
 
@@ -520,10 +526,12 @@ namespace SaltEnemies_Reseasoned
                 //gardE._deckInfo._possibleCards = oldEC.ToArray();
             }*/
 
-            if (!gardH._FlavourPool.Contains(Encounter))
+            if (!gardH._SpecialQuestPool.Contains(Encounter))
             {
-                gardH._FlavourPool.Add(Encounter);
-                List<CardTypeInfo> oldHC = new List<CardTypeInfo>(gardH._deckInfo._possibleCards);
+                gardH._SpecialQuestPool.Add(Encounter);
+                card._cardInfo.specialID = gardH._SpecialQuestPool.Count - 1;
+                card._cardInfo.specialString = Sign;
+                List<CardTypeInfo> oldHC = gardH._deckInfo._possibleCards.ToList();
                 oldHC.Add(card);
                 gardH._deckInfo._possibleCards = oldHC.ToArray();
             }
@@ -556,6 +564,7 @@ namespace SaltEnemies_Reseasoned
         {
             if (questName == Quest && !April.Birthday)
             {
+                //return false;
                 return (UnityEngine.Random.Range(0, 100) < 75);
             }
             return orig(self, questName);
@@ -570,12 +579,56 @@ namespace SaltEnemies_Reseasoned
             //IDetour hook = new Hook(typeof(RunDataSO).GetMethod(nameof(RunDataSO.PopulateRoomInstance), ~BindingFlags.Default), typeof(Hacks).GetMethod(nameof(PopulateRoomInstance), ~BindingFlags.Default));
             IDetour cont = new Hook(typeof(MainMenuController).GetMethod(nameof(MainMenuController.LoadOldRun), ~BindingFlags.Default), typeof(Hacks).GetMethod(nameof(LoadOldRun), ~BindingFlags.Default));
             IDetour emba = new Hook(typeof(MainMenuController).GetMethod(nameof(MainMenuController.OnEmbarkPressed), ~BindingFlags.Default), typeof(Hacks).GetMethod(nameof(LoadOldRun), ~BindingFlags.Default));
+            //IDetour room = new Hook(typeof(RunDataSO).GetMethod(nameof(RunDataSO.GetRoomInstance), ~BindingFlags.Default), typeof(Hacks).GetMethod(nameof(RunDataSO_GetRoomInstance), ~BindingFlags.Default));
             //ScreenShake.Setup();
         }
         public static void LoadOldRun(Action<MainMenuController> orig, MainMenuController self)
         {
             orig(self);
             PostmodernHandler.postmodernevent();
+        }
+
+        public static BaseRoomHandler RunDataSO_GetRoomInstance(Func<RunDataSO, int, BaseRoomHandler> orig, RunDataSO self, int cardID)
+        {
+            BaseRoomHandler ret = orig(self, cardID);
+            if (ret is PostmodernRoomHandler room) return self.PopulateRoomInstance(self.zoneData[self._currentZoneID].GetCard(cardID));
+            return ret;
+        }
+    }
+
+
+    public class PostmodernRoomHandler : NPCRoomHandler
+    {
+        public int DataID;
+        public override void PopulateRoom(IGameCheckData gameData, IMinimalRunInfoData runData, IMinimalZoneInfoData zoneData, int dataID)
+        {
+            //Debug.Log("we are running populate room. this should be adding the entity data");
+            dataID = (zoneData as RunZoneData).AddDialoguePathData(new TalkingEntityContentData("PostmodernConvo"));
+            _extraSelectable?.SetSpecialBehaviour(gameData, setAsExtra: true);
+            DialogueDataReference args = new DialogueDataReference(dataID, _dialogueMusic);
+            _npcSelectable.SetClickData(Utils.startDialogNtf, args);
+            _entityData = zoneData.GetTalkingEntityData(dataID);
+            DataID = dataID;
+        }
+        public override void PrepareRoom()
+        {
+            if (this._entityData == null) Debug.LogError("its the entity data");
+            if (this.RoomSelectables[0] == null) Debug.LogError("its the npcselectable");
+            base.PrepareRoom();
+        }
+    }
+    public class PostmodernRoomItem : BasicRoomItem
+    {
+        public PostmodernRoomHandler Room;
+        public override void PerformClick()
+        {
+            Card card = LoadedDBsHandler.InfoHolder.Run.CurrentZoneData.GetCard(LoadedDBsHandler.InfoHolder.Run.CurrentCardID);
+            card._idInfo = Room.DataID;
+            card._cardType = CardType.Flavour;
+
+            Debug.Log("updated card idinfo");
+
+            base.PerformClick();
         }
     }
 }

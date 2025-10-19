@@ -2,8 +2,10 @@
 using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using UnityEngine;
+using Yarn.Compiler;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -53,7 +55,19 @@ namespace SaltsEnemies_Reseasoned
             ModdedNPCs.AddCustom_ConditionEncounter("Salt_Defacer_Garden", garden);
 
             ZoneBGDataBaseSO zone3 = LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_03") as ZoneBGDataBaseSO;
-            zone3._QuestPool.Add("Salt_Defacer_Garden");
+            zone3._SpecialQuestPool.Add("Salt_Defacer_Garden");
+
+            CardTypeInfo card = new CardTypeInfo();
+            card._cardInfo = new CardInfo() { cardType = CardType.QuestSpecial, pilePosition = PilePositionType.Any };
+            card._minimumAmount = 1;
+            card._maximumAmount = 1;
+            card._usePercentage = false;
+
+            card._cardInfo.specialID = zone3._SpecialQuestPool.Count - 1;
+            card._cardInfo.specialString = "Defacer_Sign";
+            List<CardTypeInfo> oldHC = zone3._deckInfo._possibleCards.ToList();
+            oldHC.Add(card);
+            zone3._deckInfo._possibleCards = oldHC.ToArray();
         }
         public static void OldPatch_Prepare_NPC_RoomPrefab(string prefabBundlePath, string roomID, AssetBundle fileBundle)
         {

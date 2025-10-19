@@ -328,6 +328,7 @@ namespace SaltsEnemies_Reseasoned
 
             //CH7 Encounters
             TheDeepEncounter.Add();
+            //PCall(PostmodernEncounter.Add);
 
             //CH8 Encounters
             SigilEncounters.Add();
