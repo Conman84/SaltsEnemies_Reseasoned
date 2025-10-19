@@ -2,8 +2,11 @@
 using SaltEnemies_Reseasoned;
 using SaltsEnemies_Reseasoned;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
+using UnityEngine.InputSystem;
 using static UnityEngine.GraphicsBuffer;
 
 namespace SaltsEnemies_Reseasoneds
@@ -12,6 +15,8 @@ namespace SaltsEnemies_Reseasoneds
     {
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
+            CombatManager.Instance.AddUIAction(new StatusFieldSpeedUIAction(true));
+            
             foreach (TargetSlotInfo target in targets)
             {
                 RemoveFieldEffect("GreenLight_ID", stats, target);
@@ -22,6 +27,9 @@ namespace SaltsEnemies_Reseasoneds
             {
                 stats.combatSlots.ApplyFieldEffect(target.SlotID, target.IsTargetCharacterSlot, (new FieldEffect_SO[] { Green.Object, Red.Object, Blue.Object }).GetRandom(), 1);
             }
+
+            CombatManager.Instance.AddUIAction(new StatusFieldSpeedUIAction(false));
+
             exitAmount = 0;
             return true;
         }
@@ -48,12 +56,17 @@ namespace SaltsEnemies_Reseasoneds
     {
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
+            CombatManager.Instance.AddUIAction(new StatusFieldSpeedUIAction(true));
+
             foreach (TargetSlotInfo target in targets)
             {
                 RemoveFieldEffect("GreenLight_ID", stats, target);
                 RemoveFieldEffect("RedLight_ID", stats, target);
                 RemoveFieldEffect("BlueLight_ID", stats, target);
             }
+
+            CombatManager.Instance.AddUIAction(new StatusFieldSpeedUIAction(false));
+
             exitAmount = 0;
             return true;
         }
@@ -176,6 +189,30 @@ namespace SaltsEnemies_Reseasoneds
                 else if (target.GetFieldAmount("BlueLight_ID") > 0 && StatusExtensions.GetFieldAmountFromID(casterSlotID, isCasterCharacter, "BlueLight_ID") > 0) ret.Add(target.TargetSlotInformation);
             }
             return ret.ToArray();
+        }
+    }
+    public class StatusFieldSpeedUIAction : CombatAction
+    {
+        public static string Original;
+        public bool Fast;
+
+        public StatusFieldSpeedUIAction(bool fast)
+        {
+            Fast = fast;
+        }
+
+        public override IEnumerator Execute(CombatStats stats)
+        {
+            if (Fast)
+            {
+                Original = CombatManager.Instance._pauseHandler._optionsData.GetModularData("MOpt_StatusFieldPopUpShowTime");
+                CombatManager.Instance._pauseHandler._optionsData.UpdateModularData("MOpt_StatusFieldPopUpShowTime", "0");
+            }
+            else
+            {
+                CombatManager.Instance._pauseHandler._optionsData.UpdateModularData("MOpt_StatusFieldPopUpShowTime", Original);
+            }
+            yield break;
         }
     }
 }

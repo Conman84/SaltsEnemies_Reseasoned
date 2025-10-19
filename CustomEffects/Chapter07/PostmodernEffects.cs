@@ -501,7 +501,7 @@ namespace SaltEnemies_Reseasoned
             //if (!LoadedAssetsHandler.LoadedBasicEncounters.Keys.Contains(Encounter)) LoadedAssetsHandler.LoadedBasicEncounters.Add(Encounter, ret);
             //else LoadedAssetsHandler.LoadedBasicEncounters[Encounter] = ret;
 
-            ModdedNPCs.AddCustom_ConditionEncounter(Encounter, ret);
+            if (!LoadedAssetsHandler.LoadedConditionEncounters.ContainsKey(Encounter)) ModdedNPCs.AddCustom_ConditionEncounter(Encounter, ret);
 
             ZoneBGDataBaseSO gardE = LoadedAssetsHandler.GetZoneDB("ZoneDB_03") as ZoneBGDataBaseSO;
             ZoneBGDataBaseSO gardH = LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_03") as ZoneBGDataBaseSO;
