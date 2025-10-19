@@ -33,12 +33,9 @@ namespace SaltsEnemies_Reseasoned
             radical._enemyDescription = "On being damaged, Adjust All Lights.";
             radical._characterDescription = "On being damaged, Adjust All Lights.";
             radical.doesPassiveTriggerInformationPanel = true;
-            radical.effects = new EffectInfo[] { Effects.GenerateEffect(CasterSubActionEffect.Create(new EffectInfo[] 
+            radical.effects = new EffectInfo[] { Effects.GenerateEffect(CasterRootActionEffect.Create(new EffectInfo[]
             {
-                Effects.GenerateEffect(CasterSubActionEffect.Create([
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeLightsEffects>(), 1, Targetting.Everything(true)),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeLightsEffects>(), 1, Targetting.Everything(false)),
-                    ]))
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeLightsEffects>(), 1, MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false))),
             })) };
             radical._triggerOn = [TriggerCalls.OnDirectDamaged];
             radical.conditions = Passives.Slippery.conditions;

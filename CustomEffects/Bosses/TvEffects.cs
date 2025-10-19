@@ -4,10 +4,7 @@ using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using static UnityEngine.GraphicsBuffer;
 
 namespace SaltsEnemies_Reseasoneds
 {
@@ -15,8 +12,8 @@ namespace SaltsEnemies_Reseasoneds
     {
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
-            CombatManager.Instance.AddUIAction(new StatusFieldSpeedUIAction(true));
-            
+            StatusFieldSpeedSecondUIAction.SpeedUp(stats);
+
             foreach (TargetSlotInfo target in targets)
             {
                 RemoveFieldEffect("GreenLight_ID", stats, target);
@@ -28,7 +25,7 @@ namespace SaltsEnemies_Reseasoneds
                 stats.combatSlots.ApplyFieldEffect(target.SlotID, target.IsTargetCharacterSlot, (new FieldEffect_SO[] { Green.Object, Red.Object, Blue.Object }).GetRandom(), 1);
             }
 
-            CombatManager.Instance.AddUIAction(new StatusFieldSpeedUIAction(false));
+            CombatManager.Instance.AddUIAction(new StatusFieldSpeedSecondUIAction());
 
             exitAmount = 0;
             return true;
@@ -56,7 +53,7 @@ namespace SaltsEnemies_Reseasoneds
     {
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
-            CombatManager.Instance.AddUIAction(new StatusFieldSpeedUIAction(true));
+            StatusFieldSpeedSecondUIAction.SpeedUp(stats);
 
             foreach (TargetSlotInfo target in targets)
             {
@@ -65,7 +62,7 @@ namespace SaltsEnemies_Reseasoneds
                 RemoveFieldEffect("BlueLight_ID", stats, target);
             }
 
-            CombatManager.Instance.AddUIAction(new StatusFieldSpeedUIAction(false));
+            CombatManager.Instance.AddUIAction(new StatusFieldSpeedSecondUIAction());
 
             exitAmount = 0;
             return true;
@@ -207,11 +204,29 @@ namespace SaltsEnemies_Reseasoneds
             {
                 Original = CombatManager.Instance._pauseHandler._optionsData.GetModularData("MOpt_StatusFieldPopUpShowTime");
                 CombatManager.Instance._pauseHandler._optionsData.UpdateModularData("MOpt_StatusFieldPopUpShowTime", "0");
+
+                Debug.Log("test test " + Original);
             }
             else
             {
                 CombatManager.Instance._pauseHandler._optionsData.UpdateModularData("MOpt_StatusFieldPopUpShowTime", Original);
+
+                Debug.Log("test test test test");
             }
+            yield break;
+        }
+    }
+    public class StatusFieldSpeedSecondUIAction : CombatAction
+    {
+        public static float Origin;
+        public static void SpeedUp(CombatStats stats)
+        {
+            Origin = stats.combatUI._popUpHandler3D._StatusWaitTime;
+            stats.combatUI._popUpHandler3D._StatusWaitTime = 0;
+        }
+        public override IEnumerator Execute(CombatStats stats)
+        {
+            stats.combatUI._popUpHandler3D._StatusWaitTime = Origin;
             yield break;
         }
     }
