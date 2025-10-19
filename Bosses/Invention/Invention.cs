@@ -51,10 +51,10 @@ namespace SaltsEnemies_Reseasoned
             maintain._triggerOn = baseExtra._triggerOn;
             Ability bonus = new Ability("Maintenance_A");
             bonus.Name = "Maintenance";
-            bonus.Description = "Inflict 1 Scar on the Central party member and generate 3 random non-Red Pigment.\nIf there is no Central party member, inflict 1 Scar on all party members.";
+            bonus.Description = "Inflict 2 Scars on the Central party member and generate 3 random non-Red Pigment.\nIf there is no Central party member, inflict 1 Scar on all party members.";
             bonus.Rarity = Rarity.GetCustomRarity("rarity5");
             bonus.Effects = new EffectInfo[3];
-            bonus.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.GenerateGenericTarget([2]));
+            bonus.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 2, Targeting.GenerateGenericTarget([2]));
             bonus.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Unit_AllOpponents, HasCentralPartyMemberCondition.Create(false));
             bonus.Effects[2] = Effects.GenerateEffect(randomize, 3, Slots.Self);
             bonus.AddIntentsToTarget(Targetting.Everything(false), ["Status_Scars"]);
