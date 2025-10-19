@@ -37,6 +37,78 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Orph.H.Conductor.Med);
             med.AddRandomGroup("Conductor_EN", Enemies.Camera, Enemies.Camera, "Nameless_EN");
+
+            SaltsReseasoned.PCall(Again);
+        }
+        public static void Again()
+        {
+            AddTo med = new AddTo(Orph.H.Enigma.Med);
+            med.SimpleAddGroup(3, "Enigma_EN", 1, "Nameless_EN");
+
+            med = new AddTo(Orph.H.Crow.Med);
+            med.AddRandomGroup("TheCrow_EN", "Scrungie_EN", "Nameless_EN");
+
+            med = new AddTo(Orph.H.Maw.Med);
+            med.SimpleAddGroup(1, "Maw_EN", 3, "Nameless_EN");
+
+            med = new AddTo(Orph.H.Bot.Red.Med);
+            med.AddRandomGroup(Bots.Red, Bots.Yellow, "Nameless_EN");
+            med = new AddTo(Orph.H.Bot.Yellow.Med);
+            med.AddRandomGroup(Bots.Red, Bots.Yellow, "Nameless_EN");
+
+            med = new AddTo(Orph.H.Crystal.Med);
+            med.AddRandomGroup("Crystal_EN", "MusicMan_EN", "MusicMan_EN", "Nameless_EN");
+
+            med = new AddTo(Orph.H.Evileye.Med);
+            med.AddRandomGroup("Evileye_EN", "Nameless_EN", Spoggle.Red);
+
+            med = new AddTo(Orph.H.YellowAngel.Med);
+            med.AddRandomGroup("YellowAngel_EN", "Nameless_EN", Jumble.Red, Jumble.Yellow);
+
+            med = new AddTo(Orph.H.Solitaire.Med);
+            med.AddRandomGroup("Solitaire_EN", "Solitaire_EN", "Nameless_EN", Jumble.Unstable);
+
+            med = new AddTo(Orph.H.Author.Med);
+            med.AddRandomGroup("Author_EN", "Nameless_EN", "Scrungie_EN", "Author_EN");
+
+            med = new AddTo(Orph.H.MusicMan.Med);
+            med.SimpleAddGroup(3, "MusicMan_EN", 1, "Nameless_EN");
+
+            med = new AddTo(Orph.H.Spoggle.Red.Med);
+            med.AddRandomGroup(Spoggle.Red, Spoggle.Purple, "Nameless_EN");
+            med = new AddTo(Orph.H.Spoggle.Purple.Med);
+            med.AddRandomGroup(Spoggle.Red, Spoggle.Purple, "Nameless_EN");
+
+            AddTo hard = new AddTo(Orph.H.Revola.Hard);
+            hard.AddRandomGroup("Revola_EN", Jumble.Blue, "Nameless_EN");
+
+            hard = new AddTo(Orph.H.Dragon.Hard);
+            hard.AddRandomGroup("TheDragon_EN", "Nameless_EN", "Scrungie_EN", "Scrungie_EN");
+
+            hard = new AddTo(Orph.H.Sacrifice.Hard);
+            hard.AddRandomGroup(Enemies.Sacrifice, Enemies.Sacrifice, "Nameless_EN");
+
+            med = new AddTo(Orph.H.Errant.Med);
+            med.AddRandomGroup("Errant_EN", Jumble.Unstable, "Nameless_EN");
+            med.AddRandomGroup("Errant_EN", "Nameless_EN", "MusicMan_EN");
+
+            med = new AddTo(Orph.H.Dancer.Med);
+            med.AddRandomGroup("BackupDancer_EN", "MusicMan_EN", "MusicMan_EN", "Nameless_EN");
+
+            med = new AddTo(Orph.H.Shuffler.Med);
+            med.AddRandomGroup(Enemies.Shuffler, Enemies.Shuffler, "Nameless_EN");
+
+            med = new AddTo(Orph.H.Heehoo.Med);
+            med.AddRandomGroup("Heehoo_EN", "Nameless_EN", "Scrungie_EN");
+
+            med = new AddTo(Orph.H.Thunderdome.Med);
+            med.AddRandomGroup("Thunderdome_EN", Spoggle.Red, "Nameless_EN");
+
+            med = new AddTo(Orph.H.Moone.Med);
+            med.SimpleAddGroup(3, "Moone_EN", 1, "Nameless_EN");
+
+            med = new AddTo(Orph.H.Shooter.Med);
+            med.SimpleAddGroup(2, Enemies.Shooter, 1, "Nameless_EN");
         }
     }
 }
