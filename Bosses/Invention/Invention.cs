@@ -52,7 +52,7 @@ namespace SaltsEnemies_Reseasoned
             Ability bonus = new Ability("Maintenance_A");
             bonus.Name = "Maintenance";
             bonus.Description = "Inflict 2 Scars on the Central party member and generate 3 random non-Red Pigment.\nIf there is no Central party member, inflict 1 Scar on all party members.";
-            bonus.Rarity = Rarity.GetCustomRarity("rarity5");
+            bonus.Rarity = Rarity.Common;
             bonus.Effects = new EffectInfo[3];
             bonus.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 2, Targeting.GenerateGenericTarget([2]));
             bonus.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Unit_AllOpponents, HasCentralPartyMemberCondition.Create(false));
@@ -105,7 +105,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability series = new Ability("Series", "Series_A");
             series.Description = "Consume all Pigment.\nDouble the maximum health of all party members";
-            series.Rarity = Rarity.CreateAndAddCustomRarityToPool("invention3", 3);
+            series.Rarity = Rarity.GetCustomRarity("rarity5");
             series.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeAllManaEffect>(), 1, Slots.Self),
