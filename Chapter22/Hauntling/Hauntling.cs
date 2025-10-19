@@ -61,12 +61,12 @@ namespace SaltsEnemies_Reseasoned
             twice.AnimationTarget = Slots.Front;
 
             Ability test = new Ability("Crashes Your Game", "CrashesYourGame_A");
-            test.Description = "Curse the Opposing party member. Low chance to crash your game.\n\"I'm done messing around.\"";
+            test.Description = "Curse the Left, Right, and Opposing party members. Low chance to crash your game.\n\"I'm done messing around.\"";
             test.Rarity = Rarity.Common;
             test.Effects = [
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.FrontLeftRight),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<CrashesYourGameEffect>(), 1, Slots.Self, Effects.ChanceCondition(0))];
-            test.AddIntentsToTarget(Slots.Front, ["Status_Cursed"]);
+            test.AddIntentsToTarget(Slots.FrontLeftRight, ["Status_Cursed"]);
             test.AddIntentsToTarget(Slots.Self, ["Misc"]);
             test.Visuals = LoadedAssetsHandler.GetCharacterAbility("Insult_1_A").visuals;
             test.AnimationTarget = Slots.Self;
