@@ -46,7 +46,7 @@ namespace SaltsEnemies_Reseasoned
             antisoftlock.AnimationTarget = Slots.Front;
 
             Ability twice = new Ability("Twice Twice", "TwiceTwice_A");
-            twice.Description = "Instantly kill the Opposing party member.\nAttempt to revive a random party member in the Opposing position at the health of the killed target or 1 (whichever is higher) then Curse them.";
+            twice.Description = "Instantly kill the Opposing party member.\nAttempt to revive a random party member in the Opposing position at the health of the killed target if succesful.";
             twice.Rarity = Rarity.Common;
             twice.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathWithExitValueEffect>(), 1, Slots.Front),
@@ -54,10 +54,9 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(CasterPriorityRootActionByExitEffect.Create([
                     Effects.GenerateEffect(CarryExitPastEffect.Create(BasicEffects.GetVisuals("Salt/Hunt", false, Slots.Front)), 1, Slots.Front),
                     Effects.GenerateEffect(UseExitAsEntryEffect.Create(ScriptableObject.CreateInstance<ResurrectEffect>()), 1, Slots.Front),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.Front, BasicEffects.DidThat(true))
-                    ]), 1, Slots.Self)
+                    ]), 1, Slots.Self, BasicEffects.DidThat(true, 2))
                 ];
-            twice.AddIntentsToTarget(Slots.Front, ["Damage_Death", IntentType_GameIDs.Other_Resurrect.ToString(), "Status_Cursed"]);
+            twice.AddIntentsToTarget(Slots.Front, ["Damage_Death", IntentType_GameIDs.Other_Resurrect.ToString()]);
             twice.Visuals = CustomVisuals.GetVisuals("Salt/Hunt");
             twice.AnimationTarget = Slots.Front;
 
