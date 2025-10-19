@@ -101,6 +101,7 @@
 	  <None Remove="Chapter11\Kyotlokutla\SnakeGodDead.png" />
 	  <None Remove="Chapter11\Kyotlokutla\SnakeGodIcon.png" />
 	  <None Remove="Chapter11\Kyotlokutla\SnakeGodWorld.png" />
+	  <None Remove="Chapter11\Nameless\FractalPassive.png" />
 	  <None Remove="Chapter11\Nameless\NamelessDead.png" />
 	  <None Remove="Chapter11\Nameless\NamelessIcon.png" />
 	  <None Remove="Chapter11\Nameless\NamelessWorld.png" />
@@ -862,6 +863,7 @@
 	  <EmbeddedResource Include="Bosses\Tv\RadicalPassive.png" />
 	  <EmbeddedResource Include="Bosses\Tv\TvWorld.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\ScramblePassive.png" />
+	  <EmbeddedResource Include="Chapter11\Nameless\FractalPassive.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaDead.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaIcon.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaPortal.png" />
