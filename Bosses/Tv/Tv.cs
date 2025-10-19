@@ -26,7 +26,7 @@ namespace SaltsEnemies_Reseasoned
             template.enemy.enemyTemplate.m_Data.m_Renderer = template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").GetComponent<SpriteRenderer>();
 
             //radical
-            PerformEffectImmediatePassiveAbility radical = ScriptableObject.CreateInstance<PerformEffectImmediatePassiveAbility>();
+            PerformEffectPassiveAbility radical = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             radical._passiveName = "Radical";
             radical.passiveIcon = ResourceLoader.LoadSprite("RadicalPassive.png");
             radical.m_PassiveID = "Radical_PA";
@@ -34,7 +34,6 @@ namespace SaltsEnemies_Reseasoned
             radical._characterDescription = "On being damaged, Adjust All Lights.";
             radical.doesPassiveTriggerInformationPanel = true;
             radical.effects = new EffectInfo[] {
-                Effects.GenerateEffect(BasicEffects.SetStoreValue("Radical_PA"), 1, Slots.Self),
                 Effects.GenerateEffect(CasterRootActionEffect.Create(new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeLightsEffects>(), 1, MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false))),
@@ -42,7 +41,7 @@ namespace SaltsEnemies_Reseasoned
                 }
             )) };
             radical._triggerOn = [TriggerCalls.OnDirectDamaged];
-            radical.conditions = new List<EffectorConditionSO>(Passives.Slippery.conditions) { StoredValueEffectorCondition.Create("Radical_PA", true) }.ToArray();
+            radical.conditions = new List<EffectorConditionSO>(Passives.Slippery.conditions) { StoredValueEffectorCondition.Create("Radical_PA", true, true) }.ToArray();
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, radical, Passives.MultiAttack2 });
             AbilitySelector_Bots isolate = ScriptableObject.CreateInstance<AbilitySelector_Bots>();

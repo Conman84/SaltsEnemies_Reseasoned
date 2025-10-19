@@ -237,17 +237,21 @@ namespace SaltsEnemies_Reseasoneds
     {
         public string Value;
         public bool ShouldZero;
+        public bool onlyOnce;
 
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
-            return (effector as IUnit).SimpleGetStoredValue(Value) == 0 == ShouldZero;
+            bool ret = (effector as IUnit).SimpleGetStoredValue(Value) == 0 == ShouldZero;
+            if (onlyOnce) (effector as IUnit).SimpleSetStoredValue(Value, 1);
+            return ret;
         }
 
-        public static StoredValueEffectorCondition Create(string value, bool zero)
+        public static StoredValueEffectorCondition Create(string value, bool zero, bool once = false)
         {
             StoredValueEffectorCondition ret = ScriptableObject.CreateInstance<StoredValueEffectorCondition>();
             ret.Value = value;
             ret.ShouldZero = zero;
+            ret.onlyOnce = once;
             return ret;
         }
     }
