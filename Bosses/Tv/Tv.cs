@@ -42,7 +42,7 @@ namespace SaltsEnemies_Reseasoned
                 }
             )) };
             radical._triggerOn = [TriggerCalls.OnDirectDamaged];
-            radical.conditions = new List<EffectorConditionSO>(Passives.Slippery.conditions) { StoredValueEffectorCondition.Create("Radical_PA", false) }.ToArray();
+            radical.conditions = new List<EffectorConditionSO>(Passives.Slippery.conditions) { StoredValueEffectorCondition.Create("Radical_PA", true) }.ToArray();
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, radical, Passives.MultiAttack2 });
             AbilitySelector_Bots isolate = ScriptableObject.CreateInstance<AbilitySelector_Bots>();
