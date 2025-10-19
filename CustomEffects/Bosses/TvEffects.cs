@@ -233,4 +233,22 @@ namespace SaltsEnemies_Reseasoneds
             yield break;
         }
     }
+    public class StoredValueEffectorCondition : EffectorConditionSO
+    {
+        public string Value;
+        public bool ShouldZero;
+
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            return (effector as IUnit).SimpleGetStoredValue(Value) == 0 == ShouldZero;
+        }
+
+        public static StoredValueEffectorCondition Create(string value, bool zero)
+        {
+            StoredValueEffectorCondition ret = ScriptableObject.CreateInstance<StoredValueEffectorCondition>();
+            ret.Value = value;
+            ret.ShouldZero = zero;
+            return ret;
+        }
+    }
 }

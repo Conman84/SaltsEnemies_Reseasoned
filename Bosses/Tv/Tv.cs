@@ -26,19 +26,23 @@ namespace SaltsEnemies_Reseasoned
             template.enemy.enemyTemplate.m_Data.m_Renderer = template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").GetComponent<SpriteRenderer>();
 
             //radical
-            PerformEffectPassiveAbility radical = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            PerformEffectImmediatePassiveAbility radical = ScriptableObject.CreateInstance<PerformEffectImmediatePassiveAbility>();
             radical._passiveName = "Radical";
             radical.passiveIcon = ResourceLoader.LoadSprite("RadicalPassive.png");
             radical.m_PassiveID = "Radical_PA";
             radical._enemyDescription = "On being damaged, Adjust All Lights.";
             radical._characterDescription = "On being damaged, Adjust All Lights.";
             radical.doesPassiveTriggerInformationPanel = true;
-            radical.effects = new EffectInfo[] { Effects.GenerateEffect(CasterRootActionEffect.Create(new EffectInfo[]
-            {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeLightsEffects>(), 1, MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false))),
-            })) };
+            radical.effects = new EffectInfo[] {
+                Effects.GenerateEffect(BasicEffects.SetStoreValue("Radical_PA"), 1, Slots.Self),
+                Effects.GenerateEffect(CasterRootActionEffect.Create(new EffectInfo[]
+                {
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeLightsEffects>(), 1, MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false))),
+                    Effects.GenerateEffect(BasicEffects.SetStoreValue("Radical_PA"), 0, Slots.Self)
+                }
+            )) };
             radical._triggerOn = [TriggerCalls.OnDirectDamaged];
-            radical.conditions = Passives.Slippery.conditions;
+            radical.conditions = new List<EffectorConditionSO>(Passives.Slippery.conditions) { StoredValueEffectorCondition.Create("Radical_PA", false) }.ToArray();
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, radical, Passives.MultiAttack2 });
             AbilitySelector_Bots isolate = ScriptableObject.CreateInstance<AbilitySelector_Bots>();
