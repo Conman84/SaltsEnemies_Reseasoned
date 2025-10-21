@@ -265,4 +265,13 @@ namespace SaltsEnemies_Reseasoned
             return true;
         }
     }
+
+    public class HasTurnsCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (effector is EnemyCombat enemy) return enemy.TurnsInTimeline > 0;
+            return false;
+        }
+    }
 }

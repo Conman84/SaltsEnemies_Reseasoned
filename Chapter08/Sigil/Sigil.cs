@@ -39,7 +39,7 @@ namespace SaltsEnemies_Reseasoned
             sigil._triggerOn = new TriggerCalls[] { TriggerCalls.OnTurnStart };
             
 
-            monolith.AddPassives(new BasePassiveAbilitySO[] { sigil, Passives.Formless, Passives.Withering });
+            monolith.AddPassives(new BasePassiveAbilitySO[] { sigil, Passives.Formless });
             //AddPassiveCopyEffect addpassive = ScriptableObject.CreateInstance<AddPassiveCopyEffect>();
             //addpassive._passiveToAdd = sigil;
             //monolith.CombatEnterEffects = Effects.GenerateEffect(addpassive).SelfArray();

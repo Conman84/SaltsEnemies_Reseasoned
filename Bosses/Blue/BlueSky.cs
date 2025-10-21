@@ -46,7 +46,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetForceFirstActionEffect>(), 1, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Slots.Self, BasicEffects.DidThat(true))
                 ];
-            acting.conditions = Passives.Slippery.conditions;
+            acting.conditions = new List<EffectorConditionSO>(Passives.Slippery.conditions) { ScriptableObject.CreateInstance<HasTurnsCondition>() }.ToArray();
 
             template.AddPassives(new BasePassiveAbilitySO[] { acting, Passives.MultiAttack2, Passives.EssenceRed });
 
