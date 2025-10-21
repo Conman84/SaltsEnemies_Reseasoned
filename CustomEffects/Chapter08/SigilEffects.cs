@@ -498,7 +498,7 @@ namespace SaltEnemies_Reseasoned
             float working = value;
             for (int i = 0; i < Defenses; i++) working /= 2;
             int final = (int)Math.Floor(working);
-            CombatManager.Instance.ProcessImmediateAction(new TriggerDefensiveSIgilImmediateAction(value - final, Chara));
+            if (final < value) CombatManager.Instance.ProcessImmediateAction(new TriggerDefensiveSIgilImmediateAction(value - final, Chara));
             return final;
         }
     }
