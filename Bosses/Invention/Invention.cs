@@ -79,11 +79,13 @@ namespace SaltsEnemies_Reseasoned
             allenemy.getAllUnitSlots = false;
 
             Ability repeat = new Ability("Repeater", "Repeater_A");
-            repeat.Description = "Deal a Painful amount of damage to a random party member that did not manually move this turn.";
+            repeat.Description = "Deal a Painful amount of damage to a random party member that did not manually move this turn.\nIf every party member manually moved, deal a Painful amount of damage to this enemy.";
             repeat.Rarity = Rarity.Impossible;
-            repeat.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageTargetRandomEffect>(), 5, allenemy)];
+            repeat.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageTargetRandomEffect>(), 5, allenemy),
+            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Self, ScriptableObject.CreateInstance<EverybodyMovedCondition>())];
             repeat.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
             repeat.AddIntentsToTarget(allenemy, ["Damage_3_6"]);
+            repeat.AddIntentsToTarget(Slots.Self, ["Damage_3_6"]);
             repeat.Visuals = CustomVisuals.GetVisuals("Salt/Insta/Shatter");
             repeat.AnimationTarget = TargettingSelf_NotSlot.Create();
 
@@ -104,11 +106,11 @@ namespace SaltsEnemies_Reseasoned
             encroach.AddIntentsToTarget(Targetting.Everything(false), ["Misc_Hidden", "Status_Ruptured", "Damage_1_2"]);
 
             Ability series = new Ability("Series", "Series_A");
-            series.Description = "Consume all Pigment.\nDouble the maximum health of all party members";
+            series.Description = "Consume 3 random Pigment.\nDouble the maximum health of all party members";
             series.Rarity = Rarity.GetCustomRarity("rarity5");
             series.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeAllManaEffect>(), 1, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeRandomManaEffect>(), 3, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DoubleMaxHealthTargetEffect>(), 1, Targeting.Unit_AllOpponents)
             };
             series.Visuals = CustomVisuals.GetVisuals("Salt/Cube");

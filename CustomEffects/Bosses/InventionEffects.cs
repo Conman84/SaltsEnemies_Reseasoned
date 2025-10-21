@@ -107,4 +107,15 @@ namespace SaltsEnemies_Reseasoned
             return ret.ToArray();
         }
     }
+    public class EverybodyMovedCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
+            {
+                if (!chara.HasManuallySwappedThisTurn) return false;
+            }
+            return true;
+        }
+    }
 }
