@@ -69,7 +69,7 @@ namespace SaltEnemies_Reseasoned
                         }
                         if (notificationName == TriggerCalls.OnBeingDamaged.ToString() && GetSigilPassive(chara) != null && GetSigilPassive(chara)._sigil == SigilType.Defensive && args is DamageReceivedValueChangeException hitted)
                         {
-                            if (unit.CurrentHealth > 0)
+                            if (unit.CurrentHealth > 0 && hitted.directDamage && (GetSigilPassive(unit as IPassiveEffector) == null || GetSigilPassive(unit as IPassiveEffector)._sigil != SigilType.Defensive))
                             {
                                 ids.Add(chara.ID);
                                 ischara.Add(chara.IsUnitCharacter);
@@ -115,7 +115,7 @@ namespace SaltEnemies_Reseasoned
                         }
                         if (notificationName == TriggerCalls.OnBeingDamaged.ToString() && GetSigilPassive(enemy) != null && GetSigilPassive(enemy)._sigil == SigilType.Defensive && args is DamageReceivedValueChangeException hitted)
                         {
-                            if (unit.CurrentHealth > 0)
+                            if (unit.CurrentHealth > 0 && hitted.directDamage && (GetSigilPassive(unit as IPassiveEffector) == null || GetSigilPassive(unit as IPassiveEffector)._sigil != SigilType.Defensive))
                             {
                                 ids.Add(enemy.ID);
                                 ischara.Add(enemy.IsUnitCharacter);
