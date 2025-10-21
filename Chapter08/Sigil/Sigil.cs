@@ -53,37 +53,42 @@ namespace SaltsEnemies_Reseasoned
             Ability offense = new Ability("Sigil_Offense_A")
             {
                 Name = "Offensive Sigil",
-                Description = "All enemies will deal a third of this enemy's current health as additional damage this turn, until this enemy's next turn.",
+                Description = "All enemies will deal a third of this enemy's current health as additional damage this turn, until this enemy's next turn.\nDeal a Little damage to this enemy and the Opposing party member.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("Sigil_10", 10),
                 Effects = new EffectInfo[]
                 {
                             Effects.GenerateEffect(value, 2, allAlly),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterSetSigilPassiveEffect>(), 2),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilSongCheckEffect>(), 1, allAlly),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilEffect>(), 1, allAlly)
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilEffect>(), 1, allAlly),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, MultiTargetting.Create(Slots.Front, Slots.Self))
                 },
                 Visuals = LoadedAssetsHandler.GetCharacterAbility("Wrath_1_A").visuals,
                 AnimationTarget = allAlly,
             };
             offense.AddIntentsToTarget(allAlly, new string[] { SigilManager.AtkTxt, SigilManager.OtherUpAlt });
+            offense.AddIntentsToTarget(Slots.Front, ["Damage_1_2"]);
+            offense.AddIntentsToTarget(Slots.Self, ["Damage_1_2"]);
 
             //DEFENSE
             Ability defense = new Ability("Sigil_Defense_A")
             {
                 Name = "Defensive Sigil",
-                Description = "All enemies will move Left or Right on receiving direct damage or on performing an ability, until this enemy's next turn.",
+                Description = "All enemies will move Left or Right on receiving direct damage or on performing an ability, until this enemy's next turn.\nApply 2 Shield to all enemy positions.",
                 Rarity = Rarity.GetCustomRarity("Sigil_10"),
                 Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(value, 1, allAlly),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterSetSigilPassiveEffect>(), 1),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilSongCheckEffect>(), 1, allAlly),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilEffect>(), 0, allAlly)
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilEffect>(), 0, allAlly),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 2, Targetting.Everything(true))
                         },
                 Visuals = LoadedAssetsHandler.GetCharacterAbility("Resolve_1_A").visuals,
                 AnimationTarget = allAlly,
             };
             defense.AddIntentsToTarget(allAlly, new string[] { SigilManager.SpdTxt, SigilManager.UpArrow });
+            defense.AddIntentsToTarget(Targetting.Everything(true), ["Field_Shield"]);
 
             //SPECTRAL
             Ability spectral = new Ability("Sigil_Spectral_A")
@@ -106,16 +111,18 @@ namespace SaltsEnemies_Reseasoned
             //intense
             Ability intense = new Ability("Sigil_Intensive_A");
             intense.Name = "Intensive Sigil";
-            intense.Description = "All enemies will produce 2 additional Pigment of their health color on being damaged until this enemy's next turn.";
+            intense.Description = "All enemies will produce 2 additional Pigment of their health color on being damaged until this enemy's next turn.\nRandomize this enemy's health color.";
             intense.Rarity = Rarity.GetCustomRarity("rarity5");
             intense.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(value, 5, Targeting.Slot_SelfSlot),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterSetSigilPassiveEffect>(), 5),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilSongCheckEffect>(), 1, Targeting.Slot_SelfSlot),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilEffect>(), 4, Targeting.Slot_SelfSlot)
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilEffect>(), 4, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeTargetHealthColorEffect>(), 1, Slots.Self)
             };
             intense.AddIntentsToTarget(allAlly, [IntentType_GameIDs.Mana_Generate.ToString(), SigilManager.UpPurple]);
+            intense.AddIntentsToTarget(Slots.Self, ["Mana_Modify"]);
             intense.Visuals = CustomVisuals.GetVisuals("Salt/Think");
             intense.AnimationTarget = Slots.Self;
 
@@ -129,7 +136,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     Effects.GenerateEffect(value, 4, Targeting.Slot_SelfSlot),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterSetSigilPassiveEffect>(), 4),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilSongCheckEffect>(), 1, Targeting.Slot_SelfSlot),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<SigilEffect>(), 3, Targeting.Slot_SelfSlot)
                 },
