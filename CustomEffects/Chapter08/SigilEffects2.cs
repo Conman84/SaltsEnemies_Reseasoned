@@ -70,8 +70,8 @@ namespace SaltsEnemies_Reseasoned
                 switch (entryVariable)
                 {
                     case 1:
-                        passive._enemyDescription = "All enemies will move Left or Right on receiving direct damage or on performing an ability.\nAt the start of each turn, reset this enemy's Sigil.";
-                        passive._characterDescription = "All party members will move Left or Right on receiving direct damage or on performing an ability.\nAt the start of each turn, reset this party member's Sigil.";
+                        passive._enemyDescription = "Redirect 50% of all direct damage taken by other enemies to this enemy.\nAt the start of each turn, reset this enemy's Sigil.";
+                        passive._characterDescription = "Redirect 50% of all direct damage taken by other party members to this party member.\nAt the start of each turn, reset this party member's Sigil.";
                         passive.passiveIcon = Blue;
                         break;
                     case 2:
