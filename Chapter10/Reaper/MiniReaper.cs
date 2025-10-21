@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy template = new Enemy("Mini-Reaper", "MiniReaper_EN")
             {
-                Health = 25,
+                Health = 30,
                 HealthColor = Pigments.Grey,
                 CombatSprite = ResourceLoader.LoadSprite("ReaperIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("ReaperWorld.png", new Vector2(0.5f, 0f), 32),
@@ -34,19 +34,19 @@ namespace SaltsEnemies_Reseasoned
             Ability leftKill = new Ability("LeftToDie_A")
             {
                 Name = "Left to Die",
-                Description = "Move left. Deal a Deadly amount of damage to the Opposing party member.",
+                Description = "Move left. Deal a Lethal amount of damage to the Opposing party member.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self),
                     Effects.GenerateEffect(play, 1, Slots.Front),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 15, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 16, Slots.Front),
                 },
                 Visuals = null,
                 AnimationTarget = Slots.Self,
             };
             leftKill.AddIntentsToTarget(Slots.Self, IntentType_GameIDs.Swap_Left.ToString().SelfArray());
-            leftKill.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Damage_11_15.ToString().SelfArray());
+            leftKill.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Damage_16_20.ToString().SelfArray());
 
             //RIGHT
             AnimationVisualsIfUnitEffect right = ScriptableObject.CreateInstance<AnimationVisualsIfUnitEffect>();
@@ -57,19 +57,19 @@ namespace SaltsEnemies_Reseasoned
             Ability rightKill = new Ability("RighteousExecution_A")
             {
                 Name = "Righteous Execution",
-                Description = "Move right. Deal a Deadly amount of damage to the Opposing party member.",
+                Description = "Move right. Deal a Lethal amount of damage to the Opposing party member.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(BasicEffects.GoRight, 1, Slots.Self),
                     Effects.GenerateEffect(right, 1, Slots.Front),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 15, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 16, Slots.Front),
                 },
                 Visuals = null,
                 AnimationTarget = Slots.Self,
             };
             rightKill.AddIntentsToTarget(Slots.Self, IntentType_GameIDs.Swap_Right.ToString().SelfArray());
-            rightKill.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Damage_11_15.ToString().SelfArray());
+            rightKill.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Damage_16_20.ToString().SelfArray());
 
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
