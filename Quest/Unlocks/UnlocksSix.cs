@@ -1,6 +1,7 @@
 ﻿using BrutalAPI;
 using BrutalAPI.Items;
 using SaltEnemies_Reseasoned;
+using SaltsEnemies_Reseasoneds;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -224,16 +225,16 @@ namespace SaltsEnemies_Reseasoned
             PerformEffect_Item sanddial = new PerformEffect_Item("Salt_SandDial_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnTargetToTimelineEffect>(), 1, Slots.Front)]);
             sanddial.Name = "Sand Dial";
             sanddial.Flavour = "\"A constant battle against the eventual decay into chaos\"";
-            sanddial.Description = "Inflict Entropy equal to damage dealt to all enemies.\nOn moving, give the Opposing enemy another action.";
+            sanddial.Description = "Damage dealt spreads indirectly without fallof.\nOn moving, give the Opposing enemy another action.";
             sanddial.Icon = ResourceLoader.LoadSprite("item_sanddial.png");
             sanddial.TriggerOn = TriggerCalls.OnMoved;
             sanddial.EquippedModifiers = [];
             sanddial.DoesPopUpInfo = true;
             sanddial.Conditions = [];
             sanddial.DoesActionOnTriggerAttached = false;
-            sanddial.ConsumeOnTrigger = TriggerCalls.OnDidApplyDamage;
+            sanddial.ConsumeOnTrigger = CascadingDamageItemHandler.Call;
             sanddial.ConsumeOnUse = false;
-            sanddial.ConsumeConditions = [ScriptableObject.CreateInstance<SandDialCondition>()];
+            sanddial.ConsumeConditions = [ScriptableObject.CreateInstance<NoFallofCascadeCondition>()];
             sanddial.ShopPrice = 6;
             sanddial.IsShopItem = false;
             sanddial.StartsLocked = true;

@@ -92,7 +92,7 @@ namespace SaltsEnemies_Reseasoned
 
                         if (args is IntegerReference reference)
                         {
-                            RunCascade(sender as IUnit, reference.value);
+                            RunCascade(sender as IUnit, reference.value, !check.IgnoreFallof);
                         }
 
                         return;
@@ -130,14 +130,16 @@ namespace SaltsEnemies_Reseasoned
             }
         }
 
-        public static void RunCascade(IUnit origin, int start)
+        public static void RunCascade(IUnit origin, int start, bool fallof = true)
         {
             SlotsCombat slots = CombatManager.Instance._stats.combatSlots;
 
             int left = origin.SlotID - 1;
             int right = origin.SlotID + origin.Size;
 
-            for (int current = (int)Math.Floor((float)start / 2); current > 0; current = (int)Math.Floor((float)current / 2))
+            int split = fallof ? 2 : 1;
+
+            for (int current = (int)Math.Floor((float)start / split); current > 0; current = (int)Math.Floor((float)current / split))
             {
                 if (left >= 0 && left < 5)
                 {
@@ -204,6 +206,7 @@ namespace SaltsEnemies_Reseasoned
     public class CascadeSpecialBooleanReference : BooleanReference
     {
         public AdvancedDamageTempInfo Info;
+        public bool IgnoreFallof;
         public CascadeSpecialBooleanReference(bool entryValue, AdvancedDamageTempInfo info) : base(entryValue)
         {
             Info = info;
