@@ -167,12 +167,15 @@ namespace SaltEnemies_Reseasoned
         }
         public static void IncreaseDefense(this DamageReceivedValueChangeException self, bool chara)
         {
-            foreach (IntValueModifier mod in self.modifiers)
+            if (self.modifiers != null)
             {
-                if (mod is SigilRedirectIntMod sigil && sigil.Chara == chara)
+                foreach (IntValueModifier mod in self.modifiers)
                 {
-                    sigil.Increase();
-                    return;
+                    if (mod is SigilRedirectIntMod sigil && sigil.Chara == chara)
+                    {
+                        sigil.Increase();
+                        return;
+                    }
                 }
             }
             self.AddModifier(new SigilRedirectIntMod(1, chara));
