@@ -61,19 +61,19 @@ namespace SaltsEnemies_Reseasoned
             propaganda.item._ItemTypeIDs = [];
             propaganda.item.AddBlueSkyUnlock("Griffin_CH", "locked_blatantpropaganda.png", "ach_blatantpropaganda.png");
 
-            PerformEffect_Item roger = new PerformEffect_Item("Salt_UnloadedRogers_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)]);
+            MultiPerformEffectItem roger = new MultiPerformEffectItem("Salt_UnloadedRogers_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)]);
             roger.Name = "Unloaded Roger's";
             roger.Flavour = "\"It's not actually a gun, it's just a rock.\"";
-            roger.Description = "Inflict Entropy equal to damage dealt to targets.\nOn any party member manually moving, move Left or Right.";
+            roger.Description = "Deal 50% more damage.\nOn any party member manually moving, move Left or Right.";
             roger.Icon = ResourceLoader.LoadSprite("item_unloadedrogers.png");
             roger.EquippedModifiers = [];
             roger.TriggerOn = JitteryHandler.Ally;
             roger.DoesPopUpInfo = true;
             roger.Conditions = [];
             roger.DoesActionOnTriggerAttached = false;
-            roger.ConsumeOnTrigger = AdvancedDamageTrigger.Dealt;
+            roger.ConsumeOnTrigger = TriggerCalls.Count;
             roger.ConsumeOnUse = false;
-            roger.ConsumeConditions = [EntropyToTargetsCondition.Create()];
+            roger.ConsumeConditions = [];
             roger.ShopPrice = 4;
             roger.IsShopItem = true;
             roger.StartsLocked = true;
@@ -81,6 +81,7 @@ namespace SaltsEnemies_Reseasoned
             roger.UsesSpecialUnlockText = false;
             roger.SpecialUnlockID = UILocID.None;
             roger.item._ItemTypeIDs = [];
+            roger.AddEffectTrigger(new EffectTrigger([], [TriggerCalls.OnWillApplyDamage], [ItemExtensions.Damage(50, true)], false));
             roger.item.AddBlueSkyUnlock("Wtmiyr_CH", "locked_unloadedrogers.png", "ach_unloadedrogers.png");
 
             Basic_Item spores = new Basic_Item("Salt_BlueSpores_TW");
