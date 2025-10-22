@@ -19,12 +19,12 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("InventionWorld.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("InventionWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("InventionWorld.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = "event:/Hawthorne/Soisenay/HauntlingHit",
-                DeathSound = "event:/Hawthorne/Soisenay/HauntlingDie",
+                DamageSound = "event:/Blackwater/Noise/InventionHit",
+                DeathSound = "event:/Blackwater/Noise/InventionDie",
                 Size = 5
             };
             template.PrepareEnemyPrefab("Assets/Bosses/Invention/Invention_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/Invention/Invention_Gibs.prefab").GetComponent<ParticleSystem>());
-            template.enemy.enemyTemplate.m_Data.m_Renderer = template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Sprite").GetComponent<SpriteRenderer>();
+            template.enemy.enemyTemplate.m_Data.m_Renderer = template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Sprite").Find("Outline").GetComponent<SpriteRenderer>();
 
 
             //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("Wall_EN").enemyTemplate;

@@ -19,8 +19,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("MegalaniaIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("MegalaniaIcon.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("MegalaniaIcon.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy(Enemies.Camera).damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy(Enemies.Camera).deathSound,
+                DamageSound = "event:/Blackwater/Noise/TvHurt",
+                DeathSound = "event:/Blackwater/Noise/TvDeath",
             };
             template.PrepareEnemyPrefab("Assets/Bosses/Tv/Megalania_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/Tv/Megalania_Gibs.prefab").GetComponent<ParticleSystem>());
             template.enemy.enemyTemplate.m_Data.m_Renderer = template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").GetComponent<SpriteRenderer>();

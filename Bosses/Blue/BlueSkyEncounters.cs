@@ -15,6 +15,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnvironmentTools.PrepareCombatEnvPrefab("Assets/Defacer/BlueSky_Arena.prefab", "BlueSky_Arena", SaltsReseasoned.Dreams);
             LoadedAssetsHandler.TryGetCombatEnvironmentPrefab("BlueSky_Arena").gameObject.SetGrassMaterial();
+            LoadedAssetsHandler.TryGetCombatEnvironmentPrefab("BlueSky_Arena")._extraEnvironmentAmbienceSound = "event:/Blackwater/Noise/BSAmbi";
 
             LoadedDBsHandler._PortalDB.AddBackgroundPortal("BlueSky_BOSS", EncounterExtensions.SetBossPortalMaterial("BlueSkyPortal.png", "03"));
 
