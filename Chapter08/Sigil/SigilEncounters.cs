@@ -217,12 +217,14 @@ namespace SaltsEnemies_Reseasoned
                 "Sigil_EN",
                 Flower.Yellow,
                 Flower.Purple,
+                "SingingStone_EN"
             }, null);
             mainEncounters2.CreateNewEnemyEncounterData(new string[]
             {
                 "Sigil_EN",
                 Jumble.Blue,
                 Jumble.Purple,
+                "SingingStone_EN"
             }, null);
             mainEncounters2.CreateNewEnemyEncounterData(new string[]
             {
