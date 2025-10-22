@@ -517,6 +517,7 @@
 	  <None Remove="Quest\Sprites\Achievements\CrowAch.png" />
 	  <None Remove="Quest\Sprites\Achievements\DeepAch.png" />
 	  <None Remove="Quest\Sprites\Achievements\DGAch.png" />
+	  <None Remove="Quest\Sprites\Achievements\InventionAch.png" />
 	  <None Remove="Quest\Sprites\Achievements\MiriamAch.png" />
 	  <None Remove="Quest\Sprites\Achievements\PMAch.png" />
 	  <None Remove="Quest\Sprites\Achievements\SnakeAch.png" />
@@ -1352,6 +1353,7 @@
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\CrowAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\DeepAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\DGAch.png" />
+	  <EmbeddedResource Include="Quest\Sprites\Achievements\InventionAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\MiriamAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\PMAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\SnakeAch.png" />
