@@ -27,6 +27,7 @@
 	  <None Remove="Bosses\Child\CrowChildPortal.png" />
 	  <None Remove="Bosses\Child\CrowChildWorld.png" />
 	  <None Remove="Bosses\Invention\InventionWorld.png" />
+	  <None Remove="Bosses\Invention\SecondInventionPortal.png" />
 	  <None Remove="Bosses\Smilers\Anim\SmilerEnv.png" />
 	  <None Remove="Bosses\Smilers\SmilerPortal.png" />
 	  <None Remove="Bosses\Smilers\SmilersWorld.png" />
@@ -852,6 +853,7 @@
 	  <EmbeddedResource Include="Bosses\Child\CrowChildPortal.png" />
 	  <EmbeddedResource Include="Bosses\Child\CrowChildWorld.png" />
 	  <EmbeddedResource Include="Bosses\Invention\InventionWorld.png" />
+	  <EmbeddedResource Include="Bosses\Invention\SecondInventionPortal.png" />
 	  <EmbeddedResource Include="Bosses\Smilers\Anim\SmilerEnv.png" />
 	  <EmbeddedResource Include="Bosses\Smilers\SmilerPortal.png" />
 	  <EmbeddedResource Include="Bosses\Smilers\SmilersWorld.png" />

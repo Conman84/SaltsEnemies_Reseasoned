@@ -23,7 +23,10 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = "event:/Hawthorne/Soisenay/HauntlingDie",
                 Size = 5
             };
-            template.PrepareEnemyPrefab("Assets/TestSprites/Test_Invention_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Invention_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.PrepareEnemyPrefab("Assets/Bosses/Invention/Invention_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/Invention/Invention_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.enemy.enemyTemplate.m_Data.m_Renderer = template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Sprite").GetComponent<SpriteRenderer>();
+
+
             //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("Wall_EN").enemyTemplate;
 
             //maintain
@@ -63,6 +66,7 @@ namespace SaltsEnemies_Reseasoned
             bonus.AnimationTarget = Targeting.GenerateGenericTarget([2]);
             AbilitySO ability = bonus.GenerateEnemyAbility(false).ability;
             maintain._extraAbility.ability = ability;
+            maintain._extraAbility.rarity = Rarity.GetCustomRarity("rarity5");
 
             PerformEffectPassiveAbility systemic = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             systemic.name = "Systemic_Repeater_PA";
