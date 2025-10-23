@@ -21,7 +21,7 @@ namespace SaltsEnemies_Reseasoned
             StoredRuns = LoadedDBsHandler.InfoHolder.Game.GetIntData(Gatekeeps);
             StoredRuns++;
             //FOR NOW
-            StoredRuns = 5;
+            if (StoredRuns < 5) StoredRuns = 5;
             LoadedDBsHandler.InfoHolder.Game.SetIntData(Gatekeeps, StoredRuns);
 
             orig(self);
