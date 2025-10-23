@@ -123,7 +123,7 @@ namespace SaltsEnemies_Reseasoned
             if (enemy == "PersonalAngel_EN" && !Tracker.Track(["LittleAngel_EN", "Firebird_EN"])) return false;
             if (enemy == "Yin_EN" && !Tracker.Track("Yang_EN")) return false;
             if (enemy == "Eyeless_EN" && !Tracker.Track("Starless_EN")) return false;
-            if (enemy == "Solitaire_EN" && !Tracker.Track(["TheDragon_EN", "Eyeless_EN", "Starless_EN", "Yin_EN", "Yang_EN", "YellowAngel_EN", "PersonalAngel_EN", "Crystal_EN", "Evileye_EN", "Enigma_EN", "Sigil_EN", "DeadPixel_EN"])) return false;
+            if (enemy == "Solitaire_EN" && !Tracker.Track(["TheDragon_EN", "Eyeless_EN", "Starless_EN", "Yin_EN", "Yang_EN", "YellowAngel_EN", "PersonalAngel_EN", "Crystal_EN", "Evileye_EN", "Enigma_EN", "Sigil_EN", "DeadPixel_EN", "33_EN"])) return false;
             if (enemy == "Spades_EN" && !Tracker.Track("Solitaire_EN")) return false;
 
             return true;
