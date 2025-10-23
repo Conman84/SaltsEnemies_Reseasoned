@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SaltEnemies_Reseasoned;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -120,7 +121,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup(Colophon.Purple, "WindSong_EN", Enemies.Shooter);
 
             hard = new AddTo(Orph.H.Revola.Hard);
-            hard.AddRandomGroup("Revola_EN", Colophon.Yellow, "Crystal_EN");
+            if (Winter.Chance) hard.AddRandomGroup("Revola_EN", Colophon.Yellow, "Crystal_EN");
             hard.AddRandomGroup("Revola_EN", Colophon.Purple, Enemies.Shooter);
         }
     }

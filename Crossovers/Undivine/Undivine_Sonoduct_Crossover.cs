@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SaltEnemies_Reseasoned;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -30,7 +31,7 @@ namespace SaltsEnemies_Reseasoned
             if (SaltsReseasoned.trolling < 50) hard.AddRandomGroup("Sonoduct_EN", Bots.Red, Bots.Yellow);
             if (SaltsReseasoned.trolling > 50) hard.AddRandomGroup("Sonoduct_EN", Bots.Blue, Bots.Purple);
 
-            if (SaltsReseasoned.silly < 33) hard.AddRandomGroup("Sonoduct_EN", "Crystal_EN", "LostSheep_EN");
+            if (SaltsReseasoned.silly < 33 && Winter.Chance) hard.AddRandomGroup("Sonoduct_EN", "Crystal_EN", "LostSheep_EN");
             if (SaltsReseasoned.silly > 33 && SaltsReseasoned.silly < 66) hard.AddRandomGroup("Sonoduct_EN", "Evileye_EN", "LostSheep_EN");
             if (SaltsReseasoned.silly > 66) hard.AddRandomGroup("Sonoduct_EN", "YellowAngel_EN", "LostSheep_EN");
 

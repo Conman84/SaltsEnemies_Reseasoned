@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SaltEnemies_Reseasoned;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -45,7 +46,7 @@ namespace SaltsEnemies_Reseasoned
             AddTo hard = new AddTo(Orph.H.Dragon.Hard);
             hard.SimpleAddGroup(1, "TheDragon_EN", 3, "Romantic_EN");
             hard.AddRandomGroup("TheDragon_EN", "Romantic_EN", "Maw_EN");
-            hard.AddRandomGroup("TheDragon_EN", "Surrogate_EN", "Crystal_EN");
+            if (Winter.Chance) hard.AddRandomGroup("TheDragon_EN", "Surrogate_EN", "Crystal_EN");
             hard.AddRandomGroup("TheDragon_EN", "Gungrot_EN", "Gungrot_EN", "Gungrot_EN");
             hard.AddRandomGroup("TheDragon_EN", "Romantic_EN", Jumble.Purple, Jumble.Unstable);
             hard.AddRandomGroup("TheDragon_EN", Spoggle.Unstable, "WindSong_EN");
@@ -69,7 +70,7 @@ namespace SaltsEnemies_Reseasoned
             if (SaltsReseasoned.trolling > 25 && SaltsReseasoned.trolling < 50) hard.AddRandomGroup("Errant_EN", Bots.Red, Bots.Blue, Bots.Purple);
             if (SaltsReseasoned.trolling > 50 && SaltsReseasoned.trolling < 75) hard.AddRandomGroup("Errant_EN", Bots.Red, Bots.Yellow, Bots.Purple);
             if (SaltsReseasoned.trolling > 75) hard.AddRandomGroup("Errant_EN", Bots.Blue, Bots.Yellow, Bots.Purple);
-            hard.AddRandomGroup("Errant_EN", "Crystal_EN", "SingingStone_EN");
+            if (Winter.Chance) hard.AddRandomGroup("Errant_EN", "Crystal_EN", "SingingStone_EN");
         }
     }
 }

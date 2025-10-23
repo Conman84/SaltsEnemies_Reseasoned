@@ -170,6 +170,8 @@ namespace SaltsEnemies_Reseasoned
             "VoiceTrumpet_EN",
             "Wall_EN",
             "Amalga_EN",
+            "Hauntling_EN",
+            "Insider_EN",
             "Smilers_BOSS",
             "CrowChild_BOSS",
             "BlackAndBlue_BOSS",

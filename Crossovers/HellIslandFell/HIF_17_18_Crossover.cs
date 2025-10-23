@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SaltEnemies_Reseasoned;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -42,7 +43,7 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Orph.H.Heehoo.Med);
             med.AddRandomGroup("Heehoo_EN", "Evileye_EN", Enemies.Suckle, Enemies.Suckle, Enemies.Suckle);
             med.AddRandomGroup("Heehoo_EN", "YellowAngel_EN", "SingingStone_EN", "SingingStone_EN", "SingingStone_EN");
-            med.AddRandomGroup("Heehoo_EN", "Crystal_EN", "SingingStone_EN", "SingingStone_EN", "SingingStone_EN");
+            if (Winter.Chance) med.AddRandomGroup("Heehoo_EN", "Crystal_EN", "SingingStone_EN", "SingingStone_EN", "SingingStone_EN");
             med.AddRandomGroup("Heehoo_EN", Enemies.Shooter, Enemies.Shooter);
 
             AddTo hard = new AddTo(Orph.H.Heehoo.Hard);

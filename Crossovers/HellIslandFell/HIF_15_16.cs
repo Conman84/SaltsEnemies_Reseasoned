@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -47,7 +48,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("Heehoo_EN", Bots.Purple, Bots.Blue);
             hard.AddRandomGroup("Heehoo_EN", Bots.Purple, Bots.Yellow);
             hard.AddRandomGroup("Heehoo_EN", Bots.Yellow, Bots.Blue);
-            hard.AddRandomGroup("Heehoo_EN", "Crystal_EN", "Scrungie_EN");
+            if (Winter.Chance) hard.AddRandomGroup("Heehoo_EN", "Crystal_EN", "Scrungie_EN");
 
             hard = new AddTo(Orph.H.Dragon.Hard);
             hard.AddRandomGroup("TheDragon_EN", "Thunderdome_EN", "Thunderdome_EN");

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SaltEnemies_Reseasoned;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -32,7 +33,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Clergy_EN", Bots.Red, Bots.Yellow);
             med.AddRandomGroup("Clergy_EN", Bots.Blue, Bots.Purple);
 
-            hard.AddRandomGroup("Clergy_EN", "Crystal_EN", "MusicMan_EN", "MusicMan_EN");
+           if (Winter.Chance) hard.AddRandomGroup("Clergy_EN", "Crystal_EN", "MusicMan_EN", "MusicMan_EN");
             hard.AddRandomGroup("Clergy_EN", "Evileye_EN", "Clergy_EN");
             hard.AddRandomGroup("Clergy_EN", "YellowAngel_EN", "Enigma_EN", "Enigma_EN");
 
