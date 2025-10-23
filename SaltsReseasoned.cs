@@ -92,6 +92,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(PierceShieldHandler.Setup);
                 PCall(FireNoReduce.Setup);
             }
+            PCall(Gatekeeper.Setup);
             #endregion
 
             //Add To Glossary
