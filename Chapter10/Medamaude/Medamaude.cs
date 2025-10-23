@@ -67,7 +67,7 @@ namespace SaltsEnemies_Reseasoned
             grasp._characterDescription = "wont work";
             grasp.doesPassiveTriggerInformationPanel = true;
             grasp.conditions = [];
-            grasp.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ExhaustMovementEffect>(), 1, Slots.Self)];
+            grasp.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ExhaustMovementEffect>(), 1, Slots.Front)];
             grasp._triggerOn = [(TriggerCalls)AmbushManager.Patiently];
 
             //add passives

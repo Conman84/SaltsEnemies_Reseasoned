@@ -20,8 +20,9 @@ namespace SaltEnemies_Reseasoned
             exitAmount = entryVariable;
             foreach (TargetSlotInfo targetSlotInfo in targets)
             {
-                if (targetSlotInfo.HasUnit && !targetSlotInfo.Unit.HasManuallySwappedThisTurn)
+                if (targetSlotInfo.HasUnit && targetSlotInfo.IsTargetCharacterSlot)
                 {
+                    if (!(targetSlotInfo.Unit as CharacterCombat).CanSwap) continue;
                     (targetSlotInfo.Unit as CharacterCombat).CanSwap = false;
                     CombatManager.Instance.AddUIAction(new CharacterUpdateVolatilesUIAction((targetSlotInfo.Unit as CharacterCombat).ID, (targetSlotInfo.Unit as CharacterCombat).CanSwapNoTrigger, (targetSlotInfo.Unit as CharacterCombat).CanUseAbilitiesNoTrigger, shouldPopUp: true));
                     return true;
