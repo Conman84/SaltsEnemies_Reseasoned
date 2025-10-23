@@ -207,7 +207,7 @@ namespace SaltsEnemies_Reseasoned
             PerformEffect_Item propaganda = new PerformEffect_Item("Salt_BlatantPropaganda_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<DoubleMaxHealthTargetEffect>(), 1, Slots.Self)], true);
             propaganda.Name = "Blatant Propaganda";
             propaganda.Flavour = "\"Not even trying to hide it, huh...\"";
-            propaganda.Description = "Increase healing dealt by 4.\nDouble maximum health on healing targets.";
+            propaganda.Description = "Increase healing dealt by 4.\nDouble maximum health on healing a target.";
             propaganda.Icon = ResourceLoader.LoadSprite("item_blatantpropaganda.png");
             propaganda.EquippedModifiers = [];
             propaganda.TriggerOn = TriggerCalls.OnWillApplyHeal;
