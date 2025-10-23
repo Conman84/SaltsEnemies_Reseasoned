@@ -93,8 +93,8 @@ namespace SaltsEnemies_Reseasoned
         public static string[] Beginner = ["TeachaMantoFish_EN", "Satyr_EN", "Something_EN", "Derogatory_EN", "TheCrow_EN", "Freud_EN", "AFlower_EN", "StarGazer_EN", Enemies.Camera];
         public static string[] Easy = ["Delusion_EN", "FakeAngel_EN", Bots.Red, Bots.Yellow, "Sigil_EN", "WindSong_EN", Enemies.Solvent, "LittleBeak_EN", "Singularity_EN", "Pinano_EN", "Minana_EN", "Evileye_EN"];
         public static string[] EM = [Flower.Yellow, Flower.Purple, "EyePalm_EN", "BlackStar_EN", "Skyloft_EN", "ToyUfo_EN", "Wall_EN", "Smilers_BOSS"];
-        public static string[] Med = [Spoggle.Grey, Jumble.Grey, "Grandfather_EN", Flower.Red, Flower.Blue, Bots.Blue, Bots.Purple, "Rabies_EN", "NobodyGrave_EN", "YellowAngel_EN", "Windle_EN", "MiniReaper_EN", "Megalania_BOSS"];
-        public static string[] MH = ["Shiny_EN", "TheDeep_EN", "SnakeGod_EN", "Spectre_EN", Bots.Grey, "Tripod_EN", "Maw_EN", "Arceles_EN", "Clione_EN", "Sinker_EN", "VoiceTrumpet_EN", "Waltz_EN", "Foxtrot_EN", "PawnA_EN", "CrowChild_BOSS"];
+        public static string[] Med = [Jumble.Grey, "Grandfather_EN", Flower.Red, Flower.Blue, Bots.Blue, Bots.Purple, "Rabies_EN", "NobodyGrave_EN", "YellowAngel_EN", "Windle_EN", "MiniReaper_EN", "Megalania_BOSS"];
+        public static string[] MH = [Spoggle.Grey, "Shiny_EN", "TheDeep_EN", "SnakeGod_EN", "Spectre_EN", Bots.Grey, "Tripod_EN", "Maw_EN", "Arceles_EN", "Clione_EN", "Sinker_EN", "VoiceTrumpet_EN", "Waltz_EN", "Foxtrot_EN", "PawnA_EN", "CrowChild_BOSS"];
         public static string[] Hard = [Flower.Grey, "StalwartTortoise_EN", "Merced_EN", "Shua_EN", Enemies.Shooter, "2009_EN", "Crystal_EN", "TortureMeNot_EN", "CandyStone_EN", "Invention_BOSS"];
         public static string[] Harder = ["Chiito_EN", "Complimentary_EN", "Wednesday_EN", "Hunter_EN", "Warbird_EN", "Indicator_EN", "GlassedSun_EN", "Stoplight_EN", "Clown_EN", "BlackAndBlue_BOSS"];
         public static string[] Hardest = ["Postmodern_EN", "War_EN", "ClockTower_EN", Enemies.Tank, "Miriam_EN", "33_EN", "Author_EN", "Monster_EN", "Starless_EN", "Yang_EN", "Cruelties1_EN", "YNL_EN"];
