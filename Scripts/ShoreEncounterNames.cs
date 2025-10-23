@@ -263,6 +263,10 @@ namespace SaltsEnemies_Reseasoned
                 public static string Easy => "H_Zone01_VoiceTrumpet_Easy_EnemyBundle";
                 public static string Med => "H_Zone01_VoiceTrumpet_Medium_EnemyBundle";
             }
+            public static class Hauntling
+            {
+                public static string Med => "H_Zone01_Hauntling_Medium_EnemyBundle";
+            }
 
 
             //marmo

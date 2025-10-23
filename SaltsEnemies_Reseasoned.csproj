@@ -69,6 +69,7 @@
 	  <None Remove="Chapter10\Medamaude\EyePalmDead.png" />
 	  <None Remove="Chapter10\Medamaude\EyePalmIcon.png" />
 	  <None Remove="Chapter10\Medamaude\EyePalmWorld.png" />
+	  <None Remove="Chapter10\Medamaude\GraspingPassive.png" />
 	  <None Remove="Chapter10\Medamaude\MissFaced.png" />
 	  <None Remove="Chapter10\Medamaude\ScramblePassive.png" />
 	  <None Remove="Chapter10\Merced\MercedDead.png" />
@@ -876,6 +877,7 @@
 	  <EmbeddedResource Include="Bosses\Tv\MegalaniaPortal.png" />
 	  <EmbeddedResource Include="Bosses\Tv\RadicalPassive.png" />
 	  <EmbeddedResource Include="Bosses\Tv\TvWorld.png" />
+	  <EmbeddedResource Include="Chapter10\Medamaude\GraspingPassive.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\ScramblePassive.png" />
 	  <EmbeddedResource Include="Chapter11\Nameless\FractalPassive.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaDead.png" />

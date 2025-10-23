@@ -224,6 +224,14 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Hard => "H_Zone03_TortureMeNot_Hard_EnemyBundle";
             }
+            public static class Hauntling
+            {
+                public static string Easy => "H_Zone03_Hauntling_Easy_EnemyBundle";
+            }
+            public static class Insider
+            {
+                public static string Med => "H_Zone03_Insider_Medium_EnemyBundle";
+            }
 
             //marmo
             public static class Git

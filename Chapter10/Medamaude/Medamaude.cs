@@ -59,8 +59,19 @@ namespace SaltsEnemies_Reseasoned
             scramble.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<MassSwapZoneEffect>(), 1, Targetting.AllAlly).SelfArray();
             scramble._triggerOn = [ClownPassiveAbility.Trigger];
 
+            PerformEffectPassiveAbility grasp = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            grasp._passiveName = "Grasping";
+            grasp.passiveIcon = ResourceLoader.LoadSprite("GraspingPassive.png");
+            grasp.m_PassiveID = "Grasping_PA";
+            grasp._enemyDescription = "When a party member moves in front of this enemy, attempt to exhaust their movement.";
+            grasp._characterDescription = "wont work";
+            grasp.doesPassiveTriggerInformationPanel = true;
+            grasp.conditions = [];
+            grasp.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ExhaustMovementEffect>(), 1, Slots.Self)];
+            grasp._triggerOn = [(TriggerCalls)AmbushManager.Patiently];
+
             //add passives
-            template.AddPassives(new BasePassiveAbilitySO[] { mf, scramble });
+            template.AddPassives(new BasePassiveAbilitySO[] { mf, scramble, grasp });
 
             Targetting_ByUnit_SideCasterColor targettingCasterColor = ScriptableObject.CreateInstance<Targetting_ByUnit_SideCasterColor>();
             targettingCasterColor.getAllies = true;
