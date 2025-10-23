@@ -38,7 +38,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "Hauntling_EN", 1, "Squirmer_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Hauntling.Med, April.LessMod, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Hauntling.Med, April.LessMod * 2, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
         }
         public static void Add_Garden()
         {
