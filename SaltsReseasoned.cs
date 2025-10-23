@@ -279,6 +279,7 @@ namespace SaltsEnemies_Reseasoned
             if (DebugVer)
             {
                 PCall(Hauntling.Add);
+                PCall(Insider.Add);
             }
 
             //BOSSES

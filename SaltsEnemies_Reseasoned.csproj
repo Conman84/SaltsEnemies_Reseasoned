@@ -480,6 +480,9 @@
 	  <None Remove="Chapter22\Hauntling\HauntlingDead.png" />
 	  <None Remove="Chapter22\Hauntling\HauntlingIcon.png" />
 	  <None Remove="Chapter22\Hauntling\HauntlingWorld.png" />
+	  <None Remove="Chapter22\Insider\InsiderDead.png" />
+	  <None Remove="Chapter22\Insider\InsiderIcon.png" />
+	  <None Remove="Chapter22\Insider\InsiderWorld.png" />
 	  <None Remove="CustomPassives\Chapter02\Decay.png" />
 	  <None Remove="CustomPassives\Chapter03\DontTouchMe.png" />
 	  <None Remove="CustomPassives\Chapter03\StarPassive.png" />
@@ -1320,6 +1323,9 @@
 	  <EmbeddedResource Include="Chapter22\Hauntling\HauntlingDead.png" />
 	  <EmbeddedResource Include="Chapter22\Hauntling\HauntlingIcon.png" />
 	  <EmbeddedResource Include="Chapter22\Hauntling\HauntlingWorld.png" />
+	  <EmbeddedResource Include="Chapter22\Insider\InsiderDead.png" />
+	  <EmbeddedResource Include="Chapter22\Insider\InsiderIcon.png" />
+	  <EmbeddedResource Include="Chapter22\Insider\InsiderWorld.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter01\Desperate.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Decay.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Fishing.png" />

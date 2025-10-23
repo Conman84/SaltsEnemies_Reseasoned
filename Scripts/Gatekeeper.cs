@@ -1,9 +1,13 @@
 ﻿using BepInEx.Configuration;
 using MonoMod.RuntimeDetour;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
+
+//i want to set this up for the achievements update but i think it would be better to save this for the superboss update. 
+//really it wouldve been better to run this from the start but hindsight is 20/20.. oh well.
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -28,10 +32,11 @@ namespace SaltsEnemies_Reseasoned
 
         public static bool AllowEnemy(string enemy)
         {
+            if (!April.Birthday && (enemy == "Hauntling_EN" || enemy == "Insider_EN")) return false;
+
             return true;//FOR NOW
 
-            if (StoredRuns > 10 && SaltsReseasoned.rando < 50) return true;
-            if (StoredRuns > 22) return true;
+            if (StoredRuns > 22 && SaltsReseasoned.rando < 50) return true;
 
             //by complexity
             if (Salt.Start.Contains(enemy) && StoredRuns < 1) return false;
