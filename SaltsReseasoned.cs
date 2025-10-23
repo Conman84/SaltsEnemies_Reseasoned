@@ -427,6 +427,13 @@ namespace SaltsEnemies_Reseasoned
             PCall(WaltzEncounters.Add);
             PCall(VoiceTrumpetEncounters.Add);
 
+            //CH22 Encounters
+            if (DebugVer)
+            {
+                PCall(HauntlingEncounters.Add);
+                PCall(InsiderEncounters.Add);
+            }
+
             //BOSSES
             if (TestBosses)
             {

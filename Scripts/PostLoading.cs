@@ -113,6 +113,12 @@ namespace SaltEnemies_Reseasoned
             PCall(WaltzEncounters.Post);
             PCall(VoiceTrumpetEncounters.Post);
 
+            if (DebugVer)
+            {
+                PCall(HauntlingEncounters.Post);
+                PCall(InsiderEncounters.Post);
+            }
+
             //Crossovers
 
             //marmo

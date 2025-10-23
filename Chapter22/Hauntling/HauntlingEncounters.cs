@@ -185,6 +185,80 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Garden.H.Shua.Med);
             med.AddRandomGroup("Shua_EN", "EyePalm_EN", "EyePalm_EN", "Hauntling_EN");
+
+            med = new AddTo(Garden.H.Starless.Med);
+            med.SimpleAddGroup(1, "Starless_EN", 2, Enemies.Shivering, 1, "Hauntling_EN");
+
+            med = new AddTo(Garden.H.Jumble.Grey.Med);
+            med.AddRandomGroup(Jumble.Grey, "PawnA_EN", "PawnA_EN", "Hauntling_EN");
+
+            med = new AddTo(Garden.H.Spoggle.Grey.Med);
+            med.SimpleAddGroup(1, Spoggle.Gray, 2, "PawnA_EN", 1, "Hauntling_EN");
+
+            med = new AddTo(Garden.H.GreyBot.Med);
+            med.AddRandomGroup(Bots.Gray, "EyePalm_EN", "EyePalm_EN", "Hauntling_EN");
+
+            med = new AddTo(Garden.H.Hunter.Med);
+            med.AddRandomGroup("Hunter_EN", "Hauntling_EN", "PawnA_EN", "PawnA_EN");
+
+            med = new AddTo(Garden.H.Firebird.Med);
+            med.SimpleAddGroup(1, "Firebird_EN", 2, "InHerImage_EN", 1, "Hauntling_EN");
+
+            med = new AddTo(Garden.H.Ode.Med);
+            med.SimpleAddGroup(1, "OdeToHumanity_EN", 3, "Hauntling_EN");
+
+            med = new AddTo(Garden.H.Complimentary.Med);
+            med.AddRandomGroup("Complimentary_EN", "Hauntling_EN", "Hauntling_EN");
+
+            med = new AddTo(Garden.H.YNL.Med);
+            med.SimpleAddGroup(1, "YNL_EN", 2, "InHisImage_EN", 1, "Hauntling_EN");
+
+            med = new AddTo(Garden.H.PersonalAngel.Med);
+            med.AddRandomGroup("PersonalAngel_EN", "PawnA_EN", "PawnA_EN", "Hauntling_EN");
+
+            med = new AddTo(Garden.H.Yang.Med);
+            med.SimpleAddGroup(2, "Yang_EN", 1, "Hauntling_EN");
+
+            med = new AddTo(Garden.H.Stoplight.Med);
+            med.AddRandomGroup("Stoplight_EN", "Attrition_EN", "Hauntling_EN");
+            med.AddRandomGroup("Stoplight_EN", "Bonsai_EN", "Hauntling_EN");
+            med.SimpleAddGroup(1, "Stoplight_EN", 2, "PawnA_EN", 1, "Hauntling_EN");
+
+            hard = new AddTo(Garden.H.Eyeless.Hard);
+            hard.AddRandomGroup("Eyeless_EN", "Hauntling_EN", "Hauntling_EN", "Hauntling_EN", "Hauntling_EN");
+
+            hard = new AddTo(Garden.H.Tank.Hard);
+            hard.SimpleAddGroup(1, Enemies.Tank, 2, "Hauntling_EN");
+
+            hard = new AddTo(Garden.H.SnakeGod.Hard);
+            hard.SimpleAddGroup(1, "SnakeGod_EN", 2, "Hauntling_EN");
+
+            hard = new AddTo(Garden.H.Yin.Hard);
+            hard.SimpleAddGroup(2, "Yin_EN", 1, "Hauntling_EN");
+
+            easy = new AddTo(Garden.H.ChoirBoy.Easy);
+            easy.AddRandomGroup("ChoirBoy_EN", "Hauntling_EN");
+
+            med = new AddTo(Garden.H.Minister.Med);
+            med.AddRandomGroup(Enemies.Minister, "Hauntling_EN", "Hauntling_EN");
+
+            easy = new AddTo(Garden.H.Git.Easy);
+            easy.SimpleAddGroup(2, "Git_EN", 1, "Hauntling_EN");
+
+            med = new AddTo(Garden.H.Attrition.Med);
+            med.SimpleAddGroup(2, "Attrition_EN", 2, "Hauntling_EN");
+
+            med = new AddTo(Garden.H.Nosestone.Red.Med);
+            med.AddRandomGroup(Noses.Red, "PawnA_EN", "PawnA_EN", "Hauntling_EN");
+
+            med = new AddTo(Garden.H.Nosestone.Blue.Med);
+            med.SimpleAddGroup(1, Noses.Blue, 2, "EyePalm_EN", 1, "Hauntling_EN");
+
+            med = new AddTo(Garden.H.Nosestone.Yellow.Hard);
+            hard.AddRandomGroup(Noses.Yellow, Noses.Red, "Hauntling_EN");
+
+            med = new AddTo(Garden.H.Beakart.Med);
+            med.AddRandomGroup("Beakart_EN", "Hauntling_EN", "Shua_EN");
         }
     }
 }
