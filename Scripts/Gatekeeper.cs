@@ -68,7 +68,7 @@ namespace SaltsEnemies_Reseasoned
             if (enemy == Flower.Blue && !Tracker.Track([Flower.Purple, Flower.Yellow])) return false;
             if (enemy == Bots.Purple && !Tracker.Track([Bots.Red, Bots.Yellow])) return false;
             if (enemy == Bots.Blue && !Tracker.Track([Bots.Red, Bots.Yellow])) return false;
-            if (enemy == "Windle_EN" && !Tracker.Track("Skyloft_EN")) return false;
+            if (enemy == "Windle_EN" && !Tracker.Track("Satyr_EN")) return false;
             if (enemy == "Rabies_EN" && !Tracker.Track("Wall_EN")) return false;
             if (enemy == "YellowAngel_EN" && !Tracker.Track("MiniReaper_EN")) return false;
             if (enemy == "NobodyGrave_EN" && !Tracker.Track("Pinano_EN")) return false;
@@ -96,7 +96,7 @@ namespace SaltsEnemies_Reseasoned
             if (enemy == Enemies.Shooter && !Tracker.Track("Something_EN")) return false;
             if (enemy == "2009_EN" && !Tracker.Track(["ToyUfo_EN", "DeadPixel_EN", Enemies.Camera])) return false;
             if (enemy == "Crystal_EN" && !Tracker.Track(["LostSheep_EN", "Evileye_EN", "TheCrow_EN", "Freud_EN", "WindSong_EN"])) return false;
-            if (enemy == "TortureMeNot_EN" && !Tracker.Track("LittleAngel_EN")) return false;
+            if (enemy == "TortureMeNot_EN" && !Tracker.Track("Satyr_EN")) return false;
             if (enemy == "CandyStone_EN" && !Tracker.Track("Crystal_EN")) return false;
             if (enemy == "Invention_BOSS" && !Tracker.Track(["Enigma_EN", Enemies.Solvent, "Sigil_EN"])) return false;
             if (enemy == "Chiito_EN" && !Tracker.Track(["Butterfly_EN", "Foxtrot_EN"])) return false;
