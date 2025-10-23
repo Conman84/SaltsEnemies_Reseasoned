@@ -23,7 +23,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldAliveSprite = ResourceLoader.LoadSprite("SigilWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("HeavensGateRed_BOSS").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("HeavensGateRed_BOSS").deathSound,
-                Priority = Priority.VeryFast
+                Priority = Priority.ExtremelyFast
             };
             monolith.PrepareEnemyPrefab("assets/group4/Sigil/Sigil_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Sigil/Sigil_Gibs.prefab").GetComponent<ParticleSystem>());
 
