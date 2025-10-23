@@ -42,6 +42,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "Insider_EN", 1, "Moone_EN");
             med.SimpleAddEncounter(2, "Insider_EN", 1, Enemies.Shuffler);
             med.SimpleAddEncounter(2, "Insider_EN", 1, Colophon.Red, 1, Colophon.Blue);
+            med.SimpleAddEncounter(2, "Insider_EN", 1, "ClayChildSleep_EN", 1, "ClayChild_EN");
 
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Insider.Med, April.LessMod * 5, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
@@ -88,6 +89,12 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Orph.H.Thunderdome.Med);
             med.AddRandomGroup("Thunderdome_EN", "Insider_EN", "Romantic_EN");
+
+            med = new AddTo(Orph.H.Clergy.Med);
+            med.AddRandomGroup("Clergy_EN", "Insider_EN", Bots.Yellow);
+
+            hard = new AddTo(Orph.H.Sonoduct.Hard);
+            hard.AddRandomGroup("Sonoduct_EN", "Insider_EN");
 
             //GARDEN
 
