@@ -244,5 +244,18 @@ namespace SaltsEnemies_Reseasoned
             if (game.GetBoolData("Smilers_BOSS") && game.GetBoolData("CrowChild_BOSS") && game.GetBoolData("BlackAndBlue_BOSS") && game.GetBoolData("Megalania_BOSS") && game.GetBoolData("Invention_BOSS") && game.GetBoolData("BlueSky_BOSS"))
                 game.SetBoolData("ChapterBoss", true);
         }
+
+        public static bool Track(string enemy)
+        {
+            return LoadedDBsHandler.InfoHolder.Game.GetBoolData(enemy);
+        }
+        public static bool Track(string[] enemies)
+        {
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                if (!Track(enemies[i])) return false;
+            }
+            return true;
+        }
     }
 }
