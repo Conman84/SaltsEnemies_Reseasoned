@@ -141,17 +141,20 @@ namespace SaltsEnemies_Reseasoned
 
             for (int i = 0; i < 999; i++)
             {
+                bool safe = true;
+
                 foreach (EnemyBundleData enemyData in ret.Enemies)
                 {
                     if (!AllowEnemy(enemyData.enemy.name))
                     {
                         if (SaltsReseasoned.DebugVer) Debug.LogWarning("blocking enemy for progress: " + enemyData.enemy.name);
                         ret = orig(self);
+                        safe = false;
                         break;
                     }
                 }
 
-                return ret;
+                if (safe) return ret;
             }
 
             return ret;
