@@ -40,7 +40,7 @@ namespace SaltEnemies_Reseasoned
         {
             orig(self);
             if (!self.InfoHolder.HardMode) return;
-            if (Gatekeeper.StoredRuns < 3) return;
+            if (Gatekeeper.StoredRuns < 7) return;
             //Debug.Log("entered");
             if (UnityEngine.Random.Range(0, 100) < chance() && ((CombatManager.Instance._stats.PlayerCurrency >= 32 && UnityEngine.Random.Range(0f, 1f) < 0.5f) || CombatManager.Instance._stats.PlayerCurrency >= 99) && !enteredCombat)
             {
