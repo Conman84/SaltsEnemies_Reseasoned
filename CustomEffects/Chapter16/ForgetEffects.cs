@@ -30,6 +30,11 @@ namespace SaltEnemies_Reseasoned
         }
         public static EnemySO GetRandomEnemy()
         {
+            if (UnityEngine.Random.Range(0, 500) < 1)
+            {
+                return GetSpecial();
+            }
+
             EnemyCombatBundle bundle = GetRandomBundle();
             List<EnemySO> lists = new List<EnemySO>();
             foreach (EnemyBundleData data in bundle.Enemies)
@@ -53,6 +58,11 @@ namespace SaltEnemies_Reseasoned
             if (ret == null) return GetRandomEnemy();
             return ret;
         }
+        public static EnemySO GetSpecial() => LoadedAssetsHandler.GetEnemy(SpecialEnemies.GetRandom());
+        public static string[] SpecialEnemies = [
+            "Hauntling_EN",
+            "Insider_EN"
+            ];
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             exitAmount = 0;
