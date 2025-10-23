@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using System;
 using UnityEngine;
+using SaltsEnemies_Reseasoned;
 
 namespace SaltEnemies_Reseasoned
 {
@@ -39,6 +40,7 @@ namespace SaltEnemies_Reseasoned
         {
             orig(self);
             if (!self.InfoHolder.HardMode) return;
+            if (Gatekeeper.StoredRuns < 3) return;
             //Debug.Log("entered");
             if (UnityEngine.Random.Range(0, 100) < chance() && ((CombatManager.Instance._stats.PlayerCurrency >= 32 && UnityEngine.Random.Range(0f, 1f) < 0.5f) || CombatManager.Instance._stats.PlayerCurrency >= 99) && !enteredCombat)
             {
