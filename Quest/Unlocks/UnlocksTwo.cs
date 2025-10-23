@@ -134,7 +134,7 @@ namespace SaltsEnemies_Reseasoned
             lens.Conditions = [];
             lens.DoesActionOnTriggerAttached = false;
             lens.ConsumeOnTrigger = TriggerCalls.Count;
-            lens.ConsumeOnUse = true;
+            lens.ConsumeOnUse = false;
             lens.ConsumeConditions = [];
             lens.ShopPrice = 6;
             lens.IsShopItem = true;
