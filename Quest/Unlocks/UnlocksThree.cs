@@ -106,14 +106,14 @@ namespace SaltsEnemies_Reseasoned
             spores.item._ItemTypeIDs = ["PierceShield"];
             spores.item.AddBlueSkyUnlock("Didion_CH", "locked_bluespores.png", "ach_bluespores.png");
 
-            PerformEffect_Item lens = new PerformEffect_Item("Salt_StalkingLens_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterCloneItemEffect>(), 2)]);
+            PerformEffect_Item lens = new PerformEffect_Item("Salt_StalkingLens_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterCloneItemEffect>(), 2), Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeItemEffect>(), 1, Slots.Self)]);
             lens.Name = "Stalking Lens";
             lens.Flavour = "\"See through the dark\"";
             lens.Description = "All damage dealt by this party member ignores Shield.\nOn taking any damage, destroy this item and produce 2 copies of it.";
             lens.Icon = ResourceLoader.LoadSprite("item_stalkinglens.png");
             lens.EquippedModifiers = [];
             lens.TriggerOn = TriggerCalls.OnDamaged;
-            lens.DoesPopUpInfo = true;
+            lens.DoesPopUpInfo = false;
             lens.Conditions = [];
             lens.DoesActionOnTriggerAttached = false;
             lens.ConsumeOnTrigger = TriggerCalls.Count;
