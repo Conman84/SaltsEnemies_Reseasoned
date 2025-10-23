@@ -19,6 +19,8 @@ namespace SaltsEnemies_Reseasoned
         {
             StoredRuns = LoadedDBsHandler.InfoHolder.Game.GetIntData(Gatekeeps);
             StoredRuns++;
+            //FOR NOW
+            StoredRuns = 22;
             LoadedDBsHandler.InfoHolder.Game.SetIntData(Gatekeeps, StoredRuns);
 
             orig(self);
