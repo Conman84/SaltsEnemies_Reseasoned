@@ -157,6 +157,8 @@ namespace SaltsEnemies_Reseasoned
                 if (safe) return ret;
             }
 
+            Debug.LogError("failed progress blocking i think.");
+
             return ret;
         }
     }
