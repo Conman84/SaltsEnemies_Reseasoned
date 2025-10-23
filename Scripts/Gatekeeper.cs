@@ -102,7 +102,7 @@ namespace SaltsEnemies_Reseasoned
             if (enemy == "Chiito_EN" && !Tracker.Track(["Butterfly_EN", "Foxtrot_EN"])) return false;
             if (enemy == "Complimentary_EN" && !Tracker.Track(["Something_EN", "LostSheep_EN", "Grandfather_EN"])) return false;
             if (enemy == "Hunter_EN" && !Tracker.Track(["LittleBeak_EN", "AFlower_EN"])) return false;
-            if (enemy == "Warbird_EN" && !Tracker.Track(["TheCrow_EN", "LittleBeak_EN", "Hunter_EN", Enemies.Solvent, "WindSong_EN", "Shua_EN"])) return false;
+            if (enemy == "Warbird_EN" && !Tracker.Track(["TheCrow_EN", "LittleBeak_EN", "WindSong_EN", "Shua_EN"])) return false;
             if (enemy == "Indicator_EN" && !Tracker.Track(["Grandfather_EN", Enemies.Solvent, "Enigma_EN", "WindSong_EN", "Shua_EN"])) return false;
             if (enemy == "GlassedSun_EN" && !Tracker.Track([Spoggle.Grey, Jumble.Grey, Bots.Grey, Flower.Grey])) return false;
             if (enemy == "Stoplight_EN" && !Tracker.Track(["Enigma_EN", "Sigil_EN"])) return false;
@@ -114,22 +114,22 @@ namespace SaltsEnemies_Reseasoned
             if (enemy == "Miriam_EN" && !Tracker.Track(["EyePalm_EN", "Shua_EN", "Merced_EN", "Skyloft_EN", "WindSong_EN"])) return false;
             if (enemy == "33_EN" && !Tracker.Track(["Wall_EN", "Clown_EN", "Tripod_EN"])) return false;
             if (enemy == "Author_EN" && !Tracker.Track(["Something_EN", "Crystal_EN", "Freud_EN"])) return false;
-            if (enemy == "Starless_EN" && !Tracker.Track(["DeadPixel_EN", "LostSheep_EN", "TheCrow_EN", "Pinano_EN", "Skyloft_EN", "BlackStar_EN"])) return false;
-            if (enemy == "Yang_EN" && !Tracker.Track(["StalwartTortoise_EN", "Enigma_EN", "Grandfather_EN", "Pinano_EN", "Hunter_EN", "PawnA_EN"])) return false;
+            if (enemy == "Starless_EN" && !Tracker.Track(["DeadPixel_EN", "LostSheep_EN", "Pinano_EN", "BlackStar_EN"])) return false;
+            if (enemy == "Yang_EN" && !Tracker.Track(["Enigma_EN", "Grandfather_EN", "Pinano_EN", "PawnA_EN"])) return false;
             if (enemy == "Cruelties1_EN" && !Tracker.Track([Flower.Grey, Bots.Grey, Spoggle.Grey, Jumble.Grey, "PersonalAngel_EN", "TortureMeNot_EN"])) return false;
-            if (enemy == "YNL_EN" && !Tracker.Track(["DeadPixel_EN", "LostSheep_EN", "Something_EN", Enemies.Camera, "Warbird_EN"])) return false;
+            if (enemy == "YNL_EN" && !Tracker.Track(["DeadPixel_EN", "LostSheep_EN", "Something_EN", Enemies.Camera])) return false;
             if (enemy == "Firebird_EN" && !Tracker.Track(["Hunter_EN", "DeadPixel_EN"])) return false;
             if (enemy == "Damocles_EN" && !Tracker.Track(["EyePalm_EN", "Skyloft_EN", "Starless_EN", "Miriam_EN"])) return false;
             if (enemy == "GlassFigurine_EN" && !Tracker.Track(["Enigma_EN", "WindSong_EN", Enemies.Solvent, "Indicator_EN", "BlackStar_EN"])) return false;
             if (enemy == "Nameless_EN" && !Tracker.Track(["ClockTower_EN", "Warbird_EN", "LittleAngel_EN", "Butterfly_EN", "Rabies_EN"])) return false;
             if (enemy == "Children6_EN" && !Tracker.Track(["DeadPixel_EN", "Clione_EN", "Merced_EN", "Sinker_EN", "TortureMeNot_EN", "NobodyGrave_EN"])) return false;
-            if (enemy == "TheDragon_EN" && !Tracker.Track(["Monster_EN", "WindSong_EN", Enemies.Solvent, "NobodyGrave_EN", "Yin_EN", "Yang_EN", "Eyeless_EN", "Starless_EN"])) return false;
+            if (enemy == "TheDragon_EN" && !Tracker.Track(["Monster_EN", "NobodyGrave_EN","Starless_EN"])) return false;
             if (enemy == "OdeToHumanity_EN" && !Tracker.Track([Spoggle.Grey, "YNL_EN", "Enigma_EN", Bots.Red, Bots.Blue, Bots.Yellow, Bots.Purple])) return false;
             if (enemy == "EvilDog_EN" && !Tracker.Track("YellowAngel_EN")) return false;
             if (enemy == "PersonalAngel_EN" && !Tracker.Track(["LittleAngel_EN", "Firebird_EN"])) return false;
-            if (enemy == "Yin_EN" && !Tracker.Track("Yang_EN")) return false;
+            if (enemy == "Yin_EN" && !Tracker.Track(["Yang_EN", "Hunter_EN"])) return false;
             if (enemy == "Eyeless_EN" && !Tracker.Track("Starless_EN")) return false;
-            if (enemy == "Solitaire_EN" && !Tracker.Track(["TheDragon_EN", "Eyeless_EN", "Starless_EN", "Yin_EN", "Yang_EN", "YellowAngel_EN", "PersonalAngel_EN", "Crystal_EN", "Evileye_EN", "Enigma_EN", "Sigil_EN", "DeadPixel_EN"])) return false;
+            if (enemy == "Solitaire_EN" && !Tracker.Track(["YellowAngel_EN", "Evileye_EN", "Enigma_EN", "Sigil_EN", "DeadPixel_EN"])) return false;
             if (enemy == "Spades_EN" && !Tracker.Track("Solitaire_EN")) return false;
 
             return true;
