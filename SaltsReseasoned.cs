@@ -93,6 +93,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(FireNoReduce.Setup);
             }
             PCall(Gatekeeper.Setup);
+            PCall(KillCommand.Add);
             #endregion
 
             //Add To Glossary
