@@ -154,6 +154,8 @@ namespace SaltsEnemies_Reseasoned
             blue.hasItemUnlock = true;
             blue.items = ["Salt_RedDream_TW"];
             ModdedAchievements blueach = new ModdedAchievements("The Dreamer", "Awaken Blue Skies.", ResourceLoader.LoadSprite("BSAch.png"), AchievementIDs.Blue);
+            blueach.IsSecret = true;
+            blueach.SecretDescription = "???";
             blueach.AddNewAchievementToInGameCategory(AchievementCategoryIDs.BossesTitleLabel);
             ListedUnlockCheck bluekill = ScriptableObject.CreateInstance<ListedUnlockCheck>();
             bluekill.unlockID = "BlueSky_BOSS";
