@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Garden.H.YNL.Med, "Salt_YourNewLifeEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/LobotomyTheme";
-            med.RoarEvent = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").deathSound;
+            med.RoarEvent = "event:/Hawthorne/Soisenay/YNLRoar";
 
             med.AddRandomEncounter("YNL_EN", "InHerImage_EN", "InHerImage_EN");
             med.AddRandomEncounter("YNL_EN", "InHisImage_EN", "InHisImage_EN", "InHisImage_EN");

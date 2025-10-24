@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("IndicatorIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("IndicatorWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("IndicatorDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetCharacter("Hans_CH").damageSound,
-                DeathSound = LoadedAssetsHandler.GetCharacter("Hans_CH").deathSound,
+                DamageSound = "event:/Hawthorne/Soisenay/IndicatorHit",
+                DeathSound = "event:/Hawthorne/Soisenay/IndicatorDie",
             };
             nerve.PrepareEnemyPrefab("assets/group4/Indicator/Indicator_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Indicator/Indicator_Gibs.prefab").GetComponent<ParticleSystem>());
             nerve.enemy.enemyTemplate.m_Data.m_Renderer = nerve.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Sprite").Find("Sprite").Find("Sprite").Find("Sprite").GetComponent<SpriteRenderer>();
@@ -29,11 +29,11 @@ namespace SaltsEnemies_Reseasoned
             com._passiveName = "Compulsory";
             com.m_PassiveID = "Compulsory_PA";
             com.passiveIcon = ResourceLoader.LoadSprite("IndicatorPassive.png");
-            com._enemyDescription = "On being directly damaged, force the Opposing unit to perform a random ability.";
+            com._enemyDescription = "On an Opponent moving in front of this enemy, force the Opposing unit to perform a random ability.";
             com._characterDescription = com._enemyDescription;
             com.doesPassiveTriggerInformationPanel = true;
             com.effects = Effects.GenerateEffect(SubActionEffect.Create(new EffectInfo[] { Effects.GenerateEffect(CasterRootActionEffect.Create(new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<PerformRandomAbilityEffect>(), 1, Slots.Self) }), 1, Slots.Self) }), 1, Slots.Front).SelfArray();
-            com._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
+            com._triggerOn = new TriggerCalls[1] { (TriggerCalls)AmbushManager.Patiently };
 
             //spasm
             PerformEffectPassiveAbility spasm = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();

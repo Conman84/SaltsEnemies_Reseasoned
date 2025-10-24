@@ -19,7 +19,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API easy = new EnemyEncounter_API(EncounterType.Random, Garden.H.Indicator.Easy, "Salt_IndicatorEncounter_Sign");
             easy.MusicEvent = "event:/Hawthorne/IndicatorSong";
-            easy.RoarEvent = LoadedAssetsHandler.GetCharacter("Hans_CH").deathSound;
+            easy.RoarEvent = "event:/Hawthorne/Soisenay/IndicatorDie";
 
             easy.AddRandomEncounter("Indicator_EN", "Grandfather_EN");
             easy.AddRandomEncounter("Indicator_EN", "GlassFigurine_EN");
@@ -42,7 +42,7 @@ namespace SaltsEnemies_Reseasoned
         {
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Garden.H.Indicator.Med, "Salt_IndicatorEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/IndicatorSong";
-            med.RoarEvent = LoadedAssetsHandler.GetCharacter("Hans_CH").deathSound;
+            med.RoarEvent = "event:/Hawthorne/Soisenay/IndicatorDie";
 
             med.SimpleAddEncounter(1, "Indicator_EN", 3, Enemies.Shivering);
             med.SimpleAddEncounter(1, "Indicator_EN", 3, "EyePalm_EN");

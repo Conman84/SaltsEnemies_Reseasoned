@@ -19,8 +19,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("SingularityIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("SingularityWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("SingularityDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("TaintedYolk_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("TaintedYolk_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Soisenay/SunHit",
+                DeathSound = "event:/Hawthorne/Soisenay/SunDie",
             };
             blackhole.PrepareEnemyPrefab("assets/group4/Singularity/Singularity_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Singularity/Singularity_Gibs.prefab").GetComponent<ParticleSystem>());
             blackhole.enemy.enemyTemplate.m_Data.m_Renderer = blackhole.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").GetComponent<SpriteRenderer>();

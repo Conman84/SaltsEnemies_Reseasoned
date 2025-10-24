@@ -19,8 +19,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("LobotomyIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("LobotomyWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("LobotomyDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Soisenay/YNLHit",
+                DeathSound = "event:/Hawthorne/Soisenay/YNLDie",
                 AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_YNL>()
             };
             lobotomy.PrepareMultiEnemyPrefab("assets/Lobotomy/Lobotomy_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/Lobotomy/Lobotomy_Gibs.prefab").GetComponent<ParticleSystem>());

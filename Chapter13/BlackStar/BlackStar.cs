@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("BlackstarIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("BlackstarWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("BlackstarDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Soisenay/BlackStarHit",
+                DeathSound = "event:/Hawthorne/Soisenay/BlackStarDie",
             };
             star.PrepareEnemyPrefab("assets/group4/Blackstar/Blackstar_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Blackstar/Blackstar_Gibs.prefab").GetComponent<ParticleSystem>());
 
