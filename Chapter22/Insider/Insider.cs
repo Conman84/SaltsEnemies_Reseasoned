@@ -68,7 +68,8 @@ namespace SaltsEnemies_Reseasoned
                 "Bartholomew",
                 //"Untitled",
                 "Hmnker",
-                "Corpse-chan"
+                "Corpse-chan",
+                "1 Sepulchre 1 Untitled Encounter"
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside)];
