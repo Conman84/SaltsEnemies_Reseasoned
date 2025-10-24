@@ -47,6 +47,15 @@ namespace SaltsEnemies_Reseasoned
                         TriggerCalls.OnDamaged
             };
 
+            PerformEffectPassiveAbility untitled = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            untitled._passiveName = "Untitled";
+            untitled.m_PassiveID = "Aprils_Untitled";
+            untitled._enemyDescription = "On dying excluding from Withering, restart combat.";
+            untitled._characterDescription = "On dying excluding from Withering, restart combat.";
+            untitled.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<UntitledEffect>())];
+            untitled._triggerOn = [TriggerCalls.OnDeath];
+            untitled.conditions = [ScriptableObject.CreateInstance<IsntWitheringDeathCondition>()];
+
             insider.AddPassives(new BasePassiveAbilitySO[] { colors, Passives.Forgetful });
 
             CasterRandomizeNameEnemyEffect inside = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
@@ -57,7 +66,7 @@ namespace SaltsEnemies_Reseasoned
                 "With Homophobia In Its Passives :Heart:",
                 "Sleve McDichael Onson Sweemey Darryl Archideld Anatoli Smorin Rey McSriff Glenallen Mixon Mario McRlwain Raul Chamgerlain Kevin Nogilny Tony Smehrik Bobson Dugnutt Willie Dustice Jeromy Gride Scott Dourque Shown Furcotte Dean Wesrey Mike Truk Dwigt Rortugal Tim Sandaele Karl Dandleton Mike Sernandez Todo Bonzalez",
                 "Bartholomew",
-                "Untitled",
+                //"Untitled",
                 "Hmnker",
                 "Corpse-chan"
                 ];
