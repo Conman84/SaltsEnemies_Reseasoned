@@ -56,7 +56,8 @@ namespace SaltsEnemies_Reseasoned
                 "Wiz Ars",
                 "With Homophobia In Its Passives :Heart:",
                 "Sleve McDichael Onson Sweemey Darryl Archideld Anatoli Smorin Rey McSriff Glenallen Mixon Mario McRlwain Raul Chamgerlain Kevin Nogilny Tony Smehrik Bobson Dugnutt Willie Dustice Jeromy Gride Scott Dourque Shown Furcotte Dean Wesrey Mike Truk Dwigt Rortugal Tim Sandaele Karl Dandleton Mike Sernandez Todo Bonzalez",
-                "bartholomew"
+                "Bartholomew",
+                "Untitled"
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside)];
