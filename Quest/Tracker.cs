@@ -29,43 +29,83 @@ namespace SaltsEnemies_Reseasoned
 
             if (name == TriggerCalls.OnDeath.ToString())
             {
-                if (args is DeathReference reference && reference.witheringDeath) return;
+                if (!(args is DeathReference reference)) return;
 
                 if (sender is EnemyCombat enemy)
                 {
-                    if (enemy.Enemy.name == "EmbersofaDeadGod_EN") Killed.Add("DeadGod_EN");
-                    if (enemy.Enemy.name == "TeachaMantoFish_EN") Killed.Add("Unmung_EN");
-                    if (enemy.Enemy.name == "Spectre_EN") Killed.Add("Butterfly_EN");
+                    if (enemy.Enemy.name == "EmbersofaDeadGod_EN") AddKill("DeadGod_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "TeachaMantoFish_EN") AddKill("Unmung_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "Spectre_EN") AddKill("Butterfly_EN", reference.witheringDeath);
 
-                    if (enemy.Enemy.name == "Children6_EN") Killed.Add("Children_EN");
-                    if (enemy.Enemy.name == "Children5_EN") Killed.Add("Children_EN");
-                    if (enemy.Enemy.name == "Children4_EN") Killed.Add("Children_EN");
-                    if (enemy.Enemy.name == "Children3_EN") Killed.Add("Children_EN");
-                    if (enemy.Enemy.name == "Children2_EN") Killed.Add("Children_EN");
-                    if (enemy.Enemy.name == "Children1_EN") Killed.Add("Children_EN");
-                    if (enemy.Enemy.name == "Children0_EN") Killed.Add("Children_EN");
-                    if (enemy.Enemy.name == "ChildrenPrayer_EN") Killed.Add("Children_EN");
+                    if (enemy.Enemy.name == "Children6_EN") AddKill("Children_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "Children5_EN") AddKill("Children_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "Children4_EN") AddKill("Children_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "Children3_EN") AddKill("Children_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "Children2_EN") AddKill("Children_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "Children1_EN") AddKill("Children_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "Children0_EN") AddKill("Children_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "ChildrenPrayer_EN") AddKill("Children_EN", reference.witheringDeath);
 
-                    if (enemy.Enemy.name == "Cruelties_1_EN") Killed.Add("TortureMeNot_EN");
-                    if (enemy.Enemy.name == "Cruelties_2_EN") Killed.Add("TortureMeNot_EN");
-                    if (enemy.Enemy.name == "Cruelties_3_EN") Killed.Add("TortureMeNot_EN");
-                    if (enemy.Enemy.name == "Cruelties_4_EN") Killed.Add("TortureMeNot_EN");
-                    if (enemy.Enemy.name == "Cruelties_5_EN") Killed.Add("TortureMeNot_EN");
+                    if (enemy.Enemy.name == "Cruelties_1_EN") AddKill("TortureMeNot_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "Cruelties_2_EN") AddKill("TortureMeNot_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "Cruelties_3_EN") AddKill("TortureMeNot_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "Cruelties_4_EN") AddKill("TortureMeNot_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "Cruelties_5_EN") AddKill("TortureMeNot_EN", reference.witheringDeath);
 
-                    if (enemy.Enemy.name == "Wall_2_EN") Killed.Add("Wall_EN");
-                    if (enemy.Enemy.name == "33_EN") Killed.Add("Wall_EN");
-                    if (enemy.Enemy.name == "Amalga_Alt_EN") Killed.Add("Amalga_EN");
+                    if (enemy.Enemy.name == "Wall_2_EN") AddKill("Wall_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "33_EN") AddKill("Wall_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "Amalga_Alt_EN") AddKill("Amalga_EN", reference.witheringDeath);
 
-                    if (enemy.Enemy.name == "Smiler_Corpse_BOSS") Killed.Add("Smilers_BOSS");
-                    if (enemy.Enemy.name == "RedSky_BOSS") Killed.Add("BlueSky_BOSS");
+                    if (enemy.Enemy.name == "Smiler_Corpse_BOSS") AddKill("Smilers_BOSS", reference.witheringDeath);
+                    if (enemy.Enemy.name == "RedSky_BOSS") AddKill("BlueSky_BOSS", reference.witheringDeath);
 
-                    if (enemy.ContainsPassiveAbility("Stained_PA")) Killed.Add("GlassedSun_EN");
+                    if (enemy.ContainsPassiveAbility("Stained_PA")) AddKill("GlassedSun_EN", reference.witheringDeath);
 
-                    if (Normals.Contains(enemy.Enemy.name)) Killed.Add(enemy.Enemy.name);
+                    if (Normals.Contains(enemy.Enemy.name)) AddKill(enemy.Enemy.name, reference.witheringDeath);
                 }
                 if (sender is CharacterCombat chara)
                 {
-                    if (chara.Character.name == "Windle_CH") Killed.Add("Windle_EN");
+                    if (chara.Character.name == "Windle_CH") AddKill("Windle_EN", reference.witheringDeath);
+                }
+            }
+            if (name == TriggerCalls.OnFleetingEnd.ToString())
+            {
+
+                if (sender is EnemyCombat enemy)
+                {
+                    if (enemy.Enemy.name == "EmbersofaDeadGod_EN") AddKill("DeadGod_EN", true);
+                    if (enemy.Enemy.name == "TeachaMantoFish_EN") AddKill("Unmung_EN", true);
+                    if (enemy.Enemy.name == "Spectre_EN") AddKill("Butterfly_EN", true);
+
+                    if (enemy.Enemy.name == "Children6_EN") AddKill("Children_EN", true);
+                    if (enemy.Enemy.name == "Children5_EN") AddKill("Children_EN", true);
+                    if (enemy.Enemy.name == "Children4_EN") AddKill("Children_EN", true);
+                    if (enemy.Enemy.name == "Children3_EN") AddKill("Children_EN", true);
+                    if (enemy.Enemy.name == "Children2_EN") AddKill("Children_EN", true);
+                    if (enemy.Enemy.name == "Children1_EN") AddKill("Children_EN", true);
+                    if (enemy.Enemy.name == "Children0_EN") AddKill("Children_EN", true);
+                    if (enemy.Enemy.name == "ChildrenPrayer_EN") AddKill("Children_EN", true);
+
+                    if (enemy.Enemy.name == "Cruelties_1_EN") AddKill("TortureMeNot_EN", true);
+                    if (enemy.Enemy.name == "Cruelties_2_EN") AddKill("TortureMeNot_EN", true);
+                    if (enemy.Enemy.name == "Cruelties_3_EN") AddKill("TortureMeNot_EN", true);
+                    if (enemy.Enemy.name == "Cruelties_4_EN") AddKill("TortureMeNot_EN", true);
+                    if (enemy.Enemy.name == "Cruelties_5_EN") AddKill("TortureMeNot_EN", true);
+
+                    if (enemy.Enemy.name == "Wall_2_EN") AddKill("Wall_EN", true);
+                    if (enemy.Enemy.name == "33_EN") AddKill("Wall_EN", true);
+                    if (enemy.Enemy.name == "Amalga_Alt_EN") AddKill("Amalga_EN", true);
+
+                    if (enemy.Enemy.name == "Smiler_Corpse_BOSS") AddKill("Smilers_BOSS", true);
+                    if (enemy.Enemy.name == "RedSky_BOSS") AddKill("BlueSky_BOSS", true);
+
+                    if (enemy.ContainsPassiveAbility("Stained_PA")) AddKill("GlassedSun_EN", true);
+
+                    if (Normals.Contains(enemy.Enemy.name)) AddKill(enemy.Enemy.name, true);
+                }
+                if (sender is CharacterCombat chara)
+                {
+                    if (chara.Character.name == "Windle_CH") AddKill("Windle_EN", true);
                 }
             }
         }
@@ -179,6 +219,11 @@ namespace SaltsEnemies_Reseasoned
             "Invention_BOSS",
             ];
 
+        public static void AddKill(string enemy, bool withered)
+        {
+            Killed.Add(enemy + "_W");
+            if (!withered) Killed.Add(enemy);
+        }
         public static void Check()
         {
             InGameDataSO game = LoadedDBsHandler.InfoHolder.Game;
@@ -247,15 +292,16 @@ namespace SaltsEnemies_Reseasoned
                 game.SetBoolData("ChapterBoss", true);
         }
 
-        public static bool Track(string enemy)
+        public static bool Track(string enemy, bool inc_wither = true)
         {
-            return LoadedDBsHandler.InfoHolder.Game.GetBoolData(enemy);
+            if (!inc_wither) return LoadedDBsHandler.InfoHolder.Game.GetBoolData(enemy);
+            return LoadedDBsHandler.InfoHolder.Game.GetBoolData(enemy + "_W");
         }
-        public static bool Track(string[] enemies)
+        public static bool Track(string[] enemies, bool inc_wither = true)
         {
             for (int i = 0; i < enemies.Length; i++)
             {
-                if (!Track(enemies[i])) return false;
+                if (!Track(enemies[i], inc_wither)) return false;
             }
             return true;
         }
