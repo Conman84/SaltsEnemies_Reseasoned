@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("ComplimentaryIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("ComplimentaryWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("ComplimentaryDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetCharacter("Hans_CH").damageSound,
-                DeathSound = LoadedAssetsHandler.GetCharacter("Hans_CH").deathSound,
+                DamageSound = LoadedAssetsHandler.GetCharacter("Derogatory_EN").damageSound,
+                DeathSound = LoadedAssetsHandler.GetCharacter("Derogatory_EN").deathSound,
             };
             complimentary.PrepareEnemyPrefab("assets/enemie/Complimentary_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("assets/giblets/Complimentary_Gibs.prefab").GetComponent<ParticleSystem>());
 
