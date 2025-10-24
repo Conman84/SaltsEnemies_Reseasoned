@@ -70,7 +70,8 @@ namespace SaltsEnemies_Reseasoned
 
             PerformEffectPassiveAbility systemic = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             systemic.name = "Systemic_Repeater_PA";
-            systemic._passiveName = "Repeater";
+            systemic._passiveName = "Repeater (3)";
+            systemic.passiveIcon = ResourceLoader.LoadSprite("SystemicPassive.png");
             systemic._enemyDescription = "Every 3 times this enemy is damaged, queue the ability \"Repeater\".";
             systemic.m_PassiveID = "Systemic_PA";
             systemic.conditions = [SystemicCondition.Create(3, "Repeater_PA")];

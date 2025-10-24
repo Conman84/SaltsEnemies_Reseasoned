@@ -28,6 +28,7 @@ namespace SaltsEnemies_Reseasoned
             Connection_PerformEffectPassiveAbility sunk = ScriptableObject.CreateInstance<Connection_PerformEffectPassiveAbility>();
             sunk.name = "Sunk_PA";
             sunk._passiveName = "Sunk";
+            sunk.passiveIcon = ResourceLoader.LoadSprite("SunkPassive.png");
             sunk._enemyDescription = "All positions are in permenant Deep Water.";
             sunk.m_PassiveID = "Sunk_PA";
             sunk.connectionEffects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<PermenantApplyWaterEffect>(), 1, MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false)))];

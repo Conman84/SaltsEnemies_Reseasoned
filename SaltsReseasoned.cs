@@ -599,9 +599,9 @@ namespace SaltsEnemies_Reseasoned
             if (TestBosses)
             {
                 //BOSSES
-                //sunk (BB)
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SunkPassive.png"), "Sunk", "All positions are in permenant Deep Water.");
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("RadicalPassive.png"), "Radical", "On being damaged, Adjust All Lights.");
-                //Systemic (Invention)
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SystemicPassive.png"), "Systemic", "When this enemy is damaged a certain amount of times, queue a specific ability.");
                 //Acting (Bluesky)
             }
 

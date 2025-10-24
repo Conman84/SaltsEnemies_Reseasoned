@@ -12,6 +12,7 @@
 	  <None Remove="assets\hawthorne" />
 	  <None Remove="assets\meowy" />
 	  <None Remove="Bosses\Black\BB_Portal.png" />
+	  <None Remove="Bosses\Black\SunkPassive.png" />
 	  <None Remove="Bosses\Black\WarCriminalWorld.png" />
 	  <None Remove="Bosses\Blue\Anim\Art_BS.png" />
 	  <None Remove="Bosses\Blue\Anim\Splash_BlueSky.png" />
@@ -32,6 +33,7 @@
 	  <None Remove="Bosses\Invention\Anim\Splash_Inv.png" />
 	  <None Remove="Bosses\Invention\InventionWorld.png" />
 	  <None Remove="Bosses\Invention\SecondInventionPortal.png" />
+	  <None Remove="Bosses\Invention\SystemicPassive.png" />
 	  <None Remove="Bosses\Smilers\Anim\SmilerEnv.png" />
 	  <None Remove="Bosses\Smilers\SmilerPortal.png" />
 	  <None Remove="Bosses\Smilers\SmilersWorld.png" />
@@ -848,6 +850,7 @@
 	<ItemGroup>
 	  <EmbeddedResource Include="assets\dreams" />
 	  <EmbeddedResource Include="Bosses\Black\BB_Portal.png" />
+	  <EmbeddedResource Include="Bosses\Black\SunkPassive.png" />
 	  <EmbeddedResource Include="Bosses\Black\WarCriminalWorld.png" />
 	  <EmbeddedResource Include="Bosses\Blue\Anim\Art_BS.png" />
 	  <EmbeddedResource Include="Bosses\Blue\Anim\Splash_BlueSky.png" />
@@ -867,6 +870,7 @@
 	  <EmbeddedResource Include="Bosses\Invention\Anim\Splash_Inv.png" />
 	  <EmbeddedResource Include="Bosses\Invention\InventionWorld.png" />
 	  <EmbeddedResource Include="Bosses\Invention\SecondInventionPortal.png" />
+	  <EmbeddedResource Include="Bosses\Invention\SystemicPassive.png" />
 	  <EmbeddedResource Include="Bosses\Smilers\Anim\SmilerEnv.png" />
 	  <EmbeddedResource Include="Bosses\Smilers\SmilerPortal.png" />
 	  <EmbeddedResource Include="Bosses\Smilers\SmilersWorld.png" />
