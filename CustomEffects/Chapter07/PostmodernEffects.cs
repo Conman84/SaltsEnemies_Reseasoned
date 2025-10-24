@@ -339,7 +339,7 @@ namespace SaltEnemies_Reseasoned
         {
             IDetour awakening = new Hook(typeof(OverworldManagerBG).GetMethod(nameof(OverworldManagerBG.Awake), ~BindingFlags.Default), typeof(PostmodernHandler).GetMethod(nameof(Awake), ~BindingFlags.Default));
             IDetour diologo = new Hook(typeof(OverworldManagerBG).GetMethod(nameof(OverworldManagerBG.InitializeDialogueFunctions), ~BindingFlags.Default), typeof(PostmodernHandler).GetMethod(nameof(InitializeDialogueFunctions), ~BindingFlags.Default));
-            //IDetour hook = new Hook(typeof(InGameDataSO).GetMethod(nameof(InGameDataSO.DidCompleteQuest), ~BindingFlags.Default), typeof(PostmodernHandler).GetMethod(nameof(DidCompleteQuest), ~BindingFlags.Default));
+            IDetour hook = new Hook(typeof(InGameDataSO).GetMethod(nameof(InGameDataSO.DidCompleteQuest), ~BindingFlags.Default), typeof(PostmodernHandler).GetMethod(nameof(DidCompleteQuest), ~BindingFlags.Default));
             Add();
             Hacks.Setup();
             postmodernevent();
@@ -497,7 +497,7 @@ namespace SaltEnemies_Reseasoned
             ret.encounterRoom = RoomPrefab;
             ret.signID = Sign;
             ret.encounterEntityIDs = new string[] { Entity };
-            ret.m_QuestsCompletedNeeded = [];
+            ret.m_QuestsCompletedNeeded = ["SaltEnemies_AllowPostmodern"];
             //if (!LoadedAssetsHandler.LoadedBasicEncounters.Keys.Contains(Encounter)) LoadedAssetsHandler.LoadedBasicEncounters.Add(Encounter, ret);
             //else LoadedAssetsHandler.LoadedBasicEncounters[Encounter] = ret;
 
@@ -562,10 +562,10 @@ namespace SaltEnemies_Reseasoned
 
         public static bool DidCompleteQuest(Func<InGameDataSO, string, bool> orig, InGameDataSO self, string questName)
         {
-            if (questName == Quest && !April.Birthday)
+            if (questName == "SaltEnemies_AllowPostmodern")
             {
-                //return false;
-                return (UnityEngine.Random.Range(0, 100) < 75);
+                if (April.Birthday) return true;
+                return Gatekeeper.AllowEnemy("Postmodern_EN");
             }
             return orig(self, questName);
         }
