@@ -140,8 +140,8 @@ namespace SaltsEnemies_Reseasoned
             if (enemy == "Damocles_EN" && !Tracker.Track(["EyePalm_EN", "Skyloft_EN", "Starless_EN", "Miriam_EN"])) return false;
             if (enemy == "GlassFigurine_EN" && !Tracker.Track(["Enigma_EN", "WindSong_EN", Enemies.Solvent, "Indicator_EN", "BlackStar_EN"])) return false;
             if (enemy == "Nameless_EN" && !Tracker.Track(["ClockTower_EN", "Warbird_EN", "LittleAngel_EN", "Butterfly_EN", "Rabies_EN"])) return false;
-            if (enemy == "Children6_EN" && !Tracker.Track(["DeadPixel_EN", "Clione_EN", "Merced_EN", "Sinker_EN", "TortureMeNot_EN", "NobodyGrave_EN"])) return false;
-            if (enemy == "TheDragon_EN" && !Tracker.Track(["Monster_EN", "NobodyGrave_EN","Starless_EN"])) return false;
+            if (enemy == "Children6_EN" && !Tracker.Track(["DeadPixel_EN", "Clione_EN", "Merced_EN", "Sinker_EN", "NobodyGrave_EN"])) return false;
+            if (enemy == "TheDragon_EN" && !Tracker.Track(["Monster_EN", "NobodyGrave_EN","Wall_EN"])) return false;
             if (enemy == "OdeToHumanity_EN" && !Tracker.Track([Spoggle.Grey, "YNL_EN", "Enigma_EN", Bots.Red, Bots.Blue, Bots.Yellow, Bots.Purple])) return false;
             if (enemy == "EvilDog_EN" && !Tracker.Track("YellowAngel_EN")) return false;
             if (enemy == "PersonalAngel_EN" && !Tracker.Track(["LittleAngel_EN", "Firebird_EN"])) return false;

@@ -294,8 +294,8 @@ namespace SaltsEnemies_Reseasoned
 
         public static bool Track(string enemy, bool inc_wither = true)
         {
-            if (!inc_wither) return LoadedDBsHandler.InfoHolder.Game.GetBoolData(enemy);
-            return LoadedDBsHandler.InfoHolder.Game.GetBoolData(enemy + "_W");
+            if (LoadedDBsHandler.InfoHolder.Game.GetBoolData(enemy)) return true;
+            return inc_wither && LoadedDBsHandler.InfoHolder.Game.GetBoolData(enemy + "_W");
         }
         public static bool Track(string[] enemies, bool inc_wither = true)
         {
