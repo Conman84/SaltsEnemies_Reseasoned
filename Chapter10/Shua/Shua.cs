@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("ShuaIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("ShuaWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("ShuaDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetCharacter("Hans_CH").damageSound,
-                DeathSound = LoadedAssetsHandler.GetCharacter("Hans_CH").deathSound,
+                DamageSound = "event:/Hawthorne/Soisenay/CoraHit",
+                DeathSound = "event:/Hawthorne/Soisenay/CoraDie",
                 AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_Shua>()
             };
             shua.PrepareEnemyPrefab("assets/group4/Shua/Shua_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Shua/Shua_Gibs.prefab").GetComponent<ParticleSystem>());
