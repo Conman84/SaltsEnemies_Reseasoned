@@ -146,7 +146,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldAliveSprite = ResourceLoader.LoadSprite("RedMikuWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("RedMikuWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("Eyeless_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("Eyeless_EN").deathSound,
+                DeathSound = "event:/Blackwater/Noise/RSDie",
             };
             second.PrepareEnemyPrefab("Assets/TestSprites/Test_RedSky_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
             //second.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("WindSong_EN").enemyTemplate;
