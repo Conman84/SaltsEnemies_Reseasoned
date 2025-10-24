@@ -60,7 +60,7 @@ namespace SaltEnemies_Reseasoned
             foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
             {
                 int num = 1;
-                if (UnityEngine.Random.Range(0f, 1f) < 0.25f) num++;
+                //if (UnityEngine.Random.Range(0f, 1f) < 0.25f) num++;
 
                 for (int i = 0; i < num; i++)
                 {

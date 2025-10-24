@@ -32,7 +32,8 @@ namespace SaltsEnemies_Reseasoned
             com._enemyDescription = "On an Opponent moving in front of this enemy, force the Opposing unit to perform a random ability.";
             com._characterDescription = com._enemyDescription;
             com.doesPassiveTriggerInformationPanel = true;
-            com.effects = Effects.GenerateEffect(SubActionEffect.Create(new EffectInfo[] { Effects.GenerateEffect(CasterRootActionEffect.Create(new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<PerformRandomAbilityEffect>(), 1, Slots.Self) }), 1, Slots.Self) }), 1, Slots.Front).SelfArray();
+            //com.effects = Effects.GenerateEffect(SubActionEffect.Create(new EffectInfo[] { Effects.GenerateEffect(CasterRootActionEffect.Create(new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<PerformRandomAbilityEffect>(), 1, Slots.Self) }), 1, Slots.Self) }), 1, Slots.Front).SelfArray();
+            com.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<PerformRandomAbilityEffect>(), 1, Slots.Front)];
             com._triggerOn = new TriggerCalls[1] { (TriggerCalls)AmbushManager.Patiently };
 
             //spasm
@@ -40,7 +41,7 @@ namespace SaltsEnemies_Reseasoned
             spasm._passiveName = "Spasm";
             spasm.m_PassiveID = "Spasm_PA";
             spasm.passiveIcon = ResourceLoader.LoadSprite("SpasmPassive.png");
-            spasm._enemyDescription = "On death, give all enemies 1-2 additional actions on the timeline.";
+            spasm._enemyDescription = "On death, give all enemies an additional actions on the timeline.";
             spasm._characterDescription = "doesnt work";
             spasm.doesPassiveTriggerInformationPanel = true;
             spasm.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<SpasmEffect>(), 1, Targeting.Unit_AllAllies).SelfArray();
