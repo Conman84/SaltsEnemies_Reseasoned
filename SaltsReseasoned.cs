@@ -540,7 +540,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CollapsePassive.png"), "Collapse", "On dying from Withering, spawn a specific unit.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("BlackstarPassive.png"), "Turbulent", "On being directly damaged, shuffle all enemy positions.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("IndicatorPassive.png"), "Compulsory", "On an Opponent moving in front of this unit, force the Opposing unit to perform a random ability.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SpasmPassive.png"), "Spasm", "On death, all living allied units will attempt to prematurely perform their next turn, then all living allied units will gain another action on the timeline.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SpasmPassive.png"), "Spasm", "On death, all living allied units will attempt to prematurely perform their next turn then gain another action on the timeline if succesful.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MawPassive.png"), "Bad Dog", "At the start of each round and on anything moving during the player's turn, if this enemy has an Opposing party member, remove all of its actions from the timeline. \nOtherwise, return all lost actions.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SkinPeelingPassive.png"), "Skinning", "On being directly damaged, exhaust the Opposing party member's ability usage.");
 
