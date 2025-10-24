@@ -530,6 +530,7 @@
 	  <None Remove="Quest\Sprites\Achievements\InventionAch.png" />
 	  <None Remove="Quest\Sprites\Achievements\MiriamAch.png" />
 	  <None Remove="Quest\Sprites\Achievements\PMAch.png" />
+	  <None Remove="Quest\Sprites\Achievements\SmilerAch.png" />
 	  <None Remove="Quest\Sprites\Achievements\SnakeAch.png" />
 	  <None Remove="Quest\Sprites\Achievements\TvAch.png" />
 	  <None Remove="Quest\Sprites\CheatingMaterials.png" />
@@ -1376,6 +1377,7 @@
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\InventionAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\MiriamAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\PMAch.png" />
+	  <EmbeddedResource Include="Quest\Sprites\Achievements\SmilerAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\SnakeAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\TvAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\DefacerAch.png" />
