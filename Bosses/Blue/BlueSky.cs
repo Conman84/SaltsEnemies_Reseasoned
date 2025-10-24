@@ -18,7 +18,7 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("MikuWorld.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("MikuWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("MikuWorld.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("Starless_EN").damageSound,
+                DamageSound = "event:/Blackwater/Noise/BSHit",
                 DeathSound = LoadedAssetsHandler.GetEnemy("Starless_EN").deathSound,
             };
             template.PrepareEnemyPrefab("Assets/TestSprites/Test_BlueSky_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_BlueSky_Gibs.prefab").GetComponent<ParticleSystem>());
