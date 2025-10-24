@@ -137,6 +137,7 @@ namespace SaltsEnemies_Reseasoned
                 line.GenerateEnemyAbility(true)
             });
 
+
             //sub decay
             Enemy second = new Enemy("Red Skies", "RedSky_BOSS")
             {
@@ -145,7 +146,7 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("RedMikuWorld.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("RedMikuWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("RedMikuWorld.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("Eyeless_EN").damageSound,
+                DamageSound = "event:/Blackwater/Noise/RSHit",
                 DeathSound = "event:/Blackwater/Noise/RSDie",
             };
             second.PrepareEnemyPrefab("Assets/TestSprites/Test_RedSky_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
