@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("DamoclesIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("DamoclesWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("DamoclesDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = "event:/Hawthorne/Sound/StarlessHit",
-                DeathSound = "event:/Hawthorne/Sound/StarlessDie",
+                DamageSound = "event:/Hawthorne/Sosn2/DamoclesHit",
+                DeathSound = "event:/Hawthorne/Sosn2/DamoclesDie",
             };
             sword.PrepareEnemyPrefab("assets/group4/Damocles/Damocles_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Damocles/Damocles_Gibs.prefab").GetComponent<ParticleSystem>());
             sword.enemy.enemyTemplate.m_Data.m_Renderer = sword.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Moon").GetComponent<SpriteRenderer>();
