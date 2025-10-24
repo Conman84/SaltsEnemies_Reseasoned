@@ -64,7 +64,7 @@ namespace SaltsEnemies_Reseasoned
 
             return;
             
-            f (SaltsReseasoned.DebugVer)
+            if (SaltsReseasoned.DebugVer)
             {
                 Debug.LogWarning("this will throw an error. this doesnt mean anything is broken im intentionally throwing an error to make sure the method that protects against errors is working.");
                 Debug.Log(b.Name);
