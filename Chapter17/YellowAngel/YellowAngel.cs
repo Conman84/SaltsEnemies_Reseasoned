@@ -54,21 +54,25 @@ namespace SaltsEnemies_Reseasoned
             selector.NoIfCenter = ["OnSight_A", "MarkThem_A"];
             yellow.AbilitySelector = selector;
 
+            TargettingFarthestUnits oneside = Targetting.Closer(false, false) as TargettingFarthestUnits;
+            oneside.BothSides = false;
+
             //sight
             Ability sight = new Ability("OnSight_A")
             {
                 Name = "On Sight",
-                Description = "If the Far Far Left or Far Far Right party members have either manually moved or used an ability last turn, deal an Agonizing amount of damage to them and move them to the Left or Right if damage was dealt.",
+                Description = "If the Furthest party member(s) from this enemy have either manually moved or used an ability last turn, deal an Agonizing amount of damage to them and move them to the Left or Right if damage was dealt.",
                 Rarity = Rarity.Common,
                 Effects = new EffectInfo[]
                         {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<OnSightEffect>(), 7, Targeting.GenerateSlotTarget(new int[]{-3, 3}, false)),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Targeting.GenerateSlotTarget(new int[]{-3, 3}, false), BasicEffects.DidThat(true))
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<OnSightEffect>(), 7, oneside),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, oneside, BasicEffects.DidThat(true))
                         },
                 Visuals = CustomVisuals.GetVisuals("Salt/Cannon"),
-                AnimationTarget = Targeting.GenerateSlotTarget(new int[] { -3, 3 }, false),
+                AnimationTarget = oneside,
             };
-            sight.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[] { -3, 3 }, false), [IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Swap_Sides.ToString()]);
+            sight.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
+            sight.AddIntentsToTarget(oneside, [IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Swap_Sides.ToString()]);
 
             Ability track = new Ability("TrackThePrints_A")
             {
@@ -96,7 +100,7 @@ namespace SaltsEnemies_Reseasoned
                 Rarity = Rarity.Common,
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<MarkThemEffect>(), 10, Targeting.GenerateSlotTarget(new int[]{-3, 3}, false)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<MarkThemEffect>(), 7, Targeting.GenerateSlotTarget(new int[]{-3, 3}, false)),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 3, MultiTargetting.Create(Targetting.HighestEnemy, Targetting.LowestEnemy), AnyHasFrailEffectCondition.Create(false, false)),
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Gunshot"),

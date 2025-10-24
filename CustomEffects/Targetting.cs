@@ -304,6 +304,8 @@ namespace SaltEnemies_Reseasoned
 
         public bool ignoreCastSlot = true;
 
+        public bool BothSides = true;
+
         public override bool AreTargetAllies => getAllies;
 
         public override bool AreTargetSlots => true;
@@ -369,6 +371,13 @@ namespace SaltEnemies_Reseasoned
                     }
                 }
             }
+
+            if (greaterest != null && lesserest != null && !BothSides)
+            {
+                if (greaterest.SlotID - casterSlotID > casterSlotID - lesserest.SlotID) return [greaterest.TargetSlotInformation];
+                else if (greaterest.SlotID - casterSlotID < casterSlotID - lesserest.SlotID) return [lesserest.TargetSlotInformation];
+            }
+
             if (greaterest != null)
             {
                 targets.Add(greaterest.TargetSlotInformation);
