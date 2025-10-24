@@ -16,7 +16,7 @@ namespace SaltsEnemies_Reseasoned
             med.RoarEvent = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").deathSound;
 
             med.AddRandomEncounter("YNL_EN", "InHerImage_EN", "InHerImage_EN");
-            med.AddRandomEncounter("YNL_EN", "InHisImage_EN", "InHisImage_EN", "InHisImage-EN");
+            med.AddRandomEncounter("YNL_EN", "InHisImage_EN", "InHisImage_EN", "InHisImage_EN");
             med.SimpleAddEncounter(1, "YNL_EN", 4, "NextOfKin_EN");
             med.AddRandomEncounter("YNL_EN", "ChoirBoy_EN", "InHisImage_EN", "InHisImage_EN");
             med.AddRandomEncounter("YNL_EN", "InHerImage_EN", "InHerImage_EN", "LittleAngel_EN");
