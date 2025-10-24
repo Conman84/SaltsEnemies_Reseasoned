@@ -139,7 +139,7 @@ namespace SaltsEnemies_Reseasoned
             if (enemy == "YNL_EN" && !Tracker.Track(["DeadPixel_EN", "LostSheep_EN", "Something_EN", Enemies.Camera])) return false;
             if (enemy == "Firebird_EN" && !Tracker.Track(["Hunter_EN", "DeadPixel_EN"])) return false;
             if (enemy == "Damocles_EN" && !Tracker.Track(["EyePalm_EN", "Skyloft_EN", "Starless_EN", "Miriam_EN"])) return false;
-            if (enemy == "GlassFigurine_EN" && !Tracker.Track(["Enigma_EN", "WindSong_EN", Enemies.Solvent, "Indicator_EN"])) return false;
+            if (enemy == "GlassFigurine_EN" && !Tracker.Track(["Windle_EN", "WindSong_EN", Enemies.Solvent, "Indicator_EN"])) return false;
             if (enemy == "Nameless_EN" && !Tracker.Track(["ClockTower_EN", "Warbird_EN", "LittleAngel_EN", "Butterfly_EN"])) return false;
             if (enemy == "Children6_EN" && !Tracker.Track(["DeadPixel_EN", "StarGazer_EN", "Merced_EN", "NobodyGrave_EN"])) return false;
             if (enemy == "TheDragon_EN" && !Tracker.Track(["Monster_EN", "NobodyGrave_EN","Wall_EN"])) return false;
