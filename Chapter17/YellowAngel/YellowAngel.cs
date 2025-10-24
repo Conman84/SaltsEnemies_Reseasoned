@@ -56,6 +56,7 @@ namespace SaltsEnemies_Reseasoned
 
             TargettingFarthestUnits oneside = Targetting.Closer(false, false) as TargettingFarthestUnits;
             oneside.BothSides = false;
+            oneside.ignoreCastSlot = false;
 
             //sight
             Ability sight = new Ability("OnSight_A")
