@@ -2,10 +2,12 @@
 using DG.Tweening;
 using SaltsEnemies_Reseasoned;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using Tools;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace SaltEnemies_Reseasoned
 {
@@ -102,13 +104,16 @@ namespace SaltEnemies_Reseasoned
                         if (stats.timeline.Round[i].turnUnit == enemy)
                         {
                             enemy.SimpleSetStoredValue("BlueSky_ForcedTurn_A", 1);
+
+                            CombatManager.Instance.AddRootAction(new EnemyCombatRemoveFirstTurnAction(enemy));
+
                             EnemyPerformAbility(enemy, stats.timeline.Round[i].abilitySlot);
 
-                            stats.timeline.Round.RemoveAt(i);
-                            enemy.TurnsInTimeline--;
+                            //stats.timeline.Round.RemoveAt(i);
+                            //enemy.TurnsInTimeline--;
 
-                            CombatManager.Instance.AddUIAction(new RemoveSlotTimelineUIAction([i]));
-                            CombatManager.Instance.AddUIAction(new UpdateTimelinePointerUIAction(stats.timeline.CurrentTurn));
+                            //CombatManager.Instance.AddUIAction(new RemoveSlotTimelineUIAction([i]));
+                            //CombatManager.Instance.AddUIAction(new UpdateTimelinePointerUIAction(stats.timeline.CurrentTurn));
 
                             exitAmount++;
 
@@ -171,6 +176,36 @@ namespace SaltEnemies_Reseasoned
             CombatManager.Instance.AddRootAction(new EffectAction(ability.effects, self));
             CombatManager.Instance.AddRootAction(new CustomEndAbilityAction(self.ID, self.IsUnitCharacter));
             CombatManager.Instance.AddRootAction(new ForceTurnCleanupAction(self));
+        }
+    }
+    public class EnemyCombatRemoveFirstTurnAction : CombatAction
+    {
+        public EnemyCombat Enemy;
+        public EnemyCombatRemoveFirstTurnAction(EnemyCombat enemy)
+        {
+            Enemy = enemy;
+        }
+        public override IEnumerator Execute(CombatStats stats)
+        {
+            if (Enemy.TurnsInTimeline <= 0) yield break;
+
+            for (int i = stats.timeline.CurrentTurn + (stats.IsPlayerTurn ? 0 : 1); i < stats.timeline.Round.Count; i++)
+            {
+                if (stats.timeline.Round[i].isPlayer) continue;
+
+                if (stats.timeline.Round[i].turnUnit == Enemy)
+                {
+                    stats.timeline.Round.RemoveAt(i);
+                    Enemy.TurnsInTimeline--;
+
+                    CombatManager.Instance.AddUIAction(new RemoveSlotTimelineUIAction([i]));
+                    CombatManager.Instance.AddUIAction(new UpdateTimelinePointerUIAction(stats.timeline.CurrentTurn));
+
+                    break;
+                }
+            }
+
+            yield return null;
         }
     }
 }

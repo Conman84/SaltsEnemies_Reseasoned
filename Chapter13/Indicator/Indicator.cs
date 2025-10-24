@@ -47,7 +47,7 @@ namespace SaltsEnemies_Reseasoned
             spasm.effects = [
                 Effects.GenerateEffect(SubActionEffect.Create([
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<LivingTargetForceFirstActionEffect>(), 1, Slots.Self),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Slots.Self, BasicEffects.DidThat(true))
+                    Effects.GenerateEffect(CasterRootActionEffect.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Slots.Self)]), 1, Slots.Self, BasicEffects.DidThat(true))
                     ]), 1, Targeting.Unit_AllAllies)
                 ];
             spasm._triggerOn = [TriggerCalls.OnDeath];
