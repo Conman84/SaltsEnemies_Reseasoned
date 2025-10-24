@@ -1,10 +1,12 @@
-﻿using BepInEx.Configuration;
+﻿using BepInEx;
+using BepInEx.Configuration;
 using MonoMod.RuntimeDetour;
 using SaltEnemies_Reseasoned;
 using System;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
+using System.IO;
 
 //i want to set this up for the achievements update but i think it would be better to save this for the superboss update. 
 //really it wouldve been better to run this from the start but hindsight is 20/20.. oh well.
@@ -13,6 +15,9 @@ namespace SaltsEnemies_Reseasoned
 {
     public static class Gatekeeper
     {
+        public static ConfigEntry<bool> ConfigValue;
+        public static bool DoGatekeep => ConfigValue != null ? ConfigValue.Value : true;
+
         public static string Gatekeeps => "SaltEnemies_RunTracker";
         public static int StoredRuns;
 
@@ -20,7 +25,17 @@ namespace SaltsEnemies_Reseasoned
         {
             IDetour hook = new Hook(typeof(MainMenuController).GetMethod(nameof(MainMenuController.OnEmbarkPressed), ~BindingFlags.Default), typeof(Gatekeeper).GetMethod(nameof(MainMenuController_OnEmbarkPressed), ~BindingFlags.Default));
             IDetour hook1 = new Hook(typeof(EnemyEncounterSelectorSO).GetMethod(nameof(EnemyEncounterSelectorSO.GetEnemyBundle), ~BindingFlags.Default), typeof(Gatekeeper).GetMethod(nameof(EnemyEncounterSelectorSO_GetEnemyBundle), ~BindingFlags.Default));
+
+            if (SaltsReseasoned.DebugVer) Config();
         }
+
+        public static void Config()
+        {
+            ConfigFile seatbelt = new ConfigFile(Path.Combine(Paths.ConfigPath, "WeDontNeedNoSeatbeltsWhereWereGoing.cfg"), true);
+            ConfigValue = seatbelt.Bind<bool>("Saltenemy", "DoSeatbelts", true, "Locks more complicated enemies from appearing in runs based off a combination of runs played with salt enemies and enemies encountered.\nMeant to be mostly unnoticeable but you can turn it off here. Dont tell anyone about this its a secret");
+        }
+
+
         public static void MainMenuController_OnEmbarkPressed(Action<MainMenuController> orig, MainMenuController self)
         {
             StoredRuns = LoadedDBsHandler.InfoHolder.Game.GetIntData(Gatekeeps);
@@ -34,6 +49,8 @@ namespace SaltsEnemies_Reseasoned
         {
             if (April.Birthday) return true;
             if (enemy == "Hauntling_EN" || enemy == "Insider_EN") return false;
+
+            if (!DoGatekeep) return true;
 
             return true;//FOR NOW
 
