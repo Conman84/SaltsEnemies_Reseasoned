@@ -58,7 +58,11 @@ namespace SaltEnemies_Reseasoned
             if (ret == null) return GetRandomEnemy();
             return ret;
         }
-        public static EnemySO GetSpecial() => LoadedAssetsHandler.GetEnemy(SpecialEnemies.GetRandom());
+        public static EnemySO GetSpecial()
+        {
+            if (Check.EnemyExist("Untitled_EN") && UnityEngine.Random.Range(0, 10000) < 1) return LoadedAssetsHandler.GetEnemy("Untitled_EN");
+            return LoadedAssetsHandler.GetEnemy(SpecialEnemies.GetRandom());
+        }
         public static string[] SpecialEnemies = [
             "Hauntling_EN",
             "Insider_EN"
