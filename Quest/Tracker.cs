@@ -68,7 +68,7 @@ namespace SaltsEnemies_Reseasoned
                     if (chara.Character.name == "Windle_CH") AddKill("Windle_EN", reference.witheringDeath);
                 }
             }
-            if (name == TriggerCalls.OnFleetingEnd.ToString())
+            if (name == TriggerCalls.OnFleeting.ToString())
             {
 
                 if (sender is EnemyCombat enemy)
