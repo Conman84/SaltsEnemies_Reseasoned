@@ -8,6 +8,7 @@ using System.Text;
 using Tools;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
+using static UnityEngine.UI.CanvasScaler;
 
 namespace SaltEnemies_Reseasoned
 {
@@ -205,6 +206,27 @@ namespace SaltEnemies_Reseasoned
                 }
             }
 
+            yield return null;
+        }
+    }
+    public class EnemyHighlightAction : CombatAction
+    {
+        public EnemyCombat Enemy;
+        public bool On;
+        public EnemyHighlightAction(EnemyCombat enemy, bool on)
+        {
+            Enemy = enemy;
+            On = on;
+        }
+        public override IEnumerator Execute(CombatStats stats)
+        {
+            if (CombatManager.Instance._combatUI._enemiesInCombat.TryGetValue(Enemy.ID, out var value))
+            {
+                if (CombatManager.Instance._combatUI._enemyZone._enemies.Length > value.FieldID)
+                {
+                    EnemyInFieldLayout field = CombatManager.Instance._combatUI._enemyZone._enemies[value.FieldID].FieldEntity;
+                }
+            }
             yield return null;
         }
     }
