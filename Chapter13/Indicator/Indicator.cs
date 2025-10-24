@@ -41,10 +41,13 @@ namespace SaltsEnemies_Reseasoned
             spasm._passiveName = "Spasm";
             spasm.m_PassiveID = "Spasm_PA";
             spasm.passiveIcon = ResourceLoader.LoadSprite("SpasmPassive.png");
-            spasm._enemyDescription = "On death, give all enemies an additional actions on the timeline.";
+            spasm._enemyDescription = "On death, all living enemies will attempt to prematurely perform their next turn, then all living enemies will gain another action on the timeline.";
             spasm._characterDescription = "doesnt work";
             spasm.doesPassiveTriggerInformationPanel = true;
-            spasm.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<SpasmEffect>(), 1, Targeting.Unit_AllAllies).SelfArray();
+            spasm.effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<LivingTargetForceFirstActionEffect>(), 1, Targeting.Unit_AllAllies),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<SpasmEffect>(), 1, Targeting.Unit_AllAllies)
+                ];
             spasm._triggerOn = [TriggerCalls.OnDeath];
             DeathReferenceDetectionEffectorCondition noWither = ScriptableObject.CreateInstance<DeathReferenceDetectionEffectorCondition>();
             noWither._useWithering = true;
