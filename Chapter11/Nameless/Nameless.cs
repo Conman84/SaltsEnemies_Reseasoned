@@ -19,8 +19,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("NamelessIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("NamelessWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("NamelessDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("JumbleGuts_Hollowing_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("JumbleGuts_Hollowing_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Sosn2/NamelessHit",
+                DeathSound = "event:/Hawthorne/Sosn2/NamelessDie",
                 AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_Nameless>()
             };
             template.PrepareEnemyPrefab("assets/group4/Nameless/Nameless_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Nameless/Nameless_Gibs.prefab").GetComponent<ParticleSystem>());
@@ -39,7 +39,27 @@ namespace SaltsEnemies_Reseasoned
             fractal._triggerOn = [TriggerCalls.TimelineEndReached];
             fractal.effects = [Effects.GenerateEffect(randomize, 3, Slots.Self)];
 
-            template.AddPassives(new BasePassiveAbilitySO[] { fractal, Passives.Fleeting4, Passives.Withering });
+            //FLITHERING
+            PerformEffectPassiveAbility flither = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            flither._passiveName = "Flithering";
+            flither.passiveIcon = ResourceLoader.LoadSprite("FlitheringIcon.png");
+            flither.m_PassiveID = FlitheringHandler.Flithering;
+            flither._enemyDescription = "On any enemy dying, if there are no other enemies without \"Withering\" or \"Flithering\" as passives, instantly flee.\n" +
+                "At the start and end of the enemies' turn, if there are no other enemies without \"Cowardice\" or \"Flithering\" as passives, instantly flee.";
+            flither._characterDescription = "doesnt work";
+            flither.doesPassiveTriggerInformationPanel = false;
+            flither.effects = new EffectInfo[] { Effects.GenerateEffect(RootActionEffect.Create(new EffectInfo[]
+            {
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<CowardEffect>(), 1, Slots.Self)
+            }), 1, Slots.Self) };
+            flither._triggerOn = new TriggerCalls[] { TriggerCalls.OnPlayerTurnEnd_ForEnemy, TriggerCalls.OnRoundFinished };
+            flither.conditions = new EffectorConditionSO[]
+            {
+                ScriptableObject.CreateInstance<CowardCondition>()
+            };
+            //uses flithering instead of withering for the purpose of not fucking earraping you
+
+            template.AddPassives(new BasePassiveAbilitySO[] { fractal, Passives.Fleeting4, flither });
             //template.CombatExitEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnCasterGibsEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsDieCondition>()).SelfArray();
 
 
