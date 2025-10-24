@@ -89,6 +89,7 @@ namespace SaltsEnemies_Reseasoned
             if (enemy == "Rabies_EN" && !Tracker.Track("Wall_EN")) return false;
             if (enemy == "YellowAngel_EN" && !Tracker.Track("MiniReaper_EN")) return false;
             if (enemy == "NobodyGrave_EN" && !Tracker.Track("Pinano_EN")) return false;
+            if (enemy == "MiniReaper_EN" && !Tracker.Track("Delusion_EN")) return false;
             if (enemy == "Megalania_BOSS" && !Tracker.Track(["Enigma_EN", "YellowAngel_EN", "DeadPixel_EN", Enemies.Camera])) return false;
             if (enemy == Spoggle.Grey && !Tracker.Track([Jumble.Grey, "Freud_EN"])) return false;
             if (enemy == "CoinHunter_EN" && !Tracker.Track(["FakeAngel_EN", Enemies.Camera, "TheCrow_EN", "LittleBeak_EN"])) return false;
