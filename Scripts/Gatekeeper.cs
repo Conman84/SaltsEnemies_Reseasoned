@@ -121,7 +121,8 @@ namespace SaltsEnemies_Reseasoned
             if (enemy == "Complimentary_EN" && !Tracker.Track(["Something_EN", "LostSheep_EN", "Grandfather_EN"])) return false;
             if (enemy == "Hunter_EN" && !Tracker.Track(["LittleBeak_EN", "AFlower_EN"])) return false;
             if (enemy == "Warbird_EN" && !Tracker.Track(["TheCrow_EN", "LittleBeak_EN", "WindSong_EN", "Shua_EN"])) return false;
-            if (enemy == "Indicator_EN" && !Tracker.Track(["Grandfather_EN", Enemies.Solvent, "Enigma_EN", "WindSong_EN", "Shua_EN"])) return false;
+            if (enemy == "Indicator_EN" && !Tracker.Track(["Skyloft_EN", Enemies.Solvent, "WindSong_EN", "Shua_EN"])) return false;
+            if (enemy == "Wednesday_EN" && !Tracker.Track(["Warbird_EN", "Indicator_EN"])) return false;
             if (enemy == "GlassedSun_EN" && !Tracker.Track([Spoggle.Grey, Jumble.Grey, Bots.Grey, Flower.Grey])) return false;
             if (enemy == "Stoplight_EN" && !Tracker.Track(["Enigma_EN", "Sigil_EN"])) return false;
             if (enemy == "Clown_EN" && !Tracker.Track(["Something_EN", "Waltz_EN"])) return false;
