@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,6 +8,27 @@ namespace SaltsEnemies_Reseasoned
 {
     public static class DamoclesEncounters
     {
+        public static void Add()
+        {
+            Portals.AddPortalSign("Salt_DamoclesEncounter_Sign", ResourceLoader.LoadSprite("DamoclesWorld.png"), Portals.EnemyIDColor);
+
+            EnemyEncounter_API easy = new EnemyEncounter_API(EncounterType.Random, Garden.H.Damocles.Easy, "Salt_DamoclesEncounter_Sign");
+            easy.MusicEvent = "event:/Hawthorne/DamoclesTheme";
+            easy.RoarEvent = "event:/Hawthorne/Soisenay/BlackStarHit";
+
+            easy.SimpleAddEncounter(5, "Damocles_EN");
+            easy.SimpleAddEncounter(4, "Damocles_EN", 1, "NextOfKin_EN");
+            easy.SimpleAddEncounter(4, "Damocles_EN", 1, Enemies.Shivering);
+            easy.SimpleAddEncounter(4, "Damocles_EN", 1, Enemies.Minister);
+            easy.SimpleAddEncounter(4, "Damocles_EN", 1, "Skyloft_EN");
+            easy.SimpleAddEncounter(4, "Damocles_EN", 1, "BlackStar_EN");
+            easy.SimpleAddEncounter(4, "Damocles_EN", 1, "TortureMeNot_EN");
+            easy.SimpleAddEncounter(4, "Damocles_EN", 1, "Hauntling_EN");
+
+            easy.AddEncounterToDataBases();
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Damocles.Easy, April.Birthday ? 10 : 0, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
+            //EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Damocles.Easy, 150, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
+        }
         public static void Post()
         {
             AddTo med = new AddTo(Garden.H.Jumble.Grey.Med);

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +8,44 @@ namespace SaltsEnemies_Reseasoned
 {
     public static class NamelessEncounters
     {
+        public static void Add()
+        {
+            Portals.AddPortalSign("Salt_NamelessEncounter_Sign", ResourceLoader.LoadSprite("NamelessWorld.png"), Portals.EnemyIDColor);
+
+            EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Orph.H.Nameless.Med, "Salt_NamelessEncounter_Sign");
+            med.MusicEvent = "event:/Hawthorne/NamelessTheme";
+            med.RoarEvent = "event:/Hawthorne/Soisenay/BlackStarDie";
+
+            med.SimpleAddEncounter(3, "Nameless_EN");
+            med.SimpleAddEncounter(2, "Nameless_EN", 2, "Frostbite_EN");
+            med.SimpleAddEncounter(2, "Nameless_EN", 2, "Moone_EN");
+            med.AddRandomEncounter("Nameless_EN", "Nameless_EN", "BackupDancer_EN", "MusicMan_EN");
+            med.AddRandomEncounter("Nameless_EN", "Gungrot_EN", "Gungrot_EN", "Spectre_EN");
+            med.AddRandomEncounter("Nameless_EN", "Nameless_EN", "MusicMan_EN", "MusicMan_EN");
+            med.SimpleAddEncounter(2, "Nameless_EN", 1, "Scrungie_EN", 1, "LostSheep_EN");
+            med.SimpleAddEncounter(2, "Nameless_EN", 2, "Enigma_EN");
+            med.AddRandomEncounter("Nameless_EN", "Nameless_EN", Bots.Red, Bots.Yellow);
+            med.AddRandomEncounter("Nameless_EN", "Nameless_EN", Bots.Red, Bots.Blue);
+            med.SimpleAddEncounter(2, "Nameless_EN", 1, Enemies.Shooter);
+            med.SimpleAddEncounter(2, "Nameless_EN", 2, "ManicMan_EN", 1, "Wednesday_EN");
+            med.SimpleAddEncounter(2, "Nameless_EN", 1, "Something_EN");
+            med.SimpleAddEncounter(2, "Nameless_EN", 2, "Delusion_EN", 1, "FakeAngel_EN");
+            med.SimpleAddEncounter(2, "Nameless_EN", 1, Flower.Yellow, 1, Enemies.Solvent);
+            med.SimpleAddEncounter(2, "Nameless_EN", 1, Flower.Purple, 1, Enemies.Solvent);
+            med.SimpleAddEncounter(2, "Nameless_EN", 1, "WindSong_EN", 1, "Rabies_EN");
+            med.SimpleAddEncounter(2, "Nameless_EN", 2, "Butterfly_EN", 1, "TortureMeNot_EN");
+            med.SimpleAddEncounter(2, "Nameless_EN", 2, "Solitaire_EN");
+            med.SimpleAddEncounter(2, "Nameless_EN", 1, "Author_EN", 2, Enemies.Suckle);
+            med.SimpleAddEncounter(2, "Nameless_EN", 1, "Insider_EN", 2, "SingingStone_EN");
+            med.SimpleAddEncounter(2, "Nameless_EN", 1, "Foxtrot_EN", 1, Jumble.Yellow);
+            med.SimpleAddEncounter(2, "Nameless_EN", 1, Jumble.Purple, 1, Jumble.Unstable);
+            med.SimpleAddEncounter(2, "Nameless_EN", 1, Jumble.Blue, 1, Jumble.Unstable);
+            med.SimpleAddEncounter(2, "Nameless_EN", 1, Spoggle.Red, 1, Spoggle.Purple);
+
+            med.AddEncounterToDataBases();
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Nameless.Med, April.Birthday ? 15 : 0, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            //EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Nameless.Med, 300, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+        }
         public static void Post()
         {
             AddTo med = new AddTo(Orph.H.Something.Med);

@@ -361,6 +361,8 @@ namespace SaltsEnemies_Reseasoned
             PCall(GlassFigurineEncounters.Add);
             PCall(RabiesEncounters.Add);
             PCall(KyotlokutlaEncounters.Add);
+            PCall(DamoclesEncounters.Add);
+            PCall(NamelessEncounters.Add);
 
             //CH12 Encounters
             PCall(LittleBeakEncounters.Add);

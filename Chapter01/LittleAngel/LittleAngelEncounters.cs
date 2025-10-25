@@ -16,7 +16,7 @@ namespace SaltsEnemies_Reseasoned
             //Garden
             EnemyEncounter_API mainEncounters = new EnemyEncounter_API(0, "H_Zone03_LittleAngel_Easy_EnemyBundle", "Salt_LittleAngelEncounters_Sign");
             mainEncounters.MusicEvent = "event:/Hawthorne/PaleSong";
-            mainEncounters.RoarEvent = LoadedAssetsHandler.GetCharacter("Hans_CH").dxSound;
+            mainEncounters.RoarEvent = "event:/Hawthorne/Sosn2/LARoar";
 
             mainEncounters.CreateNewEnemyEncounterData(new string[]
             {

@@ -42,7 +42,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("littleAngel_Dead.png", new Vector2(0.5f, 0f), 32),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("littleAngel_Icon.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Sosn2/LAHit",
-                DeathSound = "event:/Hawthorne/Sosn2/LARoar"
+                DeathSound = "event:/Hawthorne/Sosn2/DamoclesDie"
             };
             LittleAngel.PrepareEnemyPrefab("assets/PissShitFartCum/Angel_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/PissShitFartCum/Angel_Gibs.prefab").GetComponent<ParticleSystem>());
 

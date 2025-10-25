@@ -287,6 +287,10 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "H_Zone02_Insider_Medium_EnemyBundle";
             }
+            public static class Nameless
+            {
+                public static string Med => "H_Zone02_Nameless_Med_EnemyBundle";
+            }
 
 
             //marmo
