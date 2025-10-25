@@ -38,7 +38,7 @@ namespace SaltsEnemies_Reseasoned
 
             PerformEffectPassiveAbility homunculus = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             homunculus.name = "Homunculus_5_PA";
-            homunculus._passiveName = "Homunculus";
+            homunculus._passiveName = "Homunculus (5)";
             homunculus.m_PassiveID = "Homunculus_PA";
             homunculus.passiveIcon = ResourceLoader.LoadSprite("HomunculusPassive.png");
             homunculus._enemyDescription = "At the end of the timeline, deal a Painful amount of damage to the Opposing party member.";
