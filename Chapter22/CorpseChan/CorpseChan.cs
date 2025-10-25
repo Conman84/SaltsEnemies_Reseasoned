@@ -41,12 +41,12 @@ namespace SaltsEnemies_Reseasoned
             homunculus._passiveName = "Homunculus (5)";
             homunculus.m_PassiveID = "Homunculus_PA";
             homunculus.passiveIcon = ResourceLoader.LoadSprite("HomunculusPassive.png");
-            homunculus._enemyDescription = "When this enemy has run out of abilities to use, deal a Painful amount of damage to the Opposing party member.";
+            homunculus._enemyDescription = "During the enemy's turn, when this enemy has run out of abilities to use deal a Painful amount of damage to the Opposing party member.";
             homunculus._characterDescription = "At the end of the timeline, deal 5 damage to the Opposing enemy.";
             homunculus._triggerOn = [TriggerCalls.OnPlayerTurnEnd_ForEnemy, TriggerCalls.OnAbilityUsed, TriggerCalls.TimelineEndReached, TriggerCalls.AttacksPerTurn];
             homunculus.effects = [Effects.GenerateEffect(BasicEffects.GetVisuals("Crush_A", false, Slots.Front), 1, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Front)];
-            homunculus.conditions = [ScriptableObject.CreateInstance<OncePerRoundCondition>(), ScriptableObject.CreateInstance<HasNoAbilitiesLeftCondition>()];
+            homunculus.conditions = [ScriptableObject.CreateInstance<HasNoAbilitiesLeftCondition>(), ScriptableObject.CreateInstance<OncePerRoundCondition>()];
 
             corpse.AddPassives(new BasePassiveAbilitySO[] { lovely, homunculus, Passives.Overexert1 });
 
