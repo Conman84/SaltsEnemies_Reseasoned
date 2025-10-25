@@ -61,7 +61,9 @@ namespace SaltsEnemies_Reseasoned
                 "Jumboe Josh",
                 "Googl",
                 "A Secret Animation Where If It Spawns Between The Two Of Them Like That It Passes The Ball Between Them",
-                "1 In 10000 Chance For It To Be Named Dennis"
+                "1 In 10000 Chance For It To Be Named Dennis",
+                "Don't Hit Me Or I'll Cry",
+                "\"Ok\" - Ok"
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside)];
