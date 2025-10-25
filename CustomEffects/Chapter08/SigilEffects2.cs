@@ -37,28 +37,28 @@ namespace SaltsEnemies_Reseasoned
                 switch (entryVariable)
                 {
                     case 1:
-                        passive._enemyDescription = "All enemies will move Left or Right on receiving direct damage or on performing an ability.\nAt the start of each turn, reset this enemy's Sigil.";
-                        passive._characterDescription = "All party members will move Left or Right on receiving direct damage or on performing an ability.\nAt the start of each turn, reset this party member's Sigil.";
+                        //passive._enemyDescription = "All enemies will move Left or Right on receiving direct damage or on performing an ability.\nAt the start of each turn, reset this enemy's Sigil.";
+                        //passive._characterDescription = "All party members will move Left or Right on receiving direct damage or on performing an ability.\nAt the start of each turn, reset this party member's Sigil.";
                         passive.passiveIcon = Blue;
                         break;
                     case 2:
-                        passive._enemyDescription = "All enemies will deal a third of this enemy's current health as additional damage.\nAt the start of each turn, reset this enemy's Sigil.";
-                        passive._characterDescription = "All party members will deal a third of this party member's current health as additional damage.\nAt the start of each turn, reset this party member's Sigil.";
+                        //passive._enemyDescription = "All enemies will deal a third of this enemy's current health as additional damage.\nAt the start of each turn, reset this enemy's Sigil.";
+                        //passive._characterDescription = "All party members will deal a third of this party member's current health as additional damage.\nAt the start of each turn, reset this party member's Sigil.";
                         passive.passiveIcon = Red;
                         break;
                     case 3:
-                        passive._enemyDescription = "This enemy is immune to damage.\nAt the start of each turn, reset this enemy's Sigil.";
-                        passive._characterDescription = "This party member is immune to damage.\nAt the start of each turn, reset this party member's Sigil.";
+                        //passive._enemyDescription = "This enemy is immune to damage.\nAt the start of each turn, reset this enemy's Sigil.";
+                        //passive._characterDescription = "This party member is immune to damage.\nAt the start of each turn, reset this party member's Sigil.";
                         passive.passiveIcon = Green;
                         break;
                     case 5:
-                        passive._enemyDescription = "All enemies will produce 2 additional pigment of their health color when damaged.\nAt the start of each turn, reset this enemy's Sigil.";
-                        passive._characterDescription = "All party members will produce 2 additional pigment of their health color when damaged.\nAt the start of each turn, reset this party member's Sigil.";
+                        //passive._enemyDescription = "All enemies will produce 2 additional pigment of their health color when damaged.\nAt the start of each turn, reset this enemy's Sigil.";
+                        //passive._characterDescription = "All party members will produce 2 additional pigment of their health color when damaged.\nAt the start of each turn, reset this party member's Sigil.";
                         passive.passiveIcon = Yellow;
                         break;
                     default:
-                        passive._enemyDescription = "At the start of each turn, reset this enemy's Sigil.";
-                        passive._characterDescription = "At the start of each turn, reset this party member's Sigil.";
+                        //passive._enemyDescription = "At the start of each turn, reset this enemy's Sigil.";
+                        //passive._characterDescription = "At the start of each turn, reset this party member's Sigil.";
                         passive.passiveIcon = Purple;
                         break;
                 }
@@ -70,28 +70,28 @@ namespace SaltsEnemies_Reseasoned
                 switch (entryVariable)
                 {
                     case 1:
-                        passive._enemyDescription = "Redirect 50% of all direct damage taken by other enemies to this enemy.\nAt the start of each turn, reset this enemy's Sigil.";
-                        passive._characterDescription = "Redirect 50% of all direct damage taken by other party members to this party member.\nAt the start of each turn, reset this party member's Sigil.";
+                        //passive._enemyDescription = "Redirect 50% of all direct damage taken by other enemies to this enemy.\nAt the start of each turn, reset this enemy's Sigil.";
+                        //passive._characterDescription = "Redirect 50% of all direct damage taken by other party members to this party member.\nAt the start of each turn, reset this party member's Sigil.";
                         passive.passiveIcon = Blue;
                         break;
                     case 2:
-                        passive._enemyDescription = "All enemies will deal a third of this enemy's current health as additional damage.\nAt the start of each turn, reset this enemy's Sigil.";
-                        passive._characterDescription = "All party members will deal a third of this party member's current health as additional damage.\nAt the start of each turn, reset this party member's Sigil.";
+                        //passive._enemyDescription = "All enemies will deal a third of this enemy's current health as additional damage.\nAt the start of each turn, reset this enemy's Sigil.";
+                        //passive._characterDescription = "All party members will deal a third of this party member's current health as additional damage.\nAt the start of each turn, reset this party member's Sigil.";
                         passive.passiveIcon = Red;
                         break;
                     case 3:
-                        passive._enemyDescription = "This enemy is immune to damage.\nAt the start of each turn, reset this enemy's Sigil.";
-                        passive._characterDescription = "This party member is immune to damage.\nAt the start of each turn, reset this party member's Sigil.";
+                        //passive._enemyDescription = "This enemy is immune to damage.\nAt the start of each turn, reset this enemy's Sigil.";
+                        //passive._characterDescription = "This party member is immune to damage.\nAt the start of each turn, reset this party member's Sigil.";
                         passive.passiveIcon = Green;
                         break;
                     case 5:
-                        passive._enemyDescription = "All enemies will produce 2 additional pigment of their health color when damaged.\nAt the start of each turn, reset this enemy's Sigil.";
-                        passive._characterDescription = "All party members will produce 2 additional pigment of their health color when damaged.\nAt the start of each turn, reset this party member's Sigil.";
+                        //passive._enemyDescription = "All enemies will produce 2 additional pigment of their health color when damaged.\nAt the start of each turn, reset this enemy's Sigil.";
+                        //passive._characterDescription = "All party members will produce 2 additional pigment of their health color when damaged.\nAt the start of each turn, reset this party member's Sigil.";
                         passive.passiveIcon = Yellow;
                         break;
                     default:
-                        passive._enemyDescription = "At the start of each turn, reset this enemy's Sigil.";
-                        passive._characterDescription = "At the start of each turn, reset this party member's Sigil.";
+                        //passive._enemyDescription = "At the start of each turn, reset this enemy's Sigil.";
+                        //passive._characterDescription = "At the start of each turn, reset this party member's Sigil.";
                         passive.passiveIcon = Purple;
                         break;
                 }

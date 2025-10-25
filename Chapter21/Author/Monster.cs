@@ -72,7 +72,7 @@ namespace SaltsEnemies_Reseasoned
             ideal.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Unit_AllOpponents);
             ideal.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Status_Scars.ToString()]);
             ideal.Visuals = LoadedAssetsHandler.GetEnemyAbility("Boil_A").visuals;
-            ideal.AnimationTarget = Targeting.Unit_AllOpponents;
+            ideal.AnimationTarget = Targetting.Everything(false);
 
             //brutal
             Ability brutal = new Ability("Brutalist Complex", "BrutalistComplex_A");

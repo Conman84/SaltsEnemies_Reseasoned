@@ -56,7 +56,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability cc = new Ability("Submerge", "BlueAndBlack_A");
             cc.Description = "Remove all Drowning from this enemy.\nMove all party members towards this enemy.";
-            cc.Rarity = Rarity.CreateAndAddCustomRarityToPool("bb30", 30);
+            cc.Rarity = Rarity.CreateAndAddCustomRarityToPool("bb65", 235);
             cc.Effects = [
                 Effects.GenerateEffect(remDrown, 1, Slots.Self),
                 Effects.GenerateEffect(goRight, 1, Targeting.GenerateSlotTarget(new int[1] { -1 })),

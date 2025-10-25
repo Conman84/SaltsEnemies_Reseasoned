@@ -96,18 +96,21 @@ namespace SaltsEnemies_Reseasoned
             //addpassives
             template.AddPassives(new BasePassiveAbilitySO[] { silence, Passives.Unstable, Passives.Enfeebled, Passives.Withering, decay, abandon });
 
+            TargetStoredValueChangeEffect decrease = ScriptableObject.CreateInstance<TargetStoredValueChangeEffect>();
+            decrease._increase = false;
+
             //Librarium
             Ability librarium = new Ability("Postmodern_Librarium_A")
             {
                 Name = "Librarium",
-                Description = "Kill all party members with a Noise level of 5 or higher. Reset the Noise of the Far Left and Far Right party members.",
+                Description = "Kill all party members with a Noise level of 5 or higher. Lower the Noise of the Far Left and Far Right party members by 2.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Static", false, Targeting.Slot_SelfSlot), 1, NoiseTargetting.Default(), ScriptableObject.CreateInstance<IsNoiseCondition>()),
                     Effects.GenerateEffect(BasicEffects.Die(true), 1, NoiseTargetting.Default()),
                     Effects.GenerateEffect(BasicEffects.GetVisuals("Wriggle_A", false, Targeting.GenerateSlotTarget(new int[] {-2, 2 }, false)), 1, NoiseTargetting.Default(), BasicEffects.DidThat(false)),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetSetValueChangeEffect>(), 0, Targeting.GenerateSlotTarget(new int[] {-2, 2 }, false))
+                    Effects.GenerateEffect(decrease, 2, Targeting.GenerateSlotTarget(new int[] {-2, 2 }, false))
                 },
                 Visuals = null,
                 AnimationTarget = Targeting.Slot_SelfSlot,

@@ -34,4 +34,18 @@ namespace SaltsEnemies_Reseasoned
             }
         }
     }
+
+    public class NotSpawnedInCondition : EffectorConditionSO
+    {
+        public static string Value => "CorpseChan_PA";
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is IntegerReference && effector is IUnit unit)
+            {
+                unit.SimpleSetStoredValue(Value, 1);
+                return false;
+            }
+            return (effector as IUnit).SimpleGetStoredValue(Value) > 0);
+        }
+    }
 }

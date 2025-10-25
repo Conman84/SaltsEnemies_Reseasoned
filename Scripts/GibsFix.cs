@@ -22,7 +22,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 if (EnemyExist("SnakeGod_EN") && value.EnemyBase == LoadedAssetsHandler.GetEnemy("SnakeGod_EN"))
                 {
-                    self.StartCoroutine(self.PlayGibs(0.2f));
+                    //self.StartCoroutine(self.PlayGibs(0.2f));
                 }
                 else if (EnemyExist("Skyloft_EN") && value.EnemyBase == LoadedAssetsHandler.GetEnemy("Skyloft_EN"))
                 {
@@ -30,7 +30,7 @@ namespace SaltsEnemies_Reseasoned
                 }
                 else if (EnemyExist("GreyFlower_EN") && value.EnemyBase == LoadedAssetsHandler.GetEnemy("GreyFlower_EN"))
                 {
-                    self.StartCoroutine(self.PlayGibs(0.2f));
+                    //self.StartCoroutine(self.PlayGibs(0.2f));
                 }
                 else if (EnemyExist("MortalSpoggle_EN") && value.EnemyBase == LoadedAssetsHandler.GetEnemy("MortalSpoggle_EN"))
                 {

@@ -46,7 +46,7 @@ namespace SaltsEnemies_Reseasoned
             homunculus._triggerOn = [TriggerCalls.TimelineEndReached];
             homunculus.effects = [Effects.GenerateEffect(BasicEffects.GetVisuals("Crush_A", false, Slots.Front), 1, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Front)];
-            homunculus.conditions = [];
+            homunculus.conditions = [ScriptableObject.CreateInstance<NotSpawnedInCondition>()];
 
             corpse.AddPassives(new BasePassiveAbilitySO[] { lovely, homunculus, Passives.Overexert1 });
 
