@@ -56,6 +56,8 @@ namespace SaltEnemies_Reseasoned
 
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
+            if (_valueName == null) _valueName = NoiseHandler.Noise;
+
             exitAmount = 0;
 
             foreach (TargetSlotInfo target in targets)

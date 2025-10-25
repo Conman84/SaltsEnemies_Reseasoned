@@ -96,8 +96,8 @@ namespace SaltsEnemies_Reseasoned
             //addpassives
             template.AddPassives(new BasePassiveAbilitySO[] { silence, Passives.Unstable, Passives.Enfeebled, Passives.Withering, decay, abandon });
 
-            TargetStoredValueChangeEffect decrease = ScriptableObject.CreateInstance<TargetStoredValueChangeEffect>();
-            decrease._increase = false;
+            TargetSetValueChangeEffect decrease = ScriptableObject.CreateInstance<TargetSetValueChangeEffect>();
+            decrease._valueName = NoiseHandler.Noise;
 
             //Librarium
             Ability librarium = new Ability("Postmodern_Librarium_A")
@@ -110,7 +110,7 @@ namespace SaltsEnemies_Reseasoned
                     Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Static", false, Targeting.Slot_SelfSlot), 1, NoiseTargetting.Default(), ScriptableObject.CreateInstance<IsNoiseCondition>()),
                     Effects.GenerateEffect(BasicEffects.Die(true), 1, NoiseTargetting.Default()),
                     Effects.GenerateEffect(BasicEffects.GetVisuals("Wriggle_A", false, Targeting.GenerateSlotTarget(new int[] {-2, 2 }, false)), 1, NoiseTargetting.Default(), BasicEffects.DidThat(false)),
-                    Effects.GenerateEffect(decrease, 2, Targeting.GenerateSlotTarget(new int[] {-2, 2 }, false))
+                    Effects.GenerateEffect(decrease, 0, Targeting.GenerateSlotTarget(new int[] {-2, 2 }, false))
                 },
                 Visuals = null,
                 AnimationTarget = Targeting.Slot_SelfSlot,
