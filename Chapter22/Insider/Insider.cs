@@ -59,7 +59,7 @@ namespace SaltsEnemies_Reseasoned
                 "Bartholomew",
                 "1 Sepulchre 1 Untitled Encounter",
                 "Jumboe Josh",
-                "Google"
+                "Googl"
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside)];
