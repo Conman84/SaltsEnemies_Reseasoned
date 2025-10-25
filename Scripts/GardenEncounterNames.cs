@@ -232,6 +232,10 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "H_Zone03_Insider_Medium_EnemyBundle";
             }
+            public static class CorpseChan
+            {
+                public static string Med => "H_Zone03_CorpseChan_Medium_EnemyBundle";
+            }
 
             //marmo
             public static class Git
