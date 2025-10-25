@@ -141,7 +141,7 @@ namespace SaltsEnemies_Reseasoned
                 ];
             limit.AddIntentsToTarget(Targeting.GenerateGenericTarget([2]), ["Damage_7_10"]);
             limit.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Status_Cursed"]);
-            limit.Visuals = CustomVisuals.GetVisuals("Salt/Censor");
+            limit.Visuals = CustomVisuals.GetVisuals("Salt/Drill");
             limit.AnimationTarget = Targeting.GenerateGenericTarget([2]);
             limit.UnitStoreData = UnitStoreData.CreateAndAdd_IntTooltip_UnitStoreDataToPool("Limit_A", "Limit -{0}", Misc.GetInGame_UITextColor(Misc.UITextColorIDs.Negative));
 
