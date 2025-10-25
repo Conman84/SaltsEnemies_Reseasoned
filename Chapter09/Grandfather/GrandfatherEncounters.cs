@@ -14,7 +14,7 @@ namespace SaltEnemies_Reseasoned
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Garden.H.Grandfather.Med, "Salt_GrandfatherEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/NewCoffinTheme";
-            med.RoarEvent = LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN").deathSound;
+            med.RoarEvent = "event:/Hawthorne/Sosn2/CoffinRoar";
 
             med.AddRandomEncounter("Grandfather_EN", "InHisImage_EN", "InHisImage_EN", "InHisImage_EN");
             med.AddRandomEncounter("Grandfather_EN", "InHerImage_EN", "InHerImage_EN", "InHerImage_EN");

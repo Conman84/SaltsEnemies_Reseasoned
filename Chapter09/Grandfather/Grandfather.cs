@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("CoffinIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("CoffinWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("CoffinDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Sosn2/CoffinHit",
+                DeathSound = "event:/Hawthorne/Sosn2/CoffinDie",
             };
             coffin.PrepareEnemyPrefab("assets/group4/Coffin/Coffin_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Coffin/Coffin_Gibs.prefab").GetComponent<ParticleSystem>());
 
