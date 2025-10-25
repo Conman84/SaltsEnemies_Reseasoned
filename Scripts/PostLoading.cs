@@ -117,6 +117,7 @@ namespace SaltEnemies_Reseasoned
             {
                 PCall(HauntlingEncounters.Post);
                 PCall(InsiderEncounters.Post);
+                PCall(CorpseChanEncounters.Post);
             }
 
             //Crossovers
