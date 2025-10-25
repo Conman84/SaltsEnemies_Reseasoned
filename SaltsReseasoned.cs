@@ -281,6 +281,8 @@ namespace SaltsEnemies_Reseasoned
             {
                 PCall(Hauntling.Add);
                 PCall(Insider.Add);
+                PCall(CorpseChan.Add);
+                PCall(Untitled.Add);
             }
 
             //BOSSES

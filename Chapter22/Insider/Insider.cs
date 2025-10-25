@@ -47,15 +47,6 @@ namespace SaltsEnemies_Reseasoned
                         TriggerCalls.OnDamaged
             };
 
-            PerformEffectPassiveAbility untitled = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
-            untitled._passiveName = "Untitled";
-            untitled.m_PassiveID = "Aprils_Untitled";
-            untitled._enemyDescription = "On dying excluding from Withering, restart combat.";
-            untitled._characterDescription = "On dying excluding from Withering, restart combat.";
-            untitled.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<UntitledEffect>())];
-            untitled._triggerOn = [TriggerCalls.OnDeath];
-            untitled.conditions = [ScriptableObject.CreateInstance<IsntWitheringDeathCondition>()];
-
             insider.AddPassives(new BasePassiveAbilitySO[] { colors, Passives.Forgetful });
 
             CasterRandomizeNameEnemyEffect inside = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();

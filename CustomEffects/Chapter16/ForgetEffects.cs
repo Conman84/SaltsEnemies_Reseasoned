@@ -60,12 +60,38 @@ namespace SaltEnemies_Reseasoned
         }
         public static EnemySO GetSpecial()
         {
+            if (SaltsReseasoned.DebugVer) Debug.Log("CURRENT ZONE ID!!: " + CombatManager.Instance._informationHolder.Run.CurrentZoneID);
+
             if (Check.EnemyExist("Untitled_EN") && UnityEngine.Random.Range(0, 10000) < 1) return LoadedAssetsHandler.GetEnemy("Untitled_EN");
+
+            switch (CombatManager.Instance._informationHolder.Run.CurrentZoneID)
+            {
+                case 0:
+                    return LoadedAssetsHandler.GetEnemy(SpecialShore.GetRandom());
+                case 1:
+                    return LoadedAssetsHandler.GetEnemy(SpecialOrph.GetRandom());
+                case 2:
+                    return LoadedAssetsHandler.GetEnemy(SpecialGarden.GetRandom());
+            }
+
             return LoadedAssetsHandler.GetEnemy(SpecialEnemies.GetRandom());
         }
         public static string[] SpecialEnemies = [
             "Hauntling_EN",
+            "Insider_EN",
+            "CorpseChan_EN",
+            "Untitled_EN"
+            ];
+        public static string[] SpecialShore = [
+            "Hauntling_EN"
+            ];
+        public static string[] SpecialOrph = [
             "Insider_EN"
+            ];
+        public static string[] SpecialGarden = [
+            "Hauntling_EN",
+            "Insider_EN",
+            "CorpseChan_EN"
             ];
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
