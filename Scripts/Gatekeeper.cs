@@ -48,7 +48,7 @@ namespace SaltsEnemies_Reseasoned
         public static bool AllowEnemy(string enemy)
         {
             if (April.Birthday) return true;
-            if (enemy == "Hauntling_EN" || enemy == "Insider_EN" || enemy == "CorpseChan_EN") return false;
+            if (enemy == "Hauntling_EN" || enemy == "Insider_EN" || enemy == "CorpseChan_EN" || enemy == "Untitled_EN") return false;
 
             if (!DoGatekeep) return true;
 
