@@ -45,7 +45,7 @@ namespace SaltsEnemies_Reseasoned
                 unit.SimpleSetStoredValue(Value, 1);
                 return false;
             }
-            return (effector as IUnit).SimpleGetStoredValue(Value) > 0);
+            return (effector as IUnit).SimpleGetStoredValue(Value) > 0;
         }
     }
 }
