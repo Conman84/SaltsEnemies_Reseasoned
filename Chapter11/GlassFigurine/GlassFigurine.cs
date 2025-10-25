@@ -43,7 +43,7 @@ namespace SaltsEnemies_Reseasoned
             disorient._triggerOn = [TriggerCalls.OnDirectDamaged];
             disorient.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<RerollTimelineEffect>())];
 
-            glass.AddPassives(new BasePassiveAbilitySO[] { disorient });
+            glass.AddPassives(new BasePassiveAbilitySO[] { disorient, Passives.Obscure });
 
             AbilitySelector_GlassFigurine sel = ScriptableObject.CreateInstance<AbilitySelector_GlassFigurine>();
             sel._WoodChipsAbility = "WoodChips_A";
