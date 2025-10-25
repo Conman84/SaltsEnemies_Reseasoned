@@ -64,11 +64,14 @@ namespace SaltsEnemies_Reseasoned
             dreams.Visuals = LoadedAssetsHandler.GetCharacterAbility("Entwined_1_A").visuals;
             dreams.AnimationTarget = Slots.Front;
 
+            GenerateRandomManaBetweenEffect randomize = ScriptableObject.CreateInstance<GenerateRandomManaBetweenEffect>();
+            randomize.possibleMana = [Pigments.Red, Pigments.Blue, Pigments.Yellow, Pigments.Purple];
+
             //waves
             Ability waves = new Ability("Glass Waves", "GlassWaves_A");
-            waves.Description = "Produce 5 Blue pigment.";
+            waves.Description = "Produce 5 random pigment.";
             waves.Rarity = Rarity.CreateAndAddCustomRarityToPool("glass4", 4);
-            waves.Effects = Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Blue), 5, Slots.Self).SelfArray();
+            waves.Effects = Effects.GenerateEffect(randomize, 5, Slots.Self).SelfArray();
             waves.AddIntentsToTarget(Slots.Self, IntentType_GameIDs.Mana_Generate.ToString().SelfArray());
             waves.Visuals = CustomVisuals.GetVisuals("Salt/Swirl");
             waves.AnimationTarget = Slots.Self;
