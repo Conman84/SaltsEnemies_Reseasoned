@@ -55,31 +55,29 @@ namespace SaltsEnemies_Reseasoned
 
             //lick
             Ability lick = new Ability("Lick", "Monster_Lick_A");
-            lick.Description = "Deal a Little damage to the Opposing party member and inflict 2 Frail and 4 Oil-Slicked on them.";
+            lick.Description = "Inflict 2 Frail and 4 Oil-Slicked on the Opposing party member.";
             lick.Rarity = Rarity.GetCustomRarity("rarity5");
-            lick.Effects = new EffectInfo[3];
-            lick.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Front);
-            lick.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 2, Slots.Front);
-            lick.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 4, Slots.Front);
-            lick.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_1_2.ToString(), IntentType_GameIDs.Status_Frail.ToString(), IntentType_GameIDs.Status_OilSlicked.ToString()]);
+            lick.Effects = new EffectInfo[2];
+            lick.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 2, Slots.Front);
+            lick.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 4, Slots.Front);
+            lick.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Status_Frail.ToString(), IntentType_GameIDs.Status_OilSlicked.ToString()]);
             lick.Visuals = LoadedAssetsHandler.GetCharacterAbility("Weave_1_A").visuals;
             lick.AnimationTarget = Slots.Front;
 
             //idealism
             Ability ideal = new Ability("Idealism", "Idealism_A");
-            ideal.Description = "Deal a Painful amount of damage and inflict 1 Scar on the Opposing party member.";
+            ideal.Description = "Inflict 1 Scar on all party members.";
             ideal.Rarity = Rarity.GetCustomRarity("rarity5");
-            ideal.Effects = new EffectInfo[2];
-            ideal.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Slots.Front);
-            ideal.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Slots.Front);
-            ideal.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Status_Scars.ToString()]);
+            ideal.Effects = new EffectInfo[1];
+            ideal.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Unit_AllOpponents);
+            ideal.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Status_Scars.ToString()]);
             ideal.Visuals = LoadedAssetsHandler.GetEnemyAbility("Boil_A").visuals;
             ideal.AnimationTarget = Slots.Front;
 
             //brutal
             Ability brutal = new Ability("Brutalist Complex", "BrutalistComplex_A");
             brutal.Description = "Deal an Agonizing amount of damage to the Opposing party member.\nHeal the Opposing party member.";
-            brutal.Rarity = Rarity.GetCustomRarity("rarity5");
+            brutal.Rarity = Rarity.CreateAndAddCustomRarityToPool("monster15", 15);
             brutal.Effects = new EffectInfo[2];
             brutal.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front);
             brutal.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 10, Slots.Front);

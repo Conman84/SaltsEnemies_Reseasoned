@@ -2011,7 +2011,7 @@ namespace SaltEnemies_Reseasoned
                         else
                         {
                             enemy.SimpleSetStoredValue(HitParty, 1);
-                            CombatManager.Instance.AddUIAction(new SetUnitAnimationParameterUIAction(enemy.ID, enemy.IsUnitCharacter, "party", 0));
+                            CombatManager.Instance.AddUIAction(new SetUnitAnimationParameterUIAction(enemy.ID, enemy.IsUnitCharacter, "party", 1));
                             ChangeIntents(enemy, 1);
                         }
                     }
