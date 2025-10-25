@@ -19,7 +19,12 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(3, "CorpseChan_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.CorpseChan.Med, 99, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.CorpseChan.Med, April.LessMod * 2, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
+        }
+
+        public static void Post()
+        {
+
         }
     }
 }

@@ -29,7 +29,7 @@ namespace SaltsEnemies_Reseasoned
             lovely._passiveName = "Lovely";
             lovely.m_PassiveID = "Lovely_PA";
             lovely.passiveIcon = ResourceLoader.LoadSprite("LovelyPassive.png");
-            lovely._enemyDescription = "This enemy will use all of its abilities every turn.";
+            lovely._enemyDescription = "This enemy will use all of its abilities every round.";
             lovely._characterDescription = "you might be rettarded";
             lovely._triggerOn = [];
             lovely.effects = [];
