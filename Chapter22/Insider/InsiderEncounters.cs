@@ -45,7 +45,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "Insider_EN", 1, "ClayChildSleep_EN", 1, "ClayChild_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Insider.Med, April.LessMod * 2, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Insider.Med, April.LessMod * 3, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
         }
         public static void Add_Garden()
         {
