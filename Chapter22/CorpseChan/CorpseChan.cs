@@ -12,7 +12,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Enemy corpse = new Enemy("Corpse Chan", "CorpseChan_EN")
+            Enemy corpse = new Enemy("Corpse~Chan", "CorpseChan_EN")
             {
                 Health = 40,
                 HealthColor = Pigments.Red,

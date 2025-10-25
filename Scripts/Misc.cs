@@ -85,3 +85,6 @@ namespace SaltEnemies_Reseasoned
 //Author
 //Clown
 //Amalga
+//Hauntling
+//Insider
+//Corpse Chan

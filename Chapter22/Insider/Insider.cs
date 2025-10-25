@@ -57,7 +57,8 @@ namespace SaltsEnemies_Reseasoned
                 "With Homophobia In Its Passives :Heart:",
                 "Sleve McDichael Onson Sweemey Darryl Archideld Anatoli Smorin Rey McSriff Glenallen Mixon Mario McRlwain Raul Chamgerlain Kevin Nogilny Tony Smehrik Bobson Dugnutt Willie Dustice Jeromy Gride Scott Dourque Shown Furcotte Dean Wesrey Mike Truk Dwigt Rortugal Tim Sandaele Karl Dandleton Mike Sernandez Todo Bonzalez",
                 "Bartholomew",
-                "1 Sepulchre 1 Untitled Encounter"
+                "1 Sepulchre 1 Untitled Encounter",
+                "Jumboe Josh"
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside)];

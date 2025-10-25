@@ -33,22 +33,7 @@ namespace SaltsEnemies_Reseasoned
         }
         public static void Post()
         {
-            AddTo hard = new AddTo(Garden.H.Satyr.Hard);
-            hard.AddRandomGroup("Satyr_EN", "GlassedSun_EN", "ChoirBoy_EN");
-
-            hard = new AddTo(Garden.H.ClockTower.Hard);
-            hard.AddRandomGroup("ClockTower_EN", "GlassedSun_EN", "GlassedSun_EN", Enemies.Minister);
-
-            hard = new AddTo(Garden.H.Tank.Hard);
-            hard.AddRandomGroup(Enemies.Tank, "GlassedSun_EN", "Damocles_EN");
-
-            hard = new AddTo(Garden.H.Merced.Hard);
-            hard.SimpleAddGroup(1, "Merced_EN", 4, "GlassedSun_EN");
-
-            hard = new AddTo(Garden.H.Stoplight.Hard);
-            hard.AddRandomGroup("Stoplight_EN", "GlassedSun_EN", "MiniReaper_EN");
-
-            hard = new AddTo(Garden.H.Miriam.Hard);
+            AddTo hard = new AddTo(Garden.H.Miriam.Hard);
             hard.AddRandomGroup("Miriam_EN", "GlassedSun_EN", "EyePalm_EN", "EyePalm_EN");
             hard.AddRandomGroup("Miriam_EN", "GlassedSun_EN", "Shua_EN");
 
