@@ -417,7 +417,7 @@ namespace SaltsEnemies_Reseasoned
             Basic_Item hat = new Basic_Item("Salt_GlowingHat_SW");
             hat.Name = "Glowing Hat";
             hat.Flavour = "\"Makes you visible to those in the dark.\"";
-            hat.Description = "Before taking any damage, gain Spotlight.";
+            hat.Description = "Before taking direct damage, gain Spotlight.";
             hat.Icon = ResourceLoader.LoadSprite("Item_GlowingHat.png");
             hat.EquippedModifiers = [];
             hat.TriggerOn = TriggerCalls.Count;

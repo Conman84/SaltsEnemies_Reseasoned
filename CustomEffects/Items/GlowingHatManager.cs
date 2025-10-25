@@ -12,7 +12,7 @@ namespace SaltsEnemies_Reseasoned
         }
         public static void NotifCheck(string name, object sender, object args)
         {
-            if (name == TriggerCalls.OnBeingDamaged.ToString() && sender is IUnit unit)
+            if (name == TriggerCalls.OnBeingDamaged.ToString() && sender is IUnit unit && args is DamageReceivedValueChangeException value && value.directDamage)
             {
                 if (unit.HasUsableItem && unit.HeldItem.name.Contains("Salt_GlowingHat"))
                 {
