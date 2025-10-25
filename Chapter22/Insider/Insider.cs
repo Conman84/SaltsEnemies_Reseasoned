@@ -33,18 +33,18 @@ namespace SaltsEnemies_Reseasoned
             ChangeToRandomHealthColorEffect randomize = ScriptableObject.CreateInstance<ChangeToRandomHealthColorEffect>();
             randomize._healthColors = new ManaColorSO[4]
             {
-                        Pigments.Blue,
-                        Pigments.Red,
-                        Pigments.Yellow,
-                        Pigments.Purple
+                Pigments.Blue,
+                Pigments.Red,
+                Pigments.Yellow,
+                Pigments.Purple
             };
             colors.effects = new EffectInfo[]
             {
-                        Effects.GenerateEffect((EffectSO) randomize, 1, Slots.Self)
+                Effects.GenerateEffect((EffectSO) randomize, 1, Slots.Self)
             };
             colors._triggerOn = new TriggerCalls[]
             {
-                        TriggerCalls.OnDamaged
+                TriggerCalls.OnDamaged
             };
 
             insider.AddPassives(new BasePassiveAbilitySO[] { colors, Passives.Forgetful });
