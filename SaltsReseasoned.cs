@@ -435,6 +435,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 PCall(HauntlingEncounters.Add);
                 PCall(InsiderEncounters.Add);
+                PCall(CorpseChanencounters.Add);
             }
 
             //BOSSES
