@@ -60,7 +60,7 @@ namespace SaltsEnemies_Reseasoned
 
             if (effector is EnemyCombat enemy && enemy.TurnsInTimeline > 0)
             {
-                for (int i = stats.timeline.CurrentTurn + (stats.IsPlayerTurn ? 0 : 1); i < stats.timeline.Round.Count; i++)
+                for (int i = stats.timeline.CurrentTurn + (stats.IsPlayerTurn ? 0 : 1) + 1; i < stats.timeline.Round.Count; i++)
                 {
                     if (stats.timeline.Round[i].isPlayer) continue;
 
