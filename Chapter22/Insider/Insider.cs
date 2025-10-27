@@ -75,7 +75,8 @@ namespace SaltsEnemies_Reseasoned
                 "Green Miku",
                 "Forest Bump",
                 "TAFHF-D5CLI-4TGV8",
-                "Setting Fire To A Pile Of Traffic Cones Spawns Zombies"
+                "Setting Fire To A Pile Of Traffic Cones Spawns Zombies",
+                "Wolf Colony"
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside)];
