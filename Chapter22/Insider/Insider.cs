@@ -65,7 +65,13 @@ namespace SaltsEnemies_Reseasoned
                 "Don't Hit Me Or I'll Cry",
                 "\"Ok\" - Ok",
                 "The Siren",
-                "Johnny Purple That DIes Upon The Thirteenth Of February At Five PM"
+                "Johnny Purple That DIes Upon The Thirteenth Of February At Five PM",
+                "Clash Of Clans Barbarian",
+                "I",
+                "NOT Me",
+                "Clash Royale Barbarian Barrel",
+                "Nothing And Be Free And Spread Your Wings As You Fly Across The Sunset",
+                "3.8 Elixer Hog Bridge Trade"
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside)];
