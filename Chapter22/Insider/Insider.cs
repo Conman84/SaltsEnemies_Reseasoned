@@ -72,7 +72,10 @@ namespace SaltsEnemies_Reseasoned
                 "Clash Royale Barbarian Barrel",
                 "Nothing And Be Free And Spread Your Wings As You Fly Across The Sunset",
                 "3.8 Elixer Hog Bridge Trade",
-                "Green Miku"
+                "Green Miku",
+                "Forest Bump",
+                "TAFHF-D5CLI-4TGV8",
+                "Setting Fire To A Pile Of Traffic Cones Spawns Zombies"
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside)];
