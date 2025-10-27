@@ -111,7 +111,7 @@ namespace SaltsEnemies_Reseasoned
             encroach.AddIntentsToTarget(Targetting.Everything(false), ["Misc_Hidden", "Status_Ruptured", "Damage_1_2"]);
 
             Ability series = new Ability("Series", "Series_A");
-            series.Description = "Consume 3 random Pigment.\nDouble the maximum health of all party members";
+            series.Description = "Consume 3 random Pigment.\nDouble the maximum health of all party members.";
             series.Rarity = Rarity.GetCustomRarity("rarity5");
             series.Effects = new EffectInfo[]
             {

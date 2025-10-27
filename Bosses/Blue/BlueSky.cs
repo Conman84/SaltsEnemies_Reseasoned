@@ -36,7 +36,7 @@ namespace SaltsEnemies_Reseasoned
             PerformEffectPassiveAbility acting = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             acting.name = "Acting_PA";
             acting._passiveName = "Acting";
-            //icon
+            acting.passiveIcon = ResourceLoader.LoadSprite("ActingPassive.png");
             acting._enemyDescription = "On being damaged, perform this enemy's next ability on the timeline and queue another one.";
             //ch desc
             acting.m_PassiveID = "Acting_PA";

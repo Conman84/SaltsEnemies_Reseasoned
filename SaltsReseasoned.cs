@@ -608,7 +608,7 @@ namespace SaltsEnemies_Reseasoned
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SunkPassive.png"), "Sunk", "All positions are in permenant Deep Water.");
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("RadicalPassive.png"), "Radical", "On being damaged, Adjust All Lights.");
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SystemicPassive.png"), "Systemic", "When this enemy is damaged a certain amount of times, queue a specific ability.");
-                //Acting (Bluesky)
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ActingPassive.png"), "Acting", "On being damaged, perform this enemy's next ability on the timeline and queue another one.");
             }
 
             Logger.LogInfo("Seasons greasons");
