@@ -71,7 +71,8 @@ namespace SaltsEnemies_Reseasoned
                 "NOT Me",
                 "Clash Royale Barbarian Barrel",
                 "Nothing And Be Free And Spread Your Wings As You Fly Across The Sunset",
-                "3.8 Elixer Hog Bridge Trade"
+                "3.8 Elixer Hog Bridge Trade",
+                "Green Miku"
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside)];
