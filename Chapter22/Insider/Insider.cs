@@ -64,7 +64,8 @@ namespace SaltsEnemies_Reseasoned
                 "1 In 10000 Chance For It To Be Named Dennis",
                 "Don't Hit Me Or I'll Cry",
                 "\"Ok\" - Ok",
-                "The Siren"
+                "The Siren",
+                "Johnny Purple That DIes Upon The Thirteenth Of February At Five PM"
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside)];
