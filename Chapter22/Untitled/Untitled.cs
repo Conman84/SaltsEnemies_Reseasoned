@@ -11,6 +11,8 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
+            SaltsReseasoned.PCall(UntitledHandler.Setup);
+
             Enemy template = new Enemy("Untitled_EN", "Untitled_EN")
             {
                 Health = 5,

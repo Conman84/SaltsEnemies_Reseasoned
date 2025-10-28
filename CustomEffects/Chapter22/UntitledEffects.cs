@@ -74,10 +74,18 @@ namespace SaltsEnemies_Reseasoned
     {
         public static int Warped = 0;
 
-        public static void Setup() => NotificationHook.AddAction(NotifCheck);
+        public static void Setup()
+        {
+            NotificationHook.AddAction(NotifCheck);
+            MainMenuException.AddAction(OnMenu);
+        }
         public static void NotifCheck(string name, object sender, object args)
         {
             if (name == TriggerCalls.OnCombatEnd.ToString()) Warped = 0;
+        }
+        public static void OnMenu()
+        {
+            Warped = 0;
         }
         public static void Warp() => Warped++;
     }
