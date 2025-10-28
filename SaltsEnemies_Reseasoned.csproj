@@ -495,6 +495,7 @@
 	  <None Remove="Chapter22\Untitled\UntitledDead.png" />
 	  <None Remove="Chapter22\Untitled\UntitledIcon.png" />
 	  <None Remove="Chapter22\Untitled\UntitledPassive.png" />
+	  <None Remove="Chapter22\Untitled\UntitledWarning.png" />
 	  <None Remove="Chapter22\Untitled\UntitledWorld.png" />
 	  <None Remove="CustomPassives\Chapter02\Decay.png" />
 	  <None Remove="CustomPassives\Chapter03\DontTouchMe.png" />
@@ -1352,6 +1353,7 @@
 	  <EmbeddedResource Include="Chapter22\Untitled\UntitledDead.png" />
 	  <EmbeddedResource Include="Chapter22\Untitled\UntitledIcon.png" />
 	  <EmbeddedResource Include="Chapter22\Untitled\UntitledPassive.png" />
+	  <EmbeddedResource Include="Chapter22\Untitled\UntitledWarning.png" />
 	  <EmbeddedResource Include="Chapter22\Untitled\UntitledWorld.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter01\Desperate.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Decay.png" />

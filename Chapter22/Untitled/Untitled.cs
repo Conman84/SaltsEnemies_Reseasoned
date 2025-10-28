@@ -16,7 +16,7 @@ namespace SaltsEnemies_Reseasoned
                 Health = 5,
                 HealthColor = Pigments.Purple,
                 CombatSprite = ResourceLoader.LoadSprite("UntitledIcon.png"),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("UntitledWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("UntitledWarning.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("UntitledDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Sosn2/MercedHit",
                 DeathSound = "event:/Hawthorne/Sosn2/MercedDie",
@@ -34,6 +34,8 @@ namespace SaltsEnemies_Reseasoned
             untitled.conditions = [ScriptableObject.CreateInstance<IsntWitheringDeathCondition>()];
 
             template.AddPassives(new BasePassiveAbilitySO[] { untitled, Passives.Withering });
+
+            template.CombatEnterEffects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<UntitledSongEffect>())];
 
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
