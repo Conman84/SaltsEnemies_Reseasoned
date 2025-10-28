@@ -166,6 +166,7 @@ namespace SaltsEnemies_Reseasoned
                     ZoneDataBaseSO zoneDataBaseSO = runZoneData.LoadZoneDB();
                     if (zoneDataBaseSO is ZoneBGDataBaseSO zone)
                     {
+                        if (zone._zoneData == null) zone._zoneData = runZoneData;
                         zone.GenerateSpecificEnemyCard("hard", text6);
                     }
                     else
@@ -257,16 +258,15 @@ namespace SaltsEnemies_Reseasoned
 
         public static void GenerateSpecificEnemyCard(this ZoneBGDataBaseSO self, string difficulty, string bundleName)
         {
+            if (self._zoneData == null) Debug.LogWarning("zonedata null");
+            else if (self._zoneData.ZonePiles == null) Debug.LogWarning("zonepiles null");
             if (self._zoneData.ZonePiles.Length <= 0) return;
 
-            Debug.Log("getting enemy bundle");
             EnemyCombatBundle enemyBundle = LoadedAssetsHandler.GetEnemyBundle(bundleName).GetEnemyBundle(difficulty == "easy" ? BundleDifficulty.Easy : difficulty == "medium" ? BundleDifficulty.Medium : BundleDifficulty.Hard, difficulty == "easy" ? self.EnemyEncounterData.m_EasySelector._defaultRoomPrefab : difficulty == "medium" ? self.EnemyEncounterData.m_MediumSelector._defaultRoomPrefab : self.EnemyEncounterData.m_HardSelector._defaultRoomPrefab);
-            Debug.Log("got enemy bundle");
 
             int idInfo = self._zoneData.AddEnemyBundle(enemyBundle);
             Card card = new Card(self._zoneData.CardCount, idInfo, difficulty == "easy" ? CardType.EnemyEasy : difficulty == "medium" ? CardType.EnemyMedium : CardType.EnemyHard, PilePositionType.Any, enemyBundle.SignID, enemyBundle.RoomPrefabName);
             self._zoneData.AddCard(card);
-            Debug.Log("created and added card to list");
 
             int pileID = UnityEngine.Random.Range(0, self._zoneData.ZonePiles.Length);
             Card[] pile = self._zoneData.ZonePiles[pileID]._cards;
@@ -286,7 +286,6 @@ namespace SaltsEnemies_Reseasoned
                 }
             }
             self._zoneData.ZonePiles[pileID]._cards = temp.ToArray();
-            Debug.Log("added card to pile");
         }
     }
 }
