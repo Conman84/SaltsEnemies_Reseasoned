@@ -108,6 +108,7 @@ namespace SaltsEnemies_Reseasoned
                     ZoneDataBaseSO zoneDataBaseSO = runZoneData.LoadZoneDB();
                     if (zoneDataBaseSO is ZoneBGDataBaseSO zone)
                     {
+                        if (zone._zoneData == null) zone._zoneData = runZoneData;
                         zone.GenerateSpecificEnemyCard("easy", text6);
                     }
                     else
@@ -137,6 +138,7 @@ namespace SaltsEnemies_Reseasoned
                     ZoneDataBaseSO zoneDataBaseSO = runZoneData.LoadZoneDB();
                     if (zoneDataBaseSO is ZoneBGDataBaseSO zone)
                     {
+                        if (zone._zoneData == null) zone._zoneData = runZoneData;
                         zone.GenerateSpecificEnemyCard("medium", text6);
                     }
                     else
