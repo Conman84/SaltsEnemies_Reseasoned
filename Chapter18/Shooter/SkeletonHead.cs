@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy template = new Enemy("Skeleton Head", "SkeletonHead_EN")
             {
-                Health = 20,
+                Health = 15,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("HeadIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("HeadWorld.png", new Vector2(0.5f, 0f), 32),

@@ -52,13 +52,13 @@ namespace SaltsEnemies_Reseasoned
             Ability coward = new Ability("Coward_A")
             {
                 Name = "Coward",
-                Description = "If there is an Opposing party member, apply 10 Shield to this enemy's position.",
+                Description = "If there is an Opposing party member, apply 7 Shield to this enemy's position.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ExtraVariableForNextEffect>(), 1, Slots.Self, front),
                     Effects.GenerateEffect(BasicEffects.GetVisuals("Weep_A", false, Slots.Self), 1, Slots.Self, BasicEffects.DidThat(true)),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 10, Slots.Self, BasicEffects.DidThat(true, 2))
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 7, Slots.Self, BasicEffects.DidThat(true, 2))
                 },
                 Visuals = null,
                 AnimationTarget = Slots.Self,
@@ -69,13 +69,13 @@ namespace SaltsEnemies_Reseasoned
             Ability opportunist = new Ability("Opportunist_A")
             {
                 Name = "Opportunist",
-                Description = "If there is an Opposing party member, apply 5 Shield on the Left and Right enemy positions and move Left or Right.",
+                Description = "If there is an Opposing party member, apply 4 Shield on the Left and Right enemy positions and move Left or Right.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ExtraVariableForNextEffect>(), 1, Slots.Self, front),
                     Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Notif", false, Slots.Self), 1, Slots.Self, BasicEffects.DidThat(true)),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 5, Slots.Sides, BasicEffects.DidThat(true, 2)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 4, Slots.Sides, BasicEffects.DidThat(true, 2)),
                     Effects.GenerateEffect(CasterSubActionEffect.Create(new EffectInfo[]
                     {
                         Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self),
