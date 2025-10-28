@@ -218,6 +218,7 @@ namespace SaltEnemies_Reseasoned
         public static void AwakeOverworld(Action<OverworldManagerBG> orig, OverworldManagerBG self)
         {
             orig(self);
+            UntitledHandler.Warped = 0;
         }
         public static void LoadRun(Action<MainMenuController> orig, MainMenuController self)
         {

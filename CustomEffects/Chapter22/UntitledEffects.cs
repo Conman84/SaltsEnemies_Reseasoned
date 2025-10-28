@@ -76,7 +76,7 @@ namespace SaltsEnemies_Reseasoned
 
         public static void Setup()
         {
-            NotificationHook.AddAction(NotifCheck);
+            //NotificationHook.AddAction(NotifCheck);
             MainMenuException.AddAction(OnMenu);
         }
         public static void NotifCheck(string name, object sender, object args)
