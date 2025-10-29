@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using Utility.SerializableCollection;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -21,6 +22,7 @@ namespace SaltsEnemies_Reseasoned
             deadgodkill.enemyID = "EmbersofaDeadGod_EN";
             deadgodkill.usesSimpleDeathData = true;
             deadgodkill.simpleDeathData = deadgod;
+            deadgodkill.specialDeathData = new SerializableDictionary<string, UnlockableModData>();
             Unlocks.AddUnlock_EnemyDeath(deadgodkill);
 
             UnlockableModData shiny = new UnlockableModData("Shiny");
@@ -34,6 +36,7 @@ namespace SaltsEnemies_Reseasoned
             shinykill.enemyID = "CoinHunter_EN";
             shinykill.usesSimpleDeathData = true;
             shinykill.simpleDeathData = shiny;
+            shinykill.specialDeathData = new SerializableDictionary<string, UnlockableModData>();
             Unlocks.AddUnlock_EnemyDeath(shinykill);
 
             UnlockableModData deep = new UnlockableModData("Deep");
@@ -47,6 +50,7 @@ namespace SaltsEnemies_Reseasoned
             deepkill.enemyID = "TheDeep_EN";
             deepkill.usesSimpleDeathData = true;
             deepkill.simpleDeathData = deep;
+            deepkill.specialDeathData = new SerializableDictionary<string, UnlockableModData>();
             Unlocks.AddUnlock_EnemyDeath(deepkill);
 
             UnlockableModData postmodern = new UnlockableModData("Postmodern");
@@ -60,6 +64,7 @@ namespace SaltsEnemies_Reseasoned
             postkill.enemyID = "Postmodern_EN";
             postkill.usesSimpleDeathData = true;
             postkill.simpleDeathData = postmodern;
+            postkill.specialDeathData = new SerializableDictionary<string, UnlockableModData>();
             Unlocks.AddUnlock_EnemyDeath(postkill);
 
             UnlockableModData snake = new UnlockableModData("SnakeGod");
@@ -73,6 +78,7 @@ namespace SaltsEnemies_Reseasoned
             snakekill.enemyID = "SnakeGod_EN";
             snakekill.usesSimpleDeathData = true;
             snakekill.simpleDeathData = snake;
+            snakekill.specialDeathData = new SerializableDictionary<string, UnlockableModData>();
             Unlocks.AddUnlock_EnemyDeath(snakekill);
 
             UnlockableModData miriam = new UnlockableModData("Miriam");
@@ -86,6 +92,7 @@ namespace SaltsEnemies_Reseasoned
             miriamkill.enemyID = "Miriam_EN";
             miriamkill.usesSimpleDeathData = true;
             miriamkill.simpleDeathData = miriam;
+            miriamkill.specialDeathData = new SerializableDictionary<string, UnlockableModData>();
             Unlocks.AddUnlock_EnemyDeath(miriamkill);
 
             UnlockableModData smiler = new UnlockableModData("Smiler");
