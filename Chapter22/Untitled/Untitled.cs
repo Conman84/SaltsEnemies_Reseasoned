@@ -39,9 +39,36 @@ namespace SaltsEnemies_Reseasoned
 
             template.CombatEnterEffects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<UntitledSongEffect>())];
 
+            Ability still = new Ability("Still Life", "StillLife_A");
+            still.Description = "\"Time does not pass.\"";
+            still.Rarity = Rarity.Common;
+            still.Effects = [];
+            still.AddIntentsToTarget(Slots.Self, ["Misc"]);
+            still.AnimationTarget = Slots.Self;
+            still.Visuals = Visuals.UglyOnTheInside;
+
+            Ability self = new Ability("Self Portrait", "SelfPortrait_A");
+            self.Description = "\"You could have been perfect.\"";
+            self.Rarity = Rarity.Common;
+            self.Effects = [];
+            self.AddIntentsToTarget(Slots.Self, ["Misc"]);
+            self.AnimationTarget = Slots.Self;
+            self.Visuals = CustomVisuals.GetVisuals("Salt/Lens");
+
+            Ability gestures = new Ability("Gestures", "Gestures_A");
+            gestures.Description = "\"Idea of a person.\"";
+            gestures.Rarity = Rarity.Common;
+            gestures.Effects = [];
+            gestures.AddIntentsToTarget(Slots.Self, ["Misc"]);
+            gestures.AnimationTarget = Slots.Self;
+            gestures.Visuals = Visuals.Mould;
+
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
+                still.GenerateEnemyAbility(),
+                self.GenerateEnemyAbility(),
+                gestures.GenerateEnemyAbility(),
             });
             template.AddEnemy();
         }
