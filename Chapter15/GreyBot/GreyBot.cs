@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("GreyBotIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("GreyBotWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("GreyBotDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = "event:/Hawthorne/Noise/ApparatusHit",
-                DeathSound = "event:/Hawthorne/Noise/ApparatusDie",
+                DamageSound = "event:/Hawthorne/Surround/GreyBotHit",
+                DeathSound = "event:/Hawthorne/Surround/GreyBotDie",
             };
             grey.PrepareEnemyPrefab("assets/bot/GreyBot_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/bot/GreyBot_Gibs.prefab").GetComponent<ParticleSystem>());
 
