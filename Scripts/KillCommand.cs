@@ -43,7 +43,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     DebugController.Instance.WriteLine("No active run.", LogLevel.Error);
                 }
-                else if (run.CurrentZoneID + 1 >= run.zoneData.Count)
+                else if (run.CurrentZoneID >= run.zoneData.Count)
                 {
                     DebugController.Instance.WriteLine("No zone.", LogLevel.Error);
                 }
@@ -98,7 +98,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     DebugController.Instance.WriteLine("No active run.", LogLevel.Error);
                 }
-                else if (run.CurrentZoneID + 1 >= run.zoneData.Count)
+                else if (run.CurrentZoneID >= run.zoneData.Count)
                 {
                     DebugController.Instance.WriteLine("No zone.", LogLevel.Error);
                 }
@@ -128,7 +128,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     DebugController.Instance.WriteLine("No active run.", LogLevel.Error);
                 }
-                else if (run.CurrentZoneID + 1 >= run.zoneData.Count)
+                else if (run.CurrentZoneID >= run.zoneData.Count)
                 {
                     DebugController.Instance.WriteLine("No zone.", LogLevel.Error);
                 }
@@ -158,7 +158,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     DebugController.Instance.WriteLine("No active run.", LogLevel.Error);
                 }
-                else if (run.CurrentZoneID + 1 >= run.zoneData.Count)
+                else if (run.CurrentZoneID >= run.zoneData.Count)
                 {
                     DebugController.Instance.WriteLine("No zone.", LogLevel.Error);
                 }
