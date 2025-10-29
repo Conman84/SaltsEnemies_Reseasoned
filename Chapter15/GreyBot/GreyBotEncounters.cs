@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
             Portals.AddPortalSign("Salt_GreyBotEncounter_Sign", ResourceLoader.LoadSprite("GreyBotWorld.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Garden.H.GreyBot.Med, "Salt_GreyBotEncounter_Sign");
-            med.MusicEvent = "event:/Hawthorne/ApparatusSong";
+            med.MusicEvent = "event:/Hawthorne/GreyBotTheme";
             med.RoarEvent = "event:/Hawthorne/Roar/TankRoar";
 
             med.SimpleAddEncounter(1, Bots.Grey, 3, "InHisImage_EN");
