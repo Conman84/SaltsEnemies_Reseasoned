@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy grey = new Enemy("Auditory Apparatus", "GreyBot_EN")
             {
-                Health = 26,
+                Health = 32,
                 HealthColor = Pigments.Grey,
                 CombatSprite = ResourceLoader.LoadSprite("GreyBotIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("GreyBotWorld.png", new Vector2(0.5f, 0f), 32),
