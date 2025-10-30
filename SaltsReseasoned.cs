@@ -284,6 +284,9 @@ namespace SaltsEnemies_Reseasoned
                 PCall(Insider.Add);
                 PCall(CorpseChan.Add);
                 PCall(Untitled.Add);
+                PCall(Jabberwocky.Add);
+                PCall(InTheDark.Add);
+                PCall(Sundowner.Add);
             }
 
             //BOSSES

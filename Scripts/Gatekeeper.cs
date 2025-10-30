@@ -48,7 +48,7 @@ namespace SaltsEnemies_Reseasoned
         public static bool AllowEnemy(string enemy)
         {
             if (April.Birthday) return true;
-            if (enemy == "Hauntling_EN" || enemy == "Insider_EN" || enemy == "CorpseChan_EN" || enemy == "Untitled_EN") return false;
+            if (Salt.Secret.Contains(enemy)) return false;
 
             if (!DoGatekeep) return true;
 
@@ -195,6 +195,6 @@ namespace SaltsEnemies_Reseasoned
         public static string[] Harder = ["Chiito_EN", "Complimentary_EN", "Wednesday_EN", "Hunter_EN", "Warbird_EN", "Indicator_EN", "GlassedSun_EN", "Stoplight_EN", "Clown_EN", "BlackAndBlue_BOSS"];
         public static string[] Hardest = ["Postmodern_EN", "War_EN", "ClockTower_EN", Enemies.Tank, "Miriam_EN", "33_EN", "Author_EN", "Monster_EN", "Starless_EN", "Yang_EN", "Cruelties1_EN", "YNL_EN", "Firebird_EN"];
         public static string[] Expert = ["Damocles_EN", "GlassFigurine_EN", "Nameless_EN", "Children6_EN", "TheDragon_EN", "OdeToHumanity_EN", "EvilDog_EN", "PersonalAngel_EN", "Yin_EN", "Eyeless_EN", "Solitaire_EN", "Spades_EN"];
-        public static string[] Secret = ["Hauntling_EN", "Insider_EN"];
+        public static string[] Secret = ["Hauntling_EN", "Insider_EN", "CorpseChan_EN", "Untitled_EN", "Jabberwocky_EN", "InTheDark_EN", "Sundowner_EN"];
     }
 }
