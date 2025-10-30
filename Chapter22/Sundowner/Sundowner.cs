@@ -56,6 +56,7 @@ namespace SaltsEnemies_Reseasoned
             sunset.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Other_Spawn.ToString()]);
             sunset.AnimationTarget = Slots.Front;
             sunset.Visuals = CustomVisuals.GetVisuals("Salt/StageLights");
+            sunset.Priority = Priority.Slow;
 
             //ADD ENEMY
             sundowner.AddEnemyAbilities(new EnemyAbilityInfo[]
