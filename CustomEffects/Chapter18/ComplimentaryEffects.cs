@@ -31,7 +31,7 @@ namespace SaltEnemies_Reseasoned
             self.CurrentHealth = 0;
             self.HasFled = true;
             CombatManager.Instance.AddUIAction(new EnemyDamagedUIAction(self.ID, self.CurrentHealth, self.MaximumHealth, currentHealth, CombatType_GameIDs.Dmg_Weak.ToString()));
-            CombatManager.Instance.AddSubAction(new WitherlessEnemyDeathAction(self.ID, killer, DeathType_GameIDs.DirectDeath.ToString()));
+            CombatManager.Instance.AddSubAction(new GuaranteedEnemyDeathAction(self.ID, killer, DeathType_GameIDs.DirectDeath.ToString()));
             return true;
         }
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
@@ -183,6 +183,43 @@ namespace SaltEnemies_Reseasoned
             {
                 if (health != null && !health.Equals(null)) unit.ChangeHealthColor(health);
                 yield return null;
+            }
+        }
+
+        public class GuaranteedEnemyDeathAction : CombatAction
+        {
+            public int _enemyID;
+            public IUnit _killer;
+            public string _deathType;
+
+            public GuaranteedEnemyDeathAction(int enemyID, IUnit killer, string deathType)
+            {
+                _enemyID = enemyID;
+                _killer = killer;
+                _deathType = deathType;
+            }
+            public static void SilentEnemyDeath(EnemyCombat self, DeathReference deathReference, string deathTypeID)
+            {
+                self.IsAlive = false;
+                self.DeathBy = deathTypeID;
+
+                self.DisconnectPassives();
+                self.RemoveAllStatusEffects(showInfo: false);
+                self.FinalizationEnd(disconnectPassives: false);
+            }
+
+            public override IEnumerator Execute(CombatStats stats)
+            {
+                EnemyCombat enemyCombat = stats.TryGetEnemyOnField(_enemyID);
+                if (enemyCombat != null)
+                {
+                    DeathReference deathReference = new DeathReference(_killer, witheringDeath: false, _deathType);
+                    SilentEnemyDeath(enemyCombat, deathReference, _deathType);
+                    CombatManager.Instance.AddUIAction(new EnemyDeathUIAction(enemyCombat.ID, playDeathSound: true));
+                    stats.RemoveEnemy(_enemyID);
+                }
+
+                yield break;
             }
         }
     }
