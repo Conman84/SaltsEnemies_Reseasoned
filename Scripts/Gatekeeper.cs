@@ -47,6 +47,8 @@ namespace SaltsEnemies_Reseasoned
 
         public static bool AllowEnemy(string enemy)
         {
+            if (!Check.EnemyExist(enemy)) return false;
+
             if (April.Birthday) return true;
             if (Salt.Secret.Contains(enemy) && ! April.Me) return false;
 
