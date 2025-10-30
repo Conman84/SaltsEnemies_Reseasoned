@@ -27,7 +27,7 @@ namespace SaltsEnemies_Reseasoned
 
             PerformEffectPassiveAbility untitled = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             untitled._passiveName = "Untitled";
-            untitled.m_PassiveID = "Aprils_Untitled";
+            untitled.m_PassiveID = "Aprils_Untitled_PA";
             untitled.passiveIcon = ResourceLoader.LoadSprite("UntitledPassive.png");
             untitled._enemyDescription = "On dying excluding from Withering, restart combat.";
             untitled._characterDescription = "On dying excluding from Withering, restart combat.";

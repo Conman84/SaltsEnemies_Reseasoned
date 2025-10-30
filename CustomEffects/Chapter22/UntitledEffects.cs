@@ -1,13 +1,10 @@
 ﻿using DG.Tweening;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using Yarn;
-using SaltEnemies_Reseasoned;
-using System.Data.Common;
+using System.Reflection;
+using MonoMod.RuntimeDetour;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -78,6 +75,8 @@ namespace SaltsEnemies_Reseasoned
         {
             //NotificationHook.AddAction(NotifCheck);
             MainMenuException.AddAction(OnMenu);
+
+            IDetour hook = new Hook(typeof(CombatManager).GetMethod(nameof(CombatManager.FullSaveInCombatGame), ~BindingFlags.Default), typeof(UntitledHandler).GetMethod(nameof(CombatManager_FullSaveInCombatGame), ~BindingFlags.Default));
         }
         public static void NotifCheck(string name, object sender, object args)
         {
@@ -88,6 +87,32 @@ namespace SaltsEnemies_Reseasoned
             Warped = 0;
         }
         public static void Warp() => Warped++;
+
+        public static void CombatManager_FullSaveInCombatGame(Action<CombatManager> orig, CombatManager self)
+        {
+            try
+            {
+                if (CombatManager.Instance._stats.IsPassiveLocked("Aprils_Untitled_PA"))
+                {
+                    orig(self);
+                    return;
+                }
+
+                foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+                {
+                    if (enemy.ContainsPassiveAbility("Aprils_Untitled_PA")) return;
+                }
+
+                foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
+                {
+                    if (chara.ContainsPassiveAbility("Aprils_Untitled_PA")) return;
+                }
+            }
+            catch (Exception ex)
+            {
+                orig(self);
+            }
+        }
     }
 
     public class UntitledSongEffect : EffectSO
@@ -98,6 +123,15 @@ namespace SaltsEnemies_Reseasoned
 
             CombatManager.Instance._stats.audioController.MusicCombatEvent.setParameterByName("Warped", UntitledHandler.Warped > 0 ? 1 : 0);
 
+            return true;
+        }
+    }
+    public class DontRunGameEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            CombatManager.Instance._isGameRun = false;
             return true;
         }
     }
