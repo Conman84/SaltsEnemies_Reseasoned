@@ -68,6 +68,7 @@ namespace SaltsEnemies_Reseasoned
             if (Salt.Harder.Contains(enemy) && StoredRuns < 8) return false;
             if (Salt.Hardest.Contains(enemy) && StoredRuns < 9) return false;
             if (Salt.Expert.Contains(enemy) && StoredRuns < 10) return false;
+            if (Salt.Secret.Contains(enemy) && StoredRuns < 11) return false;
 
             //by prereq
             if (enemy == "Evileye_EN" && !Tracker.Track(["LostSheep_EN", "AFlower_EN"])) return false;
@@ -151,6 +152,12 @@ namespace SaltsEnemies_Reseasoned
             if (enemy == "Eyeless_EN" && !Tracker.Track("Starless_EN")) return false;
             if (enemy == "Solitaire_EN" && !Tracker.Track(["YellowAngel_EN", "Evileye_EN", "Enigma_EN", "Sigil_EN", "DeadPixel_EN"])) return false;
             if (enemy == "Spades_EN" && !Tracker.Track("Solitaire_EN")) return false;
+            if (enemy == "Hauntling_EN" && !Tracker.Track(["ClockTower_EN", "Satyr_EN"])) return false;
+            if (enemy == "Insider_EN" && !Tracker.Track(["YellowAngel_EN", "EyePalm_EN"])) return false;
+            if (enemy == "CorpseChan_EN" && !Tracker.Track(["ToyUfo_EN", "2009_EN"])) return false;
+            if (enemy == "Jabberwocky_EN" && !Tracker.Track(["EvilDog_EN", Enemies.Solvent])) return false;
+            if (enemy == "InTheDark_EN" && !Tracker.Track(["Monster_EN", "Satyr_EN"])) return false;
+            if (enemy == "Sundowner_EN" && !Tracker.Track(["DeadPixel_EN", "Complimentary_EN"])) return false;
 
             return true;
         }
