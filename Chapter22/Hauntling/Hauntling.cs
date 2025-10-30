@@ -34,7 +34,7 @@ namespace SaltsEnemies_Reseasoned
             noTouch.doesPassiveTriggerInformationPanel = false;
             noTouch._triggerOn = new TriggerCalls[] { OnClickPassiveAbility.Trigger };
 
-            hauntling.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, Passives.Slippery, Passives.Masochism1, noTouch, Passives.Infantile, Passives.Leaky3 });
+            hauntling.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, Passives.Slippery, Passives.Infantile, Passives.Leaky3 });
 
             Ability antisoftlock = new Ability("Antisoftlock", "Antisoftlock_A");
             antisoftlock.Description = "Inflict 11 Entropy to the Opposing party member and this enemy.";
