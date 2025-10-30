@@ -37,9 +37,8 @@ namespace SaltsEnemies_Reseasoned
 
             dark.AddPassives(new BasePassiveAbilitySO[] { altruistic, Passives.Forgetful, Passives.Fleeting4});
 
-            AbilitySelector_Heaven selector = ScriptableObject.CreateInstance<AbilitySelector_Heaven>();
-            selector._ComeHomeAbility = "Absurdism_A";
-            dark.AbilitySelector = selector;
+
+            dark.AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_Dark>();
 
             RemoveStatusEffectEffect rem_frail = ScriptableObject.CreateInstance<RemoveStatusEffectEffect>();
             rem_frail._status = StatusField.Frail;
