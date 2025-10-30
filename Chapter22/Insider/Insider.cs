@@ -57,7 +57,8 @@ namespace SaltsEnemies_Reseasoned
                 "Sleve McDichael Onson Sweemey Darryl Archideld Anatoli Smorin Rey McSriff Glenallen Mixon Mario McRlwain Raul Chamgerlain Kevin Nogilny Tony Smehrik Bobson Dugnutt Willie Dustice Jeromy Gride Scott Dourque Shown Furcotte Dean Wesrey Mike Truk Dwigt Rortugal Tim Sandaele Karl Dandleton Mike Sernandez Todo Bonzalez",
                 "Bartholomew",
                 "TAFHF-D5CLI-4TGV8",
-                "Wolf Colony"
+                "Wolf Colony",
+                "Jtkhfulakefrutysejw3oewuiyrdfhkgmcsdhkafekaeaaeljreluy"
                 ];
             CasterRandomizeNameEnemyEffect outside = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             outside.PossibleNames = [
