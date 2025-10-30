@@ -36,7 +36,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Wednesday_EN", "Moone_EN", "Moone_EN", "Moone_EN");
 
             med = new AddTo(Orph.H.Solitaire.Med);
-            med.AddRandomGroup("Solitaire_EN", "Solitiare_EN", "Moone_EN");
+            med.AddRandomGroup("Solitaire_EN", "Solitaire_EN", "Moone_EN");
 
             med = new AddTo(Orph.H.Author.Med);
             med.AddRandomGroup("Moone_EN", "Moone_EN", "Author_EN");

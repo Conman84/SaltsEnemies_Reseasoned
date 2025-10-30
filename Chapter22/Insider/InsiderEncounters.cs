@@ -105,7 +105,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Firebird_EN", "Insider_EN", Enemies.Shivering, Enemies.Shivering);
 
             med = new AddTo(Garden.H.Hunter.Med);
-            med.AddRandomGroup("Hunter_EN", "Insider_EN", "Granfather_EN");
+            med.AddRandomGroup("Hunter_EN", "Insider_EN", "Grandfather_EN");
 
             med = new AddTo(Garden.H.Ode.Med);
             med.AddRandomGroup("OdeToHumanity_EN", "Insider_EN", "MiniReaper_EN");

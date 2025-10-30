@@ -30,7 +30,7 @@ namespace SaltsEnemies_Reseasoneds
             med.SimpleAddGroup(1, "CorpseChan_EN", 2, "Bonsai_EN");
 
             med = new AddTo(Shore.H.Hauntling.Med);
-            med.SimpleAddGroup(2, "Hauntling_EN", 1, "Snaurce");
+            med.SimpleAddGroup(2, "Hauntling_EN", 1, "Snaurce_EN");
             med.SimpleAddGroup(2, "Hauntling_EN", 1, "Flakkid_EN");
             med.SimpleAddGroup(2, "Hauntling_EN", 1, Enemies.Swine);
             med.SimpleAddGroup(2, "Hauntling_EN", 1, Colophon.Red);
