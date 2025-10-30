@@ -22,6 +22,7 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = LoadedAssetsHandler.GetEnemy("BlackStar_EN").deathSound,
             };
             dark.PrepareEnemyPrefab("Assets/Item/Dark_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Item/Dark_Gibs.prefab").GetComponent<ParticleSystem>());
+            dark.enemy.enemyTemplate.m_Data.m_Renderer = dark.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Sprite").GetComponent<SpriteRenderer>();
 
             PerformEffectPassiveAbility altruistic = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             altruistic.name = "Altruistic_PA";
