@@ -181,7 +181,11 @@ namespace SaltEnemies_Reseasoned
             }
             public override IEnumerator Execute(CombatStats stats)
             {
-                if (health != null && !health.Equals(null)) unit.ChangeHealthColor(health);
+                if (health != null && !health.Equals(null))
+                {
+                    if (unit.HealthColor != health)
+                        unit.ChangeHealthColor(health);
+                }
                 yield return null;
             }
         }
