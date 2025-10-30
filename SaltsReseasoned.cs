@@ -442,6 +442,9 @@ namespace SaltsEnemies_Reseasoned
                 PCall(InsiderEncounters.Add);
                 PCall(CorpseChanEncounters.Add);
                 PCall(UntitledEncounter.Add);
+                PCall(JabberwockyEncounters.Add);
+                PCall(InTheDarkEncounters.Add);
+                PCall(SundownerEncounters.Add);
             }
 
             //BOSSES

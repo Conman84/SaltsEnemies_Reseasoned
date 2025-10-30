@@ -55,14 +55,14 @@ namespace SaltsEnemies_Reseasoned
             jabber.AddPassives(new BasePassiveAbilitySO[] { observer });
 
             Ability snype = new Ability("Snype", "Snype_A");
-            snype.Description = "Might deal a Painful amount of damage to the Left and Right party members.\nMove Left or Right.";
+            snype.Description = "Might deal a Painful amount of damage to the Far Far Left and Far Far Right party members.\nMove Left or Right.";
             snype.Rarity = Rarity.Common;
-            snype.Effects = [Effects.GenerateEffect(ChanceZeroDamageEffect.Create(50), 4, Slots.LeftRight),
+            snype.Effects = [Effects.GenerateEffect(ChanceZeroDamageEffect.Create(50), 4, Slots.SlotTarget([-3, 3], false)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)];
             snype.AddIntentsToTarget(Slots.LeftRight, ["Misc", "Damage_3_6"]);
             snype.AddIntentsToTarget(Slots.Self, ["Swap_Sides"]);
             snype.Visuals = CustomVisuals.GetVisuals("Salt/Gunshot");
-            snype.AnimationTarget = Slots.LeftRight;
+            snype.AnimationTarget = Slots.SlotTarget([-3, 3], false);
 
             Ability bander = new Ability("Bander", "Bander_A");
             bander.Description = "Focus this enemy.\nGain 2 Dodge.";

@@ -267,6 +267,10 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "H_Zone01_Hauntling_Medium_EnemyBundle";
             }
+            public static class Jabber
+            {
+                public static string Med => "H_Zone01_Jabberwocky_Medium_EnemyBundle";
+            }
 
 
             //marmo

@@ -259,6 +259,9 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Garden.H.Beakart.Med);
             med.AddRandomGroup("Beakart_EN", "Hauntling_EN", "Shua_EN");
+
+            med = new AddTo(Garden.H.Bonsai.Med);
+            med.AddRandomGroup("Bonsai_EN", "Indicator_EN", "Hauntling_EN", "Hauntling_EN");
         }
     }
 }
