@@ -55,11 +55,11 @@ namespace SaltsEnemies_Reseasoned
             absurd.Visuals = LoadedAssetsHandler.GetCharacterAbility("Conversion_1_A").visuals;
 
             Ability knight = new Ability("Knight Knight Knight Knight", "4Knight_A");
-            knight.Description = "Remove all Status Effects from the Opposing party member. Inflict 3 Frail on all party members not Opposing this enemy.\nMove Left or Right.";
+            knight.Description = "Remove all Status Effects from the Opposing party member. Inflict 3 Frail on all party members not Opposing this enemy if they have no Frail.\nMove Left or Right.";
             knight.Rarity = Rarity.Common;
             knight.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveAllStatusEffectsEffect>(), 1, Slots.Front),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 3, Slots.SlotTarget([-4, -3, -2, -1, 1, 2, 3, 4], false)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailIfNoFrailEffect>(), 3, Slots.SlotTarget([-4, -3, -2, -1, 1, 2, 3, 4], false)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)
                 ];
             knight.AddIntentsToTarget(Slots.Front, ["Misc"]);

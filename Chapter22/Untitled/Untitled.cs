@@ -36,6 +36,7 @@ namespace SaltsEnemies_Reseasoned
             untitled.conditions = [ScriptableObject.CreateInstance<IsntWitheringDeathCondition>()];
 
             template.AddPassives(new BasePassiveAbilitySO[] { untitled, Passives.Withering });
+            template.AddUnitType("Female_ID");
 
             template.CombatEnterEffects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<UntitledSongEffect>())];
 
