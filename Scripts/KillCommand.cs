@@ -14,6 +14,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static DebugCommand KILL;
         public static DebugCommand CHANGEBOSS;
+        public static DebugCommand RESETFLEETING;
 
         public static DebugCommand ADDEASYENEMY;
         public static DebugCommand ADDMEDIUMENEMY;
@@ -178,11 +179,25 @@ namespace SaltsEnemies_Reseasoned
                 }
             });
 
+            RESETFLEETING = new DebugCommand("resetfleeting", "Reset fleeting on all enemies.", new List<DebugCommandArgument>(), delegate
+            {
+                CombatManager.Instance.AddPriorityRootAction(new PerformDelegateAction(delegate (CombatStats x)
+                {
+                    foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+                    {
+                        if (enemy.TryGetStoredData(UnitStoredValueNames_GameIDs.FleetingPA.ToString(), out UnitStoreDataHolder holder, false))
+                            holder.m_MainData = 0;
+                    }
+                }));
+                DebugController.Instance.WriteLine("Killing all enemies.");
+            });
+
             DebugController.Commands.children.Add(KILL);
             DebugController.Commands.children.Add(CHANGEBOSS);
             DebugController.Commands.children.Add(ADDEASYENEMY);
             DebugController.Commands.children.Add(ADDMEDIUMENEMY);
             DebugController.Commands.children.Add(ADDHARDENEMY);
+            DebugController.Commands.children.Add(RESETFLEETING);
         }
 
         public static IEnumerable<string> LoadEnemiesEasy()
