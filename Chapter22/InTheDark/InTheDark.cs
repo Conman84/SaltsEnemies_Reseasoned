@@ -43,7 +43,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability absurd = new Ability("Absurdism", "Absurdism_A");
             absurd.Description = "Deal an Agonizing amount of damage to all party members.\nHeal all party members that survive.";
-            absurd.Rarity = Rarity.GetCustomRarity("rarity5");
+            absurd.Rarity = Rarity.Common;
             absurd.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Targeting.Unit_AllOpponents),
                 Effects.GenerateEffect(CasterRootActionEffect.Create([
