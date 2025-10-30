@@ -94,7 +94,6 @@ namespace SaltsEnemies_Reseasoned
             }
             PCall(Gatekeeper.Setup);
             PCall(KillCommand.Add);
-            Debug.Log(April.Me);
             #endregion
 
             //Add To Glossary
