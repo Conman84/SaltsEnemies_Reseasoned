@@ -73,7 +73,7 @@ namespace SaltsEnemies_Reseasoned
             knight.Priority = Priority.Fast;
 
             Ability kill = new Ability("Killing", "Killing_A");
-            kill.Description = "\"The Opposing party member suffers immensly as their skin dissolves and their flesh melts off.\"\nLower the Opposing party member's maximum health to their current health, then instantly kill them.";
+            kill.Description = "\"The Opposing party member suffers immensely as their skin dissolves and their flesh melts off.\"\nLower the Opposing party member's maximum health to their current health, then instantly kill them.";
             kill.Rarity = Rarity.Common;
             kill.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ChangeMaxHealthByCurrentHealthEffect>(), 1, Slots.Front),
