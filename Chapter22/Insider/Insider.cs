@@ -54,10 +54,15 @@ namespace SaltsEnemies_Reseasoned
                 "Wayne Marshall",
                 "Ideas Vampire",
                 "Wiz Ars",
-                "With Homophobia In Its Passives :Heart:",
                 "Sleve McDichael Onson Sweemey Darryl Archideld Anatoli Smorin Rey McSriff Glenallen Mixon Mario McRlwain Raul Chamgerlain Kevin Nogilny Tony Smehrik Bobson Dugnutt Willie Dustice Jeromy Gride Scott Dourque Shown Furcotte Dean Wesrey Mike Truk Dwigt Rortugal Tim Sandaele Karl Dandleton Mike Sernandez Todo Bonzalez",
                 "Bartholomew",
-                "1 Sepulchre 1 Untitled Encounter",
+                "TAFHF-D5CLI-4TGV8",
+                "Setting Fire To A Pile Of Traffic Cones Spawns Zombies",
+                "Wolf Colony"
+                ];
+            CasterRandomizeNameEnemyEffect outside = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
+            outside.PossibleNames = [
+                "With Homophobia In Its Passives :Heart:",
                 "Jumboe Josh",
                 "Googl",
                 "A Secret Animation Where If It Spawns Between The Two Of Them Like That It Passes The Ball Between Them",
@@ -74,12 +79,11 @@ namespace SaltsEnemies_Reseasoned
                 "3.8 Elixer Hog Bridge Trade",
                 "Green Miku",
                 "Forest Bump",
-                "TAFHF-D5CLI-4TGV8",
-                "Setting Fire To A Pile Of Traffic Cones Spawns Zombies",
-                "Wolf Colony"
+                "You Can Activate Secret Mode If You Create A .txt File Named \"custom.txt\" In The Same Folder As The DLL For This Mod"
                 ];
 
-            insider.CombatEnterEffects = [Effects.GenerateEffect(inside)];
+            insider.CombatEnterEffects = [Effects.GenerateEffect(inside),
+                Effects.GenerateEffect(outside, 0, null, Effects.ChanceCondition(20))];
 
             AnimationVisualsEffect punch = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
             punch._visuals = Visuals.Extrusion;
