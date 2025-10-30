@@ -59,7 +59,7 @@ namespace SaltsEnemies_Reseasoned
             snype.Rarity = Rarity.Common;
             snype.Effects = [Effects.GenerateEffect(ChanceZeroDamageEffect.Create(50), 4, Slots.SlotTarget([-3, 3], false)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)];
-            snype.AddIntentsToTarget(Slots.LeftRight, ["Misc", "Damage_3_6"]);
+            snype.AddIntentsToTarget(Slots.SlotTarget([-3, 3], false), ["Misc", "Damage_3_6"]);
             snype.AddIntentsToTarget(Slots.Self, ["Swap_Sides"]);
             snype.Visuals = CustomVisuals.GetVisuals("Salt/Gunshot");
             snype.AnimationTarget = Slots.SlotTarget([-3, 3], false);
