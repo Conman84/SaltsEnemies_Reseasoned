@@ -107,6 +107,8 @@ namespace SaltsEnemies_Reseasoned
                 {
                     if (chara.ContainsPassiveAbility("Aprils_Untitled_PA")) return;
                 }
+
+                orig(self);
             }
             catch (Exception ex)
             {
