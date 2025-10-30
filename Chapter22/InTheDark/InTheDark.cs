@@ -41,16 +41,20 @@ namespace SaltsEnemies_Reseasoned
             selector._ComeHomeAbility = "Absurdism_A";
             dark.AbilitySelector = selector;
 
+            RemoveStatusEffectEffect rem_frail = ScriptableObject.CreateInstance<RemoveStatusEffectEffect>();
+            rem_frail._status = StatusField.Frail;
+
             Ability absurd = new Ability("Absurdism", "Absurdism_A");
-            absurd.Description = "Deal an Agonizing amount of damage to all party members.\nHeal all party members that survive.";
+            absurd.Description = "Deal an Agonizing amount of damage to all party members and remove all Frail from them.\nHeal all party members that survive.";
             absurd.Rarity = Rarity.Common;
             absurd.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Targeting.Unit_AllOpponents),
+                Effects.GenerateEffect(rem_frail, 1, Targeting.Unit_AllOpponents),
                 Effects.GenerateEffect(CasterRootActionEffect.Create([
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 10, Targeting.Unit_AllOpponents)
                     ]), 1, Slots.Self)
                 ];
-            absurd.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Damage_7_10", "Heal_5_10"]);
+            absurd.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Damage_7_10", "Rem_Status_Frail", "Heal_5_10"]);
             absurd.AnimationTarget = Targetting.Everything(false);
             absurd.Visuals = LoadedAssetsHandler.GetCharacterAbility("Conversion_1_A").visuals;
 
