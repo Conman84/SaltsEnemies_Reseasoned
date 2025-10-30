@@ -67,6 +67,7 @@ namespace SaltsEnemies_Reseasoned
             knight.AddIntentsToTarget(Slots.Self, ["Swap_Sides"]);
             knight.AnimationTarget = Slots.Front;
             knight.Visuals = CustomVisuals.GetVisuals("Salt/Nailing");
+            knight.Priority = Priority.Fast;
 
             Ability kill = new Ability("Killing", "Killing_A");
             kill.Description = "\'The Opposing party member suffers immensly as their skin dissolves and their flesh melts off.\"\nLower the Opposing party member's maximum health to their current health, then instantly kill them.";
