@@ -14,6 +14,8 @@ namespace SaltsEnemies_Reseasoneds
             med.SimpleAddGroup(2, "Nameless_EN", 2, "Moone_EN");
             med.AddRandomGroup("Nameless_EN", "Nameless_EN", "BackupDancer_EN", "MusicMan_EN");
             med.AddRandomGroup("Nameless_EN", "Gungrot_EN", "Gungrot_EN", "Spectre_EN");
+            med.SimpleAddEncounter(2, "Nameless_EN", 1, Jumble.Purple, 1, Jumble.Unstable);
+            med.SimpleAddEncounter(2, "Nameless_EN", 1, Jumble.Blue, 1, Jumble.Unstable);
 
             med = new AddTo(Garden.H.CorpseChan.Med);
             med.SimpleAddGroup(1, "CorpseChan_EN", 2, "Git_EN");

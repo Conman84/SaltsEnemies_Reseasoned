@@ -34,8 +34,6 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "Nameless_EN", 1, "Author_EN", 2, Enemies.Suckle);
             med.SimpleAddEncounter(2, "Nameless_EN", 1, "Insider_EN", 2, "SingingStone_EN");
             med.SimpleAddEncounter(2, "Nameless_EN", 1, "Foxtrot_EN", 1, Jumble.Yellow);
-            med.SimpleAddEncounter(2, "Nameless_EN", 1, Jumble.Purple, 1, Jumble.Unstable);
-            med.SimpleAddEncounter(2, "Nameless_EN", 1, Jumble.Blue, 1, Jumble.Unstable);
             med.SimpleAddEncounter(2, "Nameless_EN", 1, Spoggle.Red, 1, Spoggle.Purple);
 
             med.AddEncounterToDataBases();

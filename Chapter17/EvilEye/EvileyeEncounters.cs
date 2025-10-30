@@ -21,7 +21,7 @@ namespace SaltsEnemies_Reseasoned
             hard.MusicEvent = "event:/Hawthorne/EvilEyeTheme";
             hard.RoarEvent = "event:/Hawthorne/Noisy/Eye_Roar";
 
-            hard.SimpleAddEncounter(1, "Evileye_EN", 4, "SingingStones_EN");
+            hard.SimpleAddEncounter(1, "Evileye_EN", 4, "SingingStone_EN");
             hard.SimpleAddEncounter(1, "Evileye_EN", 2, "MusicMan_EN");
             hard.SimpleAddEncounter(1, "Evileye_EN", 2, "Scrungie_EN");
             hard.AddRandomEncounter("Evileye_EN", "MusicMan_EN", "Sigil_EN");
@@ -41,7 +41,7 @@ namespace SaltsEnemies_Reseasoned
             med.MusicEvent = "event:/Hawthorne/EvilEyeTheme";
             med.RoarEvent = "event:/Hawthorne/Noisy/Eye_Roar";
 
-            med.SimpleAddEncounter(1, "Evileye_EN", 4, "SingingStones_EN");
+            med.SimpleAddEncounter(1, "Evileye_EN", 4, "SingingStone_EN");
             med.SimpleAddEncounter(1, "Evileye_EN", 3, "MusicMan_EN");
             med.SimpleAddEncounter(1, "Evileye_EN", 2, "Scrungie_EN");
             med.AddRandomEncounter("Evileye_EN", "MusicMan_EN", "MusicMan_EN", "Sigil_EN");

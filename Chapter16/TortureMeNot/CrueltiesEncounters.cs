@@ -16,7 +16,7 @@ namespace SaltsEnemies_Reseasoned
             hard.MusicEvent = "event:/Hawthorne/CrueltiesSong";
             hard.RoarEvent = "";
 
-            hard.AddRandomEncounter("Cruelties1_EN", "Cruelties2_EN", "Cruelties3_EN", "Cruelties4_EN", "Cruelties5_EN");
+            hard.AddRandomEncounter("Cruelties_1_EN", "Cruelties_2_EN", "Cruelties_3_EN", "Cruelties_4_EN", "Cruelties_5_EN");
 
             hard.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.TortureMeNot.Hard, 1 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
