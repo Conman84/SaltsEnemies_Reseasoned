@@ -47,10 +47,6 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "CorpseChan_EN", 1, Jumble.Grey);
             med.SimpleAddEncounter(2, "CorpseChan_EN", 1, Spoggle.Grey);
 
-            //test
-            med.AddRandomEncounter("nothing!!");
-            med.SimpleAddEncounter(3, "nothing!!");
-
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.CorpseChan.Med, April.Me && !April.Birthday ? 10 : April.LessMod * 2, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
         }
