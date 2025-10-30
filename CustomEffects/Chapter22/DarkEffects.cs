@@ -14,7 +14,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 if (target.HasUnit && !target.Unit.ContainsStatusEffect(StatusField_GameIDs.Frail_ID.ToString()))
                 {
-                    base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out int exi);
+                    base.PerformEffect(stats, caster, [target], areTargetSlots, entryVariable, out int exi);
                     exitAmount += exi;
                 }
             }
