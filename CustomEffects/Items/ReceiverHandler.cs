@@ -7,6 +7,18 @@ namespace SaltsEnemies_Reseasoned
 {
     public class PostFireEffect : DamageEffect
     {
+        public static AnimationVisualsEffect Visuals
+        {
+            get
+            {
+                if (_visuals == null)
+                {
+                    _visuals = BasicEffects.GetVisuals("Salt/Cannon", false, TargettingSelf_NotSlot.Create());
+                }
+                return _visuals;
+            }
+        }
+        static AnimationVisualsEffect _visuals;
         public static string PostFire => "PostFire_A";
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
@@ -15,7 +27,8 @@ namespace SaltsEnemies_Reseasoned
             {
                 if (target.HasUnit && target.Unit.ID == caster.SimpleGetStoredValue(PostFire))
                 {
-                    CombatManager.Instance.AddUIAction(new PlayAbilityAnimationNoCasterAction(CustomVisuals.GetVisuals("Salt/Cannon"), TargettingSelf_NotSlot.Create().GetTargets(stats.combatSlots, target.Unit.SlotID, target.Unit.IsUnitCharacter)));
+                    Visuals.PerformEffect(stats, target.Unit, [], false, 1, out int exi);
+                    //CombatManager.Instance.AddUIAction(new PlayAbilityAnimationNoCasterAction(CustomVisuals.GetVisuals("Salt/Cannon"), TargettingSelf_NotSlot.Create().GetTargets(stats.combatSlots, target.Unit.SlotID, target.Unit.IsUnitCharacter)));
                     return base.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, UnityEngine.Random.Range(6, 10), out exitAmount);
                 }
             }
