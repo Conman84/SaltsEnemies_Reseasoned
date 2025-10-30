@@ -27,11 +27,6 @@ namespace SaltEnemies_Reseasoned
     {
         public bool SilentDeath(EnemyCombat self, IUnit killer, bool obliteration = false)
         {
-            if (!self.CanBeInstaKilled)
-            {
-                return false;
-            }
-
             int currentHealth = self.CurrentHealth;
             self.CurrentHealth = 0;
             self.HasFled = true;

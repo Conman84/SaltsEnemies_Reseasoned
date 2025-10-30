@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
+using System.Reflection;
+using UnityEngine;
 
 namespace SaltEnemies_Reseasoned
 {
@@ -38,6 +41,21 @@ namespace SaltEnemies_Reseasoned
                 if (Birthday) return 25;
                 return 0;
             }
+        }
+
+        public static bool Me
+        {
+            get
+            {
+                string path = Assembly.GetExecutingAssembly().Location;
+                Debug.Log("hi its me.");
+                Debug.Log(path);
+                return File.Exists(path + "/custom.txt");
+            }
+        }
+        public static void Test()
+        {
+            Debug.Log(Me);
         }
     }
 }
