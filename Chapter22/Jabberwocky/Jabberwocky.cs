@@ -59,17 +59,17 @@ namespace SaltsEnemies_Reseasoned
             snype.Rarity = Rarity.Common;
             snype.Effects = [Effects.GenerateEffect(ChanceZeroDamageEffect.Create(50), 4, Slots.LeftRight),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)];
-            snype.AddIntentsToTarget(Slots.LeftRight, ["Damage_3_6"]);
+            snype.AddIntentsToTarget(Slots.LeftRight, ["Misc", "Damage_3_6"]);
             snype.AddIntentsToTarget(Slots.Self, ["Swap_Sides"]);
             snype.Visuals = CustomVisuals.GetVisuals("Salt/Gunshot");
             snype.AnimationTarget = Slots.LeftRight;
 
             Ability bander = new Ability("Bander", "Bander_A");
-            bander.Description = "Focus this enemy.\nGain 1 Dodge.";
+            bander.Description = "Focus this enemy.\nGain 2 Dodge.";
             bander.Rarity = Rarity.GetCustomRarity("rarity5");
             bander.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Slots.Self),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDodgeEffect>(), 1, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDodgeEffect>(), 2, Slots.Self),
                 ];
             bander.AddIntentsToTarget(Slots.Self, ["Status_Focused", Dodge.Intent]);
             bander.AnimationTarget = Slots.Self;
