@@ -27,6 +27,7 @@ namespace SaltsEnemies_Reseasoned
         [Header("Special Abilities")]
         [SerializeField]
         public string Absurdism = "Absurdism_A";
+        public string Knight = "4Knight_A";
 
         public override bool UsesRarity => true;
 
@@ -81,6 +82,7 @@ namespace SaltsEnemies_Reseasoned
         }
         public void SetValue(CombatAbility ability, IUnit unit)
         {
+            if (ability.ability._abilityName != Knight) return;
             unit.SimpleSetStoredValue(Absurdism, 1);
         }
     }
