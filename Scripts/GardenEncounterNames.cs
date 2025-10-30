@@ -249,6 +249,10 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "H_Zone03_Sundowner_Medium_EnemyBundle";
             }
+            public static class Children
+            {
+                public static string Easy => "H_Zone03_ChildrenOfGod_Easy_EnemyBundle";
+            }
 
             //marmo
             public static class Git

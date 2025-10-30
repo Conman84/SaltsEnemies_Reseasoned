@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +8,20 @@ namespace SaltsEnemies_Reseasoned
 {
     public static class ChildrenEncounters
     {
+        public static void Add()
+        {
+            Portals.AddPortalSign("Salt_ChildrenEncounter_Sign", ResourceLoader.LoadSprite("Children6World.png"), Portals.EnemyIDColor);
+
+            EnemyEncounter_API easy = new EnemyEncounter_API(EncounterType.Random, Garden.H.Children.Easy, "Salt_ChildrenEncounter_Sign");
+            easy.MusicEvent = "event:/Hawthorne/ChildrenTheme";
+            easy.RoarEvent = LoadedAssetsHandler.GetEnemyBundle("H_Zone03_SkinningHomunculus_Medium_EnemyBundle")._roarReference.roarEvent;
+
+            easy.AddRandomEncounter("Children6_EN");
+            easy.SimpleAddEncounter(5, "Children6_EN");
+
+            easy.AddEncounterToDataBases();
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Children.Easy, April.Birthday ? 5 : April.Me ? 1 : 0, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
+        }
         public static void Post()
         {
             AddTo med = new AddTo(Garden.H.Jumble.Grey.Med);

@@ -386,6 +386,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(ArcelesEncounters.Add);
             PCall(MinanaEncounters.Add);
             PCall(PinanoEncounters.Add);
+            PCall(ChildrenEncounters.Add);
 
             //CH15 Encounters
             PCall(RedBotEncounters.Add);
