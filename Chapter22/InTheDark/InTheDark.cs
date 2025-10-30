@@ -56,6 +56,7 @@ namespace SaltsEnemies_Reseasoned
             absurd.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Damage_7_10", "Rem_Status_Frail", "Heal_5_10"]);
             absurd.AnimationTarget = Targetting.Everything(false);
             absurd.Visuals = LoadedAssetsHandler.GetCharacterAbility("Conversion_1_A").visuals;
+            absurd.Priority = Priority.Slow;
 
             Ability knight = new Ability("Knight Knight Knight Knight", "4Knight_A");
             knight.Description = "Remove all Status Effects from the Opposing party member. Inflict 3 Frail on all party members not Opposing this enemy if they have no Frail.\nMove Left or Right.";
