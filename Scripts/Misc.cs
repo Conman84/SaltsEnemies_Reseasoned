@@ -48,14 +48,8 @@ namespace SaltEnemies_Reseasoned
             get
             {
                 string path = Assembly.GetExecutingAssembly().Location;
-                Debug.Log("hi its me.");
-                Debug.Log(path);
                 return File.Exists(path.Replace("SaltsEnemies_Reseasoned.dll", "custom.txt"));
             }
-        }
-        public static void Test()
-        {
-            Debug.Log(Me);
         }
     }
 }
