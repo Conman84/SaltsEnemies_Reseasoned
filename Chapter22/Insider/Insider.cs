@@ -79,7 +79,7 @@ namespace SaltsEnemies_Reseasoned
                 "3.8 Elixer Hog Bridge Trade",
                 "Green Miku",
                 "Forest Bump",
-                "You Can Activate Secret Mode If You Create A .txt File Named \"custom.txt\" In The Same Folder As The DLL For This Mod",
+                "You Can Activate 'Insider Mode' If You Create A .txt File Named \"custom.txt\" In The Same Folder As The DLL For This Mod",
                 "Setting Fire To A Pile Of Traffic Cones Spawns Zombies",
                 ];
 
