@@ -57,7 +57,6 @@ namespace SaltsEnemies_Reseasoned
                 "Sleve McDichael Onson Sweemey Darryl Archideld Anatoli Smorin Rey McSriff Glenallen Mixon Mario McRlwain Raul Chamgerlain Kevin Nogilny Tony Smehrik Bobson Dugnutt Willie Dustice Jeromy Gride Scott Dourque Shown Furcotte Dean Wesrey Mike Truk Dwigt Rortugal Tim Sandaele Karl Dandleton Mike Sernandez Todo Bonzalez",
                 "Bartholomew",
                 "TAFHF-D5CLI-4TGV8",
-                "Setting Fire To A Pile Of Traffic Cones Spawns Zombies",
                 "Wolf Colony"
                 ];
             CasterRandomizeNameEnemyEffect outside = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
@@ -79,7 +78,8 @@ namespace SaltsEnemies_Reseasoned
                 "3.8 Elixer Hog Bridge Trade",
                 "Green Miku",
                 "Forest Bump",
-                "You Can Activate Secret Mode If You Create A .txt File Named \"custom.txt\" In The Same Folder As The DLL For This Mod"
+                "You Can Activate Secret Mode If You Create A .txt File Named \"custom.txt\" In The Same Folder As The DLL For This Mod",
+                "Setting Fire To A Pile Of Traffic Cones Spawns Zombies",
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside),
