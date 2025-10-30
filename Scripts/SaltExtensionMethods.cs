@@ -122,7 +122,7 @@ namespace SaltEnemies_Reseasoned
                 Debug.LogWarning("WARNING: adding crossover encounters in default encounter adder; add this encounter to Oversight");
                 Debug.LogWarning("this encounter: " + self.encounter.name);
                 string enemies = "";
-                foreach (string add in ret) enemies += "add" + ", ";
+                foreach (string add in ret) enemies += add + ", ";
                 Debug.LogWarning("(simple mode) enemies included: " + enemies);
             }
             self.CreateNewEnemyEncounterData(ret.ToArray());
@@ -140,7 +140,7 @@ namespace SaltEnemies_Reseasoned
                 Debug.LogWarning("WARNING: adding crossover encounters in default encounter adder; add this encounter to Oversight");
                 Debug.LogWarning("this encounter: " + self.encounter.name);
                 string enemies = "";
-                foreach (string add in ret) enemies += "add" + ", ";
+                foreach (string add in ret) enemies += add + ", ";
                 Debug.LogWarning("(normal mode) enemies included: " + enemies);
             }
             self.CreateNewEnemyEncounterData(ret.ToArray());
