@@ -29,7 +29,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "Nameless_EN", 1, Flower.Yellow, 1, Enemies.Solvent);
             med.SimpleAddEncounter(2, "Nameless_EN", 1, Flower.Purple, 1, Enemies.Solvent);
             med.SimpleAddEncounter(2, "Nameless_EN", 1, "WindSong_EN", 1, "Rabies_EN");
-            med.SimpleAddEncounter(2, "Nameless_EN", 2, "Butterfly_EN", 1, "TortureMeNot_EN");
+            med.SimpleAddEncounter(2, "Nameless_EN", 2, "Spectre_EN", 1, "TortureMeNot_EN");
             med.SimpleAddEncounter(2, "Nameless_EN", 2, "Solitaire_EN");
             med.SimpleAddEncounter(2, "Nameless_EN", 1, "Author_EN", 2, Enemies.Suckle);
             med.SimpleAddEncounter(2, "Nameless_EN", 1, "Insider_EN", 2, "SingingStone_EN");

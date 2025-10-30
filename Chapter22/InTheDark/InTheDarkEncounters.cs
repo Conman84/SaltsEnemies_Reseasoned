@@ -44,7 +44,6 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "EvilDog_EN", 1, "InTheDark_EN");
             med.AddRandomEncounter("InTheDark_EN", "Starless_EN", "Skyloft_EN");
             med.AddRandomEncounter("InTheDark_EN", "Yang_EN", "PawnA_EN");
-            med.AddRandomEncounter("InTheDark_EN", "PersonalAngel_EN", "Romantic_EN");
             med.SimpleAddEncounter(2, "Insider_EN", 1, "InTheDark_EN");
             med.SimpleAddEncounter(3, "Hauntling_EN", 1, "InTheDark_EN");
             med.AddRandomEncounter("InTheDark_EN", "CorpseChan_EN", Enemies.Shivering);

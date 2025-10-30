@@ -59,6 +59,7 @@ namespace SaltsEnemies_Reseasoneds
             med.AddRandomGroup("InTheDark_EN", "Beakart_EN", "Children6_EN");
             med.AddRandomGroup("InTheDark_EN", Noses.Yellow, "Merced_EN");
             med.SimpleAddGroup(1, "InTheDark_EN", 2, "Bonsai_EN");
+            med.AddRandomGroup("InTheDark_EN", "PersonalAngel_EN", "Romantic_EN");
 
             AddTo hard = new AddTo(Garden.H.Dark.Hard);
             hard.AddRandomGroup("InTheDark_EN", Noses.Blue, Noses.Yellow);
