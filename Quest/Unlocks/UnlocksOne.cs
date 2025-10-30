@@ -405,6 +405,8 @@ namespace SaltsEnemies_Reseasoned
             ExtraAbility_Wearable_SMS add_postfire = ScriptableObject.CreateInstance<ExtraAbility_Wearable_SMS>();
             add_postfire._extraAbility = postfire.GenerateCharacterAbility(true);
 
+            ((Passives.Construct as Connection_PerformEffectPassiveAbility).connectionEffects[1].effect as CasterAddRandomExtraAbilityEffect)._extraData.Add(add_postfire);
+
             Basic_Item receiver = new Basic_Item("Salt_Receiver_SW");
             receiver.Name = "Receiver";
             receiver.Flavour = "\"Voice from beyond\"";
@@ -485,6 +487,8 @@ namespace SaltsEnemies_Reseasoned
 
             ExtraAbility_Wearable_SMS add_cat = ScriptableObject.CreateInstance<ExtraAbility_Wearable_SMS>();
             add_cat._extraAbility = cat.GenerateCharacterAbility(true);
+
+            ((Passives.Construct as Connection_PerformEffectPassiveAbility).connectionEffects[1].effect as CasterAddRandomExtraAbilityEffect)._extraData.Add(add_cat);
 
             PerformEffect_Item lunar = new PerformEffect_Item("Salt_LunarCharm_SW", []);
             lunar.Name = "Lunar Charm";
