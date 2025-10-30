@@ -20,7 +20,7 @@ namespace SaltsEnemies_Reseasoned
             easy.SimpleAddEncounter(5, "Children6_EN");
 
             easy.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Children.Easy, April.Birthday ? 5 : April.Me ? 1 : 0, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Children.Easy, April.Birthday ? 2 : April.Me ? 1 : 0, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
         }
         public static void Post()
         {
