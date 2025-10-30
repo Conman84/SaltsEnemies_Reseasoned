@@ -26,7 +26,7 @@ namespace SaltsEnemies_Reseasoned
             easy.SimpleAddEncounter(4, "Damocles_EN", 1, "Hauntling_EN");
 
             easy.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Damocles.Easy, April.Birthday ? 10 : 0, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Damocles.Easy, April.Birthday ? 10 : April.Me ? 3 : 0, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
             //EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Damocles.Easy, 150, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
         }
         public static void Post()

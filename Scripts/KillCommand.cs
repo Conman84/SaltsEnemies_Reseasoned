@@ -304,5 +304,18 @@ namespace SaltsEnemies_Reseasoned
             }
             self._zoneData.ZonePiles[pileID]._cards = temp.ToArray();
         }
+        /*public static EnemyCombatBundle GetZoneEnemyBundle(this ZoneBGDataBaseSO self, string difficulty, string bundleName)
+        {
+            EnemyCombatBundle ret = LoadedAssetsHandler.GetEnemyBundle(bundleName).GetEnemyBundle(difficulty == "easy" ? BundleDifficulty.Easy : difficulty == "medium" ? BundleDifficulty.Medium : BundleDifficulty.Hard, difficulty == "easy" ? self.EnemyEncounterData.m_EasySelector._defaultRoomPrefab : difficulty == "medium" ? self.EnemyEncounterData.m_MediumSelector._defaultRoomPrefab : self.EnemyEncounterData.m_HardSelector._defaultRoomPrefab);
+
+            for (int i = 0; i < 999; i++)
+            {
+                foreach (EnemyBundleData enemy in ret._enemies)
+                {
+                    RandomEnemyBundleSO
+                    if (!Check.EnemyExist(enemy.enemy)) continue;
+                }
+            }
+        }*/
     }
 }

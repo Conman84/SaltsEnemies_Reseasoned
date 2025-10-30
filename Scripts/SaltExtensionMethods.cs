@@ -117,6 +117,14 @@ namespace SaltEnemies_Reseasoned
             if (enemy3 != "") for (int i = 0; i < num3; i++) ret.Add(enemy3);
             if (enemy4 != "") for (int i = 0; i < num4; i++) ret.Add(enemy4);
             if (enemy5 != "") for (int i = 0; i < num5; i++) ret.Add(enemy5);
+            if (!Check.MultiENExistInternal(ret.ToArray()))
+            {
+                Debug.LogWarning("WARNING: adding crossover encounters in default encounter adder; add this encounter to Oversight");
+                Debug.LogWarning("this encounter: " + self.encounter.name);
+                string enemies = "";
+                foreach (string add in ret) enemies += "add" + ", ";
+                Debug.LogWarning("(simple mode) enemies included: " + enemies);
+            }
             self.CreateNewEnemyEncounterData(ret.ToArray());
         }
         public static void AddRandomEncounter(this EnemyEncounter_API self, string enemy1 = "", string enemy2 = "", string enemy3 = "", string enemy4 = "", string enemy5 = "")
@@ -127,6 +135,14 @@ namespace SaltEnemies_Reseasoned
             if (enemy3 != "") ret.Add(enemy3);
             if (enemy4 != "") ret.Add(enemy4);
             if (enemy5 != "") ret.Add(enemy5);
+            if (!Check.MultiENExistInternal(ret.ToArray()))
+            {
+                Debug.LogWarning("WARNING: adding crossover encounters in default encounter adder; add this encounter to Oversight");
+                Debug.LogWarning("this encounter: " + self.encounter.name);
+                string enemies = "";
+                foreach (string add in ret) enemies += "add" + ", ";
+                Debug.LogWarning("(normal mode) enemies included: " + enemies);
+            }
             self.CreateNewEnemyEncounterData(ret.ToArray());
         }
         public static Sprite SetBossPortalMaterial(string name, string zone)

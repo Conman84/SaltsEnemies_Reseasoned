@@ -17,10 +17,6 @@ namespace SaltsEnemies_Reseasoned
             med.RoarEvent = "event:/Hawthorne/Soisenay/BlackStarDie";
 
             med.SimpleAddEncounter(3, "Nameless_EN");
-            med.SimpleAddEncounter(2, "Nameless_EN", 2, "Frostbite_EN");
-            med.SimpleAddEncounter(2, "Nameless_EN", 2, "Moone_EN");
-            med.AddRandomEncounter("Nameless_EN", "Nameless_EN", "BackupDancer_EN", "MusicMan_EN");
-            med.AddRandomEncounter("Nameless_EN", "Gungrot_EN", "Gungrot_EN", "Spectre_EN");
             med.AddRandomEncounter("Nameless_EN", "Nameless_EN", "MusicMan_EN", "MusicMan_EN");
             med.SimpleAddEncounter(2, "Nameless_EN", 1, "Scrungie_EN", 1, "LostSheep_EN");
             med.SimpleAddEncounter(2, "Nameless_EN", 2, "Enigma_EN");
@@ -43,7 +39,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "Nameless_EN", 1, Spoggle.Red, 1, Spoggle.Purple);
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Nameless.Med, April.Birthday ? 15 : 0, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Nameless.Med, April.Birthday ? 15 : April.Me ? 10 : 0, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
             //EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Nameless.Med, 300, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
         }
         public static void Post()
