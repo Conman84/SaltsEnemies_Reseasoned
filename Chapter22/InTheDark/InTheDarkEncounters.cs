@@ -42,24 +42,14 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("InTheDark_EN", Bots.Grey, Enemies.Shivering);
             med.AddRandomEncounter("InTheDark_EN", "Satyr_EN", "GlassFigurine_EN");
             med.SimpleAddEncounter(2, "EvilDog_EN", 1, "InTheDark_EN");
-            med.SimpleAddEncounter(2, "Attrition_EN", 1, "InTheDark_EN");
-            med.SimpleAddEncounter(2, "Git_EN", 1, "InTheDark_EN");
-            med.AddRandomEncounter("InTheDark_EN", "OdeToHumanity_EN", "Surrogate_EN");
             med.AddRandomEncounter("InTheDark_EN", "Starless_EN", "Skyloft_EN");
             med.AddRandomEncounter("InTheDark_EN", "Yang_EN", "PawnA_EN");
-            med.SimpleAddEncounter(2, "Romantic_EN", 1, "Yang_EN", 1, "InTheDark_EN");
             med.AddRandomEncounter("InTheDark_EN", "PersonalAngel_EN", "Romantic_EN");
             med.SimpleAddEncounter(2, "Insider_EN", 1, "InTheDark_EN");
             med.SimpleAddEncounter(3, "Hauntling_EN", 1, "InTheDark_EN");
             med.AddRandomEncounter("InTheDark_EN", "CorpseChan_EN", Enemies.Shivering);
-            med.AddRandomEncounter("InTheDark_EN", "CorpseChan_EN", "EggKeeper_EN");
             med.SimpleAddEncounter(2, "Sundowner_EN", 1, "InTheDark_EN");
             med.AddRandomEncounter("InTheDark_EN", "Stoplight_EN", "BlackStar_EN");
-            med.AddRandomEncounter("InTheDark_EN", Noses.Blue, "PawnA_EN");
-            med.AddRandomEncounter("InTheDark_EN", Noses.Purple, "Grandfather_EN");
-            med.AddRandomEncounter("InTheDark_EN", "Beakart_EN", "Children6_EN");
-            med.AddRandomEncounter("InTheDark_EN", Noses.Yellow, "Merced_EN");
-            med.SimpleAddEncounter(1, "InTheDark_EN", 2, "Bonsai_EN");
 
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Dark.Med, April.Me && !April.Birthday ? 8 : April.LessMod * 2, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
@@ -74,8 +64,6 @@ namespace SaltsEnemies_Reseasoned
             hard.SimpleAddEncounter(1, "InTheDark_EN", 3, "InHisImage_EN");
             hard.SimpleAddEncounter(1, "InTheDark_EN", 3, "EvilDog_EN");
             hard.SimpleAddEncounter(1, "InTheDark_EN", 3, "Sundowner_EN");
-            hard.AddRandomEncounter("InTheDark_EN", Noses.Blue, Noses.Yellow);
-            hard.AddRandomEncounter("InTheDark_EN", Noses.Red, Noses.Purple);
             hard.AddRandomEncounter("InTheDark_EN", "InTheDark_EN", "Stoplight_EN");
             hard.SimpleAddEncounter(2, "InTheDark_EN", 1, "Satyr_EN");
             hard.SimpleAddEncounter(2, "InTheDark_EN", 1, "CorpseChan_EN");
@@ -85,12 +73,9 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomEncounter("InTheDark_EN", Spoggle.Grey, "PawnA_EN", "PawnA_EN");
             hard.SimpleAddEncounter(2, "InTheDark_EN", 1, "Starless_EN");
             hard.SimpleAddEncounter(2, "InTheDark_EN", 1, "Yang_EN");
-            hard.SimpleAddEncounter(2, "InTheDark_EN", 2, "Git_EN");
-            hard.AddRandomEncounter("InTheDark_EN", "Hunter_EN", "Beakart_EN");
             hard.SimpleAddEncounter(2, "InTheDark_EN", 1, "Complimentary_EN");
             hard.SimpleAddEncounter(2, "InTheDark_EN", 1, "Eyeless_EN");
             hard.SimpleAddEncounter(1, "InTheDark_EN", 3, "Insider_EN");
-            hard.SimpleAddEncounter(2, "InTheDark_EN", 2, "EggKeeper_EN");
 
             hard.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Dark.Hard, April.Me && !April.Birthday ? 8 : April.LessMod * 2, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);

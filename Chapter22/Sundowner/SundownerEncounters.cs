@@ -22,9 +22,6 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(4, "Sundowner_EN", 1, "GlassFigurine_EN");
             med.SimpleAddEncounter(4, "Sundowner_EN", 1, "Damocles_EN");
             med.SimpleAddEncounter(4, "Sundowner_EN", 1, "Merced_EN");
-            med.SimpleAddEncounter(4, "Sundowner_EN", 1, "Romantic_EN");
-            med.SimpleAddEncounter(4, "Sundowner_EN", 1, "Surrogate_EN");
-            med.SimpleAddEncounter(4, "Sundowner_EN", 1, "EggKeeper_EN");
             med.SimpleAddEncounter(4, "Sundowner_EN", 1, "Skyloft_EN");
             med.SimpleAddEncounter(4, "Sundowner_EN", 1, "Hauntling_EN");
             med.SimpleAddEncounter(3, "Sundowner_EN", 1, "MiniReaper_EN");

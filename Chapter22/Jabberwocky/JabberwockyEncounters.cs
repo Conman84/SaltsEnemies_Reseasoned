@@ -28,19 +28,9 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "DeadPixel_EN", 1, "Jabberwocky_EN");
             med.AddRandomEncounter("Jabberwocky_EN", "Arceles_EN", "MudLung_EN", "MudLung_EN");
             med.AddRandomEncounter("Jabberwocky_EN", "Windle_EN", "2009_EN");
-            med.SimpleAddEncounter(2, "Snaurce_EN", 1, "Jabberwocky_EN");
-            med.SimpleAddEncounter(2, "Surimi_EN", 1, "Jabberwocky_EN");
             med.SimpleAddEncounter(2, "Waltz_EN", 1, "Jabberwocky_EN");
-            med.AddRandomEncounter("VoiceTrumpet_EN", "Jabberwocky_EN", Jumble.Unstable);
             med.AddRandomEncounter("Jabberwocky_EN", "Hauntling_EN", "MudLung_EN");
-            med.AddRandomEncounter("Jabberwocky_EN", Spoggle.Unstable, "Snaurce_EN");
-            med.AddRandomEncounter("Jabberwocky_EN", Enemies.Swine, Enemies.Swine);
-            med.AddRandomEncounter("Jabberwocky_EN", "Mungman_EN", "Mungman_EN");
-            med.AddRandomEncounter("Jabberwocky_EN", "Squirmer_EN", Spoggle.Unstable);
-            med.AddRandomEncounter("Jabberwocky_EN", "Draugr_EN", Colophon.Blue);
-            med.AddRandomEncounter("Jabberwocky_EN", Colophon.Red, Colophon.Blue);
             med.SimpleAddEncounter(2, "Pinano_EN", 1, "Jabberwocky_EN");
-            med.AddRandomEncounter("Jabberwocky_EN", "Pinano_EN", Jumble.Unstable);
 
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Jabber.Med, April.Me && !April.Birthday ? 15 : April.LessMod * 2, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);

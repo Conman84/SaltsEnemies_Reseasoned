@@ -43,19 +43,13 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(1, "CorpseChan_EN", 4, "PawnA_EN");
             med.SimpleAddEncounter(1, "CorpseChan_EN", 4, "Hauntling_EN");
             med.AddRandomEncounter("CorpseChan_EN", "Insider_EN", "Insider_EN");
-            med.SimpleAddEncounter(1, "CorpseChan_EN", 2, "Git_EN");
-            med.SimpleAddEncounter(1, "CorpseChan_EN", 2, "Attrition_EN");
-            med.SimpleAddEncounter(2, "CorpseChan_EN", 1, "Beakart_EN");
             med.AddRandomEncounter("CorpseChan_EN", "Yang_EN", "PawnA_EN");
-            med.SimpleAddEncounter(2, "CorpseChan_EN", 1, "EggKeeper_EN");
-            med.SimpleAddEncounter(2, "CorpseChan_EN", 1, Noses.Red);
-            med.SimpleAddEncounter(2, "CorpseChan_EN", 1, Noses.Blue);
-            med.SimpleAddEncounter(2, "CorpseChan_EN", 1, Noses.Yellow);
-            med.SimpleAddEncounter(2, "CorpseChan_EN", 1, Noses.Purple);
-            med.SimpleAddEncounter(2, "CorpseChan_EN", 1, Noses.Grey);
             med.SimpleAddEncounter(2, "CorpseChan_EN", 1, Jumble.Grey);
             med.SimpleAddEncounter(2, "CorpseChan_EN", 1, Spoggle.Grey);
-            med.SimpleAddEncounter(1, "CorpseChan_EN", 2, "Bonsai_EN");
+
+            //test
+            med.AddRandomEncounter("nothing!!");
+            med.SimpleAddEncounter(3, "nothing!!");
 
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.CorpseChan.Med, April.Me && !April.Birthday ? 10 : April.LessMod * 2, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);

@@ -32,17 +32,8 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "Insider_EN", 1, "Something_EN");
             med.SimpleAddEncounter(2, "Insider_EN", 1, Enemies.Solvent);
             med.SimpleAddEncounter(2, "Insider_EN", 2, "Spectre_EN");
-            med.SimpleAddEncounter(2, "Insider_EN", 1, "BackupDancer_EN");
             med.SimpleAddEncounter(2, "Insider_EN", 1, "Solitaire_EN");
             med.SimpleAddEncounter(2, "Insider_EN", 3, "TortureMeNot_EN");
-            med.SimpleAddEncounter(2, "Insider_EN", 1, Jumble.Red, 1, Jumble.Unstable);
-            med.SimpleAddEncounter(2, "Insider_EN", 1, "Surrogate_EN");
-            med.SimpleAddEncounter(2, "Insider_EN", 2, "Gungrot_EN");
-            med.SimpleAddEncounter(2, "Insider_EN", 1, "Feckle_EN");
-            med.SimpleAddEncounter(2, "Insider_EN", 1, "Moone_EN");
-            med.SimpleAddEncounter(2, "Insider_EN", 1, Enemies.Shuffler);
-            med.SimpleAddEncounter(2, "Insider_EN", 1, Colophon.Red, 1, Colophon.Blue);
-            med.SimpleAddEncounter(2, "Insider_EN", 1, "ClayChildSleep_EN", 1, "ClayChild_EN");
 
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Insider.Med, April.Me && !April.Birthday ? 15 : April.LessMod * 3, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);

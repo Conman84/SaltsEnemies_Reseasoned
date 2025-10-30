@@ -1,5 +1,6 @@
 ﻿using MonoMod.RuntimeDetour;
 using SaltsEnemies_Reseasoned;
+using SaltsEnemies_Reseasoneds;
 using System;
 using System.Reflection;
 using static SaltsEnemies_Reseasoned.SaltsReseasoned;
@@ -169,7 +170,7 @@ namespace SaltEnemies_Reseasoned
 
             if (DebugVer)
             {
-                
+                PCall(MiscCrossovers.Add);
             }
 
             //Round

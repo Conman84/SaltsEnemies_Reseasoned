@@ -24,18 +24,12 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "Hauntling_EN", 1, "MudLung_EN");
             med.SimpleAddEncounter(2, "Hauntling_EN", 1, Jumble.Red);
             med.SimpleAddEncounter(2, "Hauntling_EN", 1, Enemies.Mungling);
-            med.SimpleAddEncounter(2, "Hauntling_EN", 1, "Snaurce");
             med.SimpleAddEncounter(2, "Hauntling_EN", 1, "ToyUfo_EN");
             med.SimpleAddEncounter(2, "Hauntling_EN", 2, "Wall_EN");
             med.SimpleAddEncounter(2, "Hauntling_EN", 2, "Waltz_EN");
             med.SimpleAddEncounter(2, "Hauntling_EN", 1, "Pinano_EN");
             med.SimpleAddEncounter(2, "Hauntling_EN", 2, "Keko_EN");
             med.SimpleAddEncounter(2, "Hauntling_EN", 1, "VoiceTrumpet_EN");
-            med.SimpleAddEncounter(2, "Hauntling_EN", 1, "Flakkid_EN");
-            med.SimpleAddEncounter(2, "Hauntling_EN", 1, Enemies.Swine);
-            med.SimpleAddEncounter(2, "Hauntling_EN", 1, Colophon.Red);
-            med.SimpleAddEncounter(2, "Hauntling_EN", 1, "Mungman_EN");
-            med.SimpleAddEncounter(2, "Hauntling_EN", 1, "Squirmer_EN");
 
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Hauntling.Med, April.Me && !April.Birthday ? 10 : April.LessMod * 2, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
