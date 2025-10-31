@@ -54,8 +54,8 @@ namespace SaltsEnemies_Reseasoned
         {
             if (!Check.EnemyExist(enemy)) return false;
 
-            if (April.Birthday) return true;
-            if (Salt.Secret.Contains(enemy) && !April.Me && !Randoming) return false;
+            if (April.Birthday || Randoming) return true;
+            if (Salt.Secret.Contains(enemy) && !April.Me) return false;
 
             if (!DoGatekeep) return true;
 
