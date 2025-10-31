@@ -83,6 +83,7 @@ namespace SaltsEnemies_Reseasoned
                 "Setting Fire To A Pile Of Traffic Cones Spawns Zombies",
                 "Roblox",
                 "Hi RandomGuyWill",
+                "My Wrath Is Unending"
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside),
