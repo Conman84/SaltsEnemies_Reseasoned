@@ -619,6 +619,9 @@ namespace SaltsEnemies_Reseasoned
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ActingPassive.png"), "Acting", "On being damaged, perform this enemy's next ability on the timeline and queue another one.");
             }
 
+            //EXTRA
+            PCall(Tweak.Setup);
+
             Logger.LogInfo("Seasons greasons");
         }
 
