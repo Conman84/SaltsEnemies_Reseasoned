@@ -321,7 +321,7 @@ namespace SaltsEnemies_Reseasoned.Chapter1.LostSheep
             med.SimpleAddEncounter(4, "LostSheep_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.CNS.Easy, April.LessMod, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.CNS.Easy, April.Birthday ? April.LessMod : April.Me ? 1 : 0, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Easy);
         }
     }
 }
