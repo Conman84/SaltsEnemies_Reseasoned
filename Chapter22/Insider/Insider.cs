@@ -81,6 +81,7 @@ namespace SaltsEnemies_Reseasoned
                 "Forest Bump",
                 "You Can Activate 'Insider Mode' If You Create A .txt File Named \"custom.txt\" In The Same Folder As The DLL For This Mod",
                 "Setting Fire To A Pile Of Traffic Cones Spawns Zombies",
+                "Roblox",
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside),
