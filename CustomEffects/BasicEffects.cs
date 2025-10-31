@@ -164,7 +164,6 @@ namespace SaltEnemies_Reseasoned
             catch { }
             //RuntimeManager.PlayOneShot(Audio, loc);
             CombatManager.Instance.AddUIAction(new PlaySoundUIAction(Audio, loc));
-
             return true;
         }
     }

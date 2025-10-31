@@ -159,4 +159,29 @@ namespace SaltEnemies_Reseasoned
             return true;
         }
     }
+
+
+    public class PerformEffectImmediaterPassiveAbility : BasePassiveAbilitySO
+    {
+        [Header("Passive Effects")]
+        public EffectInfo[] effects;
+
+        public override bool IsPassiveImmediate => true;
+
+        public override bool DoesPassiveTrigger => true;
+
+        public override void TriggerPassive(object sender, object args)
+        {
+            IUnit caster = sender as IUnit;
+            CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(effects, caster));
+        }
+
+        public override void OnPassiveConnected(IUnit unit)
+        {
+        }
+
+        public override void OnPassiveDisconnected(IUnit unit)
+        {
+        }
+    }
 }
