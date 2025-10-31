@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using Yarn;
 
 namespace SaltEnemies_Reseasoned
 {
@@ -159,6 +160,10 @@ namespace SaltEnemies_Reseasoned
                 if (!caster.IsUnitCharacter)
                 {
                     loc = stats.combatUI._enemyZone._enemies[caster.FieldID].FieldEntity.Position;
+                }
+                else
+                {
+                    loc = stats.combatUI._characterZone.GetCharacterPosition(caster.FieldID);
                 }
             }
             catch { }
