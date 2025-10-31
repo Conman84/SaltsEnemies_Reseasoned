@@ -118,7 +118,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeRandomManaEffect>(), 3, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DoubleMaxHealthTargetEffect>(), 1, Targeting.Unit_AllOpponents)
             };
-            series.Visuals = CustomVisuals.GetVisuals("Salt/Cube");
+            series.Visuals = CustomVisuals.GetVisuals("Salt/DiamondBreak");
             series.AnimationTarget = TargettingSelf_NotSlot.Create();
             series.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), new string[]
             {

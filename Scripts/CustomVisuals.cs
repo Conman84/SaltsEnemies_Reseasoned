@@ -131,6 +131,7 @@ namespace SaltsEnemies_Reseasoned
             LoadVisuals("Salt/Adulting", SaltsReseasoned.Meow, "Assets/BossAttack/Adulting.anim", "event:/Blackwater/Attacks/Adulting", true);
             LoadVisuals("Salt/MyLove", SaltsReseasoned.Meow, "Assets/BossAttack/MyLove.anim", "event:/Blackwater/Attacks/MyLove", true);
             LoadVisuals("Salt/SkullRip", SaltsReseasoned.Meow, "Assets/BossAttack/SkullRip.anim", "event:/Blackwater/Attacks/SkullRip", true);
+            LoadVisuals("Salt/DiamondBreak", SaltsReseasoned.Meow, "Assets/BossAttack/DiamondBreak.anim", "event:/Blackwater/Attacks/DiamondBreak", true);
         }
     }
 }
