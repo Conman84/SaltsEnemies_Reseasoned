@@ -36,7 +36,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "Insider_EN", 3, "TortureMeNot_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Insider.Med, April.Me && !April.Birthday ? 15 : April.LessMod * 3, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Insider.Med, 15 * April.Mod, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
         }
         public static void Add_Garden()
         {
@@ -47,7 +47,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(4, "Insider_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Insider.Med, April.Me && !April.Birthday ? 10 : April.LessMod * 2, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Insider.Med, 10 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
         }
         public static void Post()
         {

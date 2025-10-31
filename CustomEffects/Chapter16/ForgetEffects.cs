@@ -30,12 +30,10 @@ namespace SaltEnemies_Reseasoned
         }
         public static EnemySO GetRandomEnemy()
         {
-            if (!(April.Birthday || April.Me) && UnityEngine.Random.Range(0, 500) < 1)
-            {
-                return GetSpecial();
-            }
-
+            Gatekeeper.SetRandoming(true);
             EnemyCombatBundle bundle = GetRandomBundle();
+            Gatekeeper.SetRandoming(false);
+
             List<EnemySO> lists = new List<EnemySO>();
             foreach (EnemyBundleData data in bundle.Enemies)
             {

@@ -31,7 +31,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(3, "Sundowner_EN", 1, Jumble.Gray);
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Sundowner.Med, April.Me && !April.Birthday ? 10 : April.LessMod * 2, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Sundowner.Med, 10 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
         }
         public static void Post()
         {

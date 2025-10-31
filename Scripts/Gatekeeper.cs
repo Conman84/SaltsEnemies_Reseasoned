@@ -21,10 +21,15 @@ namespace SaltsEnemies_Reseasoned
         public static string Gatekeeps => "SaltEnemies_RunTracker";
         public static int StoredRuns;
 
+        public static bool Randoming;
+        public static bool SetRandoming(bool value) => Randoming = value;
+
         public static void Setup()
         {
             IDetour hook = new Hook(typeof(MainMenuController).GetMethod(nameof(MainMenuController.OnEmbarkPressed), ~BindingFlags.Default), typeof(Gatekeeper).GetMethod(nameof(MainMenuController_OnEmbarkPressed), ~BindingFlags.Default));
             IDetour hook1 = new Hook(typeof(EnemyEncounterSelectorSO).GetMethod(nameof(EnemyEncounterSelectorSO.GetEnemyBundle), ~BindingFlags.Default), typeof(Gatekeeper).GetMethod(nameof(EnemyEncounterSelectorSO_GetEnemyBundle), ~BindingFlags.Default));
+
+            SetRandoming(false);
 
             Config();
         }
@@ -50,7 +55,7 @@ namespace SaltsEnemies_Reseasoned
             if (!Check.EnemyExist(enemy)) return false;
 
             if (April.Birthday) return true;
-            if (Salt.Secret.Contains(enemy) && !April.Me) return false;
+            if (Salt.Secret.Contains(enemy) && !April.Me && !Randoming) return false;
 
             if (!DoGatekeep) return true;
 
@@ -176,7 +181,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     if (!AllowEnemy(enemyData.enemy.name))
                     {
-                        if (SaltsReseasoned.DebugVer) Debug.LogWarning("blocking enemy for progress: " + enemyData.enemy.name);
+                        if (SaltsReseasoned.DebugVer) Debug.LogWarning("blocking enemy for gatekeeping: " + enemyData.enemy.name);
                         ret = orig(self);
                         safe = false;
                         break;

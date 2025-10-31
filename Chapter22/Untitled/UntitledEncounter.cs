@@ -18,7 +18,7 @@ namespace SaltsEnemies_Reseasoned
             hard.CreateNewEnemyEncounterData(["Untitled_EN"], [2]);
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Untitled.Hard, 0, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Untitled.Hard, SaltsReseasoned.rando <= 0 ? 1 : 0, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Hard);
         }
     }
 }

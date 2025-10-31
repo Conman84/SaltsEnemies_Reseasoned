@@ -33,7 +33,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "Pinano_EN", 1, "Jabberwocky_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Jabber.Med, April.Me && !April.Birthday ? 15 : April.LessMod * 2, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Jabber.Med, 15 * April.Mod, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
         }
 
         public static void Post()

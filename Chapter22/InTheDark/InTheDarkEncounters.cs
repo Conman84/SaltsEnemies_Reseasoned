@@ -51,7 +51,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("InTheDark_EN", "Stoplight_EN", "BlackStar_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Dark.Med, April.Me && !April.Birthday ? 8 : April.LessMod * 2, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Dark.Med, 8 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
         }
         public static void Add_Hard()
         {
@@ -77,7 +77,7 @@ namespace SaltsEnemies_Reseasoned
             hard.SimpleAddEncounter(1, "InTheDark_EN", 3, "Insider_EN");
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Dark.Hard, April.Me && !April.Birthday ? 8 : April.LessMod * 2, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Dark.Hard, 8 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
         }
 
         public static void Post()

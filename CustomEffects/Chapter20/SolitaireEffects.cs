@@ -478,7 +478,9 @@ namespace SaltsEnemies_Reseasoned
     {
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
+            Gatekeeper.SetRandoming(true);
             bundle = SolitaireHandler.GetRandomGardenEncounter();
+            Gatekeeper.SetRandoming(false);
             return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
         }
     }
