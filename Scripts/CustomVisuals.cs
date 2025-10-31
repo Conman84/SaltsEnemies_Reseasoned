@@ -130,6 +130,7 @@ namespace SaltsEnemies_Reseasoned
             LoadVisuals("Salt/Hunt", SaltsReseasoned.Meow, "Assets/BossAttack/Hunt.anim", LoadedAssetsHandler.GetEnemyAbility("Mandibles_A").visuals.audioReference);
             LoadVisuals("Salt/Adulting", SaltsReseasoned.Meow, "Assets/BossAttack/Adulting.anim", "event:/Blackwater/Attacks/Adulting", true);
             LoadVisuals("Salt/MyLove", SaltsReseasoned.Meow, "Assets/BossAttack/MyLove.anim", "event:/Blackwater/Attacks/MyLove", true);
+            LoadVisuals("Salt/SkullRip", SaltsReseasoned.Meow, "Assets/BossAttack/SkullRip.anim", "event:/Blackwater/Attacks/SkullRip", true);
         }
     }
 }

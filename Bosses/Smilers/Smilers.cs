@@ -109,13 +109,14 @@ namespace SaltsEnemies_Reseasoned
             Ability third = new Ability("Peel", "Smiler_Ability3_A");
             third.Description = "If the Opposing party member is Ruptured, deal an Agonizing amount of damage to them.";
             third.Rarity = first.Rarity;
-            third.Effects = new EffectInfo[2];
+            third.Effects = new EffectInfo[3];
             StatusEffectCheckerEffect rupture = ScriptableObject.CreateInstance<StatusEffectCheckerEffect>();
             rupture._status = StatusField.Ruptured;
             third.Effects[0] = Effects.GenerateEffect(rupture, 1, Slots.Front);
-            third.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front, BasicEffects.DidThat(true));
+            third.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/SkullRip", false, Slots.Front), 1, null, BasicEffects.DidThat(true));
+            third.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front, BasicEffects.DidThat(true, 2));
             third.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_7_10"]);
-            third.Visuals = LoadedAssetsHandler.GetEnemyAbility("UglyOnTheInside_A").visuals;
+            third.Visuals = null;
             third.AnimationTarget = Slots.Front;
 
             //ADD ENEMY
