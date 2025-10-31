@@ -551,6 +551,8 @@ namespace SaltsEnemies_Reseasoned
             ExtraAbility_Wearable_SMS add_recon = ScriptableObject.CreateInstance<ExtraAbility_Wearable_SMS>();
             add_recon._extraAbility = reconfigure.GenerateCharacterAbility();
 
+            ((Passives.Construct as Connection_PerformEffectPassiveAbility).connectionEffects[1].effect as CasterAddRandomExtraAbilityEffect)._extraData.Add(add_recon);
+
             PercentageEffectorCondition p30 = ScriptableObject.CreateInstance<PercentageEffectorCondition>();
             p30.triggerPercentage = 30;
 
