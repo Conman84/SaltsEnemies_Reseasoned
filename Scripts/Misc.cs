@@ -72,6 +72,7 @@ namespace SaltEnemies_Reseasoned
 //Mini-Reaper
 //Shua
 //Skyloft
+//Damocles
 //Hunter
 //Warbird
 //Blackstar
@@ -101,3 +102,6 @@ namespace SaltEnemies_Reseasoned
 //Hauntling
 //Insider
 //Corpse Chan
+//Jabberwocky
+//In The Dark
+//Sundowner

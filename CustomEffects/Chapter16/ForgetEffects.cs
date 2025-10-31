@@ -30,7 +30,7 @@ namespace SaltEnemies_Reseasoned
         }
         public static EnemySO GetRandomEnemy()
         {
-            if (UnityEngine.Random.Range(0, 500) < 1)
+            if (!(April.Birthday || April.Me) && UnityEngine.Random.Range(0, 500) < 1)
             {
                 return GetSpecial();
             }
@@ -80,10 +80,14 @@ namespace SaltEnemies_Reseasoned
             "Hauntling_EN",
             "Insider_EN",
             "CorpseChan_EN",
-            "Untitled_EN"
+            "Untitled_EN",
+            "Jabberwocky_EN",
+            "InTheDark_EN",
+            "Sundowner_EN"
             ];
         public static string[] SpecialShore = [
-            "Hauntling_EN"
+            "Hauntling_EN",
+            "Jabberwocky_EN"
             ];
         public static string[] SpecialOrph = [
             "Insider_EN"
@@ -91,7 +95,9 @@ namespace SaltEnemies_Reseasoned
         public static string[] SpecialGarden = [
             "Hauntling_EN",
             "Insider_EN",
-            "CorpseChan_EN"
+            "CorpseChan_EN",
+            "InTheDark_EN",
+            "Sundowner_EN"
             ];
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
