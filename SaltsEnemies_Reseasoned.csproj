@@ -19,9 +19,11 @@
 	  <None Remove="Bosses\Blue\Anim\Splash_BlueSky.png" />
 	  <None Remove="Bosses\Blue\BlueSkyPearl.png" />
 	  <None Remove="Bosses\Blue\BlueSkyPortal.png" />
+	  <None Remove="Bosses\Blue\BlueSkyWorld.png" />
 	  <None Remove="Bosses\Blue\Miku.png" />
 	  <None Remove="Bosses\Blue\MikuWorld.png" />
 	  <None Remove="Bosses\Blue\RedMikuWorld.png" />
+	  <None Remove="Bosses\Blue\RedSkyWorld.png" />
 	  <None Remove="Bosses\Child\Anim\art_crow_head.png" />
 	  <None Remove="Bosses\Child\Anim\CrowChildEnv.png" />
 	  <None Remove="Bosses\Child\Anim\splash_crow.png" />
@@ -881,9 +883,11 @@
 	  <EmbeddedResource Include="Bosses\Blue\Anim\Splash_BlueSky.png" />
 	  <EmbeddedResource Include="Bosses\Blue\BlueSkyPearl.png" />
 	  <EmbeddedResource Include="Bosses\Blue\BlueSkyPortal.png" />
+	  <EmbeddedResource Include="Bosses\Blue\BlueSkyWorld.png" />
 	  <EmbeddedResource Include="Bosses\Blue\Miku.png" />
 	  <EmbeddedResource Include="Bosses\Blue\MikuWorld.png" />
 	  <EmbeddedResource Include="Bosses\Blue\RedMikuWorld.png" />
+	  <EmbeddedResource Include="Bosses\Blue\RedSkyWorld.png" />
 	  <EmbeddedResource Include="Bosses\Child\Anim\art_crow_head.png" />
 	  <EmbeddedResource Include="Bosses\Child\Anim\CrowChildEnv.png" />
 	  <EmbeddedResource Include="Bosses\Child\Anim\splash_crow.png" />

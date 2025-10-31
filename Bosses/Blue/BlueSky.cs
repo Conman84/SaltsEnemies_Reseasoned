@@ -15,13 +15,13 @@ namespace SaltsEnemies_Reseasoned
             {
                 Health = 140,
                 HealthColor = Pigments.Blue,
-                CombatSprite = ResourceLoader.LoadSprite("MikuWorld.png"),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("MikuWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("MikuWorld.png", new Vector2(0.5f, 0f), 32),
+                CombatSprite = ResourceLoader.LoadSprite("BlueSkyWorld.png"),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("BlueSkyWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("BlueSkyWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Blackwater/Noise/BSHit",
                 DeathSound = LoadedAssetsHandler.GetEnemy("Starless_EN").deathSound,
             };
-            template.PrepareEnemyPrefab("Assets/TestSprites/Test_BlueSky_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_BlueSky_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.PrepareEnemyPrefab("Assets/TestSprites/Test_BlueSky_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/BS/BlueSky_Gibs.prefab").GetComponent<ParticleSystem>());
             //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("WindSong_EN").enemyTemplate;
 
 
@@ -143,13 +143,13 @@ namespace SaltsEnemies_Reseasoned
             {
                 Health = 60,
                 HealthColor = Pigments.Red,
-                CombatSprite = ResourceLoader.LoadSprite("RedMikuWorld.png"),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("RedMikuWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("RedMikuWorld.png", new Vector2(0.5f, 0f), 32),
+                CombatSprite = ResourceLoader.LoadSprite("RedSkyWorld.png"),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("RedSkyWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("RedSkyWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Blackwater/Noise/RSHit",
                 DeathSound = "event:/Blackwater/Noise/RSDie",
             };
-            second.PrepareEnemyPrefab("Assets/TestSprites/Test_RedSky_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
+            second.PrepareEnemyPrefab("Assets/TestSprites/Test_RedSky_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/BS/RedSky_Gibs.prefab").GetComponent<ParticleSystem>());
             //second.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("WindSong_EN").enemyTemplate;
 
             second.CombatEnterEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("RedSky"), 1)];
