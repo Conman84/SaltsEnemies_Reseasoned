@@ -105,17 +105,18 @@ namespace SaltsEnemies_Reseasoned
             Ability emotion = new Ability("TransmitEmotion_A")
             {
                 Name = "Transmit Emotion",
-                Description = "Deal a Little bit of damage to this enemy.\nInflict 2 Linked on this enemy.",
+                Description = "Inflict 2 Linked on this enemy.\nForce the Opposing party member to perform a random one of their abilities.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
-                        {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Self),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyLinkedEffect>(), 2, Slots.Self)
-                        },
+                    {
+                        Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyLinkedEffect>(), 2, Slots.Self),
+                        Effects.GenerateEffect(ScriptableObject.CreateInstance<PerformRandomAbilityEffect>(), 1, Slots.Front)
+                    },
                 Visuals = CustomVisuals.GetVisuals("Salt/Rose"),
-                AnimationTarget = Slots.Self,
+                AnimationTarget = Slots.Front,
             };
-            emotion.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_1_2.ToString(), IntentType_GameIDs.Status_Linked.ToString()]);
+            emotion.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Status_Linked.ToString()]);
+            emotion.AddIntentsToTarget(Slots.Front, [SkyloftIntent.Intent]);
 
             //hunger
             Ability hunger = new Ability("TransmitHunger_A")
