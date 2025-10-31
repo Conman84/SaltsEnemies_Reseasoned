@@ -545,6 +545,7 @@
 	  <None Remove="CustomStatuses\Power.png" />
 	  <None Remove="Quest\Sprites\AbandonedArtifact.png" />
 	  <None Remove="Quest\Sprites\Achievements\BBAch.png" />
+	  <None Remove="Quest\Sprites\Achievements\BSAch.png" />
 	  <None Remove="Quest\Sprites\Achievements\CoinAch.png" />
 	  <None Remove="Quest\Sprites\Achievements\CrowAch.png" />
 	  <None Remove="Quest\Sprites\Achievements\DeepAch.png" />
@@ -1414,6 +1415,7 @@
 	  <EmbeddedResource Include="CustomStatuses\Chapter14\SlipIcon.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter14\WaterRemove.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\BBAch.png" />
+	  <EmbeddedResource Include="Quest\Sprites\Achievements\BSAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\CoinAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\CrowAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\DeepAch.png" />
