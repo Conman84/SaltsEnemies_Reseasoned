@@ -24,8 +24,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("SmilersWorld.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("SmilersWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("SmilersWorld.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("Bronzo_Bananas_Mean_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("Bronzo_Bananas_Mean_EN").deathSound,
+                DamageSound = LoadedAssetsHandler.GetEnemy("TaintedYolk_EN").damageSound,
+                DeathSound = LoadedAssetsHandler.GetEnemy("TaintedYolk_EN").deathSound,
             };
             template.PrepareEnemyPrefab("Assets/Bosses/Smiler/SmilerCorpse_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/TestSprites/Test_Gibs.prefab").GetComponent<ParticleSystem>());
             template.enemy.enemyTemplate.m_Data.m_Renderer = template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Body").Find("Face").GetComponent<SpriteRenderer>();
@@ -41,12 +41,14 @@ namespace SaltsEnemies_Reseasoned
             first.AddIntentsToTarget(Slots.Front, ["Status_Ruptured"]);
             first.Visuals = LoadedAssetsHandler.GetCharacterAbility("OfDeath_1_A").visuals;
             first.AnimationTarget = Slots.Front;
+            first.Priority = Priority.Slow;
 
             Ability second = new Ability("Corpse", "Corpse2_A");
             second.Description = "Do nothing.\n\"It's literally a corpse what do you expect?\"";
             second.Rarity = first.Rarity;
             second.Effects = [];
             second.Visuals = null;
+            second.Priority = Priority.Slow;
 
             Ability third = new Ability("Shear", "Corpse3_A");
             third.Description = "Inflict 1 Ruptured on all party members not Opposing this enemy.";
@@ -55,6 +57,7 @@ namespace SaltsEnemies_Reseasoned
             third.AddIntentsToTarget(third.ability.animationTarget, ["Status_Ruptured"]);
             third.Visuals = first.ability.visuals;
             third.Rarity = first.Rarity;
+            third.Priority = Priority.Slow;
 
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
@@ -115,7 +118,7 @@ namespace SaltsEnemies_Reseasoned
             third.Effects[0] = Effects.GenerateEffect(rupture, 1, Slots.Front);
             third.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/SkullRip", false, Slots.Front), 1, null, BasicEffects.DidThat(true));
             third.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front, BasicEffects.DidThat(true, 2));
-            third.Effects[3] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Needle", false, Slots.Front), 1, null, BasicEffects.DidThat(false, 3));
+            third.Effects[3] = Effects.GenerateEffect(BasicEffects.GetVisuals("UglyOnTheInside_A", false, Slots.Front), 1, null, BasicEffects.DidThat(false, 3));
             third.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_7_10"]);
             third.Visuals = null;
             third.AnimationTarget = Slots.Front;
