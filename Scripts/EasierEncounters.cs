@@ -181,5 +181,6 @@ namespace SaltsEnemies_Reseasoned
         public static string Shooter => "SkeletonShooter_EN";
         public static string Shuffler => "Shawled_Shuffler_EN";
         public static string Swine => "UnculturedSwine_EN";
+        public static string Polyp => "SpectralPolyp_EN";
     }
 }

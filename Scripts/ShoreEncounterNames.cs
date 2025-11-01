@@ -355,6 +355,13 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Easy => "H_Zone01_Draugr_Easy_EnemyBundle";
             }
+
+            //asdfagi
+            public static class Asterism
+            {
+                public static string Med => "H_Zone01_Asterism_Medium_EnemyBundle";
+            }
+            //we will be waiting until the sand sifter has medium pool encounters.
         }
     }
 }

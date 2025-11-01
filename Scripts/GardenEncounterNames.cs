@@ -312,6 +312,12 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "BeakartMed";
             }
+
+            //mythos
+            public static class Polyp
+            {
+                public static string Med => "PolypMedium";
+            }
         }
     }
 }

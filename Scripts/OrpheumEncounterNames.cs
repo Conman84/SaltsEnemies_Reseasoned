@@ -383,6 +383,22 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "H_Zone02_Thunderdome_Medium_EnemyBundle";
             }
+
+            //mythos
+            public static class Byakhee
+            {
+                public static string Med => "ByakheeMedium";
+            }
+            public static class Vampire
+            {
+                public static string Med => "StarVampireMedium";
+            }
+
+            //asdfagi
+            public static class Bloatfinger
+            {
+                public static string Med => "H_Zone02_Bloatfinger_Medium_EnemyBundle";
+            }
         }
     }
 }

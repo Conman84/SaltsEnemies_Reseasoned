@@ -224,6 +224,9 @@ namespace SaltEnemies_Reseasoned
             PCall(Psi_Crossovers_CH_11_14.Add);
             PCall(Psi_CH_15_18_Crossover.Add);
             PCall(Psi_19_21_Crosssover.Add);
+
+            //mythos & asdfagi misc
+            PCall(Crossover_Mythos_Asdfagi.Add);
         }
     }
 }
