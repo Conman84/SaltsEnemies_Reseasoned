@@ -25,8 +25,8 @@ namespace SaltsEnemies_Reseasoned
             dark.enemy.enemyTemplate.m_Data.m_Renderer = dark.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Sprite").GetComponent<SpriteRenderer>();
 
             PerformEffectPassiveAbility altruistic = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
-            altruistic.name = "Altruistic_PA";
-            altruistic._passiveName = "Altruistic";
+            altruistic.name = "Altruistic_1_PA";
+            altruistic._passiveName = "Altruistic (1)";
             altruistic.m_PassiveID = "Altruistic_PA";
             altruistic.passiveIcon = ResourceLoader.LoadSprite("AltruisticPassive.png");
             altruistic._enemyDescription = "On being directly damaged, apply 1 Determined to the Opposing party member.";

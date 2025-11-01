@@ -75,23 +75,17 @@ namespace SaltsEnemies_Reseasoned
             PCall(Debugger.Setup);
             PCall(DeterminedHandler.Setup);
             PCall(StarlessEncounterHandler.Setup);
-            if (DebugVer)
-            {
-                PCall(Chocolate.Hook);
-                PCall(FeatherGunCondition.AddTypes);
-                PCall(GlowingHatManager.Setup);
-                PCall(Tracker.Setup);
-            }
-            if (TestBosses)
-            {
-                PCall(EncounterExtensions.PrepareSortingOrders);
-                PCall(EncounterExtensions.IncreaseGardenPortalOrder);
-                PCall(CascadingDamageItemHandler.Setup);
-                PCall(FirstPerTurnHandler.Setup);
-                PCall(AllyTriggersHandler.Setup);
-                PCall(PierceShieldHandler.Setup);
-                PCall(FireNoReduce.Setup);
-            }
+            PCall(Chocolate.Hook);
+            PCall(FeatherGunCondition.AddTypes);
+            PCall(GlowingHatManager.Setup);
+            PCall(Tracker.Setup);
+            PCall(EncounterExtensions.PrepareSortingOrders);
+            PCall(EncounterExtensions.IncreaseGardenPortalOrder);
+            PCall(CascadingDamageItemHandler.Setup);
+            PCall(FirstPerTurnHandler.Setup);
+            PCall(AllyTriggersHandler.Setup);
+            PCall(PierceShieldHandler.Setup);
+            PCall(FireNoReduce.Setup);
             PCall(Gatekeeper.Setup);
             PCall(KillCommand.Add);
             #endregion
@@ -129,12 +123,9 @@ namespace SaltsEnemies_Reseasoned
             PCall(Slip.Add);
             PCall(Mold.Add);
             Pimples.Add();
-            if (TestBosses)
-            {
-                PCall(Green.Add);
-                PCall(Red.Add);
-                PCall(Blue.Add);
-            }
+            PCall(Green.Add);
+            PCall(Red.Add);
+            PCall(Blue.Add);
 
             //CH1 Enemies
             LostSheep.Add();
@@ -277,32 +268,26 @@ namespace SaltsEnemies_Reseasoned
             PCall(Trumpet.Add);
 
             //CH22 Enemies
-            if (DebugVer)
-            {
-                PCall(Hauntling.Add);
-                PCall(Insider.Add);
-                PCall(CorpseChan.Add);
-                PCall(Untitled.Add);
-                PCall(Jabberwocky.Add);
-                PCall(InTheDark.Add);
-                PCall(Sundowner.Add);
-            }
+            PCall(Hauntling.Add);
+            PCall(Insider.Add);
+            PCall(CorpseChan.Add);
+            PCall(Untitled.Add);
+            PCall(Jabberwocky.Add);
+            PCall(InTheDark.Add);
+            PCall(Sundowner.Add);
 
             //BOSSES
-            if (TestBosses)
-            {
-                //shore
-                PCall(Smilers.Add);
-                PCall(BlackAndBlue.Add);
-                PCall(CrowChild.Add);
+            //shore
+            PCall(Smilers.Add);
+            PCall(BlackAndBlue.Add);
+            PCall(CrowChild.Add);
 
-                //orph
-                PCall(Tv.Add);
-                PCall(Invention.Add);
+            //orph
+            PCall(Tv.Add);
+            PCall(Invention.Add);
 
-                //garden
-                PCall(BlueSky.Add);
-            }
+            //garden
+            PCall(BlueSky.Add);
 
             //CH1 Encounters
             LostSheepEncounters.Add();
@@ -449,32 +434,26 @@ namespace SaltsEnemies_Reseasoned
             }
 
             //BOSSES
-            if (TestBosses)
-            {
-                //shore
-                PCall(SmilerEncounter.Add);
-                PCall(BlackAndBlueEncounters.Add);
-                PCall(CrowChildEncounter.Add);
+            //shore
+            PCall(SmilerEncounter.Add);
+            PCall(BlackAndBlueEncounters.Add);
+            PCall(CrowChildEncounter.Add);
 
-                //orph
-                PCall(TvEncounter.Add);
-                PCall(InventionEncounter.Add);
+            //orph
+            PCall(TvEncounter.Add);
+            PCall(InventionEncounter.Add);
 
-                //garden
-                PCall(BlueSkyEncounters.Add);
+            //garden
+            PCall(BlueSkyEncounters.Add);
 
-                PCall(DeathQuotes.Add);
-            }
-            
+            PCall(DeathQuotes.Add);
+
             //items
-            if (DebugVer)
-            {
-                PCall(ItemsFirst.Add);
-                PCall(Achievements.AddBosses);
-                PCall(Achievements.AddChapters);
+            PCall(ItemsFirst.Add);
+            PCall(Achievements.AddBosses);
+            PCall(Achievements.AddChapters);
 
-                PCall(Defacer.Add);
-            }
+            PCall(Defacer.Add);
 
             //moving the passives glossary here.
 
@@ -610,14 +589,17 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ProductionPassive.png"), "Production", "On any infantile enemy being damaged, spawn a specific enemy.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AnnouncementPassive.png"), "Announcement", "Upon being removed from combat by any means, deal a certain amount of damage to the Opposing position.");
 
-            if (TestBosses)
-            {
-                //BOSSES
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SunkPassive.png"), "Sunk", "All positions are in permenant Deep Water.");
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("RadicalPassive.png"), "Radical", "On being damaged, Adjust All Lights.");
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SystemicPassive.png"), "Systemic", "When this enemy is damaged a certain amount of times, queue a specific ability.");
-                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ActingPassive.png"), "Acting", "On being damaged, perform this enemy's next ability on the timeline and queue another one.");
-            }
+            //CH22
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("LovelyPassive.png"), "Lovely", "This enemy will use all of its abilities every round.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("HomunculusPassive.png"), "Homunculus", "After this unit has used all of its actions, deal a certain amount of damage to the Opposing position.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ObserverPassive.png"), "Observer", "Whenever a unit moves in front of this unit, perform a certain ability.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AltruisticPassive.png"), "Altruistic", "On being directly damaged, apply a certain amount of Determined to the Opposing unit.");
+
+            //BOSSES
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SunkPassive.png"), "Sunk", "All positions are in permenant Deep Water.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("RadicalPassive.png"), "Radical", "On being damaged, Adjust All Lights.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SystemicPassive.png"), "Systemic", "When this enemy is damaged a certain amount of times, queue a specific ability.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ActingPassive.png"), "Acting", "On being damaged, perform this enemy's next ability on the timeline and queue another one.");
 
             //EXTRA
             PCall(Tweak.Setup);

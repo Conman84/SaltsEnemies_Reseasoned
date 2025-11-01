@@ -20,16 +20,13 @@ namespace SaltEnemies_Reseasoned
         {
             if (!Called)
             {
-                if (TestBosses)
-                {
-                    PCall(UnlocksOne.Add);
-                    PCall(UnlocksTwo.Add);
-                    PCall(UnlocksThree.Add);
-                    PCall(UnlocksFour.Add);
-                    PCall(UnlocksFive.Add);
-                    PCall(UnlocksSix.Add);
-                    PCall(UnlocksSeven.Add);
-                }
+                PCall(UnlocksOne.Add);
+                PCall(UnlocksTwo.Add);
+                PCall(UnlocksThree.Add);
+                PCall(UnlocksFour.Add);
+                PCall(UnlocksFive.Add);
+                PCall(UnlocksSix.Add);
+                PCall(UnlocksSeven.Add);
             }
 
             orig(self);
@@ -114,15 +111,12 @@ namespace SaltEnemies_Reseasoned
             PCall(WaltzEncounters.Post);
             PCall(VoiceTrumpetEncounters.Post);
 
-            if (DebugVer)
-            {
-                PCall(HauntlingEncounters.Post);
-                PCall(InsiderEncounters.Post);
-                PCall(CorpseChanEncounters.Post);
-                PCall(JabberwockyEncounters.Post);
-                PCall(InTheDarkEncounters.Post);
-                PCall(SundownerEncounters.Post);
-            }
+            PCall(HauntlingEncounters.Post);
+            PCall(InsiderEncounters.Post);
+            PCall(CorpseChanEncounters.Post);
+            PCall(JabberwockyEncounters.Post);
+            PCall(InTheDarkEncounters.Post);
+            PCall(SundownerEncounters.Post);
 
             //Crossovers
 
@@ -168,10 +162,7 @@ namespace SaltEnemies_Reseasoned
             //marmo & eggkeeper massive lump
             PCall(Crossovers_Marmo_EggKeeper_6_7_8.Add);
 
-            if (DebugVer)
-            {
-                PCall(MiscCrossovers.Add);
-            }
+            PCall(MiscCrossovers.Add);
 
             //Round
             PCall(RoundCrossovers.Shufflers_1_4);

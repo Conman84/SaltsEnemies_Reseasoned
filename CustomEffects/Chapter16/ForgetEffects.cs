@@ -58,8 +58,6 @@ namespace SaltEnemies_Reseasoned
         }
         public static EnemySO GetSpecial()
         {
-            if (SaltsReseasoned.DebugVer) Debug.Log("CURRENT ZONE ID!!: " + CombatManager.Instance._informationHolder.Run.CurrentZoneID);
-
             if (Check.EnemyExist("Untitled_EN") && UnityEngine.Random.Range(0, 10000) < 1) return LoadedAssetsHandler.GetEnemy("Untitled_EN");
 
             switch (CombatManager.Instance._informationHolder.Run.CurrentZoneID)
