@@ -56,6 +56,11 @@ namespace SaltsEnemies_Reseasoned
                     if (enemy.Enemy.name == "33_EN") AddKill("Wall_EN", reference.witheringDeath);
                     if (enemy.Enemy.name == "Amalga_Alt_EN") AddKill("Amalga_EN", reference.witheringDeath);
 
+                    if (enemy.Enemy.name == Ecstasy.Red) AddKill("Ecstasy_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == Ecstasy.Blue) AddKill("Ecstasy_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == Ecstasy.Yellow) AddKill("Ecstasy_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == Ecstasy.Purple) AddKill("Ecstasy_EN", reference.witheringDeath);
+
                     if (enemy.Enemy.name == "Smiler_Corpse_BOSS") AddKill("Smilers_BOSS", reference.witheringDeath);
                     if (enemy.Enemy.name == "RedSky_BOSS") AddKill("BlueSky_BOSS", reference.witheringDeath);
 
@@ -70,7 +75,6 @@ namespace SaltsEnemies_Reseasoned
             }
             if (name == TriggerCalls.OnFleeting.ToString())
             {
-
                 if (sender is EnemyCombat enemy)
                 {
                     if (enemy.Enemy.name == "EmbersofaDeadGod_EN") AddKill("DeadGod_EN", true);
@@ -95,6 +99,11 @@ namespace SaltsEnemies_Reseasoned
                     if (enemy.Enemy.name == "Wall_2_EN") AddKill("Wall_EN", true);
                     if (enemy.Enemy.name == "33_EN") AddKill("Wall_EN", true);
                     if (enemy.Enemy.name == "Amalga_Alt_EN") AddKill("Amalga_EN", true);
+
+                    if (enemy.Enemy.name == Ecstasy.Red) AddKill("Ecstasy_EN", true);
+                    if (enemy.Enemy.name == Ecstasy.Blue) AddKill("Ecstasy_EN", true);
+                    if (enemy.Enemy.name == Ecstasy.Yellow) AddKill("Ecstasy_EN", true);
+                    if (enemy.Enemy.name == Ecstasy.Purple) AddKill("Ecstasy_EN", true);
 
                     if (enemy.Enemy.name == "Smiler_Corpse_BOSS") AddKill("Smilers_BOSS", true);
                     if (enemy.Enemy.name == "RedSky_BOSS") AddKill("BlueSky_BOSS", true);
@@ -212,6 +221,10 @@ namespace SaltsEnemies_Reseasoned
             "Amalga_EN",
             "Hauntling_EN",
             "Insider_EN",
+            "Untitled_EN",
+            "Jabberwocky_EN",
+            "InTheDark_EN",
+            "Sundowner_EN",
             "Smilers_BOSS",
             "CrowChild_BOSS",
             "BlackAndBlue_BOSS",
