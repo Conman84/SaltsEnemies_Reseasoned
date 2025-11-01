@@ -31,7 +31,7 @@ namespace SaltsEnemies_Reseasoned
 
             SetRandoming(false);
 
-            Config();
+            //Config();
         }
 
         public static void Config()
