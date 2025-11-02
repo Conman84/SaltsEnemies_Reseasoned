@@ -27,6 +27,8 @@ namespace SaltEnemies_Reseasoned
                 PCall(UnlocksFive.Add);
                 PCall(UnlocksSix.Add);
                 PCall(UnlocksSeven.Add);
+
+                PCall(EcstasyEncounters.Add);
             }
 
             orig(self);

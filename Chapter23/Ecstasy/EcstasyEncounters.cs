@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,14 +10,16 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Portals.AddPortalSign("Salt_EcstasyEncounter_Sign", ResourceLoader.LoadSprite("EcstasyWorld.png"), Portals.EnemyIDColor);
+            Portals.AddPortalSign("Salt_EcstasyRedEncounter_Sign", ResourceLoader.LoadSprite("EcstasyRedWorld.png"), Portals.EnemyIDColor);
 
-            EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Orph.H.Tortoise.Hard, "Salt_EcstasyEncounter_Sign");
+            EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Siren.H.Ecstasy.Red.Med, "Salt_EcstasyRedEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/EcstasySong";
             med.RoarEvent = LoadedAssetsHandler.GetEnemy("Foxtrot_EN").deathSound;
 
+            med.AddRandomEncounter(Ecstasy.Red, Ecstasy.Blue, Ecstasy.Yellow, Ecstasy.Purple);
+
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Grandfather.Med, 8, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToCustomZoneSelector(Siren.H.Ecstasy.Red.Med, 3, "TheSiren_Zone1", BundleDifficulty.Medium);
         }
     }
 }
