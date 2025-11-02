@@ -30,7 +30,7 @@ namespace SaltsEnemies_Reseasoned
 
             VsBossData vsBossData = new VsBossData();
             vsBossData.animation = SaltsReseasoned.Dreams.LoadAsset<AnimationClip>("Assets/Bosses/BB/BB_Splash.anim");
-            vsBossData.roarTime = 4f;
+            vsBossData.roarTime = 4.5f;
             vsBossData.arenaSprite = ResourceLoader.LoadSprite("BB_Env.png");
             vsBossData.extraArenaSprite = ResourceLoader.LoadSprite("BB_Env.png");
             vsBossData.bossSprite = ResourceLoader.LoadSprite("BB_Art.png");
