@@ -57,7 +57,7 @@ namespace SaltsEnemies_Reseasoned
             Ability snype = new Ability("Snype", "Snype_A");
             snype.Description = "Might deal a Painful amount of damage to the Far Far Left and Far Far Right party members.";
             snype.Rarity = Rarity.Common;
-            snype.Effects = [Effects.GenerateEffect(ChanceZeroDamageEffect.Create(50), 4, Slots.SlotTarget([-3, 3], false))];
+            snype.Effects = [Effects.GenerateEffect(ChanceZeroDamageEffect.Create(0.5f), 4, Slots.SlotTarget([-3, 3], false))];
             snype.AddIntentsToTarget(Slots.SlotTarget([-3, 3], false), ["Misc_Hidden", "Damage_3_6"]);
             snype.Visuals = CustomVisuals.GetVisuals("Salt/Gunshot");
             snype.AnimationTarget = Slots.SlotTarget([-3, 3], false);

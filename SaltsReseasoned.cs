@@ -276,6 +276,10 @@ namespace SaltsEnemies_Reseasoned
             PCall(InTheDark.Add);
             PCall(Sundowner.Add);
 
+            //CH23 Enemies
+            PCall(ImaginaryDemon.Add);
+            PCall(RYBPEcstasy.Add);
+
             //BOSSES
             //shore
             PCall(Smilers.Add);
@@ -422,16 +426,13 @@ namespace SaltsEnemies_Reseasoned
             PCall(VoiceTrumpetEncounters.Add);
 
             //CH22 Encounters
-            if (DebugVer)
-            {
-                PCall(HauntlingEncounters.Add);
-                PCall(InsiderEncounters.Add);
-                PCall(CorpseChanEncounters.Add);
-                PCall(UntitledEncounter.Add);
-                PCall(JabberwockyEncounters.Add);
-                PCall(InTheDarkEncounters.Add);
-                PCall(SundownerEncounters.Add);
-            }
+            PCall(HauntlingEncounters.Add);
+            PCall(InsiderEncounters.Add);
+            PCall(CorpseChanEncounters.Add);
+            PCall(UntitledEncounter.Add);
+            PCall(JabberwockyEncounters.Add);
+            PCall(InTheDarkEncounters.Add);
+            PCall(SundownerEncounters.Add);
 
             //BOSSES
             //shore

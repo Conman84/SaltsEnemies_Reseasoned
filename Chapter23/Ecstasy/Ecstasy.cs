@@ -66,6 +66,57 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyAbilityInfo psy = psychadelics.GenerateEnemyAbility(true);
             EnemyAbilityInfo bub = bubble.GenerateEnemyAbility(true);
+
+            Ability special_base = new Ability("Art Of", "ArtOf_A");
+            special_base.Description = "Attempt to move Left or Right.\nIf this movement failed, ";
+            special_base.Rarity = Rarity.GetCustomRarity("rarity5");
+            special_base.Priority = Priority.Slow;
+            special_base.Effects = new EffectInfo[3];
+            special_base.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
+            special_base.AddIntentsToTarget(Slots.Self, ["Swap_Sides", "Misc_Hidden"]);
+            special_base.Visuals = null;
+            special_base.AnimationTarget = Slots.Self;
+
+            Ability agony = new Ability(special_base.ability, "ArtOfAgony_A", [], Rarity.GetCustomRarity("rarity5"));
+            agony.Name = "Art Of Agony";
+            agony.ability._description += "Inflict 2 Ruptured to the Left, Right, and Opposing party members.";
+            agony.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Quills_1_A", true, Slots.FrontLeftRight), 0, null, BasicEffects.DidThat(true));
+            agony.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Slots.FrontLeftRight, BasicEffects.DidThat(true, 2));
+            agony.AddIntentsToTarget(Slots.FrontLeftRight, ["Status_Ruptured"]);
+
+            Ability fantasy = new Ability(special_base.ability, "ArtOfFantasy_A", [], Rarity.GetCustomRarity("rarity5"));
+            fantasy.Name = "Art Of Fantasy";
+            fantasy.ability._description += "Inflict 3 Deep Water to the Left, Right, and Opposing party members.";
+            fantasy.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Class", false, Slots.FrontLeftRight), 0, null, BasicEffects.DidThat(true));
+            fantasy.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyWaterSlotEffect>(), 3, Slots.FrontLeftRight, BasicEffects.DidThat(true, 2));
+            fantasy.AddIntentsToTarget(Slots.FrontLeftRight, [Water.Intent]);
+
+            Ability industry = new Ability(special_base.ability, "ArtOfIndustry_A", [], Rarity.GetCustomRarity("rarity5"));
+            industry.Name = "Art Of Industry";
+            industry.ability._description = "Inflict 2 Left to the Left, Right, and Opposing party members.";
+            industry.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Gears", false, Slots.FrontLeftRight), 0, null, BasicEffects.DidThat(true));
+            industry.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyLeftEffect>(), 2, Slots.FrontLeftRight, BasicEffects.DidThat(true, 2));
+            industry.AddIntentsToTarget(Slots.FrontLeftRight, [Left.Intent]);
+
+            Ability philosophy = new Ability(special_base.ability, "ArtOfPhilosophy_A", [], Rarity.GetCustomRarity("rarity5"));
+            philosophy.Name = "Art Of Philosophy";
+            philosophy.ability._description = "Inflict 1 Slip to the Left, Right, and Opposing party members.";
+            philosophy.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Cube", false, Slots.FrontLeftRight), 0, null, BasicEffects.DidThat(true));
+            philosophy.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.FrontLeftRight, BasicEffects.DidThat(true, 2));
+            philosophy.AddIntentsToTarget(Slots.FrontLeftRight, [Slip.Intent]);
+
+            Add_Enemy(overdose, Pigments.Red, "ECSTASY13", "Red", [psy, bub, agony.GenerateEnemyAbility(true)]);
+            Add_Enemy(overdose, Pigments.Blue, "ECSTASY09", "Blue", [psy, bub, fantasy.GenerateEnemyAbility(true)]);
+            Add_Enemy(overdose, Pigments.Yellow, "ECSTASY02", "Yellow", [psy, bub, industry.GenerateEnemyAbility(true)]);
+            Add_Enemy(overdose, Pigments.Purple, "ECSTASY87", "Purple", [psy, bub, philosophy.GenerateEnemyAbility(true)]);
+
+            overdose_effect._allTransforms = new List<TransformOption>()
+            {
+                new TransformOption(LoadedAssetsHandler.GetEnemy(Ecstasy.Red)),
+                new TransformOption(LoadedAssetsHandler.GetEnemy(Ecstasy.Blue)),
+                new TransformOption(LoadedAssetsHandler.GetEnemy(Ecstasy.Yellow)),
+                new TransformOption(LoadedAssetsHandler.GetEnemy(Ecstasy.Purple)),
+            };
         }
         public static void Add_Enemy(BasePassiveAbilitySO passive, ManaColorSO color, string name, string type, EnemyAbilityInfo[] abilities)
         {
