@@ -10,9 +10,9 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Portals.AddPortalSign("Salt_EcstasyRedEncounter_Sign", ResourceLoader.LoadSprite("EcstasyRedWorld.png"), Portals.EnemyIDColor);
+            Portals.AddPortalSign("Salt_RedEcstasyEncounter_Sign", ResourceLoader.LoadSprite("RedEcstasyWorld.png"), Portals.EnemyIDColor);
 
-            EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Siren.H.Ecstasy.Red.Med, "Salt_EcstasyRedEncounter_Sign");
+            EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Siren.H.Ecstasy.Red.Med, "Salt_RedEcstasyEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/EcstasySong";
             med.RoarEvent = LoadedAssetsHandler.GetEnemy("Foxtrot_EN").deathSound;
 

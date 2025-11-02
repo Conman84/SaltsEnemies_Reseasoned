@@ -28,7 +28,7 @@ namespace SaltsEnemies_Reseasoned
             Ability freed = new Ability("FREEEEED!!!", "Freed_A");
             freed.Description = "Very low chance to deal an Agonizing amount of damage to each party member.";
             freed.Rarity = Rarity.GetCustomRarity("rarity5");
-            freed.Effects = [Effects.GenerateEffect(ChanceZeroDamageEffect.Create(0.02f), 10, Targeting.Unit_AllOpponents)];
+            freed.Effects = [Effects.GenerateEffect(ChanceZeroDamageEffect.Create(0.95f), 10, Targeting.Unit_AllOpponents)];
             freed.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Damage_7_10"]);
             freed.Visuals = Visuals.Decimate;
             freed.AnimationTarget = Slots.Self;

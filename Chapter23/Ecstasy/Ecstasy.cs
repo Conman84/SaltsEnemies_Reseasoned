@@ -47,7 +47,7 @@ namespace SaltsEnemies_Reseasoned
             psychadelics.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ChangeHealthColorByCasterColorEffect>(), 1, Slots.Front, BasicEffects.DidThat(false, 2));
             psychadelics.AddIntentsToTarget(Slots.Self, ["Field_Constricted"]);
             psychadelics.AddIntentsToTarget(Slots.Front, ["Damage_7_10", "Mana_Modify"]);
-            psychadelics.Visuals = CustomVisuals.GetVisuals("Salt/Cube");
+            psychadelics.Visuals = CustomVisuals.GetVisuals("Salt/Class");
             psychadelics.AnimationTarget = Slots.Front;
 
             Ability bubble = new Ability("Bubble Blowing", "BubbleBlowing_A");
@@ -118,6 +118,12 @@ namespace SaltsEnemies_Reseasoned
                 new TransformOption(LoadedAssetsHandler.GetEnemy(Ecstasy.Yellow)),
                 new TransformOption(LoadedAssetsHandler.GetEnemy(Ecstasy.Purple)),
             };
+
+            LoadedAssetsHandler.GetEnemy(Ecstasy.Blue).deathSound = LoadedAssetsHandler.GetEnemy("Grandfather_EN").deathSound;
+            LoadedAssetsHandler.GetEnemy(Ecstasy.Blue).damageSound = LoadedAssetsHandler.GetEnemy("Grandfather_EN").damageSound;
+
+            LoadedAssetsHandler.GetEnemy(Ecstasy.Purple).deathSound = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").deathSound;
+            LoadedAssetsHandler.GetEnemy(Ecstasy.Purple).damageSound = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").damageSound;
         }
         public static void Add_Enemy(BasePassiveAbilitySO passive, ManaColorSO color, string name, string type, EnemyAbilityInfo[] abilities)
         {
