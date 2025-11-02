@@ -11,7 +11,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Portals.AddPortalSign("Salt_BlackAndBlueEncounter_Sign", ResourceLoader.LoadSprite("WarCriminalWorld.png"), Portals.BossIDColor);
+            Portals.AddPortalSign("Salt_BlackAndBlueEncounter_Sign", ResourceLoader.LoadSprite("BBWorld.png"), Portals.BossIDColor);
 
             EnvironmentTools.PrepareCombatEnvPrefab("Assets/Defacer/BB_Arena.prefab", "BlackAndBlue_Arena", SaltsReseasoned.Dreams);
             LoadedAssetsHandler.TryGetCombatEnvironmentPrefab("BlackAndBlue_Arena").gameObject.SetMinesMaterial();
