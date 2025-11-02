@@ -597,7 +597,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AltruisticPassive.png"), "Altruistic", "On being directly damaged, apply a certain amount of Determined to the Opposing unit.");
 
             //CH23
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("OverdosePassive.png"), "Overdose", "On being directly damaged, transform into another party member/enemy.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("OverdosePassive.png"), "Overdose", "On being directly damaged, transform into a random other party member/enemy from a selection of party members/enemies.");
 
             //BOSSES
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SunkPassive.png"), "Sunk", "All positions are in permenant Deep Water.");
