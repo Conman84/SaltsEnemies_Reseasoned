@@ -38,7 +38,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Portals.AddPortalSign("Salt_YellowEcstasyEncounter_Sign", ResourceLoader.LoadSprite("YellowEcstasyWorld.png"), Portals.EnemyIDColor);
 
-            EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Siren.H.Ecstasy.Red.Med, "Salt_YellowEcstasyEncounter_Sign");
+            EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Siren.H.Ecstasy.Yellow.Med, "Salt_YellowEcstasyEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/EcstasySong";
             med.RoarEvent = LoadedAssetsHandler.GetEnemy("Foxtrot_EN").deathSound;
 
@@ -51,7 +51,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(4, Ecstasy.Yellow);
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToCustomZoneSelector(Siren.H.Ecstasy.Red.Med, 3, "TheSiren_Zone1", BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToCustomZoneSelector(Siren.H.Ecstasy.Yellow.Med, 3, "TheSiren_Zone1", BundleDifficulty.Medium);
         }
         public static void Add_Blue()
         {
@@ -76,7 +76,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Portals.AddPortalSign("Salt_PurpleEcstasyEncounter_Sign", ResourceLoader.LoadSprite("PurpleEcstasyWorld.png"), Portals.EnemyIDColor);
 
-            EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Siren.H.Ecstasy.Red.Med, "Salt_PurpleEcstasyEncounter_Sign");
+            EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Siren.H.Ecstasy.Purple.Med, "Salt_PurpleEcstasyEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/EcstasySong";
             med.RoarEvent = "event:/Hawthorne/Noise/Ominous";
 
@@ -89,7 +89,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(4, Ecstasy.Purple);
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToCustomZoneSelector(Siren.H.Ecstasy.Red.Med, 3, "TheSiren_Zone1", BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToCustomZoneSelector(Siren.H.Ecstasy.Purple.Med, 3, "TheSiren_Zone1", BundleDifficulty.Medium);
         }
         public static void Post()
         {
