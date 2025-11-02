@@ -80,29 +80,29 @@ namespace SaltsEnemies_Reseasoned
             Ability agony = new Ability(special_base.ability, "ArtOfAgony_A", [], Rarity.GetCustomRarity("rarity5"));
             agony.Name = "Art Of Agony";
             agony.ability._description += "Inflict 2 Ruptured to the Left, Right, and Opposing party members.";
-            agony.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Quills_1_A", true, Slots.FrontLeftRight), 0, null, BasicEffects.DidThat(true));
-            agony.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Slots.FrontLeftRight, BasicEffects.DidThat(true, 2));
+            agony.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Quills_1_A", true, Slots.FrontLeftRight), 0, null, BasicEffects.DidThat(false));
+            agony.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Slots.FrontLeftRight, BasicEffects.DidThat(false, 2));
             agony.AddIntentsToTarget(Slots.FrontLeftRight, ["Status_Ruptured"]);
 
             Ability fantasy = new Ability(special_base.ability, "ArtOfFantasy_A", [], Rarity.GetCustomRarity("rarity5"));
             fantasy.Name = "Art Of Fantasy";
             fantasy.ability._description += "Inflict 3 Deep Water to the Left, Right, and Opposing party members.";
-            fantasy.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Class", false, Slots.FrontLeftRight), 0, null, BasicEffects.DidThat(true));
-            fantasy.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyWaterSlotEffect>(), 3, Slots.FrontLeftRight, BasicEffects.DidThat(true, 2));
+            fantasy.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Class", false, Slots.FrontLeftRight), 0, null, BasicEffects.DidThat(false));
+            fantasy.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyWaterSlotEffect>(), 3, Slots.FrontLeftRight, BasicEffects.DidThat(false, 2));
             fantasy.AddIntentsToTarget(Slots.FrontLeftRight, [Water.Intent]);
 
             Ability industry = new Ability(special_base.ability, "ArtOfIndustry_A", [], Rarity.GetCustomRarity("rarity5"));
             industry.Name = "Art Of Industry";
             industry.ability._description = "Inflict 2 Left to the Left, Right, and Opposing party members.";
-            industry.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Gears", false, Slots.FrontLeftRight), 0, null, BasicEffects.DidThat(true));
-            industry.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyLeftEffect>(), 2, Slots.FrontLeftRight, BasicEffects.DidThat(true, 2));
+            industry.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Gears", false, Slots.FrontLeftRight), 0, null, BasicEffects.DidThat(false));
+            industry.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyLeftEffect>(), 2, Slots.FrontLeftRight, BasicEffects.DidThat(false, 2));
             industry.AddIntentsToTarget(Slots.FrontLeftRight, [Left.Intent]);
 
             Ability philosophy = new Ability(special_base.ability, "ArtOfPhilosophy_A", [], Rarity.GetCustomRarity("rarity5"));
             philosophy.Name = "Art Of Philosophy";
             philosophy.ability._description = "Inflict 1 Slip to the Left, Right, and Opposing party members.";
-            philosophy.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Cube", false, Slots.FrontLeftRight), 0, null, BasicEffects.DidThat(true));
-            philosophy.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.FrontLeftRight, BasicEffects.DidThat(true, 2));
+            philosophy.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Cube", false, Slots.FrontLeftRight), 0, null, BasicEffects.DidThat(false));
+            philosophy.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.FrontLeftRight, BasicEffects.DidThat(false, 2));
             philosophy.AddIntentsToTarget(Slots.FrontLeftRight, [Slip.Intent]);
 
             Add_Enemy(overdose, Pigments.Red, "ECSTASY13", "Red", [psy, bub, agony.GenerateEnemyAbility(true)]);

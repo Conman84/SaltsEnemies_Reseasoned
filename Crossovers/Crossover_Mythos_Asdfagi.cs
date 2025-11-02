@@ -115,7 +115,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Bloatfinger_EN", "Author_EN", Jumble.Blue);
 
             med = new AddTo(Orph.H.Byakhee.Med);
-            med.SimpleAddGroup(1, "Byakhee_EN", 3, "Butterfly_EN");
+            med.SimpleAddGroup(1, "Byakhee_EN", 3, "Spectre_EN");
             med.SimpleAddGroup(1, "Byakhee_EN", 3, "Enigma_EN");
             med.AddRandomGroup("Byakhee_EN", "Freud_EN", Jumble.Purple);
             med.AddRandomGroup("Byakhee_EN", "WindSong_EN", "MusicMan_EN", "MusicMan_EN");
@@ -199,7 +199,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("StalwartTortoise_EN", "Bloatfinger_EN", "Wednesday_EN");
 
             med = new AddTo(Orph.H.Butterfly.Med);
-            if (SaltsReseasoned.rando <= 5) med.SimpleAddGroup(3, "Butterfly_EN", 1, "Lloigor_EN");
+            if (SaltsReseasoned.rando <= 5) med.SimpleAddGroup(3, "Spectre_EN", 1, "Lloigor_EN");
 
             med = new AddTo(Orph.H.Nameless.Med);
             med.AddRandomGroup("Nameless_EN", "Lloigor_EN", Enemies.Solvent);
