@@ -33,7 +33,7 @@ namespace SaltsEnemies_Reseasoned
             overdose.effects = [
                 Effects.GenerateEffect(stained, 1, Slots.Self),
                 Effects.GenerateEffect(overdose_effect, 1, Slots.Self),
-                Effects.GenerateEffect(stain, 1, Slots.Self, BasicEffects.DidThat(true, 2)),
+                Effects.GenerateEffect(CasterSubActionEffect.Create([Effects.GenerateEffect(stain, 1, Slots.Self)]), 1, Slots.Self, BasicEffects.DidThat(true, 2)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<FixCasterTimelineIntentsEffect>())
                 ];
 
