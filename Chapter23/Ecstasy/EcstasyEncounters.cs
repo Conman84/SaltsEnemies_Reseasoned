@@ -111,24 +111,24 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Siren.H.Tassnn.Med);
             med.SimpleAddGroup(2, "Tassnn_EN", 1, Ecstasy.Random);
             if (SaltsReseasoned.silly > 50) med.SimpleAddGroup(2, "Tassnn_EN", 1, Ecstasy.Random, 1, "BirdBath_EN");
-            if (SaltsReseasoned.silly >= 50) med.SimpleAddGroup(2, "Tassnn_EN", 1, Ecstasy.Random, 1, Enemies.Puker);
+            med.SimpleAddGroup(2, "Tassnn_EN", 1, Ecstasy.Random, 1, Enemies.Puker);
             med.AddRandomGroup("Tassnn_EN", Ecstasy.Random, Ecstasy.Random);
 
             med = new AddTo(Siren.H.Soothsayer.Med);
-            if (SaltsReseasoned.silly > 50) med.AddRandomGroup("Soothsayer_EN", "Boiler_EN", Ecstasy.Random);
+            if (SaltsReseasoned.silly < 50) med.AddRandomGroup("Soothsayer_EN", "Boiler_EN", Ecstasy.Random);
             med.AddRandomGroup("Soothsayer_EN", Ecstasy.Random, Ecstasy.Random);
-            if (SaltsReseasoned.silly < 50) med.AddRandomGroup("Soothsayer_EN", "Tumult_EN", Ecstasy.Random);
+            if (SaltsReseasoned.silly > 50) med.AddRandomGroup("Soothsayer_EN", "Tumult_EN", Ecstasy.Random);
             if (SaltsReseasoned.trolling <= 50) med.AddRandomGroup("Soothsayer_EN", "Tassnn_EN", Ecstasy.Random);
 
             med = new AddTo(Siren.H.OneShooter.Med);
             if (SaltsReseasoned.silly > 50) med.AddRandomGroup("OneShooter_EN", Ecstasy.Random, Ecstasy.Random);
-            if (SaltsReseasoned.trolling > 50) med.AddRandomGroup("OneShooter_EN", "Boiler_EN", Ecstasy.Random);
+            if (SaltsReseasoned.trolling < 50) med.AddRandomGroup("OneShooter_EN", "Boiler_EN", Ecstasy.Random);
             med.AddRandomGroup("OneShooter_EN", "Tassnn_EN", Ecstasy.Random);
 
             med = new AddTo(Siren.H.Olmic.Med);
             med.AddRandomGroup("Olmic_EN", Ecstasy.Random, "Boiler_EN");
             if (SaltsReseasoned.trolling < 50) med.AddRandomGroup("Olmic_EN", Ecstasy.Random, "Tumult_EN");
-            if (SaltsReseasoned.trolling > 50) med.AddRandomGroup("Olmic_EN", Ecstasy.Random, "Tassnn_EN");
+            med.AddRandomGroup("Olmic_EN", Ecstasy.Random, "Tassnn_EN");
             med.AddRandomGroup("Olmic_EN", Ecstasy.Random, Ecstasy.Random);
 
             hard = new AddTo(Siren.H.Olmic.Hard);
@@ -142,7 +142,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup(Enemies.Phalaris, Ecstasy.Random, Ecstasy.Random, Ecstasy.Random);
             hard.AddRandomGroup(Enemies.Phalaris, Ecstasy.Random, Ecstasy.Random, "Boiler_EN");
             if (SaltsReseasoned.silly > 50) hard.AddRandomGroup(Enemies.Phalaris, Ecstasy.Random, Ecstasy.Random, "Tassnn_EN");
-            if (SaltsReseasoned.trolling > 50) hard.AddRandomGroup(Enemies.Phalaris, Ecstasy.Random, Ecstasy.Random, "Tumult_EN");
+            if (SaltsReseasoned.trolling < 50) hard.AddRandomGroup(Enemies.Phalaris, Ecstasy.Random, Ecstasy.Random, "Tumult_EN");
             else hard.AddRandomGroup(Enemies.Phalaris, Ecstasy.Random, Ecstasy.Random, "BirdBath_EN");
             if (SaltsReseasoned.trolling <= 50) hard.AddRandomGroup(Enemies.Phalaris, Ecstasy.Random, Ecstasy.Random, "BirdBath_EN", "BirdBath_EN");
             hard.AddRandomGroup(Enemies.Phalaris, Ecstasy.Random, Ecstasy.Random, Enemies.Puker);

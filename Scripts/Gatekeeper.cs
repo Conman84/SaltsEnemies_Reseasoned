@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 using System.IO;
+using UnityEngine.Networking.Types;
 
 //i want to set this up for the achievements update but i think it would be better to save this for the superboss update. 
 //really it wouldve been better to run this from the start but hindsight is 20/20.. oh well.
@@ -185,7 +186,7 @@ namespace SaltsEnemies_Reseasoned
 
                 foreach (EnemyBundleData enemyData in ret.Enemies)
                 {
-                    if (!AllowEnemy(enemyData.enemy.name))
+                    if (!AllowEnemy(enemyData.enemy.name) || IsDefaultColorInSiren(enemyData.enemy.name, self))
                     {
                         if (SaltsReseasoned.DebugVer) Debug.LogWarning("blocking enemy for gatekeeping: " + enemyData.enemy.name);
                         ret = orig(self);
@@ -200,6 +201,26 @@ namespace SaltsEnemies_Reseasoned
             Debug.LogError("failed progress blocking i think.");
 
             return ret;
+        }
+
+        public static string[] DefaultColors = [Jumble.Red, Jumble.Yellow, Jumble.Blue, Jumble.Purple, Spoggle.Red, Spoggle.Yellow, Spoggle.Blue, Spoggle.Purple];
+        public static bool IsDefaultColorInSiren(string enemy, EnemyEncounterSelectorSO self)
+        {
+            if (!DefaultColors.Contains(enemy)) return false;
+
+            if (!Siren.Exists) return false;
+
+            if (!LoadedDBsHandler.EnemyDB.m_EnemyEncounterPool.TryGetValue("TheSiren_Zone1", out var value))
+            {
+                return false;
+            }
+
+            if (self == value.m_EasySelector || self == value.m_MediumSelector || self == value.m_HardSelector)
+            {
+                return UnityEngine.Random.Range(0, 100) < 66;
+            }
+
+            return false;
         }
     }
 
