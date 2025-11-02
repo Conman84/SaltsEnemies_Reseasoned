@@ -84,7 +84,8 @@ namespace SaltsEnemies_Reseasoned
                 "Roblox",
                 "Hi RandomGuyWill",
                 "My Wrath Is Unending",
-                "Izza Pizza"
+                "Izza Pizza",
+                "Hello My Name Is GUIDED USER INTERFACE"
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside),
