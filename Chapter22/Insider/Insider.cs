@@ -87,9 +87,19 @@ namespace SaltsEnemies_Reseasoned
                 "Izza Pizza",
                 "Hello My Name Is GUIDED USER INTERFACE"
                 ];
+            CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
+            third.PossibleNames = [
+                "Busuga Dooska",
+                "Pee-Ano",
+                "Chicken Randomizer",
+                "What You Door",
+                "Slenderman And Jeff Creepy",
+                "Papereater"
+                ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside),
-                Effects.GenerateEffect(outside, 0, null, Effects.ChanceCondition(20))];
+                Effects.GenerateEffect(outside, 0, null, Effects.ChanceCondition(20)),
+            Effects.GenerateEffect(third, 0, null, Effects.ChanceCondition(3))];
 
             AnimationVisualsEffect punch = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
             punch._visuals = Visuals.Extrusion;
