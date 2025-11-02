@@ -113,6 +113,7 @@ namespace SaltsEnemies_Reseasoned
             overdose_effect._allTransforms = new List<TransformOption>()
             {
                 new TransformOption(LoadedAssetsHandler.GetEnemy(Ecstasy.Red)),
+                new TransformOption(LoadedAssetsHandler.GetEnemy(Ecstasy.Red)),
                 new TransformOption(LoadedAssetsHandler.GetEnemy(Ecstasy.Blue)),
                 new TransformOption(LoadedAssetsHandler.GetEnemy(Ecstasy.Yellow)),
                 new TransformOption(LoadedAssetsHandler.GetEnemy(Ecstasy.Purple)),
