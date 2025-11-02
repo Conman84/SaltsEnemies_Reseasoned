@@ -596,6 +596,9 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ObserverPassive.png"), "Observer", "Whenever a unit moves in front of this unit, perform a certain ability.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AltruisticPassive.png"), "Altruistic", "On being directly damaged, apply a certain amount of Determined to the Opposing unit.");
 
+            //CH23
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("OverdosePassive.png"), "Overdose", "On being directly damaged, transform into another party member/enemy.");
+
             //BOSSES
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SunkPassive.png"), "Sunk", "All positions are in permenant Deep Water.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("RadicalPassive.png"), "Radical", "On being damaged, Adjust All Lights.");
