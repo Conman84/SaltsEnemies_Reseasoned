@@ -26,9 +26,9 @@ namespace SaltsEnemies_Reseasoned
             demon.AddPassives(new BasePassiveAbilitySO[] { Passives.Anchored, Passives.Forgetful, Passives.Withering });
 
             Ability freed = new Ability("FREEEEED!!!", "Freed_A");
-            freed.Description = "Very low chance to deal an Agonizing amount of damage to each party member.";
+            freed.Description = "Low chance to deal an Agonizing amount of damage to each party member.";
             freed.Rarity = Rarity.GetCustomRarity("rarity5");
-            freed.Effects = [Effects.GenerateEffect(ChanceZeroDamageEffect.Create(0.95f), 10, Targeting.Unit_AllOpponents)];
+            freed.Effects = [Effects.GenerateEffect(ChanceZeroDamageEffect.Create(0.91f), 10, Targeting.Unit_AllOpponents)];
             freed.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Damage_7_10"]);
             freed.Visuals = Visuals.Decimate;
             freed.AnimationTarget = Slots.Self;
@@ -37,12 +37,12 @@ namespace SaltsEnemies_Reseasoned
             bleed.Description = "Inflict 0-6 Ruptured to the Opposing party member.\nTake 2 damage.";
             bleed.Rarity = Rarity.GetCustomRarity("rarity5");
             bleed.Effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Front, Effects.ChanceCondition(80)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Front, Effects.ChanceCondition(50)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Front, Effects.ChanceCondition(30)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Front, Effects.ChanceCondition(15)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Front, Effects.ChanceCondition(10)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Front, Effects.ChanceCondition(5)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Front, Effects.ChanceCondition(3)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Front, Effects.ChanceCondition(1)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Self)
                 ];
             bleed.AddIntentsToTarget(Slots.Front, ["Status_Ruptured"]);
