@@ -11,6 +11,9 @@
 	  <None Remove="assets\group4" />
 	  <None Remove="assets\hawthorne" />
 	  <None Remove="assets\meowy" />
+	  <None Remove="Bosses\Black\Anim\BB_Art.png" />
+	  <None Remove="Bosses\Black\Anim\BB_Env.png" />
+	  <None Remove="Bosses\Black\Anim\Splash_BB.png" />
 	  <None Remove="Bosses\Black\BBWorld.png" />
 	  <None Remove="Bosses\Black\BB_Portal.png" />
 	  <None Remove="Bosses\Black\SunkPassive.png" />
@@ -892,6 +895,9 @@
 
 	<ItemGroup>
 	  <EmbeddedResource Include="assets\dreams" />
+	  <EmbeddedResource Include="Bosses\Black\Anim\BB_Art.png" />
+	  <EmbeddedResource Include="Bosses\Black\Anim\BB_Env.png" />
+	  <EmbeddedResource Include="Bosses\Black\Anim\Splash_BB.png" />
 	  <EmbeddedResource Include="Bosses\Black\BBWorld.png" />
 	  <EmbeddedResource Include="Bosses\Black\BB_Portal.png" />
 	  <EmbeddedResource Include="Bosses\Black\SunkPassive.png" />

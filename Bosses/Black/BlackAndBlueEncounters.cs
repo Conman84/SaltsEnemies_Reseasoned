@@ -20,13 +20,24 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API boss = new EnemyEncounter_API(EncounterType.Specific, "BOSS_Zone01_BlackAndBlue_EnemyBundle", "Salt_BlackAndBlueEncounter_Sign");
             boss.MusicEvent = "event:/Blackwater/BlackAndBlueSong";
-            boss.RoarEvent = LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN").deathSound;
+            boss.RoarEvent = "event:/Blackwater/Roar/BBRoar";
             boss.BossID = "BlackAndBlue_BOSS";
             boss.AddSpecialEnvironment("BlackAndBlue_Arena");
 
             boss.CreateNewEnemyEncounterData(["BlackAndBlue_BOSS"], [2]);
 
             boss.AddEncounterToDataBases();
+
+            VsBossData vsBossData = new VsBossData();
+            vsBossData.animation = SaltsReseasoned.Dreams.LoadAsset<AnimationClip>("Assets/Bosses/BB/BB_Splash.anim");
+            vsBossData.roarTime = 4f;
+            vsBossData.arenaSprite = ResourceLoader.LoadSprite("BB_Env.png");
+            vsBossData.extraArenaSprite = ResourceLoader.LoadSprite("BB_Env.png");
+            vsBossData.bossSprite = ResourceLoader.LoadSprite("BB_Art.png");
+            vsBossData.signatureSprite = ResourceLoader.LoadSprite("Splash_BB.png");
+            vsBossData.extraSignatureSprite = ResourceLoader.LoadSprite("Splash_BB.png");
+            Misc.AddCustom_VSAnimationData("BlackAndBlue_BOSS", vsBossData);
+
             EnemyEncounterUtils.AddEncounterToZoneSelector("BOSS_Zone01_BlackAndBlue_EnemyBundle", 10, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Boss);
         }
         public static void SetMinesMaterial(this GameObject self)
