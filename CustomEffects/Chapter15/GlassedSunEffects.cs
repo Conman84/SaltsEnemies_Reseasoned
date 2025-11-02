@@ -126,6 +126,13 @@ namespace SaltsEnemies_Reseasoned
                 for (int i = 0; i < 3; i++) purple.Add(LoadedAssetsHandler.GetEnemy("MesmerizingNosestone_EN"));
                 for (int i = 0; i < 2; i++) grey.Add(LoadedAssetsHandler.GetEnemy("UninspiredNosestone_EN"));
             }
+            if (Check.MultiENExistInternal([Ecstasy.Red, Ecstasy.Blue, Ecstasy.Yellow, Ecstasy.Purple]))
+            {
+                for (int i = 0; i < 2; i++) red.Add(LoadedAssetsHandler.GetEnemy(Ecstasy.Red));
+                for (int i = 0; i < 2; i++) blue.Add(LoadedAssetsHandler.GetEnemy(Ecstasy.Blue));
+                for (int i = 0; i < 2; i++) yellow.Add(LoadedAssetsHandler.GetEnemy(Ecstasy.Yellow));
+                for (int i = 0; i < 2; i++) purple.Add(LoadedAssetsHandler.GetEnemy(Ecstasy.Purple));
+            }
             Red = red.ToArray();
             Blue = blue.ToArray();
             Yellow = yellow.ToArray();
