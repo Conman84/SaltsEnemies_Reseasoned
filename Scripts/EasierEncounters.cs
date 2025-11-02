@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using System.Text;
+using SaltEnemies_Reseasoned;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -165,6 +166,10 @@ namespace SaltsEnemies_Reseasoned
         public static string Purple => "Ecstasy_Purple_EN";
         public static string Red => "Ecstasy_Red_EN";
         public static string Blue => "Ecstasy_Blue_EN";
+
+
+        public static string Random => List.GetRandom();
+        public static string[] List = [Red, Blue, Yellow, Purple];
     }
     public static class Enemies
     {
@@ -182,5 +187,7 @@ namespace SaltsEnemies_Reseasoned
         public static string Shuffler => "Shawled_Shuffler_EN";
         public static string Swine => "UnculturedSwine_EN";
         public static string Polyp => "SpectralPolyp_EN";
+        public static string Puker => "PetrifiedPuker_EN";
+        public static string Phalaris => "GreatPhalaris_EN";
     }
 }

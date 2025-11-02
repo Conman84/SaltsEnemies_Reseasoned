@@ -123,6 +123,7 @@ namespace SaltEnemies_Reseasoned
             PCall(JabberwockyEncounters.Post);
             PCall(InTheDarkEncounters.Post);
             PCall(SundownerEncounters.Post);
+            PCall(EcstasyEncounters.Post);
 
             //Crossovers
 

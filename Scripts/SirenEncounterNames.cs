@@ -29,6 +29,46 @@ namespace SaltsEnemies_Reseasoned
                     public static string Med => "H_ZoneSiren_Ecstasy87_Medium_EnemyBundle";
                 }
             }
+            public static class Piscina
+            {
+                public static string Hard => "PiscinaHard";
+            }
+            public static class Tumult
+            {
+                public static string Easy => "TumultEasy";
+                public static string Med => "TumultMed";
+            }
+            public static class Boiler
+            {
+                public static string Easy => "BoilerEasy";
+                public static string Med => "BoilerMed";
+            }
+            public static class Tassnn
+            {
+                public static string Easy => "TassnnEasy";
+                public static string Med => "TassnnMed";
+            }
+            public static class Olmic
+            {
+                public static string Med => "OlmicMed";
+                public static string Hard => "OlmicHard";
+            }
+            public static class Phalaris
+            {
+                public static string Hard => "PhalarisHard";
+            }
+
+            //ita
+            public static class Soothsayer
+            {
+                public static string Med => "H_ZoneSiren_Soothsayer_Medium_EnemyBundle";
+            }
+
+            //hif
+            public static class OneShooter
+            {
+                public static string Med => "H_ZoneSiren_OneShooter_Medium_EnemyBundle";
+            }
         }
     }
 }
