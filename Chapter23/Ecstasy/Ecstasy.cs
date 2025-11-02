@@ -96,7 +96,7 @@ namespace SaltsEnemies_Reseasoned
             industry.Name = "Art Of Industry";
             industry.ability._description = "Deal a Painful amount of damage to the Left, Right, and Opposing party members.";
             industry.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Gears", false, Slots.FrontLeftRight), 0, null, BasicEffects.DidThat(false));
-            industry.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.FrontLeftRight, BasicEffects.DidThat(false, 2));
+            industry.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Slots.FrontLeftRight, BasicEffects.DidThat(false, 2));
             industry.AddIntentsToTarget(Slots.FrontLeftRight, ["Damage_3_6"]);
 
             Ability philosophy = new Ability(special_base.ability, "ArtOfPhilosophy_A", [], Rarity.GetCustomRarity("rarity5"));
