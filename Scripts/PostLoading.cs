@@ -28,7 +28,11 @@ namespace SaltEnemies_Reseasoned
                 PCall(UnlocksSix.Add);
                 PCall(UnlocksSeven.Add);
 
-                PCall(EcstasyEncounters.Add);
+                //siren
+                if (Siren.Exists)
+                {
+                    PCall(EcstasyEncounters.Add);
+                }
             }
 
             orig(self);

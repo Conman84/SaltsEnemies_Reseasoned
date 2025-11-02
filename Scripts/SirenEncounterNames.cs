@@ -6,6 +6,8 @@ namespace SaltsEnemies_Reseasoned
 {
     public static class Siren
     {
+        public static bool Exists => LoadedDBsHandler.EnemyDB.DoesEncounterPoolExist("TheSiren_Zone1");
+
         public static class H
         {
             public static class Ecstasy
