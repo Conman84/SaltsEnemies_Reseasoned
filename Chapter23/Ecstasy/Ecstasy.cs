@@ -22,7 +22,7 @@ namespace SaltsEnemies_Reseasoned
             overdose.conditions = Passives.Slippery.conditions;
 
             CheckPassiveAbilityEffect stained = ScriptableObject.CreateInstance<CheckPassiveAbilityEffect>();
-            stained.m_PassiveID = "Heterochromia_PA";
+            stained.m_PassiveID = "Stained_PA";
             RandomTransformationNotSelfEffect overdose_effect = ScriptableObject.CreateInstance<RandomTransformationNotSelfEffect>();
             overdose_effect._maintainMaxHealth = true;
             overdose_effect._fullyHeal = false;
