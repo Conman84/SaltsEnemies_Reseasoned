@@ -50,7 +50,12 @@ namespace SaltsEnemies_Reseasoned
 
                     if (use.Count > 0)
                     {
-                        if (target.Unit.AddPassiveAbility(use.GetRandom())) exitAmount++;
+                        BasePassiveAbilitySO toAdd = use.GetRandom();
+                        if (target.Unit.AddPassiveAbility(toAdd))
+                        {
+                            exitAmount++;
+                            CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(target.Unit.ID, target.Unit.IsUnitCharacter, toAdd._passiveName + " Added", toAdd.passiveIcon));
+                        }
                     }
                 }
             }
