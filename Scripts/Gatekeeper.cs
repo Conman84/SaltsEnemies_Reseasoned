@@ -81,6 +81,10 @@ namespace SaltsEnemies_Reseasoned
 
             //by prereq
             if (enemy == "Evileye_EN" && !Tracker.Track(["LostSheep_EN", "AFlower_EN"])) return false;
+            if (enemy == Ecstasy.Red && !Tracker.Track("DeadPixel_EN")) return false;
+            if (enemy == Ecstasy.Blue && !Tracker.Track("DeadPixel_EN")) return false;
+            if (enemy == Ecstasy.Yellow && !Tracker.Track("DeadPixel_EN")) return false;
+            if (enemy == Ecstasy.Purple && !Tracker.Track("DeadPixel_EN")) return false;
             if (enemy == "Delusion_EN" && !Tracker.Track("DeadPixel_EN")) return false;
             if (enemy == "WindSong_EN" && !Tracker.Track("LostSheep_EN")) return false;
             if (enemy == Enemies.Solvent && !Tracker.Track("Enigma_EN")) return false;
@@ -203,7 +207,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static string[] Start = ["LostSheep_EN", "Enigma_EN", "DeadPixel_EN", "LittleAngel_EN", "EmbersofaDeadGod_EN"];
         public static string[] Beginner = ["TeachaMantoFish_EN", "Satyr_EN", "Something_EN", "Derogatory_EN", "TheCrow_EN", "Freud_EN", "AFlower_EN", "StarGazer_EN", Enemies.Camera];
-        public static string[] Easy = ["Delusion_EN", "FakeAngel_EN", Bots.Red, Bots.Yellow, "Sigil_EN", "WindSong_EN", Enemies.Solvent, "LittleBeak_EN", "Pinano_EN", "Minana_EN", "Evileye_EN"];
+        public static string[] Easy = ["Delusion_EN", "FakeAngel_EN", Bots.Red, Bots.Yellow, "Sigil_EN", "WindSong_EN", Enemies.Solvent, "LittleBeak_EN", "Pinano_EN", "Minana_EN", "Evileye_EN", Ecstasy.Red, Ecstasy.Blue, Ecstasy.Yellow, Ecstasy.Purple];
         public static string[] EM = [Flower.Yellow, Flower.Purple, "EyePalm_EN", "BlackStar_EN", "Singularity_EN", "Skyloft_EN", "ToyUfo_EN", "Wall_EN", "Smilers_BOSS"];
         public static string[] Med = [Jumble.Grey, "Grandfather_EN", Flower.Red, Flower.Blue, Bots.Blue, Bots.Purple, "Rabies_EN", "NobodyGrave_EN", "YellowAngel_EN", "Windle_EN", "MiniReaper_EN", "Megalania_BOSS"];
         public static string[] MH = [Spoggle.Grey, "CoinHunter_EN", "TheDeep_EN", "SnakeGod_EN", "Spectre_EN", Bots.Grey, "Tripod_EN", "Maw_EN", "Arceles_EN", "Clione_EN", "Sinker_EN", "VoiceTrumpet_EN", "Waltz_EN", "Foxtrot_EN", "PawnA_EN", "CrowChild_BOSS"];
