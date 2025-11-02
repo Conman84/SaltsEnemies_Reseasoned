@@ -70,4 +70,17 @@ namespace SaltsEnemies_Reseasoned
             return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
         }
     }
+    public class ApplySlipUpToPlusOneEffect : ApplySlipSlotEffect
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (TargetSlotInfo target in targets)
+            {
+                base.PerformEffect(stats, caster, [target], areTargetSlots, entryVariable + UnityEngine.Random.Range(0, 2), out int exi);
+                exitAmount += exi;
+            }
+            return exitAmount > 0;
+        }
+    }
 }
