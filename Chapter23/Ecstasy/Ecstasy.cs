@@ -49,6 +49,7 @@ namespace SaltsEnemies_Reseasoned
             psychadelics.AddIntentsToTarget(Slots.Front, ["Damage_7_10", "Mana_Modify"]);
             psychadelics.Visuals = CustomVisuals.GetVisuals("Salt/Class");
             psychadelics.AnimationTarget = Slots.Front;
+            psychadelics.Priority = Priority.Fast;
 
             Ability bubble = new Ability("Bubble Blowing", "BubbleBlowing_A");
             bubble.Description = "Move Left or Right.\nIf the Opposing party member shares this enemy's health color, gain 1 Constricted.\nOtherwise, deal a Painful amount of damage to them.";
