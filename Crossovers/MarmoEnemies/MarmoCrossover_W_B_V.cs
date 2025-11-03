@@ -55,7 +55,7 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Orph.H.Maw.Med);
             med.AddRandomGroup("Maw_EN", "Feckle_EN", "Feckle_EN");
 
-            med = new AddTo(Orph.H.Maw.Hard);
+            hard = new AddTo(Orph.H.Maw.Hard);
             hard.AddRandomGroup("Maw_EN", "Feckle_EN", Jumble.Purple, Jumble.Red);
 
             med = new AddTo(Orph.H.Bot.Red.Med);
