@@ -62,13 +62,27 @@ namespace SaltsEnemies_Reseasoned
                 ];
             CasterRandomizeNameEnemyEffect outside = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             outside.PossibleNames = [
-                "With Homophobia In Its Passives :Heart:",
                 "Jumboe Josh",
                 "Googl",
-                "A Secret Animation Where If It Spawns Between The Two Of Them Like That It Passes The Ball Between Them",
-                "1 In 10000 Chance For It To Be Named Dennis",
                 "Don't Hit Me Or I'll Cry",
                 "\"Ok\" - Ok",
+                "Izza Pizza",
+                "Hello My Name Is GUIDED USER INTERFACE",
+                "Busuga Dooska",
+                "Pee-Ano",
+                "Chicken Randomizer",
+                "What You Door",
+                "Slenderman And Jeff Creepy",
+                "Papereater"
+                ];
+            CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
+            third.PossibleNames = [
+                "With Homophobia In Its Passives :Heart:",
+                "Hi RandomGuyWill",
+                "My Wrath Is Unending",
+                "You Can Activate 'Insider Mode' If You Create A .txt File Named \"custom.txt\" In The Same Folder As The DLL For This Mod",
+                "Setting Fire To A Pile Of Traffic Cones Spawns Zombies",
+                "Roblox",
                 "The Siren",
                 "Johnny Purple That DIes Upon The Thirteenth Of February At Five PM",
                 "Clash Of Clans Barbarian",
@@ -79,22 +93,8 @@ namespace SaltsEnemies_Reseasoned
                 "3.8 Elixer Hog Bridge Trade",
                 "Green Miku",
                 "Forest Bump",
-                "You Can Activate 'Insider Mode' If You Create A .txt File Named \"custom.txt\" In The Same Folder As The DLL For This Mod",
-                "Setting Fire To A Pile Of Traffic Cones Spawns Zombies",
-                "Roblox",
-                "Hi RandomGuyWill",
-                "My Wrath Is Unending",
-                "Izza Pizza",
-                "Hello My Name Is GUIDED USER INTERFACE"
-                ];
-            CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
-            third.PossibleNames = [
-                "Busuga Dooska",
-                "Pee-Ano",
-                "Chicken Randomizer",
-                "What You Door",
-                "Slenderman And Jeff Creepy",
-                "Papereater"
+                "A Secret Animation Where If It Spawns Between The Two Of Them Like That It Passes The Ball Between Them",
+                "1 In 10000 Chance For It To Be Named Dennis",
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside),
