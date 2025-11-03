@@ -42,6 +42,7 @@
 	  <None Remove="Bosses\Invention\SecondInventionPortal.png" />
 	  <None Remove="Bosses\Invention\SystemicPassive.png" />
 	  <None Remove="Bosses\Smilers\Anim\SmilerEnv.png" />
+	  <None Remove="Bosses\Smilers\SmilerCorpseIcon.png" />
 	  <None Remove="Bosses\Smilers\SmilerPortal.png" />
 	  <None Remove="Bosses\Smilers\SmilersWorld.png" />
 	  <None Remove="Bosses\Tv\Anim\Art_Tv.png" />
@@ -925,6 +926,7 @@
 	  <EmbeddedResource Include="Bosses\Invention\SecondInventionPortal.png" />
 	  <EmbeddedResource Include="Bosses\Invention\SystemicPassive.png" />
 	  <EmbeddedResource Include="Bosses\Smilers\Anim\SmilerEnv.png" />
+	  <EmbeddedResource Include="Bosses\Smilers\SmilerCorpseIcon.png" />
 	  <EmbeddedResource Include="Bosses\Smilers\SmilerPortal.png" />
 	  <EmbeddedResource Include="Bosses\Smilers\SmilersWorld.png" />
 	  <EmbeddedResource Include="Bosses\Tv\Anim\Art_Tv.png" />

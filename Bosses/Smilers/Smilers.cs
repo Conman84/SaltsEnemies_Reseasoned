@@ -21,9 +21,9 @@ namespace SaltsEnemies_Reseasoned
             {
                 Health = 16,
                 HealthColor = Pigments.Purple,
-                CombatSprite = ResourceLoader.LoadSprite("SmilersWorld.png"),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("SmilersWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("SmilersWorld.png", new Vector2(0.5f, 0f), 32),
+                CombatSprite = ResourceLoader.LoadSprite("SmilerCorpseIcon.png"),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("SmilerCorpseIcon.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("SmilerCorpseIcon.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("TaintedYolk_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("TaintedYolk_EN").deathSound,
             };
