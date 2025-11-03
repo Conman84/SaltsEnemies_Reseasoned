@@ -605,7 +605,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassiveEffect confuse = ScriptableObject.CreateInstance<AddPassiveEffect>();
             confuse._passiveToAdd = Passives.Confusion;
 
-            MultiPerformEffectItem lullaby = new MultiPerformEffectItem("Salt_ImperfectLullaby_TW", [Effects.GenerateEffect(confuse, 1, Slots.Front)]);
+            MultiPerformEffectItem lullaby = new MultiPerformEffectItem("Salt_ImperfectLullaby_TW", [Effects.GenerateEffect(confuse, 1, Slots.Self)]);
             lullaby.Name = "Imperfect Lullaby";
             lullaby.Flavour = "\"Close your eyes. When you wake up, it will all be over.\"";
             lullaby.Description = "This party member is immune to all damage equal to or below 2.\nGain \"Confusion\" as a passive on taking any damage.";
