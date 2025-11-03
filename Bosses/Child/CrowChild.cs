@@ -38,18 +38,18 @@ namespace SaltsEnemies_Reseasoned
             template.AddUnitType("Bird");
 
             Ability first = new Ability("Masquerade", "CC_Masquerade_A");
-            first.Description = "Inflict 1 Ruptured and 2 Frail to the Left and Right party members.";
+            first.Description = "Inflict 1 Ruptured and 1 Frail to the Left and Right party members.";
             first.Rarity = Rarity.GetCustomRarity("rarity5");
             first.Effects = new EffectInfo[2];
             first.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.LeftRight);
-            first.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 2, Slots.LeftRight);
+            first.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 1, Slots.LeftRight);
             first.AddIntentsToTarget(Slots.LeftRight, ["Status_Ruptured", "Status_Frail"]);
             first.Visuals = CustomVisuals.GetVisuals("Salt/Gaze");
             first.AnimationTarget = Slots.LeftRight;
 
             Ability second = new Ability("Charades", "CC_Charades_A");
             second.Description = "Deal a Little damage to this enemy.";
-            second.Rarity = Rarity.CreateAndAddCustomRarityToPool("crowChildHigh", 8);
+            second.Rarity = Rarity.CreateAndAddCustomRarityToPool("crowChildHigh", 6);
             second.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Self)];
             second.AddIntentsToTarget(Slots.Self, ["Damage_1_2"]);
             second.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
@@ -74,7 +74,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability fourth = new Ability("Regression", "CC_Regression_A");
             fourth.Description = "Move Left or Right.";
-            fourth.Rarity = Rarity.CreateAndAddCustomRarityToPool("crowSmall", 2);
+            fourth.Rarity = Rarity.CreateAndAddCustomRarityToPool("crowSmall", 4);
             fourth.Priority = Priority.Fast;
             fourth.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)];
             fourth.AddIntentsToTarget(Slots.Self, ["Swap_Sides"]);
