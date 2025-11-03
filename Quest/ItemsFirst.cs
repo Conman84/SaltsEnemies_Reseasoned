@@ -608,7 +608,7 @@ namespace SaltsEnemies_Reseasoned
             MultiPerformEffectItem lullaby = new MultiPerformEffectItem("Salt_ImperfectLullaby_TW", [Effects.GenerateEffect(confuse, 1, Slots.Front)]);
             lullaby.Name = "Imperfect Lullaby";
             lullaby.Flavour = "\"Close your eyes. When you wake up, it will all be over.\"";
-            lullaby.Description = "This party member is immune to all damage below 2.\nGain \"Confusion\" as a passive on taking any damage.";
+            lullaby.Description = "This party member is immune to all damage equal to or below 2.\nGain \"Confusion\" as a passive on taking any damage.";
             lullaby.Icon = ResourceLoader.LoadSprite("Item_ImperfectLullaby.png");
             lullaby.EquippedModifiers = [];
             lullaby.TriggerOn = TriggerCalls.OnDamaged;
