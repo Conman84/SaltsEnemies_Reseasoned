@@ -24,8 +24,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("SmilerCorpseIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("SmilerCorpseIcon.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("SmilerCorpseIcon.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("TaintedYolk_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("TaintedYolk_EN").deathSound,
+                DamageSound = "event:/Blackwater/Noise/CorpseHit",
+                DeathSound = "event:/Blackwater/Noise/CorpseDie",
             };
             template.PrepareEnemyPrefab("Assets/Bosses/Smiler/SmilerCorpse_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/Smiler/Smiler_Corpse_Gibs.prefab").GetComponent<ParticleSystem>());
             template.enemy.enemyTemplate.m_Data.m_Renderer = template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Body").Find("Face").GetComponent<SpriteRenderer>();
@@ -77,8 +77,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("SmilersWorld.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("SmilersWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("SmilersWorld.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("Bronzo1_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("Bronzo1_EN").deathSound,
+                DamageSound = "event:/Blackwater/Noise/SmilerHit",
+                DeathSound = "event:/Blackwater/Noise/SmilerDie",
             };
             template.PrepareEnemyPrefab("Assets/Bosses/Smiler/Smilers_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/Smiler/Smiler_Alive_Gibs.prefab").GetComponent<ParticleSystem>());
             template.enemy.enemyTemplate.m_Data.m_Renderer = template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Body").Find("Face").GetComponent<SpriteRenderer>();
