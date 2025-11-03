@@ -490,18 +490,18 @@ namespace SaltsEnemies_Reseasoned
 
             ((Passives.Construct as Connection_PerformEffectPassiveAbility).connectionEffects[1].effect as CasterAddRandomExtraAbilityEffect)._extraData.Add(add_cat);
 
-            PerformEffect_Item lunar = new PerformEffect_Item("Salt_LunarCharm_SW", []);
+            PerformEffect_Item lunar = new PerformEffect_Item("Salt_LunarCharm_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterRemoveItemExtraAbilityEffect>())]);
             lunar.Name = "Lunar Charm";
             lunar.Flavour = "\"Skyfall\"";
             lunar.Description = "Adds the extra ability \"Cataclysm\", an expensive but powerful mass damaging move.\nThis item is destroyed upon taking any damage.";
             lunar.Icon = ResourceLoader.LoadSprite("item_lunarcharm.png");
             lunar.EquippedModifiers = [add_cat];
-            lunar.TriggerOn = TriggerCalls.Count;
+            lunar.TriggerOn = TriggerCalls.OnDamaged;
             lunar.DoesPopUpInfo = true;
             lunar.Conditions = [];
             lunar.DoesActionOnTriggerAttached = false;
-            lunar.ConsumeOnTrigger = TriggerCalls.OnDamaged;
-            lunar.ConsumeOnUse = false;
+            lunar.ConsumeOnTrigger = TriggerCalls.Count;
+            lunar.ConsumeOnUse = true;
             lunar.ConsumeConditions = [];
             lunar.ShopPrice = 4;
             lunar.IsShopItem = true;
