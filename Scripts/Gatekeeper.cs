@@ -62,10 +62,10 @@ namespace SaltsEnemies_Reseasoned
 
             if (!DoGatekeep) return true;
 
-            return true;//FOR NOW
+            //return true;//FOR NOW
 
-            if (StoredRuns > 99) return true;
-            if (StoredRuns > 22 && SaltsReseasoned.rando < 50) return true;
+            if (StoredRuns > 25) return true;
+            if (StoredRuns > 15 && SaltsReseasoned.rando < 50) return true;
 
             //by complexity
             if (Salt.Start.Contains(enemy) && StoredRuns < 1) return false;
