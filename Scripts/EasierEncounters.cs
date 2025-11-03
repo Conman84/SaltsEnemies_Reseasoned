@@ -64,7 +64,7 @@ namespace SaltsEnemies_Reseasoned
         public void AddRandomGroup_Internal(RandomEnemyGroup group)
         {
             if (!BundleExist(bundle)) return;
-            if (!BundleRandom(bundle)) return;
+            if (!BundleRandom(bundle, SaltsReseasoned.DebugVer)) return;
             List<RandomEnemyGroup> list2 = new List<RandomEnemyGroup>(((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle(bundle))._enemyBundles);
             list2.Add(group);
             ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle(bundle))._enemyBundles = list2;
@@ -75,12 +75,12 @@ namespace SaltsEnemies_Reseasoned
         public static List<string> Printeds = new List<string>();
         public static bool EnemyExist(string name)
         {
-            if (!LoadedAssetsHandler.LoadedEnemies.Keys.Contains(name) && LoadedAssetsHandler.LoadEnemy(name) == null) { if (!Printeds.Contains(name)) { Debug.LogWarning("Enemy: " + name + " is null"); Printeds.Add(name); } return false; }
+            if (!LoadedAssetsHandler.LoadedEnemies.Keys.Contains(name) && LoadedAssetsHandler.LoadEnemy(name) == null) { if (!Printeds.Contains(name) && SaltsReseasoned.DebugVer) { Debug.LogWarning("Enemy: " + name + " is null"); Printeds.Add(name); } return false; }
             return LoadedAssetsHandler.GetEnemy(name) != null;
         }
         public static bool BundleExist(string name)
         {
-            if (!LoadedAssetsHandler.LoadedEnemyBundles.Keys.Contains(name) && LoadedAssetsHandler.LoadEnemyBundle(name) == null) { if (!Printeds.Contains(name)) { Debug.LogWarning("Bundle: " + name + " is null"); Printeds.Add(name); } return false; }
+            if (!LoadedAssetsHandler.LoadedEnemyBundles.Keys.Contains(name) && LoadedAssetsHandler.LoadEnemyBundle(name) == null) { if (!Printeds.Contains(name) && SaltsReseasoned.DebugVer) { Debug.LogWarning("Bundle: " + name + " is null"); Printeds.Add(name); } return false; }
             return LoadedAssetsHandler.GetEnemyBundle(name) != null;
         }
         public static bool BundleRandom(string name, bool DoDebug = true)
