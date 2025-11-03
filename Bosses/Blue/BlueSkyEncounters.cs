@@ -11,7 +11,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Portals.AddPortalSign("Salt_BlueSkyEncounter_Sign", ResourceLoader.LoadSprite("BlueSkyWorld.png"), Portals.BossIDColor);
+            Portals.AddPortalSign("Salt_BlueSkyEncounter_Sign", ResourceLoader.LoadSprite("BlueSkyIcon.png"), Portals.BossIDColor);
 
             EnvironmentTools.PrepareCombatEnvPrefab("Assets/Defacer/BlueSky_Arena.prefab", "BlueSky_Arena", SaltsReseasoned.Dreams);
             LoadedAssetsHandler.TryGetCombatEnvironmentPrefab("BlueSky_Arena").gameObject.SetGrassMaterial();

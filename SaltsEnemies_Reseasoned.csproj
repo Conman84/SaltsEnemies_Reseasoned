@@ -21,6 +21,7 @@
 	  <None Remove="Bosses\Blue\ActingPassive.png" />
 	  <None Remove="Bosses\Blue\Anim\Art_BS.png" />
 	  <None Remove="Bosses\Blue\Anim\Splash_BlueSky.png" />
+	  <None Remove="Bosses\Blue\BlueSkyIcon.png" />
 	  <None Remove="Bosses\Blue\BlueSkyPearl.png" />
 	  <None Remove="Bosses\Blue\BlueSkyPortal.png" />
 	  <None Remove="Bosses\Blue\BlueSkyWorld.png" />
@@ -892,6 +893,10 @@
 	  <None Remove="SpecialIcons\UnlockingIntent.png" />
 	  <None Remove="SpecialIcons\upicon.png" />
 	  <None Remove="SpecialIcons\waiticon.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Bosses\Blue\BlueSkyIcon.png" />
 	</ItemGroup>
 
 	<ItemGroup>
