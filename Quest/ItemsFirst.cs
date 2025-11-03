@@ -132,6 +132,8 @@ namespace SaltsEnemies_Reseasoned
             ExtraAbility_Wearable_SMS add_replicate = ScriptableObject.CreateInstance<ExtraAbility_Wearable_SMS>();
             add_replicate._extraAbility = replicate.GenerateCharacterAbility();
 
+            ((Passives.Construct as Connection_PerformEffectPassiveAbility).connectionEffects[1].effect as CasterAddRandomExtraAbilityEffect)._extraData.Add(add_replicate);
+
             Basic_Item cheat = new Basic_Item("Salt_CheatingMaterials_TW");
             cheat.Name = "Cheating Materials";
             cheat.Flavour = "\"...It's for single digit arithmatic.\"";
