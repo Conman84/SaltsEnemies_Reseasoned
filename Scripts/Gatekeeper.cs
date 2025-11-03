@@ -32,13 +32,13 @@ namespace SaltsEnemies_Reseasoned
 
             SetRandoming(false);
 
-            //Config();
+            Config();
         }
 
         public static void Config()
         {
             ConfigFile seatbelt = new ConfigFile(Path.Combine(Paths.ConfigPath, "WeDontNeedNoSeatbeltsWhereWereGoing.cfg"), true);
-            ConfigValue = seatbelt.Bind<bool>("SaltenemysTm", "DoSeatbelts", true, "Locks more complicated enemies from appearing in runs based off a combination of runs played with salt enemies and enemies encountered.\nMeant to be mostly unnoticeable but you can turn it off here. Dont tell anyone about this its a secret\nNOTE: THIS IS PLACEHOLDER IT DONT WORk yet and probably wont be implemented for a good while. it'll still track runs/enemy kills though so when it does implement if youve been playing it aint doing nothing bad.");
+            ConfigValue = seatbelt.Bind<bool>("SaltenemysTm", "DoSeatbelts", true, "Locks more complicated enemies from appearing in runs based off a combination of runs played with salt enemies and enemies encountered.\nMeant to be mostly unnoticeable but you can turn it off here. Dont tell anyone about this its a secret");
         }
 
 
