@@ -56,7 +56,7 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Orph.H.Enigma.Med);
             med.SimpleAddGroup(4, "Enigma_EN", 1, "TortureMeNot_EN");
 
-            med = new AddTo(Orph.H.Conductor.Med);
+            med = new AddTo(Orph.H.Crow.Med);
             med.AddRandomGroup("TheCrow_EN", "Something_EN", "TortureMeNot_EN");
 
             easy = new AddTo(Orph.H.Delusion.Easy);
