@@ -27,8 +27,13 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = "event:/Blackwater/Noise/CorpseHit",
                 DeathSound = "event:/Blackwater/Noise/CorpseDie",
             };
-            template.PrepareEnemyPrefab("Assets/Bosses/Smiler/SmilerCorpse_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/Smiler/Smiler_Corpse_Gibs.prefab").GetComponent<ParticleSystem>());
-            template.enemy.enemyTemplate.m_Data.m_Renderer = template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Body").Find("Face").GetComponent<SpriteRenderer>();
+            template.PrepareMultiEnemyPrefab("Assets/Bosses/Smiler/SmilerCorpse_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/Smiler/Smiler_Alive_Gibs.prefab").GetComponent<ParticleSystem>());
+            (template.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
+            {
+                template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Body").Find("Outline").GetComponent<SpriteRenderer>(),
+                template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Body").Find("Arm").GetComponent<SpriteRenderer>(),
+            };
+
 
             //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("TaintedYolk_EN").enemyTemplate;
 
@@ -80,7 +85,7 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = "event:/Blackwater/Noise/SmilerHit",
                 DeathSound = "event:/Blackwater/Noise/SmilerDie",
             };
-            template.PrepareEnemyPrefab("Assets/Bosses/Smiler/Smilers_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/Smiler/Smiler_Alive_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.PrepareEnemyPrefab("Assets/Bosses/Smiler/Smilers_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/Smiler/Smiler_Corpse_Gibs.prefab").GetComponent<ParticleSystem>());
             template.enemy.enemyTemplate.m_Data.m_Renderer = template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Body").Find("Face").GetComponent<SpriteRenderer>();
 
             //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("BronzoExtra_EN").enemyTemplate;
