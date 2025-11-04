@@ -88,14 +88,13 @@ namespace SaltsEnemies_Reseasoned
 
             //dangle
             Ability dangle = new Ability("Dangle", "Dangle_A");
-            dangle.Description = "Inflict 2-3 Frail and 4-6 Scars on this enemy.";
+            dangle.Description = "Inflict 2-3 Frail and 1-2 Scars on this enemy.";
             dangle.Rarity = Rarity.CreateAndAddCustomRarityToPool("damoclesHigh", 11);
-            dangle.Effects = new EffectInfo[5];
+            dangle.Effects = new EffectInfo[4];
             dangle.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 2, Slots.Self);
             dangle.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 1, Slots.Self, Effects.ChanceCondition(50));
-            dangle.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 4, Slots.Self);
+            dangle.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Slots.Self);
             dangle.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Slots.Self, Effects.ChanceCondition(50));
-            dangle.Effects[4] = dangle.Effects[3];
             dangle.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Status_Frail.ToString(), IntentType_GameIDs.Status_Scars.ToString()]);
             dangle.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
             dangle.AnimationTarget = Targeting.Slot_SelfAll;
