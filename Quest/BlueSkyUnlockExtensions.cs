@@ -60,9 +60,13 @@ namespace SaltsEnemies_Reseasoned
 
                     list.Add((moddedAchievementInfo.m_offlinebAchieved ? moddedAchievementInfo.m_unlockedSprite : ((moddedAchievementInfo.m_specialLockedSprite != null) ? moddedAchievementInfo.m_specialLockedSprite : self._achievementDB.LockedAchSprite)));
                 }
-                UnlockCategoryUIPanel unlockCategoryUIPanel = UnityEngine.Object.Instantiate(self._categoryTemplate, self._categoryTemplate.GetParent);
-                self._ActiveCategories.Add(unlockCategoryUIPanel);
-                unlockCategoryUIPanel.TryInitializeUnlockableAchievements(id, self, list.ToArray(), modded._CategoryName, modded._CategoryLocID);
+                
+                if (list.Count > 0)
+                {
+                    UnlockCategoryUIPanel unlockCategoryUIPanel = UnityEngine.Object.Instantiate(self._categoryTemplate, self._categoryTemplate.GetParent);
+                    self._ActiveCategories.Add(unlockCategoryUIPanel);
+                    unlockCategoryUIPanel.TryInitializeUnlockableAchievements(id, self, list.ToArray(), modded._CategoryName, modded._CategoryLocID);
+                }
             }
             else
             {
