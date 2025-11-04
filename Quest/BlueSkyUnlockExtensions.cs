@@ -56,7 +56,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     AchievementBase_t moddedAchievementInfo = self._achievementDB.GetModdedAchievementInfo(modded.achievementNames[i]);
 
-                    if (!moddedAchievementInfo.m_bAchieved && !moddedAchievementInfo.m_offlinebAchieved) continue;
+                    if (!moddedAchievementInfo.m_bAchieved && !moddedAchievementInfo.m_offlinebAchieved && !LoadedDBsHandler.InfoHolder.Game.DidCompleteQuest("Defacer_Quest")) continue;
 
                     list.Add((moddedAchievementInfo.m_offlinebAchieved ? moddedAchievementInfo.m_unlockedSprite : ((moddedAchievementInfo.m_specialLockedSprite != null) ? moddedAchievementInfo.m_specialLockedSprite : self._achievementDB.LockedAchSprite)));
                 }
