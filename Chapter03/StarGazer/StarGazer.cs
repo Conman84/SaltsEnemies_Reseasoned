@@ -57,7 +57,7 @@ namespace SaltsEnemies_Reseasoned
             infestationUp.m_unitStoredDataID = UnitStoredValueNames_GameIDs.InfestationPA.ToString();
 
             Ability dance = new Ability("Slow Dance", "Salt_SlowDance_A");
-            dance.Description = "Increase this character's Infestation by 1.";
+            dance.Description = "Increase this enemy's Infestation by 1.";
             dance.Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity15", 15);
             dance.Effects = new EffectInfo[]
             {
