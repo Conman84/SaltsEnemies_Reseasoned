@@ -516,7 +516,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("GraspingPassive.png"), "Grasping", "When a party member moves in front of this enemy, attempt to exhaust their movement.");
 
             //CH11
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DamoclesPassive.png"), "Closure", "On taking any amount of damage, there is a 50% chance that this unit instantly dies then deals the amount of damage taken to the Opposing unit.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DamoclesPassive.png"), "Closure", "On receiving direct damage, there is a 50% chance that this unit instantly dies then deals the amount of damage taken to the Opposing unit.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DisorientingPassive.png"), "Disorienting", "On taking direct damage, reroll the entire timeline.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("FractalPassive.png"), "Fractal", "At the end of the timeline, generate a certain amount of random pigment.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("HateYou.png"), "Vindictive", "This unit remembers its oppressors. On taking direct damage, inflict 1 Scar on the attacker.");

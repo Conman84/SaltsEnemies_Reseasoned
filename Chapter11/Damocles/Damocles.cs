@@ -30,11 +30,11 @@ namespace SaltsEnemies_Reseasoned
             damocles._passiveName = "Closure";
             damocles.passiveIcon = ResourceLoader.LoadSprite("DamoclesPassive.png");
             damocles.m_PassiveID = "Closure_PA";
-            damocles._enemyDescription = "On taking any amount of damage, there is a 50% chance that this enemy instantly dies then deals the amount of damage taken to the Opposing party member.";
-            damocles._characterDescription = "On taking any amount of damage, there is a 50% chance that this party member instantly dies then deals the amount of damage taken to the Opposing enemy.";
+            damocles._enemyDescription = "On receiving direct damage, there is a 50% chance that this enemy instantly dies then deals the amount of damage taken to the Opposing party member.";
+            damocles._characterDescription = "On receiving direct damage, there is a 50% chance that this party member instantly dies then deals the amount of damage taken to the Opposing enemy.";
             damocles.doesPassiveTriggerInformationPanel = false;
             damocles.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<DamoclesCondition>() };
-            damocles._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDamaged };
+            damocles._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
 
             //decay
             PerformEffectPassiveAbility decay = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
