@@ -67,7 +67,7 @@ namespace SaltsEnemies_Reseasoned
             dance.AnimationTarget = Targeting.Slot_SelfSlot;
             dance.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
-                "Misc"
+                IntentType_GameIDs.PA_Infestation.ToString()
             });
 
             //Finish
