@@ -41,7 +41,6 @@ namespace SaltEnemies_Reseasoned
             med.AddRandomEncounter("Hunter_EN", "InHisImage_EN", "InHisImage_EN", "NextOfKin_EN");
             med.AddRandomEncounter("Hunter_EN", "InHerImage_EN", "InHerImage_EN", "NextOfkin_EN");
             med.AddRandomEncounter("Hunter_EN", "InHerImage_EN", "InHerImage_EN", "GlassFigurine_EN");
-            med.AddRandomEncounter("Hunter_EN", Flower.Grey, "GlassFigurine_EN");
             med.AddRandomEncounter("Hunter_EN", Flower.Grey, "Shua_EN");
 
             med.AddEncounterToDataBases();
