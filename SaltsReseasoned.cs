@@ -87,6 +87,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(FireNoReduce.Setup);
             PCall(Gatekeeper.Setup);
             PCall(KillCommand.Add);
+            PCall(BlueSkyUnlockExtensions.Setup);
             #endregion
 
             //Add To Glossary
