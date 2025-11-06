@@ -220,7 +220,7 @@ namespace SaltsEnemies_Reseasoned
             PerformEffect_Item anchor = new PerformEffect_Item("Salt_WoodenAnchor_SW", []);
             anchor.Name = "Wooden Anchor";
             anchor.Flavour = "\"Sinks as well as it floats\"";
-            anchor.Description = "Direct heaing received by this party member is instead distributed amongst all other party members.";
+            anchor.Description = "Direct healing received by this party member is instead distributed amongst all other party members.";
             anchor.Icon = ResourceLoader.LoadSprite("item_woodenanchor.png");
             anchor.EquippedModifiers = [];
             anchor.TriggerOn = TriggerCalls.OnBeingHealed;
