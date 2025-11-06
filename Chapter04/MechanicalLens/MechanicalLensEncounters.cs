@@ -67,13 +67,6 @@ namespace SaltsEnemies_Reseasoned
             mainEncounters.CreateNewEnemyEncounterData(new string[]
             {
                 "MechanicalLens_EN",
-                "FlaMinGoa_EN",
-                "MudLung_EN",
-                "Flarb_EN",
-            }, null);
-            mainEncounters.CreateNewEnemyEncounterData(new string[]
-            {
-                "MechanicalLens_EN",
                 "MechanicalLens_EN",
                 "MudLung_EN",
                 "LostSheep_EN",
