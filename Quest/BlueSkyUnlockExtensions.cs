@@ -45,6 +45,7 @@ namespace SaltsEnemies_Reseasoned
         public static void Setup()
         {
             IDetour hook = new Hook(typeof(UnlockedAchievementsUIHandler).GetMethod(nameof(UnlockedAchievementsUIHandler.PopulateModdedList), ~System.Reflection.BindingFlags.Default), typeof(BlueSkyUnlockExtensions).GetMethod(nameof(UnlockedAchievementsUIHandler_PopulateModdedList), ~System.Reflection.BindingFlags.Default));
+            IDetour hook2 = new Hook(typeof(UnlockedAchievementsUIHandler).GetMethod(nameof(UnlockedAchievementsUIHandler.OnIconEnter), ~System.Reflection.BindingFlags.Default), typeof(BlueSkyUnlockExtensions).GetMethod(nameof(UnlockedAchievementsUIHandler_OnIconEnter), ~System.Reflection.BindingFlags.Default));
         }
         public static void UnlockedAchievementsUIHandler_PopulateModdedList(Action<UnlockedAchievementsUIHandler, int, AchievementModdedCategory> orig, UnlockedAchievementsUIHandler self, int id, AchievementModdedCategory modded)
         {
@@ -72,6 +73,65 @@ namespace SaltsEnemies_Reseasoned
             {
                 orig(self, id, modded);
             }
+        }
+
+        public static void UnlockedAchievementsUIHandler_OnIconEnter(Action<UnlockedAchievementsUIHandler, int, int> orig, UnlockedAchievementsUIHandler self, int listID, int id)
+        {
+            AchievementCategory[] achievementCategories = self._achievementDB.AchievementCategories;
+            List<AchievementModdedCategory> moddedAchievementCategories = self._achievementDB.ModdedAchievementCategories;
+            if (listID >= 0 && listID < self._ActiveCategories.Count)
+            {
+                if (listID < achievementCategories.Length || moddedAchievementCategories[listID]._CategoryLocID != "BlueSky_BOSS")
+                {
+                    orig(self, listID, id);
+                    return;
+                }
+
+
+                AchievementBase_t achievementBase_t = self.GetBlueSkyAchievementData(id, moddedAchievementCategories[listID]);
+                if (achievementBase_t != null)
+                {
+                    Sprite sprite = (achievementBase_t.m_offlinebAchieved ? achievementBase_t.m_unlockedSprite : ((achievementBase_t.m_specialLockedSprite != null) ? achievementBase_t.m_specialLockedSprite : self._achievementDB.LockedAchSprite));
+                    self._extraPanel.SetAchievementInformation(achievementBase_t, sprite);
+                    self._achExtraPanel.TryOpenAchievementExtraMenu(achievementBase_t.m_extraInfoType);
+                }
+            }
+            else
+            {
+                orig(self, listID, id);
+            }
+        }
+
+        public static AchievementBase_t GetBlueSkyAchievementData(this UnlockedAchievementsUIHandler self, int id, AchievementModdedCategory modded)
+        {
+            int count = modded.achievementNames.Count;
+            if (id < 0)
+            {
+                return null;
+            }
+
+            if (id < count)
+            {
+                List<string> real = [..modded.achievementNames];
+
+                if (!LoadedDBsHandler.InfoHolder.Game.DidCompleteQuest("Defacer_Quest"))
+                {
+                    for (int i = real.Count - 1; i >= 0; i--)
+                    {
+                        if (!self._achievementDB.GetModdedAchievementInfo(real[i]).m_bAchieved && !self._achievementDB.GetModdedAchievementInfo(real[i]).m_offlinebAchieved)
+                        {
+                            real.RemoveAt(i);
+                        }
+                    }
+                }
+
+                if (id < real.Count)
+                {
+                    return self._achievementDB.GetModdedAchievementInfo(real[id]);
+                }
+            }
+
+            return null;
         }
     }
 }
