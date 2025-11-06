@@ -76,7 +76,7 @@ namespace SaltEnemies_Reseasoned
                     CombatManager.Instance.AddSubAction(new EnemyDeathAction(self.ID, killer, deathType));
                 }
 
-                return new DamageInfo(num4, flag);
+                return new DamageInfo(num4, modifiedValue, flag);
             }
             return orig(self, amount, killer, deathType, targetSlotOffset, addHealthMana, directDamage, ignoresShield, specialDamage);
         }

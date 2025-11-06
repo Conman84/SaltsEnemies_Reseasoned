@@ -512,7 +512,7 @@ namespace SaltEnemies_Reseasoned
                 CombatManager.Instance.AddSubAction(new CharacterDeathAction(self.ID, killer, deathTypeID));
             }
 
-            return new DamageInfo(num4, flag);
+            return new DamageInfo(num4, modifiedValue, flag);
         }
         public static DamageInfo NoKillDamageEN(this EnemyCombat self, int amount, IUnit killer, string deathTypeID, int targetSlotOffset = -1, bool addHealthMana = true, bool directDamage = true, bool ignoresShield = false, string specialDamage = "")
         {
@@ -565,7 +565,7 @@ namespace SaltEnemies_Reseasoned
                 CombatManager.Instance.AddSubAction(new EnemyDeathAction(self.ID, killer, deathTypeID));
             }
 
-            return new DamageInfo(num4, flag);
+            return new DamageInfo(num4, modifiedValue, flag);
         }
         public static DamageInfo NoKillDamage(this IUnit self, int amount, IUnit killer, string deathTypeID, int targetSlotOffset = -1, bool addHealthMana = true, bool directDamage = true, bool ignoresShield = false, string specialDamage = "")
         {
