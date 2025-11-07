@@ -63,7 +63,7 @@ namespace SaltsEnemies_Reseasoned
             random.mana = [Pigments.Blue, Pigments.Yellow, Pigments.Purple, Pigments.Grey];
 
             Ability meet = new Ability("Meet Me Again", "Skies_Meet_A");
-            meet.Description = "I will change the Opposing party member's health color to Red.\nI will then deal a Almost No damage to them twice and generate 2 Pigment of their health color, then I will move them Left or Right.";
+            meet.Description = "I will change the Opposing party member's health color to Red.\nI will then deal a Almost No damage to them twice and generate 2 Pigment of their health color, then I will move Left or Right.";
             meet.Rarity = Rarity.GetCustomRarity("rarity5");
             meet.Effects = new EffectInfo[4];
             meet.Effects[0] = Effects.GenerateEffect(turnRed, 1, Slots.Front);
