@@ -497,9 +497,11 @@ namespace SaltEnemies_Reseasoned
                     CombatManager.Instance.ProcessImmediateAction(new AddManaToManaBarAction(self.HealthColor, LoadedDBsHandler.CombatData.CharacterPigmentAmount, self.IsUnitCharacter, self.ID));
                 }
 
-                CombatManager.Instance.PostNotification(TriggerCalls.OnDamaged.ToString(), self, new IntegerReference(num4));
+                IntegerReference_Damage args = new IntegerReference_Damage(num4, specialDamage, directDamage, ignoresShield, num, num2, killer, self);
+
+                CombatManager.Instance.PostNotification(TriggerCalls.OnDamaged.ToString(), self, args);
                 string notificationName = (directDamage ? TriggerCalls.OnDirectDamaged.ToString() : TriggerCalls.OnIndirectDamaged.ToString());
-                CombatManager.Instance.PostNotification(notificationName, self, new IntegerReference(num4));
+                CombatManager.Instance.PostNotification(notificationName, self, args);
             }
             else if (!ex.ShouldIgnoreUI)
             {
@@ -550,9 +552,11 @@ namespace SaltEnemies_Reseasoned
                     CombatManager.Instance.ProcessImmediateAction(new AddManaToManaBarAction(self.HealthColor, LoadedDBsHandler.CombatData.EnemyPigmentAmount, self.IsUnitCharacter, self.ID));
                 }
 
-                CombatManager.Instance.PostNotification(TriggerCalls.OnDamaged.ToString(), self, new IntegerReference(num4));
+                IntegerReference_Damage args = new IntegerReference_Damage(num4, specialDamage, directDamage, ignoresShield, num, num2, killer, self);
+
+                CombatManager.Instance.PostNotification(TriggerCalls.OnDamaged.ToString(), self, args);
                 string notificationName = (directDamage ? TriggerCalls.OnDirectDamaged.ToString() : TriggerCalls.OnIndirectDamaged.ToString());
-                CombatManager.Instance.PostNotification(notificationName, self, new IntegerReference(num4));
+                CombatManager.Instance.PostNotification(notificationName, self, args);
             }
             else if (!ex.ShouldIgnoreUI)
             {

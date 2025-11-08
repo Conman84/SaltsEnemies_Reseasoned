@@ -59,11 +59,10 @@ namespace SaltEnemies_Reseasoned
                         CombatManager.Instance.ProcessImmediateAction(new AddManaToManaBarAction(self.HealthColor, LoadedDBsHandler.CombatData.EnemyPigmentAmount, self.IsUnitCharacter, self.ID));
                     }
 
-                    CombatManager.Instance.PostNotification(TriggerCalls.OnDamaged.ToString(), self, new IntegerReference(num4));
-                    if (directDamage)
-                    {
-                        CombatManager.Instance.PostNotification(TriggerCalls.OnDirectDamaged.ToString(), self, new IntegerReference(num4));
-                    }
+                    IntegerReference_Damage args = new IntegerReference_Damage(num4, specialDamage, directDamage, ignoresShield, num, num2, killer, self);
+
+                    CombatManager.Instance.PostNotification(TriggerCalls.OnDamaged.ToString(), self, args);
+                    CombatManager.Instance.PostNotification(directDamage ? TriggerCalls.OnDirectDamaged.ToString() : TriggerCalls.OnIndirectDamaged.ToString(), self, args);
                 }
                 else if (!ex.ShouldIgnoreUI)
                 {

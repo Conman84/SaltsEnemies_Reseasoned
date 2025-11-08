@@ -100,7 +100,7 @@ namespace SaltEnemies_Reseasoned
         {
         }
 
-        public static int GibsWithHeal(IUnit unit, int amount, IUnit source, bool directHeal, string healTypeID = "", ExtraHealReturnInfo extraInfo = null)
+        /*public static int GibsWithHeal(IUnit unit, int amount, IUnit source, bool directHeal, string healTypeID = "", ExtraHealReturnInfo extraInfo = null)
         {
             if (!unit.IsUnitCharacter)
             {
@@ -149,7 +149,7 @@ namespace SaltEnemies_Reseasoned
             {
                 return unit.Heal(amount, source, directHeal, healTypeID, extraInfo);
             }
-        }
+        }*/
 
     }
     public class SingeClawsEffect : EffectSO
