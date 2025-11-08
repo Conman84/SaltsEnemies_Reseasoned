@@ -116,7 +116,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Targeting.Slot_SelfSlot),
-                    Effects.GenerateEffect(BasicEffects.GetVisuals("InhumanRoar_A", false, Targeting.Slot_OpponentSides), 1, Targeting.Slot_SelfSlot),
+                    Effects.GenerateEffect(BasicEffects.GetVisuals("InhumanRoar_A", false, Slots.Front), 1, Targeting.Slot_SelfSlot),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetStoredValueChangeEffect>(), 2, Targeting.Slot_Front),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Targeting.Slot_Front)
                 },
