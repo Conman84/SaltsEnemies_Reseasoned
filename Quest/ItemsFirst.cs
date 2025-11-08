@@ -558,19 +558,19 @@ namespace SaltsEnemies_Reseasoned
             PercentageEffectorCondition p30 = ScriptableObject.CreateInstance<PercentageEffectorCondition>();
             p30.triggerPercentage = 30;
 
-            PerformEffect_Item fone = new PerformEffect_Item("AbandonedArtifact_TW", []);
+            PerformEffect_Item fone = new PerformEffect_Item("AbandonedArtifact_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterRemoveItemExtraAbilityEffect>())]);
             fone.Name = "Abandoned Artifact";
             fone.Flavour = "\"Give AbandonedArtifact_TW\"";
             fone.Description = "Adds the extra ability \"Reconfigure,\" an unpredictable transformation.\n30% chance to be destroyed on taking any damage.";
             fone.Icon = ResourceLoader.LoadSprite("Item_AbandonedArtifact.png");
             fone.EquippedModifiers = [add_recon];
-            fone.TriggerOn = TriggerCalls.Count;
-            fone.DoesPopUpInfo = false;
-            fone.Conditions = [];
+            fone.TriggerOn = TriggerCalls.OnDamaged;
+            fone.DoesPopUpInfo = true;
+            fone.Conditions = [p30];
             fone.DoesActionOnTriggerAttached = false;
-            fone.ConsumeOnTrigger = TriggerCalls.OnDamaged;
-            fone.ConsumeOnUse = false;
-            fone.ConsumeConditions = [p30];
+            fone.ConsumeOnTrigger = TriggerCalls.Count;
+            fone.ConsumeOnUse = true;
+            fone.ConsumeConditions = [];
             fone.ShopPrice = 4;
             fone.IsShopItem = false;
             fone.StartsLocked = true;
