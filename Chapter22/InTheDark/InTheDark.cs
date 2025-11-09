@@ -42,15 +42,18 @@ namespace SaltsEnemies_Reseasoned
 
             RemoveStatusEffectEffect rem_frail = ScriptableObject.CreateInstance<RemoveStatusEffectEffect>();
             rem_frail._status = StatusField.Frail;
+            TargetSetValueChangeEffect reset = ScriptableObject.CreateInstance<TargetSetValueChangeEffect>();
+            reset._valueName = "Absurdism_A";
 
             Ability absurd = new Ability("Absurdism", "Absurdism_A");
-            absurd.Description = "Deal an Agonizing amount of damage to all party members and remove all Frail from them.\nHeal all party members that survive.";
+            absurd.Description = "Deal an Agonizing amount of damage to all party members and remove all Frail from them.\nHeal all party members that survive for the amount of damage they took.";
             absurd.Rarity = Rarity.Common;
             absurd.Effects = [
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Targeting.Unit_AllOpponents),
+                Effects.GenerateEffect(DamageSetValueEffect.Create("Absurdism_A"), 10, Targeting.Unit_AllOpponents),
                 Effects.GenerateEffect(rem_frail, 1, Targeting.Unit_AllOpponents),
                 Effects.GenerateEffect(CasterRootActionEffect.Create([
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 10, Targeting.Unit_AllOpponents)
+                    Effects.GenerateEffect(HealTargetByValueEffect.Create("Absurdism_A"), 10, Targeting.Unit_AllOpponents),
+                    Effects.GenerateEffect(reset, 0, Targeting.Unit_AllOpponents)
                     ]), 1, Slots.Self)
                 ];
             absurd.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Damage_7_10", "Rem_Status_Frail", "Heal_5_10"]);

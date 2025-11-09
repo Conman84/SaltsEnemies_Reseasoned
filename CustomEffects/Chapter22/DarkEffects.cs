@@ -86,4 +86,54 @@ namespace SaltsEnemies_Reseasoned
             unit.SimpleSetStoredValue(Absurdism, 1);
         }
     }
+    public class DamageSetValueEffect : DamageEffect
+    {
+        public string Value;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (base.PerformEffect(stats, caster, [target], areTargetSlots, entryVariable, out int exi))
+                {
+                    if (target.HasUnit) target.Unit.SimpleSetStoredValue(Value, exi);
+                }
+                exitAmount += exi;
+            }
+            return exitAmount > 0;
+        }
+        public static DamageSetValueEffect Create(string val)
+        {
+            DamageSetValueEffect ret = ScriptableObject.CreateInstance<DamageSetValueEffect>();
+            ret.Value = val;
+            return ret;
+        }
+    }
+    public class HealTargetByValueEffect : HealEffect
+    {
+        public string Value;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit)
+                {
+                    int num = target.Unit.SimpleGetStoredValue(Value);
+                    if (num > 0)
+                    {
+                        if (base.PerformEffect(stats, caster, [target], areTargetSlots, num, out int exi)) exitAmount += exi;
+                    }
+                }
+            }
+            return exitAmount > 0;
+        }
+
+        public static HealTargetByValueEffect Create(string val)
+        {
+            HealTargetByValueEffect ret = ScriptableObject.CreateInstance<HealTargetByValueEffect>();
+            ret.Value = val;
+            return ret;
+        }
+    }
 }
