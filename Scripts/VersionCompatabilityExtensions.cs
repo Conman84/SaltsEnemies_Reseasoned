@@ -15,7 +15,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 typeof(DamageInfo).GetField("attemptedDamageAmount").SetValue(ret, entry);
 
-                Debug.Log("exists attempteddamageamount in damageinfo");
+                if (SaltsReseasoned.DebugVer) Debug.Log("exists attempteddamageamount in damageinfo");
             }
 
             return ret;
@@ -27,7 +27,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 object ret = typeof(IntegerReference).Assembly.GetType("IntegerReference_Damage").GetConstructor([typeof(int), typeof(string), typeof(bool), typeof(bool), typeof(int), typeof(int), typeof(IUnit), typeof(IUnit)]).Invoke([amount, damageTypeID, directDamage, ignoreShield, affectedStartSlot, affectedEndSlot, possibleSourceUnit, damagedUnit]);
 
-                Debug.Log("exists integerreference_damage");
+                if (SaltsReseasoned.DebugVer) Debug.Log("exists integerreference_damage");
 
                 return ret as IntegerReference;
             }
