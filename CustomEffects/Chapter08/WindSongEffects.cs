@@ -59,7 +59,7 @@ namespace SaltEnemies_Reseasoned
                         CombatManager.Instance.ProcessImmediateAction(new AddManaToManaBarAction(self.HealthColor, LoadedDBsHandler.CombatData.EnemyPigmentAmount, self.IsUnitCharacter, self.ID));
                     }
 
-                    IntegerReference_Damage args = new IntegerReference_Damage(num4, specialDamage, directDamage, ignoresShield, num, num2, killer, self);
+                    IntegerReference args = Help.GenerateDamageIntReference(num4, specialDamage, directDamage, ignoresShield, num, num2, killer, self);
 
                     CombatManager.Instance.PostNotification(TriggerCalls.OnDamaged.ToString(), self, args);
                     CombatManager.Instance.PostNotification(directDamage ? TriggerCalls.OnDirectDamaged.ToString() : TriggerCalls.OnIndirectDamaged.ToString(), self, args);
@@ -75,7 +75,7 @@ namespace SaltEnemies_Reseasoned
                     CombatManager.Instance.AddSubAction(new EnemyDeathAction(self.ID, killer, deathType));
                 }
 
-                return new DamageInfo(num4, modifiedValue, flag);
+                return Help.GenerateDamageInfo(num4, modifiedValue, flag);
             }
             return orig(self, amount, killer, deathType, targetSlotOffset, addHealthMana, directDamage, ignoresShield, specialDamage);
         }

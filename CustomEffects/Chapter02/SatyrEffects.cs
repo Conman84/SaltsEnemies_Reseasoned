@@ -497,7 +497,7 @@ namespace SaltEnemies_Reseasoned
                     CombatManager.Instance.ProcessImmediateAction(new AddManaToManaBarAction(self.HealthColor, LoadedDBsHandler.CombatData.CharacterPigmentAmount, self.IsUnitCharacter, self.ID));
                 }
 
-                IntegerReference_Damage args = new IntegerReference_Damage(num4, specialDamage, directDamage, ignoresShield, num, num2, killer, self);
+                IntegerReference args = Help.GenerateDamageIntReference(num4, specialDamage, directDamage, ignoresShield, num, num2, killer, self);
 
                 CombatManager.Instance.PostNotification(TriggerCalls.OnDamaged.ToString(), self, args);
                 string notificationName = (directDamage ? TriggerCalls.OnDirectDamaged.ToString() : TriggerCalls.OnIndirectDamaged.ToString());
@@ -514,7 +514,7 @@ namespace SaltEnemies_Reseasoned
                 CombatManager.Instance.AddSubAction(new CharacterDeathAction(self.ID, killer, deathTypeID));
             }
 
-            return new DamageInfo(num4, modifiedValue, flag);
+            return Help.GenerateDamageInfo(num4, modifiedValue, flag);
         }
         public static DamageInfo NoKillDamageEN(this EnemyCombat self, int amount, IUnit killer, string deathTypeID, int targetSlotOffset = -1, bool addHealthMana = true, bool directDamage = true, bool ignoresShield = false, string specialDamage = "")
         {
@@ -552,7 +552,7 @@ namespace SaltEnemies_Reseasoned
                     CombatManager.Instance.ProcessImmediateAction(new AddManaToManaBarAction(self.HealthColor, LoadedDBsHandler.CombatData.EnemyPigmentAmount, self.IsUnitCharacter, self.ID));
                 }
 
-                IntegerReference_Damage args = new IntegerReference_Damage(num4, specialDamage, directDamage, ignoresShield, num, num2, killer, self);
+                IntegerReference args = Help.GenerateDamageIntReference(num4, specialDamage, directDamage, ignoresShield, num, num2, killer, self);
 
                 CombatManager.Instance.PostNotification(TriggerCalls.OnDamaged.ToString(), self, args);
                 string notificationName = (directDamage ? TriggerCalls.OnDirectDamaged.ToString() : TriggerCalls.OnIndirectDamaged.ToString());
@@ -569,7 +569,7 @@ namespace SaltEnemies_Reseasoned
                 CombatManager.Instance.AddSubAction(new EnemyDeathAction(self.ID, killer, deathTypeID));
             }
 
-            return new DamageInfo(num4, modifiedValue, flag);
+            return Help.GenerateDamageInfo(num4, modifiedValue, flag);
         }
         public static DamageInfo NoKillDamage(this IUnit self, int amount, IUnit killer, string deathTypeID, int targetSlotOffset = -1, bool addHealthMana = true, bool directDamage = true, bool ignoresShield = false, string specialDamage = "")
         {
