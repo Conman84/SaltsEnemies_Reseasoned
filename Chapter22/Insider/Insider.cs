@@ -73,7 +73,8 @@ namespace SaltsEnemies_Reseasoned
                 "Chicken Randomizer",
                 "What You Door",
                 "Slenderman And Jeff Creepy",
-                "Papereater"
+                "Papereater",
+                "Jilariou",
                 ];
             CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             third.PossibleNames = [
