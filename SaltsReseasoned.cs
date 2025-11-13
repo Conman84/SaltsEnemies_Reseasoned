@@ -21,7 +21,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 namespace SaltsEnemies_Reseasoned
 {
 
-    [BepInPlugin("000.saltenemies", "Salt Enemies (TM) Reseasoned", "1.1.3.1")]//next is 1.1.4
+    [BepInPlugin("000.saltenemies", "Salt Enemies (TM) Reseasoned", "1.1.3.2")]//next is 1.1.4
     [BepInDependency("BrutalOrchestra.BrutalAPI", BepInDependency.DependencyFlags.HardDependency)]
     public class SaltsReseasoned : BaseUnityPlugin
     {
