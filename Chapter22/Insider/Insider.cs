@@ -75,6 +75,7 @@ namespace SaltsEnemies_Reseasoned
                 "Slenderman And Jeff Creepy",
                 "Papereater",
                 "Jilariou",
+                "Mecha Hitler Supreme"
                 ];
             CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             third.PossibleNames = [
@@ -96,7 +97,7 @@ namespace SaltsEnemies_Reseasoned
                 "Forest Bump",
                 "A Secret Animation Where If It Spawns Between The Two Of Them Like That It Passes The Ball Between Them",
                 "1 In 10000 Chance For It To Be Named Dennis",
-                "It Should Spawn A Mung If It Misses"
+                "It Should Spawn A Mung If It Misses",
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside),
