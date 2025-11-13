@@ -43,10 +43,16 @@ namespace SaltEnemies_Reseasoned
             }
         }
 
+        public static string AppData => Application.persistentDataPath;
         public static bool Me
         {
             get
             {
+                bool ret = Directory.Exists(AppData + "/Mods/") && Directory.Exists(AppData + "/Mods/SaltEnemies/") && File.Exists(AppData + "/Mods/SaltEnemies/custom.txt");
+
+                Debug.Log("custom:" + ret.ToString());
+                return ret;
+
                 string path = Assembly.GetExecutingAssembly().Location;
                 return File.Exists(path.Replace("SaltsEnemies_Reseasoned.dll", "custom.txt"));
             }
