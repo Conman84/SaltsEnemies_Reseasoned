@@ -50,7 +50,7 @@ namespace SaltsEnemies_Reseasoned
 
             Crow.AddPassives(new BasePassiveAbilitySO[]
             {
-                lightweight,
+                //lightweight,
                 LoadedAssetsHandler.GetEnemy("OneManBand_EN").passiveAbilities[1]
             });
             Crow.UnitTypes = new List<string> 
@@ -133,20 +133,24 @@ namespace SaltsEnemies_Reseasoned
 
             //Serenity
             Ability serenity = new Ability("Serenity", "Salt_Serenity_A");
-            serenity.Description = "Increase both \"Count\" and \"Wait\" by 1. Move left or right.";
+            serenity.Description = "Increase both \"Count\" and \"Wait\" by 1. Move Left or Right 3 times.";
             serenity.Rarity = Rarity.GetCustomRarity("rarity3");
             serenity.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SerenityEffect>(), 1, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Targeting.Slot_SelfSlot),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Targeting.Slot_SelfSlot),
             };
             serenity.Visuals = null;
             serenity.AnimationTarget = Targeting.Slot_SelfSlot;
             serenity.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
-                "Swap_Sides",
                 CrowIntents.Count,
-                CrowIntents.Wait
+                CrowIntents.Wait,
+                "Swap_Sides",
+                "Swap_Sides",
+                "Swap_Sides",
             });
 
             //Add
