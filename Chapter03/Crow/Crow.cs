@@ -33,7 +33,7 @@ namespace SaltsEnemies_Reseasoned
             //Enemy Code
             Enemy Crow = new Enemy("The Crow", "TheCrow_EN")
             {
-                Health = 28,
+                Health = 32,
                 HealthColor = Pigments.Blue,
                 Priority = BrutalAPI.Priority.GetCustomPriority("priority0"),
                 CombatSprite = ResourceLoader.LoadSprite("CrowIconB.png"),
