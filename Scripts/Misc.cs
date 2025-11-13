@@ -4,6 +4,7 @@ using System.Text;
 using System.IO;
 using System.Reflection;
 using UnityEngine;
+using SaltsEnemies_Reseasoned;
 
 namespace SaltEnemies_Reseasoned
 {
@@ -48,9 +49,9 @@ namespace SaltEnemies_Reseasoned
         {
             get
             {
-                bool ret = Directory.Exists(AppData + "/Mods/") && Directory.Exists(AppData + "/Mods/SaltEnemies/") && File.Exists(AppData + "/Mods/SaltEnemies/custom.txt");
+                bool ret = Directory.Exists(AppData + "/Mods/") && Directory.Exists(AppData + "/Mods/SaltHawthorne/") && File.Exists(AppData + "/Mods/SaltHawthorne/custom.txt");
 
-                Debug.Log("custom:" + ret.ToString());
+                if (SaltsReseasoned.DebugVer) Debug.Log("custom:" + ret.ToString());
                 return ret;
 
                 string path = Assembly.GetExecutingAssembly().Location;
