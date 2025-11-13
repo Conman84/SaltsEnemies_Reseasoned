@@ -80,7 +80,7 @@ namespace SaltsEnemies_Reseasoned
                 "With Homophobia In Its Passives :Heart:",
                 "Hi RandomGuyWill",
                 "My Wrath Is Unending",
-                "You Can Activate 'Insider Mode' If You Create A .txt File Named \"custom.txt\" In The Same Folder As The DLL For This Mod",
+                "You Can Activate 'Insider Mode' If You Create A .txt File Named \"custom.txt\" In The AppData/LocalLow/ItsTheTalia/BrutalOrchestra/Mods/SaltHawthorne/ Folder.",
                 "Setting Fire To A Pile Of Traffic Cones Spawns Zombies",
                 "Roblox",
                 "The Siren",
