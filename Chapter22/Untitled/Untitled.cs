@@ -64,6 +64,14 @@ namespace SaltsEnemies_Reseasoned
             gestures.AnimationTarget = Slots.Self;
             gestures.Visuals = Visuals.Mould;
 
+            Ability custom = new Ability("NOT SUPPOSED TO BE HERE.", "NotSupposedToBeHere_A");
+            custom.Description = "Testing things";
+            custom.Rarity = Rarity.Impossible;
+            custom.Effects = [];
+            custom.AddIntentsToTarget(Slots.Self, ["Misc_Hidden"]);
+            custom.AnimationTarget = Slots.Self;
+            custom.Visuals = null;
+
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
@@ -71,6 +79,9 @@ namespace SaltsEnemies_Reseasoned
                 self.GenerateEnemyAbility(),
                 gestures.GenerateEnemyAbility(),
             });
+
+            if (April.Me) template.AddEnemyAbilities([custom.GenerateEnemyAbility()]);
+
             template.AddEnemy();
         }
     }
