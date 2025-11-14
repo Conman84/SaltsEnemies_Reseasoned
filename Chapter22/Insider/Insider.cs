@@ -75,7 +75,8 @@ namespace SaltsEnemies_Reseasoned
                 "Slenderman And Jeff Creepy",
                 "Papereater",
                 "Jilariou",
-                "Mecha Hitler Supreme"
+                "Mecha Hitler Supreme",
+                "Mouthnails2"
                 ];
             CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             third.PossibleNames = [
