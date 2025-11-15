@@ -50,7 +50,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability second = new Ability("Corpse", "Corpse2_A");
             second.Description = "Do nothing.\n\"It's literally a corpse what do you expect?\"";
-            second.Rarity = first.Rarity;
+            second.Rarity = Rarity.CreateAndAddCustomRarityToPool("corpseLow", 2);
             second.Effects = [];
             second.Visuals = null;
             second.Priority = Priority.Slow;
