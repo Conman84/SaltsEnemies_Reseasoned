@@ -26,6 +26,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("SmilerCorpseIcon.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Blackwater/Noise/CorpseHit",
                 DeathSound = "event:/Blackwater/Noise/CorpseDie",
+                Priority = Priority.Fast
             };
             template.PrepareMultiEnemyPrefab("Assets/Bosses/Smiler/SmilerCorpse_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/Smiler/Smiler_Alive_Gibs.prefab").GetComponent<ParticleSystem>());
             (template.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
@@ -46,14 +47,12 @@ namespace SaltsEnemies_Reseasoned
             first.AddIntentsToTarget(Slots.Front, ["Status_Ruptured"]);
             first.Visuals = LoadedAssetsHandler.GetCharacterAbility("OfDeath_1_A").visuals;
             first.AnimationTarget = Slots.Front;
-            first.Priority = Priority.Slow;
 
             Ability second = new Ability("Corpse", "Corpse2_A");
             second.Description = "Do nothing.\n\"It's literally a corpse what do you expect?\"";
             second.Rarity = Rarity.CreateAndAddCustomRarityToPool("corpseLow", 2);
             second.Effects = [];
             second.Visuals = null;
-            second.Priority = Priority.Slow;
 
             Ability third = new Ability("Shear", "Corpse3_A");
             third.Description = "Inflict 1 Ruptured on all party members not Opposing this enemy.";
@@ -62,7 +61,6 @@ namespace SaltsEnemies_Reseasoned
             third.AddIntentsToTarget(third.ability.animationTarget, ["Status_Ruptured"]);
             third.Visuals = first.ability.visuals;
             third.Rarity = first.Rarity;
-            third.Priority = Priority.Slow;
 
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
