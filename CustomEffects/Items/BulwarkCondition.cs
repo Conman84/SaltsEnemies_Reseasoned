@@ -28,7 +28,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public int MaxInclusive;
         public IUnit Caster;
-        public BulwarkModifier(int maxInclusive, IUnit itemHolder = null) : base(80)
+        public BulwarkModifier(int maxInclusive, IUnit itemHolder = null) : base(55)
         {
             MaxInclusive = maxInclusive;
             Caster = itemHolder;
