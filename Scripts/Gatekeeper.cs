@@ -206,7 +206,13 @@ namespace SaltsEnemies_Reseasoned
         public static string[] DefaultColors = [Jumble.Red, Jumble.Yellow, Jumble.Blue, Jumble.Purple, Spoggle.Red, Spoggle.Yellow, Spoggle.Blue, Spoggle.Purple];
         public static bool IsDefaultColorInSiren(string enemy, EnemyEncounterSelectorSO self)
         {
-            if (!DefaultColors.Contains(enemy)) return false;
+            if (!DefaultColors.Contains(enemy))
+            {
+                if (enemy.ToLower().Contains("spoggle") || enemy.ToLower().Contains("jumble"))
+                {
+                    if (UnityEngine.Random.Range(0, 100) < 35) return false;
+                }
+            }
 
             if (!Siren.Exists) return false;
 
