@@ -212,6 +212,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     if (UnityEngine.Random.Range(0, 100) < 35) return false;
                 }
+                else return false;
             }
 
             if (!Siren.Exists) return false;
