@@ -172,7 +172,7 @@ namespace SaltEnemies_Reseasoned
                     {
                         CharacterSO c = getRandom();
                         for (int i = 0; i < 144 && (!c.HasRankedData || c.rankedData.Count < chara.Rank); i++) c = getRandom();
-                        if (chara.Rank <= 1)
+                        if (chara.Rank <= 0)
                         {
                             if (chara.DirectDeath(caster)) exitAmount++;
                         }
