@@ -88,6 +88,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(Gatekeeper.Setup);
             PCall(KillCommand.Add);
             PCall(BlueSkyUnlockExtensions.Setup);
+            PCall(ActuallyBlocksConstrictingHandler.Setup);
             #endregion
 
             //Add To Glossary
