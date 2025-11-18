@@ -608,7 +608,7 @@ namespace SaltsEnemies_Reseasoned
             MultiPerformEffectItem lullaby = new MultiPerformEffectItem("Salt_ImperfectLullaby_TW", [Effects.GenerateEffect(confuse, 1, Slots.Self)]);
             lullaby.Name = "Imperfect Lullaby";
             lullaby.Flavour = "\"Close your eyes. When you wake up, it will all be over.\"";
-            lullaby.Description = "This party member is immune to all damage equal to or below 2.\nGain \"Confusion\" as a passive on taking any damage.";
+            lullaby.Description = "This party member is immune to all damage equal to or below 4.\nGain \"Confusion\" as a passive on taking any damage.";
             lullaby.Icon = ResourceLoader.LoadSprite("Item_ImperfectLullaby.png");
             lullaby.EquippedModifiers = [];
             lullaby.TriggerOn = TriggerCalls.OnDamaged;
@@ -624,7 +624,7 @@ namespace SaltsEnemies_Reseasoned
             lullaby.OnUnlockUsesTHE = true;
             lullaby.UsesSpecialUnlockText = false;
             lullaby.SpecialUnlockID = UILocID.None;
-            EffectTrigger lullaby_second = new EffectTrigger([], [TriggerCalls.OnBeingDamaged], [BulwarkCondition.Create(2)], false);
+            EffectTrigger lullaby_second = new EffectTrigger([], [TriggerCalls.OnBeingDamaged], [BulwarkCondition.Create(4)], false);
             lullaby.AddEffectTrigger(lullaby_second);
             lullaby.item._ItemTypeIDs = ["Magic"];
             lullaby.item.AddItem("Locked_ImperfectLullaby.png", AchievementIDs.Chapter19, Test);
