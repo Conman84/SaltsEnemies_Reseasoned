@@ -109,7 +109,7 @@ namespace SaltsEnemies_Reseasoned
                     ZoneDataBaseSO zoneDataBaseSO = runZoneData.LoadZoneDB();
                     if (zoneDataBaseSO is ZoneBGDataBaseSO zone)
                     {
-                        if (zone._zoneData == null) zone._zoneData = runZoneData;
+                        zone._zoneData = runZoneData;
                         zone.GenerateSpecificEnemyCard("easy", text6);
                     }
                     else
@@ -139,7 +139,7 @@ namespace SaltsEnemies_Reseasoned
                     ZoneDataBaseSO zoneDataBaseSO = runZoneData.LoadZoneDB();
                     if (zoneDataBaseSO is ZoneBGDataBaseSO zone)
                     {
-                        if (zone._zoneData == null) zone._zoneData = runZoneData;
+                        zone._zoneData = runZoneData;
                         zone.GenerateSpecificEnemyCard("medium", text6);
                     }
                     else
@@ -169,7 +169,7 @@ namespace SaltsEnemies_Reseasoned
                     ZoneDataBaseSO zoneDataBaseSO = runZoneData.LoadZoneDB();
                     if (zoneDataBaseSO is ZoneBGDataBaseSO zone)
                     {
-                        if (zone._zoneData == null) zone._zoneData = runZoneData;
+                        zone._zoneData = runZoneData;
                         zone.GenerateSpecificEnemyCard("hard", text6);
                     }
                     else
@@ -189,7 +189,7 @@ namespace SaltsEnemies_Reseasoned
                             holder.m_MainData = 0;
                     }
                 }));
-                DebugController.Instance.WriteLine("Killing all enemies.");
+                DebugController.Instance.WriteLine("resetfleeting all enemies.");
             });
 
             DebugController.Commands.children.Add(KILL);
@@ -303,6 +303,7 @@ namespace SaltsEnemies_Reseasoned
                 }
             }
             self._zoneData.ZonePiles[pileID]._cards = temp.ToArray();
+            DebugController.Instance.WriteLine("Added enemy encounter " + bundleName);
         }
         /*public static EnemyCombatBundle GetZoneEnemyBundle(this ZoneBGDataBaseSO self, string difficulty, string bundleName)
         {
