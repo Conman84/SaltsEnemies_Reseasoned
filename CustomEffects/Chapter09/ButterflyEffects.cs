@@ -1020,6 +1020,8 @@ namespace SaltEnemies_Reseasoned
             MainMenuing = true;
             orig(self);
         }
+        
+        //this seemed to fuck up when transforming Rotcore -> Lawrence. however, i couldn't seem to recreate this? mysterious.
         public static void TransformCharacter(Action<CharacterInFieldLayout, Sprite, Sprite, RuntimeAnimatorController> orig, CharacterInFieldLayout self, Sprite frontSprite, Sprite backSprite, RuntimeAnimatorController character)
         {
             if (self._animator.runtimeAnimatorController != null && self._animator.runtimeAnimatorController == self._baseAnimatorTemplate && (character == null || character == self._baseAnimatorTemplate))
