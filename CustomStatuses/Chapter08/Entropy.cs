@@ -22,7 +22,7 @@ namespace SaltEnemies_Reseasoned
             StatusEffectInfoSO EntropyInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             EntropyInfo.icon = ResourceLoader.LoadSprite("EntropyIcon.png");
             EntropyInfo._statusName = "Entropy";
-            EntropyInfo._description = "Every 30 seconds, this unit receives 1 indirect damage; ignores Scars. \nUpon activation, reduce the time required by 3-9 seconds and decrease Entropy by 1. Cannot reduce below 1 second.";
+            EntropyInfo._description = "Every 30 seconds, this unit receives 1 indirect damage; ignores Scars. \nUpon activation, speed up by 3-9 seconds and decrease Entropy by 1.";
             EntropyInfo._applied_SE_Event = "event:/Hawthorne/Misc/EntropyApply";
             EntropyInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Gutted_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             EntropyInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Gutted_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
@@ -53,7 +53,7 @@ namespace SaltEnemies_Reseasoned
             gradient.bottomLeft = color;
             gradient.bottomRight = color;
             gradient.topLeft = color;
-            gradient.topRight = Color.grey;
+            gradient.topRight = new Color32(200, 200, 200, 255);
 
             if (LoadedDBsHandler.CombatDB.m_TxtColorPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_TxtColorPool[DamageType] = gradient;
             else LoadedDBsHandler.CombatDB.AddNewTextColor(DamageType, gradient);
