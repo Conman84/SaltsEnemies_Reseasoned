@@ -53,7 +53,7 @@ namespace SaltEnemies_Reseasoned
             gradient.bottomLeft = color;
             gradient.bottomRight = color;
             gradient.topLeft = color;
-            gradient.topRight = new Color32(200, 200, 200, 255);
+            gradient.topRight = new Color32(225, 225, 225, 255);
 
             if (LoadedDBsHandler.CombatDB.m_TxtColorPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_TxtColorPool[DamageType] = gradient;
             else LoadedDBsHandler.CombatDB.AddNewTextColor(DamageType, gradient);
