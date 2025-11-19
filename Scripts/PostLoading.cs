@@ -233,6 +233,9 @@ namespace SaltEnemies_Reseasoned
 
             //mythos & asdfagi misc
             PCall(Crossover_Mythos_Asdfagi.Add);
+
+            //asdfagi
+            PCall(MaceratorCrossovers.Add);
         }
     }
 }
