@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
             Portals.AddPortalSign("Salt_JabberEncounter_Sign", ResourceLoader.LoadSprite("JabberWorld.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Shore.H.Jabber.Med, "Salt_JabberEncounter_Sign");
-            med.MusicEvent = "event:/Hawthorne/JabberwockyPlaceholder";
+            med.MusicEvent = "event:/Hawthorne/JabberwockyTheme";
             med.RoarEvent = "event:/Hawthorne/Soisenay/IndicatorDie";
 
             med.SimpleAddEncounter(2, "Jabberwocky_EN", 1, "LostSheep_EN");
