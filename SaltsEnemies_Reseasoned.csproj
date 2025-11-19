@@ -7,6 +7,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="USE_THESE_FOR_MAKING_BLUESKY_UNLOCKS\SimpleBlueSkyUnlocks.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="assets\dreams" />
 	  <None Remove="assets\group4" />
 	  <None Remove="assets\hawthorne" />
@@ -2082,6 +2086,10 @@
 	  <Folder Include="Crossovers\Dude...IDK\" />
 	  <Folder Include="CustomEffects\Chapter06\" />
 	  <Folder Include="CustomEffects\Chapter12\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="USE_THESE_FOR_MAKING_BLUESKY_UNLOCKS\SimpleBlueSkyUnlocks.cs" />
 	</ItemGroup>
 
 
