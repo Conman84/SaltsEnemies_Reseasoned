@@ -1,9 +1,11 @@
 ﻿using BrutalAPI;
 using DG.Tweening;
+using MonoMod.RuntimeDetour;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using TMPro;
 using UnityEngine;
 
 namespace SaltEnemies_Reseasoned
@@ -20,7 +22,7 @@ namespace SaltEnemies_Reseasoned
             StatusEffectInfoSO EntropyInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             EntropyInfo.icon = ResourceLoader.LoadSprite("EntropyIcon.png");
             EntropyInfo._statusName = "Entropy";
-            EntropyInfo._description = "Every 30 seconds, this unit receives 1 indirect damage. \nUpon activation, reduce the time required by 3-9 seconds and decrease Entropy by 1. Cannot reduce below 1 second.";
+            EntropyInfo._description = "Every 30 seconds, this unit receives 1 indirect damage; ignores Scars. \nUpon activation, reduce the time required by 3-9 seconds and decrease Entropy by 1. Cannot reduce below 1 second.";
             EntropyInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Gutted_ID.ToString()]._EffectInfo.AppliedSoundEvent;
             EntropyInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Gutted_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             EntropyInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Gutted_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
@@ -37,6 +39,37 @@ namespace SaltEnemies_Reseasoned
             intentinfo._sprite = ResourceLoader.LoadSprite("EntropyIcon.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
+
+            AddDamageType();
+
+            Setup();
+        }
+
+        public static string DamageType => "Dmg_Entropy";
+        public static void AddDamageType()
+        {
+            TMP_ColorGradient gradient = ScriptableObject.CreateInstance<TMP_ColorGradient>();
+            UnityEngine.Color32 color = Color.white;
+            gradient.bottomLeft = color;
+            gradient.bottomRight = color;
+            gradient.topLeft = color;
+            gradient.topRight = Color.grey;
+
+            if (LoadedDBsHandler.CombatDB.m_TxtColorPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_TxtColorPool[DamageType] = gradient;
+            else LoadedDBsHandler.CombatDB.AddNewTextColor(DamageType, gradient);
+
+            if (LoadedDBsHandler.CombatDB.m_SoundPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_SoundPool[DamageType] = "event:/Hawthorne/Misc/EntropyDmg";
+            else LoadedDBsHandler.CombatDB.AddNewSound(DamageType, "event:/Hawthorne/Misc/EntropyDmg");
+        }
+
+        public static void Setup()
+        {
+            IDetour hook = new Hook(typeof(ScarsSE_SO).GetMethod(nameof(ScarsSE_SO.OnEventCall_01), ~System.Reflection.BindingFlags.Default), typeof(Entropy).GetMethod(nameof(ScarsSE_SO_OnEventCall_01), ~System.Reflection.BindingFlags.Default));
+        }
+        public static void ScarsSE_SO_OnEventCall_01(Action<ScarsSE_SO, StatusEffect_Holder, object, object> orig, ScarsSE_SO self, StatusEffect_Holder holder, object sender, object args)
+        {
+            if (args is DamageReceivedValueChangeException value && value.damageTypeID == Entropy.DamageType) return;
+            orig(self, holder, sender, args);
         }
     }
     public class EntropySE_SO : StatusEffect_SO
@@ -57,7 +90,7 @@ namespace SaltEnemies_Reseasoned
         {
             if ((sender as IUnit).IsAlive && (sender as IUnit).CurrentHealth > 0)
             {
-                (sender as IUnit).Damage(1, null, DeathType_GameIDs.None.ToString(), -1, false, false, true);
+                (sender as IUnit).Damage(1, null, DeathType_GameIDs.None.ToString(), -1, false, false, true, Entropy.DamageType);
                 int reduction = UnityEngine.Random.Range(3, 10);
                 int timing = (sender as IUnit).SimpleGetStoredValue(Entropy.Limit) - reduction;
                 int time = Math.Max(timing, 1);
