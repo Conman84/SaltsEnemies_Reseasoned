@@ -18,7 +18,7 @@ namespace SaltsEnemies_Reseasoned
             Portals.AddPortalSign("Salt_GreyFlowerEncounter_Sign", ResourceLoader.LoadSprite("GreyFlowerWorld.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Garden.H.Flower.Grey.Med, "Salt_GreyFlowerEncounter_Sign");
-            med.MusicEvent = "event:/Hawthorne/FlowerSong";
+            med.MusicEvent = "event:/Hawthorne/GreyFlowerTheme";
             med.RoarEvent = LoadedAssetsHandler.GetEnemyBundle("Zone02_JumbleGuts_Hollowing_Medium_EnemyBundle")._roarReference.roarEvent;
 
             med.AddRandomEncounter(Flower.Grey, "InHerImage_EN", "InHerImage_EN", "InHerImage_EN");
@@ -34,7 +34,7 @@ namespace SaltsEnemies_Reseasoned
         public static void Add_Hard()
         {
             EnemyEncounter_API hard = new EnemyEncounter_API(EncounterType.Random, Garden.H.Flower.Grey.Hard, "Salt_GreyFlowerEncounter_Sign");
-            hard.MusicEvent = "event:/Hawthorne/FlowerSong";
+            hard.MusicEvent = "event:/Hawthorne/GreyFlowerTheme";
             hard.RoarEvent = LoadedAssetsHandler.GetEnemyBundle("Zone02_JumbleGuts_Hollowing_Medium_EnemyBundle")._roarReference.roarEvent;
 
             hard.AddRandomEncounter(Flower.Grey, Flower.Red, Flower.Blue, Flower.Yellow);

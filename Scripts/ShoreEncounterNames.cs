@@ -361,6 +361,10 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "H_Zone01_Asterism_Medium_EnemyBundle";
             }
+            public static class Macerator
+            {
+                public static string Easy => "H_Zone01_Macerator_Easy_EnemyBundle";
+            }
             //we will be waiting until the sand sifter has medium pool encounters.
         }
     }
