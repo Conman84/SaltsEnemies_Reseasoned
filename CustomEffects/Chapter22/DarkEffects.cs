@@ -77,12 +77,12 @@ namespace SaltsEnemies_Reseasoned
 
         public bool ShouldBeIgnored(CombatAbility ability, IUnit unit)
         {
-            string name = ability.ability._abilityName;
+            string name = ability.ability.name;
             return unit.SimpleGetStoredValue(Absurdism) <= 0 && name == this.Absurdism;
         }
         public void SetValue(CombatAbility ability, IUnit unit)
         {
-            if (ability.ability._abilityName != Knight) return;
+            if (ability.ability.name != Knight) return;
             unit.SimpleSetStoredValue(Absurdism, 1);
         }
     }
