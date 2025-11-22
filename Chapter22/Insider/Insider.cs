@@ -76,7 +76,8 @@ namespace SaltsEnemies_Reseasoned
                 "Papereater",
                 "Jilariou",
                 "Mecha Hitler Supreme",
-                "Mouthnails2"
+                "Mouthnails2",
+                "@headoegh"
                 ];
             CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             third.PossibleNames = [
