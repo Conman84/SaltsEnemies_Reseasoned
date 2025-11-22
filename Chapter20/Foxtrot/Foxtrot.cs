@@ -70,22 +70,31 @@ namespace SaltsEnemies_Reseasoned
             pokey.Visuals = CustomVisuals.GetVisuals("Salt/Needle");
             pokey.AnimationTarget = Slots.Front;
 
+            SetMusicParameterByStringEffect foxtrotter = SetMusicParameterByStringEffect.Create("root");
+            CasterSetStoredValueEffect foxtrotsong = ScriptableObject.CreateInstance<CasterSetStoredValueEffect>();
+            foxtrotsong._valueName = "TakeRoot_A";
+            StoredValueEffectCondition isrooted = StoredValueEffectCondition.Create("TakeRoot_A");
+
             //root
             //can only be used when has "marching" passive
             Ability root = new Ability("Take Root", "TakeRoot_A");
             root.Description = "Remove \"Marching\" as a passive from this enemy.\nApply 6 Power to this enemy.";
             root.Rarity = Rarity.CreateAndAddCustomRarityToPool("fox_low", 5);
-            root.Effects = new EffectInfo[3];
+            root.Effects = new EffectInfo[5];
             root.Priority = Priority.Slow;
             RemovePassiveEffect anti = ScriptableObject.CreateInstance<RemovePassiveEffect>();
             anti.m_PassiveID = MarchingHandler.Passive;
             root.Effects[0] = Effects.GenerateEffect(anti, 1, Slots.Self);
             root.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<MarchingRemovedEffect>(), 1, Slots.Self);
             root.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 6, Slots.Self);
+            root.Effects[3] = Effects.GenerateEffect(foxtrotsong, 1, Slots.Self);
+            root.Effects[4] = Effects.GenerateEffect(foxtrotter, 1, Slots.Self);
             Intents.CreateAndAddCustom_Basic_IntentToPool("Marching_PA", ResourceLoader.LoadSprite("MarchingPassive.png"), Color.white);
             root.AddIntentsToTarget(Slots.Self, ["Marching_PA", Power.Intent]);
             root.Visuals = LoadedAssetsHandler.GetCharacterAbility("Thorns_1_A").visuals;
             root.AnimationTarget = Slots.Self;
+
+            foxtrot.CombatExitEffects = [Effects.GenerateEffect(foxtrotter, -1, Slots.Self, isrooted)];
 
             //explode
             //can only be used when does not have "marching" passive

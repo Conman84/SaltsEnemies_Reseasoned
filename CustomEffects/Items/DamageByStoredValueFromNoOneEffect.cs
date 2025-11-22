@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BrutalAPI;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -42,6 +43,21 @@ namespace SaltsEnemies_Reseasoned
         public static StoredValueCondition Create(string value)
         {
             StoredValueCondition ret = ScriptableObject.CreateInstance<StoredValueCondition>();
+            ret.Value = value;
+            return ret;
+        }
+    }
+    public class StoredValueEffectCondition : EffectConditionSO
+    {
+        public string Value;
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            return caster.SimpleGetStoredValue(Value) > 0;
+        }
+
+        public static StoredValueEffectCondition Create(string value)
+        {
+            StoredValueEffectCondition ret = ScriptableObject.CreateInstance<StoredValueEffectCondition>();
             ret.Value = value;
             return ret;
         }
