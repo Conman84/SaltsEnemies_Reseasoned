@@ -18,7 +18,7 @@ namespace SaltsEnemies_Reseasoned
             Portals.AddPortalSign("Salt_DarkEncounter_Sign", ResourceLoader.LoadSprite("DarkWorld.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Garden.H.Dark.Med, "Salt_DarkEncounter_Sign");
-            med.MusicEvent = "event:/Hawthorne/InTheDarkPlaceholder";
+            med.MusicEvent = "event:/Hawthorne/InTheDarkTheme";
             med.RoarEvent = LoadedAssetsHandler.GetEnemy("InTheDark_EN").deathSound;
 
             med.SimpleAddEncounter(2, "InTheDark_EN");
@@ -56,7 +56,7 @@ namespace SaltsEnemies_Reseasoned
         public static void Add_Hard()
         {
             EnemyEncounter_API hard = new EnemyEncounter_API(EncounterType.Random, Garden.H.Dark.Hard, "Salt_DarkEncounter_Sign");
-            hard.MusicEvent = "event:/Hawthorne/InTheDarkPlaceholder";
+            hard.MusicEvent = "event:/Hawthorne/InTheDarkTheme";
             hard.RoarEvent = LoadedAssetsHandler.GetEnemy("InTheDark_EN").deathSound;
 
             hard.SimpleAddEncounter(3, "InTheDark_EN");
