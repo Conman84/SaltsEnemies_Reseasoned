@@ -1086,8 +1086,8 @@ namespace SaltEnemies_Reseasoned
             PreviousEffectCondition didThat = ScriptableObject.CreateInstance<PreviousEffectCondition>();
             didThat.wasSuccessful = true;
             EffectInfo effort1 = Effects.GenerateEffect(ScriptableObject.CreateInstance<StealAbilityEffect>(), 1, Targeting.Slot_Front);
-            EffectInfo effort2 = Effects.GenerateEffect(ScriptableObject.CreateInstance<PlayHealthColorSoundEffect>(), 1, Targeting.Slot_Front);
-            CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { effort1 }, caster));
+            EffectInfo effort2 = Effects.GenerateEffect(ScriptableObject.CreateInstance<StealRandomPassiveEffect>(), 1, Slots.Front);
+            CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { effort1, effort2 }, caster));
 
 
             return exitAmount > 0;
@@ -1104,7 +1104,6 @@ namespace SaltEnemies_Reseasoned
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToClosestTargetEffect>(), 1, Targeting.GenerateSlotTarget(new int[9] {-4, -3, -2, -1, 0, 1, 2, 3, 4}, false)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<TakePicEffect>(), 1, Targeting.Slot_Front, didThat),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<StealRandomPassiveEffect>(), 1, Slots.Front, BasicEffects.DidThat(true, 2))
             }, caster));
             return true;
         }
