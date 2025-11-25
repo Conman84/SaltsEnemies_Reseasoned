@@ -85,12 +85,20 @@ namespace SaltEnemies_Reseasoned
                 if (types.Count <= 0) return this;
                 string t = types[UnityEngine.Random.Range(0, types.Count)];
                 types = new List<string>() { t };
+                Debug.Log("picking: " + t);
                 return this;
             }
             public PassiveHolder reduce(EnemyCombat to)
             {
                 List<string> lit = new List<string>();
-                foreach (string ty in types) if (!to.ContainsPassiveAbility(ty)) lit.Add(ty);
+                foreach (string ty in types)
+                {
+                    if (!to.ContainsPassiveAbility(ty))
+                    {
+                        lit.Add(ty);
+                        Debug.Log("allow " + ty);
+                    }
+                }
                 types = lit;
                 return this;
             }
@@ -172,7 +180,6 @@ namespace SaltEnemies_Reseasoned
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Constricting.ToString(), out passive))
             {
                 enemy.AddPassiveAbility(passive);
-                enemy.ShowPassiveAdded(passive);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Formless.ToString()))
             {
@@ -245,7 +252,6 @@ namespace SaltEnemies_Reseasoned
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Confusion.ToString()))
             {
                 enemy.AddPassiveAbility(Passives.Confusion);
-                enemy.ShowPassiveAdded(Passives.Confusion);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Fleeting.ToString(), out passive))
             {
@@ -270,12 +276,10 @@ namespace SaltEnemies_Reseasoned
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Enfeebled.ToString()))
             {
                 enemy.AddPassiveAbility(Passives.Enfeebled);
-                enemy.ShowPassiveAdded(Passives.Enfeebled);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Immortal.ToString()))
             {
                 enemy.AddPassiveAbility(Passives.Immortal);
-                enemy.ShowPassiveAdded(Passives.Immortal);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.TwoFaced.ToString(), out passive))
             {
@@ -941,6 +945,7 @@ namespace SaltEnemies_Reseasoned
                                     rarity1.canBeRerolled = true;
                                     CombatAbility newThis = new CombatAbility(addThis.ability, rarity1);
                                     abilToAdd.Add(newThis);
+                                    CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, caster.IsUnitCharacter, newThis.ability._abilityName + " Added", newThis.ability.abilitySprite));
                                 }
                             }
                         }
@@ -962,6 +967,7 @@ namespace SaltEnemies_Reseasoned
                                     rarity1.canBeRerolled = true;
                                     CombatAbility newThis = new CombatAbility(addThis.ability, rarity1);
                                     abilToAdd.Add(newThis);
+                                    CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, caster.IsUnitCharacter, newThis.ability._abilityName + " Added", newThis.ability.abilitySprite));
                                 }
                             }
                         }
@@ -1028,11 +1034,10 @@ namespace SaltEnemies_Reseasoned
                         }*/
                     }
 
-                    UnityEngine.Debug.Log(unitEN._currentName);
+                    if (SaltsReseasoned.DebugVer) UnityEngine.Debug.Log(unitEN._currentName);
                     foreach (CombatAbility ability in unitEN.Abilities)
                     {
                         if (SaltsReseasoned.DebugVer) UnityEngine.Debug.Log(ability.ability._abilityName);
-                        CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, caster.IsUnitCharacter, ability.ability._abilityName + " Added", ability.ability.abilitySprite));
                     }
 
                 }
@@ -1098,7 +1103,8 @@ namespace SaltEnemies_Reseasoned
             CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToClosestTargetEffect>(), 1, Targeting.GenerateSlotTarget(new int[9] {-4, -3, -2, -1, 0, 1, 2, 3, 4}, false)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<TakePicEffect>(), 1, Targeting.Slot_Front, didThat)
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<TakePicEffect>(), 1, Targeting.Slot_Front, didThat),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<StealRandomPassiveEffect>(), 1, Slots.Front, BasicEffects.DidThat(true, 2))
             }, caster));
             return true;
         }

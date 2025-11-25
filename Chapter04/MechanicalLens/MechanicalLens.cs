@@ -50,7 +50,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveFavoritePictureEffect>(), 1, Targeting.Slot_SelfSlot),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<LensFlashEffect>(), 1, Targeting.Slot_SelfSlot),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<StealRandomPassiveEffect>(), 1, Targeting.Slot_Front, didThat),
+                //Effects.GenerateEffect(ScriptableObject.CreateInstance<StealRandomPassiveEffect>(), 1, Targeting.Slot_Front, didThat),
             };
             lens.Visuals = null;
             lens.AnimationTarget = Targeting.Slot_SelfSlot;
