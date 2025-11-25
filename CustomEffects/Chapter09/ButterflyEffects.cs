@@ -1039,6 +1039,12 @@ namespace SaltEnemies_Reseasoned
                 self._animator.runtimeAnimatorController = self._baseAnimatorTemplate;
             }
             self.gameObject.SetActive(true);
+
+            self.CharacterSprite = frontSprite;
+            self.CharacterBackSprite = backSprite;
+            self._renderer.sprite = (self.LookingAtPlayer ? self.CharacterSprite : self.CharacterBackSprite);
+            self.ResetTransforms();
+
             try
             {
                 self.StartCombatAnimations();
@@ -1047,11 +1053,6 @@ namespace SaltEnemies_Reseasoned
             {
                 UnityEngine.Debug.LogError("transform restart: ITS FUCKED");
             }
-
-            self.CharacterSprite = frontSprite;
-            self.CharacterBackSprite = backSprite;
-            self._renderer.sprite = (self.LookingAtPlayer ? self.CharacterSprite : self.CharacterBackSprite);
-            self.ResetTransforms();
         }
 
         public static bool Set = false;
