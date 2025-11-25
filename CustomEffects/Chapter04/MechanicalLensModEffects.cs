@@ -143,7 +143,7 @@ namespace SaltEnemies_Reseasoned
             {
                 if (UnityEngine.Random.Range(0f, 1f) < 0.5f) enemy.AddPassiveAbility(LoadedAssetsHandler.GetEnemy("Flarb_EN").passiveAbilities[1]);
                 else enemy.AddPassiveAbility(LoadedAssetsHandler.GetEnemy("SkinningHomunculus_EN").passiveAbilities[0]);
-                CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(enemy.ID, enemy.IsUnitCharacter, "Parental Added", Passives.Example_Parental_Vengeance.passiveIcon));
+                CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(enemy.ID, enemy.IsUnitCharacter, "Parental", Passives.Example_Parental_Vengeance.passiveIcon));
             }
         }
         public static void Intimidating(CameraEffects.PassiveHolder passives, CharacterCombat chara, EnemyCombat enemy)
