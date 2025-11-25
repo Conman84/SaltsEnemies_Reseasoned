@@ -1032,10 +1032,12 @@ namespace SaltEnemies_Reseasoned
             self.gameObject.SetActive(false);
             if (character != null)
             {
+                UnityEngine.Debug.Log(character.name);
                 self._animator.runtimeAnimatorController = character;
             }
             else
             {
+                UnityEngine.Debug.Log(self._baseAnimatorTemplate.name);
                 self._animator.runtimeAnimatorController = self._baseAnimatorTemplate;
             }
             self.gameObject.SetActive(true);
@@ -1052,6 +1054,8 @@ namespace SaltEnemies_Reseasoned
             self.CharacterBackSprite = backSprite;
             self._renderer.sprite = (self.LookingAtPlayer ? self.CharacterSprite : self.CharacterBackSprite);
             self.ResetTransforms();
+
+            if (self._animator.runtimeAnimatorController.name == "BigAnimController") self._renderer.transform.localScale = new Vector3(2f, 2f, 1f);
         }
 
         public static bool Set = false;
