@@ -127,6 +127,11 @@ namespace SaltEnemies_Reseasoned
             to._enemyDescription = from._enemyDescription;
             to._characterDescription = from._characterDescription;
         }
+        public static void ShowPassiveAdded(this IUnit unit, BasePassiveAbilitySO passive)
+        {
+            if (passive == null) return;
+            CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(unit.ID, unit.IsUnitCharacter, passive._passiveName + " Added", passive.passiveIcon));
+        }
         public static void AddPassives(CharacterCombat character, PassiveHolder passives, EnemyCombat enemy, bool OnlyHasnt = false, bool pickRandom = false)
         {
             if (OnlyHasnt) passives = passives.reduce(enemy);
@@ -136,51 +141,63 @@ namespace SaltEnemies_Reseasoned
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Focus.ToString(), out passive))
             {
                 enemy.AddPassiveAbility(passive);
+                enemy.ShowPassiveAdded(passive);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Skittish.ToString(), out passive))
             {
                 enemy.AddPassiveAbility(passive);
+                enemy.ShowPassiveAdded(passive);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Slippery.ToString(), out passive))
             {
                 enemy.AddPassiveAbility(passive);
+                enemy.ShowPassiveAdded(passive);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Infantile.ToString()))
             {
                 enemy.AddPassiveAbility(Passives.Infantile);
+                enemy.ShowPassiveAdded(Passives.Infantile);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Parental.ToString()))
             {
                 if (UnityEngine.Random.Range(0f, 1f) < 0.5f) enemy.AddPassiveAbility(LoadedAssetsHandler.GetEnemy("Flarb_EN").passiveAbilities[1]);
                 else enemy.AddPassiveAbility(LoadedAssetsHandler.GetEnemy("SkinningHomunculus_EN").passiveAbilities[0]);
+                CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(enemy.ID, enemy.IsUnitCharacter, "Parental Added", Passives.Example_Parental_Vengeance.passiveIcon));
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Unstable.ToString(), out passive))
             {
                 enemy.AddPassiveAbility(passive);
+                enemy.ShowPassiveAdded(passive);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Constricting.ToString(), out passive))
             {
                 enemy.AddPassiveAbility(passive);
+                enemy.ShowPassiveAdded(passive);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Formless.ToString()))
             {
                 enemy.AddPassiveAbility(Passives.Formless);
+                enemy.ShowPassiveAdded(Passives.Formless);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Pure.ToString(), out passive))
             {
                 enemy.AddPassiveAbility(passive);
+                enemy.ShowPassiveAdded(passive);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Absorb.ToString()))
             {
-                enemy.AddPassiveAbility(passive);
+                enemy.AddPassiveAbility(Passives.Absorb);
+                enemy.ShowPassiveAdded(Passives.Absorb);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Forgetful.ToString()))
             {
                 enemy.AddPassiveAbility(Passives.Forgetful);
+                enemy.ShowPassiveAdded(Passives.Forgetful);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Withering.ToString()))
             {
                 enemy.AddPassiveAbility(Passives.Withering);
+                enemy.ShowPassiveAdded(Passives.Withering);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Overexert.ToString(), out passive))
             {
@@ -190,11 +207,16 @@ namespace SaltEnemies_Reseasoned
                     if (passive._passiveName.Contains("(" + i.ToString() + ")"))
                     {
                         enemy.AddPassiveAbility(Passives.OverexertGenerator(i));
+                        enemy.ShowPassiveAdded(Passives.OverexertGenerator(i));
                         cont = false;
                         break;
                     }
                 }
-                if (cont) enemy.AddPassiveAbility(Passives.Overexert2);
+                if (cont)
+                {
+                    enemy.AddPassiveAbility(Passives.Overexert2);
+                    enemy.ShowPassiveAdded(Passives.Overexert2);
+                }
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.MultiAttack.ToString(), out passive))
             {
@@ -204,103 +226,106 @@ namespace SaltEnemies_Reseasoned
                     if (passive._passiveName.Contains("(" + i.ToString() + ")"))
                     {
                         enemy.AddPassiveAbility(Passives.MultiAttackGenerator(i));
+                        enemy.ShowPassiveAdded(Passives.MultiAttackGenerator(i));
                         cont = false;
                         break;
                     }
                 }
-                if (cont) enemy.AddPassiveAbility(Passives.MultiAttack2);
+                if (cont)
+                {
+                    enemy.AddPassiveAbility(Passives.MultiAttack2);
+                    enemy.ShowPassiveAdded(Passives.MultiAttack2);
+                }
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Obscure.ToString()))
             {
                 enemy.AddPassiveAbility(Passives.Obscure);
+                enemy.ShowPassiveAdded(Passives.Obscure);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Confusion.ToString()))
             {
                 enemy.AddPassiveAbility(Passives.Confusion);
+                enemy.ShowPassiveAdded(Passives.Confusion);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Fleeting.ToString(), out passive))
             {
                 enemy.AddPassiveAbility(passive);
+                enemy.ShowPassiveAdded(passive);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Dying.ToString()))
             {
                 enemy.AddPassiveAbility(Passives.Dying);
+                enemy.ShowPassiveAdded(Passives.Dying);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Inanimate.ToString()))
             {
                 enemy.AddPassiveAbility(Passives.Inanimate);
+                enemy.ShowPassiveAdded(Passives.Inanimate);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Inferno.ToString(), out passive))
             {
                 enemy.AddPassiveAbility(passive);
+                enemy.ShowPassiveAdded(passive);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Enfeebled.ToString()))
             {
                 enemy.AddPassiveAbility(Passives.Enfeebled);
+                enemy.ShowPassiveAdded(Passives.Enfeebled);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Immortal.ToString()))
             {
                 enemy.AddPassiveAbility(Passives.Immortal);
+                enemy.ShowPassiveAdded(Passives.Immortal);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.TwoFaced.ToString(), out passive))
             {
                 enemy.AddPassiveAbility(passive);
+                enemy.ShowPassiveAdded(passive);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Catalyst.ToString(), out passive))
             {
                 enemy.AddPassiveAbility(passive);
+                enemy.ShowPassiveAdded(passive);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Anchored.ToString()))
             {
                 enemy.AddPassiveAbility(Passives.Anchored);
+                enemy.ShowPassiveAdded(Passives.Anchored);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Delicate.ToString()))
             {
                 enemy.AddPassiveAbility(Passives.Delicate);
+                enemy.ShowPassiveAdded(Passives.Delicate);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Leaky.ToString(), out passive))
             {
                 enemy.AddPassiveAbility(passive);
+                enemy.ShowPassiveAdded(passive);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.PanicAttack.ToString(), out passive))
             {
                 enemy.AddPassiveAbility(passive);
+                enemy.ShowPassiveAdded(passive);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Transfusion.ToString()))
             {
                 enemy.AddPassiveAbility(Passives.Transfusion);
+                enemy.ShowPassiveAdded(Passives.Transfusion);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Abomination.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Abomination.ToString()))
             {
-                bool cont = true;
-                for (int i = -1; i < 13; i++)
-                {
-                    if (passive._passiveName.Contains("(" + i.ToString() + ")"))
-                    {
-                        enemy.AddPassiveAbility(Passives.AbominationGenerator(i));
-                        cont = false;
-                        break;
-                    }
-                }
-                if (cont) enemy.AddPassiveAbility(Passives.Abomination1);
+                enemy.AddPassiveAbility(Passives.Abomination1);
+                enemy.ShowPassiveAdded(Passives.Abomination1);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.BoneSpurs.ToString(), out passive))
             {
                 enemy.AddPassiveAbility(passive);
+                enemy.ShowPassiveAdded(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Masochism.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Masochism.ToString()))
             {
-                bool cont = true;
-                for (int i = -1; i < 13; i++)
-                {
-                    if (passive._passiveName.Contains("(" + i.ToString() + ")"))
-                    {
-                        enemy.AddPassiveAbility(Passives.MasochismGenerator(i));
-                        cont = false;
-                        break;
-                    }
-                }
-                if (cont) enemy.AddPassiveAbility(Passives.Masochism1);
+                enemy.AddPassiveAbility(Passives.Masochism1);
+                enemy.ShowPassiveAdded(Passives.Masochism1);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Construct.ToString()))
             {
@@ -315,28 +340,22 @@ namespace SaltEnemies_Reseasoned
                 (TriggerCalls) 889532//old zensuke trigger
                 };
                 enemy.AddPassiveAbility(instance1);
+                enemy.ShowPassiveAdded(instance1);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Cashout.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Cashout.ToString()))
             {
-                bool cont = true;
-                for (int i = -1; i < 13; i++)
-                {
-                    if (passive._passiveName.Contains("(" + i.ToString() + ")"))
-                    {
-                        enemy.AddPassiveAbility(Passives.CashoutGenerator(i));
-                        cont = false;
-                        break;
-                    }
-                }
-                if (cont) enemy.AddPassiveAbility(Passives.Cashout);
+                enemy.AddPassiveAbility(Passives.Cashout);
+                enemy.ShowPassiveAdded(Passives.Cashout);
             }
             if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Infestation.ToString(), out passive))
             {
                 enemy.AddPassiveAbility(passive);
+                enemy.ShowPassiveAdded(passive);
             }
             if (passives.ContainsPassiveAbility(UnitStoredValueNames_GameIDs.InfestationPA.ToString(), out passive))
             {
                 enemy.AddPassiveAbility(passive);
+                enemy.ShowPassiveAdded(passive);
             }
             if (DefaultPassiveAdding != null)
             {
@@ -350,8 +369,13 @@ namespace SaltEnemies_Reseasoned
                             {
                                 if (DefaultPassiveAdding[ID]._enemyDescription != "nothing.") passive._enemyDescription = DefaultPassiveAdding[ID]._enemyDescription;
                                 enemy.AddPassiveAbility(passive);
+                                enemy.ShowPassiveAdded(passive);
                             }
-                            else enemy.AddPassiveAbility(DefaultPassiveAdding[ID]);
+                            else
+                            {
+                                enemy.AddPassiveAbility(DefaultPassiveAdding[ID]);
+                                enemy.ShowPassiveAdded(DefaultPassiveAdding[ID]);
+                            }
                         }
                     }
                     catch (Exception ex)
@@ -808,7 +832,7 @@ namespace SaltEnemies_Reseasoned
                     Debug.LogError(ex.ToString());
                 }
             }
-            CombatManager.Instance.AddUIAction(new PlayHealthColorSoundUIAction());
+            //CombatManager.Instance.AddUIAction(new PlayHealthColorSoundUIAction());
             return exitAmount > 0;
         }
     }
@@ -1007,7 +1031,8 @@ namespace SaltEnemies_Reseasoned
                     UnityEngine.Debug.Log(unitEN._currentName);
                     foreach (CombatAbility ability in unitEN.Abilities)
                     {
-                        UnityEngine.Debug.Log(ability.ability._abilityName);
+                        if (SaltsReseasoned.DebugVer) UnityEngine.Debug.Log(ability.ability._abilityName);
+                        CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, caster.IsUnitCharacter, ability.ability._abilityName + " Added", ability.ability.abilitySprite));
                     }
 
                 }
@@ -1057,7 +1082,7 @@ namespace SaltEnemies_Reseasoned
             didThat.wasSuccessful = true;
             EffectInfo effort1 = Effects.GenerateEffect(ScriptableObject.CreateInstance<StealAbilityEffect>(), 1, Targeting.Slot_Front);
             EffectInfo effort2 = Effects.GenerateEffect(ScriptableObject.CreateInstance<PlayHealthColorSoundEffect>(), 1, Targeting.Slot_Front);
-            CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { effort1, effort2 }, caster));
+            CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { effort1 }, caster));
 
 
             return exitAmount > 0;

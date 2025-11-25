@@ -1032,12 +1032,12 @@ namespace SaltEnemies_Reseasoned
             self.gameObject.SetActive(false);
             if (character != null)
             {
-                UnityEngine.Debug.Log(character.name);
+                if (SaltsReseasoned.DebugVer) UnityEngine.Debug.Log(character.name);
                 self._animator.runtimeAnimatorController = character;
             }
             else
             {
-                UnityEngine.Debug.Log(self._baseAnimatorTemplate.name);
+                if (SaltsReseasoned.DebugVer) UnityEngine.Debug.Log(self._baseAnimatorTemplate.name);
                 self._animator.runtimeAnimatorController = self._baseAnimatorTemplate;
             }
             self.gameObject.SetActive(true);
