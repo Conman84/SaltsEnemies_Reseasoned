@@ -128,7 +128,7 @@ namespace SaltsEnemies_Reseasoned
             replicate.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<CopyLastAbilityEffect>(), 1, Slots.Self)];
             replicate.AddIntentsToTarget(Slots.Self, ["Misc"]);
             replicate.Visuals = null;
-            replicate.GenerateEnemyAbility();
+            replicate.AbilitySprite = ResourceLoader.LoadSprite("ability_replicate.png");
             ExtraAbility_Wearable_SMS add_replicate = ScriptableObject.CreateInstance<ExtraAbility_Wearable_SMS>();
             add_replicate._extraAbility = replicate.GenerateCharacterAbility();
 
@@ -549,7 +549,7 @@ namespace SaltsEnemies_Reseasoned
             reconfigure.AddIntentsToTarget(Slots.Self, ["Misc_Hidden"]);
             reconfigure.Visuals = LoadedAssetsHandler.GetEnemyAbility("Repent_A").visuals;
             reconfigure.AnimationTarget = Slots.Self;
-            reconfigure.GenerateEnemyAbility();
+            reconfigure.AbilitySprite = ResourceLoader.LoadSprite("ability_reconfigure.png");
             ExtraAbility_Wearable_SMS add_recon = ScriptableObject.CreateInstance<ExtraAbility_Wearable_SMS>();
             add_recon._extraAbility = reconfigure.GenerateCharacterAbility();
 
