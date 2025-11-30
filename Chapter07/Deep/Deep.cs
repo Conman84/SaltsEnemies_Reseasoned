@@ -20,8 +20,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("DeepIcon.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("DeepDead.png", new Vector2(0.5f, 0f), 32),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("DeepWorld.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("Flarb_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("Flarb_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Surround/DeepHit",
+                DeathSound = "event:/Hawthorne/Surround/DeepDie",
             };
             deep.PrepareEnemyPrefab("assets/group4/Deep/Deep_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Deep/Deep_Gibs.prefab").GetComponent<ParticleSystem>());
 
