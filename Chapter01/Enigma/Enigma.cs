@@ -25,8 +25,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("enigma_iconb.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("enigma_dead.png", new Vector2(0.5f, 0f), 32),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("enigma_icon.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Surround/EnigmaHurt",
+                DeathSound = "event:/Hawthorne/Surround/EnigmaDie",
             };
             Enigma.PrepareEnemyPrefab("assets/PissShitFartCum/FalseTruth_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/PissShitFartCum/FalseTruth_Gibs.prefab").GetComponent<ParticleSystem>());
 

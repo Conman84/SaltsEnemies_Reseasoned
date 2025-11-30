@@ -17,7 +17,7 @@ namespace SaltsEnemies_Reseasoned
             //Orpheum
             EnemyEncounter_API mainEncounters = new EnemyEncounter_API(0, "Zone02_Enigma_Easy_EnemyBundle", "Salt_EnigmaEncounters_Sign");
             mainEncounters.MusicEvent = "event:/Hawthorne/EnigmaTheme";
-            mainEncounters.RoarEvent = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").damageSound;
+            mainEncounters.RoarEvent = "event:/Hawthorne/Surround/EnigmaRoar";
 
             mainEncounters.CreateNewEnemyEncounterData(new string[]
             {
@@ -39,7 +39,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API mainEncounters2 = new EnemyEncounter_API(0, "H_Zone02_Enigma_Easy_EnemyBundle", "Salt_EnigmaEncounters_Sign");
             mainEncounters2.MusicEvent = "event:/Hawthorne/EnigmaTheme";
-            mainEncounters2.RoarEvent = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").damageSound;
+            mainEncounters2.RoarEvent = "event:/Hawthorne/Surround/EnigmaRoar";
 
             mainEncounters2.CreateNewEnemyEncounterData(new string[]
             {
@@ -69,7 +69,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API mainEncounters3 = new EnemyEncounter_API(0, "H_Zone02_Enigma_Medium_EnemyBundle", "Salt_EnigmaEncounters_Sign");
             mainEncounters3.MusicEvent = "event:/Hawthorne/EnigmaTheme";
-            mainEncounters3.RoarEvent = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").damageSound;
+            mainEncounters3.RoarEvent = "event:/Hawthorne/Surround/EnigmaRoar";
 
             mainEncounters3.CreateNewEnemyEncounterData(new string[]
             {
