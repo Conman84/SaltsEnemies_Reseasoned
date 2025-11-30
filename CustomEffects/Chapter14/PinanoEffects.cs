@@ -41,7 +41,7 @@ namespace SaltEnemies_Reseasoned
             e.image = vil.passiveIcon;
             vil.effects = new EffectInfo[]
             {
-                    Effects.GenerateEffect(CasterRootActionEffect.Create(new EffectInfo[]
+                    Effects.GenerateEffect(CasterSubActionEffect.Create(new EffectInfo[]
                     {
                         Effects.GenerateEffect(e, amount, Slots.Self, ScriptableObject.CreateInstance<HasHealthEffectCondition>()),
                         Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), amount, Slots.Front, ScriptableObject.CreateInstance<HasHealthEffectCondition>())
