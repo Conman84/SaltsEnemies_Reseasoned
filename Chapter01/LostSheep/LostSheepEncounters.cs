@@ -316,7 +316,7 @@ namespace SaltsEnemies_Reseasoned.Chapter1.LostSheep
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Shore.H.CNS.Easy, "Salt_LostSheepEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/CNSTheme";
-            med.RoarEvent = LoadedAssetsHandler.GetEnemyBundle(Garden.H.Shivering.Med)._roarReference.roarEvent;
+            med.RoarEvent = "event:/Hawthorne/Surround/CNSRoar";
 
             med.SimpleAddEncounter(4, "LostSheep_EN");
 

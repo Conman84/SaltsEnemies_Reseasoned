@@ -43,8 +43,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("lostSheep_IconB.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("lostSheep_Dead.png", new Vector2(0.5f, 0f), 32),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("lostSheep_Icon.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("ShiveringHomunculus_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("ShiveringHomunculus_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Surround/CNSHit",
+                DeathSound = "event:/Hawthorne/Surround/CNSDie",
             };
             LostSheep.PrepareMultiEnemyPrefab("assets/PissShitFartCum/CNS_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/PissShitFartCum/CNS_Gibs_Prefab.prefab").GetComponent<ParticleSystem>());
             LostSheep.enemy.enemyTemplate.m_Data.m_Renderer = LostSheep.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").GetComponent<SpriteRenderer>();

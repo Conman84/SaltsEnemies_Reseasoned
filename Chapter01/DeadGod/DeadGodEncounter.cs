@@ -15,7 +15,7 @@ namespace SaltsEnemies_Reseasoned
             //Garden
             EnemyEncounter_API mainEncounters = new EnemyEncounter_API(EncounterType.Specific, "Salt_DeadGod_Orpheum_Bundle", "Salt_DeadGodEncounters_Sign");
             mainEncounters.MusicEvent = "event:/Hawthorne/DeadGodSong";
-            mainEncounters.RoarEvent = LoadedAssetsHandler.GetEnemyBundle("H_Zone03_ChoirBoy_Easy_EnemyBundle")._roarReference.roarEvent;
+            mainEncounters.RoarEvent = "event:/Hawthorne/Surround/CNSRoar";
 
             mainEncounters.CreateNewEnemyEncounterData(new string[]
             {

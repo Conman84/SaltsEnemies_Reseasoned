@@ -54,8 +54,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("DeadGodIconB.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("DeadGodDead.png", new Vector2(0.5f, 0f), 32),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("DeadGodIcon.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("SkinningHomunculus_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("SkinningHomunculus_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Surround/DGHit",
+                DeathSound = "event:/Hawthorne/Surround/DGDie",
             };
             DeadGod.PrepareEnemyPrefab("assets/TheShitter/DeadGod_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/TheShitter/DeadGod_Gibs.prefab").GetComponent<ParticleSystem>());
 
