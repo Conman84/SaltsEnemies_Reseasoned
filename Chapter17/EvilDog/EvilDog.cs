@@ -20,8 +20,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("EvilDogIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("EvilDogWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("EvilDogDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetCharacter("LongLiver_CH").damageSound,
-                DeathSound = LoadedAssetsHandler.GetCharacter("LongLiver_CH").damageSound,
+                DamageSound = "event:/Hawthorne/Soisenay/ClioneHit",
+                DeathSound = "event:/Hawthorne/Soisenay/ClioneDie",
             };
             dog.PrepareEnemyPrefab("assets/enemie/EvilDog_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("assets/giblets/EvilDog_Gibs.prefab").GetComponent<ParticleSystem>());
 

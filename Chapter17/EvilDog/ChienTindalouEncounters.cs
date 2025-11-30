@@ -15,7 +15,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Garden.H.EvilDog.Med, "Salt_ChienTindalouEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/EvilDogTheme";
-            med.RoarEvent = LoadedAssetsHandler.GetCharacter("LongLiver_CH").deathSound;
+            med.RoarEvent = "event:/Hawthorne/Soisenay/YNLRoar";
 
             med.SimpleAddEncounter(4, "EvilDog_EN");
             if (SaltsReseasoned.trolling > 40 && SaltsReseasoned.trolling < 60) med.SimpleAddEncounter(5, "EvilDog_EN");
