@@ -25,6 +25,8 @@ namespace SaltsEnemies_Reseasoned
         public static bool Randoming;
         public static bool SetRandoming(bool value) => Randoming = value;
 
+        public static int CurrentRuns;
+
         public static void Setup()
         {
             IDetour hook = new Hook(typeof(MainMenuController).GetMethod(nameof(MainMenuController.OnEmbarkPressed), ~BindingFlags.Default), typeof(Gatekeeper).GetMethod(nameof(MainMenuController_OnEmbarkPressed), ~BindingFlags.Default));
@@ -33,6 +35,8 @@ namespace SaltsEnemies_Reseasoned
             SetRandoming(false);
 
             Config();
+
+            CurrentRuns = 0;
         }
 
         public static void Config()
@@ -46,6 +50,7 @@ namespace SaltsEnemies_Reseasoned
         {
             StoredRuns = LoadedDBsHandler.InfoHolder.Game.GetIntData(Gatekeeps);
             StoredRuns++;
+            CurrentRuns++;
             LoadedDBsHandler.InfoHolder.Game.SetIntData(Gatekeeps, StoredRuns);
 
             orig(self);
@@ -59,6 +64,8 @@ namespace SaltsEnemies_Reseasoned
 
             if (April.Birthday || Randoming) return true;
             if (Salt.Secret.Contains(enemy) && !April.Me) return false;
+
+            if (enemy == "Stalker2_EN" && CurrentRuns != 2) return false;
 
             if (!DoGatekeep) return true;
 
@@ -166,6 +173,9 @@ namespace SaltsEnemies_Reseasoned
             if (enemy == "Eyeless_EN" && !Tracker.Track("Starless_EN")) return false;
             if (enemy == "Solitaire_EN" && !Tracker.Track(["YellowAngel_EN", "Evileye_EN", "Enigma_EN", "Sigil_EN", "DeadPixel_EN"])) return false;
             if (enemy == "Spades_EN" && !Tracker.Track("Solitaire_EN")) return false;
+            if (enemy == "WolfColony_EN" && !Tracker.Track(["Ecstasy_EN", "Clown_EN", Flower.Blue, "Monster_EN"])) return false;
+            if (enemy == "WolfLarvae_EN" && !Tracker.Track("WolfColony_EN")) return false;
+            if (enemy == "Stalker2_EN" && !Tracker.Track(["LittleAngel_EN", "Ecstasy_EN", "YellowAngel_EN", "FakeAngel_EN"])) return false;
             if (enemy == "Hauntling_EN" && !Tracker.Track(["ClockTower_EN", "Satyr_EN"])) return false;
             if (enemy == "Insider_EN" && !Tracker.Track(["YellowAngel_EN", "EyePalm_EN"])) return false;
             if (enemy == "CorpseChan_EN" && !Tracker.Track(["ToyUfo_EN", "2009_EN"])) return false;
@@ -245,7 +255,7 @@ namespace SaltsEnemies_Reseasoned
         public static string[] Hard = [Flower.Grey, "StalwartTortoise_EN", "Merced_EN", "Shua_EN", Enemies.Shooter, "2009_EN", "Crystal_EN", "TortureMeNot_EN", "CandyStone_EN", "Invention_BOSS"];
         public static string[] Harder = ["Chiito_EN", "Complimentary_EN", "Wednesday_EN", "Hunter_EN", "Warbird_EN", "Indicator_EN", "GlassedSun_EN", "Stoplight_EN", "Clown_EN", "BlackAndBlue_BOSS"];
         public static string[] Hardest = ["Postmodern_EN", "War_EN", "ClockTower_EN", Enemies.Tank, "Miriam_EN", "33_EN", "Author_EN", "Monster_EN", "Starless_EN", "Yang_EN", "Cruelties1_EN", "YNL_EN", "Firebird_EN"];
-        public static string[] Expert = ["Damocles_EN", "GlassFigurine_EN", "Nameless_EN", "Children6_EN", "TheDragon_EN", "OdeToHumanity_EN", "EvilDog_EN", "PersonalAngel_EN", "Yin_EN", "Eyeless_EN", "Solitaire_EN", "Spades_EN"];
+        public static string[] Expert = ["Damocles_EN", "GlassFigurine_EN", "Nameless_EN", "Children6_EN", "TheDragon_EN", "OdeToHumanity_EN", "EvilDog_EN", "PersonalAngel_EN", "Yin_EN", "Eyeless_EN", "Solitaire_EN", "Spades_EN", "WolfColony_EN", "WolfLarvae_EN", "Stalker2_EN"];
         public static string[] Secret = ["Hauntling_EN", "Insider_EN", "CorpseChan_EN", "Untitled_EN", "Jabberwocky_EN", "InTheDark_EN", "Sundowner_EN"];
     }
 }
