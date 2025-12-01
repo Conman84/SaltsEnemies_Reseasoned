@@ -58,7 +58,9 @@ namespace SaltsEnemies_Reseasoned
                 "Bartholomew",
                 "TAFHF-D5CLI-4TGV8",
                 "Rotcore_I",
-                "Jtkhfulakefrutysejw3oewuiyrdfhkgmcsdhkafekaeaaeljreluy"
+                "Jtkhfulakefrutysejw3oewuiyrdfhkgmcsdhkafekaeaaeljreluy",
+                "John Enemy",
+                "Truth Nine"
                 ];
             CasterRandomizeNameEnemyEffect outside = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             outside.PossibleNames = [
@@ -78,7 +80,9 @@ namespace SaltsEnemies_Reseasoned
                 "Mecha Hitler Supreme",
                 "Mouthnails2",
                 "@headoegh",
-                "4 Slices Salt Room"
+                "4 Slices Salt Room",
+                "This Rocks",
+                "Plants Vs Zombies Garden Warfare 2"
                 ];
             CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             third.PossibleNames = [
@@ -102,7 +106,8 @@ namespace SaltsEnemies_Reseasoned
                 "1 In 10000 Chance For It To Be Named Dennis",
                 "It Should Spawn A Mung If It Misses",
                 "This One Thing I Have To Go Find",
-                "Secret Bug That I Am Unable To Reliably Reproduce"
+                "Secret Bug That I Am Unable To Reliably Reproduce",
+                "Hot Or Cold, We Are Not Prepared"
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside),
