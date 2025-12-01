@@ -57,9 +57,7 @@ namespace SaltsEnemies_Reseasoned
                 "Sleve McDichael Onson Sweemey Darryl Archideld Anatoli Smorin Rey McSriff Glenallen Mixon Mario McRlwain Raul Chamgerlain Kevin Nogilny Tony Smehrik Bobson Dugnutt Willie Dustice Jeromy Gride Scott Dourque Shown Furcotte Dean Wesrey Mike Truk Dwigt Rortugal Tim Sandaele Karl Dandleton Mike Sernandez Todo Bonzalez",
                 "Bartholomew",
                 "TAFHF-D5CLI-4TGV8",
-                "Rotcore_I",
                 "Jtkhfulakefrutysejw3oewuiyrdfhkgmcsdhkafekaeaaeljreluy",
-                "John Enemy",
                 "Truth Nine"
                 ];
             CasterRandomizeNameEnemyEffect outside = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
@@ -82,7 +80,10 @@ namespace SaltsEnemies_Reseasoned
                 "@headoegh",
                 "4 Slices Salt Room",
                 "This Rocks",
-                "Plants Vs Zombies Garden Warfare 2"
+                "Plants Vs Zombies Garden Warfare 2",
+                "Calico",
+                "John Enemy",
+                "Rotcore_I",
                 ];
             CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             third.PossibleNames = [
