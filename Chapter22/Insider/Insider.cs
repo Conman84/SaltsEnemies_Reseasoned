@@ -58,7 +58,8 @@ namespace SaltsEnemies_Reseasoned
                 "Bartholomew",
                 "TAFHF-D5CLI-4TGV8",
                 "Jtkhfulakefrutysejw3oewuiyrdfhkgmcsdhkafekaeaaeljreluy",
-                "Truth Nine"
+                "Truth Nine",
+                "Papereater",
                 ];
             CasterRandomizeNameEnemyEffect outside = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             outside.PossibleNames = [
@@ -73,7 +74,6 @@ namespace SaltsEnemies_Reseasoned
                 "Chicken Randomizer",
                 "What You Door",
                 "Slenderman And Jeff Creepy",
-                "Papereater",
                 "Jilariou",
                 "Mecha Hitler Supreme",
                 "Mouthnails2",
