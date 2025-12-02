@@ -58,7 +58,6 @@ namespace SaltsEnemies_Reseasoned
                 "Bartholomew",
                 "TAFHF-D5CLI-4TGV8",
                 "Jtkhfulakefrutysejw3oewuiyrdfhkgmcsdhkafekaeaaeljreluy",
-                "Truth Nine",
                 "Papereater",
                 ];
             CasterRandomizeNameEnemyEffect outside = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
@@ -85,6 +84,7 @@ namespace SaltsEnemies_Reseasoned
                 "John Enemy",
                 "Rotcore_I",
                 "A Horse Is Not Just A Horse",
+                "Truth Nine",
                 ];
             CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             third.PossibleNames = [
