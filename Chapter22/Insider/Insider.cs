@@ -59,6 +59,7 @@ namespace SaltsEnemies_Reseasoned
                 "TAFHF-D5CLI-4TGV8",
                 "Jtkhfulakefrutysejw3oewuiyrdfhkgmcsdhkafekaeaaeljreluy",
                 "Papereater",
+                "The Sniper"
                 ];
             CasterRandomizeNameEnemyEffect outside = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             outside.PossibleNames = [
