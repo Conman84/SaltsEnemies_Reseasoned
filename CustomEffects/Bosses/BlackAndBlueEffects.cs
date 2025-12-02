@@ -35,6 +35,8 @@ namespace SaltsEnemies_Reseasoned
         [Header("Special Abilities")]
         [SerializeField]
         public string submerge = "BlueAndBlack_A";
+        [SerializeField]
+        public string hoist = "BlackAndBlue_A";
 
         public override bool UsesRarity => true;
 
@@ -79,7 +81,7 @@ namespace SaltsEnemies_Reseasoned
         public bool ShouldBeIgnored(CombatAbility ability, IUnit unit)
         {
             string name = ability.ability.name;
-            return unit.GetStatusAmount("Drowning_ID") <= 6 && name == submerge;
+            return (unit.GetStatusAmount("Drowning_ID") <= 4 && name == submerge) || (unit.GetStatusAmount("Drowning_ID") >= 6 && name == hoist);
         }
     }
 }
