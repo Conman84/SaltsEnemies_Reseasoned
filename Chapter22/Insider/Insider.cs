@@ -84,6 +84,7 @@ namespace SaltsEnemies_Reseasoned
                 "Calico",
                 "John Enemy",
                 "Rotcore_I",
+                "A Horse Is Not Just A Horse",
                 ];
             CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             third.PossibleNames = [
