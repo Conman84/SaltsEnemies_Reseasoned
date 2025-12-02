@@ -27,6 +27,7 @@ namespace SaltsEnemies_Reseasoned
         [Header("Special Abilities")]
         [SerializeField]
         public string Absurdism = "Absurdism_A";
+        [SerializeField]
         public string Knight = "4Knight_A";
 
         public override bool UsesRarity => true;
