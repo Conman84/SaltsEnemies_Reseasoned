@@ -19,7 +19,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API easy = new EnemyEncounter_API(EncounterType.Random, Garden.H.EyePalm.Easy, "Salt_MedamaudeEncounter_Sign");
             easy.MusicEvent = "event:/Hawthorne/EyePalmSong";
-            easy.RoarEvent = LoadedAssetsHandler.GetEnemyBundle("H_Zone03_InHisImage_Medium_EnemyBundle")._roarReference.roarEvent;
+            easy.RoarEvent = "event:/Hawthorne/Surround/EnigmaRoar";
 
             easy.AddRandomEncounter("EyePalm_EN", "EyePalm_EN", "EyePalm_EN");
             easy.AddRandomEncounter("EyePalm_EN", "EyePalm_EN", Enemies.Shivering, Enemies.Shivering);
@@ -33,7 +33,7 @@ namespace SaltsEnemies_Reseasoned
         {
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Garden.H.EyePalm.Med, "Salt_MedamaudeEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/EyePalmSong";
-            med.RoarEvent = LoadedAssetsHandler.GetEnemyBundle("H_Zone03_InHisImage_Medium_EnemyBundle")._roarReference.roarEvent;
+            med.RoarEvent = "event:/Hawthorne/Surround/EnigmaRoar";
 
             med.AddRandomEncounter("EyePalm_EN", "EyePalm_EN", "InHerImage_EN", "InHerImage_EN");
             med.AddRandomEncounter("EyePalm_EN", "EyePalm_EN", "InHisImage_EN", "InHisImage_EN");

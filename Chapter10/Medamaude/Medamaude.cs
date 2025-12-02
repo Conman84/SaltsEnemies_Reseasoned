@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("EyePalmIcon.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("EyePalmDead.png", new Vector2(0.5f, 0f), 32),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("EyePalmWorld.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("ShiveringHomunculus_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("ShiveringHomunculus_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Ssound/MedamaHit",
+                DeathSound = "event:/Hawthorne/Ssound/MedamaDie",
             };
             template.PrepareEnemyPrefab("assets/group4/EyePalm/EyePalm_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/EyePalm/EyePalm_Gibs.prefab").GetComponent<ParticleSystem>());
 
