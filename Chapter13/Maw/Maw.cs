@@ -44,12 +44,12 @@ namespace SaltsEnemies_Reseasoned
             skinning._passiveName = "Skinning";
             skinning.passiveIcon = ResourceLoader.LoadSprite("SkinPeelingPassive.png");
             skinning.m_PassiveID = "Skinning_PA";
-            skinning._enemyDescription = "On being directly damaged, exhaust the Opposing party member's ability usage.";
+            skinning._enemyDescription = "On being directly damaged, exhaust the Opposing party member's ability and movement usage.";
             skinning._characterDescription = "wont work";
             skinning.doesPassiveTriggerInformationPanel = true;
             skinning.effects = [
                     Effects.GenerateEffect(exhaust, 1, Slots.Front),
-                    //Effects.GenerateEffect(ScriptableObject.CreateInstance<ExhaustMovementEffect>(), 1, Slots.Front)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ExhaustMovementEffect>(), 1, Slots.Front)
                 ];
             skinning._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
             skinning.conditions = Passives.Slippery.conditions;
