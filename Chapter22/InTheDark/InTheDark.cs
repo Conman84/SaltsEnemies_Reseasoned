@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("DarkIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("DarkWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("DarkDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("BlackStar_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("BlackStar_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Ssound/DarkHit",
+                DeathSound = "event:/Hawthorne/Ssound/DarkDie",
             };
             dark.PrepareEnemyPrefab("Assets/Item/Dark_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Item/Dark_Gibs.prefab").GetComponent<ParticleSystem>());
             dark.enemy.enemyTemplate.m_Data.m_Renderer = dark.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Sprite").GetComponent<SpriteRenderer>();

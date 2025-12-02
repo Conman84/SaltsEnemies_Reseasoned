@@ -19,7 +19,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Garden.H.Dark.Med, "Salt_DarkEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/InTheDarkTheme";
-            med.RoarEvent = LoadedAssetsHandler.GetEnemy("InTheDark_EN").deathSound;
+            med.RoarEvent = "event:/Hawthorne/Ssound/DarkRoar";
 
             med.SimpleAddEncounter(2, "InTheDark_EN");
             med.AddRandomEncounter("InTheDark_EN", "InHisImage_EN", "InHerImage_EN");
@@ -57,7 +57,7 @@ namespace SaltsEnemies_Reseasoned
         {
             EnemyEncounter_API hard = new EnemyEncounter_API(EncounterType.Random, Garden.H.Dark.Hard, "Salt_DarkEncounter_Sign");
             hard.MusicEvent = "event:/Hawthorne/InTheDarkTheme";
-            hard.RoarEvent = LoadedAssetsHandler.GetEnemy("InTheDark_EN").deathSound;
+            hard.RoarEvent = "event:/Hawthorne/Ssound/DarkRoar";
 
             hard.SimpleAddEncounter(3, "InTheDark_EN");
             hard.SimpleAddEncounter(1, "InTheDark_EN", 3, "InHisImage_EN");
