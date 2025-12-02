@@ -86,7 +86,6 @@ namespace SaltsEnemies_Reseasoned
                 "Rotcore_III",
                 "A Horse Is Not Just A Horse",
                 "Truth Nine",
-                "666 Evil Avenue"
                 ];
             CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             third.PossibleNames = [
@@ -111,7 +110,9 @@ namespace SaltsEnemies_Reseasoned
                 "It Should Spawn A Mung If It Misses",
                 "This One Thing I Have To Go Find",
                 "Secret Bug That I Am Unable To Reliably Reproduce",
-                "Hot Or Cold, We Are Not Prepared"
+                "Hot Or Cold, We Are Not Prepared",
+                "666 Evil Avenue",
+                "Number",
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside),
