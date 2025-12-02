@@ -54,17 +54,17 @@ namespace SaltsEnemies_Reseasoned
 
             //Monsoon
             Ability flood = new Ability("Monsoon Season", "Salt_MonsoonSeason_A");
-            flood.Description = "Increase the Lucky Pigment Percentage by 30%.";
+            flood.Description = "Double the Pigment in the tray.";
             flood.Rarity = Rarity.GetCustomRarity("rarity5");
             flood.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<IncreaseLuckyBluePercentageEffect>(), 30, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<GeneratePigmentTrayEffect>(), 1, Targeting.Slot_SelfSlot),
             };
             flood.Visuals = LoadedAssetsHandler.GetEnemyAbility("Flood_A").visuals;
             flood.AnimationTarget = Targeting.Slot_SelfSlot;
             flood.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
-                "Misc"
+                "Mana_Generate"
             });
 
             //Dust
