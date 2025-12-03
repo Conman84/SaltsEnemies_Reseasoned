@@ -37,7 +37,7 @@ namespace SaltsEnemies_Reseasoned
             Ability marrow = new Ability("MarrowRot_A");
             marrow.Name = "Marrow Rot";
             marrow.Description = "Curse the Opposing party member and this enemy.";
-            marrow.Rarity = Rarity.GetCustomRarity("Rarity5");
+            marrow.Rarity = Rarity.GetCustomRarity("rarity5");
             marrow.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.Self)];
             marrow.AddIntentsToTarget(Slots.Front, ["Status_Cursed"]);
@@ -57,6 +57,8 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(onkill, 2, Slots.Front),
                 Effects.GenerateEffect(shops, 20, Slots.Self, BasicEffects.DidThat(true))
                 ];
+            anticanine.AddIntentsToTarget(Slots.Front, ["Damage_1_2"]);
+            anticanine.AddIntentsToTarget(Slots.Self, ["Misc"]);
             anticanine.Visuals = Visuals.Nibble;
             anticanine.AnimationTarget = Slots.Front;
 
