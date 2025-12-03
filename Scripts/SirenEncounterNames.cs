@@ -29,6 +29,16 @@ namespace SaltsEnemies_Reseasoned
                     public static string Med => "H_ZoneSiren_Ecstasy87_Medium_EnemyBundle";
                 }
             }
+            public static class Wolf
+            {
+                public static string Med => "H_ZoneSiren_WolfColony_Medium_EnemyBundle";
+            }
+            public static class Stalker
+            {
+                public static string Med => "H_ZoneSiren_Stalker2_Medium_EnemyBundle";
+            }
+
+            //base
             public static class Piscina
             {
                 public static string Hard => "PiscinaHard";

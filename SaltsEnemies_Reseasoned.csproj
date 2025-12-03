@@ -541,6 +541,7 @@
 	  <None Remove="Chapter23\ImaginaryDemon\DemonWorld.png" />
 	  <None Remove="Chapter23\Stalker2\StalkerDead.png" />
 	  <None Remove="Chapter23\Stalker2\StalkerIcon.png" />
+	  <None Remove="Chapter23\Stalker2\StalkerPortal.png" />
 	  <None Remove="Chapter23\Stalker2\StalkerWorld.png" />
 	  <None Remove="Chapter23\WolfColony\LarvaeDead.png" />
 	  <None Remove="Chapter23\WolfColony\LarvaeIcon.png" />
@@ -1497,6 +1498,7 @@
 	  <EmbeddedResource Include="Chapter23\ImaginaryDemon\DemonWorld.png" />
 	  <EmbeddedResource Include="Chapter23\Stalker2\StalkerDead.png" />
 	  <EmbeddedResource Include="Chapter23\Stalker2\StalkerIcon.png" />
+	  <EmbeddedResource Include="Chapter23\Stalker2\StalkerPortal.png" />
 	  <EmbeddedResource Include="Chapter23\Stalker2\StalkerWorld.png" />
 	  <EmbeddedResource Include="Chapter23\WolfColony\LarvaeDead.png" />
 	  <EmbeddedResource Include="Chapter23\WolfColony\LarvaeIcon.png" />

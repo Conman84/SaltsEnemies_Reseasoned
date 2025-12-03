@@ -32,6 +32,8 @@ namespace SaltEnemies_Reseasoned
                 if (Siren.Exists)
                 {
                     PCall(EcstasyEncounters.Add);
+                    PCall(WolfEncounters.Add);
+                    PCall(StalkerEncounters.Add);
                 }
             }
 
@@ -126,6 +128,8 @@ namespace SaltEnemies_Reseasoned
             PCall(InTheDarkEncounters.Post);
             PCall(SundownerEncounters.Post);
             PCall(EcstasyEncounters.Post);
+            PCall(WolfEncounters.Post);
+            PCall(StalkerEncounters.Post);
 
             //Crossovers
 
