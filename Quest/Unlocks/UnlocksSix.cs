@@ -80,7 +80,7 @@ namespace SaltsEnemies_Reseasoned
             staff.UsesSpecialUnlockText = false;
             staff.SpecialUnlockID = UILocID.None;
             staff.item._ItemTypeIDs = ["Magic"];
-            staff.AddEffectTrigger(new EffectTrigger([Effects.GenerateEffect(rem_curse, 1, Slots.Self), Effects.GenerateEffect(ScriptableObject.CreateInstance<RefreshAbilityUseEffect>())], [TriggerCalls.OnAbilityUsed], [ScriptableObject.CreateInstance<IsCursedEffectorCondition>()]));
+            staff.AddEffectTrigger(new EffectTrigger([Effects.GenerateEffect(rem_curse, 1, Slots.Self), Effects.GenerateEffect(ScriptableObject.CreateInstance<RefreshAbilityUseEffect>(), 1, Slots.Self)], [TriggerCalls.OnAbilityUsed], [ScriptableObject.CreateInstance<IsCursedEffectorCondition>()]));
             staff.item.AddBlueSkyUnlock("Serpent_CH", "locked_pharaohscepter.png", "ach_pharaohscepter.png");
 
             PerformEffect_Item scalpel = new PerformEffect_Item("Salt_Scalpel_SW", []);
