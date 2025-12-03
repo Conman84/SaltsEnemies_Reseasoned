@@ -268,6 +268,9 @@ namespace SaltsEnemies_Reseasoned
             //CH23 Enemies
             PCall(ImaginaryDemon.Add);
             PCall(RYBPEcstasy.Add);
+            PCall(WolfColony.Add);
+            PCall(WolfLarvae.Add);
+            PCall(Stalker.Add);
 
             //BOSSES
             //shore
