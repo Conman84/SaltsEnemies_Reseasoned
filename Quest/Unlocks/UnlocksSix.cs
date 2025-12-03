@@ -229,7 +229,7 @@ namespace SaltsEnemies_Reseasoned
             recycler.Flavour = "\"Waste not, want not.\"";
             recycler.Description = "On using an ability, re-produce the Pigments used to perform the ability.";
             recycler.Icon = ResourceLoader.LoadSprite("item_recycler.png");
-            recycler.TriggerOn = TriggerCalls.OnAbilityUsed;
+            recycler.TriggerOn = TriggerCalls.OnAbilityWillBeUsed;
             recycler.EquippedModifiers = [];
             recycler.DoesPopUpInfo = false;
             recycler.Conditions = [ScriptableObject.CreateInstance<RecyclerCondition>()];
