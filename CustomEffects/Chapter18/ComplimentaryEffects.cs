@@ -227,4 +227,21 @@ namespace SaltEnemies_Reseasoned
             }
         }
     }
+    public class HasCasterSizeEffectCondition : EffectConditionSO
+    {
+        public bool EnemySpace(int size)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                if (CombatManager.Instance._stats.combatSlots.GetEnemyFitSlot(i, size) != -1) return true;
+            }
+            return false;
+        }
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            if (caster.IsUnitCharacter) return CombatManager.Instance._stats.CharactersOnField.Count < 5;
+
+            return EnemySpace(caster.Size);
+        }
+    }
 }

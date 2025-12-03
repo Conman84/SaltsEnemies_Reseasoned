@@ -467,6 +467,124 @@ namespace SaltsEnemies_Reseasoned
             six.item._ItemTypeIDs = [];
             six.item.AddBlueSkyUnlock("Six_CH", "locked_six.png", "ach_six.png", 1);
 
+            Ability inbetweener = new Ability("Inbetweener", "Inbetweener_A");
+            inbetweener.Description = "Deal 5-10 damage to the Opposing enemy.\nAttempt to split the Opposing enemy in two.";
+            inbetweener.AbilitySprite = ResourceLoader.LoadSprite("ability_inbetweener.png");
+            inbetweener.Cost = [Pigments.Red, Pigments.Yellow];
+            inbetweener.Effects = [
+                Effects.GenerateEffect(BasicEffects.Empty, 5),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomDamageBetweenPreviousAndEntryEffect>(), 10, Slots.Front),
+                Effects.GenerateEffect(SubActionEffect.Create(
+                        [Effects.GenerateEffect(ScriptableObject.CreateInstance<SplitInTwoEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<HasCasterSizeEffectCondition>())]
+                    ), 1, Slots.Front)
+                ];
+            inbetweener.AddIntentsToTarget(Slots.Front, ["Damage_7_10", "Misc"]);
+            inbetweener.Visuals = Visuals.Mitosis;
+            inbetweener.AnimationTarget = Slots.Front;
+
+            ExtraAbility_Wearable_SMS add_btw = ScriptableObject.CreateInstance<ExtraAbility_Wearable_SMS>();
+            add_btw._extraAbility = inbetweener.GenerateCharacterAbility(true);
+
+            ((Passives.Construct as Connection_PerformEffectPassiveAbility).connectionEffects[1].effect as CasterAddRandomExtraAbilityEffect)._extraData.Add(add_btw);
+
+            Basic_Item lost = new Basic_Item("Salt_LostKnow_TW");
+            lost.Name = "Lost Know";
+            lost.Flavour = "\"From where?\"";
+            lost.Description = "Adds the extra ability \"Inbetweener,\" a tactical move that splits the Opposing enemy in two.";
+            lost.Icon = ResourceLoader.LoadSprite("item_lostknow.png");
+            lost.TriggerOn = TriggerCalls.Count;
+            lost.EquippedModifiers = [add_btw];
+            lost.DoesPopUpInfo = false;
+            lost.Conditions = [];
+            lost.DoesActionOnTriggerAttached = false;
+            lost.ConsumeOnTrigger = TriggerCalls.Count;
+            lost.ConsumeOnUse = false;
+            lost.ConsumeConditions = [];
+            lost.ShopPrice = 5;
+            lost.IsShopItem = false;
+            lost.StartsLocked = true;
+            lost.OnUnlockUsesTHE = true;
+            lost.UsesSpecialUnlockText = false;
+            lost.SpecialUnlockID = UILocID.None;
+            lost.item._ItemTypeIDs = [];
+            lost.item.AddBlueSkyUnlock("Rotcore_CH", "locked_lostknow.png", "ach_lostknow.png");
+
+            Ability panic = new Ability("Salt_Panic_A");
+            panic.Name = "Panic";
+            panic.Description = "Apply 2 Slip to all party member positions.\nRefresh this party member's ability usage.";
+            panic.AbilitySprite = ResourceLoader.LoadSprite("ability_panic.png");
+            panic.Cost = [Pigments.Yellow];
+            panic.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Targetting.Everything(true))];
+            panic.AddIntentsToTarget(Targetting.Everything(true), [Slip.Intent]);
+            panic.Visuals = null;
+            panic.AnimationTarget = Slots.Self;
+
+            ExtraAbility_Wearable_SMS add_panic = ScriptableObject.CreateInstance<ExtraAbility_Wearable_SMS>();
+            add_panic._extraAbility = panic.GenerateCharacterAbility(true);
+
+            ((Passives.Construct as Connection_PerformEffectPassiveAbility).connectionEffects[1].effect as CasterAddRandomExtraAbilityEffect)._extraData.Add(add_panic);
+
+            PerformEffect_Item stop = new PerformEffect_Item("Salt_SecondStop_TW", []);
+            stop.Name = "2nd Stop";
+            stop.Flavour = "\"Between Here and Nowhere\"";
+            stop.Description = "While in Slip, damage dealt spreads indirectly Left and Right.\nAdds the extra ability \"Panic\" which can be used to apply Slip to the party members' side.";
+            stop.Icon = ResourceLoader.LoadSprite("item_secondstop.png");
+            stop.TriggerOn = CascadingDamageItemHandler.Call;
+            stop.EquippedModifiers = [add_panic];
+            stop.DoesPopUpInfo = false;
+            stop.Conditions = [ScriptableObject.CreateInstance<BooleanValueInSlipSetter>()];
+            stop.DoesActionOnTriggerAttached = false;
+            stop.ConsumeOnTrigger = TriggerCalls.Count;
+            stop.ConsumeOnUse = false;
+            stop.ConsumeConditions = [];
+            stop.ShopPrice = 5;
+            stop.IsShopItem = false;
+            stop.StartsLocked = true;
+            stop.OnUnlockUsesTHE = true;
+            stop.SpecialUnlockID = UILocID.None;
+            stop.item._ItemTypeIDs = [];
+            stop.item.AddBlueSkyUnlock("Catten_CH", "locked_secondstop.png", "ach_secondstop.png");
+
+            Ability outpour = new Ability("Salt_Outpour_A");
+            outpour.Name = "Outpour";
+            outpour.Description = "Inflict 2 Slip on all enemy positions.\n50% chance to refresh this party member's ability usage.";
+            outpour.AbilitySprite = ResourceLoader.LoadSprite("ability_outpour.png");
+            outpour.Cost = [Pigments.Grey, Pigments.Grey];
+            outpour.Effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Targetting.Everything(false)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<RefreshAbilityUseEffect>(), 1, Slots.Self, Effects.ChanceCondition(50))
+                ];
+            outpour.AddIntentsToTarget(Targetting.Everything(false), [Slip.Intent]);
+            outpour.AddIntentsToTarget(Slots.Self, ["Misc"]);
+            outpour.Visuals = Visuals.Puke;
+            outpour.AnimationTarget = Targetting.Everything(false);
+
+            ExtraAbility_Wearable_SMS add_pour = ScriptableObject.CreateInstance<ExtraAbility_Wearable_SMS>();
+            add_pour._extraAbility = outpour.GenerateCharacterAbility(true);
+
+            ((Passives.Construct as Connection_PerformEffectPassiveAbility).connectionEffects[1].effect as CasterAddRandomExtraAbilityEffect)._extraData.Add(add_pour);
+
+            Basic_Item bucket = new Basic_Item("Salt_Bucket_TW");
+            bucket.Name = "Bucket";
+            bucket.Flavour = "\"This... is a bucket.\"";
+            bucket.Description = "Adds the extra ability \"Outpour,\" a cheap, easily repeatable ability that inflicts Slip to all enemies.";
+            bucket.Icon = ResourceLoader.LoadSprite("item_bucket.png");
+            bucket.TriggerOn = TriggerCalls.Count;
+            bucket.EquippedModifiers = [add_pour];
+            bucket.DoesPopUpInfo = false;
+            bucket.Conditions = [];
+            bucket.DoesActionOnTriggerAttached = false;
+            bucket.ConsumeOnTrigger = TriggerCalls.Count;
+            bucket.ConsumeOnUse = false;
+            bucket.ConsumeConditions = [];
+            bucket.ShopPrice = 4;
+            bucket.IsShopItem = false;
+            bucket.StartsLocked = true;
+            bucket.OnUnlockUsesTHE = true;
+            bucket.SpecialUnlockID = UILocID.None;
+            bucket.item._ItemTypeIDs = [];
+            bucket.item.AddBlueSkyUnlock("Sunflower_CH", "locked_bucket.png", "ach_bucket.png");
+
             PerformEffect_Item ring = new PerformEffect_Item("Salt_TheRing_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleByTenEffect>(), 1, Slots.Front)]);
             ring.Name = "The Ring";
             ring.Flavour = "\"For whom?\"";
@@ -510,6 +628,32 @@ namespace SaltsEnemies_Reseasoned
             sanddial.SpecialUnlockID = UILocID.None;
             sanddial.Item._ItemTypeIDs = [];
             sanddial.item.AddBlueSkyUnlock("Alpha_CH", "locked_sanddial.png", "ach_sanddial.png");
+
+            RankChange_Wearable_SMS up1 = ScriptableObject.CreateInstance<RankChange_Wearable_SMS>();
+            up1._rankAdditive = 1;
+
+            MultiPerformEffectItem seams = new MultiPerformEffectItem("Salt_Seams_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 3, Slots.Self)]);
+            seams.Name = "Seams";
+            seams.Flavour = "\"Slice of Life\"";
+            seams.Description = "This party member is 1 level higher than usual.\nAt the start and end of each turn, gain 3 Slip.";
+            seams.Icon = ResourceLoader.LoadSprite("item_seams.png");
+            seams.TriggerOn = TriggerCalls.OnTurnStart;
+            seams.EquippedModifiers = [up1];
+            seams.DoesPopUpInfo = true;
+            seams.Conditions = [];
+            seams.DoesActionOnTriggerAttached = false;
+            seams.ConsumeOnTrigger = TriggerCalls.Count;
+            seams.ConsumeOnUse = false;
+            seams.ConsumeConditions = [];
+            seams.ShopPrice = 6;
+            seams.IsShopItem = true;
+            seams.StartsLocked = true;
+            seams.OnUnlockUsesTHE = false;
+            seams.UsesSpecialUnlockText = false;
+            seams.SpecialUnlockID = UILocID.None;
+            seams.item._ItemTypeIDs = ["Fabric"];
+            seams.AddEffectTrigger(new EffectTrigger([Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 3, Slots.Self)], [TriggerCalls.OnTurnFinished], []));
+            seams.item.AddBlueSkyUnlock("Secret_CH", "locked_seams.png", "ach_seams.png");
         }
     }
 }

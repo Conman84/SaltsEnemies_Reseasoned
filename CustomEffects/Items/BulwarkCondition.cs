@@ -43,4 +43,17 @@ namespace SaltsEnemies_Reseasoned
             return value;
         }
     }
+
+    public class BooleanValueInSlipSetter : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is BooleanReference reference)
+            {
+                reference.value = (effector as IUnit).ContainsFieldEffect("Slip_ID");
+                if (reference.value) (effector as IUnit).ShowItem();
+            }
+            return true;
+        }
+    }
 }
