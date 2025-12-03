@@ -103,6 +103,8 @@ namespace SaltsEnemies_Reseasoned
         {
             if (args is HealingDealtValueChangeException value && value.healingUnit != null)
             {
+                if (value.healingUnit.StatusEffectCount <= 0) return false;
+
                 CombatManager.Instance.AddSubAction(new EffectAction([Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterShowItemEffect>())], effector as IUnit));
                 CombatManager.Instance.AddSubAction(new EffectAction([Effects.GenerateEffect(ScriptableObject.CreateInstance<ReduceAllNegativeStatusEffect>(), 2, Slots.Self)], value.healingUnit));
             }
