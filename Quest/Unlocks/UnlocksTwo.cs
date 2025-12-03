@@ -514,8 +514,11 @@ namespace SaltsEnemies_Reseasoned
             panic.Description = "Apply 2 Slip to all party member positions.\nRefresh this party member's ability usage.";
             panic.AbilitySprite = ResourceLoader.LoadSprite("ability_panic.png");
             panic.Cost = [Pigments.Yellow];
-            panic.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Targetting.Everything(true))];
+            panic.Effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Targetting.Everything(true)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<RefreshAbilityUseEffect>(), 1, Slots.Self)];
             panic.AddIntentsToTarget(Targetting.Everything(true), [Slip.Intent]);
+            panic.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Misc_Additional.ToString()]);
             panic.Visuals = null;
             panic.AnimationTarget = Slots.Self;
 
