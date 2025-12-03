@@ -166,7 +166,7 @@ namespace SaltsEnemies_Reseasoned
             CombatManager.Instance.AddSubAction(new RootActionAction(
                 new EffectAction([
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterShowItemEffect>()),
-                    Effects.GenerateEffect(GeneratePigmentByArrayEffect.Create(PigmentUsedCollector.lastUsed.ToArray()))
+                    Effects.GenerateEffect(GeneratePigmentByArrayEffect.Create(PigmentUsedCollector.lastUsed.ToArray()), 1)
                     ], effector as IUnit)));
             return true;
         }
