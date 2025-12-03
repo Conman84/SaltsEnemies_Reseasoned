@@ -22,10 +22,10 @@ namespace SaltEnemies_Reseasoned
             {
                 PCall(UnlocksOne.Add);
                 PCall(UnlocksTwo.Add);
+                PCall(UnlocksSix.Add);
                 PCall(UnlocksThree.Add);
                 PCall(UnlocksFour.Add);
                 PCall(UnlocksFive.Add);
-                PCall(UnlocksSix.Add);
                 PCall(UnlocksSeven.Add);
 
                 //siren

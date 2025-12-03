@@ -109,5 +109,86 @@ namespace SaltsEnemies_Reseasoned
             return false;
         }
     }
+    public class IncreaseDamageByPigmentUsedCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is DamageDealtValueChangeException value)
+            {
+                (effector as IUnit).ShowItem();
+                value.AddModifier(new AdditionValueModifier(true, PigmentUsedCollector.PigmentsUsed.Count));
+            }
+            return false;
+        }
+    }
+    public class DamagelMoreByBlueCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is DamageDealtValueChangeException reference)
+            {
+                int num = 0;
+                foreach (ManaBarSlot slot in CombatManager.Instance._stats.MainManaBar.ManaBarSlots)
+                {
+                    if (!slot.IsEmpty && slot.ManaColor.SharesPigmentColor(Pigments.Blue)) num++;
+                }
+
+                if (num > 0)
+                {
+                    (effector as IUnit).ShowItem();
+                    reference.AddModifier(new AdditionValueModifier(true, num));
+                }
+            }
+            return false;
+        }
+    }
+    public class IncreaseHealIfManuallyMovedCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is HealingDealtValueChangeException value)
+            {
+                if ((effector as IUnit).HasManuallySwappedThisTurn)
+                {
+                    (effector as IUnit).ShowItem();
+                    value.AddModifier(new PercentageValueModifier(true, 40, true));
+                }
+            }
+            return true;
+        }
+    }
+    public class RecyclerCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            CombatManager.Instance.AddSubAction(new RootActionAction(
+                new EffectAction([
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterShowItemEffect>()),
+                    Effects.GenerateEffect(GeneratePigmentByArrayEffect.Create(PigmentUsedCollector.lastUsed.ToArray()))
+                    ], effector as IUnit)));
+            return true;
+        }
+    }
+    public class GeneratePigmentByArrayEffect : GenerateColorManaEffect
+    {
+        public ManaColorSO[] Pigments;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (ManaColorSO mana in Pigments)
+            {
+                this.mana = mana;
+                base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out int exi);
+                exitAmount += exi;
+            }
+            return exitAmount > 0;
+        }
+        public static GeneratePigmentByArrayEffect Create(ManaColorSO[] array)
+        {
+            GeneratePigmentByArrayEffect ret = ScriptableObject.CreateInstance<GeneratePigmentByArrayEffect>();
+            ret.Pigments = array;
+            return ret;
+        }
+    }
 
 }
