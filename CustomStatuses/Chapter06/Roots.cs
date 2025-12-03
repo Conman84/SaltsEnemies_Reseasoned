@@ -65,8 +65,32 @@ namespace SaltEnemies_Reseasoned
             intentinfo._sprite = ResourceLoader.LoadSprite("RootsIcon.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
+
+            NotificationHook.AddAction(NotifCheck);
         }
         public static void Clear() => IgnoreSet = new bool[5];
+
+        public static string SubTrigger => "SubTrigger_Roots";
+        public static void NotifCheck(string name, object sender, object args)
+        {
+            if (name == TriggerCalls.OnAbilityUsed.ToString())
+            {
+                CombatManager.Instance.AddSubAction(new PostSubTriggerAction(sender as IUnit));
+            }
+        }
+        public class PostSubTriggerAction : CombatAction
+        {
+            public IUnit _unit;
+            public PostSubTriggerAction(IUnit unit)
+            {
+                _unit = unit;
+            }
+            public override IEnumerator Execute(CombatStats stats)
+            {
+                CombatManager.Instance.PostNotification(SubTrigger, _unit, null);
+                yield break;
+            }
+        }
     }
     public class RootsFE_SO : FieldEffect_SO
     {
@@ -82,7 +106,7 @@ namespace SaltEnemies_Reseasoned
         }
         public override void OnTriggerAttached(FieldEffect_Holder holder, IUnit caller)
         {
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
+            CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, Roots.SubTrigger, caller);
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, Roots.Trigger, caller);
             if (Roots.IgnoreSet[holder.SlotID])
             {
@@ -93,7 +117,7 @@ namespace SaltEnemies_Reseasoned
         }
         public override void OnTriggerDettached(FieldEffect_Holder holder, IUnit caller)
         {
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
+            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, Roots.SubTrigger, caller);
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, Roots.Trigger, caller);
         }
         public override void OnEventCall_01(FieldEffect_Holder holder, object sender, object args)
