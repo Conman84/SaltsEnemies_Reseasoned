@@ -196,11 +196,11 @@ namespace SaltEnemies_Reseasoned
         public override void OnSlotEffectorTriggerAttached(FieldEffect_Holder holder)
         {
             if (holder.Effector is CombatSlot slot && slot.HasUnit) Water.IgnoreSet[holder.SlotID] = true;
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnFinished.ToString(), holder.Effector);
+            //CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnFinished.ToString(), holder.Effector);
         }
         public override void OnSlotEffectorTriggerDettached(FieldEffect_Holder holder)
         {
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnFinished.ToString(), holder.Effector);
+            //CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnFinished.ToString(), holder.Effector);
         }
         public override void OnTriggerAttached(FieldEffect_Holder holder, IUnit caller)
         {
