@@ -15,10 +15,10 @@ namespace SaltsEnemies_Reseasoned
         {
             if (sender is IUnit unit && unit.IsUnitCharacter)
             {
-                CombatManager.Instance.AddRootAction(new CharacterWitheringAction());
+                CombatManager.Instance.AddSubAction(new CharacterWitheringAction());
             }
             else
-                CombatManager.Instance.AddRootAction(new EnemyWitheringAction());
+                CombatManager.Instance.AddSubAction(new EnemyWitheringAction());
         }
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
