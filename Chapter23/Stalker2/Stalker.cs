@@ -23,7 +23,15 @@ namespace SaltsEnemies_Reseasoned
             };
             stalker.PrepareEnemyPrefab("Assets/Siren2/Stalker_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Siren2/Stalker_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            stalker.AddPassives(new BasePassiveAbilitySO[] { Passives.Immortal, Passives.FleetingGenerator(2), Passives.Anchored, Passives.Inanimate });
+            BasePassiveAbilitySO flee = ScriptableObject.Instantiate(Passives.FleetingGenerator(2));
+            flee.name = "Fleeting_2_With_Changed_Desc";
+            flee._enemyDescription += "\nOn successfully fleeing, attempt to trigger \"Withering.\" on all enemies.";
+            flee._characterDescription += "\nOn successfully fleeing, attempt to trigger \"Withering.\" on all characters.";
+
+            stalker.AddPassives(new BasePassiveAbilitySO[] { Passives.Immortal, flee, Passives.Anchored, Passives.Inanimate });
+
+            stalker.CombatEnterEffects = [Effects.GenerateEffect(StalkerConnectionEffect.Create(true))];
+            stalker.CombatExitEffects = [Effects.GenerateEffect(CasterRootActionEffect.Create([Effects.GenerateEffect(StalkerConnectionEffect.Create(false))]))];
 
             Ability safe = new Ability("SafeSpace_A");
             safe.Name = "Safe Space";
@@ -58,7 +66,7 @@ namespace SaltsEnemies_Reseasoned
             stalker.AddEnemy(true, false, true);
 
             EnemySO clone = UnityEngine.Object.Instantiate(LoadedAssetsHandler.GetEnemy("Stalker2_EN"));
-            clone.passiveAbilities = [Passives.FleetingGenerator(2), Passives.Anchored, Passives.Inanimate];
+            clone.passiveAbilities = [flee, Passives.Anchored, Passives.Inanimate];
             EnemyUtils.AddEnemyToHealthSpawnPool(clone, PoolList_GameIDs.Sepulchre);
         }
     }
