@@ -37,14 +37,6 @@ namespace SaltsEnemies_Reseasoned
             }, null);
             mainEncounters2.CreateNewEnemyEncounterData(new string[]
             {
-                Flower.Yellow,
-                Flower.Purple,
-                "SilverSuckle_EN",
-                "SilverSuckle_EN",
-                "SilverSuckle_EN",
-            }, null);
-            mainEncounters2.CreateNewEnemyEncounterData(new string[]
-            {
                 Flower.Purple,
                 "Delusion_EN",
                 "Delusion_EN",
