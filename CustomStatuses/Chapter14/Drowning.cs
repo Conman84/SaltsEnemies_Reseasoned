@@ -43,13 +43,15 @@ namespace SaltEnemies_Reseasoned
         public override void OnTriggerAttached(StatusEffect_Holder holder, IStatusEffector caller)
         {
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnBeingHealed.ToString(), caller);
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnFinished.ToString(), caller);
+            if (caller.IsStatusEffectorCharacter) CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnFinished.ToString(), caller);
+            else CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.TimelineEndReached.ToString(), caller);
         }
 
         public override void OnTriggerDettached(StatusEffect_Holder holder, IStatusEffector caller)
         {
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnBeingHealed.ToString(), caller);
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnFinished.ToString(), caller);
+            if (caller.IsStatusEffectorCharacter) CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnFinished.ToString(), caller);
+            else CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.TimelineEndReached.ToString(), caller);
         }
 
         public override void OnEventCall_01(StatusEffect_Holder holder, object sender, object args)
