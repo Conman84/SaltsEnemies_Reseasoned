@@ -16,12 +16,13 @@ namespace SaltsEnemies_Reseasoned
             med.MusicEvent = "event:/Hawthorne/StalkerSong";
             med.RoarEvent = "event:/Hawthorne/Ssound/StalkerDie";
 
-            med.SimpleAddEncounter(5, "Stalker2_EN");
+            if (SaltsReseasoned.rando < 30) med.SimpleAddEncounter(5, "Stalker2_EN");
             med.SimpleAddEncounter(3, "Stalker2_EN", 1, "Tassnn_EN");
             med.SimpleAddEncounter(2, "Stalker2_EN", 1, Ecstasy.Random, 1, Ecstasy.Random);
             med.SimpleAddEncounter(2, "Stalker2_EN", 2, "Tassnn_EN");
             med.SimpleAddEncounter(2, "Stalker2_EN", 1, "Tassnn_EN", 1, Ecstasy.Random);
             med.SimpleAddEncounter(2, "Stalker2_EN", 2, "Tumult_EN");
+            med.SimpleAddEncounter(2, "Stalker2_EN", 2, "Boiler_EN");
 
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToCustomZoneSelector(Siren.H.Stalker.Med, 10, "TheSiren_Zone1", BundleDifficulty.Medium);
