@@ -13,7 +13,7 @@ namespace SaltEnemies_Reseasoned
             StatusEffectInfoSO PowerInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             PowerInfo.icon = ResourceLoader.LoadSprite("Power");
             PowerInfo._statusName = "Power";
-            PowerInfo._description = "Increase direct damage dealth by the amount of Power. 50% chance to decrease by 2-3 on activation.";//note: i changed it. cuz the old way it decreased sucked
+            PowerInfo._description = "Increase direct damage dealt by the amount of Power. 50% chance to decrease by 2-3 on activation.";//note: i changed it. cuz the old way it decreased sucked
             PowerInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo._applied_SE_Event;
             PowerInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             PowerInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
