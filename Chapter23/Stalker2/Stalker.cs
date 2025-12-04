@@ -25,8 +25,8 @@ namespace SaltsEnemies_Reseasoned
 
             BasePassiveAbilitySO flee = ScriptableObject.Instantiate(Passives.FleetingGenerator(2));
             flee.name = "Fleeting_2_With_Changed_Desc";
-            flee._enemyDescription += "\nOn successfully fleeing, attempt to trigger \"Withering.\" on all enemies.";
-            flee._characterDescription += "\nOn successfully fleeing, attempt to trigger \"Withering.\" on all characters.";
+            flee._enemyDescription += "\nOn successfully fleeing, attempt to trigger \"Withering\" on all enemies.";
+            flee._characterDescription += "\nOn successfully fleeing, attempt to trigger \"Withering\" on all characters.";
 
             stalker.AddPassives(new BasePassiveAbilitySO[] { Passives.Immortal, flee, Passives.Anchored, Passives.Inanimate });
 
