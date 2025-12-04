@@ -22,7 +22,6 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "WolfColony_EN", 1, Ecstasy.Random);
             med.SimpleAddEncounter(3, "WolfColony_EN", 1, "Stalker2_EN");
             med.SimpleAddEncounter(2, "WolfColony_EN", 2, "Tassnn_EN");
-            med.SimpleAddEncounter(2, "WolfColony_EN", 1, "Tassnn_EN", 1, "Lloigor_EN");
             med.SimpleAddEncounter(2, "WolfColony_EN", 1, "Tassnn_EN", 1, "Stalker2_EN");
             med.SimpleAddEncounter(2, "WolfColony_EN", 1, Ecstasy.Random, 1, Ecstasy.Random);
 
@@ -40,6 +39,9 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddGroup(2, "Tassnn_EN", 2, "WolfColony_EN");
             if (SaltsReseasoned.silly > 50) med.AddRandomGroup("Tassnn_EN", "WolfColony_EN", Ecstasy.Random);
             else med.AddRandomGroup("Tassnn_EN", "WolfColony_EN", "Tumult_EN");
+
+            med = new AddTo(Siren.H.Wolf.Med);
+            med.SimpleAddGroup(2, "WolfColony_EN", 1, "Tassnn_EN", 1, "Lloigor_EN");
 
             med = new AddTo(Siren.H.Olmic.Med);
             if (SaltsReseasoned.trolling < 50) med.AddRandomGroup("Olmic_EN", "WolfColony_EN", "WolfColony_EN");
