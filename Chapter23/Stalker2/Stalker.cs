@@ -27,11 +27,11 @@ namespace SaltsEnemies_Reseasoned
 
             Ability safe = new Ability("SafeSpace_A");
             safe.Name = "Safe Space";
-            safe.Description = "Inflict 10 Slip and 10 Ruptured on the Opposing party member.";
+            safe.Description = "Inflict 10 Slip and 1 Ruptured on the Opposing party member.";
             safe.Rarity = Rarity.Common;
             safe.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 10, Slots.Front),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 10, Slots.Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Front),
                 ];
             safe.AddIntentsToTarget(Slots.Front, [Slip.Intent, "Status_Ruptured"]);
             safe.Visuals = CustomVisuals.GetVisuals("Salt/Cube");
