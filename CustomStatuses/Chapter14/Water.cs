@@ -222,7 +222,7 @@ namespace SaltEnemies_Reseasoned
                 {
                     foreach (CombatSlot slots in unit.IsUnitCharacter ? CombatManager.Instance._stats.combatSlots.CharacterSlots : CombatManager.Instance._stats.combatSlots.EnemySlots)
                     {
-                        if (slots.HasUnit && slots.Unit == unit && slots.ContainsFieldEffect(Water.FieldID) && slots.SlotID > slots.SlotID)
+                        if (slots.HasUnit && slots.Unit == unit && slots.ContainsFieldEffect(Water.FieldID) && slots.SlotID > slot.SlotID)
                         {
                             ReduceDuration(holder);
                             return;
