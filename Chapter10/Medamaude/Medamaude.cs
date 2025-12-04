@@ -93,8 +93,8 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Targetting.Reverse(targettingCasterColor)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 1, Slots.Front)
             };
+            blue.AddIntentsToTarget(allEnemy, new string[] { IntentType_GameIDs.Misc_Hidden.ToString() });
             blue.AddIntentsToTarget(Targetting.Reverse(targettingCasterColor), new string[] { IntentType_GameIDs.Damage_3_6.ToString() });
-            blue.AddIntentsToTarget(allEnemy, new string[] { IntentType_GameIDs.Misc.ToString() });
             blue.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Field_Constricted.ToString()]);
             blue.Visuals = CustomVisuals.GetVisuals("Salt/Gaze");
             blue.AnimationTarget = Targetting.Reverse(targettingCasterColor);
@@ -108,8 +108,8 @@ namespace SaltsEnemies_Reseasoned
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ShufflePositionsAmongTargetsEffect>(), 0, targettingSingleSizeColor)
             };
+            red.AddIntentsToTarget(allAlly, new string[] { IntentType_GameIDs.Misc_Hidden.ToString() });
             red.AddIntentsToTarget(targettingSingleSizeColor, new string[] { IntentType_GameIDs.Swap_Mass.ToString() });
-            red.AddIntentsToTarget(allAlly, new string[] { IntentType_GameIDs.Misc.ToString() });
             red.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
             red.AnimationTarget = targettingSingleSizeColor;
             red.Priority = Priority.ExtremelyFast;
