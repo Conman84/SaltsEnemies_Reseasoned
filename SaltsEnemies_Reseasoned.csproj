@@ -940,6 +940,7 @@
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_wastedisposal.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_windlekey.png" />
 	  <None Remove="Quest\Unlocks\Sprites\Lock\locked_woodenanchor.png" />
+	  <None Remove="SpecialIcons\ability_awaken.png" />
 	  <None Remove="SpecialIcons\ability_reconfigure.png" />
 	  <None Remove="SpecialIcons\ability_replicate.png" />
 	  <None Remove="SpecialIcons\atkicon.png" />
@@ -1877,6 +1878,7 @@
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_wastedisposal.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_windlekey.png" />
 	  <EmbeddedResource Include="Quest\Unlocks\Sprites\Lock\locked_woodenanchor.png" />
+	  <EmbeddedResource Include="SpecialIcons\ability_awaken.png" />
 	  <EmbeddedResource Include="SpecialIcons\ability_reconfigure.png" />
 	  <EmbeddedResource Include="SpecialIcons\ability_replicate.png" />
 	  <EmbeddedResource Include="SpecialIcons\atkicon.png" />

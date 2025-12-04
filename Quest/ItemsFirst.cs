@@ -507,6 +507,7 @@ namespace SaltsEnemies_Reseasoned
             Ability awaken = new Ability("Awaken", "Salt_Awaken_A");
             awaken.Description = "10% chance to kill either a random enemy or this party member.";
             awaken.Cost = [Pigments.Purple];
+            awaken.AbilitySprite = ResourceLoader.LoadSprite("ability_awaken.png");
             awaken.Rarity = Rarity.GetCustomRarity("rarity5");
             awaken.Effects = new EffectInfo[3];
             awaken.Effects[0] = Effects.GenerateEffect(visuals, 1, Slots.Self, Effects.ChanceCondition(10));
@@ -515,7 +516,7 @@ namespace SaltsEnemies_Reseasoned
             awaken.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Damage_Death"]);
             awaken.AddIntentsToTarget(Slots.Self, ["Damage_Death"]);
             awaken.Visuals = null;
-            awaken.GenerateEnemyAbility();
+            //awaken.GenerateEnemyAbility();
             ExtraAbility_Wearable_SMS awaken_a = ScriptableObject.CreateInstance<ExtraAbility_Wearable_SMS>();
             awaken_a._extraAbility = awaken.GenerateCharacterAbility();
 
@@ -541,7 +542,7 @@ namespace SaltsEnemies_Reseasoned
             nine.item._ItemTypeIDs = ["Magic"];
             nine.item.AddItem("Locked_NineKey.png", AchievementIDs.Postmodern, Test);
 
-            Ability reconfigure = new Ability("Reconfigure", "Salt_Reconfigure_A");
+            Ability reconfigure = new Ability("Transfiguration", "Salt_Reconfigure_A");
             reconfigure.Description = "Permenantly transform into a random party member of the same level.";
             reconfigure.Cost = [Pigments.Purple];
             reconfigure.Rarity = Rarity.GetCustomRarity("rarity5");
