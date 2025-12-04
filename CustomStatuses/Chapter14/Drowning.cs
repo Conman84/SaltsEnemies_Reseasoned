@@ -66,10 +66,13 @@ namespace SaltEnemies_Reseasoned
         }
         public override void ReduceDuration(StatusEffect_Holder holder, IStatusEffector effector)
         {
-            if (!Water.InWater(CombatManager.Instance._stats, effector as IUnit))
+            if (Water.InWater(CombatManager.Instance._stats, effector as IUnit))
             {
-                base.ReduceDuration(holder, effector);
+                return;
             }
+
+            base.ReduceDuration(holder, effector);
+
             int Amount = holder.m_ContentMain + holder.Restrictor;
             if (Amount >= 10 && effector is IUnit unit)
             {

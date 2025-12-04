@@ -218,18 +218,31 @@ namespace SaltEnemies_Reseasoned
         {
             if (sender is CombatSlot slot && slot.HasUnit && slot.Unit is IUnit unit && unit.ContainsStatusEffect(Drowning.StatusID))
             {
+                if (unit.Size > 1)
+                {
+                    foreach (CombatSlot slots in unit.IsUnitCharacter ? CombatManager.Instance._stats.combatSlots.CharacterSlots : CombatManager.Instance._stats.combatSlots.EnemySlots)
+                    {
+                        if (slots.HasUnit && slots.Unit == unit && slots.ContainsFieldEffect(Water.FieldID) && slots.SlotID > slots.SlotID)
+                        {
+                            ReduceDuration(holder);
+                            return;
+                        }
+                    }
+                }
+
+
                 if (Drowning.Object == null || Drowning.Object.Equals(null)) Drowning.Add();
                 unit.ApplyStatusEffect(Drowning.Object, unit.GetStatusAmount(Drowning.StatusID, true));
 
                 int num = unit.GetStatusAmount("Drowning_ID", true);
-                /*if (num >= 10)
+                if (num >= 10)
                 {
                     float c = unit.CurrentHealth;
                     c /= 2;
                     int r = (int)Math.Floor(c);
                     if (r > 0) unit.SetHealthTo(r);
                     else unit.DirectDeath(null);
-                }*/
+                }
             }
             ReduceDuration(holder);
         }
