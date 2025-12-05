@@ -56,6 +56,9 @@ namespace SaltsEnemies_Reseasoned
             orig(self);
         }
 
+        //when adding things for this, the process is:
+        //if conditions: return false.
+        //if no conditions, return true (at the end).
         public static bool AllowEnemy(string enemy)
         {
             if (!Check.EnemyExist(enemy)) return false;
