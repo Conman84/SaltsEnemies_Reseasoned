@@ -88,7 +88,8 @@ namespace SaltsEnemies_Reseasoned
                 "A Horse Is Not Just A Horse",
                 "Truth Nine",
                 "Racketeer",
-                "Erqfsetrfe"
+                "Erqfsetrfe",
+                "Characater"
                 ];
             CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             third.PossibleNames = [
