@@ -10,20 +10,22 @@ namespace SaltsEnemies_Reseasoned
 {
     public static class DelayedAttackVisualizer
     {
-        public static GameObject_CFE_Layout FoolLayout;
-        public static GameObject_EFE_Layout EnemyLayout;
+        public static On_Off_CFE_Layout FoolLayout;
+        public static On_Off_EFE_Layout EnemyLayout;
         public static void Add()
         {
-            GameObject Fool = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayFool.prefab").gameObject;
-            FoolLayout = Fool.AddComponent<GameObject_CFE_Layout>();
+            GameObject Fool = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayFool.prefab");
+            FoolLayout = Fool.AddComponent<On_Off_CFE_Layout>();
             FoolLayout.name = "DelayedAttack_Fool";
             FoolLayout.m_Back = new RectTransform[] { Fool.GetComponent<RectTransform>() };
             FoolLayout.m_Objects = new GameObject[] { Fool };
+            FoolLayout.m_Offs = [SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayVanish_Fool.prefab")];
 
             GameObject Enemy = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayEnemy.prefab");
-            EnemyLayout = Enemy.AddComponent<GameObject_EFE_Layout>();
+            EnemyLayout = Enemy.AddComponent<On_Off_EFE_Layout>();
             EnemyLayout.name = "DelayedAttack_Enemy";
             EnemyLayout.m_Objects = new GameObject[] { Enemy };
+            EnemyLayout.m_Offs = [SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayVanish_Enemy.prefab")];
 
             ResetArrays();
             ResetObjects();
@@ -73,6 +75,13 @@ namespace SaltsEnemies_Reseasoned
 
     public class UpdatedDelayAttackVisualsAction : CombatAction
     {
+        public bool[] fools;
+        public bool[] enemies;
+        public UpdatedDelayAttackVisualsAction()
+        {
+            fools = DelayedAttackVisualizer.FoolAttacks;
+            enemies = DelayedAttackVisualizer.EnemyAttacks;
+        }
         public static void UpdateFoolLayout(CombatStats stats, bool[] values)
         {
             for (int _slotId = 0; _slotId < values.Length; _slotId++)
@@ -85,6 +94,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     layout_fool = UnityEngine.Object.Instantiate(DelayedAttackVisualizer.FoolLayout, slot.transform);
                     layout_fool.InitializeLayout(slot._frontFieldEffectHolder, slot._backHolder, slot._swapHolder);
+                    DelayedAttackVisualizer.LayoutFools[_slotId] = layout_fool;
                 }
 
                 if (values[_slotId])
@@ -107,6 +117,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     layout_enemy = UnityEngine.Object.Instantiate(DelayedAttackVisualizer.EnemyLayout, slot.transform);
                     layout_enemy.transform.localPosition = Vector3.zero;
+                    DelayedAttackVisualizer.LayoutEnemies[_slotId] = layout_enemy;
                 }
 
                 if (values[_slotId])
@@ -120,10 +131,59 @@ namespace SaltsEnemies_Reseasoned
 
         public override IEnumerator Execute(CombatStats stats)
         {
-            UpdateFoolLayout(stats, DelayedAttackVisualizer.FoolAttacks);
-            UpdateEnemyLayout(stats, DelayedAttackVisualizer.EnemyAttacks);
+            UpdateFoolLayout(stats, fools);
+            UpdateEnemyLayout(stats, enemies);
 
             yield break;
+        }
+    }
+
+    public class On_Off_CFE_Layout : GameObject_CFE_Layout
+    {
+        public GameObject[] m_Offs;
+
+        public override void DisableLayout()
+        {
+            base.DisableLayout();
+            GameObject[] objects = m_Offs;
+            for (int i = 0; i < objects.Length; i++)
+            {
+                objects[i].SetActive(value: true);
+            }
+        }
+
+        public override void EnableLayout(bool hasUnit)
+        {
+            base.EnableLayout(hasUnit);
+            GameObject[] objects = m_Offs;
+            for (int i = 0; i < objects.Length; i++)
+            {
+                objects[i].SetActive(value: false);
+            }
+        }
+    }
+    public class On_Off_EFE_Layout : GameObject_EFE_Layout
+    {
+        public GameObject[] m_Offs;
+
+        public override void DisableLayout()
+        {
+            base.DisableLayout();
+            GameObject[] objects = m_Offs;
+            for (int i = 0; i < objects.Length; i++)
+            {
+                objects[i].SetActive(value: true);
+            }
+        }
+
+        public override void EnableLayout()
+        {
+            base.EnableLayout();
+            GameObject[] objects = m_Offs;
+            for (int i = 0; i < objects.Length; i++)
+            {
+                objects[i].SetActive(value: false);
+            }
         }
     }
 }
