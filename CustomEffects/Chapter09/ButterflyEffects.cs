@@ -258,6 +258,7 @@ namespace SaltEnemies_Reseasoned
         public void Add()
         {
             DelayedAttackManager.Attacks.Add(this);
+            DelayedAttackVisualizer.UpdateVisuals();
         }
 
         public int Perform()
@@ -317,7 +318,7 @@ namespace SaltEnemies_Reseasoned
             {
                 if (PlayerTurn == unit.IsUnitCharacter)
                 {
-                    if (!PlayerTurn && !unit.IsAlive) continue;
+                    if (!PlayerTurn && (!unit.IsAlive || unit.HasFled)) continue;
                     ReturnMultiTargets targets = ScriptableObject.CreateInstance<ReturnMultiTargets>();
                     targets.Targets = DelayedAttackManager.TargetsForUnit(unit);
                     PerformDelayedAttackEffect attack = ScriptableObject.CreateInstance<PerformDelayedAttackEffect>();
@@ -329,6 +330,7 @@ namespace SaltEnemies_Reseasoned
             }
             CombatManager.Instance.AddSubAction(new PerformCasterlessDelayedAttacksAction(DelayedAttackManager.Attacks.ToArray()));
             DelayedAttackManager.CleanList(PlayerTurn);
+            DelayedAttackVisualizer.UpdateVisuals();
             yield return null;
         }
     }
