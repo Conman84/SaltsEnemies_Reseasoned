@@ -16,7 +16,6 @@ namespace SaltsEnemies_Reseasoned
         {
             GameObject Fool = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayFool.prefab");
             GameObject FoolPart = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayVanish_Fool.prefab");
-            FoolPart.transform.SetParent(Fool.transform);
             FoolLayout = Fool.AddComponent<On_Off_CFE_Layout>();
             FoolLayout.name = "DelayedAttack_Fool";
             FoolLayout.m_Back = new RectTransform[] { Fool.GetComponent<RectTransform>(), FoolPart.GetComponent<RectTransform>() };
@@ -25,7 +24,6 @@ namespace SaltsEnemies_Reseasoned
 
             GameObject Enemy = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayEnemy.prefab");
             GameObject EnemyPart = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayVanish_Enemy.prefab");
-            EnemyPart.transform.SetParent(Enemy.transform);
             EnemyLayout = Enemy.AddComponent<On_Off_EFE_Layout>();
             EnemyLayout.name = "DelayedAttack_Enemy";
             EnemyLayout.m_Objects = new GameObject[] { Enemy };
@@ -97,6 +95,8 @@ namespace SaltsEnemies_Reseasoned
                 if (layout_fool == null)
                 {
                     layout_fool = UnityEngine.Object.Instantiate(DelayedAttackVisualizer.FoolLayout, slot.transform);
+                    if (layout_fool is On_Off_CFE_Layout onOff && onOff.m_Offs != null && onOff.m_Offs.Length > 0)
+                        UnityEngine.Object.Instantiate(onOff.m_Offs[0], slot.transform);
                     layout_fool.InitializeLayout(slot._frontFieldEffectHolder, slot._backHolder, slot._swapHolder);
                     DelayedAttackVisualizer.LayoutFools[_slotId] = layout_fool;
                 }
@@ -120,6 +120,8 @@ namespace SaltsEnemies_Reseasoned
                 if (layout_enemy == null)
                 {
                     layout_enemy = UnityEngine.Object.Instantiate(DelayedAttackVisualizer.EnemyLayout, slot.transform);
+                    if (layout_enemy is On_Off_EFE_Layout onOff && onOff.m_Offs != null && onOff.m_Offs.Length > 0)
+                        UnityEngine.Object.Instantiate(onOff.m_Offs[0], slot.transform).transform.localPosition = Vector3.zero;
                     layout_enemy.transform.localPosition = Vector3.zero;
                     DelayedAttackVisualizer.LayoutEnemies[_slotId] = layout_enemy;
                 }
