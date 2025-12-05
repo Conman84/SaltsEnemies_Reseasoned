@@ -65,7 +65,7 @@ namespace SaltsEnemies_Reseasoned
             if (April.Birthday || Randoming) return true;
             if (Salt.Secret.Contains(enemy) && !April.Me) return false;
 
-            if (enemy == "Stalker2_EN" && CurrentRuns != 2) return April.Me && SaltsReseasoned.rando < 15;
+            if (enemy == "Stalker2_EN" && CurrentRuns != 2 && (!April.Me || SaltsReseasoned.rando > 15)) return false;
 
             if (!DoGatekeep) return true;
 
