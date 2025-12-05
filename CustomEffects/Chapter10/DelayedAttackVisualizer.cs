@@ -26,6 +26,7 @@ namespace SaltsEnemies_Reseasoned
             EnemyLayout.m_Objects = new GameObject[] { Enemy };
 
             ResetArrays();
+            ResetObjects();
 
             NotificationHook.AddAction(NotifCheck);
         }
@@ -65,6 +66,8 @@ namespace SaltsEnemies_Reseasoned
         {
             if (name == TriggerCalls.OnDeath.ToString() || name == TriggerCalls.OnFleetingEnd.ToString())
                 UpdateVisuals();
+            if (name == TriggerCalls.OnBeforeCombatStart.ToString())
+                ResetObjects();
         }
     }
 
