@@ -15,19 +15,17 @@ namespace SaltsEnemies_Reseasoned
         public static void Add()
         {
             GameObject Fool = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayFool.prefab");
-            GameObject FoolPart = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayVanish_Fool.prefab");
             FoolLayout = Fool.AddComponent<On_Off_CFE_Layout>();
             FoolLayout.name = "DelayedAttack_Fool";
-            FoolLayout.m_Back = new RectTransform[] { Fool.GetComponent<RectTransform>(), FoolPart.GetComponent<RectTransform>() };
+            FoolLayout.m_Back = new RectTransform[] { Fool.GetComponent<RectTransform>() };
             FoolLayout.m_Objects = new GameObject[] { Fool };
-            FoolLayout.m_Offs = [FoolPart];
+            FoolLayout._Animators = [Fool.GetComponent<Animator>()];
 
             GameObject Enemy = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayEnemy.prefab");
-            GameObject EnemyPart = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayVanish_Enemy.prefab");
             EnemyLayout = Enemy.AddComponent<On_Off_EFE_Layout>();
             EnemyLayout.name = "DelayedAttack_Enemy";
             EnemyLayout.m_Objects = new GameObject[] { Enemy };
-            EnemyLayout.m_Offs = [EnemyPart];
+            EnemyLayout._Animators = [Enemy.GetComponent<Animator>()];
 
             ResetArrays();
             ResetObjects();
@@ -95,8 +93,6 @@ namespace SaltsEnemies_Reseasoned
                 if (layout_fool == null)
                 {
                     layout_fool = UnityEngine.Object.Instantiate(DelayedAttackVisualizer.FoolLayout, slot.transform);
-                    if (layout_fool is On_Off_CFE_Layout onOff && onOff.m_Offs != null && onOff.m_Offs.Length > 0)
-                        UnityEngine.Object.Instantiate(onOff.m_Offs[0], slot.transform);
                     layout_fool.InitializeLayout(slot._frontFieldEffectHolder, slot._backHolder, slot._swapHolder);
                     DelayedAttackVisualizer.LayoutFools[_slotId] = layout_fool;
                 }
@@ -120,8 +116,6 @@ namespace SaltsEnemies_Reseasoned
                 if (layout_enemy == null)
                 {
                     layout_enemy = UnityEngine.Object.Instantiate(DelayedAttackVisualizer.EnemyLayout, slot.transform);
-                    if (layout_enemy is On_Off_EFE_Layout onOff && onOff.m_Offs != null && onOff.m_Offs.Length > 0)
-                        UnityEngine.Object.Instantiate(onOff.m_Offs[0], slot.transform).transform.localPosition = Vector3.zero;
                     layout_enemy.transform.localPosition = Vector3.zero;
                     DelayedAttackVisualizer.LayoutEnemies[_slotId] = layout_enemy;
                 }
@@ -146,22 +140,20 @@ namespace SaltsEnemies_Reseasoned
 
     public class On_Off_CFE_Layout : GameObject_CFE_Layout
     {
-        public GameObject[] m_Offs;
-
+        public Animator[] _Animators;
         public override void DisableLayout()
         {
-            base.DisableLayout();
-            GameObject[] objects = m_Offs;
-            for (int i = 0; i < objects.Length; i++)
+            if (_Animators != null)
             {
-                objects[i].SetActive(value: true);
+                foreach (Animator anim in _Animators)
+                {
+                    anim.SetTrigger("Disable");
+                }
             }
         }
-
-        public override void EnableLayout(bool hasUnit)
+        public void ActuallyDisable()
         {
-            base.EnableLayout(hasUnit);
-            GameObject[] objects = m_Offs;
+            GameObject[] objects = m_Objects;
             for (int i = 0; i < objects.Length; i++)
             {
                 objects[i].SetActive(value: false);
@@ -170,22 +162,20 @@ namespace SaltsEnemies_Reseasoned
     }
     public class On_Off_EFE_Layout : GameObject_EFE_Layout
     {
-        public GameObject[] m_Offs;
-
+        public Animator[] _Animators;
         public override void DisableLayout()
         {
-            base.DisableLayout();
-            GameObject[] objects = m_Offs;
-            for (int i = 0; i < objects.Length; i++)
+            if (_Animators != null)
             {
-                objects[i].SetActive(value: true);
+                foreach (Animator anim in _Animators)
+                {
+                    anim.SetTrigger("Disable");
+                }
             }
         }
-
-        public override void EnableLayout()
+        public void ActuallyDisable()
         {
-            base.EnableLayout();
-            GameObject[] objects = m_Offs;
+            GameObject[] objects = m_Objects;
             for (int i = 0; i < objects.Length; i++)
             {
                 objects[i].SetActive(value: false);
