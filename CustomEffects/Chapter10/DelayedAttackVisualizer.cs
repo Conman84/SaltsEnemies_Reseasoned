@@ -15,17 +15,21 @@ namespace SaltsEnemies_Reseasoned
         public static void Add()
         {
             GameObject Fool = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayFool.prefab");
+            GameObject FoolPart = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayVanish_Fool.prefab");
+            FoolPart.transform.SetParent(Fool.transform);
             FoolLayout = Fool.AddComponent<On_Off_CFE_Layout>();
             FoolLayout.name = "DelayedAttack_Fool";
-            FoolLayout.m_Back = new RectTransform[] { Fool.GetComponent<RectTransform>() };
+            FoolLayout.m_Back = new RectTransform[] { Fool.GetComponent<RectTransform>(), FoolPart.GetComponent<RectTransform>() };
             FoolLayout.m_Objects = new GameObject[] { Fool };
-            FoolLayout.m_Offs = [SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayVanish_Fool.prefab")];
+            FoolLayout.m_Offs = [FoolPart];
 
             GameObject Enemy = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayEnemy.prefab");
+            GameObject EnemyPart = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayVanish_Enemy.prefab");
+            EnemyPart.transform.SetParent(Enemy.transform);
             EnemyLayout = Enemy.AddComponent<On_Off_EFE_Layout>();
             EnemyLayout.name = "DelayedAttack_Enemy";
             EnemyLayout.m_Objects = new GameObject[] { Enemy };
-            EnemyLayout.m_Offs = [SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/DelayVanish_Enemy.prefab")];
+            EnemyLayout.m_Offs = [EnemyPart];
 
             ResetArrays();
             ResetObjects();
