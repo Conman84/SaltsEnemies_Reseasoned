@@ -143,6 +143,8 @@ namespace SaltsEnemies_Reseasoned
         public Animator[] _Animators;
         public override void DisableLayout()
         {
+            if (!IsActive) ActuallyDisable();
+
             if (_Animators != null)
             {
                 foreach (Animator anim in _Animators)
@@ -165,6 +167,8 @@ namespace SaltsEnemies_Reseasoned
         public Animator[] _Animators;
         public override void DisableLayout()
         {
+            if (!IsActive) ActuallyDisable();
+
             if (_Animators != null)
             {
                 foreach (Animator anim in _Animators)
