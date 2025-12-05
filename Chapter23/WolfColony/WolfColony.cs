@@ -69,7 +69,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front, BasicEffects.DidThat(true)),
                 ];
             tomure.AddIntentsToTarget(Targeting.Unit_AllAllies, ["Heal_1_4"]);
-            tomure.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_3_6"]);
+            tomure.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_7_10"]);
             tomure.AddIntentsToTarget(Slots.Self, ["Status_Cursed"]);
             tomure.Visuals = LoadedAssetsHandler.GetCharacterAbility("Buster_1_A").visuals;
             tomure.AnimationTarget = Slots.Self;
