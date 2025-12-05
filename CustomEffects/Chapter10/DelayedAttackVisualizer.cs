@@ -32,10 +32,18 @@ namespace SaltsEnemies_Reseasoned
 
         public static bool[] FoolAttacks;
         public static bool[] EnemyAttacks;
+
+        public static CharacterFieldEffectLayout[] LayoutFools;
+        public static EnemyFieldEffectLayout[] LayoutEnemies;
         public static void ResetArrays()
         {
             FoolAttacks = [false, false, false, false, false];
             EnemyAttacks = [false, false, false, false, false];
+        }
+        public static void ResetObjects()
+        {
+            LayoutFools = new CharacterFieldEffectLayout[5];
+            LayoutEnemies = new EnemyFieldEffectLayout[5];
         }
 
         public static void UpdateVisuals()
@@ -68,13 +76,9 @@ namespace SaltsEnemies_Reseasoned
             {
                 CharacterSlotLayout slot = stats.combatUI._characterZone._slots[stats.combatUI._characterSlots[_slotId].SlotID];
 
-                Transform obj_fool = slot.transform.Find(DelayedAttackVisualizer.FoolLayout.name);
-                CharacterFieldEffectLayout layout_fool;
-                if (obj_fool != null)
-                {
-                    layout_fool = obj_fool.GetComponent<CharacterFieldEffectLayout>();
-                }
-                else
+                CharacterFieldEffectLayout layout_fool = DelayedAttackVisualizer.LayoutFools[_slotId];
+
+                if (layout_fool == null)
                 {
                     layout_fool = UnityEngine.Object.Instantiate(DelayedAttackVisualizer.FoolLayout, slot.transform);
                     layout_fool.InitializeLayout(slot._frontFieldEffectHolder, slot._backHolder, slot._swapHolder);
@@ -94,13 +98,9 @@ namespace SaltsEnemies_Reseasoned
             {
                 EnemySlotLayout slot = stats.combatUI._enemyZone._slots[stats.combatUI._enemySlots[_slotId].SlotID];
 
-                Transform obj_enemy = slot.transform.Find(DelayedAttackVisualizer.EnemyLayout.name);
-                EnemyFieldEffectLayout layout_enemy;
-                if (obj_enemy != null)
-                {
-                    layout_enemy = obj_enemy.GetComponent<EnemyFieldEffectLayout>();
-                }
-                else
+                EnemyFieldEffectLayout layout_enemy = DelayedAttackVisualizer.LayoutEnemies[_slotId];
+                
+                if (layout_enemy == null)
                 {
                     layout_enemy = UnityEngine.Object.Instantiate(DelayedAttackVisualizer.EnemyLayout, slot.transform);
                     layout_enemy.transform.localPosition = Vector3.zero;
