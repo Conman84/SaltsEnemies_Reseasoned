@@ -89,7 +89,8 @@ namespace SaltsEnemies_Reseasoned
                 "Truth Nine",
                 "Racketeer",
                 "Erqfsetrfe",
-                "Characater"
+                "Characater",
+                "666 Evil Avenue",
                 ];
             CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             third.PossibleNames = [
@@ -115,8 +116,8 @@ namespace SaltsEnemies_Reseasoned
                 "This One Thing I Have To Go Find",
                 "Secret Bug That I Am Unable To Reliably Reproduce",
                 "Hot Or Cold, We Are Not Prepared",
-                "666 Evil Avenue",
                 "Number",
+                "Github Skeletor"
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside),
