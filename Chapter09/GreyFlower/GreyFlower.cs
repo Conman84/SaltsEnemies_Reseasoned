@@ -35,7 +35,7 @@ namespace SaltsEnemies_Reseasoned
             grow.conditions = Passives.Slippery.conditions;
 
             //enemy
-            Enemy greyFlower = new Enemy("Glowing Flower", "GreyFlower_EN")
+            Enemy greyFlower = new Enemy("Ghastly Flower", "GreyFlower_EN")
             {
                 Health = 40,
                 HealthColor = Pigments.Grey,
