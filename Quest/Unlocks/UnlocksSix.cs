@@ -27,7 +27,7 @@ namespace SaltsEnemies_Reseasoned
             hammer.ConsumeOnUse = false;
             hammer.ConsumeConditions = [];
             hammer.ShopPrice = 4;
-            hammer.IsShopItem = false;
+            hammer.IsShopItem = true;
             hammer.StartsLocked = true;
             hammer.OnUnlockUsesTHE = true;
             hammer.UsesSpecialUnlockText = false;
