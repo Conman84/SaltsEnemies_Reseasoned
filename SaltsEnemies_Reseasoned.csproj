@@ -364,6 +364,7 @@
 	  <None Remove="Chapter16\Dragon\DragonDead.png" />
 	  <None Remove="Chapter16\Dragon\DragonIcon.png" />
 	  <None Remove="Chapter16\Dragon\DragonWorld.png" />
+	  <None Remove="Chapter16\OdeToHumanity\AutodidactPassive.png" />
 	  <None Remove="Chapter16\OdeToHumanity\RewritePassive.png" />
 	  <None Remove="Chapter16\OdeToHumanity\VaseDead.png" />
 	  <None Remove="Chapter16\OdeToHumanity\VaseIcon.png" />
@@ -1012,6 +1013,7 @@
 	  <EmbeddedResource Include="Chapter10\Medamaude\GraspingPassive.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\ScramblePassive.png" />
 	  <EmbeddedResource Include="Chapter11\Nameless\FractalPassive.png" />
+	  <EmbeddedResource Include="Chapter16\OdeToHumanity\AutodidactPassive.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaDead.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaIcon.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaPortal.png" />

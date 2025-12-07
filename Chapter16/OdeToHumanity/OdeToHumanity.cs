@@ -59,7 +59,19 @@ namespace SaltsEnemies_Reseasoned
             rewrite._triggerOn = [TriggerCalls.OnDirectDamaged];
             rewrite.AddToPassiveDatabase();
 
-            vase.AddPassives(new BasePassiveAbilitySO[] { weakness, rewrite, Passives.Transfusion, Passives.Skittish });
+            PerformEffectPassiveAbility auto = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            auto._passiveName = "Autodidact";
+            auto.name = "Autodidact_PA";
+            auto.passiveIcon = ResourceLoader.LoadSprite("AutodidactPassive.png");
+            auto.m_PassiveID = "Autodidact_PA";
+            auto._enemyDescription = "At the end of the Player's turn, reroll all of this enemy's abilities.";
+            auto._characterDescription = "wont work lol";
+            auto.conditions = [];
+            auto.doesPassiveTriggerInformationPanel = true;
+            auto.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ReRollAllTargetTimelineAbilityEffect>(), 1, Slots.Self)];
+            auto._triggerOn = [TriggerCalls.OnPlayerTurnEnd_ForEnemy];
+
+            vase.AddPassives(new BasePassiveAbilitySO[] { auto, rewrite, Passives.Transfusion, Passives.Skittish });
             vase.CombatEnterEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<OdeEnterEffect>()).SelfArray();
 
             Ability colors = new Ability("Remember Colors", "RememberColors_A");
@@ -89,7 +101,7 @@ namespace SaltsEnemies_Reseasoned
             holdhands.Visuals = LoadedAssetsHandler.GetCharacterAbility("Weave_1_A").visuals;
             holdhands.AnimationTarget = Slots.Front;
 
-            Ability lockfingers = new Ability("Lock Fingers", "LockFingers_A");
+            /*Ability lockfingers = new Ability("Lock Fingers", "LockFingers_A");
             lockfingers.Description = "Move to the Left or Right, then deal a Barely Painful amount of damage to the Opposing party member and change their health color to this enemy's.";
             lockfingers.Rarity = Rarity.GetCustomRarity("rarity5");
             lockfingers.Effects = new EffectInfo[4];
@@ -100,7 +112,7 @@ namespace SaltsEnemies_Reseasoned
             lockfingers.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Sides.ToString()]);
             lockfingers.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Mana_Modify.ToString()]);
             lockfingers.Visuals = null;
-            lockfingers.AnimationTarget = Slots.Self;
+            lockfingers.AnimationTarget = Slots.Self;*/
 
             Ability yourvoice = new Ability("Your Voice", "YourVoice_A");
             yourvoice.Description = "If the Opposing party member shares this enemy's health color, apply Inspiration on them.\nDeal a Little damage to the Opposing party member.";

@@ -200,4 +200,22 @@ namespace SaltEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
+    public class ReRollAllTargetTimelineAbilityEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (TargetSlotInfo targetSlotInfo in targets)
+            {
+                if (targetSlotInfo.HasUnit && !targetSlotInfo.IsTargetCharacterSlot)
+                {
+                    EnemyCombat unit = stats.TryGetEnemyOnField(targetSlotInfo.Unit.ID);
+                    int amount = unit.TurnsInTimeline;
+                    exitAmount += stats.timeline.TryReRollRandomEnemyTurns(unit, amount, false);
+                }
+            }
+
+            return exitAmount > 0;
+        }
+    }
 }
