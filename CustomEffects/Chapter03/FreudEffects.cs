@@ -157,8 +157,15 @@ namespace SaltEnemies_Reseasoned
     public class UnlockingEffectCondition : EffectConditionSO
     {
         public static string value => "Freud_Unlocking_A";
+        public static string enable => "Freud_EnableUnlocking";
         public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
         {
+            if (caster.SimpleGetStoredValue(enable) <= 0)
+            {
+                caster.SimpleSetStoredValue(enable, 1);
+                caster.SimpleSetStoredValue(value, 3);
+            }
+
             caster.SimpleSetStoredValue(value, Math.Max(0, caster.SimpleGetStoredValue(value) - 1));
             if (caster.SimpleGetStoredValue(value) <= 0) return true;
             return false;
@@ -200,6 +207,7 @@ namespace SaltEnemies_Reseasoned
                 UnitStoreData_BasicSO a = Reader;
             }
             caster.SimpleSetStoredValue(UnlockingEffectCondition.value, 3);
+            caster.SimpleSetStoredValue(UnlockingEffectCondition.enable, 1);
             exitAmount = 0;
             return true;
         }
@@ -289,6 +297,14 @@ namespace SaltEnemies_Reseasoned
                 return true;
             }
             return false;
+        }
+    }
+
+    public static class FreudStartHandler
+    {
+        public static void NotifCheck(string name, object sender, object args)
+        {
+            
         }
     }
 }
