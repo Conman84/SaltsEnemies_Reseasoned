@@ -546,7 +546,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ForgettingPassive.png"), "Forgetting", "On dying except from Withering, spawn a random 1-tile enemy from this area.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AsleepDragonPassive.png"), "Slumber", "On taking any damage, awaken.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("RewritePassive.png"), "Rewrite", "On receiving direct damage, randomize the health colors of all party members and enemies.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AutodidactPassive.png"), "Autodidact", "At the end of the Player's turn, reroll all of this enemy's abilities."));
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AutodidactPassive.png"), "Autodidact", "At the end of the Player's turn, reroll all of this enemy's abilities.");
 
             //CH17
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("KarmaPassive.png"), "Karma", "If this unit has a certain amount of health or less, it will perform an extra ability each turn.");
