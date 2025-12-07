@@ -84,7 +84,7 @@ namespace SaltsEnemies_Reseasoned
             flower.Description = "At the start of combat gain 3 Determined.\nThis item is destroyed on death.";
             flower.Icon = ResourceLoader.LoadSprite("item_littleflower.png");
             flower.EquippedModifiers = [];
-            flower.TriggerOn = TriggerCalls.OnCombatStart;
+            flower.TriggerOn = TriggerCalls.OnFirstTurnStart;
             flower.DoesPopUpInfo = true;
             flower.Conditions = [];
             flower.DoesActionOnTriggerAttached = false;
