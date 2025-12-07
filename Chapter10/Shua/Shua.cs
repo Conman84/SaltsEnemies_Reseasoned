@@ -51,38 +51,38 @@ namespace SaltsEnemies_Reseasoned
             combative.fleeting_USD = "FleetingPA";
 
             //add pasives
-            shua.AddPassives(new BasePassiveAbilitySO[] { incomprehend, combative, Passives.Slippery });
+            shua.AddPassives(new BasePassiveAbilitySO[] { incomprehend, Passives.Fleeting4, Passives.Slippery });
             shua.UnitTypes = new List<string> { "FemaleID" };
 
             //whisper
             Ability whisper = new Ability("Whisperings_A")
             {
                 Name = "Whisperings",
-                Description = "Apply 1 Constricted on the Opposing party member position. Deal an Painful amount of damage to the Opposing party member.",
+                Description = "Apply 1 Constricted on the Opposing party member position. Deal an Agonizing amount of damage to the Opposing party member.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 1, Slots.Front),
                             Effects.GenerateEffect(BasicEffects.PlaySound("event:/Combat/StatusEffects/SE_Cursed_Apl"), 1, Slots.Front),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Slots.Front),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front),
                         },
                 Visuals = CustomVisuals.GetVisuals("Salt/Whisper"),
                 AnimationTarget = Slots.Self,
             };
-            whisper.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Field_Constricted.ToString(), IntentType_GameIDs.Damage_3_6.ToString()]);
+            whisper.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Field_Constricted.ToString(), IntentType_GameIDs.Damage_7_10.ToString()]);
 
             //wanderlust
             Ability wander = new Ability("Wanderlust_A")
             {
                 Name = "Wanderlust",
-                Description = "Deal a Painful amount of damage to the Opposing party member. If there is no Opposing party member, give this enemy another action and move to the Left or Right, this ability cannot give this enemy \"Wanderlust\" again.",
+                Description = "Deal a Little amount of damage to the Opposing party member. If there is no Opposing party member, give this enemy another action and move to the Left or Right, this ability cannot give this enemy \"Wanderlust\" again.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<IsUnitEffect>(), 1, Slots.Front),
                             Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Door", false, Slots.Front), 1, Slots.Front, BasicEffects.DidThat(true)),
                             Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Door", false, Slots.Self), 1, Slots.Front, BasicEffects.DidThat(false, 2)),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Front),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Front),
                             Effects.GenerateEffect(BasicEffects.SetStoreValue(UnitStoredValueNames_GameIDs.DemonCoreW.ToString()), 1, Slots.Self),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsFrontTargetCondition>()),
                             Effects.GenerateEffect(CasterSubActionEffect.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)]), 1, null, BasicEffects.DidThat(true)),
@@ -94,7 +94,7 @@ namespace SaltsEnemies_Reseasoned
                 Visuals = null,
                 AnimationTarget = Slots.Self,
             };
-            wander.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Damage_3_6.ToString().SelfArray());
+            wander.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Damage_1_2.ToString().SelfArray());
             wander.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Misc.ToString(), IntentType_GameIDs.Swap_Sides.ToString()]);
 
             //waver

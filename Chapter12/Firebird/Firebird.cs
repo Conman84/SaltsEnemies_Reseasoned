@@ -64,7 +64,7 @@ namespace SaltsEnemies_Reseasoned
             combative.specialStoredData = Passives.Fleeting3.specialStoredData;
             combative.fleeting_USD = "FleetingPA";
 
-            firebird.AddPassives(new BasePassiveAbilitySO[] { pheonix, burning, combative, Passives.Skittish });
+            firebird.AddPassives(new BasePassiveAbilitySO[] { pheonix, burning, Passives.Fleeting4, Passives.Skittish });
             firebird.AddUnitType("Bird");
 
             //singeing claws

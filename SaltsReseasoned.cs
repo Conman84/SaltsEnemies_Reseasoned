@@ -517,7 +517,7 @@ namespace SaltsEnemies_Reseasoned
             //CH12
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("panic.png"), "Nervous", "On moving, gain another action.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("hunterpassive.png"), "Horrifying", "At the end of each round, if the Opposing unit has Terror deal a certain amount of damage to them.\nOn being directly damaged, inflict Terror on the Opposing unit.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CombativePassive.png"), "Combative", " This unit will flee after a set amount of turns.\nOn dealing or receiving damage, reset this unit's Fleeting counter.");
+            //AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CombativePassive.png"), "Combative", " This unit will flee after a set amount of turns.\nOn dealing or receiving damage, reset this unit's Fleeting counter.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("burningIcon.png"), "Burning", "On receiving direct damage, inflict a certain amount of Fire on this position and the Opposing position.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("rejuvination.png"), "Rejuvination", "On death, if this enemy is above a certain amount of maximum health, Resurrect it at half its maximum health.");
 
