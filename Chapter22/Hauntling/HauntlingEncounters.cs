@@ -32,7 +32,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "Hauntling_EN", 1, "VoiceTrumpet_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Hauntling.Med, 10 * April.Mod, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Hauntling.Med, 1 * April.MoreMod, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Medium);
         }
         public static void Add_Garden()
         {
@@ -43,7 +43,7 @@ namespace SaltsEnemies_Reseasoned
             easy.SimpleAddEncounter(5, "Hauntling_EN");
 
             easy.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Hauntling.Easy, 3 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Hauntling.Easy, April.Birthday ? 15 : 0, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
         }
         public static void Post()
         {
