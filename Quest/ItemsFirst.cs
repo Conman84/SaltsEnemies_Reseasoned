@@ -509,10 +509,8 @@ namespace SaltsEnemies_Reseasoned
             awaken.Cost = [Pigments.Purple];
             awaken.AbilitySprite = ResourceLoader.LoadSprite("ability_awaken.png");
             awaken.Rarity = Rarity.GetCustomRarity("rarity5");
-            awaken.Effects = new EffectInfo[3];
-            awaken.Effects[0] = Effects.GenerateEffect(visuals, 1, Slots.Self, Effects.ChanceCondition(10));
-            awaken.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Slots.Self, awaken_double);
-            awaken.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Targetting.Random(false), awaken_prev);
+            awaken.Effects = new EffectInfo[1];
+            awaken.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<NineKeyEffect>());
             awaken.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Damage_Death"]);
             awaken.AddIntentsToTarget(Slots.Self, ["Damage_Death"]);
             awaken.Visuals = null;
