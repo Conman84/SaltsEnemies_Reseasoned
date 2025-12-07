@@ -76,7 +76,7 @@ namespace SaltsEnemies_Reseasoned
 
             bool run = UnityEngine.Random.Range(0, 100) < 10;
 
-            bool chara = caster is IEffectorChecks effector && effector.IsUnitCharacter;
+            bool chara = run ? false : caster is IEffectorChecks effector && effector.IsUnitCharacter;
 
             if (chara && UnityEngine.Random.Range(0, 100) < 50) run = true;
 
