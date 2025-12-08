@@ -24,10 +24,10 @@ namespace SaltEnemies_Reseasoned
             int ret = 0;
             try
             {
-                if (CombatManager.Instance._stats.TurnsPassed > 1) ret += 4;
-                if (CombatManager.Instance._stats.TurnsPassed > 2) ret /= 2;
-                if (CombatManager.Instance._stats.TurnsPassed > 4) ret /= 2;
-                if (CombatManager.Instance._stats.TurnsPassed > 8) return 0;
+                if (CombatManager.Instance._stats.TurnsPassed >= 1) ret += 4;
+                if (CombatManager.Instance._stats.TurnsPassed >= 2) ret /= 2;
+                if (CombatManager.Instance._stats.TurnsPassed >= 4) ret /= 2;
+                if (CombatManager.Instance._stats.TurnsPassed >= 8) return 0;
             }
             catch
             {
