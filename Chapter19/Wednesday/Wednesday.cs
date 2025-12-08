@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy wednesday = new Enemy("Wednesday", "Wednesday_EN")
             {
-                Health = 17,
+                Health = 19,
                 HealthColor = Pigments.Purple,
                 CombatSprite = ResourceLoader.LoadSprite("PhoneIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("PhoneWorld.png", new Vector2(0.5f, 0f), 32),
