@@ -53,7 +53,7 @@ namespace SaltEnemies_Reseasoned
                         if (itemData.Item != (object)null)
                         {
                             //Debug.Log("not null");
-                            if (itemData.Item == LoadedAssetsHandler.GetWearable("ChocolateCoin_EW"))
+                            if (itemData.Item.name == "Salt_ChocolateCoin_TW")
                             {
                                 enteredCombat = true;
                                 return;
