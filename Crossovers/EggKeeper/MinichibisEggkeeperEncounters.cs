@@ -98,7 +98,7 @@ namespace SaltEnemies_Reseasoned
                     {
                         List<RandomEnemyGroup> list6 = new List<RandomEnemyGroup>(((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("Marmo_Attrition_Medium_Bundle"))._enemyBundles);
                         //I also call RusticJumbleGuts_EN here but im not too sure this is actually its ID
-                        if (Check.EnemyExist("RusticJumbleGuts_EN"))
+                        if (Check.EnemyExist("RusticJumbleguts_EN"))
                         {
                             list6.Add(new RandomEnemyGroup(new string[]
                             {

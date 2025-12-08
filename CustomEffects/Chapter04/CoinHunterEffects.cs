@@ -24,7 +24,7 @@ namespace SaltEnemies_Reseasoned
             int ret = 0;
             try
             {
-                if (CombatManager.Instance._stats.TurnsPassed >= 1) ret += 8;
+                if (CombatManager.Instance._stats.TurnsPassed >= 1) ret += 4;
                 if (CombatManager.Instance._stats.TurnsPassed >= 2) ret /= 2;
                 if (CombatManager.Instance._stats.TurnsPassed >= 4) ret /= 2;
                 if (CombatManager.Instance._stats.TurnsPassed >= 8) return 0;
@@ -45,22 +45,7 @@ namespace SaltEnemies_Reseasoned
             if (UnityEngine.Random.Range(0, 100) < chance() && CombatManager.Instance._stats.PlayerCurrency >= 32 && !enteredCombat)
             {
                 //Debug.Log("a");
-                foreach (ItemInGameData itemData in CombatManager.Instance._informationHolder.Run.playerData._itemList)
-                {
-                    //Debug.Log("item");
-                    if (itemData != (object)null)
-                    {
-                        if (itemData.Item != (object)null)
-                        {
-                            //Debug.Log("not null");
-                            if (itemData.Item.name == "Salt_ChocolateCoin_TW")
-                            {
-                                enteredCombat = true;
-                                return;
-                            }
-                        }
-                    }
-                }
+
                 //Debug.Log("b");
                 Targetting_ByUnit_Side allEnemy = ScriptableObject.CreateInstance<Targetting_ByUnit_Side>();
                 allEnemy.getAllies = false;
