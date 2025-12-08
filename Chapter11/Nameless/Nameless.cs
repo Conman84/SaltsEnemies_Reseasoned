@@ -14,7 +14,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy template = new Enemy("", "Nameless_EN")
             {
-                Health = 44,
+                Health = 41,
                 HealthColor = Pigments.Grey,
                 CombatSprite = ResourceLoader.LoadSprite("NamelessIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("NamelessWorld.png", new Vector2(0.5f, 0f), 32),
