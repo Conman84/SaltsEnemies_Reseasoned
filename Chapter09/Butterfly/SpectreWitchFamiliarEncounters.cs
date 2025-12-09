@@ -63,7 +63,7 @@ namespace SaltsEnemies_Reseasoned
             if (SaltsReseasoned.trolling > 50) med.AddRandomGroup(Flower.Purple, Flower.Yellow, "Spectre_EN");
 
             hard = new AddTo(Orph.H.Tortoise.Hard);
-            if (SaltsReseasoned.trolling < 50) med.AddRandomGroup("StalwartTortoise_EN", "Spectre_EN", "Spectre_EN");
+            if (SaltsReseasoned.trolling < 50) hard.AddRandomGroup("StalwartTortoise_EN", "Spectre_EN", "Spectre_EN");
         }
     }
 }
