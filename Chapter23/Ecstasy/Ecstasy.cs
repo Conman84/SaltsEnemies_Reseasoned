@@ -129,8 +129,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite(type + "EcstasyIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite(type + "EcstasyWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite(type + "EcstasyDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = type + "EcHit",
-                DeathSound = type + "EcDie",
+                DamageSound = "event:/Hawthorne/Sound3/" + type + "EcHit",
+                DeathSound = "event:/Hawthorne/Sound3/" + type + "EcDie",
             };
             template.PrepareEnemyPrefab("Assets/Siren/Ecstasy_" + type + "_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Siren/Ecstasy_" + type + "_Gibs.prefab").GetComponent<ParticleSystem>());
 
