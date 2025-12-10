@@ -550,11 +550,29 @@
 	  <None Remove="Chapter23\WolfColony\WolfDead.png" />
 	  <None Remove="Chapter23\WolfColony\WolfIcon.png" />
 	  <None Remove="Chapter23\WolfColony\WolfWorld.png" />
+	  <None Remove="Chapter24\Lunoscope\LunoscopeDead.png" />
+	  <None Remove="Chapter24\Lunoscope\LunoscopeIcon.png" />
+	  <None Remove="Chapter24\Lunoscope\LunoscopeWorld.png" />
+	  <None Remove="Chapter24\Nume\NumeDead.png" />
+	  <None Remove="Chapter24\Nume\NumeIcon.png" />
+	  <None Remove="Chapter24\Nume\NumeWorld.png" />
+	  <None Remove="Chapter24\Panopticon\PanopticonDead.png" />
+	  <None Remove="Chapter24\Panopticon\PanopticonIcon.png" />
+	  <None Remove="Chapter24\Panopticon\PanopticonWorld.png" />
+	  <None Remove="Chapter24\Papereater\PapereaterDead.png" />
+	  <None Remove="Chapter24\Papereater\PapereaterIcon.png" />
+	  <None Remove="Chapter24\Papereater\PapereaterWorld.png" />
+	  <None Remove="Chapter24\Whale\WhaleDead.png" />
+	  <None Remove="Chapter24\Whale\WhaleIcon.png" />
+	  <None Remove="Chapter24\Whale\WhaleWorld.png" />
 	  <None Remove="CustomPassives\Chapter02\Decay.png" />
 	  <None Remove="CustomPassives\Chapter03\DontTouchMe.png" />
 	  <None Remove="CustomPassives\Chapter03\StarPassive.png" />
 	  <None Remove="CustomPassives\Chapter04\PickPocket.png" />
 	  <None Remove="CustomPassives\Chapter04\Revenge.png" />
+	  <None Remove="CustomPassives\Chapter24\CausalityPassive.png" />
+	  <None Remove="CustomPassives\Chapter24\ComissionerPassive.png" />
+	  <None Remove="CustomPassives\Chapter24\EscapistPassive.png" />
 	  <None Remove="CustomPassives\Desperate.png" />
 	  <None Remove="CustomPassives\Fishing.png" />
 	  <None Remove="CustomPassives\Freakout.png" />
@@ -1509,6 +1527,21 @@
 	  <EmbeddedResource Include="Chapter23\WolfColony\WolfDead.png" />
 	  <EmbeddedResource Include="Chapter23\WolfColony\WolfIcon.png" />
 	  <EmbeddedResource Include="Chapter23\WolfColony\WolfWorld.png" />
+	  <EmbeddedResource Include="Chapter24\Lunoscope\LunoscopeDead.png" />
+	  <EmbeddedResource Include="Chapter24\Lunoscope\LunoscopeIcon.png" />
+	  <EmbeddedResource Include="Chapter24\Lunoscope\LunoscopeWorld.png" />
+	  <EmbeddedResource Include="Chapter24\Nume\NumeDead.png" />
+	  <EmbeddedResource Include="Chapter24\Nume\NumeIcon.png" />
+	  <EmbeddedResource Include="Chapter24\Nume\NumeWorld.png" />
+	  <EmbeddedResource Include="Chapter24\Panopticon\PanopticonDead.png" />
+	  <EmbeddedResource Include="Chapter24\Panopticon\PanopticonIcon.png" />
+	  <EmbeddedResource Include="Chapter24\Panopticon\PanopticonWorld.png" />
+	  <EmbeddedResource Include="Chapter24\Papereater\PapereaterDead.png" />
+	  <EmbeddedResource Include="Chapter24\Papereater\PapereaterIcon.png" />
+	  <EmbeddedResource Include="Chapter24\Papereater\PapereaterWorld.png" />
+	  <EmbeddedResource Include="Chapter24\Whale\WhaleDead.png" />
+	  <EmbeddedResource Include="Chapter24\Whale\WhaleIcon.png" />
+	  <EmbeddedResource Include="Chapter24\Whale\WhaleWorld.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter01\Desperate.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Decay.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Fishing.png" />
@@ -1520,6 +1553,9 @@
 	  <EmbeddedResource Include="CustomPassives\Chapter03\StarPassive.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter04\PickPocket.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter04\Revenge.png" />
+	  <EmbeddedResource Include="CustomPassives\Chapter24\CausalityPassive.png" />
+	  <EmbeddedResource Include="CustomPassives\Chapter24\ComissionerPassive.png" />
+	  <EmbeddedResource Include="CustomPassives\Chapter24\EscapistPassive.png" />
 	  <EmbeddedResource Include="CustomStatuses\Bosses\BlueLight.png" />
 	  <EmbeddedResource Include="CustomStatuses\Bosses\GreenLight.png" />
 	  <EmbeddedResource Include="CustomStatuses\Bosses\RedLight.png" />
@@ -2201,6 +2237,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Chapter24\Hydra\" />
 	  <Folder Include="Crossovers\Dude...IDK\" />
 	  <Folder Include="CustomEffects\Chapter06\" />
 	  <Folder Include="CustomEffects\Chapter12\" />
