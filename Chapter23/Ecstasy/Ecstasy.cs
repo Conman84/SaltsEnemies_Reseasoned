@@ -119,12 +119,6 @@ namespace SaltsEnemies_Reseasoned
                 new TransformOption(LoadedAssetsHandler.GetEnemy(Ecstasy.Yellow)),
                 new TransformOption(LoadedAssetsHandler.GetEnemy(Ecstasy.Purple)),
             };
-
-            LoadedAssetsHandler.GetEnemy(Ecstasy.Blue).deathSound = LoadedAssetsHandler.GetEnemy("Grandfather_EN").deathSound;
-            LoadedAssetsHandler.GetEnemy(Ecstasy.Blue).damageSound = LoadedAssetsHandler.GetEnemy("Grandfather_EN").damageSound;
-
-            LoadedAssetsHandler.GetEnemy(Ecstasy.Purple).deathSound = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").deathSound;
-            LoadedAssetsHandler.GetEnemy(Ecstasy.Purple).damageSound = LoadedAssetsHandler.GetEnemy("ChoirBoy_EN").damageSound;
         }
         public static void Add_Enemy(BasePassiveAbilitySO passive, ManaColorSO color, string name, string type, EnemyAbilityInfo[] abilities)
         {
@@ -135,8 +129,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite(type + "EcstasyIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite(type + "EcstasyWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite(type + "EcstasyDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("Hauntling_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("Hauntling_EN").deathSound,
+                DamageSound = type + "EcHit",
+                DeathSound = type + "EcDie",
             };
             template.PrepareEnemyPrefab("Assets/Siren/Ecstasy_" + type + "_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Siren/Ecstasy_" + type + "_Gibs.prefab").GetComponent<ParticleSystem>());
 

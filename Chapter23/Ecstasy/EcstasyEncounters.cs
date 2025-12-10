@@ -21,7 +21,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Siren.H.Ecstasy.Red.Med, "Salt_RedEcstasyEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/EcstasySong";
-            med.RoarEvent = LoadedAssetsHandler.GetEnemy("Foxtrot_EN").deathSound;
+            med.RoarEvent = "event:/Hawthorne/Sound3/RedEcRoar";
 
             med.AddRandomEncounter(Ecstasy.Red, Ecstasy.Blue, Ecstasy.Yellow, Ecstasy.Purple);
             med.AddRandomEncounter(Ecstasy.Red, Ecstasy.Random, Ecstasy.Random, "Tumult_EN");
@@ -40,7 +40,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Siren.H.Ecstasy.Yellow.Med, "Salt_YellowEcstasyEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/EcstasySong";
-            med.RoarEvent = LoadedAssetsHandler.GetEnemy("Foxtrot_EN").deathSound;
+            med.RoarEvent = "event:/Hawthorne/Sound3/YelEcRoar";
 
             med.AddRandomEncounter(Ecstasy.Red, Ecstasy.Blue, Ecstasy.Yellow, Ecstasy.Purple);
             med.AddRandomEncounter(Ecstasy.Yellow, Ecstasy.Random, Ecstasy.Random, "Tumult_EN");
@@ -59,7 +59,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Siren.H.Ecstasy.Blue.Med, "Salt_BlueEcstasyEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/EcstasySong";
-            med.RoarEvent = LoadedAssetsHandler.GetEnemy("Grandfather_EN").deathSound;
+            med.RoarEvent = "event:/Hawthorne/Sound3/BluEcRoar";
 
             med.AddRandomEncounter(Ecstasy.Red, Ecstasy.Blue, Ecstasy.Yellow, Ecstasy.Purple);
             med.AddRandomEncounter(Ecstasy.Blue, Ecstasy.Random, Ecstasy.Random, "Tumult_EN");
@@ -78,7 +78,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Siren.H.Ecstasy.Purple.Med, "Salt_PurpleEcstasyEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/EcstasySong";
-            med.RoarEvent = "event:/Hawthorne/Noise/Ominous";
+            med.RoarEvent = "event:/Hawthorne/Sound3/PurEcRoar";
 
             med.AddRandomEncounter(Ecstasy.Red, Ecstasy.Blue, Ecstasy.Yellow, Ecstasy.Purple);
             med.AddRandomEncounter(Ecstasy.Purple, Ecstasy.Random, Ecstasy.Random, "Tumult_EN");
