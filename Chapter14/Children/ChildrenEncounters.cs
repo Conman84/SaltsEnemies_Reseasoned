@@ -14,7 +14,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API easy = new EnemyEncounter_API(EncounterType.Random, Garden.H.Children.Easy, "Salt_ChildrenEncounter_Sign");
             easy.MusicEvent = "event:/Hawthorne/ChildrenTheme";
-            easy.RoarEvent = LoadedAssetsHandler.GetEnemyBundle("H_Zone03_SkinningHomunculus_Medium_EnemyBundle")._roarReference.roarEvent;
+            easy.RoarEvent = "event:/Hawthorne/Sound2/ChildrenRoar";
 
             easy.AddRandomEncounter("Children6_EN");
             easy.SimpleAddEncounter(5, "Children6_EN");

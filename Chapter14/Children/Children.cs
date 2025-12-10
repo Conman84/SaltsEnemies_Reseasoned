@@ -96,8 +96,8 @@ namespace SaltsEnemies_Reseasoned
             child.OverworldAliveSprite = ResourceLoader.LoadSprite("Children6World.png", new Vector2(0.5f, 0));
             child.OverworldDeadSprite = ResourceLoader.LoadSprite("ChildrenDead.png", new Vector2(0.5f, 0));
             child.CombatSprite = ResourceLoader.LoadSprite("Children6Icon.png");
-            child.DamageSound = LoadedAssetsHandler.GetCharacter("Hans_CH").damageSound;
-            child.DeathSound = LoadedAssetsHandler.GetCharacter("Hans_CH").deathSound;
+            child.DamageSound = "event:/Hawthorne/Sound2/ChildrenHurt";
+            child.DeathSound = "event:/Hawthorne/Sound2/ChildrenDie";
             child.PrepareMultiEnemyPrefab("assets/Children/Children6_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/Children/Children_Gibs.prefab").GetComponent<ParticleSystem>());
             (child.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
             {
@@ -120,8 +120,8 @@ namespace SaltsEnemies_Reseasoned
             child.OverworldAliveSprite = ResourceLoader.LoadSprite("Children5World.png");
             child.OverworldDeadSprite = ResourceLoader.LoadSprite("ChildrenDead.png");
             child.CombatSprite = ResourceLoader.LoadSprite("Children5Icon.png");
-            child.DamageSound = LoadedAssetsHandler.GetCharacter("Hans_CH").damageSound;
-            child.DeathSound = LoadedAssetsHandler.GetCharacter("Hans_CH").deathSound;
+            child.DamageSound = "event:/Hawthorne/Sound2/ChildrenHurt";
+            child.DeathSound = "event:/Hawthorne/Sound2/ChildrenDie";
             child.PrepareMultiEnemyPrefab("assets/Children/Children5_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/Children/Children_Gibs.prefab").GetComponent<ParticleSystem>());
             (child.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
             {
@@ -143,8 +143,8 @@ namespace SaltsEnemies_Reseasoned
             child.OverworldAliveSprite = ResourceLoader.LoadSprite("Children4World.png");
             child.OverworldDeadSprite = ResourceLoader.LoadSprite("ChildrenDead.png");
             child.CombatSprite = ResourceLoader.LoadSprite("Children4Icon.png");
-            child.DamageSound = LoadedAssetsHandler.GetCharacter("Hans_CH").damageSound;
-            child.DeathSound = LoadedAssetsHandler.GetCharacter("Hans_CH").deathSound;
+            child.DamageSound = "event:/Hawthorne/Sound2/ChildrenHurt";
+            child.DeathSound = "event:/Hawthorne/Sound2/ChildrenDie";
             child.PrepareMultiEnemyPrefab("assets/Children/Children4_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/Children/Children_Gibs.prefab").GetComponent<ParticleSystem>());
             (child.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
             {
@@ -165,8 +165,8 @@ namespace SaltsEnemies_Reseasoned
             child.OverworldAliveSprite = ResourceLoader.LoadSprite("Children3World.png");
             child.OverworldDeadSprite = ResourceLoader.LoadSprite("ChildrenDead.png");
             child.CombatSprite = ResourceLoader.LoadSprite("Children3Icon.png");
-            child.DamageSound = LoadedAssetsHandler.GetCharacter("Hans_CH").damageSound;
-            child.DeathSound = LoadedAssetsHandler.GetCharacter("Hans_CH").deathSound;
+            child.DamageSound = "event:/Hawthorne/Sound2/ChildrenHurt";
+            child.DeathSound = "event:/Hawthorne/Sound2/ChildrenDie";
             child.PrepareMultiEnemyPrefab("assets/Children/Children3_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/Children/Children_Gibs.prefab").GetComponent<ParticleSystem>());
             (child.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
             {
@@ -186,8 +186,8 @@ namespace SaltsEnemies_Reseasoned
             child.OverworldAliveSprite = ResourceLoader.LoadSprite("Children2World.png");
             child.OverworldDeadSprite = ResourceLoader.LoadSprite("ChildrenDead.png");
             child.CombatSprite = ResourceLoader.LoadSprite("Children2Icon.png");
-            child.DamageSound = LoadedAssetsHandler.GetCharacter("Hans_CH").damageSound;
-            child.DeathSound = LoadedAssetsHandler.GetCharacter("Hans_CH").deathSound;
+            child.DamageSound = "event:/Hawthorne/Sound2/ChildrenHurt";
+            child.DeathSound = "event:/Hawthorne/Sound2/ChildrenDie";
             child.PrepareMultiEnemyPrefab("assets/Children/Children2_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/Children/Children_Gibs.prefab").GetComponent<ParticleSystem>());
             (child.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
             {
@@ -206,8 +206,8 @@ namespace SaltsEnemies_Reseasoned
             child.OverworldAliveSprite = ResourceLoader.LoadSprite("Children1World.png");
             child.OverworldDeadSprite = ResourceLoader.LoadSprite("ChildrenDead.png");
             child.CombatSprite = ResourceLoader.LoadSprite("Children1Icon.png");
-            child.DamageSound = LoadedAssetsHandler.GetCharacter("Hans_CH").damageSound;
-            child.DeathSound = LoadedAssetsHandler.GetCharacter("Hans_CH").deathSound;
+            child.DamageSound = "event:/Hawthorne/Sound2/ChildrenHurt";
+            child.DeathSound = "event:/Hawthorne/Sound2/ChildrenDie";
             child.PrepareEnemyPrefab("assets/Children/Children1_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/Children/Children_Gibs.prefab").GetComponent<ParticleSystem>());
             child.AddPassives(passives);
             child.AddEnemyAbilities(abilities);
@@ -221,8 +221,8 @@ namespace SaltsEnemies_Reseasoned
             child.OverworldAliveSprite = ResourceLoader.LoadSprite("Children0World.png");
             child.OverworldDeadSprite = ResourceLoader.LoadSprite("ChildrenDead.png");
             child.CombatSprite = ResourceLoader.LoadSprite("Children0Icon.png");
-            child.DamageSound = LoadedAssetsHandler.GetCharacter("Hans_CH").damageSound;
-            child.DeathSound = LoadedAssetsHandler.GetCharacter("Hans_CH").deathSound;
+            child.DamageSound = "event:/Hawthorne/Sound2/ChildrenHurt";
+            child.DeathSound = "event:/Hawthorne/Sound2/ChildrenDie";
             child.PrepareEnemyPrefab("assets/Children/Children0_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/Children/Children_Ghost_Gibs.prefab").GetComponent<ParticleSystem>());
             child.AddPassives(passives);
             child.AddEnemyAbilities(abilities);
