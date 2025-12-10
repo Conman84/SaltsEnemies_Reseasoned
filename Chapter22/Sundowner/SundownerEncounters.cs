@@ -14,7 +14,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Garden.H.Sundowner.Med, "Salt_SundownerEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/SundownerSong";
-            med.RoarEvent = "event:/Hawthorne/Surround/ReLARoar";
+            med.RoarEvent = "event:/Hawthorne/Sound2/SunsetRoar";
 
             med.SimpleAddEncounter(5, "Sundowner_EN");
             med.SimpleAddEncounter(4, "Sundowner_EN", 1, "Children6_EN");

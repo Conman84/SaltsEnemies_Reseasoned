@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("SundownerIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("SundownerWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("SundownerDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("Untitled_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("Untitled_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Sound2/SunsetHurt",
+                DeathSound = "event:/Hawthorne/Sound2/SunsetDie",
             };
             sundowner.PrepareEnemyPrefab("Assets/Item/Sundowner_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Item/Sundowner_Gibs.prefab").GetComponent<ParticleSystem>());
             sundowner.enemy.enemyTemplate.m_Data.m_Renderer = sundowner.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Sprite").GetComponent<SpriteRenderer>();
