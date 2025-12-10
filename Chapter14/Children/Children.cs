@@ -22,6 +22,7 @@ namespace SaltsEnemies_Reseasoned
             whimsy._triggerOn = new TriggerCalls[] { TriggerCalls.OnBeingDamaged, TriggerCalls.OnRoundFinished, TriggerCalls.OnDeath };
             whimsy.AddToPassiveDatabase();
 
+            //why is this called "de-gay"
             PerformEffectPassiveAbility degay = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             degay._passiveName = "Decay";
             degay.m_PassiveID = Passives.Example_Decay_MudLung.m_PassiveID;
