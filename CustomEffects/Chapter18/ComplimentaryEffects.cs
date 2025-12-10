@@ -87,7 +87,7 @@ namespace SaltEnemies_Reseasoned
                     int num = stats.GetRandomEnemySlot(en.size);
                     if (num != -1)
                     {
-                        if (stats.AddNewEnemy(en, num, false, "Basic", final))
+                        if (stats.AddNewEnemy(en, num, false, CombatType_GameIDs.Spawn_Basic.ToString(), final))
                         {
                             EnemyCombat newborn = stats.Enemies[stats.Enemies.Count - 1];
                             if (newborn is IUnit unit)
