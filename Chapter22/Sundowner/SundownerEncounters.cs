@@ -17,6 +17,7 @@ namespace SaltsEnemies_Reseasoned
             med.RoarEvent = "event:/Hawthorne/Sound2/SunsetRoar";
 
             med.SimpleAddEncounter(5, "Sundowner_EN");
+            med.SimpleAddEncounter(4, "Sundowner_EN");
             med.SimpleAddEncounter(4, "Sundowner_EN", 1, "Children6_EN");
             med.SimpleAddEncounter(4, "Sundowner_EN", 1, "BlackStar_EN");
             med.SimpleAddEncounter(4, "Sundowner_EN", 1, "GlassFigurine_EN");
