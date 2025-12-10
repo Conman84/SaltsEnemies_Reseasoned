@@ -36,15 +36,17 @@ namespace SaltsEnemies_Reseasoned
             flutter.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<FlutteryCondition>() };
 
             //RUPTURE
-            Connection_PerformEffectPassiveAbility rupture = ScriptableObject.CreateInstance<Connection_PerformEffectPassiveAbility>();
+            StatusEffectPassiveAbility rupture = ScriptableObject.CreateInstance<StatusEffectPassiveAbility>();
+            //Connection_PerformEffectPassiveAbility rupture = ScriptableObject.CreateInstance<Connection_PerformEffectPassiveAbility>();
             rupture._passiveName = "Enruptured";
             rupture.passiveIcon = ResourceLoader.LoadSprite("enrupture");
             rupture.m_PassiveID = "Enruptured_PA";
             rupture._enemyDescription = "Permanently applies Ruptured to this enemy.";
             rupture._characterDescription = "Permanently applies Ruptured to this character.";
             rupture.doesPassiveTriggerInformationPanel = true;
-            rupture.connectionEffects = Effects.GenerateEffect(CasterSubActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPermanentRupturedEffect>(), 1, Slots.Self).SelfArray()), 1, Slots.Self).SelfArray();
-            rupture.disconnectionEffects = new EffectInfo[0];
+            //rupture.connectionEffects = Effects.GenerateEffect(CasterSubActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPermanentRupturedEffect>(), 1, Slots.Self).SelfArray()), 1, Slots.Self).SelfArray();
+            //rupture.disconnectionEffects = new EffectInfo[0];
+            rupture._Status = StatusField.Ruptured;
             rupture._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
 
             yellow.AddPassives(new BasePassiveAbilitySO[] { flutter, rupture });
