@@ -7,28 +7,28 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Enemy template = new Enemy("Template", "Template_EN")
+            Enemy lunoscope = new Enemy("Lunoscope", "Lunoscope_EN")
             {
                 Health = 20,
                 HealthColor = Pigments.Red,
-                CombatSprite = ResourceLoader.LoadSprite("ReplaceIcon.png"),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("ReplaceWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("ReplaceDead.png", new Vector2(0.5f, 0f), 32),
+                CombatSprite = ResourceLoader.LoadSprite("LunoscopeIcon.png"),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("LunoscopeWorld.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("LunoscopeDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
             };
-            template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
+            lunoscope.PrepareEnemyPrefab("assets/group4/Lunoscope/Lunoscope_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Lunoscope/Lunoscope_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Leaky1, Passives.Withering });
+            lunoscope.AddPassives(new BasePassiveAbilitySO[] { Passives.Leaky1, Passives.Withering });
 
             Ability test = new Ability("Test_A");
 
             //ADD ENEMY
-            template.AddEnemyAbilities(new EnemyAbilityInfo[]
+            lunoscope.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 test.GenerateEnemyAbility(true),
             });
-            template.AddEnemy(true, true);
+            lunoscope.AddEnemy(true, true);
         }
     }
 }

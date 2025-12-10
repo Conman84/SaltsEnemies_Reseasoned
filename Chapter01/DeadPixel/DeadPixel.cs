@@ -31,7 +31,8 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToRandomZoneEffect>(), 1, Targeting.GenerateSlotTarget(new int[9] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, true)),
             };
             jumpy._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged, TriggerCalls.OnAbilityUsed };
-            Passives.AddCustomPassiveToPool("Jumpy_PA", "Jumpy", jumpy);
+            //Passives.AddCustomPassiveToPool("Jumpy_PA", "Jumpy", jumpy);
+            //why did we add it to the passive pool it literally doesntr fucking work lol
 
             //Numb
             PerformEffectPassiveAbility numb = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
