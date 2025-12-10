@@ -23,7 +23,7 @@ namespace SaltsEnemies_Reseasoned
         public static AssetBundle Dreams;
 
         //change this to false when pushing public version
-        public static bool DebugVer = false;
+        public static bool DebugVer = true;
 
         public void Awake()
         {
@@ -73,11 +73,11 @@ namespace SaltsEnemies_Reseasoned
             PCall(AllyTriggersHandler.Setup);
             PCall(PierceShieldHandler.Setup);
             PCall(FireNoReduce.Setup);
-            PCall(Gatekeeper.Setup);
             PCall(KillCommand.Add);
             PCall(BlueSkyUnlockExtensions.Setup);
             PCall(ActuallyBlocksConstrictingHandler.Setup);
             PCall(DelayedAttackVisualizer.Add);
+            PCall(Gatekeeper.Setup);
             #endregion
 
             //Add To Glossary

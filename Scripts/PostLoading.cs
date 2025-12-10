@@ -45,6 +45,9 @@ namespace SaltEnemies_Reseasoned
             if (Called) return;
             Called = true;
 
+            //hooks
+            PCall(Blacklister.Setup);
+
             //glassed sun setup
             PCall(GlassedSunEffect.Instance.Setup);
             //angel setup
