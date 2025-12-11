@@ -89,7 +89,8 @@ namespace SaltsEnemies_Reseasoned
                 "Erqfsetrfe",
                 "Characater",
                 "666 Evil Avenue",
-                "Sandpaper Watermelon"
+                "Sandpaper Watermelon",
+                "Singing My Lalala Songs"
                 ];
             CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             third.PossibleNames = [
