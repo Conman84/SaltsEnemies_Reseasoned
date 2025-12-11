@@ -278,6 +278,7 @@ namespace SaltsEnemies_Reseasoned
             if (Testing)
             {
                 PCall(Lunoscope.Add);
+                PCall(Whale.Add);
             }
 
             //BOSSES
@@ -436,8 +437,12 @@ namespace SaltsEnemies_Reseasoned
 
             //CH23 Encounters
 
-            //CH24 Encounters
-            PCall(LunoscopeEncounters.Add);
+            if (Testing)
+            {
+                //CH24 Encounters
+                PCall(LunoscopeEncounters.Add);
+                PCall(WhaleEncounters.Add);
+            }
 
             //BOSSES
             //shore

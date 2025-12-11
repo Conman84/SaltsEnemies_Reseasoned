@@ -25,53 +25,26 @@ namespace SaltsEnemies_Reseasoned
             whale.PrepareEnemyPrefab("Assets/wip5/Whale_Wip_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/wip5/Whale_Wip_Gibs.prefab").GetComponent<ParticleSystem>());
             Collisionless = SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/wip5/Whale_Far_Wip_Gibs.prefab").GetComponent<ParticleSystem>();
 
-            Ability tele = new Ability("TelescopingSeries_A");
-            tele.Name = "Telescoping Series";
-            tele.Description = "Move the Opposing party member Left twice or Right twice.\nGain 2 Slip.";
-            tele.Rarity = Rarity.GetCustomRarity("rarity5");
-            tele.Effects = [
-                Effects.GenerateEffect(SubActionEffect.Create([
-                    Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self),
-                    Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self)
-                    ]), 1, Slots.Front, Effects.ChanceCondition(50)),
-                Effects.GenerateEffect(SubActionEffect.Create([
-                    Effects.GenerateEffect(BasicEffects.GoRight, 1, Slots.Self),
-                    Effects.GenerateEffect(BasicEffects.GoRight, 1, Slots.Self)
-                    ]), 1, Slots.Front, BasicEffects.DidThat(false)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Slots.Self),
+            whale.CombatEnterEffects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<WhaleEnterEffect>())];
+
+            Ability descent = new Ability("Descent", "Whale_Descent_A");
+            descent.Name = "Descent";
+            descent.Description = "If this ability is used 3 or more times, deal a Painful amount of damage to all party members.";
+            descent.Rarity = Rarity.CreateAndAddCustomRarityToPool("whale_high", 20);
+            descent.Effects = [
+                Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Anchoring", false, Targeting.Unit_AllOpponents), 0, Slots.Self, ScriptableObject.CreateInstance<WhaleCondition>()),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Targeting.Unit_AllOpponents, BasicEffects.DidThat(true)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<WhaleEffect>())
                 ];
-            tele.AddIntentsToTarget(Slots.Front, ["Swap_Left", "Swap_Left", "Swap_Right", "Swap_Right"]);
-            tele.AddIntentsToTarget(Slots.Self, [Slip.Intent]);
-            tele.Visuals = CustomVisuals.GetVisuals("Salt/Door");
-            tele.AnimationTarget = Slots.Front;
-
-            Ability geo = new Ability("GeometricSequence_A");
-            geo.Name = "Geometric Sequence";
-            geo.Description = "Apply 1 Slip to the Left and Right party member positions.\nMove Left or Right.";
-            geo.Rarity = Rarity.GetCustomRarity("rarity5");
-            geo.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.LeftRight),
-            Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)];
-            geo.AddIntentsToTarget(Slots.LeftRight, [Slip.Intent]);
-            geo.AddIntentsToTarget(Slots.Self, ["Swap_Sides"]);
-            geo.Visuals = Visuals.Wriggle;
-            geo.AnimationTarget = Slots.LeftRight;
-
-            Ability taylor = new Ability("TaylorPolynomial_A");
-            taylor.Name = "Taylor Polynomial";
-            taylor.Description = "At the start of the next turn, deal an Agonizing amount of damage to this enemy's current Opposing position.\nInflict 2 Oil-Slicked on the Opposing party member.";
-            taylor.Rarity = Rarity.GetCustomRarity("rarity5");
-            taylor.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 7, Slots.Front),
-            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 2, Slots.Front)];
-            taylor.AddIntentsToTarget(Slots.Front, ["Damage_7_10", "Damage_Delay", "Status_OilSlicked"]);
-            taylor.Visuals = CustomVisuals.GetVisuals("Salt/Reload");
-            taylor.AnimationTarget = Slots.Front;
+            descent.AddIntentsToTarget(Slots.Self, ["Misc_Hidden"]);
+            descent.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Damage_3_6"]);
+            descent.Visuals = null;
+            descent.AnimationTarget = Slots.Self;
 
             //ADD ENEMY
             whale.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                tele.GenerateEnemyAbility(true),
-                geo.GenerateEnemyAbility(true),
-                taylor.GenerateEnemyAbility(true)
+                descent.GenerateEnemyAbility(true),
             });
             whale.AddEnemy(true, true);
         }
