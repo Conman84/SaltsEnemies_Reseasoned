@@ -78,12 +78,35 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomEncounter("Lunoscope_EN", Enemies.Minister, Spoggle.Grey);
             hard.AddRandomEncounter("Lunoscope_EN", Jumble.Grey, "Sundowner_EN", "Sundowner_EN");
             hard.AddRandomEncounter("Lunoscope_EN", "OdeToHumanity_EN", Enemies.Camera, Enemies.Camera);
+            hard.AddRandomEncounter("Lunoscope_EN", "Sundowner_EN", "Sundowner_EN", Enemies.Minister);
 
             hard.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Lunoscope.Hard, 8 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
         }
         public static void Post()
         {
+            AddTo med = new AddTo(Garden.H.Lunoscope.Med);
+            med.AddRandomGroup("Lunoscope_EN", Noses.Red, "EyePalm_EN");
+            med.AddRandomGroup("Lunoscope_EN", Noses.Yellow, "EyePalm_EN");
+            med.SimpleAddGroup(1, "Lunoscope_EN", 2, "Romantic_EN");
+            med.AddRandomGroup("Lunoscope_EN", "Attrition_EN", "Attrition_EN");
+            med.AddRandomGroup("Lunoscope_EN", "Git_EN", "Git_EN");
+            med.AddRandomGroup("Lunoscope_EN", "Bonsai_EN", "Bonsai_EN");
+            med.AddRandomGroup("Lunoscope_EN", "Beakart_EN", "Children6_EN");
+            med.AddRandomGroup("Lunoscope_EN", "EggKeeper_EN", "MiniReaper_EN");
+
+            AddTo hard = new AddTo(Garden.H.Lunoscope.Hard);
+            hard.AddRandomGroup("Lunoscope_EN", "EggKeeper_EN", "BlackStar_EN");
+            hard.AddRandomGroup("Lunoscope_EN", "Attrition_EN", "Attrition_EN", Jumble.Gray);
+            hard.AddRandomGroup("Lunoscope_EN", "Bonsai_EN", "Bonsai_EN", Jumble.Gray);
+            hard.AddRandomGroup("Lunoscope_EN", "Git_EN", "Git_EN", "OdeToHumanity_EN");
+            hard.AddRandomGroup("Lunoscope_EN", "Romantic_EN", "Romantic_EN", "CorpseChan_EN");
+            hard.AddRandomGroup("Lunoscope_EN", "InHisImage_EN", "InHerImage_EN", Noses.Gray);
+            hard.AddRandomGroup("Lunoscope_EN", Noses.Blue, "EvilDog_EN", "EvilDog_EN");
+            hard.AddRandomGroup("Lunoscope_EN", Noses.Purple, "EvilDog_EN", "EvilDog_EN");
+            hard.AddRandomGroup("Lunoscope_EN", "Beakart_EN", "Surrogate_EN", "Surrogate_EN", "Surrogate_EN");
+            hard.AddRandomGroup("Lunoscope_EN", "Starless_EN", "Beakart_EN");
+
 
         }
     }

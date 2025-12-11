@@ -135,6 +135,11 @@ namespace SaltEnemies_Reseasoned
             PCall(WolfEncounters.Post);
             PCall(StalkerEncounters.Post);
 
+            if (Testing)
+            {
+                PCall(LunoscopeEncounters.Post);
+            }
+
             //Crossovers
 
             //marmo
