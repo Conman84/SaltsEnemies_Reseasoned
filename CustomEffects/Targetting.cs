@@ -1090,7 +1090,7 @@ namespace SaltEnemies_Reseasoned
         public override TargetSlotInfo[] GetTargets(SlotsCombat slots, int casterSlotID, bool isCasterCharacter)
         {
             List<TargetSlotInfo> ret = new List<TargetSlotInfo>();
-            TargetSlotInfo[] source = base.GetTargets(slots, casterSlotID, isCasterCharacter);
+            TargetSlotInfo[] source = Targetting.Everything(getAllies).GetTargets(slots, casterSlotID, isCasterCharacter);
             foreach (TargetSlotInfo target in source)
             {
                 if (!target.HasUnit) ret.Add(target);
@@ -1102,7 +1102,6 @@ namespace SaltEnemies_Reseasoned
         {
             Targetting_ByUnit_Side_Empty ret = ScriptableObject.CreateInstance<Targetting_ByUnit_Side_Empty>();
             ret.getAllies = allies;
-            ret.getAllUnitSlots = false;
             return ret;
         }
     }
