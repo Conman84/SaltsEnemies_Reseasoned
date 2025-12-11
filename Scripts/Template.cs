@@ -52,10 +52,3 @@ namespace SaltsEnemies_Reseasoned
     }
 }
 
-/*-------------------EXTRA STUFF: GROUP 19 PATHS (all in meowy)-----------------*/
-
-//Assets/enem3/Foxtrot_Enemy.prefab
-//Sprite => Handle => Outline
-//Assets/gib3/Foxtrot_Gibs.prefab
-//event:/Hawthorne/Sund/FoxtrotHit
-//event:/Hawthorne/Sund/FoxtrotDie
