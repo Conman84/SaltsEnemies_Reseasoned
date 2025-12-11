@@ -107,7 +107,7 @@ namespace SaltsEnemies_Reseasoned
             Ability fall = new Ability("1989 The Wall Falls", "Panopticon_Fall_A");
             fall.Description = "Consume all Pigment of this enemy's health color and take a Painful amount of damage.\nAt the start of the next turn, deal a Painful amount of damage to all currently unoccupied party member positions.";
             fall.Rarity = left.Rarity;
-            fall.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeAllCasterHealthManaEffect>())
+            fall.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeAllCasterHealthManaEffect>()),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 4, Targetting_ByUnit_Side_Empty.Create(false))];
             fall.AddIntentsToTarget(Slots.Self, ["Mana_Consume", "Damage_3_6"]);
