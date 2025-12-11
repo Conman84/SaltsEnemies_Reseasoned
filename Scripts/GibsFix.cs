@@ -86,7 +86,7 @@ namespace SaltsEnemies_Reseasoned
                     {
                         RuntimeManager.PlayOneShot(self.m_Data.m_GibsEvent, self.m_Data.m_Renderer.transform.position);
                         //make a copy of the whale gibs with no floor splatter and objects with no collision
-                        ParticleSystem system = UnityEngine.Object.Instantiate(self.m_Data.m_Gibs, self.m_Data.m_Renderer.transform.position, self.transform.rotation);
+                        ParticleSystem system = UnityEngine.Object.Instantiate(Whale.Collisionless, self.m_Data.m_Renderer.transform.position, self.transform.rotation);
                         return;
                     }
                 }
