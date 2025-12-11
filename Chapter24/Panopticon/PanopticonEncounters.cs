@@ -167,6 +167,39 @@ namespace SaltsEnemies_Reseasoned
             hard = new AddTo(Garden.H.Lunoscope.Hard);
             hard.SimpleAddGroup(1, "Lunoscope_EN", 3, "Panopticon_EN");
             hard.AddRandomGroup("Lunoscope_EN", "Panopticon_EN", "ChoirBoy_EN");
+
+            hard = new AddTo(Garden.H.Nosestone.Red.Hard);
+            hard.AddRandomGroup(Noses.Red, Noses.Gray, "Panopticon_EN", "Panopticon_EN");
+
+            hard = new AddTo(Garden.H.Nosestone.Blue.Med);
+            hard.AddRandomGroup(Noses.Blue, Noses.Red, "Panopticon_EN", "Panopticon_EN");
+
+            hard = new AddTo(Garden.H.Nosestone.Yellow.Med);
+            hard.AddRandomGroup(Noses.Yellow, Noses.Red, "Panopticon_EN", "Panopticon_EN");
+
+            hard = new AddTo(Garden.H.Nosestone.Purple.Med);
+            hard.AddRandomGroup(Noses.Purple, Noses.Red, "Panopticon_EN", "Panopticon_EN");
+
+            hard = new AddTo(Garden.H.Nosestone.Grey.Med);
+            hard.AddRandomGroup(Noses.Gray, Noses.Red, "Panopticon_EN", "Panopticon_EN");
+
+            med = new AddTo(Garden.H.Panopticon.Med);
+            med.SimpleAddGroup(3, "Panopticon_EN", 1, "Romantic_EN");
+            med.SimpleAddGroup(3, "Panopticon_EN", 1, "Surrogate_EN");
+            med.SimpleAddGroup(3, "Panopticon_EN", 1, "Attrition_EN");
+            med.SimpleAddGroup(2, "Panopticon_EN", 2, "Git_EN");
+            med.SimpleAddGroup(3, "Panopticon_EN", 1, "Bonsai_EN");
+            med.SimpleAddGroup(2, "Bonsai_EN", 2, "Panopticon_EN");
+
+            med = new AddTo(Garden.H.Git.Med);
+            med.SimpleAddGroup(3, "Git_EN", 1, "Panopticon_EN", 1, "Surrogate_EN");
+
+            med = new AddTo(Garden.H.Bonsai.Med);
+            med.SimpleAddGroup(3, "Bonsai_EN", 1, "Panopticon_EN");
+            med.SimpleAddGroup(2, "Bonsai_EN", 2, "Panopticon_EN");
+
+            med = new AddTo(Garden.H.Beakart.Med);
+            med.AddRandomGroup("Beakart_EN", "Panopticon_EN", "Panopticon_EN", "EggKeeper_EN");
         }
     }
 }
