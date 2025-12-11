@@ -58,13 +58,11 @@ namespace SaltsEnemies_Reseasoned
             commissioner.doesPassiveTriggerInformationPanel = true;
             commissioner._triggerOn = [TriggerCalls.OnDirectDamaged];
             commissioner.effects = [
-                Effects.GenerateEffect(CasterSubActionEffect.Create([
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetForceFirstCasterActionEffect>(), 1, Slots.Front),
-                Effects.GenerateEffect(CasterSubActionEffect.Create([
+                Effects.GenerateEffect(CasterPrioritySubActionEffect.Create([
                         Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveFirstCasterActionEffect>(), 1, Slots.Self),
                         Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Slots.Self)
                     ]), 0, Slots.Self, BasicEffects.DidThat(true))
-                ]))
                 ];
             commissioner.conditions = new List<EffectorConditionSO>(Passives.Slippery.conditions) { ScriptableObject.CreateInstance<HasTurnsCondition>() }.ToArray();
 

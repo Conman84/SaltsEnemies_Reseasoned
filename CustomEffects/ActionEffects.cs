@@ -152,4 +152,21 @@ namespace SaltsEnemies_Reseasoned
             return instance;
         }
     }
+    public class CasterPrioritySubActionEffect : EffectSO
+    {
+        public EffectInfo[] effects;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            EffectInfo[] effectInfoArray = effects;
+            exitAmount = 0;
+            CombatManager.Instance.AddPrioritySubAction(new EffectAction(effectInfoArray, caster, 0));
+            return true;
+        }
+        public static CasterPrioritySubActionEffect Create(EffectInfo[] e)
+        {
+            CasterPrioritySubActionEffect instance = CreateInstance<CasterPrioritySubActionEffect>();
+            instance.effects = e;
+            return instance;
+        }
+    }
 }
