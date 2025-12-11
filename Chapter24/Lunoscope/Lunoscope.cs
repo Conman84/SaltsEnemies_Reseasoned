@@ -43,20 +43,56 @@ namespace SaltsEnemies_Reseasoned
             commissioner.doesPassiveTriggerInformationPanel = true;
             commissioner._triggerOn = [TriggerCalls.OnDirectDamaged];
             commissioner.effects = [
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetForceFirstActionEffect>(), 1, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetForceFirstCasterActionEffect>(), 1, Slots.Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Slots.Self, BasicEffects.DidThat(true))
                 ];
             commissioner.conditions = new List<EffectorConditionSO>(Passives.Slippery.conditions) { ScriptableObject.CreateInstance<HasTurnsCondition>() }.ToArray();
+            commissioner.AddToPassiveDatabase();
 
+            lunoscope.AddPassives(new BasePassiveAbilitySO[] { causality, commissioner });
 
-            lunoscope.AddPassives(new BasePassiveAbilitySO[] { Passives.Leaky1, Passives.Withering });
+            Ability tele = new Ability("TelescopingSeries_A");
+            tele.Name = "Telescoping Series";
+            tele.Description = "Move the Opposing party member Left twice or Right twice.";
+            tele.Rarity = Rarity.GetCustomRarity("rarity5");
+            tele.Effects = [
+                Effects.GenerateEffect(SubActionEffect.Create([
+                    Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self),
+                    Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self)
+                    ]), 1, Slots.Front, Effects.ChanceCondition(50)),
+                Effects.GenerateEffect(SubActionEffect.Create([
+                    Effects.GenerateEffect(BasicEffects.GoRight, 1, Slots.Self),
+                    Effects.GenerateEffect(BasicEffects.GoRight, 1, Slots.Self)
+                    ]), 1, Slots.Front, BasicEffects.DidThat(false)),
+                ];
+            tele.AddIntentsToTarget(Slots.Front, ["Swap_Left", "Swap_Left", "Swap_Right", "Swap_Right"]);
+            tele.Visuals = CustomVisuals.GetVisuals("Salt/Door");
+            tele.AnimationTarget = Slots.Front;
 
-            Ability test = new Ability("Test_A");
+            Ability geo = new Ability("GeometricSequence_A");
+            geo.Name = "Geometric Sequence";
+            geo.Description = "Apply 2 Slip to the Left and Right party member positions.";
+            geo.Rarity = Rarity.GetCustomRarity("rarity5");
+            geo.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Slots.LeftRight)];
+            geo.AddIntentsToTarget(Slots.LeftRight, [Slip.Intent]);
+            geo.Visuals = Visuals.Wriggle;
+            geo.AnimationTarget = Slots.LeftRight;
+
+            Ability taylor = new Ability("TaylorPolynomial_A");
+            taylor.Name = "Taylor Polynomial";
+            taylor.Description = "At the start of the next turn, deal an Agonizing amount of damage to this enemy's current Opposing position.";
+            taylor.Rarity = Rarity.GetCustomRarity("rarity5");
+            taylor.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 7, Slots.Front)];
+            taylor.AddIntentsToTarget(Slots.Front, ["Damage_7_10", "Damage_Delay"]);
+            taylor.Visuals = CustomVisuals.GetVisuals("Salt/Reload");
+            taylor.AnimationTarget = Slots.Front;
 
             //ADD ENEMY
             lunoscope.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                test.GenerateEnemyAbility(true),
+                tele.GenerateEnemyAbility(true),
+                geo.GenerateEnemyAbility(true),
+                taylor.GenerateEnemyAbility(true)
             });
             lunoscope.AddEnemy(true, true);
         }

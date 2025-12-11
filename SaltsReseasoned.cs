@@ -24,6 +24,7 @@ namespace SaltsEnemies_Reseasoned
 
         //change this to false when pushing public version
         public static bool DebugVer = true;
+        public static bool Testing = true;
 
         public void Awake()
         {
@@ -272,6 +273,11 @@ namespace SaltsEnemies_Reseasoned
             PCall(WolfColony.Add);
             PCall(WolfLarvae.Add);
             PCall(Stalker.Add);
+
+            if (Testing)
+            {
+                PCall(Lunoscope.Add);
+            }
 
             //BOSSES
             //shore
@@ -591,6 +597,13 @@ namespace SaltsEnemies_Reseasoned
 
             //CH23
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("OverdosePassive.png"), "Overdose", "On being directly damaged, transform into a random other party member/enemy from a selection of party members/enemies.");
+
+            //CH24
+            if (Testing)
+            {
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CausalityPassive.png"), "Causality", "On moving, deal a certain amount of damage to the current Opposing position at the start of the next turn.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ComissionerPassive.png"), "Commissioner", "On being directly damaged, force the Opposing party member to perform this enemy's first action.\nIf successful, remove that action and give this enemy another one.");
+            }
 
             //BOSSES
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SunkPassive.png"), "Sunk", "All positions are in permenant Deep Water.");
