@@ -271,6 +271,11 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "H_Zone01_Jabberwocky_Medium_EnemyBundle";
             }
+            public static class Papereater
+            {
+                public static string Easy => "H_Zone01_Papereater_Easy_EnemyBundle";
+                public static string Med => "H_Zone01_Papereater_Medium_EnemyBundle";
+            }
 
 
             //marmo

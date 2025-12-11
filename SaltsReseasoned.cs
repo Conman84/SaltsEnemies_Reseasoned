@@ -433,6 +433,11 @@ namespace SaltsEnemies_Reseasoned
             PCall(InTheDarkEncounters.Add);
             PCall(SundownerEncounters.Add);
 
+            //CH23 Encounters
+
+            //CH24 Encounters
+            PCall(LunoscopeEncounters.Add);
+
             //BOSSES
             //shore
             PCall(SmilerEncounter.Add);

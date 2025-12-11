@@ -295,6 +295,19 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Hard => "H_Zone02_UntitledEN_Hard_EnemyBundle";
             }
+            public static class Nume
+            {
+                public static string Med => "H_Zone02_Nume_Med_EnemyBundle";
+            }
+            public static class Whale
+            {
+                public static string Easy => "H_Zone02_TheWhale_Easy_EnemyBundle";
+                public static string Med => "H_Zone02_TheWhale_Med_EnemyBundle";
+            }
+            public static class ReverseFalseHydra
+            {
+                public static string Hard => "H_Zone02_ReverseFalseHydra_Med_EnemyBundle";
+            }
 
 
             //marmo

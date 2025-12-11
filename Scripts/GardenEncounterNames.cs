@@ -253,6 +253,15 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Easy => "H_Zone03_ChildrenOfGod_Easy_EnemyBundle";
             }
+            public static class Lunoscope
+            {
+                public static string Med => "H_Zone03_Lunoscope_Medium_EnemyBundle";
+                public static string Hard => "H_Zone03_Lunoscope_Hard_EnemyBundle";
+            }
+            public static class Panopticon
+            {
+                public static string Med => "H_Zone03_Panopticon_Medium_EnemyBundle";
+            }
 
             //marmo
             public static class Git
