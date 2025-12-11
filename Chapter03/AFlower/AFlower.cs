@@ -78,7 +78,7 @@ namespace SaltsEnemies_Reseasoned
             AnglerCheckEffect angle = ScriptableObject.CreateInstance<AnglerCheckEffect>();
 
             Ability baiting = new Ability("Allure", "Salt_Allure_A");
-            baiting.Description = "Move all party members closer to this enemy. Apply 3 Constricted to the opposing position if there is a party member there.";
+            baiting.Description = "Move all party members closer to this enemy. Apply 2 Constricted to the opposing position.";
             baiting.Rarity = Rarity.GetCustomRarity("rarity3");
             baiting.Effects = new EffectInfo[]
             {
@@ -90,7 +90,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(goLeft, 1, Targeting.GenerateSlotTarget(new int[1] { 2 })),
                 Effects.GenerateEffect(goLeft, 1, Targeting.GenerateSlotTarget(new int[1] { 3 })),
                 Effects.GenerateEffect(goLeft, 1, Targeting.GenerateSlotTarget(new int[1] { 4 })),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<IfTargetApplyConstrictedSlotEffect>(), 3, Targeting.Slot_Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 2, Targeting.Slot_Front),
                 Effects.GenerateEffect(angle, 1, Targeting.Slot_Front),
             };
             baiting.Visuals = CustomVisuals.GetVisuals("Salt/Rose");
