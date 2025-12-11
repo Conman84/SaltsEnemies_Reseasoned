@@ -1081,6 +1081,31 @@ namespace SaltEnemies_Reseasoned
             return ret;
         }
     }
+    public class Targetting_ByUnit_Side_Empty : Targetting_ByUnit_Side
+    {
+        public override bool AreTargetAllies => getAllies;
+
+        public override bool AreTargetSlots => getAllUnitSlots;
+
+        public override TargetSlotInfo[] GetTargets(SlotsCombat slots, int casterSlotID, bool isCasterCharacter)
+        {
+            List<TargetSlotInfo> ret = new List<TargetSlotInfo>();
+            TargetSlotInfo[] source = base.GetTargets(slots, casterSlotID, isCasterCharacter);
+            foreach (TargetSlotInfo target in source)
+            {
+                if (!target.HasUnit) ret.Add(target);
+            }
+            return ret.ToArray();
+        }
+
+        public static Targetting_ByUnit_Side_Empty Create(bool allies)
+        {
+            Targetting_ByUnit_Side_Empty ret = ScriptableObject.CreateInstance<Targetting_ByUnit_Side_Empty>();
+            ret.getAllies = allies;
+            ret.getAllUnitSlots = false;
+            return ret;
+        }
+    }
 
     public class DoubleTargetting : BaseCombatTargettingSO
     {

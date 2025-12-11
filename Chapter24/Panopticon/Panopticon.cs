@@ -82,24 +82,42 @@ namespace SaltsEnemies_Reseasoned
             panopticon.AddPassives([colors, commissioner, escape]);
 
 
-            Ability descent = new Ability("Descent", "Panopticon_Descent_A");
-            descent.Name = "Descent";
-            descent.Description = "If this ability is used 3 or more times, deal a Painful amount of damage to all party members.";
-            descent.Rarity = Rarity.CreateAndAddCustomRarityToPool("whale_high", 20);
-            descent.Effects = [
-                Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Anchoring", false, Targetting.Everything(false)), 0, Slots.Self, ScriptableObject.CreateInstance<PanopticonCondition>()),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Targetting.Everything(false), BasicEffects.DidThat(true)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<PanopticonEffect>())
-                ];
-            descent.AddIntentsToTarget(Slots.Self, ["Misc_Hidden"]);
-            descent.AddIntentsToTarget(Targetting.Everything(false), ["Damage_3_6"]);
-            descent.Visuals = null;
-            descent.AnimationTarget = Slots.Self;
+            Ability left = new Ability("Escapee On The West Side Of The Gate", "Panopticon_Left_A");
+            left.Description = "Deal a Painful amount of damage to the Left party member.\nGain 1 Ruptured.";
+            left.Rarity = Rarity.GetCustomRarity("rarity5");
+            left.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Left),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Self)];
+            left.AddIntentsToTarget(Slots.Left, ["Damage_3_6"]);
+            left.AddIntentsToTarget(Slots.Self, ["Status_Ruptured"]);
+            left.AnimationTarget = Slots.Left;
+            left.Visuals = Visuals.Takedown;
+
+            Ability right = new Ability("Detainee On The East Side Of The Gate", "Panopticon_Right_A");
+            right.Description = "Gain 1 Ruptured.\nDeal a Painful amount of damage to the Right party member.";
+            right.Rarity = left.Rarity;
+            right.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Self),
+            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Right)];
+            right.AddIntentsToTarget(Slots.Self, ["Status_Ruptured"]);
+            right.AddIntentsToTarget(Slots.Right, ["Damage_3_6"]);
+            right.AnimationTarget = Slots.Right;
+            right.Visuals = Visuals.Takedown;
+
+            Ability fall = new Ability("1989 The Wall Falls", "Panopticon_Fall_A");
+            fall.Description = "Take a Painful amount of damage.\nAt the start of the next turn, deal a Painful amount of damage to all currently unoccupied party member positions.";
+            fall.Rarity = left.Rarity;
+            fall.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 4, Targetting_ByUnit_Side_Empty.Create(false))];
+            fall.AddIntentsToTarget(Slots.Self, ["Damage_3_6"]);
+            fall.AddIntentsToTarget(Targetting_ByUnit_Side_Empty.Create(false), ["Damage_3_6", "Damage_Delay"]);
+            fall.AnimationTarget = Slots.Self;
+            fall.Visuals = CustomVisuals.GetVisuals("Salt/Gears");
 
             //ADD ENEMY
             panopticon.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                descent.GenerateEnemyAbility(true),
+                left.GenerateEnemyAbility(true),
+                fall.GenerateEnemyAbility(true),
+                right.GenerateEnemyAbility(true)
             });
             panopticon.AddEnemy(true, true);
         }
