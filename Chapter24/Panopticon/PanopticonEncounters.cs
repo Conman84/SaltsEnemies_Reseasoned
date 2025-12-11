@@ -200,6 +200,12 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Garden.H.Beakart.Med);
             med.AddRandomGroup("Beakart_EN", "Panopticon_EN", "Panopticon_EN", "EggKeeper_EN");
+
+            hard = new AddTo(Garden.H.Miriam.Hard);
+            hard.SimpleAddGroup(1, "Miriam_EN", 3, "Panopticon_EN");
+
+            hard = new AddTo(Garden.H.SnakeGod.Hard);
+            hard.AddRandomGroup("SnakeGod_EN", "Panopticon_EN");
         }
     }
 }

@@ -6,6 +6,9 @@ namespace SaltsEnemies_Reseasoned
 {
     //ClayChild_EN
     //ClayChildSleep_EN
+
+    //Clergy_EN (pretty strong)
+    //Sonoduct_EN (70 red, 2 size)
     public static class UndivineCrossovers
     {
         public static void Add1_4()

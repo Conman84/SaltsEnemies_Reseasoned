@@ -102,6 +102,13 @@ namespace SaltsEnemies_Reseasoned
 
             hard = new AddTo(Garden.H.SnakeGod.Hard);
             hard.AddRandomGroup("SnakeGod_EN", "InTheDark_EN");
+
+            med = new AddTo(Garden.H.Dark.Med);
+            med.SimpleAddGroup(2, "Bonsai_EN", 1, "InTheDark_EN");
+            med.SimpleAddGroup(2, "Attrition_EN", 1, "InTheDark_EN");
+            med.SimpleAddGroup(2, "Git_EN", 1, "InTheDark_EN");
+            med.SimpleAddGroup(2, "InTheDark_EN", 2, "Romantic_EN");
+            med.SimpleAddGroup(2, "InTheDark_EN", 2, "Surrogate_EN");
         }
     }
 }

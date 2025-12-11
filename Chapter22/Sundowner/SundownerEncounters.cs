@@ -138,6 +138,16 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Garden.H.Beakart.Med);
             med.SimpleAddGroup(2, "Sundowner_EN", 1, "Beakart_EN");
+
+            med = new AddTo(Garden.H.Polyp.Med);
+            med.SimpleAddGroup(1, Enemies.Polyp, 3, "Sundowner_EN");
+
+            hard = new AddTo("ServitorHard");
+            hard.SimpleAddGroup(1, "ServitoroftheOuterGods_EN", 2, "Sundowner_EN");
+
+            med = new AddTo(Garden.H.Sundowner.Med);
+            med.SimpleAddGroup(3, "Sundowner_EN", 1, "Romantic_EN");
+            med.SimpleAddGroup(3, "Sundowner_EN", 1, "Surrogate_EN");
         }
     }
 }

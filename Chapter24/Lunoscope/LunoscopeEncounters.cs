@@ -90,12 +90,13 @@ namespace SaltsEnemies_Reseasoned
             AddTo med = new AddTo(Garden.H.Lunoscope.Med);
             med.AddRandomGroup("Lunoscope_EN", Noses.Red, "EyePalm_EN");
             med.AddRandomGroup("Lunoscope_EN", Noses.Yellow, "EyePalm_EN");
-            med.SimpleAddGroup(1, "Lunoscope_EN", 2, "Romantic_EN");
+            med.SimpleAddGroup(1, "Lunoscope_EN", 3, "Romantic_EN");
             med.AddRandomGroup("Lunoscope_EN", "Attrition_EN", "Attrition_EN");
             med.AddRandomGroup("Lunoscope_EN", "Git_EN", "Git_EN");
             med.AddRandomGroup("Lunoscope_EN", "Bonsai_EN", "Bonsai_EN");
             med.AddRandomGroup("Lunoscope_EN", "Beakart_EN", "Children6_EN");
             med.AddRandomGroup("Lunoscope_EN", "EggKeeper_EN", "MiniReaper_EN");
+            med.AddRandomGroup("Lunoscope_EN", Enemies.Polyp, "PawnA_EN", "PawnA_EN");
 
             AddTo hard = new AddTo(Garden.H.Lunoscope.Hard);
             hard.AddRandomGroup("Lunoscope_EN", "EggKeeper_EN", "BlackStar_EN");
@@ -109,6 +110,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("Lunoscope_EN", "Beakart_EN", "Surrogate_EN", "Surrogate_EN", "Surrogate_EN");
             hard.AddRandomGroup("Lunoscope_EN", "Starless_EN", "Beakart_EN");
             hard.AddRandomGroup("Lunoscope_EN", Flower.Gray, "Beakart_EN");
+            hard.AddRandomGroup("Lunoscope_EN", Enemies.Polyp, "InHisImage_EN", "InHerImage_EN");
 
             med = new AddTo(Garden.H.Satyr.Med);
             med.AddRandomGroup("Satyr_EN", "Lunoscope_EN", "TortureMeNot_EN");
@@ -162,6 +164,12 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("InTheDark_EN", "Lunoscope_EN", "EggKeeper_EN");
             hard.AddRandomGroup("InTheDark_EN", "Lunoscope_EN", "Grandfather_EN");
             hard.SimpleAddGroup(2, "InTheDark_EN", 1, "Lunoscope_EN");
+
+            hard = new AddTo(Garden.H.Miriam.Hard);
+            hard.SimpleAddGroup(1, "Miriam_EN", 2, "Lunoscope_EN");
+
+            hard = new AddTo(Garden.H.SnakeGod.Hard);
+            hard.AddRandomGroup("SnakeGod_EN", "Lunoscope_EN");
         }
     }
 }

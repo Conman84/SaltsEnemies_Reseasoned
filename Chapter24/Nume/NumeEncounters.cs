@@ -16,7 +16,8 @@ namespace SaltsEnemies_Reseasoned
             med.MusicEvent = "event:/Hawthorne/NumePlaceholder";
             med.RoarEvent = "event:/Hawthorne/Surround/EnigmaRoar";
 
-            med.AddRandomEncounter("Nume_EN");
+            med.SimpleAddEncounter(2, "Nume_EN", 2, "SingingStone_EN");
+
 
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Nume.Med, 15, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
