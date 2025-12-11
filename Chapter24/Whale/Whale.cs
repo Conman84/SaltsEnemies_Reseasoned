@@ -32,12 +32,12 @@ namespace SaltsEnemies_Reseasoned
             descent.Description = "If this ability is used 3 or more times, deal a Painful amount of damage to all party members.";
             descent.Rarity = Rarity.CreateAndAddCustomRarityToPool("whale_high", 20);
             descent.Effects = [
-                Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Anchoring", false, Targeting.Unit_AllOpponents), 0, Slots.Self, ScriptableObject.CreateInstance<WhaleCondition>()),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Targeting.Unit_AllOpponents, BasicEffects.DidThat(true)),
+                Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Anchoring", false, Targetting.Everything(false)), 0, Slots.Self, ScriptableObject.CreateInstance<WhaleCondition>()),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Targetting.Everything(false), BasicEffects.DidThat(true)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<WhaleEffect>())
                 ];
             descent.AddIntentsToTarget(Slots.Self, ["Misc_Hidden"]);
-            descent.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Damage_3_6"]);
+            descent.AddIntentsToTarget(Targetting.Everything(false), ["Damage_3_6"]);
             descent.Visuals = null;
             descent.AnimationTarget = Slots.Self;
 
