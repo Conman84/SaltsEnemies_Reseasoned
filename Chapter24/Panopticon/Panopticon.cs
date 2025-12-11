@@ -82,31 +82,35 @@ namespace SaltsEnemies_Reseasoned
 
 
             Ability left = new Ability("Escapee On The West Side Of The Gate", "Panopticon_Left_A");
-            left.Description = "Deal a Painful amount of damage to the Left party member.\nGain 1 Ruptured.";
+            left.Description = "Deal a Painful amount of damage to the Left party member.\nGain 1 Ruptured and consume 2 Pigment not of this enemy's health color.";
             left.Rarity = Rarity.GetCustomRarity("rarity5");
             left.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Left),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Self)];
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeRandomButCasterHealthManaEffect>(), 2)];
             left.AddIntentsToTarget(Slots.Left, ["Damage_3_6"]);
-            left.AddIntentsToTarget(Slots.Self, ["Status_Ruptured"]);
+            left.AddIntentsToTarget(Slots.Self, ["Status_Ruptured", "Mana_Consume"]);
             left.AnimationTarget = Slots.Left;
             left.Visuals = Visuals.Takedown;
 
             Ability right = new Ability("Detainee On The East Side Of The Gate", "Panopticon_Right_A");
-            right.Description = "Gain 1 Ruptured.\nDeal a Painful amount of damage to the Right party member.";
+            right.Description = "Gain 1 Ruptured.\nDeal a Painful amount of damage to the Right party member and consume 2 Pigment not of this enemy's health color.";
             right.Rarity = left.Rarity;
             right.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Self),
-            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Right)];
+            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Right),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeRandomButCasterHealthManaEffect>(), 2)];
             right.AddIntentsToTarget(Slots.Self, ["Status_Ruptured"]);
             right.AddIntentsToTarget(Slots.Right, ["Damage_3_6"]);
+            right.AddIntentsToTarget(Slots.Self, ["Mana_Consume"]);
             right.AnimationTarget = Slots.Right;
             right.Visuals = Visuals.Takedown;
 
             Ability fall = new Ability("1989 The Wall Falls", "Panopticon_Fall_A");
-            fall.Description = "Take a Painful amount of damage.\nAt the start of the next turn, deal a Painful amount of damage to all currently unoccupied party member positions.";
+            fall.Description = "Consume all Pigment of this enemy's health color and take a Painful amount of damage.\nAt the start of the next turn, deal a Painful amount of damage to all currently unoccupied party member positions.";
             fall.Rarity = left.Rarity;
-            fall.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Self),
+            fall.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeAllCasterHealthManaEffect>())
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 4, Targetting_ByUnit_Side_Empty.Create(false))];
-            fall.AddIntentsToTarget(Slots.Self, ["Damage_3_6"]);
+            fall.AddIntentsToTarget(Slots.Self, ["Mana_Consume", "Damage_3_6"]);
             fall.AddIntentsToTarget(Targetting_ByUnit_Side_Empty.Create(false), ["Damage_3_6", "Damage_Delay"]);
             fall.AnimationTarget = Slots.Self;
             fall.Visuals = CustomVisuals.GetVisuals("Salt/Gears");
