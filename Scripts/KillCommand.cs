@@ -206,6 +206,7 @@ namespace SaltsEnemies_Reseasoned
             });
 
             DebugController.Commands.children.Add(KILL);
+            DebugController.Commands.children.Add(HEAL);
             DebugController.Commands.children.Add(CHANGEBOSS);
             DebugController.Commands.children.Add(ADDEASYENEMY);
             DebugController.Commands.children.Add(ADDMEDIUMENEMY);
