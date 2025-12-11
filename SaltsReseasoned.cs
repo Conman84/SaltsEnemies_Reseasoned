@@ -22,12 +22,16 @@ namespace SaltsEnemies_Reseasoned
         public static AssetBundle Meow;
         public static AssetBundle Dreams;
 
+        public static SaltsReseasoned Self;
+
         //change this to false when pushing public version
         public static bool DebugVer = false;
         public static bool Testing = true;
 
         public void Awake()
         {
+            Self = this;
+
             Logger.LogInfo("they salt on my enemies till i season?");
 
             saltsAssetBundle = AssetBundle.LoadFromMemory(ResourceLoader.ResourceBinary("hawthorne"));

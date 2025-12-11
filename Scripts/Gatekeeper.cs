@@ -182,10 +182,16 @@ namespace SaltsEnemies_Reseasoned
             if (enemy == "Stalker2_EN" && !Tracker.Track(["LittleAngel_EN", "Ecstasy_EN", "YellowAngel_EN", "FakeAngel_EN"])) return false;
             if (enemy == "Hauntling_EN" && !Tracker.Track(["ClockTower_EN", "Satyr_EN"])) return false;
             if (enemy == "Insider_EN" && !Tracker.Track(["YellowAngel_EN", "EyePalm_EN"])) return false;
-            if (enemy == "CorpseChan_EN" && !Tracker.Track(["ToyUfo_EN", "2009_EN"])) return false;
             if (enemy == "Jabberwocky_EN" && !Tracker.Track(["EvilDog_EN", Enemies.Solvent])) return false;
+            if (enemy == "Nume_EN" && !Tracker.Track(["Miriam_EN", "CoinHunter_EN"])) return false;
+            if (enemy == "Papereater_EN" && !Tracker.Track(["YellowAngel_EN", "Arceles_EN"])) return false;
+            if (enemy == "TheWhale_EN" && !Tracker.Track("Freud_EN")) return false;
+            if (enemy == "CorpseChan_EN" && !Tracker.Track(["ToyUfo_EN", "2009_EN"])) return false;
             if (enemy == "InTheDark_EN" && !Tracker.Track(["Monster_EN", "Satyr_EN"])) return false;
             if (enemy == "Sundowner_EN" && !Tracker.Track(["DeadPixel_EN", "Complimentary_EN"])) return false;
+            if (enemy == "Panopticon_EN" && !Tracker.Track(["Papereater_EN", "Enigma_EN"])) return false;
+            if (enemy == "Lunoscope_EN" && !Tracker.Track(["Panopticon_EN", "Nume_EN"])) return false;
+            if (enemy == "ReverseFalseHydra_EN" && !Tracker.Track("TortureMeNot_EN")) return false;
 
             return true;
         }
@@ -260,8 +266,8 @@ namespace SaltsEnemies_Reseasoned
         public static string[] Harder = ["Chiito_EN", "Complimentary_EN", "Wednesday_EN", "Hunter_EN", "Warbird_EN", "Indicator_EN", "GlassedSun_EN", "Stoplight_EN", "Clown_EN", "BlackAndBlue_BOSS"];
         public static string[] Hardest = ["Postmodern_EN", "War_EN", "ClockTower_EN", Enemies.Tank, "Miriam_EN", "33_EN", "Author_EN", "Monster_EN", "Starless_EN", "Yang_EN", "Cruelties1_EN", "YNL_EN", "Firebird_EN"];
         public static string[] Expert = ["Damocles_EN", "GlassFigurine_EN", "Nameless_EN", "Children6_EN", "TheDragon_EN", "OdeToHumanity_EN", "EvilDog_EN", "PersonalAngel_EN", "Yin_EN", "Eyeless_EN", "Solitaire_EN", "Spades_EN", "WolfColony_EN", "WolfLarvae_EN", "Stalker2_EN"];
-        public static string[] Secret = ["Hauntling_EN", "Insider_EN", "CorpseChan_EN", "Untitled_EN", "Jabberwocky_EN", "InTheDark_EN", "Sundowner_EN"];
-        public static string[] Hidden = ["Lunoscope_EN", "Panopticon_EN", "Nume_EN", "Papereater_EN", "TheWhale_EN", "ReverseFalseHydra_EN"];
+        public static string[] Hidden = ["Hauntling_EN", "Insider_EN", "Jabberwocky_EN", "Nume_EN", "Papereater_EN", "TheWhale_EN"];
+        public static string[] Secret = ["CorpseChan_EN", "Untitled_EN", "InTheDark_EN", "Sundowner_EN", "Lunoscope_EN", "Panopticon_EN", "ReverseFalseHydra_EN"];
     }
 }
 

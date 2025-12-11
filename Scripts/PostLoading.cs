@@ -47,6 +47,7 @@ namespace SaltEnemies_Reseasoned
 
             //hooks
             PCall(Blacklister.Setup);
+            PCall(Legacy.Setup);
 
             //glassed sun setup
             PCall(GlassedSunEffect.Instance.Setup);
