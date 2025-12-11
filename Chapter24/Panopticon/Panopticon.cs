@@ -82,22 +82,20 @@ namespace SaltsEnemies_Reseasoned
 
 
             Ability left = new Ability("Escapee On The West Side Of The Gate", "Panopticon_Left_A");
-            left.Description = "Deal a Painful amount of damage to the Left party member.\nGain 1 Ruptured and consume 2 Pigment not of this enemy's health color.";
+            left.Description = "Deal a Painful amount of damage to the Left party member.\nGain 1 Ruptured.";
             left.Rarity = Rarity.GetCustomRarity("rarity5");
             left.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Left),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Self),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeRandomButCasterHealthManaEffect>(), 2)];
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Self)];
             left.AddIntentsToTarget(Slots.Left, ["Damage_3_6"]);
             left.AddIntentsToTarget(Slots.Self, ["Status_Ruptured", "Mana_Consume"]);
             left.AnimationTarget = Slots.Left;
             left.Visuals = Visuals.Takedown;
 
             Ability right = new Ability("Detainee On The East Side Of The Gate", "Panopticon_Right_A");
-            right.Description = "Gain 1 Ruptured.\nDeal a Painful amount of damage to the Right party member and consume 2 Pigment not of this enemy's health color.";
+            right.Description = "Gain 1 Ruptured.\nDeal a Painful amount of damage to the Right party member.";
             right.Rarity = left.Rarity;
             right.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Self),
-            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Right),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeRandomButCasterHealthManaEffect>(), 2)];
+            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Right)];
             right.AddIntentsToTarget(Slots.Self, ["Status_Ruptured"]);
             right.AddIntentsToTarget(Slots.Right, ["Damage_3_6"]);
             right.AddIntentsToTarget(Slots.Self, ["Mana_Consume"]);

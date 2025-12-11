@@ -42,20 +42,19 @@ namespace SaltsEnemies_Reseasoned
             //Catch
             PreviousEffectCondition didThat = ScriptableObject.CreateInstance<PreviousEffectCondition>();
             didThat.wasSuccessful = true;
+            didThat.previousAmount = 2;
             IfConstrictingAnimationVisualsEffect chomp = ScriptableObject.CreateInstance<IfConstrictingAnimationVisualsEffect>();
             chomp._visuals = LoadedAssetsHandler.GetEnemyAbility("Chomp_A").visuals;
             chomp._animationTarget = Targeting.Slot_Front;
 
             Ability catching = new Ability("Catch", "Salt_Catch_A");
-            catching.Description = "If the opposing party member is Constricted, deal an Agonizing damage to them. \nThen, move this enemy to a random position and apply 4 Stunned to itself. \nIf damage was dealt, reset this enemy's fleeting.";
+            catching.Description = "If the opposing party member is Constricted, deal an Agonizing damage to them and move to a random position.";
             catching.Rarity = Rarity.CreateAndAddCustomRarityToPool("AnglerAwesome", 55);
             catching.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(chomp, 1, Targeting.Slot_SelfSlot),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageIfConstrictedEffect>(), 8, Targeting.Slot_Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapRandomZoneEffectHideIntent>(), 1, Targeting.Slot_SelfSlot, didThat),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyStunnedEffect>(), 4, Targeting.Slot_SelfSlot, didThat),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ResetFleetingEffect>(), 1, Targeting.Slot_SelfSlot, BasicEffects.DidThat(true, 3))
             };
             catching.Visuals = null;
             catching.AnimationTarget = Targeting.Slot_SelfSlot;
@@ -66,8 +65,6 @@ namespace SaltsEnemies_Reseasoned
             catching.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
                 "Swap_Mass",
-                "Status_Stunned",
-                FleetingValue.Intent
             });
             
             //Allure
