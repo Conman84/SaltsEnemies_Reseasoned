@@ -11,7 +11,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Enemy panopticon = new Enemy("The Panopticon", "ThePanopticon_EN")
+            Enemy panopticon = new Enemy("Panopticon", "Panopticon_EN")
             {
                 Health = 36,
                 HealthColor = Pigments.Yellow,
