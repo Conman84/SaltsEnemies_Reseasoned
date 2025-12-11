@@ -10,7 +10,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Portals.AddPortalSign("Salt_LunoscopeEncounter_Sign", ResourceLoader.LoadSprite("LunoscopeWorld.png"), Portals.EnemyIDColor);
+            Portals.AddPortalSign("Salt_LunoscopeEncounter_Sign", ResourceLoader.LoadSprite("LunoscopePortal.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Garden.H.Lunoscope.Med, "Salt_LunoscopeEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/LunoscopePlaceholder";

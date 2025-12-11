@@ -45,15 +45,6 @@ namespace SaltsEnemies_Reseasoned
                             }
                         }
 
-                        if (exitAmount > 0)
-                        {
-                            stats.timeline.Round.RemoveAt(i);
-                            enemy.TurnsInTimeline--;
-
-                            CombatManager.Instance.AddUIAction(new RemoveSlotTimelineUIAction([i]));
-                            CombatManager.Instance.AddUIAction(new UpdateTimelinePointerUIAction(stats.timeline.CurrentTurn));
-                        }
-
                         break;
                     }
                 }
@@ -68,6 +59,39 @@ namespace SaltsEnemies_Reseasoned
             CombatManager.Instance.AddSubAction(new EffectAction(ability.effects, self));
             self.SetVolatileUpdateUIAction();
             return true;
+        }
+    }
+    public class RemoveFirstCasterActionEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+
+            if (caster is EnemyCombat enemy)
+            {
+                if (enemy.TurnsInTimeline <= 0) return false;
+
+                for (int i = stats.timeline.CurrentTurn + (stats.IsPlayerTurn ? 0 : 1); i < stats.timeline.Round.Count; i++)
+                {
+                    if (stats.timeline.Round[i].isPlayer) continue;
+
+                    if (stats.timeline.Round[i].turnUnit == enemy)
+                    {
+                        stats.timeline.Round.RemoveAt(i);
+                        enemy.TurnsInTimeline--;
+
+                        CombatManager.Instance.AddUIAction(new RemoveSlotTimelineUIAction([i]));
+                        CombatManager.Instance.AddUIAction(new UpdateTimelinePointerUIAction(stats.timeline.CurrentTurn));
+
+                        exitAmount++;
+
+                        entryVariable -= 1;
+                        if (entryVariable <= 0) break;
+                    }
+                }
+            }
+
+            return exitAmount > 0;
         }
     }
 }
