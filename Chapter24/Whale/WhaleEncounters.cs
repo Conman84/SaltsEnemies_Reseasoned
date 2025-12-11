@@ -10,7 +10,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Portals.AddPortalSign("Salt_WhaleEncounter_Sign", ResourceLoader.LoadSprite("WhaleWorld.png"), Portals.EnemyIDColor);
+            Portals.AddPortalSign("Salt_WhaleEncounter_Sign", ResourceLoader.LoadSprite("WhalePortal.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Orph.H.Whale.Med, "Salt_WhaleEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/ActuallyJustPepperSteak";

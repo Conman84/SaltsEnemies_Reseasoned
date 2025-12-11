@@ -565,6 +565,7 @@
 	  <None Remove="Chapter24\Papereater\PapereaterWorld.png" />
 	  <None Remove="Chapter24\Whale\WhaleDead.png" />
 	  <None Remove="Chapter24\Whale\WhaleIcon.png" />
+	  <None Remove="Chapter24\Whale\WhalePortal.png" />
 	  <None Remove="Chapter24\Whale\WhaleWorld.png" />
 	  <None Remove="CustomPassives\Chapter02\Decay.png" />
 	  <None Remove="CustomPassives\Chapter03\DontTouchMe.png" />
@@ -1543,6 +1544,7 @@
 	  <EmbeddedResource Include="Chapter24\Papereater\PapereaterWorld.png" />
 	  <EmbeddedResource Include="Chapter24\Whale\WhaleDead.png" />
 	  <EmbeddedResource Include="Chapter24\Whale\WhaleIcon.png" />
+	  <EmbeddedResource Include="Chapter24\Whale\WhalePortal.png" />
 	  <EmbeddedResource Include="Chapter24\Whale\WhaleWorld.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter01\Desperate.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Decay.png" />
