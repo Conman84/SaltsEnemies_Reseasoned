@@ -1,5 +1,6 @@
 ﻿using SaltEnemies_Reseasoned;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using Tools;
@@ -37,7 +38,7 @@ namespace SaltsEnemies_Reseasoned
                         {
                             if (target.HasUnit && target.Unit is CharacterCombat chara)
                             {
-                                if (chara.TryPerformRandomAbility(ability)) exitAmount++;
+                                if (CharacterPerformAbility(chara, ability)) exitAmount++;
                             }
                             else if (target.HasUnit && target.Unit is EnemyCombat enem2)
                             {
@@ -52,7 +53,15 @@ namespace SaltsEnemies_Reseasoned
 
             return exitAmount > 0;
         }
-        public bool EnemyPerformAbility(EnemyCombat self, AbilitySO ability)
+        public virtual bool EnemyPerformAbility(EnemyCombat self, AbilitySO ability)
+        {
+            CombatManager.Instance.AddSubAction(new ShowAttackInformationUIAction(self.ID, self.IsUnitCharacter, ability.GetAbilityLocData().text));
+            CombatManager.Instance.AddSubAction(new PlayAbilityAnimationAction(ability.visuals, ability.animationTarget, self));
+            CombatManager.Instance.AddSubAction(new EffectAction(ability.effects, self));
+            self.SetVolatileUpdateUIAction();
+            return true;
+        }
+        public virtual bool CharacterPerformAbility(CharacterCombat self, AbilitySO ability)
         {
             CombatManager.Instance.AddSubAction(new ShowAttackInformationUIAction(self.ID, self.IsUnitCharacter, ability.GetAbilityLocData().text));
             CombatManager.Instance.AddSubAction(new PlayAbilityAnimationAction(ability.visuals, ability.animationTarget, self));
@@ -92,6 +101,65 @@ namespace SaltsEnemies_Reseasoned
             }
 
             return exitAmount > 0;
+        }
+    }
+
+    public class ComissionerEffect : TargetForceFirstCasterActionEffect
+    {
+        public EffectInfo[] CasterEffects;
+        public IUnit caster;
+        public class UseAbilityAction : CombatAction
+        {
+            public IUnit target;
+            public AbilitySO ability;
+
+            public IUnit caster;
+            public EffectInfo[] effects;
+            public UseAbilityAction(IUnit unit, AbilitySO ability, IUnit caster, EffectInfo[] effects)
+            {
+                this.target = unit;
+                this.ability = ability;
+                this.caster = caster;
+                this.effects = effects;
+            }
+
+            public override IEnumerator Execute(CombatStats stats)
+            {
+                //EnemyCombat.UseAbility
+                CombatManager.Instance.AddUIAction(new ShowAttackInformationUIAction(target.ID, target.IsUnitCharacter, ability.GetAbilityLocData().text));
+                CombatManager.Instance.AddUIAction(new PlayAbilityAnimationAction(ability.visuals, ability.animationTarget, target));
+                CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(ability.effects, target));
+                target.SetVolatileUpdateUIAction();
+
+                if (caster != null) CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(effects, caster));
+                
+                yield return null;
+            }
+        }
+
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            this.caster = caster;
+            return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+        }
+        public override bool EnemyPerformAbility(EnemyCombat self, AbilitySO ability)
+        {
+            CombatManager.Instance.AddPrioritySubAction(new UseAbilityAction(self, ability, caster, CasterEffects));
+            caster = null;
+            return true;
+        }
+        public override bool CharacterPerformAbility(CharacterCombat self, AbilitySO ability)
+        {
+            CombatManager.Instance.AddPrioritySubAction(new UseAbilityAction(self, ability, caster, CasterEffects));
+            caster = null;
+            return true;
+        }
+
+        public static ComissionerEffect Create(EffectInfo[] effects)
+        {
+            ComissionerEffect ret = ScriptableObject.CreateInstance<ComissionerEffect>();
+            ret.CasterEffects = effects;
+            return ret;
         }
     }
 }
