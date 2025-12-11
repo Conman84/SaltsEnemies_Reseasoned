@@ -1,12 +1,11 @@
 ﻿using BrutalAPI;
 using SaltEnemies_Reseasoned;
-using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-namespace SaltsEnemies_Reseasoneds
+namespace SaltsEnemies_Reseasoned
 {
     public static class Nume
     {
@@ -53,53 +52,40 @@ namespace SaltsEnemies_Reseasoneds
 
             nume.AddPassives(new BasePassiveAbilitySO[] { causality, revenge, Passives.Skittish });
 
-            Ability tele = new Ability("TelescopingSeries_A");
-            tele.Name = "Telescoping Series";
-            tele.Description = "Move the Opposing party member Left twice or Right twice.\nGain 2 Slip.";
-            tele.Rarity = Rarity.GetCustomRarity("rarity5");
-            tele.Effects = [
-                Effects.GenerateEffect(SubActionEffect.Create([
-                    Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self),
-                    Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self)
-                    ]), 1, Slots.Front, Effects.ChanceCondition(50)),
-                Effects.GenerateEffect(SubActionEffect.Create([
-                    Effects.GenerateEffect(BasicEffects.GoRight, 1, Slots.Self),
-                    Effects.GenerateEffect(BasicEffects.GoRight, 1, Slots.Self)
-                    ]), 1, Slots.Front, BasicEffects.DidThat(false)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Slots.Self),
+
+            Ability mars = new Ability("Mars", "Nume_Mars_A");
+            mars.Description = "Inflict 2 Ruptured to the Opposing party member.";
+            mars.Rarity = Rarity.CreateAndAddCustomRarityToPool("nume7", 7);
+            mars.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Slots.Front)];
+            mars.AddIntentsToTarget(Slots.Front, ["Status_Ruptured"]);
+            mars.AnimationTarget = Slots.Front;
+            mars.Visuals = LoadedAssetsHandler.GetCharacterAbility("OfDeath_1_A").visuals;
+
+            Ability venus = new Ability("Venus", "Nume_Venus_A");
+            venus.Description = "Inflict 2 Oil-Slicked to this enemy.";
+            venus.Rarity = Rarity.GetCustomRarity("nume7");
+            venus.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 2, Slots.Self)];
+            venus.AddIntentsToTarget(Slots.Self, ["Status_OilSlicked"]);
+            venus.AnimationTarget = Slots.Self;
+            venus.Visuals = CustomVisuals.GetVisuals("Salt/Think");
+
+            Ability murcury = new Ability("Murcury", "Nume_Murcury_A");
+            murcury.Description = "Take a Little damage and Slightly heal this enemy.";
+            murcury.Rarity = Rarity.GetCustomRarity("rarity5");
+            murcury.Effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 2, Slots.Self)
                 ];
-            tele.AddIntentsToTarget(Slots.Front, ["Swap_Left", "Swap_Left", "Swap_Right", "Swap_Right"]);
-            tele.AddIntentsToTarget(Slots.Self, [Slip.Intent]);
-            tele.Visuals = CustomVisuals.GetVisuals("Salt/Door");
-            tele.AnimationTarget = Slots.Front;
-
-            Ability geo = new Ability("GeometricSequence_A");
-            geo.Name = "Geometric Sequence";
-            geo.Description = "Apply 1 Slip to the Left and Right party member positions.\nMove Left or Right.";
-            geo.Rarity = Rarity.GetCustomRarity("rarity5");
-            geo.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.LeftRight),
-            Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)];
-            geo.AddIntentsToTarget(Slots.LeftRight, [Slip.Intent]);
-            geo.AddIntentsToTarget(Slots.Self, ["Swap_Sides"]);
-            geo.Visuals = Visuals.Wriggle;
-            geo.AnimationTarget = Slots.LeftRight;
-
-            Ability taylor = new Ability("TaylorPolynomial_A");
-            taylor.Name = "Taylor Polynomial";
-            taylor.Description = "At the start of the next turn, deal an Agonizing amount of damage to this enemy's current Opposing position.\nInflict 2 Oil-Slicked on the Opposing party member.";
-            taylor.Rarity = Rarity.GetCustomRarity("rarity5");
-            taylor.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 7, Slots.Front),
-            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 2, Slots.Front)];
-            taylor.AddIntentsToTarget(Slots.Front, ["Damage_7_10", "Damage_Delay", "Status_OilSlicked"]);
-            taylor.Visuals = CustomVisuals.GetVisuals("Salt/Reload");
-            taylor.AnimationTarget = Slots.Front;
+            murcury.AddIntentsToTarget(Slots.Self, ["Damage_1_2", "Heal_1_4"]);
+            murcury.AnimationTarget = Slots.Self;
+            murcury.Visuals = LoadedAssetsHandler.GetEnemyAbility("Boil_A").visuals;
 
             //ADD ENEMY
             nume.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                tele.GenerateEnemyAbility(true),
-                geo.GenerateEnemyAbility(true),
-                taylor.GenerateEnemyAbility(true)
+                mars.GenerateEnemyAbility(true),
+                venus.GenerateEnemyAbility(true),
+                murcury.GenerateEnemyAbility(true)
             });
             nume.AddEnemy(true, true);
         }
