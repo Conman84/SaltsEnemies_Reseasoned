@@ -21,5 +21,9 @@ namespace SaltsEnemies_Reseasoned
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Lunoscope.Med, 8, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
         }
+        public static void Post()
+        {
+
+        }
     }
 }

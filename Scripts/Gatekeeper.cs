@@ -66,9 +66,9 @@ namespace SaltsEnemies_Reseasoned
             if (enemy == "Untitled_EN" && enemy == "ReverseFalseHydra_EN") return false;
 
             if (April.Birthday || Randoming) return true;
-            if (Salt.Secret.Contains(enemy) && !April.Me) return false;
+            if (Salt.Secret.Contains(enemy) && !April.Custom) return false;
 
-            if (enemy == "Stalker2_EN" && CurrentRuns != 2 && (!April.Me || SaltsReseasoned.rando > 15)) return false;
+            if (enemy == "Stalker2_EN" && CurrentRuns != 2 && (!April.Custom || SaltsReseasoned.rando > 15)) return false;
             if (enemy == "Hauntling_EN" && !April.Birthday && SaltsReseasoned.rando < 95) return false;
 
             if (!DoGatekeep) return true;
@@ -261,6 +261,7 @@ namespace SaltsEnemies_Reseasoned
         public static string[] Hardest = ["Postmodern_EN", "War_EN", "ClockTower_EN", Enemies.Tank, "Miriam_EN", "33_EN", "Author_EN", "Monster_EN", "Starless_EN", "Yang_EN", "Cruelties1_EN", "YNL_EN", "Firebird_EN"];
         public static string[] Expert = ["Damocles_EN", "GlassFigurine_EN", "Nameless_EN", "Children6_EN", "TheDragon_EN", "OdeToHumanity_EN", "EvilDog_EN", "PersonalAngel_EN", "Yin_EN", "Eyeless_EN", "Solitaire_EN", "Spades_EN", "WolfColony_EN", "WolfLarvae_EN", "Stalker2_EN"];
         public static string[] Secret = ["Hauntling_EN", "Insider_EN", "CorpseChan_EN", "Untitled_EN", "Jabberwocky_EN", "InTheDark_EN", "Sundowner_EN"];
+        public static string[] Hidden = ["Lunoscope_EN", "Panopticon_EN", "Nume_EN", "Papereater_EN", "TheWhale_EN", "ReverseFalseHydra_EN"];
     }
 }
 

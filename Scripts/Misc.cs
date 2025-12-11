@@ -45,7 +45,7 @@ namespace SaltEnemies_Reseasoned
         }
 
         public static string AppData => Application.persistentDataPath;
-        public static bool Me
+        public static bool Custom
         {
             get
             {

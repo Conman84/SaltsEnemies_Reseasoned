@@ -80,7 +80,7 @@ namespace SaltsEnemies_Reseasoned
                 gestures.GenerateEnemyAbility(),
             });
 
-            if (April.Me) template.AddEnemyAbilities([custom.GenerateEnemyAbility()]);
+            if (April.Custom) template.AddEnemyAbilities([custom.GenerateEnemyAbility()]);
 
             template.AddEnemy();
         }

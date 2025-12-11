@@ -37,7 +37,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "Nameless_EN", 1, Spoggle.Red, 1, Spoggle.Purple);
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Nameless.Med, April.Birthday ? 15 : April.Me ? 10 : 0, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Nameless.Med, April.Birthday ? 15 : April.Custom ? 10 : 0, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
             //EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Nameless.Med, 300, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
         }
         public static void Post()
