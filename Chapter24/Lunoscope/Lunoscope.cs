@@ -76,9 +76,9 @@ namespace SaltsEnemies_Reseasoned
 
             Ability geo = new Ability("GeometricSequence_A");
             geo.Name = "Geometric Sequence";
-            geo.Description = "Apply 2 Slip to the Left and Right party member positions.\nMove Left or Right.";
+            geo.Description = "Apply 1 Slip to the Left and Right party member positions.\nMove Left or Right.";
             geo.Rarity = Rarity.GetCustomRarity("rarity5");
-            geo.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Slots.LeftRight),
+            geo.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.LeftRight),
             Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)];
             geo.AddIntentsToTarget(Slots.LeftRight, [Slip.Intent]);
             geo.AddIntentsToTarget(Slots.Self, ["Swap_Sides"]);
@@ -87,10 +87,10 @@ namespace SaltsEnemies_Reseasoned
 
             Ability taylor = new Ability("TaylorPolynomial_A");
             taylor.Name = "Taylor Polynomial";
-            taylor.Description = "At the start of the next turn, deal an Agonizing amount of damage to this enemy's current Opposing position.\nInflict 3 Oil-Slicked on the Opposing party member.";
+            taylor.Description = "At the start of the next turn, deal an Agonizing amount of damage to this enemy's current Opposing position.\nInflict 2 Oil-Slicked on the Opposing party member.";
             taylor.Rarity = Rarity.GetCustomRarity("rarity5");
             taylor.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 7, Slots.Front),
-            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 3, Slots.Front)];
+            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 2, Slots.Front)];
             taylor.AddIntentsToTarget(Slots.Front, ["Damage_7_10", "Damage_Delay", "Status_OilSlicked"]);
             taylor.Visuals = CustomVisuals.GetVisuals("Salt/Reload");
             taylor.AnimationTarget = Slots.Front;
