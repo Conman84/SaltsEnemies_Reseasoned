@@ -285,6 +285,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(Lunoscope.Add);
                 PCall(Panopticon.Add);
                 PCall(Nume.Add);
+                PCall(Papereater.Add);
                 PCall(Whale.Add);
             }
 
@@ -450,6 +451,7 @@ namespace SaltsEnemies_Reseasoned
                 PCall(LunoscopeEncounters.Add);
                 PCall(PanopticonEncounters.Add);
                 PCall(NumeEncounters.Add);
+                PCall(PapereaterEncounters.Add);
                 PCall(WhaleEncounters.Add);
             }
 
