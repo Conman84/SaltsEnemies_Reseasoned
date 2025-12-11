@@ -42,6 +42,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Targeting.Slot_SelfSlot),
             };
             revenge._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged };
+            revenge.conditions = Passives.Slippery.conditions;
             
 
             //Revenge
