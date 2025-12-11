@@ -9,7 +9,7 @@ using SaltsEnemies_Reseasoned.Chapter1.LostSheep;
 namespace SaltsEnemies_Reseasoned
 {
 
-    [BepInPlugin("000.saltenemies", "Salt Enemies (TM) Reseasoned", "1.1.5")]//next is 1.1.6
+    [BepInPlugin("000.saltenemies", "Salt Enemies (TM) Reseasoned", "1.1.5.1")]//next is 1.1.6
     [BepInDependency("BrutalOrchestra.BrutalAPI", BepInDependency.DependencyFlags.HardDependency)]
     public class SaltsReseasoned : BaseUnityPlugin
     {
@@ -26,6 +26,7 @@ namespace SaltsEnemies_Reseasoned
 
         //change this to false when pushing public version
         public static bool DebugVer = false;
+        //change this to false when pushing public version
         public static bool Testing = true;
 
         public void Awake()
@@ -618,6 +619,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CausalityPassive.png"), "Causality", "On moving, deal a certain amount of damage to the current Opposing position at the start of the next turn.");
                 AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ComissionerPassive.png"), "Commissioner", "On being directly damaged, force the Opposing party member to perform this enemy's first action.\nIf successful, remove that action and give this enemy another one.");
+                AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("EscapistPassive.png"), "Escapist", "On using an ability, move to a random unoccupied position.");
             }
 
             //BOSSES
