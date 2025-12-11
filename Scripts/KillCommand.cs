@@ -15,6 +15,7 @@ namespace SaltsEnemies_Reseasoned
         public static DebugCommand KILL;
         public static DebugCommand CHANGEBOSS;
         public static DebugCommand RESETFLEETING;
+        public static DebugCommand HEAL;
 
         public static DebugCommand ADDEASYENEMY;
         public static DebugCommand ADDMEDIUMENEMY;
@@ -31,6 +32,18 @@ namespace SaltsEnemies_Reseasoned
                     }
                 }));
                 DebugController.Instance.WriteLine("Killing all enemies.");
+            });
+
+            HEAL = new DebugCommand("fullheal", "set health max all party members.", new List<DebugCommandArgument>(), delegate
+            {
+                CombatManager.Instance.AddPriorityRootAction(new PerformDelegateAction(delegate (CombatStats x)
+                {
+                    foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
+                    {
+                        chara.SetHealthTo(chara.MaximumHealth);
+                    }
+                }));
+                DebugController.Instance.WriteLine("fullheal party.");
             });
 
             CHANGEBOSS = new DebugCommand("changezoneboss", "Replaces the THIS area's boss. Can only replace the boss with bosses that can normally appear in the next area.", new List<DebugCommandArgument>
