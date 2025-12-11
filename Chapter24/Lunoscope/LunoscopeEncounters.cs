@@ -80,7 +80,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomEncounter("Lunoscope_EN", "OdeToHumanity_EN", Enemies.Camera, Enemies.Camera);
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Lunoscope.Hard, 8, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Lunoscope.Hard, 8 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
         }
         public static void Post()
         {
