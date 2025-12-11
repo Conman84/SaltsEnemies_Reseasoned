@@ -716,4 +716,19 @@ namespace SaltsEnemies_Reseasoned
             return ret;
         }
     }
+    public class PaleDamageEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit)
+                {
+                    exitAmount += target.Unit.Damage(entryVariable, null, "Basic", -1, false, false, true, Pale.DamageType).damageAmount;
+                }
+            }
+            return exitAmount > 0;
+        }
+    }
 }
