@@ -16,7 +16,7 @@ namespace SaltsEnemies_Reseasoned
             med.MusicEvent = "event:/Hawthorne/ActuallyJustPepperSteak";
             med.RoarEvent = "event:/Hawthorne/Surround/DeepRoar";
 
-            med.SimpleAddEncounter(3, "TheWhale_EN");
+            if (SaltsReseasoned.silly < 40 || SaltsReseasoned.silly > 90) med.SimpleAddEncounter(4, "TheWhale_EN");
 
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Whale.Med, 20, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
