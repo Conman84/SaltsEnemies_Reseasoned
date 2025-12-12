@@ -29,7 +29,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     if (!AllowEnemy(enemyData.enemy.name))
                     {
-                        if (SaltsReseasoned.DebugVer) Debug.LogWarning("SECOND blocking enemy for second checking: " + enemyData.enemy.name);
+                        if (SaltsReseasoned.Testing) Debug.LogWarning("SECOND blocking enemy for second checking: " + enemyData.enemy.name);
                         ret = orig(self);
                         safe = false;
                         break;
