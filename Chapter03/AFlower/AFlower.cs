@@ -49,7 +49,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability catching = new Ability("Catch", "Salt_Catch_A");
             catching.Description = "If the opposing party member is Constricted, deal an Agonizing damage to them and move to a random position.";
-            catching.Rarity = Rarity.CreateAndAddCustomRarityToPool("AnglerAwesome", 55);
+            catching.Rarity = Rarity.CreateAndAddCustomRarityToPool("AnglerAwesome", 85);
             catching.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(chomp, 1, Targeting.Slot_SelfSlot),
