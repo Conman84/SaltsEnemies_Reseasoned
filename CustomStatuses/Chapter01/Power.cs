@@ -82,6 +82,8 @@ namespace SaltEnemies_Reseasoned
 
         public override int Modify(int value)
         {
+            if (value <= 0) return value;
+
             //if (value > 0)
 
             return value + this.toPow;
