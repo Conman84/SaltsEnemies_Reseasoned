@@ -91,7 +91,6 @@ namespace SaltsEnemies_Reseasoned
                 "Characater",
                 "666 Evil Avenue",
                 "Sandpaper Watermelon",
-                "Singing My Lalala Songs"
                 ];
             CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             third.PossibleNames = [
@@ -118,7 +117,8 @@ namespace SaltsEnemies_Reseasoned
                 "Secret Bug That I Am Unable To Reliably Reproduce",
                 "Hot Or Cold, We Are Not Prepared",
                 "Number",
-                "Github Skeletor"
+                "Github Skeletor",
+                "Singing My Lalala Songs"
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside),
