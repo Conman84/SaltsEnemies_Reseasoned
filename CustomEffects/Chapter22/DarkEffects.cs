@@ -84,7 +84,10 @@ namespace SaltsEnemies_Reseasoned
         public void SetValue(CombatAbility ability, IUnit unit)
         {
             if (ability.ability.name != Knight) return;
-            unit.SimpleSetStoredValue(Absurdism, 1);
+            foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+            {
+                enemy.SimpleSetStoredValue(Absurdism, 1);
+            }
         }
     }
     public class DamageSetValueEffect : DamageEffect
