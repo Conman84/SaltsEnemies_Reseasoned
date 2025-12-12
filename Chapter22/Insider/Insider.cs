@@ -66,7 +66,6 @@ namespace SaltsEnemies_Reseasoned
                 "Jumboe Josh",
                 "Googl",
                 "Don't Hit Me Or I'll Cry",
-                "\"Ok\" - Ok",
                 "Izza Pizza",
                 "Hello My Name Is GUIDED USER INTERFACE",
                 "Busuga Dooska",
@@ -118,7 +117,8 @@ namespace SaltsEnemies_Reseasoned
                 "Hot Or Cold, We Are Not Prepared",
                 "Number",
                 "Github Skeletor",
-                "Singing My Lalala Songs"
+                "Singing My Lalala Songs",
+                "\"Ok\" - Ok",
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside),
