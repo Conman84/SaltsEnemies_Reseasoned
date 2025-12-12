@@ -141,6 +141,7 @@ namespace SaltEnemies_Reseasoned
                 PCall(PanopticonEncounters.Post);
                 PCall(NumeEncounters.Post);
                 PCall(PapereaterEncounters.Post);
+                PCall(WhaleEncounters.Post);
             }
 
             //Crossovers

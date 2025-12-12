@@ -181,6 +181,9 @@ namespace SaltsEnemies_Reseasoned
 
             hard = new AddTo(Orph.H.Sonoduct.Hard);
             hard.AddRandomGroup("Sonoduct_EN", "Nume_EN", "Lloigor_EN");
+
+            med = new AddTo(Orph.H.Errant.Med);
+            med.AddRandomGroup("Errant_EN", "Nume_EN", Enemies.Suckle, Enemies.Suckle);
         }
     }
 }
