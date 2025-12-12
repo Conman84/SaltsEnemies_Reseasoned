@@ -28,6 +28,7 @@ namespace SaltsEnemies_Reseasoneds
             med.SimpleAddGroup(2, "CorpseChan_EN", 1, "EggKeeper_EN");
             med.SimpleAddGroup(2, "CorpseChan_EN", 1, Noses.Grey);
             med.SimpleAddGroup(1, "CorpseChan_EN", 2, "Bonsai_EN");
+            med.SimpleAddGroup(2, "CorpseChan_EN", 1, Enemies.Polyp);
 
             med = new AddTo(Shore.H.Hauntling.Med);
             med.SimpleAddGroup(2, "Hauntling_EN", 1, "Snaurce_EN");
@@ -47,6 +48,8 @@ namespace SaltsEnemies_Reseasoneds
             med.SimpleAddGroup(2, "Insider_EN", 1, Enemies.Shuffler);
             med.SimpleAddGroup(2, "Insider_EN", 1, Colophon.Red, 1, Colophon.Blue);
             med.SimpleAddGroup(2, "Insider_EN", 1, "ClayChildSleep_EN", 1, "ClayChild_EN");
+            med.SimpleAddGroup(2, "Insider_EN", 1, "Byakhee_EN");
+            med.SimpleAddGroup(2, "Insider_EN", 1, "Bloatfinger_EN");
 
             med = new AddTo(Garden.H.Dark.Med);
             med.SimpleAddGroup(2, "Attrition_EN", 1, "InTheDark_EN");

@@ -139,6 +139,7 @@ namespace SaltEnemies_Reseasoned
             {
                 PCall(LunoscopeEncounters.Post);
                 PCall(PanopticonEncounters.Post);
+                PCall(NumeEncounters.Post);
             }
 
             //Crossovers
