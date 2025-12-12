@@ -15,7 +15,7 @@ namespace SaltsEnemies_Reseasoned
 
         public static bool Gatekeeper_AllowEnemy(Func<string, bool> orig, string enemy)
         {
-            if (!Legacy.Check && Salt.Hidden.Contains(enemy)) return false;
+            if (!Legacy.Check && DataManager.Hidden.Contains(enemy)) return false;
 
             return orig(enemy);
         }
