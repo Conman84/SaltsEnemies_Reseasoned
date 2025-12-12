@@ -42,7 +42,7 @@ namespace SaltsEnemies_Reseasoned
                 }
             }
 
-            Debug.LogError("failed sub-gatekeeper blocking i think.");
+            if (SaltsReseasoned.Testing) Debug.LogError("failed sub-gatekeeper blocking i think.");
 
             return ret;
         }

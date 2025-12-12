@@ -222,7 +222,7 @@ namespace SaltsEnemies_Reseasoned
                 }
             }
 
-            Debug.LogError("failed progress blocking i think.");
+            if (SaltsReseasoned.DebugVer) Debug.LogError("failed progress blocking i think.");
 
             return ret;
         }
