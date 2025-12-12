@@ -174,6 +174,7 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Orph.H.Byakhee.Med);
             med.AddRandomGroup("Byakhee_EN", "Nume_EN", "Freud_EN");
+            med.AddRandomGroup("Byakhee_EN", "Nume_EN", "Insider_EN");
 
             med = new AddTo(Orph.H.Bloatfinger.Med);
             med.AddRandomGroup("Bloatfinger_EN", "Nume_EN", "WindSong_EN");
