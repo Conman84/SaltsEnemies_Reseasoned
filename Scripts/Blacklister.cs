@@ -50,8 +50,6 @@ namespace SaltsEnemies_Reseasoned
 
         public static bool AllowEnemy(string enemy)
         {
-            if (!Check.EnemyExist(enemy)) return false;
-
             if (enemy == "Untitled_EN") return false;
 
             if (enemy == "ReverseFalseHydra_EN") return false;
