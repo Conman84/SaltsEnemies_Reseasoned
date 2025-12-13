@@ -101,7 +101,7 @@ namespace SaltsEnemies_Reseasoned
                 geo.GenerateEnemyAbility(true),
                 taylor.GenerateEnemyAbility(true)
             });
-            lunoscope.AddEnemy(true, true);
+            lunoscope.SilentAddEnemy(true, true);
         }
     }
 }

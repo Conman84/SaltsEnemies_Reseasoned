@@ -180,7 +180,7 @@ namespace SaltsEnemies_Reseasoned
                 gamma.GenerateEnemyAbility(true),
                 delta.GenerateEnemyAbility(true)
             });
-            insider.AddEnemy(true, true);
+            insider.SilentAddEnemy(true, true);
         }
     }
 }

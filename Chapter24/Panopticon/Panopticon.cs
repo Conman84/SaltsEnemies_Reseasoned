@@ -120,7 +120,7 @@ namespace SaltsEnemies_Reseasoned
                 fall.GenerateEnemyAbility(true),
                 right.GenerateEnemyAbility(true)
             });
-            panopticon.AddEnemy(true, true);
+            panopticon.SilentAddEnemy(true, true);
         }
     }
 }

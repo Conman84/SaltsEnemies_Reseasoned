@@ -63,7 +63,7 @@ namespace SaltsEnemies_Reseasoned
                 eat.GenerateEnemyAbility(true),
                 hurter.GenerateEnemyAbility(true)
             });
-            eater.AddEnemy(true, true);
+            eater.SilentAddEnemy(true, true);
         }
     }
 }

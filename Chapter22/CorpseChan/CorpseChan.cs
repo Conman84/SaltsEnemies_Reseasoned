@@ -100,7 +100,7 @@ namespace SaltsEnemies_Reseasoned
                 k.GenerateEnemyAbility(true),
                 er.GenerateEnemyAbility(true),
             });
-            corpse.AddEnemy(true, true);
+            corpse.SilentAddEnemy(true, true);
         }
     }
 }

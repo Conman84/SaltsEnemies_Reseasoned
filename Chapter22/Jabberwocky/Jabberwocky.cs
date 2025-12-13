@@ -79,7 +79,7 @@ namespace SaltsEnemies_Reseasoned
                 snype.GenerateEnemyAbility(true),
                 bander.GenerateEnemyAbility(true)
             });
-            jabber.AddEnemy(true, true);
+            jabber.SilentAddEnemy(true, true);
         }
     }
 }

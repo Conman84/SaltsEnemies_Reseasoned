@@ -63,7 +63,7 @@ namespace SaltsEnemies_Reseasoned
                 safe.GenerateEnemyAbility(true),
                 hate.GenerateEnemyAbility(true),
             });
-            stalker.AddEnemy(true, false, true);
+            stalker.SilentAddEnemy(true, false, true);
 
             EnemySO clone = UnityEngine.Object.Instantiate(LoadedAssetsHandler.GetEnemy("Stalker2_EN"));
             clone.passiveAbilities = [flee, Passives.Anchored, Passives.Inanimate];

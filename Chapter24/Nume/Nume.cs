@@ -87,7 +87,7 @@ namespace SaltsEnemies_Reseasoned
                 venus.GenerateEnemyAbility(true),
                 murcury.GenerateEnemyAbility(true)
             });
-            nume.AddEnemy(true, true);
+            nume.SilentAddEnemy(true, true);
         }
     }
 }

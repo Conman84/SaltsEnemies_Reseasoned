@@ -46,7 +46,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 descent.GenerateEnemyAbility(true),
             });
-            whale.AddEnemy(true, true);
+            whale.SilentAddEnemy(true, true);
         }
     }
 }

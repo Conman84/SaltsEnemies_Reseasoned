@@ -64,7 +64,7 @@ namespace SaltsEnemies_Reseasoned
                 sunrise.GenerateEnemyAbility(true),
                 sunset.GenerateEnemyAbility(true)
             });
-            sundowner.AddEnemy(true, true);
+            sundowner.SilentAddEnemy(true, true);
         }
     }
 }

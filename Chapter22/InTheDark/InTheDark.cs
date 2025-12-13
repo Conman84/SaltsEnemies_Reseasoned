@@ -94,7 +94,7 @@ namespace SaltsEnemies_Reseasoned
                 knight.GenerateEnemyAbility(true),
                 kill.GenerateEnemyAbility(true)
             });
-            dark.AddEnemy(true, true);
+            dark.SilentAddEnemy(true, true);
         }
     }
 }
