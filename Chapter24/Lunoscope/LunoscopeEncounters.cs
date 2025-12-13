@@ -56,7 +56,7 @@ namespace SaltsEnemies_Reseasoned
         public static void Add_Hard()
         {
             EnemyEncounter_API hard = new EnemyEncounter_API(EncounterType.Random, Garden.H.Lunoscope.Hard, "Salt_LunoscopeEncounter_Sign");
-            hard.MusicEvent = "event:/Hawthorne/LunoscopePlaceholder";
+            hard.MusicEvent = "event:/Hawthorne/LunoscopeSong";
             hard.RoarEvent = LoadedAssetsHandler.GetEnemy("BlackStar_EN").deathSound;
 
             hard.AddRandomEncounter("Lunoscope_EN", "InHisImage_EN", "InHisImage_EN", "InHerImage_EN");
