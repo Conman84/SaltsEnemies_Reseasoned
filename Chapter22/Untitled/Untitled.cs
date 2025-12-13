@@ -82,7 +82,8 @@ namespace SaltsEnemies_Reseasoned
 
             if (April.Custom) template.AddEnemyAbilities([custom.GenerateEnemyAbility()]);
 
-            template.AddEnemy();
+            //template.AddEnemy();
+            LoadedAssetsHandler.LoadedEnemies.Add(template.enemy.name, template.enemy);
         }
     }
 }
