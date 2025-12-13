@@ -34,7 +34,6 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "TheWhale_EN", 1, "Nameless_EN", 1, "Solitaire_EN");
             med.SimpleAddEncounter(2, "TheWhale_EN", 2, "Foxtrot_EN");
             med.SimpleAddEncounter(2, "TheWhale_EN", 1, "Nume_EN", 1, "Wednesday_EN");
-            med.SimpleAddEncounter(2, "TheWhale_EN", 2, "ClayChildSleep_EN");
 
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Whale.Med, 15, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
@@ -51,6 +50,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddGroup(2, "TheWhale_EN", 3, "Surrogate_EN");
             med.SimpleAddGroup(2, "TheWhale_EN", 2, "StarVampire_EN");
             med.SimpleAddGroup(2, "TheWhale_EN", 1, "Lloigor_EN");
+            med.SimpleAddGroup(2, "TheWhale_EN", 2, "ClayChildSleep_EN");
 
             med = new AddTo(Orph.H.Something.Med);
             med.AddRandomGroup("Something_EN", "TheWhale_EN", "Nameless_EN");
