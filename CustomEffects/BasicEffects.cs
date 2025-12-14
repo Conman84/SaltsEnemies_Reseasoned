@@ -95,6 +95,18 @@ namespace SaltEnemies_Reseasoned
             else ret._visuals = LoadedAssetsHandler.GetEnemyAbility(name).visuals;
             return ret;
         }
+        public static AnimationVisualsByTargetEffect GetNormalVisuals(string name, bool characterAbil)
+        {
+            AnimationVisualsByTargetEffect ret = ScriptableObject.CreateInstance<AnimationVisualsByTargetEffect>();
+            if (CustomVisuals.Visuals != null && CustomVisuals.Visuals.ContainsKey(name))
+            {
+                ret._visuals = CustomVisuals.GetVisuals(name);
+                return ret;
+            }
+            if (characterAbil) ret._visuals = LoadedAssetsHandler.GetCharacterAbility(name).visuals;
+            else ret._visuals = LoadedAssetsHandler.GetEnemyAbility(name).visuals;
+            return ret;
+        }
         public static PlaySoundEffect PlaySound(string sound)
         {
             PlaySoundEffect ret = ScriptableObject.CreateInstance<PlaySoundEffect>();

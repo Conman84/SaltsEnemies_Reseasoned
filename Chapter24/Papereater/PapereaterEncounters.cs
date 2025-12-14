@@ -44,8 +44,6 @@ namespace SaltsEnemies_Reseasoned
         }
         public static void Add_Easy()
         {
-            Portals.AddPortalSign("Salt_PapereaterEncounter_Sign", ResourceLoader.LoadSprite("PapereaterWorld.png"), Portals.EnemyIDColor);
-
             EnemyEncounter_API easy = new EnemyEncounter_API(EncounterType.Random, Shore.H.Papereater.Easy, "Salt_PapereaterEncounter_Sign");
             easy.MusicEvent = "event:/Hawthorne/PapereaterPlaceholder";
             easy.RoarEvent = "event:/Hawthorne/Sound2/EaterRoar";

@@ -162,4 +162,17 @@ namespace SaltsEnemies_Reseasoned
             return ret;
         }
     }
+
+    public class AnimationVisualsByTargetEffect : EffectSO
+    {
+        [Header("Visual")]
+        public AttackVisualsSO _visuals;
+
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            CombatManager.Instance.AddUIAction(new PlayAnimationAnywhereAction(_visuals, targets));
+            exitAmount = 0;
+            return true;
+        }
+    }
 }

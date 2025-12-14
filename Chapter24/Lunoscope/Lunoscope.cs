@@ -77,12 +77,13 @@ namespace SaltsEnemies_Reseasoned
             geo.Name = "Geometric Sequence";
             geo.Description = "Apply 1 Slip to the Left and Right party member positions.\nMove Left or Right.";
             geo.Rarity = Rarity.GetCustomRarity("rarity5");
-            geo.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.LeftRight),
-            Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)];
+            geo.Effects = [Effects.GenerateEffect(BasicEffects.GetNormalVisuals("Wriggle_A", false), 0, Slots.LeftRight),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.LeftRight),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)];
             geo.AddIntentsToTarget(Slots.LeftRight, [Slip.Intent]);
             geo.AddIntentsToTarget(Slots.Self, ["Swap_Sides"]);
-            geo.Visuals = Visuals.Wriggle;
-            geo.AnimationTarget = Slots.LeftRight;
+            //geo.Visuals = Visuals.Wriggle;
+            //geo.AnimationTarget = Slots.LeftRight;
 
             Ability taylor = new Ability("TaylorPolynomial_A");
             taylor.Name = "Taylor Polynomial";
