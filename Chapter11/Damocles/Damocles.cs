@@ -129,7 +129,7 @@ namespace SaltsEnemies_Reseasoned
                 futures.GenerateEnemyAbility(true),
                 fall.GenerateEnemyAbility(true)
             });
-            sword.AddEnemy(true);
+            sword.AddEnemy(false);
 
             EnemySO clone = UnityEngine.Object.Instantiate(LoadedAssetsHandler.GetEnemy("Damocles_EN"));
             clone.passiveAbilities = [Passives.Formless, damocles, Passives.Absorb, mf, Passives.Withering];
