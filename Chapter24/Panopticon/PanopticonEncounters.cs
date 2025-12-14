@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
             Portals.AddPortalSign("Salt_PanopticonEncounter_Sign", ResourceLoader.LoadSprite("PanopticonWorld.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Garden.H.Panopticon.Med, "Salt_PanopticonEncounter_Sign");
-            med.MusicEvent = "event:/Hawthorne/PanopticonPlaceholder";
+            med.MusicEvent = "event:/Hawthorne/PanopticonSong";
             med.RoarEvent = "event:/Hawthorne/Roar/TankRoar";
 
             med.SimpleAddEncounter(4, "Panopticon_EN");
