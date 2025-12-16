@@ -378,7 +378,7 @@ namespace SaltsEnemies_Reseasoned
                 if (caster.Count > casterID && caster[casterID] != null)
                 {
                     stats.TryGainCurrency(3, true);
-                    CombatManager.Instance.AddUIAction(new PlayCurrencyEffectUIAction(caster[casterID].ID, caster[casterID].IsUnitCharacter, 5, isMultiplier: false));
+                    CombatManager.Instance.AddUIAction(new PlayCurrencyEffectUIAction(caster[casterID].ID, caster[casterID].IsUnitCharacter, 3, isMultiplier: false));
                 }
 
                 SolitaireHandler.Returning = true;
