@@ -156,7 +156,7 @@ namespace SaltsEnemies_Reseasoned
             dreamers.Description = "\"Somewhere better than here\"";
             dreamers.Rarity = Rarity.GetCustomRarity("rarity5");
             dreamers.Priority = Priority.CreateAndAddCustomPriorityToPool("Solitaire_SupeSlow", -10);
-            dreamers.Effects = new EffectInfo[7];
+            dreamers.Effects = new EffectInfo[8];
             dreamers.Effects[0] = Effects.GenerateEffect(BasicEffects.SetStoreValue("Dreamer_A"), 1, Slots.Self);
             dreamers.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Curtains", false, Slots.Self));
             dreamers.Effects[2] = Effects.GenerateEffect(UIActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToGardenEffect>(), 1, Slots.Self).SelfArray()), 1, Targeting.Slot_SelfSlot);
@@ -164,6 +164,7 @@ namespace SaltsEnemies_Reseasoned
             dreamers.Effects[4] = Effects.GenerateEffect(ScriptableObject.CreateInstance<BoxAllEnemiesEffect>());
             dreamers.Effects[5] = Effects.GenerateEffect(SpawnGardenEnemyBundleEffect.Create(false));
             dreamers.Effects[6] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Targeting.Unit_AllOpponents);
+            dreamers.Effects[7] = Effects.GenerateEffect(ScriptableObject.CreateInstance<GainPlayerCurrencyEffect>(), 3);
             dreamers.AddIntentsToTarget(Slots.Self, ["Dreaming_A", IntentType_GameIDs.Damage_Death.ToString()]);
             dreamers.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Status_Focused.ToString()]);
             dreamers.Visuals = null;

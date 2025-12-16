@@ -375,11 +375,11 @@ namespace SaltsEnemies_Reseasoned
 
             if (!SolitaireHandler.Returning && SolitaireHandler.Moved)
             {
-                if (caster.Count > casterID && caster[casterID] != null)
+                /*if (caster.Count > casterID && caster[casterID] != null)
                 {
                     stats.TryGainCurrency(3, true);
                     CombatManager.Instance.AddUIAction(new PlayCurrencyEffectUIAction(caster[casterID].ID, caster[casterID].IsUnitCharacter, 3, isMultiplier: false));
-                }
+                }*/
 
                 SolitaireHandler.Returning = true;
                 SolitaireHandler.Moved = false;
