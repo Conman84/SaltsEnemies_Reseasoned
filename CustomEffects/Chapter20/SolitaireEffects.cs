@@ -331,7 +331,7 @@ namespace SaltsEnemies_Reseasoned
             if (Unboxer == null || Unboxer.Equals(null))
             {
                 Unboxer = ScriptableObject.CreateInstance<UnboxOnNoEnemies_SolitaireSpecial>();
-                Unboxer._unboxConditions = [TriggerCalls.TimelineEndReached, TriggerCalls.OnCombatEnd, TriggerCalls.OnFleetingEnd, TriggerCalls.OnDeath, TriggerCalls.OnAbilityUsed];
+                Unboxer._unboxConditions = [TriggerCalls.OnFleetingEnd, TriggerCalls.OnDeath];
             }
             foreach (EnemyCombat enemy in new List<EnemyCombat>(stats.EnemiesOnField.Values))
             {
