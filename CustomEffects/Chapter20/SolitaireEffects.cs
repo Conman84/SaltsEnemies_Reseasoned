@@ -262,7 +262,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     if (arena == null || arena.Equals(null)) continue;
                     if (arena.activeSelf) arena.SetActive(false);
-                    else arena.SetActive(true);
+                    //else arena.SetActive(true);
                 }
                 foreach (GameObject arena in OdeFieldHandler.Trees)
                 {
