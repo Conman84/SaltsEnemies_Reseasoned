@@ -333,12 +333,17 @@ namespace SaltsEnemies_Reseasoned
                 Unboxer = ScriptableObject.CreateInstance<UnboxOnNoEnemies_SolitaireSpecial>();
                 Unboxer._unboxConditions = [TriggerCalls.OnFleetingEnd, TriggerCalls.OnDeath];
             }
+
+            Unboxer.caster.Add(caster);
+            int value = Unboxer.caster.Count - 1;
+
             foreach (EnemyCombat enemy in new List<EnemyCombat>(stats.EnemiesOnField.Values))
             {
                 if (!enemy.IsAlive) continue;
                 if (SolitaireHandler.IsSolitaireAndDead(enemy)) continue;
                 stats.TryBoxEnemy(enemy.ID, Unboxer, "");
                 enemy.SimpleSetStoredValue(UnboxOnNoEnemies_SolitaireSpecial.Value, 1);
+                enemy.SimpleSetStoredValue(UnboxOnNoEnemies_SolitaireSpecial.SubVal, value);
                 SolitaireHandler.Moved = true;
             }
             return true;
@@ -347,6 +352,8 @@ namespace SaltsEnemies_Reseasoned
     public class UnboxOnNoEnemies_SolitaireSpecial : UnboxUnitHandlerSO
     {
         public static string Value => "Solitaire_Boxing_A";
+        public static string SubVal => "Solitaire_CurrencyGain_Caster";
+        public List<IUnit> caster;
         public override bool CanBeUnboxed(CombatStats stats, BoxedUnit unit, object senderData)
         {
             if (unit.unit.SimpleGetStoredValue("Dreamer_A") > 0) return false;
@@ -363,12 +370,19 @@ namespace SaltsEnemies_Reseasoned
                 if (enemy.IsAlive) return false;
             }
 
+            int casterID = unit.unit.SimpleGetStoredValue("Solitaire_CurrencyGain_Caster");
+
             if (!SolitaireHandler.Returning && SolitaireHandler.Moved)
             {
                 SolitaireHandler.Returning = true;
                 SolitaireHandler.Moved = false;
                 CombatManager.Instance.AddUIAction(new PlayAbilityAnimationAction(CustomVisuals.GetVisuals("Salt/Curtains"), Slots.Self, unit.unit));
                 CombatManager.Instance.AddUIAction(new MoveBackToOriginalAreaAction());
+                if (caster.Count > casterID && caster[casterID] != null)
+                {
+                    stats.TryGainCurrency(5, true);
+                    CombatManager.Instance.AddUIAction(new PlayCurrencyEffectUIAction(caster[casterID].ID, caster[casterID].IsUnitCharacter, 5, isMultiplier: false));
+                }
             }
 
             return true;
