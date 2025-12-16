@@ -85,6 +85,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(DelayedAttackVisualizer.Add);
             PCall(Gatekeeper.Setup);
             PCall(LunopticonHandler.Setup);
+            PCall(Research.Setup);
             #endregion
 
             //Add To Glossary

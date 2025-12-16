@@ -349,11 +349,8 @@ namespace SaltsEnemies_Reseasoned
         public static string Value => "Solitaire_Boxing_A";
         public override bool CanBeUnboxed(CombatStats stats, BoxedUnit unit, object senderData)
         {
-            if (senderData is IUnit iunit)
-            {
-                if (iunit.SimpleGetStoredValue("Dreamer_A") > 0) return false;
-                if (iunit.CurrentHealth <= 0) return false;
-            }
+            if (unit.unit.SimpleGetStoredValue("Dreamer_A") > 0) return false;
+            if (unit.unit.CurrentHealth <= 0) return false;
 
             foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
             {
