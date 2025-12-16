@@ -164,7 +164,7 @@ namespace SaltsEnemies_Reseasoned
             dreamers.Effects[4] = Effects.GenerateEffect(ScriptableObject.CreateInstance<BoxAllEnemiesEffect>());
             dreamers.Effects[5] = Effects.GenerateEffect(SpawnGardenEnemyBundleEffect.Create(false));
             dreamers.Effects[6] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Targeting.Unit_AllOpponents);
-            dreamers.Effects[7] = Effects.GenerateEffect(ScriptableObject.CreateInstance<GainPlayerCurrencyEffect>(), 3);
+            dreamers.Effects[7] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SilentGainPlayerCurrencyEffect>(), 3);
             dreamers.AddIntentsToTarget(Slots.Self, ["Dreaming_A", IntentType_GameIDs.Damage_Death.ToString()]);
             dreamers.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Status_Focused.ToString()]);
             dreamers.Visuals = null;

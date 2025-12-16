@@ -724,7 +724,7 @@ namespace SaltsEnemies_Reseasoned
             for (int i = start; i <= 100 && Amount > 0; i++)
             {
                 CombatManager.Instance._stats.audioController.MusicCombatEvent.setParameterByName("Solitaire", i);
-                System.Threading.Thread.Sleep(20);
+                System.Threading.Thread.Sleep(25);
                 //if (i > 95) UnityEngine.Debug.Log("we;re getting there properly");
             }
             //UnityEngine.Debug.Log("done");
@@ -737,7 +737,7 @@ namespace SaltsEnemies_Reseasoned
             for (int i = start; i >= 0 && Amount <= 0; i--)
             {
                 CombatManager.Instance._stats.audioController.MusicCombatEvent.setParameterByName("Solitaire", i);
-                System.Threading.Thread.Sleep(20);
+                System.Threading.Thread.Sleep(25);
                 //if (i < 5) UnityEngine.Debug.Log("we;re getting there properly");
             }
             //UnityEngine.Debug.Log("done");
@@ -761,6 +761,25 @@ namespace SaltsEnemies_Reseasoned
                     exitAmount += target.Unit.Damage(entryVariable, null, "Basic", -1, false, false, true, Pale.DamageType).damageAmount;
                 }
             }
+            return exitAmount > 0;
+        }
+    }
+
+    public class SilentGainPlayerCurrencyEffect : EffectSO
+    {
+        public bool _gainForPlayer = true;
+
+        public bool _usePreviousExitValue;
+
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            if (_usePreviousExitValue)
+            {
+                entryVariable *= base.PreviousExitValue;
+            }
+
+            exitAmount = stats.TryGainCurrency(entryVariable, _gainForPlayer);
+
             return exitAmount > 0;
         }
     }
