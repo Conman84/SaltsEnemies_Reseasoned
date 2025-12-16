@@ -184,8 +184,10 @@ namespace SaltsEnemies_Reseasoned
 
             child.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
+                radio.GenerateEnemyAbility(false),
                 entropy.GenerateEnemyAbility(false),
-                dreamers.GenerateEnemyAbility(false)
+                scanner.GenerateEnemyAbility(false),
+                dreamers.GenerateEnemyAbility(false),
             });
             child.AddEnemy(true, true, true);
         }
