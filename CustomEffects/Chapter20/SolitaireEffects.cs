@@ -460,12 +460,20 @@ namespace SaltsEnemies_Reseasoned
     public class SpawnEnemyCombatBundleEffect : EffectSO
     {
         public EnemyCombatBundle bundle;
+        public bool Immediate;
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             exitAmount = 0;
             if (bundle == null) return false;
             foreach (EnemyBundleData enemy in bundle.Enemies)
             {
+                if (Immediate)
+                {
+                    new SpawnEnemyAction(enemy.enemy, enemy.combatSlot, false, trySpawnAnyways: false, "").Execute(stats);
+
+                    continue;
+                }
+
                 CombatManager.Instance.AddSubAction(new SpawnEnemyAction(enemy.enemy, enemy.combatSlot, false, trySpawnAnyways: false, ""));
             }
             return true;
@@ -479,6 +487,13 @@ namespace SaltsEnemies_Reseasoned
             bundle = SolitaireHandler.GetRandomGardenEncounter();
             Gatekeeper.SetRandoming(false);
             return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+        }
+
+        public static SpawnGardenEnemyBundleEffect Create (bool immediate)
+        {
+            SpawnGardenEnemyBundleEffect ret = ScriptableObject.CreateInstance<SpawnGardenEnemyBundleEffect>();
+            ret.Immediate = immediate;
+            return ret;
         }
     }
     public class DreamScannerEffect : DamageEffect
