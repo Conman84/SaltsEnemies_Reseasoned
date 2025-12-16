@@ -352,6 +352,12 @@ namespace SaltsEnemies_Reseasoned
             if (unit.unit.SimpleGetStoredValue("Dreamer_A") > 0) return false;
             if (unit.unit.CurrentHealth <= 0) return false;
 
+            if (senderData is IUnit iunit)
+            {
+                if (iunit.SimpleGetStoredValue("Dreamer_A") > 0) return false;
+                if (iunit.CurrentHealth <= 0) return false;
+            }
+
             foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
             {
                 if (enemy.SimpleGetStoredValue(Value) > 0) continue;
