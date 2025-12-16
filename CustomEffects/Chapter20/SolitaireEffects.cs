@@ -332,6 +332,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 Unboxer = ScriptableObject.CreateInstance<UnboxOnNoEnemies_SolitaireSpecial>();
                 Unboxer._unboxConditions = [TriggerCalls.OnFleetingEnd, TriggerCalls.OnDeath];
+                Unboxer.caster = [];
             }
 
             Unboxer.caster.Add(caster);
