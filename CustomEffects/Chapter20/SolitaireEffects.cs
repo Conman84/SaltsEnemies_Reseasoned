@@ -374,15 +374,16 @@ namespace SaltsEnemies_Reseasoned
 
             if (!SolitaireHandler.Returning && SolitaireHandler.Moved)
             {
-                SolitaireHandler.Returning = true;
-                SolitaireHandler.Moved = false;
-                CombatManager.Instance.AddUIAction(new PlayAbilityAnimationAction(CustomVisuals.GetVisuals("Salt/Curtains"), Slots.Self, unit.unit));
-                CombatManager.Instance.AddUIAction(new MoveBackToOriginalAreaAction());
                 if (caster.Count > casterID && caster[casterID] != null)
                 {
                     stats.TryGainCurrency(5, true);
                     CombatManager.Instance.AddUIAction(new PlayCurrencyEffectUIAction(caster[casterID].ID, caster[casterID].IsUnitCharacter, 5, isMultiplier: false));
                 }
+
+                SolitaireHandler.Returning = true;
+                SolitaireHandler.Moved = false;
+                CombatManager.Instance.AddUIAction(new PlayAbilityAnimationAction(CustomVisuals.GetVisuals("Salt/Curtains"), Slots.Self, unit.unit));
+                CombatManager.Instance.AddUIAction(new MoveBackToOriginalAreaAction());
             }
 
             return true;
