@@ -40,7 +40,7 @@ namespace SaltsEnemies_Reseasoned
 
             Enemy child = new Enemy("Spades", "Spades_EN")
             {
-                Health = 8,
+                Health = 4,
                 HealthColor = Pigments.Blue,
                 CombatSprite = ResourceLoader.LoadSprite("SpadesIcon.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("SpadesDead.png", new Vector2(0.5f, 0f), 32),
@@ -184,9 +184,7 @@ namespace SaltsEnemies_Reseasoned
 
             child.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                radio.GenerateEnemyAbility(false),
                 entropy.GenerateEnemyAbility(false),
-                scanner.GenerateEnemyAbility(false),
                 dreamers.GenerateEnemyAbility(false),
             });
             child.AddEnemy(true, true, true);
