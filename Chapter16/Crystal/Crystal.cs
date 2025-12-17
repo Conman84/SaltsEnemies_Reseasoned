@@ -72,7 +72,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 Name = "Torture",
                 Description = "Deal a Little damage to this enemy twice. Consume 3 random pigment.",
-                Rarity = Rarity.CreateAndAddCustomRarityToPool("crystal10", 10),
+                Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 1, Slots.Self),
@@ -106,7 +106,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 Name = "Shard of Sugar",
                 Description = "Deal a Barely Painful amount of damage to this enemy and add Violent (1) as a passive to this enemy.\nRemove this ability from this enemy.",
-                Rarity = Rarity.CreateAndAddCustomRarityToPool("crystal1", 1),
+                Rarity = Rarity.Common,
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 3, Slots.Self),
