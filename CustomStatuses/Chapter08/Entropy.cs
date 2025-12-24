@@ -88,7 +88,7 @@ namespace SaltEnemies_Reseasoned
         }
         public override void OnEventCall_01(StatusEffect_Holder holder, object sender, object args)
         {
-            if ((sender as IUnit).IsAlive && (sender as IUnit).CurrentHealth > 0)
+            if (sender is IUnit && (sender as IUnit).IsAlive && (sender as IUnit).CurrentHealth > 0)
             {
                 (sender as IUnit).Damage(1, null, DeathType_GameIDs.None.ToString(), -1, false, false, true, Entropy.DamageType);
                 int reduction = UnityEngine.Random.Range(3, 10);
@@ -97,7 +97,7 @@ namespace SaltEnemies_Reseasoned
                 (sender as IUnit).SimpleSetStoredValue(Entropy.Limit, time);
                 Thread timerThread = new Thread(new ParameterizedThreadStart(AddTurnsThread));
                 timerThread.Start(sender as IUnit);
-                ReduceDuration(holder, sender as IStatusEffector);
+                if ((sender as IUnit).ContainsStatusEffect(holder.StatusID)) ReduceDuration(holder, sender as IStatusEffector);
             }
         }
         public static void AddTurnsThread(object obj)
