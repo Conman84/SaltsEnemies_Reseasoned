@@ -59,8 +59,11 @@ namespace SaltEnemies_Reseasoned
             }
             List<IStatusEffect> status = new List<IStatusEffect>((caster as IStatusEffector).StatusEffects);
             List<BasePassiveAbilitySO> passives = new List<BasePassiveAbilitySO>((caster as IPassiveEffector).PassiveAbilities);
+            Dictionary<string, UnitStoreDataHolder> stored = null;
+            if (caster is CharacterCombat chara) stored = chara.StoredValues;
+            if (caster is EnemyCombat) stored = enemy.StoredValues;
             SilentDeath(enemy, null);
-            CombatManager.Instance.AddSubAction(new Spawn2HalvesAction(en, final, abilities, status, passives, caster.HealthColor));
+            CombatManager.Instance.AddSubAction(new Spawn2HalvesAction(en, final, abilities, status, passives, caster.HealthColor, stored));
             return true;
         }
         public class Spawn2HalvesAction : CombatAction
@@ -71,7 +74,8 @@ namespace SaltEnemies_Reseasoned
             public List<IStatusEffect> status;
             public List<BasePassiveAbilitySO> passives;
             public ManaColorSO healthColor;
-            public Spawn2HalvesAction(EnemySO en, int final, List<string> abilities, List<IStatusEffect> status, List<BasePassiveAbilitySO> passives, ManaColorSO healthColor = null)
+            public Dictionary<string, UnitStoreDataHolder> data;
+            public Spawn2HalvesAction(EnemySO en, int final, List<string> abilities, List<IStatusEffect> status, List<BasePassiveAbilitySO> passives, ManaColorSO healthColor = null, Dictionary<string, UnitStoreDataHolder> data = null)
             {
                 this.en = en;
                 this.final = final;
@@ -79,6 +83,7 @@ namespace SaltEnemies_Reseasoned
                 this.status = status;
                 this.passives = passives;
                 this.healthColor = healthColor;
+                this.data = data;
             }
             public override IEnumerator Execute(CombatStats stats)
             {
@@ -92,6 +97,19 @@ namespace SaltEnemies_Reseasoned
                             EnemyCombat newborn = stats.Enemies[stats.Enemies.Count - 1];
                             if (newborn is IUnit unit)
                             {
+                                if (data != null)
+                                {
+                                    if (newborn.StoredValues == null) newborn.StoredValues = new Dictionary<string, UnitStoreDataHolder>();
+                                    foreach (string key in data.Keys)
+                                    {
+                                        UnitStoreDataHolder clone = new UnitStoreDataHolder(data[key]._UnitData);
+                                        clone.m_MainData = data[key].m_MainData;
+                                        clone.m_MainString = data[key].m_MainString;
+                                        clone.m_ObjectData = data[key].m_ObjectData;
+
+                                        newborn.StoredValues[key] = clone;
+                                    }
+                                }
                                 if (healthColor != null && !healthColor.Equals(null)) CombatManager.Instance.AddSubAction(new ApplyHealthColorAction(healthColor, unit));
                                 foreach (IStatusEffect effect in status)
                                 {
