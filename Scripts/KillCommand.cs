@@ -231,6 +231,8 @@ namespace SaltsEnemies_Reseasoned
                         BaseBundleGeneratorSO bundl = LoadedAssetsHandler.GetEnemyBundle(item.BundleName);
                         if (!(bundl == null) && !string.IsNullOrEmpty(item.BundleName) && !processed.Contains(item.BundleName))
                         {
+                            if (!BundleEnabledCheck(item.BundleName)) continue;
+
                             yield return item.BundleName;
                             processed.Add(item.BundleName);
                         }
@@ -255,6 +257,8 @@ namespace SaltsEnemies_Reseasoned
                         BaseBundleGeneratorSO bundl = LoadedAssetsHandler.GetEnemyBundle(item.BundleName);
                         if (!(bundl == null) && !string.IsNullOrEmpty(item.BundleName) && !processed.Contains(item.BundleName))
                         {
+                            if (!BundleEnabledCheck(item.BundleName)) continue;
+
                             yield return item.BundleName;
                             processed.Add(item.BundleName);
                         }
@@ -279,12 +283,21 @@ namespace SaltsEnemies_Reseasoned
                         BaseBundleGeneratorSO bundl = LoadedAssetsHandler.GetEnemyBundle(item.BundleName);
                         if (!(bundl == null) && !string.IsNullOrEmpty(item.BundleName) && !processed.Contains(item.BundleName))
                         {
+                            if (!BundleEnabledCheck(item.BundleName)) continue;
+
                             yield return item.BundleName;
                             processed.Add(item.BundleName);
                         }
                     }
                 }
             }
+        }
+
+        public static bool BundleEnabledCheck(string bundle)
+        {
+            if (DataManager.VersionCompatability.Contains(bundle)) return Legacy.Check;
+            if (DataManager.Insiders.Contains(bundle)) return April.Custom;
+            return true;
         }
 
         public static void GenerateSpecificEnemyCard(this ZoneBGDataBaseSO self, string difficulty, string bundleName)
