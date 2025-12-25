@@ -59,9 +59,7 @@ namespace SaltEnemies_Reseasoned
             }
             List<IStatusEffect> status = new List<IStatusEffect>((caster as IStatusEffector).StatusEffects);
             List<BasePassiveAbilitySO> passives = new List<BasePassiveAbilitySO>((caster as IPassiveEffector).PassiveAbilities);
-            Dictionary<string, UnitStoreDataHolder> stored = null;
-            if (caster is CharacterCombat chara) stored = chara.StoredValues;
-            if (caster is EnemyCombat) stored = enemy.StoredValues;
+            Dictionary<string, UnitStoreDataHolder> stored = enemy.StoredValues;
             SilentDeath(enemy, null);
             CombatManager.Instance.AddSubAction(new Spawn2HalvesAction(en, final, abilities, status, passives, caster.HealthColor, stored));
             return true;
@@ -99,16 +97,7 @@ namespace SaltEnemies_Reseasoned
                             {
                                 if (data != null)
                                 {
-                                    if (newborn.StoredValues == null) newborn.StoredValues = new Dictionary<string, UnitStoreDataHolder>();
-                                    foreach (string key in data.Keys)
-                                    {
-                                        UnitStoreDataHolder clone = new UnitStoreDataHolder(data[key]._UnitData);
-                                        clone.m_MainData = data[key].m_MainData;
-                                        clone.m_MainString = data[key].m_MainString;
-                                        clone.m_ObjectData = data[key].m_ObjectData;
-
-                                        newborn.StoredValues[key] = clone;
-                                    }
+                                    CombatManager.Instance.AddSubAction(new ApplyStoredValuesAction(newborn, data));
                                 }
                                 if (healthColor != null && !healthColor.Equals(null)) CombatManager.Instance.AddSubAction(new ApplyHealthColorAction(healthColor, unit));
                                 foreach (IStatusEffect effect in status)
@@ -203,6 +192,30 @@ namespace SaltEnemies_Reseasoned
                 {
                     if (unit.HealthColor != health)
                         unit.ChangeHealthColor(health);
+                }
+                yield return null;
+            }
+        }
+        public class ApplyStoredValuesAction : CombatAction
+        {
+            public EnemyCombat caster;
+            public Dictionary<string, UnitStoreDataHolder> data;
+            public ApplyStoredValuesAction(EnemyCombat caster, Dictionary<string, UnitStoreDataHolder> data)
+            {
+                this.caster = caster;
+                this.data = data;
+            }
+            public override IEnumerator Execute(CombatStats stats)
+            {
+                if (caster.StoredValues == null) caster.StoredValues = new Dictionary<string, UnitStoreDataHolder>();
+                foreach (string key in data.Keys)
+                {
+                    UnitStoreDataHolder clone = new UnitStoreDataHolder(data[key]._UnitData);
+                    clone.m_MainData = data[key].m_MainData;
+                    clone.m_MainString = data[key].m_MainString;
+                    clone.m_ObjectData = data[key].m_ObjectData;
+
+                    caster.StoredValues[key] = clone;
                 }
                 yield return null;
             }
