@@ -18,7 +18,7 @@ namespace SaltsEnemies_Reseasoned
             Portals.AddPortalSign("Salt_PapereaterEncounter_Sign", ResourceLoader.LoadSprite("PapereaterWorld.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Shore.H.Papereater.Med, "Salt_PapereaterEncounter_Sign");
-            med.MusicEvent = "event:/Hawthorne/PapereaterPlaceholder";
+            med.MusicEvent = "event:/Hawthorne/PapereaterTheme";
             med.RoarEvent = "event:/Hawthorne/Sound2/EaterRoar";
 
             med.SimpleAddEncounter(2, "Papereater_EN", 1, "MudLung_EN");
@@ -45,7 +45,7 @@ namespace SaltsEnemies_Reseasoned
         public static void Add_Easy()
         {
             EnemyEncounter_API easy = new EnemyEncounter_API(EncounterType.Random, Shore.H.Papereater.Easy, "Salt_PapereaterEncounter_Sign");
-            easy.MusicEvent = "event:/Hawthorne/PapereaterPlaceholder";
+            easy.MusicEvent = "event:/Hawthorne/PapereaterTheme";
             easy.RoarEvent = "event:/Hawthorne/Sound2/EaterRoar";
 
             easy.SimpleAddEncounter(2, "Papereater_EN");
