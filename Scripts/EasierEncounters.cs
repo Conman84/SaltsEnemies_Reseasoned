@@ -65,9 +65,9 @@ namespace SaltsEnemies_Reseasoned
         {
             if (!BundleExist(bundle)) return;
             if (!BundleRandom(bundle, SaltsReseasoned.DebugVer)) return;
-            List<RandomEnemyGroup> list2 = new List<RandomEnemyGroup>(((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle(bundle))._enemyBundles);
-            list2.Add(group);
-            ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle(bundle))._enemyBundles = list2;
+            //List<RandomEnemyGroup> list2 = new List<RandomEnemyGroup>(((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle(bundle))._enemyBundles);
+            //list2.Add(group);
+            ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle(bundle))._enemyBundles.Add(group);
         }
         //thought about it, not making static bundle methods.
 
