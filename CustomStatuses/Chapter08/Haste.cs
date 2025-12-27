@@ -43,12 +43,14 @@ namespace SaltEnemies_Reseasoned
         public override void OnTriggerAttached(StatusEffect_Holder holder, IStatusEffector caller)
         {
             if (caller.IsStatusEffectorCharacter) CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
+            else CombatManager.Instance.AddObserver(holder.OnEventTriggered_03, TriggerCalls.OnMiscPlayerTurnStart.ToString(), caller);
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, TriggerCalls.AttacksPerTurn.ToString(), caller);
         }
 
         public override void OnTriggerDettached(StatusEffect_Holder holder, IStatusEffector caller)
         {
             if (caller.IsStatusEffectorCharacter) CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
+            else CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_03, TriggerCalls.OnMiscPlayerTurnStart.ToString(), caller);
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, TriggerCalls.AttacksPerTurn.ToString(), caller);
         }
 
@@ -64,6 +66,9 @@ namespace SaltEnemies_Reseasoned
         {
             if (args is IntegerReference integerReference)
                 integerReference.value += 1;
+        }
+        public override void OnEventCall_03(StatusEffect_Holder holder, object sender, object args)
+        {
             ReduceDuration(holder, sender as IStatusEffector);
         }
         public override void ReduceDuration(StatusEffect_Holder holder, IStatusEffector effector)
