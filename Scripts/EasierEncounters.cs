@@ -166,10 +166,18 @@ namespace SaltsEnemies_Reseasoned
         public static string Purple => "Ecstasy_Purple_EN";
         public static string Red => "Ecstasy_Red_EN";
         public static string Blue => "Ecstasy_Blue_EN";
+        public static string Gray => "Ecstasy_Gray_EN";
 
 
         public static string Random => List.GetRandom();
         public static string[] List = [Red, Blue, Yellow, Purple];
+    }
+    public static class Humor
+    {
+        public static string Yellow => "HumourCholeric_EN";
+        public static string Purple => "HumourMelancholy_EN";
+        public static string Red => "HumourSanguine_EN";
+        public static string Blue => "HumourPhlegmatic_EN";
     }
     public static class Enemies
     {

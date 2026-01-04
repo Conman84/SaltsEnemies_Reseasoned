@@ -59,7 +59,8 @@ namespace SaltsEnemies_Reseasoned
                 "TAFHF-D5CLI-4TGV8",
                 "Jtkhfulakefrutysejw3oewuiyrdfhkgmcsdhkafekaeaaeljreluy",
                 "The Sniper",
-                "Polybius Minigame"
+                "Polybius Minigame",
+                "Splitscreen"
                 ];
             CasterRandomizeNameEnemyEffect outside = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             outside.PossibleNames = [
