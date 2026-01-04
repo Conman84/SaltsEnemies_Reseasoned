@@ -40,7 +40,7 @@ namespace SaltsEnemies_Reseasoned
             prac.m_PassiveID = TrainHandler.Practical;
             prac.passiveIcon = ResourceLoader.LoadSprite("PracticalPassive.png");
             prac._enemyDescription = "On taking direct damage, shift one Light phase backwards. " +
-                "\nOn any ability being used other than by this enemy, 50% chance to toggle the Crosswalk phase.";
+                "\nOn any ability being used other than by this enemy, moderate chance to toggle the Crosswalk phase.";
             prac._characterDescription = prac._enemyDescription;
             prac.doesPassiveTriggerInformationPanel = false;
             prac.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<TrainEffect>(), -1, Slots.Self) };
@@ -82,35 +82,39 @@ namespace SaltsEnemies_Reseasoned
             Ability check = new Ability("Train_Check_A")
             {
                 Name = "Check",
-                Description = "If the Light phase is not Green, shift the Light phase up by one.",
+                Description = "If the Light phase is not Green, shift the Light phase up by one.\nIt is no longer safe to Cross.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Notif", false, Slots.Self), 1, Slots.Self, ScriptableObject.CreateInstance<TrainCondition>()),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<TrainEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<TrainCondition>()),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<AntiCrosswalkEffect>())
                 },
                 Visuals = null,
                 AnimationTarget = Slots.Self,
             };
             Intents.CreateAndAddCustom_Basic_IntentToPool("Misc_TrainUp", ResourceLoader.LoadSprite("TrainUpIntent.png"), Color.white);
-            check.AddIntentsToTarget(Slots.Self, new string[] { "Misc_TrainUp" });
+            Intents.CreateAndAddCustom_Basic_IntentToPool("Practical_PA", prac.passiveIcon, Color.white);
+            check.AddIntentsToTarget(Slots.Self, new string[] { "Misc_TrainUp", "Practical_PA" });
 
             //BACK
             Ability back = new Ability("Train_BackUp_A")
             {
                 Name = "Back Up",
-                Description = "If the Light phase is not Green, shift the Light phase down by one.",
+                Description = "If the Light phase is not Green, shift the Light phase down by one and inflict 2 Slip to the Opposing position.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Stop", false, Slots.Self), 1, Slots.Self, ScriptableObject.CreateInstance<TrainCondition>()),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<TrainEffect>(), -1, Slots.Self, ScriptableObject.CreateInstance<TrainCondition>()),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Slots.Front, BasicEffects.DidThat(true))
                 },
                 Visuals = null,
                 AnimationTarget = Slots.Self,
             };
             Intents.CreateAndAddCustom_Basic_IntentToPool("Misc_TrainDown", ResourceLoader.LoadSprite("TrainDownIntent.png"), Color.white);
             back.AddIntentsToTarget(Slots.Self, new string[] { "Misc_TrainDown" });
+            back.AddIntentsToTarget(Slots.Front, [Slip.Intent]);
 
             //FLIP
             Ability flip = new Ability("Train_Flip_A");

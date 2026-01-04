@@ -166,4 +166,19 @@ namespace SaltEnemies_Reseasoned
             Intents.CreateAndAddCustom_Basic_IntentToPool(Intent4, ResourceLoader.LoadSprite("idk.png"), _color4);
         }
     }
+    public class AntiCrosswalkEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            if (caster is EnemyCombat enemy && enemy.SimpleGetStoredValue(TrainHandler.HitParty) == 0)
+            {
+                enemy.SimpleSetStoredValue(TrainHandler.HitParty, 1);
+                CombatManager.Instance.AddUIAction(new SetUnitAnimationParameterUIAction(enemy.ID, enemy.IsUnitCharacter, "party", 1));
+                TrainHandler.ChangeIntents(enemy, 1);
+                return true;
+            }
+            return false;
+        }
+    }
 }

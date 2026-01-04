@@ -2009,7 +2009,7 @@ namespace SaltEnemies_Reseasoned
                     {
                         if (enemy.SimpleGetStoredValue(HitParty) > 0)
                         {
-                            if (UnityEngine.Random.Range(0, 100) < 50)
+                            if (UnityEngine.Random.Range(0, 100) < 50 && CombatManager.Instance._stats.EnemiesOnField.Count > 1)
                             {
                                 enemy.SimpleSetStoredValue(HitParty, 0);
                                 CombatManager.Instance.AddUIAction(new SetUnitAnimationParameterUIAction(enemy.ID, enemy.IsUnitCharacter, "party", 0));

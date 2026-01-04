@@ -18,12 +18,12 @@ namespace SaltsEnemies_Reseasoned
 
             hard.AddRandomEncounter("StalwartTortoise_EN", "MusicMan_EN", "MusicMan_EN");
             hard.AddRandomEncounter("StalwartTortoise_EN", "Something_EN");
-            hard.AddRandomEncounter("StalwartTortoise_EN", "TheCrow_EN");
-            if (SaltsReseasoned.trolling > 50) hard.AddRandomEncounter("StalwartTortoise_EN", Jumble.Purple);
-            if (SaltsReseasoned.trolling < 50) hard.AddRandomEncounter("StalwartTortoise_EN", Spoggle.Purple);
-            if (SaltsReseasoned.silly > 50) hard.AddRandomEncounter("StalwartTortoise_EN", Flower.Yellow);
-            if (SaltsReseasoned.silly < 50) hard.AddRandomEncounter("StalwartTortoise_EN", Flower.Purple);
-            hard.AddRandomEncounter("StalwartTortoise_EN", "WindSong_EN");
+            hard.AddRandomEncounter("StalwartTortoise_EN", "TheCrow_EN", "SingingStone_EN");
+            if (SaltsReseasoned.trolling > 50) hard.AddRandomEncounter("StalwartTortoise_EN", Jumble.Purple, "LostSheep_EN");
+            if (SaltsReseasoned.trolling < 50) hard.AddRandomEncounter("StalwartTortoise_EN", Spoggle.Purple, "LostSheep_EN");
+            if (SaltsReseasoned.silly > 50) hard.AddRandomEncounter("StalwartTortoise_EN", Flower.Yellow, "LostSheep_EN");
+            if (SaltsReseasoned.silly < 50) hard.AddRandomEncounter("StalwartTortoise_EN", Flower.Purple, 'LostSheep_EN');
+            hard.AddRandomEncounter("StalwartTortoise_EN", "WindSong_EN", "SingingStone_EN");
             hard.AddRandomEncounter("StalwartTortoise_EN", Enemies.Solvent);
             hard.AddRandomEncounter("StalwartTortoise_EN", "Sigil_EN");
             hard.AddRandomEncounter("StalwartTortoise_EN", "TheCrow_EN", "SilverSuckle_EN", "SilverSuckle_EN");
