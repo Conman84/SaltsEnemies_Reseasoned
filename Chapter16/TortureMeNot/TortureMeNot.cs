@@ -64,7 +64,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy torture = new Enemy("Torture-Me-Not", id)
             {
-                Health = 3,
+                Health = 5,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("ForgetIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite(overworld, new Vector2(0.5f, 0f), 32),
