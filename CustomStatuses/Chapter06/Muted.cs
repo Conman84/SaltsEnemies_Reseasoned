@@ -26,7 +26,7 @@ namespace SaltEnemies_Reseasoned
             LeftInfo.icon = ResourceLoader.LoadSprite("MutedIcon.png");
             LeftInfo._statusName = "Muted";
             LeftInfo._description = "This unit cannot use any ability other than \"Slap\". \nMuted decreases by 1 at the end of each turn.";
-            LeftInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.DivineProtection_ID.ToString()]._EffectInfo.AppliedSoundEvent;
+            LeftInfo._applied_SE_Event = "event:/Hawthorne/Misc2/ApplyMuted";
             LeftInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.DivineProtection_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             LeftInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.DivineProtection_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 

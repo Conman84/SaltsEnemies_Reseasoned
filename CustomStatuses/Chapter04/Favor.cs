@@ -32,7 +32,7 @@ namespace SaltEnemies_Reseasoned
             LeftInfo.icon = ResourceLoader.LoadSprite("Favor.png");
             LeftInfo._statusName = "Favor";
             LeftInfo._description = "At the end of each turn, heal this unit 1-2. If this unit is healed from any other source than this status effect, Curse them, and deal an Agonizing amount of indirect damage to them. Only one unit may be Favoured at a time.";
-            LeftInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.DivineProtection_ID.ToString()]._EffectInfo.AppliedSoundEvent;
+            LeftInfo._applied_SE_Event = "event:/Hawthorne/Misc2/ApplyFavor";
             LeftInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.DivineProtection_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             LeftInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.DivineProtection_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 
