@@ -145,7 +145,7 @@ namespace SaltsEnemies_Reseasoned
             tears.UsesSpecialUnlockText = false;
             tears.SpecialUnlockID = UILocID.None;
             tears.item._ItemTypeIDs = [];
-            tears.item.AddBlueSkyUnlock("Carpy_CH", "locked_teardrops.png", "ach_teardrops.png");
+            tears.item.AddBlueSkyUnlock("Karpy_CH", "locked_teardrops.png", "ach_teardrops.png");
 
             PerformEffect_Item spurs = new PerformEffect_Item("Salt_HorseSpurs_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<RestoreSwapUseEffect>(), 1, Slots.Self)]);
             spurs.Name = "Horse Spurs";
