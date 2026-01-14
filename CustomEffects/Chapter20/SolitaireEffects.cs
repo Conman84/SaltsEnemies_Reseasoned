@@ -3,6 +3,7 @@ using SaltEnemies_Reseasoned;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using UnityEngine;
 using Yarn;
@@ -222,7 +223,13 @@ namespace SaltsEnemies_Reseasoned
             {
                 if (!CombatManager.Instance._combatEnvHandler.HasExtraAmbience)
                 {
-                    CombatManager.Instance._soundManager.ForceSetAmbience(LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_03").CombatAmbience);
+                    MethodInfo method = typeof(AudioControllerSO).GetMethod(nameof(AudioControllerSO.ForceSetAmbience));
+
+                    if (typeof(ZoneDataBaseSO).GetField("CombatAmbience") != null)
+                        method.Invoke(CombatManager.Instance._soundManager, [typeof(ZoneDataBaseSO).GetField("CombatAmbience").GetValue(LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_03"))]);
+                    else if (typeof(ZoneDataBaseSO).GetField("m_AmbienceID") != null)
+                        method.Invoke(CombatManager.Instance._soundManager, [typeof(ZoneDataBaseSO).GetField("m_AmbienceID").GetValue(LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_03")), typeof(ZoneDataBaseSO).GetField("m_CombatAmbVarID").GetValue(LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_03"))]);
+
                 }
                 else
                 {
@@ -231,7 +238,15 @@ namespace SaltsEnemies_Reseasoned
             }
             else if (!CombatManager.Instance._combatEnvHandler.HasExtraAmbience)
             {
-                CombatManager.Instance._soundManager.TrySetAmbienceState(LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_03").CombatAmbience);
+                //CombatManager.Instance._soundManager.TrySetAmbienceState(LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_03").CombatAmbience);
+
+                MethodInfo method = typeof(AudioControllerSO).GetMethod(nameof(AudioControllerSO.TrySetAmbienceState));
+
+                if (typeof(ZoneDataBaseSO).GetField("CombatAmbience") != null)
+                    method.Invoke(CombatManager.Instance._soundManager, [typeof(ZoneDataBaseSO).GetField("CombatAmbience").GetValue(LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_03"))]);
+                else if (typeof(ZoneDataBaseSO).GetField("m_AmbienceID") != null)
+                    method.Invoke(CombatManager.Instance._soundManager, [typeof(ZoneDataBaseSO).GetField("m_AmbienceID").GetValue(LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_03")), typeof(ZoneDataBaseSO).GetField("m_CombatAmbVarID").GetValue(LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_03"))]);
+
             }
             else
             {
@@ -290,7 +305,14 @@ namespace SaltsEnemies_Reseasoned
                 {
                     if (!CombatManager.Instance._combatEnvHandler.HasExtraAmbience)
                     {
-                        CombatManager.Instance._soundManager.ForceSetAmbience(current.combatAmbienceType);
+                        //CombatManager.Instance._soundManager.ForceSetAmbience(current.combatAmbienceType);
+                        MethodInfo method = typeof(AudioControllerSO).GetMethod(nameof(AudioControllerSO.ForceSetAmbience));
+
+                        if (typeof(ZoneDataBaseSO).GetField("CombatAmbience") != null)
+                            method.Invoke(CombatManager.Instance._soundManager, [typeof(ZoneDataBaseSO).GetField("CombatAmbience").GetValue(current)]);
+                        else if (typeof(ZoneDataBaseSO).GetField("m_AmbienceID") != null)
+                            method.Invoke(CombatManager.Instance._soundManager, [typeof(ZoneDataBaseSO).GetField("m_AmbienceID").GetValue(current), typeof(ZoneDataBaseSO).GetField("m_CombatAmbVarID").GetValue(current)]);
+
                     }
                     else
                     {
@@ -299,7 +321,13 @@ namespace SaltsEnemies_Reseasoned
                 }
                 else if (!CombatManager.Instance._combatEnvHandler.HasExtraAmbience)
                 {
-                    CombatManager.Instance._soundManager.TrySetAmbienceState(current.combatAmbienceType);
+                    //CombatManager.Instance._soundManager.TrySetAmbienceState(current.combatAmbienceType);
+                    MethodInfo method = typeof(AudioControllerSO).GetMethod(nameof(AudioControllerSO.TrySetAmbienceState));
+
+                    if (typeof(ZoneDataBaseSO).GetField("CombatAmbience") != null)
+                        method.Invoke(CombatManager.Instance._soundManager, [typeof(ZoneDataBaseSO).GetField("CombatAmbience").GetValue(current)]);
+                    else if (typeof(ZoneDataBaseSO).GetField("m_AmbienceID") != null)
+                        method.Invoke(CombatManager.Instance._soundManager, [typeof(ZoneDataBaseSO).GetField("m_AmbienceID").GetValue(current), typeof(ZoneDataBaseSO).GetField("m_CombatAmbVarID").GetValue(current)]);
                 }
                 else
                 {

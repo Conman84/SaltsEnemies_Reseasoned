@@ -22,7 +22,7 @@ namespace SaltsEnemies_Reseasoned
             if (SaltsReseasoned.trolling > 50) hard.AddRandomEncounter("StalwartTortoise_EN", Jumble.Purple, "LostSheep_EN");
             if (SaltsReseasoned.trolling < 50) hard.AddRandomEncounter("StalwartTortoise_EN", Spoggle.Purple, "LostSheep_EN");
             if (SaltsReseasoned.silly > 50) hard.AddRandomEncounter("StalwartTortoise_EN", Flower.Yellow, "LostSheep_EN");
-            if (SaltsReseasoned.silly < 50) hard.AddRandomEncounter("StalwartTortoise_EN", Flower.Purple, 'LostSheep_EN');
+            if (SaltsReseasoned.silly < 50) hard.AddRandomEncounter("StalwartTortoise_EN", Flower.Purple, "LostSheep_EN");
             hard.AddRandomEncounter("StalwartTortoise_EN", "WindSong_EN", "SingingStone_EN");
             hard.AddRandomEncounter("StalwartTortoise_EN", Enemies.Solvent);
             hard.AddRandomEncounter("StalwartTortoise_EN", "Sigil_EN");

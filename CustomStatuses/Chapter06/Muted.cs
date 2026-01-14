@@ -77,7 +77,7 @@ namespace SaltEnemies_Reseasoned
                 CombatManager.Instance.AddRootAction(new StartAbilityCostAction(self.ID, filledCost));
                 Debug.Log("is muted, used not slap");
                 CombatManager.Instance.AddRootAction(new AddLuckyManaAction());
-                CombatManager.Instance.AddRootAction(new EndAbilityAction(self.ID, self.IsUnitCharacter));
+                CombatManager.Instance.AddRootAction(new Help.CompatibleEndAbilityAction(self.ID, self.IsUnitCharacter, ability));
                 self.CanUseAbilities = false;
                 self.HasManuallyUsedAbilityThisTurn = true;
                 self.UpdatePerformAbilityCounter();
@@ -150,7 +150,7 @@ namespace SaltEnemies_Reseasoned
 
                 CombatManager.Instance.AddRootAction(new PlayAbilityAnimationAction(ability.visuals, ability.animationTarget, self));
                 CombatManager.Instance.AddRootAction(new CameraCopyEffectAction(ability.effects, self));
-                CombatManager.Instance.AddRootAction(new EndAbilityAction(self.ID, self.IsUnitCharacter));
+                CombatManager.Instance.AddRootAction(new Help.CompatibleEndAbilityAction(self.ID, self.IsUnitCharacter, ability));
 
                 return;
             }
@@ -254,7 +254,7 @@ namespace SaltEnemies_Reseasoned
             slapDeath._DeathTypeID = DeathType_GameIDs.Slap.ToString();
             EffectInfo slap = Effects.GenerateEffect(slapDeath, 1, Targeting.Slot_Front);
             CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { anim, slap }, caster));
-            CombatManager.Instance.AddRootAction(new EndAbilityAction(caster.ID, caster.IsUnitCharacter));
+            CombatManager.Instance.AddRootAction(new Help.CompatibleEndAbilityAction(caster.ID, caster.IsUnitCharacter, LoadedAssetsHandler.GetCharacterAbility("Slap_A")));
             exitAmount++;
             return exitAmount > 0;
         }

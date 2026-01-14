@@ -33,7 +33,7 @@ namespace SaltEnemies_Reseasoned
                     num2 = targetSlotOffset;
                 }
 
-                DamageReceivedValueChangeException ex = new DamageReceivedValueChangeException(amount, specialDamage, directDamage, ignoresShield, num, num2, killer, self);
+                DamageReceivedValueChangeException ex = Help.GenerateDamageTakenException(amount, specialDamage, deathType, directDamage, ignoresShield, num, num2, killer, self);
                 CombatManager.Instance.PostNotification(TriggerCalls.OnBeingDamaged.ToString(), self, ex);
                 int modifiedValue = ex.GetModifiedValue();
                 if (killer != null && !killer.Equals(null))

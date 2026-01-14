@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Reflection;
 using UnityEngine;
 
 namespace SaltsEnemies_Reseasoned
@@ -33,6 +35,133 @@ namespace SaltsEnemies_Reseasoned
             }
 
             return new IntegerReference(amount);
+        }
+
+        public static DamageReceivedValueChangeException GenerateDamageTakenException(int amount, string damageTypeID, string deathTypeID, bool directDamage, bool ignoreShield, int affectedStartSlot, int affectedEndSlot, IUnit possibleSourceUnit, IUnit damagedUnit)
+        {
+            ConstructorInfo[] constructors = typeof(DamageReceivedValueChangeException).GetConstructors();
+
+            foreach (ConstructorInfo constructor in constructors)
+            {
+                if (constructor.GetParameters().Length == 9)
+                {
+                    return constructor.Invoke([amount, damageTypeID, deathTypeID, directDamage, ignoreShield, affectedStartSlot, affectedEndSlot, possibleSourceUnit, damagedUnit]) as DamageReceivedValueChangeException;
+                }
+                if (constructor.GetParameters().Length == 8)
+                {
+                    return constructor.Invoke([amount, damageTypeID, directDamage, ignoreShield, affectedStartSlot, affectedEndSlot, possibleSourceUnit, damagedUnit]) as DamageReceivedValueChangeException;
+                }
+            }
+            Debug.LogError("versioncompatability:damagereceivedexception. tldr, WHAT THE FUCK");
+            return null;
+        }
+
+        public static void AnyAbilityHasFinished(IUnit unit, int caster, bool isChara, AbilitySO ability)
+        {
+            if (unit is CharacterCombat chara)
+            {
+                MethodInfo method = typeof(CharacterCombat).GetMethod(nameof(CharacterCombat.AnyAbilityHasFinished));
+                if (method.GetParameters().Length == 0)
+                    method.Invoke(unit, []);
+                else if (method.GetParameters().Length == 1)
+                {
+                    try
+                    {
+                        _subHelper_AnyAbilityHasFinished(unit, caster, isChara, ability);
+                    }
+                    catch
+                    {
+                        Debug.LogWarning("idk");
+                    }
+                }
+            }
+            if (unit is EnemyCombat enemy)
+            {
+                MethodInfo method = typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.AnyAbilityHasFinished));
+                if (method.GetParameters().Length == 0)
+                    method.Invoke(unit, []);
+                else if (method.GetParameters().Length == 1)
+                {
+                    try
+                    {
+                        _subHelper_AnyAbilityHasFinished(unit, caster, isChara, ability);
+                    }
+                    catch
+                    {
+                        Debug.LogWarning("idk");
+                    }
+                }
+            }
+        }
+
+        public static void _subHelper_AnyAbilityHasFinished(IUnit unit, int caster, bool isChara, AbilitySO ability)
+        {
+            if (unit is CharacterCombat chara)
+            {
+                chara.AnyAbilityHasFinished(new AbilityUsageReference(caster, isChara, ability));
+            }
+            if (unit is EnemyCombat enemy)
+            {
+                enemy.AnyAbilityHasFinished(new AbilityUsageReference(caster, isChara, ability));
+            }
+        }
+
+
+        public class CompatibleEndAbilityAction : CombatAction
+        {
+            public int _unitID;
+
+            public bool _isUnitCharacter;
+
+            public AbilitySO _ability;
+
+            public CompatibleEndAbilityAction(int unitID, bool isUnitCharacter, AbilitySO ability)
+            {
+                _unitID = unitID;
+                _isUnitCharacter = isUnitCharacter;
+                _ability = ability;
+            }
+
+            public override IEnumerator Execute(CombatStats stats)
+            {
+                if (_isUnitCharacter)
+                {
+                    CharacterCombat characterCombat = stats.TryGetCharacterOnField(_unitID);
+                    if (characterCombat != null)
+                    {
+                        if (characterCombat.IsAlive)
+                        {
+                            characterCombat.AbilityHasFinished();
+                        }
+
+                        characterCombat.FinalizeAbilityActions();
+                    }
+                }
+                else
+                {
+                    EnemyCombat enemyCombat = stats.TryGetEnemyOnField(_unitID);
+                    if (enemyCombat != null && enemyCombat.IsAlive)
+                    {
+                        enemyCombat.AbilityHasFinished();
+                    }
+                    else
+                    {
+                        CombatManager.Instance.AddRootAction(new NextTurnAction());
+                    }
+                }
+
+                foreach (CharacterCombat value in stats.CharactersOnField.Values)
+                {
+                    Help.AnyAbilityHasFinished(value, _unitID, _isUnitCharacter, _ability);
+                }
+
+                foreach (EnemyCombat value2 in stats.EnemiesOnField.Values)
+                {
+                    Help.AnyAbilityHasFinished(value2, _unitID, _isUnitCharacter, _ability);
+                }
+
+                yield return null;
+            }
         }
     }
 

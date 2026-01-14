@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Text;
 using Tools;
 using UnityEngine;
+using Yarn;
 using static UnityEngine.GraphicsBuffer;
 
 namespace SaltsEnemies_Reseasoned
@@ -100,7 +101,7 @@ namespace SaltsEnemies_Reseasoned
             }
             CombatManager.Instance.AddRootAction(new PlayAbilityAnimationAction(ability.visuals, ability.animationTarget, self));
             CombatManager.Instance.AddRootAction(new EffectAction(ability.effects, self));
-            CombatManager.Instance.AddRootAction(new CustomEndAbilityAction(self.ID, self.IsUnitCharacter));
+            CombatManager.Instance.AddRootAction(new CustomEndAbilityAction(self.ID, self.IsUnitCharacter, ability));
             CombatManager.Instance.AddRootAction(new ForceTurnCleanupAction(self));
         }
     }
@@ -111,10 +112,13 @@ namespace SaltsEnemies_Reseasoned
 
         public bool _isUnitCharacter;
 
-        public CustomEndAbilityAction(int unitID, bool isUnitCharacter)
+        public AbilitySO _ability;
+
+        public CustomEndAbilityAction(int unitID, bool isUnitCharacter, AbilitySO ability)
         {
             _unitID = unitID;
             _isUnitCharacter = isUnitCharacter;
+            _ability = ability;
         }
 
         public override IEnumerator Execute(CombatStats stats)
@@ -144,12 +148,12 @@ namespace SaltsEnemies_Reseasoned
 
             foreach (CharacterCombat value in stats.CharactersOnField.Values)
             {
-                value.AnyAbilityHasFinished();
+                Help.AnyAbilityHasFinished(value, _unitID, _isUnitCharacter, _ability);
             }
 
             foreach (EnemyCombat value2 in stats.EnemiesOnField.Values)
             {
-                value2.AnyAbilityHasFinished();
+                Help.AnyAbilityHasFinished(value2, _unitID, _isUnitCharacter, _ability);
             }
 
             yield return null;

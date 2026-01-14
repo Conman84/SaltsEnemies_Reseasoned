@@ -386,7 +386,21 @@ namespace SaltEnemies_Reseasoned
             OverworldCombatSharedDataSO combatData = self._informationHolder.CombatData;
             combatData.playerCurrency = run.playerData.PlayerCurrency;
             combatData.owSceneName = SceneManager.GetActiveScene().name;
-            combatData.combatAmbienceType = currentZoneDB.CombatAmbience;
+
+            if (typeof(OverworldCombatSharedDataSO).GetField("combatAmbienceType") != null)
+            {
+                typeof(OverworldCombatSharedDataSO).GetField("combatAmbienceType").SetValue(combatData, typeof(ZoneDataBaseSO).GetField("CombatAmbience").GetValue(currentZoneDB));
+            }
+            //combatData.combatAmbienceType = currentZoneDB.CombatAmbience;
+
+            if (typeof(OverworldCombatSharedDataSO).GetField("m_CombatAmbienceType") != null)
+            {
+                typeof(OverworldCombatSharedDataSO).GetField("m_CombatAmbienceType").SetValue(combatData, typeof(ZoneDataBaseSO).GetField("m_CombatAmbVarID").GetValue(currentZoneDB));
+                typeof(OverworldCombatSharedDataSO).GetField("m_AmbienceEvent").SetValue(combatData, typeof(ZoneDataBaseSO).GetField("m_AmbienceID").GetValue(currentZoneDB));
+            }
+            //combatData.m_CombatAmbienceType = currentZoneDB.m_CombatAmbVarID;
+            //combatData.m_AmbienceEvent = currentZoneDB.m_AmbienceID;
+
             combatData.combatEnvironmentPrefabName = currentZoneDB.CombatEnvironment;
             combatData.enemyBundle = enemyBundle;
             combatData.CharactersData = run.playerData.CharactersInParty;
