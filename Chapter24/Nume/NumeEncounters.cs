@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
             Portals.AddPortalSign("Salt_NumeEncounter_Sign", ResourceLoader.LoadSprite("NumeWorld.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Orph.H.Nume.Med, "Salt_NumeEncounter_Sign");
-            med.MusicEvent = "event:/Hawthorne/NumePlaceholder";
+            med.MusicEvent = "event:/Hawthorne/NumeSong";
             med.RoarEvent = "event:/Hawthorne/Surround/EnigmaRoar";
 
             med.SimpleAddEncounter(2, "Nume_EN", 2, "SingingStone_EN");
