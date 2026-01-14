@@ -18,6 +18,12 @@ namespace SaltsEnemies_Reseasoned
             runner.AddCommandHandler("GiftShopItem", GenerateItemPresent);
             runner.AddFunction("IsBlueSky", 0, (Value[] parameters) => CheckCurrentBossIsBlueSky());
         }
+        public static void SetupNEW(DialogueRunner_BO runner, OverworldManagerBG world)
+        {
+            runner.AddCommandHandler("ChangeCurrentBoss", SwapCurrentZoneBossByDialogue);
+            runner.AddCommandHandler("GiftShopItem", GenerateItemPresent);
+            runner.AddFunction("IsBlueSky", 0, (Value[] parameters) => CheckCurrentBossIsBlueSky());
+        }
         public static void SwapCurrentZoneBossByDialogue(string[] info)
         {
             if (info.Length < 1)

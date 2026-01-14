@@ -340,8 +340,19 @@ namespace SaltEnemies_Reseasoned
         public static void Setup()
         {
             IDetour awakening = new Hook(typeof(OverworldManagerBG).GetMethod(nameof(OverworldManagerBG.Awake), ~BindingFlags.Default), typeof(PostmodernHandler).GetMethod(nameof(Awake), ~BindingFlags.Default));
-            IDetour diologo = new Hook(typeof(OverworldManagerBG).GetMethod(nameof(OverworldManagerBG.InitializeDialogueFunctions), ~BindingFlags.Default), typeof(PostmodernHandler).GetMethod(nameof(InitializeDialogueFunctions), ~BindingFlags.Default));
-            IDetour hook = new Hook(typeof(InGameDataSO).GetMethod(nameof(InGameDataSO.DidCompleteQuest), ~BindingFlags.Default), typeof(PostmodernHandler).GetMethod(nameof(DidCompleteQuest), ~BindingFlags.Default));
+
+            MethodInfo method = typeof(OverworldManagerBG).GetMethod(nameof(OverworldManagerBG.InitializeDialogueFunctions), ~BindingFlags.Default);
+            if (method.GetParameters()[0].ParameterType == typeof(DialogueRunner))
+            {
+                IDetour diologo = new Hook(method, typeof(PostmodernHandler).GetMethod(nameof(InitializeDialogueFunctions), ~BindingFlags.Default));
+            }
+            else
+            {
+                IDetour diologo = new Hook(method, typeof(PostmodernHandler).GetMethod(nameof(InitializeDialogueFunctionsNEW), ~BindingFlags.Default));
+            }
+
+
+                IDetour hook = new Hook(typeof(InGameDataSO).GetMethod(nameof(InGameDataSO.DidCompleteQuest), ~BindingFlags.Default), typeof(PostmodernHandler).GetMethod(nameof(DidCompleteQuest), ~BindingFlags.Default));
             Add();
             Hacks.Setup();
             postmodernevent();
@@ -352,6 +363,12 @@ namespace SaltEnemies_Reseasoned
             orig(self, dialogueRunner);
             dialogueRunner.AddCommandHandler("SaltPostmodernity", TriggerPostmodern);
             DialogueFunctions.Setup(dialogueRunner, self);
+        }
+        public static void InitializeDialogueFunctionsNEW(Action<OverworldManagerBG, DialogueRunner_BO> orig, OverworldManagerBG self, DialogueRunner_BO dialogueRunner)
+        {
+            orig(self, dialogueRunner);
+            dialogueRunner.AddCommandHandler("SaltPostmodernity", TriggerPostmodern);
+            DialogueFunctions.SetupNEW(dialogueRunner, self);
         }
 
         public static void TriggerPostmodern(string[] info)
