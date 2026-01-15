@@ -21,7 +21,14 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = "event:/Hawthorne/Noisy/Bone_Hit",
                 DeathSound = "event:/Hawthorne/Noisy/Bone_Death",
             };
-            skeleton.PrepareEnemyPrefab("assets/enemie/Shooter_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("assets/giblets/Shooter_Gibs.prefab").GetComponent<ParticleSystem>());
+
+            ParticleSystem gibs = SaltsReseasoned.Meow.LoadAsset<GameObject>("assets/giblets/Shooter_Gibs.prefab").GetComponent<ParticleSystem>();
+            gibs.transform.GetChild(0).gameObject.AddComponent<ShooterGibsManager>().SetTargetSystem(gibs.transform.GetChild(0).GetComponent<ParticleSystem>());
+            gibs.transform.GetChild(1).gameObject.AddComponent<ShooterGibsManager>().SetTargetSystem(gibs.transform.GetChild(1).GetComponent<ParticleSystem>());
+            gibs.transform.GetChild(3).gameObject.AddComponent<ShooterGibsManager>().SetTargetSystem(gibs.transform.GetChild(3).GetComponent<ParticleSystem>());
+            gibs.transform.GetChild(4).gameObject.AddComponent<ShooterGibsManager>().SetTargetSystem(gibs.transform.GetChild(4).GetComponent<ParticleSystem>());
+
+            skeleton.PrepareEnemyPrefab("assets/enemie/Shooter_Enemy.prefab", SaltsReseasoned.Meow, gibs);
 
             //sniper
             ExtraAttackPassiveAbility baseExtra = LoadedAssetsHandler.GetEnemy("Xiphactinus_EN").passiveAbilities[1] as ExtraAttackPassiveAbility;
