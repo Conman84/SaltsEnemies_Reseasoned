@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Text;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using static UnityEngine.UI.CanvasScaler;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -93,5 +94,31 @@ namespace SaltsEnemies_Reseasoned
             }
         }
 
+    }
+    
+    public class GenerateNewEnemyTurnEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+
+            List<EnemyCombat> list1 = [];
+            List<int> abilities = [];
+
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit && target.Unit is EnemyCombat enemy)
+                {
+                    int[] temp = enemy.GetNextAbilitySlotUsage();
+                    for (int i = 0; i < temp.Length; i++) list1.Add(enemy);
+                    abilities.AddRange(temp);
+                }
+            }
+
+            stats.timeline.AddExtraEnemyTurns(list1, abilities);
+
+            exitAmount = list1.Count;
+            return exitAmount > 0;
+        }
     }
 }
