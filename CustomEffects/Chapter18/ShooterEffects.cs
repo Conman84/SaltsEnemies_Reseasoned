@@ -44,7 +44,7 @@ namespace SaltEnemies_Reseasoned
             for (int i = 0; i < count; i++)
             {
                 Vector3 velocity = particles[i].velocity;
-                if (Math.Abs(velocity.x) <= 0f & Math.Abs(velocity.y) <= 0f && Math.Abs(velocity.z) <= 0f)
+                if (Math.Abs(velocity.x) <= 0.1f & Math.Abs(velocity.y) <= 0.1f && Math.Abs(velocity.z) <= 0.1f)
                 {
                     if (particles[i].position.y > 0.1f) continue;
                     if (particles[i].remainingLifetime >= particles[i].startLifetime) continue;
