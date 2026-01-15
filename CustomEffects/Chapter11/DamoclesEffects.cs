@@ -28,7 +28,7 @@ namespace SaltEnemies_Reseasoned
                 CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnCasterGibsEffect>(), 1, Slots.Self)
-                }, unit));
+                }, unit));//why is this needed. 
                 return false;
             }
             return false;
