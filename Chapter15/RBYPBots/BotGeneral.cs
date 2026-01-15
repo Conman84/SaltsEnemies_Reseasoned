@@ -34,7 +34,7 @@ namespace SaltsEnemies_Reseasoned
             Ability petrify = new Ability("Bot_Petrify_A")
             {
                 Name = "Petrify",
-                Description = "Deal a Painful amount of damage to the Opposing party member. \nMove Left, and change the Right enemy's health color to this enemy's health color and inflict 1 Pimples on them.",
+                Description = "Deal a Painful amount of damage to the Opposing party member and move Left. \nChange the Right enemy's health color to this enemy's health color and inflict 1 Pimples on them.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("bot8", 8),
                 Effects = new EffectInfo[]
                 {
@@ -54,7 +54,7 @@ namespace SaltsEnemies_Reseasoned
             Ability partition = new Ability("Bot_Partition_A")
             {
                 Name = "Partition",
-                Description = "Deal a Painful amount of damage to the Opposing party member. \nMove Right, and change the Left enemy's health color to this enemy's health color and inflict 1 Pimples on them.",
+                Description = "Deal a Painful amount of damage to the Opposing party member and move Right. \nChange the Left enemy's health color to this enemy's health color and inflict 1 Pimples on them.",
                 Rarity = Rarity.GetCustomRarity("bot8"),
                 Effects = new EffectInfo[]
                 {
