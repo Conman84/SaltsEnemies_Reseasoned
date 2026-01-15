@@ -23,6 +23,14 @@ namespace SaltEnemies_Reseasoned
         {
             Gibs = set;
         }
+        public void Start()
+        {
+            //Debug.Log("Hi");
+            _time = 0.5f;
+            Debug.Log(Gibs.name);
+        }
+
+        public Vector3[] Positions;
         
         public void Update()
         {
@@ -34,25 +42,35 @@ namespace SaltEnemies_Reseasoned
 
             _time = 0.1f;
 
-            ParticleSystem.Particle[] particles = [];
+            ParticleSystem.Particle[] particles = new ParticleSystem.Particle[Gibs.main.maxParticles];
 
+            List<Vector3> newpositions = new List<Vector3>();
             int count = Gibs.GetParticles(particles);
+            //Debug.Log(Gibs.name + " triggering once, particles found: " + count.ToString());
 
             List<ParticleSystem.Particle> triggerOn = [];
             List<int> checkBack = [];
 
             for (int i = 0; i < count; i++)
             {
-                Vector3 velocity = particles[i].velocity;
-                if (Math.Abs(velocity.x) <= 0.1f & Math.Abs(velocity.y) <= 0.1f && Math.Abs(velocity.z) <= 0.1f)
+                //Vector3 velocity = particles[i].totalVelocity;
+                Vector3 position = particles[i].position;
+                newpositions.Add(position);
+
+                if (Positions == null) continue;
+                if (Positions.Length <= i) continue;
+
+                //Debug.Log(velocity);
+                if (Math.Abs(Positions[i].x - position.x) < 0.1f && Math.Abs(Positions[i].y - position.y) < 0.2f && Math.Abs(Positions[i].z - position.z) < 0.1f)
                 {
-                    if (particles[i].position.y > 0.1f) continue;
-                    if (particles[i].remainingLifetime >= particles[i].startLifetime) continue;
+                    //if (particles[i].position.y > 0.1f) continue;
                     triggerOn.Add(particles[i]);
                     checkBack.Add(i);
                     //particles[i].remainingLifetime = 0;
                 }
             }
+
+            Positions = newpositions.ToArray();
 
             if (triggerOn.Count <= 0) return;
 

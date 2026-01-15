@@ -23,10 +23,10 @@ namespace SaltsEnemies_Reseasoned
             };
 
             ParticleSystem gibs = SaltsReseasoned.Meow.LoadAsset<GameObject>("assets/giblets/Shooter_Gibs.prefab").GetComponent<ParticleSystem>();
-            gibs.transform.GetChild(0).gameObject.AddComponent<ShooterGibsManager>().SetTargetSystem(gibs.transform.GetChild(0).GetComponent<ParticleSystem>());
-            gibs.transform.GetChild(1).gameObject.AddComponent<ShooterGibsManager>().SetTargetSystem(gibs.transform.GetChild(1).GetComponent<ParticleSystem>());
-            gibs.transform.GetChild(3).gameObject.AddComponent<ShooterGibsManager>().SetTargetSystem(gibs.transform.GetChild(3).GetComponent<ParticleSystem>());
-            gibs.transform.GetChild(4).gameObject.AddComponent<ShooterGibsManager>().SetTargetSystem(gibs.transform.GetChild(4).GetComponent<ParticleSystem>());
+            gibs.transform.Find("Front1").gameObject.AddComponent<ShooterGibsManager>().SetTargetSystem(gibs.transform.Find("Front1").GetComponent<ParticleSystem>());
+            gibs.transform.Find("Front2").gameObject.AddComponent<ShooterGibsManager>().SetTargetSystem(gibs.transform.Find("Front2").GetComponent<ParticleSystem>());
+            gibs.transform.Find("Back1").gameObject.AddComponent<ShooterGibsManager>().SetTargetSystem(gibs.transform.Find("Back1").GetComponent<ParticleSystem>());
+            gibs.transform.Find("Back2").gameObject.AddComponent<ShooterGibsManager>().SetTargetSystem(gibs.transform.Find("Back2").GetComponent<ParticleSystem>());
 
             skeleton.PrepareEnemyPrefab("assets/enemie/Shooter_Enemy.prefab", SaltsReseasoned.Meow, gibs);
 
