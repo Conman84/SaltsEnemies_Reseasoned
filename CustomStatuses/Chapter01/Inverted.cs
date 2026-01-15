@@ -9,31 +9,30 @@ namespace SaltEnemies_Reseasoned
 {
     public static class Inverted
     {
-        public static string DamageType => "";
-        public static string HealType => "";
+        public static string DamageType => "Effect_Inverted";
+        public static string HealType => "Effect_Inverted";
         public static string StatusID => "Inverted_ID";
         public static string Intent => "Status_Inverted";
         public static InvertedSE_SO Object;
         public static void Add()
         {
             //Debug.LogWarning("Inverted.Add. I've left some leftover code for the damage color setting in case you want to use it, for the heal color you'd just copy the code and change DamageType --> HealType");
-            /*TMP_ColorGradient PaleGradient = ScriptableObject.CreateInstance<TMP_ColorGradient>();
-            UnityEngine.Color32 paleColor = new UnityEngine.Color32(63, 205, 189, 255);
-            PaleGradient.bottomLeft = paleColor;
-            PaleGradient.bottomRight = paleColor;
-            PaleGradient.topLeft = paleColor;
-            PaleGradient.topRight = paleColor;
-            if (LoadedDBsHandler.CombatDB.m_TxtColorPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_TxtColorPool[DamageType] = PaleGradient;
-            else LoadedDBsHandler.CombatDB.AddNewTextColor(DamageType, PaleGradient);
+            TMP_ColorGradient invertedColor = ScriptableObject.CreateInstance<TMP_ColorGradient>();
+            invertedColor.bottomRight = new Color32(112, 112, 194, 255);
+            invertedColor.bottomLeft = new Color32(52, 52, 99, 255);
+            invertedColor.topRight = new Color32(156, 44, 44, 255);
+            invertedColor.topLeft = new Color32(255, 60, 60, 255);
+            if (LoadedDBsHandler.CombatDB.m_TxtColorPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_TxtColorPool[DamageType] = invertedColor;
+            else LoadedDBsHandler.CombatDB.AddNewTextColor(DamageType, invertedColor);
 
-            if (LoadedDBsHandler.CombatDB.m_SoundPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_SoundPool[DamageType] = LoadedDBsHandler.CombatDB.m_SoundPool[CombatType_GameIDs.Dmg_Linked.ToString()];
-            else LoadedDBsHandler.CombatDB.AddNewSound(DamageType, LoadedDBsHandler.CombatDB.m_SoundPool[CombatType_GameIDs.Dmg_Linked.ToString()]);
-            */
+            if (LoadedDBsHandler.CombatDB.m_SoundPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_SoundPool[DamageType] = "event:/Hawthorne/Misc3/InvertedEffect";
+            else LoadedDBsHandler.CombatDB.AddNewSound(DamageType, "event:/Hawthorne/Misc3/InvertedEffect");
+            
             StatusEffectInfoSO InvertedInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             InvertedInfo.icon = ResourceLoader.LoadSprite("Inverted.png");
             InvertedInfo._statusName = "Inverted";
             InvertedInfo._description = "All direct damage dealt to this unit is converted into indirect healing. All direct healing received by this unit is converted into indirect damage. Reduce by 1 at the start of each turn.";
-            InvertedInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Cursed_ID.ToString()]._EffectInfo._applied_SE_Event;
+            InvertedInfo._applied_SE_Event = "event:/Hawthorne/Misc3/InvertedApply";
             InvertedInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Cursed_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             InvertedInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Cursed_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 
@@ -76,6 +75,7 @@ namespace SaltEnemies_Reseasoned
                 {
                     if (hitBy.directDamage == true)
                     {
+                        hitBy.ShouldIgnoreUI = true;
                         if (unit.ContainsStatusEffect(StatusField_GameIDs.DivineProtection_ID.ToString()))
                         {
                             hitBy.AddModifier(new ImmZeroMod());
