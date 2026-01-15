@@ -36,11 +36,11 @@ namespace SaltsEnemies_Reseasoned
 
             Ability marrow = new Ability("MarrowRot_A");
             marrow.Name = "Marrow Rot";
-            marrow.Description = "Curse the Opposing party member and this enemy.";
+            marrow.Description = "Curse the Opposing and Right party members and this enemy.";
             marrow.Rarity = Rarity.GetCustomRarity("rarity5");
-            marrow.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.Front),
+            marrow.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Targeting.Slot_FrontAndRight),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.Self)];
-            marrow.AddIntentsToTarget(Slots.Front, ["Status_Cursed"]);
+            marrow.AddIntentsToTarget(Targeting.Slot_FrontAndRight, ["Status_Cursed"]);
             marrow.AddIntentsToTarget(Slots.Self, ["Status_Cursed"]);
             marrow.Visuals = CustomVisuals.GetVisuals("Salt/Keyhole");
             marrow.AnimationTarget = Slots.Front;
@@ -52,7 +52,7 @@ namespace SaltsEnemies_Reseasoned
             Ability anticanine = new Ability("Anticanine_A");
             anticanine.Name = "Anticanine";
             anticanine.Description = "Deal a Little damage to the Opposing party member.\nIf this move kills, produce 20 Shop items.";
-            anticanine.Rarity = Rarity.GetCustomRarity("rarity5");
+            anticanine.Rarity = Rarity.CreateAndAddCustomRarityToPool("larvaeLow", 1);
             anticanine.Effects = [
                 Effects.GenerateEffect(onkill, 2, Slots.Front),
                 Effects.GenerateEffect(shops, 20, Slots.Self, BasicEffects.DidThat(true))
