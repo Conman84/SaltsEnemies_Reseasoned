@@ -76,15 +76,14 @@ namespace SaltsEnemies_Reseasoned
 
             Ability larvate = new Ability("Wolf_Larvate_A");
             larvate.Name = "Larvate";
-            larvate.Description = "Slightly heal the Opposing party member and Curse them.\nIf no healing is dealt, spawn a Wolf Larvae.";
+            larvate.Description = "Slightly heal the Opposing party member and Curse them.\nIf no healing is dealt, deal a Little damage to the Opposing party member.";
             larvate.Rarity = Rarity.GetCustomRarity("rarity5");
             larvate.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 2, Slots.Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.Front),
-                Effects.GenerateEffect(larvae, 1, Slots.Self, BasicEffects.DidThat(false, 2))
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Front, BasicEffects.DidThat(false, 2))
                 ];
-            larvate.AddIntentsToTarget(Slots.Front, ["Heal_1_4", "Status_Cursed"]);
-            larvate.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Other_Spawn.ToString()]);
+            larvate.AddIntentsToTarget(Slots.Front, ["Heal_1_4", "Status_Cursed", "Damage_1_2"]);
             larvate.Visuals = LoadedAssetsHandler.GetCharacterAbility("Mend_1_A").visuals;
             larvate.AnimationTarget = Slots.Front;
 
