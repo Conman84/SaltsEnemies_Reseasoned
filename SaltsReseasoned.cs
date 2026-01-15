@@ -86,6 +86,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(Gatekeeper.Setup);
             PCall(LunopticonHandler.Setup);
             PCall(Research.Setup);
+            PCall(TransformerEnemyHandler.Setup);
             #endregion
 
             //Add To Glossary
