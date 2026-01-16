@@ -220,10 +220,10 @@ namespace SaltsEnemies_Reseasoned
                 if (particles[i].remainingLifetime < particles[i].startLifetime / 2) continue;
 
                 Vector3 pos = _self.transform.TransformPoint(particles[i].position);
-                if (pos.z > 5f)
+                if (pos.z >= 4f)
                 {
-                    float dif = pos.z - 5f;
-                    if (pos.y > -0.5f - dif/6) continue;
+                    float dif = pos.z - 4f;
+                    if (pos.y > -0.5f - dif/5) continue;
 
                     //Debug.Log(pos);
                     particles[i].remainingLifetime = 0;
@@ -240,7 +240,7 @@ namespace SaltsEnemies_Reseasoned
         {
             CombatEnvironmentHandler room = LoadedAssetsHandler.TryGetCombatEnvironmentPrefab(LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_02").CombatEnvironment);
             Vector3 pos = room.transform.Find("Cube").localPosition;
-            pos.z += 1;
+            pos.y += 0.7f;
             room.transform.Find("Cube").localPosition = pos;
         }
         public static void Test()
