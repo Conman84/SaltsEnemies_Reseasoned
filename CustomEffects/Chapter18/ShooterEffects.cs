@@ -97,7 +97,6 @@ namespace SaltEnemies_Reseasoned
         {
             ParticleSystem.Particle[] particles = new ParticleSystem.Particle[Gibs.main.maxParticles];
 
-            List<Vector3> newpositions = new List<Vector3>();
             int count = Gibs.GetParticles(particles);
             //Debug.Log(Gibs.name + " triggering once, particles found: " + count.ToString());
 
@@ -108,8 +107,6 @@ namespace SaltEnemies_Reseasoned
             {
                 //Vector3 velocity = particles[i].totalVelocity;
                 Vector3 position = particles[i].position;
-                newpositions.Add(position);
-
 
                 //Debug.Log(velocity);
                 if (position.y <= 0.03)

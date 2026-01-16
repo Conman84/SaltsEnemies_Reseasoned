@@ -54,6 +54,8 @@ namespace SaltsEnemies_Reseasoned
 
         public static void SpawnGibs(Action<EnemyInFieldLayout> orig, EnemyInFieldLayout self)
         {
+            if (self.m_Data.m_Gibs != null) GibsPositionTracker.AddTracker(self.m_Data.m_Gibs);
+
             if (CombatManager.Instance._stats.combatUI._enemiesInCombat.TryGetValue(self.EnemyID, out var value))
             {
                 if (EnemyExist("WindSong_EN") && value.EnemyBase == LoadedAssetsHandler.GetEnemy("WindSong_EN") && value.CurrentHealth > 0)
@@ -75,6 +77,7 @@ namespace SaltsEnemies_Reseasoned
                     }
                     else
                     {
+                        GibsPositionTracker.AddTracker(Dragon.Green);
                         RuntimeManager.PlayOneShot(self.m_Data.m_GibsEvent, self.Position);
                         UnityEngine.Object.Instantiate(Dragon.Green, self.transform.position, self.transform.rotation);
                         return;
@@ -94,6 +97,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     if (self.m_Data.m_Animator.GetBool("Suicide"))
                     {
+                        GibsPositionTracker.AddTracker(SkeletonHead.SuicideGibs);
                         RuntimeManager.PlayOneShot(self.m_Data.m_GibsEvent, self.m_Data.m_Renderer.transform.position);
                         ParticleSystem system = UnityEngine.Object.Instantiate(SkeletonHead.SuicideGibs, self.m_Data.m_Renderer.transform.position, self.transform.rotation);
                         return;
@@ -159,6 +163,59 @@ namespace SaltsEnemies_Reseasoned
             IDetour hack = new Hook(typeof(EnemyInFieldLayout).GetMethod(nameof(EnemyInFieldLayout.SpawnGibs), ~BindingFlags.Default), typeof(GibsFix).GetMethod(nameof(SpawnGibs), ~BindingFlags.Default));
             IDetour rock = new Hook(typeof(EnemyZoneHandler).GetMethod(nameof(EnemyZoneHandler.PlayEnemyFleetingAnimation), ~BindingFlags.Default), typeof(GibsFix).GetMethod(nameof(PlayEnemyFleetingAnimation), ~BindingFlags.Default));
             IDetour horse = new Hook(typeof(EnemyInFieldLayout).GetMethod(nameof(EnemyInFieldLayout.DamageEnemy), ~BindingFlags.Default), typeof(GibsFix).GetMethod(nameof(DamageEnemy), ~BindingFlags.Default));
+        }
+    }
+
+    public class GibsPositionTracker : MonoBehaviour
+    {
+        public ParticleSystem _self;
+        public float _time;
+        public void Set(ParticleSystem set) => _self = set;
+
+        public static void AddTracker(ParticleSystem self)
+        {
+            if (self.collision.enabled && self.GetComponent<GibsPositionTracker>() == null) self.gameObject.AddComponent<GibsPositionTracker>().Set(self);
+
+            ParticleSystem[] childs = self.gameObject.GetComponentsInChildren<ParticleSystem>();
+
+            foreach (ParticleSystem child in childs)
+            {
+                if (!child.collision.enabled) continue;
+
+                GameObject obj = child.gameObject;
+
+                if (obj.GetComponent<GibsPositionTracker>() != null) continue;
+
+                obj.AddComponent<GibsPositionTracker>().Set(child);
+            }
+        }
+
+        public void Start()
+        {
+            _time = 0.05f;
+        }
+        public void Update()
+        {
+            _time -= Time.deltaTime;
+            if (_time > 0) return;
+            _time = 0.05f;
+
+            ParticleSystem.Particle[] particles = new ParticleSystem.Particle[_self.main.maxParticles];
+
+            int count = _self.GetParticles(particles);
+            int deleted = 0;
+
+            for (int i = 0; i < count; i++)
+            {
+                Vector3 pos = particles[i].position;
+                if (pos.y < 0)
+                {
+                    Debug.Log(pos);
+
+                }
+            }
+
+            if (deleted > 0) _self.SetParticles(particles);
         }
     }
 }
