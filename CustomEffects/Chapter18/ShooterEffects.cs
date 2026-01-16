@@ -28,7 +28,7 @@ namespace SaltEnemies_Reseasoned
         {
             //Debug.Log("Hi");
             _time = 0.5f;
-            Debug.Log(Gibs.name);
+            //Debug.Log(Gibs.name);
         }
 
         public Vector3[] Positions;

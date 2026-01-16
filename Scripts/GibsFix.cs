@@ -92,7 +92,7 @@ namespace SaltsEnemies_Reseasoned
                 }
                 if (value.EnemyBase.name == "SkeletonHead_EN")
                 {
-                    if (self.m_Data.m_Animator.GetBool("Suiciding"))
+                    if (self.m_Data.m_Animator.GetBool("Suicide"))
                     {
                         RuntimeManager.PlayOneShot(self.m_Data.m_GibsEvent, self.m_Data.m_Renderer.transform.position);
                         ParticleSystem system = UnityEngine.Object.Instantiate(SkeletonHead.SuicideGibs, self.m_Data.m_Renderer.transform.position, self.transform.rotation);
