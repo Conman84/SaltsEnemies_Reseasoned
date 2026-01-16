@@ -84,6 +84,54 @@ namespace SaltEnemies_Reseasoned
             Gibs.SetParticles(particles);
         }
     }
+    public class HeadGibsManager : MonoBehaviour
+    {
+        public ParticleSystem Gibs;
+
+        public void SetTargetSystem(ParticleSystem set)
+        {
+            Gibs = set;
+        }
+
+        public void Update()
+        {
+            ParticleSystem.Particle[] particles = new ParticleSystem.Particle[Gibs.main.maxParticles];
+
+            List<Vector3> newpositions = new List<Vector3>();
+            int count = Gibs.GetParticles(particles);
+            //Debug.Log(Gibs.name + " triggering once, particles found: " + count.ToString());
+
+            List<ParticleSystem.Particle> triggerOn = [];
+            List<int> checkBack = [];
+
+            for (int i = 0; i < count; i++)
+            {
+                //Vector3 velocity = particles[i].totalVelocity;
+                Vector3 position = particles[i].position;
+                newpositions.Add(position);
+
+
+                //Debug.Log(velocity);
+                if (position.y <= 0.03)
+                {
+                    //if (particles[i].position.y > 0.1f) continue;
+                    triggerOn.Add(particles[i]);
+                    checkBack.Add(i);
+                    //particles[i].remainingLifetime = 0;
+                }
+            }
+
+            if (triggerOn.Count <= 0) return;
+
+            if (SaltsReseasoned.Testing) Debug.Log("sub emitting for " + triggerOn.Count.ToString() + "particles");
+
+            Gibs.TriggerSubEmitter(0, triggerOn);
+
+            foreach (int index in checkBack) particles[index].remainingLifetime = 0;
+
+            Gibs.SetParticles(particles);
+        }
+    }
 
     public static class HeadHandler
     {

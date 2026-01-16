@@ -25,6 +25,10 @@ namespace SaltsEnemies_Reseasoned
             };
             template.PrepareEnemyPrefab("assets/enemie/Head_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/enem2/Shooter2/Head_Normal_Gibs.prefab").GetComponent<ParticleSystem>());
             SuicideGibs = SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/enem2/Shooter2/Head_Suicide_Gibs.prefab").GetComponent<ParticleSystem>();
+            SuicideGibs.transform.GetChild(3).gameObject.AddComponent<HeadGibsManager>().SetTargetSystem(SuicideGibs.transform.GetChild(3).GetComponent<ParticleSystem>());
+            SuicideGibs.transform.GetChild(4).gameObject.AddComponent<HeadGibsManager>().SetTargetSystem(SuicideGibs.transform.GetChild(4).GetComponent<ParticleSystem>());
+            SuicideGibs.transform.GetChild(5).gameObject.AddComponent<HeadGibsManager>().SetTargetSystem(SuicideGibs.transform.GetChild(5).GetComponent<ParticleSystem>());
+            SuicideGibs.transform.GetChild(6).gameObject.AddComponent<HeadGibsManager>().SetTargetSystem(SuicideGibs.transform.GetChild(6).GetComponent<ParticleSystem>());
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Forgetful, Passives.Enfeebled });
 
