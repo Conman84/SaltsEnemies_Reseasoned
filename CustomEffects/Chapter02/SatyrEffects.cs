@@ -427,21 +427,23 @@ namespace SaltEnemies_Reseasoned
             {
                 if (targetSlotInfo.HasUnit)
                 {
+                    targetSlotInfo.Unit.SimpleSetStoredValue(WontKillDamageHook.Value, 1);
                     int targetSlotOffset = (areTargetSlots ? (targetSlotInfo.SlotID - targetSlotInfo.Unit.SlotID) : (-1));
                     int amount = entryVariable;
                     DamageInfo damageInfo;
                     if (_indirect)
                     {
-                        damageInfo = targetSlotInfo.Unit.NoKillDamage(amount, null, _DeathTypeID, targetSlotOffset, addHealthMana: false, directDamage: false, ignoresShield: true);
+                        damageInfo = targetSlotInfo.Unit.Damage(amount, null, _DeathTypeID, targetSlotOffset, addHealthMana: false, directDamage: false, ignoresShield: true);
                     }
                     else
                     {
                         amount = caster.WillApplyDamage(amount, targetSlotInfo.Unit);
-                        damageInfo = targetSlotInfo.Unit.NoKillDamage(amount, caster, _DeathTypeID, targetSlotOffset, addHealthMana: true, directDamage: true, _ignoreShield);
+                        damageInfo = targetSlotInfo.Unit.Damage(amount, caster, _DeathTypeID, targetSlotOffset, addHealthMana: true, directDamage: true, _ignoreShield);
                     }
 
                     flag |= damageInfo.beenKilled;
                     exitAmount += damageInfo.damageAmount;
+                    targetSlotInfo.Unit.SimpleSetStoredValue(WontKillDamageHook.Value, 0);
                 }
             }
 
@@ -456,6 +458,20 @@ namespace SaltEnemies_Reseasoned
             }
 
             return flag;
+        }
+    }
+    public static class WontKillDamageHook
+    {
+        public static string Value => "Dmg_Spare";
+        public static int DamageReceivedValueChangeException_GetModifiedValue(Func<DamageReceivedValueChangeException, int> orig, DamageReceivedValueChangeException self)
+        {
+            int ret = orig(self);
+            if (self.damagedUnit.SimpleGetStoredValue(Value) > 0 && ret > self.damagedUnit.CurrentHealth) return self.damagedUnit.CurrentHealth - 1;
+            return ret;
+        }
+        public static void Setup()
+        {
+            IDetour hook = new Hook(typeof(DamageReceivedValueChangeException).GetMethod(nameof(DamageReceivedValueChangeException.GetModifiedValue), ~System.Reflection.BindingFlags.Default), typeof(WontKillDamageHook).GetMethod(nameof(DamageReceivedValueChangeException_GetModifiedValue), ~System.Reflection.BindingFlags.Default));
         }
     }
     public static class WontKillDamageExtension

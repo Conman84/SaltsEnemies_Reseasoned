@@ -65,7 +65,7 @@ namespace SaltEnemies_Reseasoned
         public static void Setup()
         {
             IDetour hook = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.Damage), ~BindingFlags.Default), typeof(TraitorHandler).GetMethod(nameof(EnemyCombat_Damage), ~BindingFlags.Default));
-            IDetour hook2 = new Hook(typeof(WontKillDamageExtension).GetMethod(nameof(WontKillDamageExtension.NoKillDamageEN), ~BindingFlags.Default), typeof(TraitorHandler).GetMethod(nameof(EnemyCombat_Damage), ~BindingFlags.Default));
+            //IDetour hook2 = new Hook(typeof(WontKillDamageExtension).GetMethod(nameof(WontKillDamageExtension.NoKillDamageEN), ~BindingFlags.Default), typeof(TraitorHandler).GetMethod(nameof(EnemyCombat_Damage), ~BindingFlags.Default));
         }
     }
     public class TraitorPassiveEffect : EffectSO

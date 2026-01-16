@@ -48,10 +48,14 @@ namespace SaltsEnemies_Reseasoned
 
         public static void MainMenuController_OnEmbarkPressed(Action<MainMenuController> orig, MainMenuController self)
         {
+            if (SaltsReseasoned.Testing) Debug.Log("gk");
+
             StoredRuns = LoadedDBsHandler.InfoHolder.Game.GetIntData(Gatekeeps);
             StoredRuns++;
             CurrentRuns++;
             LoadedDBsHandler.InfoHolder.Game.SetIntData(Gatekeeps, StoredRuns);
+
+            if (SaltsReseasoned.Testing) Debug.Log("gk done");
 
             orig(self);
         }

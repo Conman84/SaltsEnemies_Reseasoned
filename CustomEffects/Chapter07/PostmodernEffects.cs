@@ -342,17 +342,18 @@ namespace SaltEnemies_Reseasoned
             IDetour awakening = new Hook(typeof(OverworldManagerBG).GetMethod(nameof(OverworldManagerBG.Awake), ~BindingFlags.Default), typeof(PostmodernHandler).GetMethod(nameof(Awake), ~BindingFlags.Default));
 
             MethodInfo method = typeof(OverworldManagerBG).GetMethod(nameof(OverworldManagerBG.InitializeDialogueFunctions), ~BindingFlags.Default);
-            if (method.GetParameters()[0].ParameterType == typeof(DialogueRunner))
+            if (method.GetParameters()[0].ParameterType.Name == "DialogueRunner")
             {
                 IDetour diologo = new Hook(method, typeof(PostmodernHandler).GetMethod(nameof(InitializeDialogueFunctions), ~BindingFlags.Default));
             }
             else
             {
-                IDetour diologo = new Hook(method, typeof(PostmodernHandler).GetMethod(nameof(InitializeDialogueFunctionsNEW), ~BindingFlags.Default));
+                if (SaltsReseasoned.Testing) Debug.Log("what is going on...");
+                IDetour diologo = new Hook(method, typeof(NewDialogueFunctions).GetMethod(nameof(NewDialogueFunctions.InitializeDialogueFunctionsNEW), ~BindingFlags.Default));
             }
 
 
-                IDetour hook = new Hook(typeof(InGameDataSO).GetMethod(nameof(InGameDataSO.DidCompleteQuest), ~BindingFlags.Default), typeof(PostmodernHandler).GetMethod(nameof(DidCompleteQuest), ~BindingFlags.Default));
+            IDetour hook = new Hook(typeof(InGameDataSO).GetMethod(nameof(InGameDataSO.DidCompleteQuest), ~BindingFlags.Default), typeof(PostmodernHandler).GetMethod(nameof(DidCompleteQuest), ~BindingFlags.Default));
             Add();
             Hacks.Setup();
             postmodernevent();
@@ -360,15 +361,28 @@ namespace SaltEnemies_Reseasoned
 
         public static void InitializeDialogueFunctions(Action<OverworldManagerBG, DialogueRunner> orig, OverworldManagerBG self, DialogueRunner dialogueRunner)
         {
+            if (SaltsReseasoned.Testing) Debug.Log("hi. before orig self pm dialogue initializer");
+
             orig(self, dialogueRunner);
-            dialogueRunner.AddCommandHandler("SaltPostmodernity", TriggerPostmodern);
-            DialogueFunctions.Setup(dialogueRunner, self);
-        }
-        public static void InitializeDialogueFunctionsNEW(Action<OverworldManagerBG, DialogueRunner_BO> orig, OverworldManagerBG self, DialogueRunner_BO dialogueRunner)
-        {
-            orig(self, dialogueRunner);
-            dialogueRunner.AddCommandHandler("SaltPostmodernity", TriggerPostmodern);
-            DialogueFunctions.SetupNEW(dialogueRunner, self);
+
+            if (SaltsReseasoned.Testing) Debug.Log("setting up dialoge functions in pmhandler");
+
+            MethodInfo[] allmethods = dialogueRunner.GetType().GetMethods();
+            MethodInfo addcommand = null;
+            foreach (MethodInfo method in allmethods)
+            {
+                if (method.Name == "AddCommandHandler" && method.GetParameters().Length == 2 && method.GetParameters()[1].ParameterType.Name == "CommandHandler")
+                {
+                    addcommand = method;
+                    break;
+                }
+            }
+
+            if (addcommand == null) Debug.LogError("FUCK GODDAMNIT FUCK YOU FUCK YOU");
+
+            //addcommand.Invoke(dialogueRunner, ["SaltPostmodernity", TriggerPostmodern]);
+            //dialogueRunner.AddCommandHandler("SaltPostmodernity", TriggerPostmodern);
+            DialogueFunctions.Setup(dialogueRunner, self, addcommand);
         }
 
         public static void TriggerPostmodern(string[] info)
@@ -618,7 +632,7 @@ namespace SaltEnemies_Reseasoned
         public static void LoadOldRun(Action<MainMenuController> orig, MainMenuController self)
         {
             orig(self);
-            //PostmodernHandler.postmodernevent();
+            PostmodernHandler.postmodernevent();
         }
 
         public static BaseRoomHandler RunDataSO_GetRoomInstance(Func<RunDataSO, int, BaseRoomHandler> orig, RunDataSO self, int cardID)

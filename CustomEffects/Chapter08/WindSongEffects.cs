@@ -7,6 +7,8 @@ using System.Reflection;
 using System.Text;
 using UnityEngine;
 using SaltsEnemies_Reseasoned;
+using static SaltEnemies_Reseasoned.WindSongManager;
+using static SaltsEnemies_Reseasoned.Orph.H;
 
 /*I DID THESE*/
 //call WindSongManager.Setup() in awake
@@ -20,7 +22,7 @@ namespace SaltEnemies_Reseasoned
         public static ParticleSystem SideEffectOne;
         public static ParticleSystem SideEffectTwo;
         public static string Intent => "Dmg_Coda";
-        public static DamageInfo Damage(Func<EnemyCombat, int, IUnit, string, int, bool, bool, bool, string, DamageInfo> orig, EnemyCombat self, int amount, IUnit killer, string deathType, int targetSlotOffset = -1, bool addHealthMana = true, bool directDamage = true, bool ignoresShield = false, string specialDamage = "")
+        /*public static DamageInfo Damage(Func<EnemyCombat, int, IUnit, string, int, bool, bool, bool, string, DamageInfo> orig, EnemyCombat self, int amount, IUnit killer, string deathType, int targetSlotOffset = -1, bool addHealthMana = true, bool directDamage = true, bool ignoresShield = false, string specialDamage = "")
         {
             if (Check.EnemyExist("WindSong_EN") && self.Enemy == LoadedAssetsHandler.GetEnemy("WindSong_EN"))
             {
@@ -79,6 +81,8 @@ namespace SaltEnemies_Reseasoned
             }
             return orig(self, amount, killer, deathType, targetSlotOffset, addHealthMana, directDamage, ignoresShield, specialDamage);
         }
+        */
+        
         public class WindSongUIActionAgain : CombatAction
         {
             public int ID;
@@ -120,8 +124,25 @@ namespace SaltEnemies_Reseasoned
             MainEffect = SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/" + ID + "/" + ID + "_Effect.prefab").GetComponent<ParticleSystem>();
             SideEffectOne = SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/" + ID + "/" + ID + "_Burst.prefab").GetComponent<ParticleSystem>();
             SideEffectTwo = SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/" + ID + "/" + ID + "_Blast.prefab").GetComponent<ParticleSystem>();
-            IDetour hook = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.Damage), ~BindingFlags.Default), typeof(WindSongManager).GetMethod(nameof(Damage), ~BindingFlags.Default));
+            //IDetour hook = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.Damage), ~BindingFlags.Default), typeof(WindSongManager).GetMethod(nameof(Damage), ~BindingFlags.Default));
+            WindSongManager2.Setup();
             Intents.CreateAndAddCustom_Damage_IntentToPool(Intent, ResourceLoader.LoadSprite("intentcoda.png"), (Intents.GetInGame_IntentInfo(IntentType_GameIDs.Damage_3_6) as IntentInfoDamage).GetColor(true), ResourceLoader.LoadSprite("intentcoda.png"), (Intents.GetInGame_IntentInfo(IntentType_GameIDs.Damage_3_6) as IntentInfoDamage).GetColor(false));
+        }
+    }
+    public static class WindSongManager2
+    {
+        public static int DamageReceivedValueChangeException_GetModifiedValue(Func<DamageReceivedValueChangeException, int> orig, DamageReceivedValueChangeException self)
+        {
+            int ret = orig(self);
+            if (self.damagedUnit is EnemyCombat enemy && enemy.Enemy.name == "WindSong_EN")
+            {
+                CombatManager.Instance.AddUIAction(new WindSongUIActionAgain(enemy.ID, ret >= enemy.CurrentHealth));
+            }
+            return ret;
+        }
+        public static void Setup()
+        {
+            IDetour hook = new Hook(typeof(DamageReceivedValueChangeException).GetMethod(nameof(DamageReceivedValueChangeException.GetModifiedValue), ~System.Reflection.BindingFlags.Default), typeof(WontKillDamageHook).GetMethod(nameof(DamageReceivedValueChangeException_GetModifiedValue), ~System.Reflection.BindingFlags.Default));
         }
     }
     public class WindSongEffect : EffectSO

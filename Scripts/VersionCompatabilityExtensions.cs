@@ -69,7 +69,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     try
                     {
-                        _subHelper_AnyAbilityHasFinished(unit, caster, isChara, ability);
+                        Helper._subHelper_AnyAbilityHasFinished(unit, caster, isChara, ability);
                     }
                     catch
                     {
@@ -86,24 +86,13 @@ namespace SaltsEnemies_Reseasoned
                 {
                     try
                     {
-                        _subHelper_AnyAbilityHasFinished(unit, caster, isChara, ability);
+                        Helper._subHelper_AnyAbilityHasFinished(unit, caster, isChara, ability);
                     }
                     catch
                     {
                         Debug.LogWarning("idk");
                     }
                 }
-            }
-        }
-        public static void _subHelper_AnyAbilityHasFinished(IUnit unit, int caster, bool isChara, AbilitySO ability)
-        {
-            if (unit is CharacterCombat chara)
-            {
-                chara.AnyAbilityHasFinished(new AbilityUsageReference(caster, isChara, ability));
-            }
-            if (unit is EnemyCombat enemy)
-            {
-                enemy.AnyAbilityHasFinished(new AbilityUsageReference(caster, isChara, ability));
             }
         }
         
@@ -116,7 +105,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 try
                 {
-                    return _subHelper_DirectDeath(self, killer, obliteration);
+                    return Helper._subHelper_DirectDeath(self, killer, obliteration);
                 }
                 catch
                 {
@@ -124,10 +113,6 @@ namespace SaltsEnemies_Reseasoned
                 }
             }
             return false;
-        }
-        public static bool _subHelper_DirectDeath(IUnit target, IUnit killer, bool obliteration)
-        {
-            return target.DirectDeath(killer, obliteration, out int num);
         }
 
         public static EnemyDamagedUIAction GenerateEnemyDamagedUIAction(int id, int currentHealth, int maxHealth, int totalAmount, string dmgTypeID, bool triggerPopUp = true, bool triggerAnim = true)
@@ -204,6 +189,24 @@ namespace SaltsEnemies_Reseasoned
                 }
 
                 yield return null;
+            }
+        }
+    }
+    public static class Helper
+    {
+        public static bool _subHelper_DirectDeath(IUnit target, IUnit killer, bool obliteration)
+        {
+            return target.DirectDeath(killer, obliteration, out int num);
+        }
+        public static void _subHelper_AnyAbilityHasFinished(IUnit unit, int caster, bool isChara, AbilitySO ability)
+        {
+            if (unit is CharacterCombat chara)
+            {
+                chara.AnyAbilityHasFinished(new AbilityUsageReference(caster, isChara, ability));
+            }
+            if (unit is EnemyCombat enemy)
+            {
+                enemy.AnyAbilityHasFinished(new AbilityUsageReference(caster, isChara, ability));
             }
         }
     }

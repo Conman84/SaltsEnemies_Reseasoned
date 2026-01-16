@@ -1,6 +1,8 @@
-﻿using System;
+﻿using SaltEnemies_Reseasoned;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using Tools;
 using UnityEngine;
@@ -12,16 +14,12 @@ namespace SaltsEnemies_Reseasoned
     public static class DialogueFunctions
     {
         public static OverworldManagerBG World;
-        public static void Setup(DialogueRunner runner, OverworldManagerBG world)
+        public static void Setup(DialogueRunner runner, OverworldManagerBG world, MethodInfo addcommand)
         {
             runner.AddCommandHandler("ChangeCurrentBoss", SwapCurrentZoneBossByDialogue);
             runner.AddCommandHandler("GiftShopItem", GenerateItemPresent);
-            runner.AddFunction("IsBlueSky", 0, (Value[] parameters) => CheckCurrentBossIsBlueSky());
-        }
-        public static void SetupNEW(DialogueRunner_BO runner, OverworldManagerBG world)
-        {
-            runner.AddCommandHandler("ChangeCurrentBoss", SwapCurrentZoneBossByDialogue);
-            runner.AddCommandHandler("GiftShopItem", GenerateItemPresent);
+            //addcommand.Invoke(runner, ["ChangeCurrentBoss", SwapCurrentZoneBossByDialogue]);
+            //addcommand.Invoke(runner, ["GiftShopItem", GenerateItemPresent]);
             runner.AddFunction("IsBlueSky", 0, (Value[] parameters) => CheckCurrentBossIsBlueSky());
         }
         public static void SwapCurrentZoneBossByDialogue(string[] info)
@@ -183,6 +181,25 @@ namespace SaltsEnemies_Reseasoned
             }
             World._informationHolder.Run.inGameData.SetBoolData(DataUtils.bronzoTimeTravelVar, variable: false);
             World.SaveProgress(saveRunToo: true);
+        }
+    }
+
+    public static class NewDialogueFunctions
+    {
+        public static void InitializeDialogueFunctionsNEW(Action<OverworldManagerBG, DialogueRunner_BO> orig, OverworldManagerBG self, DialogueRunner_BO dialogueRunner)
+        {
+            if (SaltsReseasoned.Testing) Debug.Log("are we somehow here?");
+
+            orig(self, dialogueRunner);
+
+            Setup(dialogueRunner, self);
+        }
+        public static void Setup(DialogueRunner_BO runner, OverworldManagerBG world)
+        {
+            runner.AddCommandHandler("ChangeCurrentBoss", DialogueFunctions.SwapCurrentZoneBossByDialogue);
+            runner.AddCommandHandler("GiftShopItem", DialogueFunctions.GenerateItemPresent);
+            runner.AddFunction("IsBlueSky", 0, (Value[] parameters) => DialogueFunctions.CheckCurrentBossIsBlueSky());
+            runner.AddCommandHandler("SaltPostmodernity", PostmodernHandler.TriggerPostmodern);
         }
     }
 }

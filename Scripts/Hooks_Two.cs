@@ -40,11 +40,15 @@ namespace SaltEnemies_Reseasoned
             IDetour idetour12 = new Hook(typeof(OverworldManagerBG).GetMethod(nameof(OverworldManagerBG.Awake), ~BindingFlags.Default), typeof(HooksGeneral).GetMethod(nameof(AwakeOverworld), ~BindingFlags.Default));
             IDetour idetour13 = new Hook(typeof(MainMenuController).GetMethod(nameof(MainMenuController.LoadOldRun), ~BindingFlags.Default), typeof(HooksGeneral).GetMethod(nameof(LoadRun), ~BindingFlags.Default));
             IDetour idetour14 = new Hook(typeof(MainMenuController).GetMethod(nameof(MainMenuController.OnEmbarkPressed), ~BindingFlags.Default), typeof(HooksGeneral).GetMethod(nameof(LoadRun), ~BindingFlags.Default));
+            IDetour idetour19 = new Hook(typeof(MainMenuController).GetMethod(nameof(MainMenuController.FinalizeMainMenuSounds), ~BindingFlags.Default), typeof(HooksGeneral).GetMethod(nameof(MainMenuLoading), ~BindingFlags.Default));
             IDetour idetour15 = new Hook(typeof(CharacterCombat).GetMethod(nameof(CharacterCombat.UseAbility), ~BindingFlags.Default), typeof(HooksGeneral).GetMethod(nameof(UseAbilityChara), ~BindingFlags.Default));
             IDetour idetour16 = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.UseAbility), ~BindingFlags.Default), typeof(HooksGeneral).GetMethod(nameof(UseAbilityEnemy), ~BindingFlags.Default));
 
             ResistanceHandler.AddValues();
 
+            WontKillDamageHook.Setup();
+
+            return;
             try
             {
                 IDetour idetour17 = new Hook(typeof(WontKillDamageExtension).GetMethod(nameof(WontKillDamageExtension.NoKillDamageEN), ~BindingFlags.Default), typeof(HooksGeneral).GetMethod(nameof(Damage), ~BindingFlags.Default));
@@ -217,11 +221,23 @@ namespace SaltEnemies_Reseasoned
         }
         public static void AwakeOverworld(Action<OverworldManagerBG> orig, OverworldManagerBG self)
         {
+            if (SaltsReseasoned.Testing) UnityEngine.Debug.Log("made it to overworld awake");
+
             orig(self);
             UntitledHandler.Warped = 0;
+
+            if (SaltsReseasoned.Testing) UnityEngine.Debug.Log("made it to overworld awake completed");
         }
         public static void LoadRun(Action<MainMenuController> orig, MainMenuController self)
         {
+            if (SaltsReseasoned.Testing) UnityEngine.Debug.Log("h2");
+
+            orig(self);
+        }
+        public static void MainMenuLoading(Action<MainMenuController> orig, MainMenuController self)
+        {
+            if (SaltsReseasoned.Testing) UnityEngine.Debug.Log("made it to finalize main menu sounds");
+
             orig(self);
         }
         public static void UseAbilityChara(Action<CharacterCombat, int, FilledManaCost[]> orig, CharacterCombat self, int abilityID, FilledManaCost[] filledCost)
