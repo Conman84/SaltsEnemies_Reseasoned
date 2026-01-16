@@ -95,7 +95,6 @@ namespace SaltsEnemies_Reseasoned
                 }
             }
         }
-
         public static void _subHelper_AnyAbilityHasFinished(IUnit unit, int caster, bool isChara, AbilitySO ability)
         {
             if (unit is CharacterCombat chara)
@@ -129,6 +128,25 @@ namespace SaltsEnemies_Reseasoned
         public static bool _subHelper_DirectDeath(IUnit target, IUnit killer, bool obliteration)
         {
             return target.DirectDeath(killer, obliteration, out int num);
+        }
+
+        public static EnemyDamagedUIAction GenerateEnemyDamagedUIAction(int id, int currentHealth, int maxHealth, int totalAmount, string dmgTypeID, bool triggerPopUp = true, bool triggerAnim = true)
+        {
+            ConstructorInfo[] constructors = typeof(EnemyDamagedUIAction).GetConstructors();
+
+            foreach (ConstructorInfo constructor in constructors)
+            {
+                if (constructor.GetParameters().Length == 7)
+                {
+                    return constructor.Invoke([id, currentHealth, maxHealth, totalAmount, dmgTypeID, triggerPopUp, triggerAnim]) as EnemyDamagedUIAction;
+                }
+                if (constructor.GetParameters().Length == 5)
+                {
+                    return constructor.Invoke([id, currentHealth, maxHealth, totalAmount, dmgTypeID]) as EnemyDamagedUIAction;
+                }
+            }
+            Debug.LogError("versioncompatability:EnemyDamagedUIAction. tldr, WHAT THE FUCK");
+            return null;
         }
 
 
