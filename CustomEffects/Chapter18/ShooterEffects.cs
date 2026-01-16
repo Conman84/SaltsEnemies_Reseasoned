@@ -1,6 +1,7 @@
 ﻿using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using UnityEngine;
 
@@ -81,6 +82,25 @@ namespace SaltEnemies_Reseasoned
             foreach (int index in checkBack) particles[index].remainingLifetime = 0;
 
             Gibs.SetParticles(particles);
+        }
+    }
+
+    public static class HeadHandler
+    {
+        public static void Setup() => NotificationHook.AddAction(NotifCheck);
+        public static void NotifCheck(string name, object sender, object args)
+        {
+            if (sender is IUnit unit && unit.UnitTypes != null && unit.UnitTypes.Contains("SkeletonHead_EN"))
+            {
+                if (name == TriggerCalls.OnDamaged.ToString() && unit.CurrentHealth <= 0)
+                {
+                    CombatManager.Instance.AddUIAction(new SetUnitAnimationParameterUIAction(unit.ID, unit.IsUnitCharacter, "AllowDie", 1));
+                }
+                if (name == TriggerCalls.OnHealed.ToString() && unit.CurrentHealth > 0)
+                {
+                    CombatManager.Instance.AddUIAction(new SetUnitAnimationParameterUIAction(unit.ID, unit.IsUnitCharacter, "AllowDie", 0));
+                }
+            }
         }
     }
 }

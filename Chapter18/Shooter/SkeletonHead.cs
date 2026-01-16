@@ -9,6 +9,7 @@ namespace SaltsEnemies_Reseasoned
 {
     public static class SkeletonHead
     {
+        public static ParticleSystem SuicideGibs;
         public static void Add()
         {
             Enemy template = new Enemy("Skeleton Head", "SkeletonHead_EN")
@@ -20,10 +21,20 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("HeadDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Noisy/Bone_Hit",
                 DeathSound = "event:/Hawthorne/Noisy/Bone_Death",
+                UnitTypes = ["SkeletonHead_EN"]
             };
-            template.PrepareEnemyPrefab("assets/enemie/Head_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("assets/giblets/Head_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.PrepareEnemyPrefab("assets/enemie/Head_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/enem2/Shooter2/Head_Normal_Gibs.prefab").GetComponent<ParticleSystem>());
+            SuicideGibs = SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/enem2/Shooter2/Head_Suicide_Gibs.prefab").GetComponent<ParticleSystem>();
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Forgetful, Passives.Enfeebled });
+
+            SetCasterAnimationParameterEffect suiciding = ScriptableObject.CreateInstance<SetCasterAnimationParameterEffect>();
+            suiciding._parameterName = "Suiciding";
+            suiciding._parameterValue = 1;
+            SetCasterAnimationParameterEffect suicide = ScriptableObject.CreateInstance<SetCasterAnimationParameterEffect>();
+            suicide._parameterName = "Suicide";
+            suicide._parameterValue = 1;
+            HeadHandler.Setup();
 
             //obliterate
             Ability obliterate = new Ability("Obliterate_A")
@@ -33,10 +44,13 @@ namespace SaltsEnemies_Reseasoned
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
+                    Effects.GenerateEffect(suiciding),
+                    Effects.GenerateEffect(suicide),
+                    Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Curse", false, Slots.Front)),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageByCasterHealthEffect>(), 1, Slots.Front),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Slots.Self),
                 },
-                Visuals = CustomVisuals.GetVisuals("Salt/Curse"),
+                Visuals = null,
                 AnimationTarget = Slots.Front,
             };
             obliterate.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Damage_16_20.ToString().SelfArray());
