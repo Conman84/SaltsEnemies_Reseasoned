@@ -106,10 +106,10 @@ namespace SaltEnemies_Reseasoned
             for (int i = 0; i < count; i++)
             {
                 //Vector3 velocity = particles[i].totalVelocity;
-                Vector3 position = particles[i].position;
+                Vector3 position = Gibs.transform.TransformPoint(particles[i].position);
 
                 //Debug.Log(velocity);
-                if (position.y <= 0.03)
+                if (position.y <= 0.1f && position.z < 5f)
                 {
                     //if (particles[i].position.y > 0.1f) continue;
                     triggerOn.Add(particles[i]);

@@ -170,10 +170,13 @@ namespace SaltsEnemies_Reseasoned
     {
         public ParticleSystem _self;
         public float _time;
+        public bool _run;
         public void Set(ParticleSystem set) => _self = set;
 
         public static void AddTracker(ParticleSystem self)
         {
+            //return;
+
             if (self.collision.enabled && self.GetComponent<GibsPositionTracker>() == null) self.gameObject.AddComponent<GibsPositionTracker>().Set(self);
 
             ParticleSystem[] childs = self.gameObject.GetComponentsInChildren<ParticleSystem>();
@@ -193,9 +196,16 @@ namespace SaltsEnemies_Reseasoned
         public void Start()
         {
             _time = 0.05f;
+
+            _run = true;
+
+            if (!LoadedDBsHandler.InfoHolder.Run.CurrentZoneDB.ZoneName.Contains("Orpheum")) _run = false;
+            if (CombatManager.Instance._stats.BundleDifficulty == BundleDifficulty.Boss) _run = false;
         }
         public void Update()
         {
+            if (!_run) return;
+
             _time -= Time.deltaTime;
             if (_time > 0) return;
             _time = 0.05f;
@@ -207,15 +217,40 @@ namespace SaltsEnemies_Reseasoned
 
             for (int i = 0; i < count; i++)
             {
-                Vector3 pos = particles[i].position;
-                if (pos.y < 0)
-                {
-                    Debug.Log(pos);
+                if (particles[i].remainingLifetime < particles[i].startLifetime / 2) continue;
 
+                Vector3 pos = _self.transform.TransformPoint(particles[i].position);
+                if (pos.z > 5f)
+                {
+                    float dif = pos.z - 5f;
+                    if (pos.y > -0.5f - dif/6) continue;
+
+                    //Debug.Log(pos);
+                    particles[i].remainingLifetime = 0;
+                    deleted++;
                 }
             }
 
             if (deleted > 0) _self.SetParticles(particles);
+        }
+    }
+    public static class ExtendOrphFloor
+    {
+        public static void Perform()
+        {
+            CombatEnvironmentHandler room = LoadedAssetsHandler.TryGetCombatEnvironmentPrefab(LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_02").CombatEnvironment);
+            Vector3 pos = room.transform.Find("Cube").localPosition;
+            pos.z += 1;
+            room.transform.Find("Cube").localPosition = pos;
+        }
+        public static void Test()
+        {
+            CombatStats stats = CombatManager.Instance._stats;
+
+            if (LoadedDBsHandler.InfoHolder.Run.CurrentZoneDB.ZoneName.ToLower().Contains("orpheum"))
+            {
+                if (stats.BundleDifficulty == BundleDifficulty.Boss) return;
+            }
         }
     }
 }

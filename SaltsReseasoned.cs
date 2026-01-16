@@ -87,6 +87,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(LunopticonHandler.Setup);
             PCall(Research.Setup);
             PCall(TransformerEnemyHandler.Setup);
+            PCall(ExtendOrphFloor.Perform);
             #endregion
 
             //Add To Glossary
