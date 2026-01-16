@@ -618,7 +618,7 @@ namespace SaltEnemies_Reseasoned
         public static void LoadOldRun(Action<MainMenuController> orig, MainMenuController self)
         {
             orig(self);
-            PostmodernHandler.postmodernevent();
+            //PostmodernHandler.postmodernevent();
         }
 
         public static BaseRoomHandler RunDataSO_GetRoomInstance(Func<RunDataSO, int, BaseRoomHandler> orig, RunDataSO self, int cardID)
