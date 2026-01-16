@@ -53,7 +53,7 @@ namespace SaltEnemies_Reseasoned
                     if (calc * 100 < entryVariable)
                     {
                         exitAmount++;
-                        target.Unit.DirectDeath(caster);
+                        target.Unit.GenericDirectDeath(caster);
                     }
                 }
             }

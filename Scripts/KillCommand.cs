@@ -28,7 +28,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
                     {
-                        enemy.DirectDeath(null);
+                        enemy.GenericDirectDeath(null);
                     }
                 }));
                 DebugController.Instance.WriteLine("Killing all enemies.");

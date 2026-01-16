@@ -1,7 +1,9 @@
-﻿using System;
+﻿using BrutalAPI;
+using System;
 using System.Collections;
 using System.Reflection;
 using UnityEngine;
+using static UnityEngine.UI.CanvasScaler;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -104,6 +106,29 @@ namespace SaltsEnemies_Reseasoned
             {
                 enemy.AnyAbilityHasFinished(new AbilityUsageReference(caster, isChara, ability));
             }
+        }
+        
+        public static bool GenericDirectDeath(this IUnit self, IUnit killer, bool obliteration = false)
+        {
+            MethodInfo method = typeof(IUnit).GetMethod(nameof(IUnit.DirectDeath));
+            if (method.GetParameters().Length == 2)
+                return (bool)method.Invoke(self, [killer, obliteration]);
+            else
+            {
+                try
+                {
+                    return _subHelper_DirectDeath(self, killer, obliteration);
+                }
+                catch
+                {
+                    Debug.LogWarning("idk");
+                }
+            }
+            return false;
+        }
+        public static bool _subHelper_DirectDeath(IUnit target, IUnit killer, bool obliteration)
+        {
+            return target.DirectDeath(killer, obliteration, out int num);
         }
 
 

@@ -21,7 +21,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     int num = targets[i].Unit.CurrentHealth;
 
-                    if ((!_killUnderMaxHealth || targets[i].Unit.MaximumHealth < entryVariable) && targets[i].Unit.DirectDeath(caster, _obliterationDeath))
+                    if ((!_killUnderMaxHealth || targets[i].Unit.MaximumHealth < entryVariable) && targets[i].Unit.GenericDirectDeath(caster, _obliterationDeath))
                     {
                         exitAmount += num;
                     }

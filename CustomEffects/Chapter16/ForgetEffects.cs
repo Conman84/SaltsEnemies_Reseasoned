@@ -153,7 +153,7 @@ namespace SaltEnemies_Reseasoned
             }
             CombatManager.Instance.AddUIAction(new ShowMultiplePassiveInformationUIAction(nums.ToArray(), [false, false, false, false, false], ["Forgetting", "Forgetting", "Forgetting", "Forgetting", "Forgetting"], sprites.ToArray()));
 
-            foreach (EnemyCombat enemy in new List<EnemyCombat>(stats.EnemiesOnField.Values)) enemy.DirectDeath(null);
+            foreach (EnemyCombat enemy in new List<EnemyCombat>(stats.EnemiesOnField.Values)) enemy.GenericDirectDeath(null);
 
             string[] spawning = [];
             switch (Selector)

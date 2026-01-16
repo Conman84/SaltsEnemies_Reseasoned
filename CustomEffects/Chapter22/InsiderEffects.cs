@@ -41,7 +41,7 @@ namespace SaltsEnemies_Reseasoned
 
                     exitAmount += Math.Abs(temp - target.Unit.CurrentHealth);
 
-                    if (temp <= 0) target.Unit.DirectDeath(caster);
+                    if (temp <= 0) target.Unit.GenericDirectDeath(caster);
                     else if (temp != target.Unit.CurrentHealth) target.Unit.SetHealthTo(temp);
                 }
             }

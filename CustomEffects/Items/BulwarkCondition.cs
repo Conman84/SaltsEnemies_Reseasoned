@@ -84,9 +84,9 @@ namespace SaltsEnemies_Reseasoned
 
             CombatManager.Instance.AddUIAction(new PlayAbilityAnimationAction(((LoadedAssetsHandler.GetEnemy("OsmanSinnoks_BOSS").passiveAbilities[0] as ExtraAttackPassiveAbility)._extraAbility.ability.effects[0].effect as AnimationVisualsIfUnitEffect)._visuals, Slots.Self, caster));
 
-            if (chara || UnityEngine.Random.Range(0, 100) < 50) return caster.DirectDeath(caster);
+            if (chara || UnityEngine.Random.Range(0, 100) < 50) return caster.GenericDirectDeath(caster);
 
-            else return stats.EnemiesOnField.Values.ToList().GetRandom().DirectDeath(caster);
+            else return stats.EnemiesOnField.Values.ToList().GetRandom().GenericDirectDeath(caster);
 
         }
     }

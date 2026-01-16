@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -155,7 +156,7 @@ namespace SaltEnemies_Reseasoned
             if (enemies.Count > 0) _enemyTransformation = enemies[UnityEngine.Random.Range(0, enemies.Count)];
             else
             {
-                caster.DirectDeath(null);
+                caster.GenericDirectDeath(null);
                 return false;
             }
 

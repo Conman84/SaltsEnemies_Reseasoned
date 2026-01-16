@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -174,7 +175,7 @@ namespace SaltEnemies_Reseasoned
                         for (int i = 0; i < 144 && (!c.HasRankedData || c.rankedData.Count < chara.Rank); i++) c = getRandom();
                         if (chara.Rank <= 0)
                         {
-                            if (chara.DirectDeath(caster)) exitAmount++;
+                            if (chara.GenericDirectDeath(caster)) exitAmount++;
                         }
                         else if (stats.TryTransformCharacterLowerLevel(chara.ID, c, false, false, false)) exitAmount++;
                         /*int coins = stats.TryGainCurrency(7, true);

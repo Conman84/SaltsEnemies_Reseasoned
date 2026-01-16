@@ -300,7 +300,7 @@ namespace SaltEnemies_Reseasoned
                 TargetSlotInfo target = CombatManager.Instance._stats.combatSlots.GetOpponentSlotTarget(_caster.SlotID, 0, false);
                 if (target.HasUnit)
                 {
-                    target.Unit.DirectDeath(_caster, false);
+                    target.Unit.GenericDirectDeath(_caster, false);
                 }
             }
         }
@@ -661,7 +661,7 @@ namespace SaltEnemies_Reseasoned
                     TargetSlotInfo kill = CombatManager.Instance._stats.combatSlots.GetOpponentSlotTarget(_caster.SlotID, 0, false);
                     if (kill.HasUnit)
                     {
-                        kill.Unit.DirectDeath(_caster, false);
+                        kill.Unit.GenericDirectDeath(_caster, false);
                     }
                 }
 
@@ -720,7 +720,7 @@ namespace SaltEnemies_Reseasoned
                 TargetSlotInfo kill = CombatManager.Instance._stats.combatSlots.GetOpponentSlotTarget(_caster.SlotID, 0, false);
                 if (kill.HasUnit)
                 {
-                    kill.Unit.DirectDeath(_caster, false);
+                    kill.Unit.GenericDirectDeath(_caster, false);
                 }
             }
         }
