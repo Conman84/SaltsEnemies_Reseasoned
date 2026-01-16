@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using MonoMod.RuntimeDetour;
 using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections;
@@ -187,6 +188,7 @@ namespace SaltEnemies_Reseasoned
         }
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
+            Setup();
             Trigger(Parameter, entryVariable);
             exitAmount = 0; return true;
         }
@@ -195,6 +197,19 @@ namespace SaltEnemies_Reseasoned
             SetMusicParameterByStringEffect ret = ScriptableObject.CreateInstance<SetMusicParameterByStringEffect>();
             ret.Parameter = parameter;
             return ret;
+        }
+
+        static bool _set;
+        public static void Setup()
+        {
+            if (_set) return;
+            _set = true;
+            IDetour hook = new Hook(typeof(CombatManager).GetMethod(nameof(CombatManager.Awake), ~System.Reflection.BindingFlags.Default), typeof(SetMusicParameterByStringEffect).GetMethod(nameof(ResetParams), ~System.Reflection.BindingFlags.Default));
+        }
+        public static void ResetParams(Action<CombatManager> orig, CombatManager self)
+        {
+            Params.Clear();
+            orig(self);
         }
     }
     public class AbilitySelector_Starless : BaseAbilitySelectorSO

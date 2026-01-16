@@ -201,7 +201,7 @@ namespace SaltEnemies_Reseasoned
             ThreadCleaner.CleanThreads();
             ButterflyUnboxer.Boxeds.Clear();
             BlackHoleEffect.Reset();
-            SetMusicParameterByStringEffect.Params = new Dictionary<string, int>();
+            //SetMusicParameterByStringEffect.Params = new Dictionary<string, int>();
             AmalgaSongEffect.Reset();
             MonsterSongEffect.Reset();
             WednesdayEffect.Reset();
