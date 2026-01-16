@@ -19,7 +19,7 @@ namespace SaltEnemies_Reseasoned
             DrowningInfo.icon = ResourceLoader.LoadSprite("Drowning.png");
             DrowningInfo._statusName = "Drowning";
             DrowningInfo._description = "All healing is reduced by the amount of Drowning. \nAt the end of each turn, if not in Deep Water decrease Drowning by 1. Afterwards, if Drowning is 10 or higher halve this unit's current health.";
-            DrowningInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Cursed_ID.ToString()]._EffectInfo.AppliedSoundEvent;
+            DrowningInfo._applied_SE_Event = "event:/Hawthorne/Misc2/ApplyDrowning";
             DrowningInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Cursed_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             DrowningInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Cursed_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 
