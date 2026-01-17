@@ -20,7 +20,7 @@ namespace SaltsEnemies_Reseasoned
 
             IDetour hook1 = new Hook(typeof(UnboxOnNoEnemies_UUH).GetMethod(nameof(UnboxOnNoEnemies_UUH.CanBeUnboxed), ~BindingFlags.Default), typeof(Research).GetMethod(nameof(UnboxOnNoEnemies_UUH_CanUnbox), ~BindingFlags.Default));
 
-            PrintPassives();
+            //PrintPassives();
             //IDetour hook2 = new Hook(typeof(DialogueHandler).GetMethod(nameof(DialogueHandler.DataInitialization), ~BindingFlags.Default), typeof(Research).GetMethod(nameof(DialogueHandler_DataInitialization), ~BindingFlags.Default));
             //IDetour hook3 = new Hook(typeof(OverworldManagerBG).GetMethod(nameof(OverworldManagerBG.Awake), ~BindingFlags.Default), typeof(Research).GetMethod(nameof(OverworldManagerBG_Awake), ~BindingFlags.Default));
             //IDetour hook4 = new Hook(typeof(OverworldManagerBG).GetMethod(nameof(OverworldManagerBG.GenerateZoneWorld), ~BindingFlags.Default), typeof(Research).GetMethod(nameof(OverworldManagerBG_GenerateZoneWorld), ~BindingFlags.Default));
