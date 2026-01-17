@@ -29,9 +29,13 @@ namespace SaltsEnemies_Reseasoned
         public static void PrintPassives()
         {
             Debug.Log(Passives.Focus.m_PassiveID);
+            Debug.Log(PassiveType_GameIDs.Focus.ToString());
             Debug.Log(Passives.Skittish.m_PassiveID);
+            Debug.Log(PassiveType_GameIDs.Skittish.ToString());
             Debug.Log(Passives.Slippery.m_PassiveID);
+            Debug.Log(PassiveType_GameIDs.Slippery.ToString());
             Debug.Log(Passives.Infantile.m_PassiveID);
+            Debug.Log(PassiveType_GameIDs.Infantile.ToString());
             Debug.Log(Passives.Example_Parental_Vengeance.m_PassiveID);
             Debug.Log(Passives.Unstable.m_PassiveID);
             Debug.Log(Passives.Constricting.m_PassiveID);

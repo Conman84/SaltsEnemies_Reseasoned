@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using MonoMod.RuntimeDetour;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -35,6 +36,21 @@ namespace SaltEnemies_Reseasoned
             intentinfo._sprite = ResourceLoader.LoadSprite("Haste.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             if (!LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
+
+            Setup();
+        }
+        public static string Trigger => "SaltEnemies_Haste_Trigger";
+        public static void CombatStats_TurnStart(Action<CombatStats> orig, CombatStats self)
+        {
+            orig(self);
+            foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+            {
+                enemy.TriggerNotification(Trigger, null);
+            }
+        }
+        public static void Setup()
+        {
+            IDetour hook = new Hook(typeof(CombatStats).GetMethod(nameof(CombatStats.PlayerTurnStart), ~System.Reflection.BindingFlags.Default), typeof(Haste).GetMethod(nameof(CombatStats_TurnStart), ~System.Reflection.BindingFlags.Default));
         }
     }
     public class HasteSE_SO : StatusEffect_SO
@@ -43,14 +59,14 @@ namespace SaltEnemies_Reseasoned
         public override void OnTriggerAttached(StatusEffect_Holder holder, IStatusEffector caller)
         {
             if (caller.IsStatusEffectorCharacter) CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
-            else CombatManager.Instance.AddObserver(holder.OnEventTriggered_03, TriggerCalls.OnMiscPlayerTurnStart.ToString(), caller);
+            else CombatManager.Instance.AddObserver(holder.OnEventTriggered_03, Haste.Trigger, caller);
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, TriggerCalls.AttacksPerTurn.ToString(), caller);
         }
 
         public override void OnTriggerDettached(StatusEffect_Holder holder, IStatusEffector caller)
         {
             if (caller.IsStatusEffectorCharacter) CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
-            else CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_03, TriggerCalls.OnMiscPlayerTurnStart.ToString(), caller);
+            else CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_03, Haste.Trigger, caller);
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, TriggerCalls.AttacksPerTurn.ToString(), caller);
         }
 
