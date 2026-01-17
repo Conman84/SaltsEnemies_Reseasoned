@@ -80,9 +80,9 @@ namespace SaltsEnemies_Reseasoned
 
             Ability agony = new Ability(special_base.ability, "ArtOfAgony_A", [], Rarity.GetCustomRarity("rarity5"));
             agony.Name = "Art Of Agony";
-            agony.ability._description += "inflict 3 Ruptured to the Left, Right, and Opposing party members.";
+            agony.ability._description += "inflict 4 Ruptured to the Left, Right, and Opposing party members.";
             agony.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Quills_1_A", true, Slots.FrontLeftRight), 0, null, BasicEffects.DidThat(false));
-            agony.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 3, Slots.FrontLeftRight, BasicEffects.DidThat(false, 2));
+            agony.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 4, Slots.FrontLeftRight, BasicEffects.DidThat(false, 2));
             agony.AddIntentsToTarget(Slots.FrontLeftRight, ["Status_Ruptured"]);
 
             Ability fantasy = new Ability(special_base.ability, "ArtOfFantasy_A", [], Rarity.GetCustomRarity("rarity5"));
@@ -96,7 +96,7 @@ namespace SaltsEnemies_Reseasoned
             industry.Name = "Art Of Industry";
             industry.ability._description += "deal a Painful amount of damage to the Left, Right, and Opposing party members.";
             industry.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Gears", false, Slots.FrontLeftRight), 0, null, BasicEffects.DidThat(false));
-            industry.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Slots.FrontLeftRight, BasicEffects.DidThat(false, 2));
+            industry.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.FrontLeftRight, BasicEffects.DidThat(false, 2));
             industry.AddIntentsToTarget(Slots.FrontLeftRight, ["Damage_3_6"]);
 
             Ability philosophy = new Ability(special_base.ability, "ArtOfPhilosophy_A", [], Rarity.GetCustomRarity("rarity5"));

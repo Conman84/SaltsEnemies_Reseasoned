@@ -41,9 +41,9 @@ namespace SaltsEnemies_Reseasoned
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Overexert1, Passives.Dying, Passives.Withering });
 
             Ability first = new Ability("Ripper", "Corpse1_A");
-            first.Description = "Inflict 3 Ruptured on the Opposing party member.";
+            first.Description = "Inflict 5 Ruptured on the Opposing party member.";
             first.Rarity = Rarity.GetCustomRarity("rarity5");
-            first.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 3, Slots.Front)];
+            first.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 5, Slots.Front)];
             first.AddIntentsToTarget(Slots.Front, ["Status_Ruptured"]);
             first.Visuals = LoadedAssetsHandler.GetCharacterAbility("OfDeath_1_A").visuals;
             first.AnimationTarget = Slots.Front;
@@ -105,9 +105,9 @@ namespace SaltsEnemies_Reseasoned
             first.AnimationTarget = Slots.Front;
 
             Ability second = new Ability("Razors", "Smiler_Ability2_A");
-            second.Description = "Inflict 2 Ruptured on the Left and Right party members.";
+            second.Description = "Inflict 3 Ruptured on the Left and Right party members.";
             second.Rarity = first.Rarity;
-            second.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Slots.LeftRight)];
+            second.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 3, Slots.LeftRight)];
             second.AddIntentsToTarget(Slots.LeftRight, ["Status_Ruptured"]);
             second.Visuals = LoadedAssetsHandler.GetEnemyAbility("Boil_A").visuals;
             second.AnimationTarget = Slots.LeftRight;

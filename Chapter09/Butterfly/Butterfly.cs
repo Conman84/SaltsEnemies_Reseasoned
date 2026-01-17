@@ -77,17 +77,17 @@ namespace SaltsEnemies_Reseasoned
             Ability dissolver = new Ability("Witch_Dissolver_A")
             {
                 Name = "Dissolver",
-                Description = "Deal an Agonizing amount of damage to the Left and Right party members and apply 3 Acid to them.",
+                Description = "Deal an Agonizing amount of damage to the Left and Right party members and apply 2 Anesthetics to them.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.LeftRight),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyAcidEffect>(), 3, Slots.LeftRight)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyAnestheticsEffect>(), 2, Slots.LeftRight)
                 },
                 Visuals = LoadedAssetsHandler.GetEnemyAbility("Boil_A").visuals,
                 AnimationTarget = Slots.LeftRight,
             };
-            dissolver.AddIntentsToTarget(Slots.LeftRight, new string[] { IntentType_GameIDs.Damage_7_10.ToString(), Acid.Intent });
+            dissolver.AddIntentsToTarget(Slots.LeftRight, new string[] { IntentType_GameIDs.Damage_7_10.ToString(), Anesthetics.Intent });
 
             //fadeout
             Ability fade = new Ability("Witch_Fade_A")
