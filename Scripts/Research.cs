@@ -47,7 +47,7 @@ namespace SaltsEnemies_Reseasoned
             Debug.Log(Passives.Pure.m_PassiveID);
             Debug.Log(PassiveType_GameIDs.Pure.ToString());
             Debug.Log(Passives.Absorb.m_PassiveID);
-            Debug.Log(PassiveType_GameIDs.Absorb.ToString();
+            Debug.Log(PassiveType_GameIDs.Absorb.ToString());
             Debug.Log(Passives.Forgetful.m_PassiveID);
             Debug.Log(PassiveType_GameIDs.Forgetful.ToString());
             Debug.Log(Passives.Withering.m_PassiveID);
