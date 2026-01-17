@@ -253,7 +253,7 @@ namespace SaltEnemies_Reseasoned
             {
                 enemy.AddPassiveAbility(Passives.Confusion);
             }
-            if (passives.ContainsPassiveAbility(Passives.Fleeting1.m_PassiveID, out passive))
+            if (passives.ContainsPassiveAbility(Passives.Fleeting3.m_PassiveID, out passive))
             {
                 enemy.AddPassiveAbility(passive);
                 enemy.ShowPassiveAdded(passive);
@@ -498,11 +498,7 @@ namespace SaltEnemies_Reseasoned
             {
                 ret.Add(Passives.Confusion);
             }
-            if (passives.ContainsPassiveAbility(Passives.Fleeting1.m_PassiveID, out passive))
-            {
-                ret.Add(passive);
-            }
-            else if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Fleeting.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Fleeting3.m_PassiveID, out passive))
             {
                 ret.Add(passive);
             }
@@ -527,10 +523,6 @@ namespace SaltEnemies_Reseasoned
                 ret.Add(Passives.Immortal);
             }
             if (passives.ContainsPassiveAbility(Passives.TwoFaced.m_PassiveID, out passive))
-            {
-                ret.Add(passive);
-            }
-            else if (passives.ContainsPassiveAbility(PassiveType_GameIDs.TwoFaced.ToString(), out passive))
             {
                 ret.Add(passive);
             }
@@ -572,29 +564,7 @@ namespace SaltEnemies_Reseasoned
                 }
                 if (cont) ret.Add(Passives.Abomination1);
             }
-            else if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Abomination.ToString(), out passive))
-            {
-                bool cont = true;
-                for (int i = -1; i < 13; i++)
-                {
-                    if (passive._passiveName.Contains("(" + i.ToString() + ")"))
-                    {
-                        ret.Add(Passives.AbominationGenerator(i));
-                        cont = false;
-                        break;
-                    }
-                }
-                if (cont) ret.Add(Passives.Abomination1);
-            }
             if (passives.ContainsPassiveAbility(Passives.BoneSpurs1.m_PassiveID, out passive))
-            {
-                ret.Add(passive);
-            }
-            else if (passives.ContainsPassiveAbility(PassiveType_GameIDs.BoneSpurs.ToString(), out passive))
-            {
-                ret.Add(passive);
-            }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Infestation.ToString(), out passive))
             {
                 ret.Add(passive);
             }
@@ -620,35 +590,7 @@ namespace SaltEnemies_Reseasoned
                 }
                 if (cont) ret.Add(Passives.Masochism1);
             }
-            else if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Masochism.ToString(), out passive))
-            {
-                bool cont = true;
-                for (int i = -1; i < 13; i++)
-                {
-                    if (passive._passiveName.Contains("(" + i.ToString() + ")"))
-                    {
-                        ret.Add(Passives.MasochismGenerator(i));
-                        cont = false;
-                        break;
-                    }
-                }
-                if (cont) ret.Add(Passives.Masochism1);
-            }
             if (passives.ContainsPassiveAbility(Passives.Construct.m_PassiveID))
-            {
-                RandomAbilityPassive instance1 = ScriptableObject.CreateInstance<RandomAbilityPassive>();
-                instance1._passiveName = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._passiveName;
-                instance1.passiveIcon = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0].passiveIcon;
-                instance1.m_PassiveID = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0].m_PassiveID;
-                instance1._enemyDescription = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._enemyDescription;
-                instance1._characterDescription = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._characterDescription;
-                instance1._triggerOn = new TriggerCalls[]
-                {
-                (TriggerCalls) 889532//old zensuke trigger
-                };
-                ret.Add(instance1);
-            }
-            else if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Construct.ToString()))
             {
                 RandomAbilityPassive instance1 = ScriptableObject.CreateInstance<RandomAbilityPassive>();
                 instance1._passiveName = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._passiveName;
