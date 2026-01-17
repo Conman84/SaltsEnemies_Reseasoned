@@ -208,7 +208,7 @@ namespace SaltEnemies_Reseasoned
         }
         public static void ResetParams(Action<CombatManager> orig, CombatManager self)
         {
-            Params.Clear();
+            Params = new Dictionary<string, int>();
             orig(self);
         }
     }
