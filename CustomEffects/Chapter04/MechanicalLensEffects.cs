@@ -146,67 +146,67 @@ namespace SaltEnemies_Reseasoned
             if (pickRandom) passives = passives.randomOne();
             BasePassiveAbilitySO passive;
 
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Focus.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Focus.m_PassiveID, out passive))
             {
                 enemy.AddPassiveAbility(passive);
                 enemy.ShowPassiveAdded(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Skittish.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Skittish.m_PassiveID, out passive))
             {
                 enemy.AddPassiveAbility(passive);
                 enemy.ShowPassiveAdded(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Slippery.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Slippery.m_PassiveID, out passive))
             {
                 enemy.AddPassiveAbility(passive);
                 enemy.ShowPassiveAdded(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Infantile.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Infantile.m_PassiveID))
             {
                 enemy.AddPassiveAbility(Passives.Infantile);
                 enemy.ShowPassiveAdded(Passives.Infantile);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Parental.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Example_Parental_Vengeance.m_PassiveID))
             {
                 if (UnityEngine.Random.Range(0f, 1f) < 0.5f) enemy.AddPassiveAbility(LoadedAssetsHandler.GetEnemy("Flarb_EN").passiveAbilities[1]);
                 else enemy.AddPassiveAbility(LoadedAssetsHandler.GetEnemy("SkinningHomunculus_EN").passiveAbilities[0]);
                 CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(enemy.ID, enemy.IsUnitCharacter, "Parental", Passives.Example_Parental_Vengeance.passiveIcon));
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Unstable.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Unstable.m_PassiveID, out passive))
             {
                 enemy.AddPassiveAbility(passive);
                 enemy.ShowPassiveAdded(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Constricting.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Constricting.m_PassiveID, out passive))
             {
                 enemy.AddPassiveAbility(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Formless.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Formless.m_PassiveID))
             {
                 enemy.AddPassiveAbility(Passives.Formless);
                 enemy.ShowPassiveAdded(Passives.Formless);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Pure.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Pure.m_PassiveID, out passive))
             {
                 enemy.AddPassiveAbility(passive);
                 enemy.ShowPassiveAdded(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Absorb.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Absorb.m_PassiveID))
             {
                 enemy.AddPassiveAbility(Passives.Absorb);
                 enemy.ShowPassiveAdded(Passives.Absorb);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Forgetful.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Forgetful.m_PassiveID))
             {
                 enemy.AddPassiveAbility(Passives.Forgetful);
                 enemy.ShowPassiveAdded(Passives.Forgetful);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Withering.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Withering.m_PassiveID))
             {
                 enemy.AddPassiveAbility(Passives.Withering);
                 enemy.ShowPassiveAdded(Passives.Withering);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Overexert.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Overexert1.m_PassiveID, out passive))
             {
                 bool cont = true;
                 for (int i = -1; i < 13; i++)
@@ -225,7 +225,7 @@ namespace SaltEnemies_Reseasoned
                     enemy.ShowPassiveAdded(Passives.Overexert2);
                 }
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.MultiAttack.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.MultiAttack2.m_PassiveID, out passive))
             {
                 bool cont = true;
                 for (int i = -1; i < 13; i++)
@@ -244,94 +244,94 @@ namespace SaltEnemies_Reseasoned
                     enemy.ShowPassiveAdded(Passives.MultiAttack2);
                 }
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Obscure.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Obscure.m_PassiveID))
             {
                 enemy.AddPassiveAbility(Passives.Obscure);
                 enemy.ShowPassiveAdded(Passives.Obscure);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Confusion.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Confusion.m_PassiveID))
             {
                 enemy.AddPassiveAbility(Passives.Confusion);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Fleeting.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Fleeting1.m_PassiveID, out passive))
             {
                 enemy.AddPassiveAbility(passive);
                 enemy.ShowPassiveAdded(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Dying.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Dying.m_PassiveID))
             {
                 enemy.AddPassiveAbility(Passives.Dying);
                 enemy.ShowPassiveAdded(Passives.Dying);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Inanimate.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Inanimate.m_PassiveID))
             {
                 enemy.AddPassiveAbility(Passives.Inanimate);
                 enemy.ShowPassiveAdded(Passives.Inanimate);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Inferno.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Inferno.m_PassiveID, out passive))
             {
                 enemy.AddPassiveAbility(passive);
                 enemy.ShowPassiveAdded(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Enfeebled.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Enfeebled.m_PassiveID))
             {
                 enemy.AddPassiveAbility(Passives.Enfeebled);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Immortal.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Immortal.m_PassiveID))
             {
                 enemy.AddPassiveAbility(Passives.Immortal);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.TwoFaced.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.TwoFaced.m_PassiveID, out passive))
             {
                 enemy.AddPassiveAbility(passive);
                 enemy.ShowPassiveAdded(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Catalyst.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Catalyst.m_PassiveID, out passive))
             {
                 enemy.AddPassiveAbility(passive);
                 enemy.ShowPassiveAdded(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Anchored.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Anchored.m_PassiveID))
             {
                 enemy.AddPassiveAbility(Passives.Anchored);
                 enemy.ShowPassiveAdded(Passives.Anchored);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Delicate.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Delicate.m_PassiveID))
             {
                 enemy.AddPassiveAbility(Passives.Delicate);
                 enemy.ShowPassiveAdded(Passives.Delicate);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Leaky.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Leaky1.m_PassiveID, out passive))
             {
                 enemy.AddPassiveAbility(passive);
                 enemy.ShowPassiveAdded(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.PanicAttack.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.PanicAttack.m_PassiveID, out passive))
             {
                 enemy.AddPassiveAbility(passive);
                 enemy.ShowPassiveAdded(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Transfusion.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Transfusion.m_PassiveID))
             {
                 enemy.AddPassiveAbility(Passives.Transfusion);
                 enemy.ShowPassiveAdded(Passives.Transfusion);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Abomination.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Abomination1.m_PassiveID))
             {
                 enemy.AddPassiveAbility(Passives.Abomination1);
                 enemy.ShowPassiveAdded(Passives.Abomination1);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.BoneSpurs.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.BoneSpurs1.m_PassiveID, out passive))
             {
                 enemy.AddPassiveAbility(passive);
                 enemy.ShowPassiveAdded(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Masochism.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Masochism1.m_PassiveID))
             {
                 enemy.AddPassiveAbility(Passives.Masochism1);
                 enemy.ShowPassiveAdded(Passives.Masochism1);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Construct.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Construct.m_PassiveID))
             {
                 RandomAbilityPassive instance1 = ScriptableObject.CreateInstance<RandomAbilityPassive>();
                 instance1._passiveName = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._passiveName;
@@ -346,12 +346,12 @@ namespace SaltEnemies_Reseasoned
                 enemy.AddPassiveAbility(instance1);
                 enemy.ShowPassiveAdded(instance1);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Cashout.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Cashout.m_PassiveID))
             {
                 enemy.AddPassiveAbility(Passives.Cashout);
                 enemy.ShowPassiveAdded(Passives.Cashout);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Infestation.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Infestation1.m_PassiveID, out passive))
             {
                 enemy.AddPassiveAbility(passive);
                 enemy.ShowPassiveAdded(passive);
@@ -413,56 +413,56 @@ namespace SaltEnemies_Reseasoned
 
             List<BasePassiveAbilitySO> ret = new List<BasePassiveAbilitySO>();
 
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Focus.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Focus.m_PassiveID, out passive))
             {
                 ret.Add(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Skittish.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Skittish.m_PassiveID, out passive))
             {
                 ret.Add(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Slippery.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Slippery.m_PassiveID, out passive))
             {
                 ret.Add(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Infantile.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Infantile.m_PassiveID))
             {
                 ret.Add(Passives.Infantile);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Parental.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Example_Parental_Vengeance.m_PassiveID))
             {
                 if (UnityEngine.Random.Range(0f, 1f) < 0.5f) ret.Add(LoadedAssetsHandler.GetEnemy("Flarb_EN").passiveAbilities[1]);
                 else ret.Add(LoadedAssetsHandler.GetEnemy("SkinningHomunculus_EN").passiveAbilities[0]);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Unstable.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Unstable.m_PassiveID, out passive))
             {
                 ret.Add(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Constricting.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Constricting.m_PassiveID, out passive))
             {
                 ret.Add(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Formless.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Formless.m_PassiveID))
             {
                 ret.Add(Passives.Formless);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Pure.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Pure.m_PassiveID, out passive))
             {
                 ret.Add(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Absorb.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Absorb.m_PassiveID))
             {
                 ret.Add(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Forgetful.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Forgetful.m_PassiveID))
             {
                 ret.Add(Passives.Forgetful);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Withering.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Withering.m_PassiveID))
             {
                 ret.Add(Passives.Withering);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Overexert.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Overexert1.m_PassiveID, out passive))
             {
                 bool cont = true;
                 for (int i = -1; i < 13; i++)
@@ -476,7 +476,7 @@ namespace SaltEnemies_Reseasoned
                 }
                 if (cont) ret.Add(Passives.Overexert2);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.MultiAttack.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.MultiAttack2.m_PassiveID, out passive))
             {
                 bool cont = true;
                 for (int i = -1; i < 13; i++)
@@ -490,67 +490,75 @@ namespace SaltEnemies_Reseasoned
                 }
                 if (cont) ret.Add(Passives.MultiAttack2);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Obscure.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Obscure.m_PassiveID))
             {
                 ret.Add(Passives.Obscure);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Confusion.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Confusion.m_PassiveID))
             {
                 ret.Add(Passives.Confusion);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Fleeting.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Fleeting1.m_PassiveID, out passive))
             {
                 ret.Add(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Dying.ToString()))
+            else if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Fleeting.ToString(), out passive))
+            {
+                ret.Add(passive);
+            }
+            if (passives.ContainsPassiveAbility(Passives.Dying.m_PassiveID))
             {
                 ret.Add(Passives.Dying);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Inanimate.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Inanimate.m_PassiveID))
             {
                 ret.Add(Passives.Inanimate);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Inferno.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Inferno.m_PassiveID, out passive))
             {
                 ret.Add(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Enfeebled.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Enfeebled.m_PassiveID))
             {
                 ret.Add(Passives.Enfeebled);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Immortal.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Immortal.m_PassiveID))
             {
                 ret.Add(Passives.Immortal);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.TwoFaced.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.TwoFaced.m_PassiveID, out passive))
             {
                 ret.Add(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Catalyst.ToString(), out passive))
+            else if (passives.ContainsPassiveAbility(PassiveType_GameIDs.TwoFaced.ToString(), out passive))
             {
                 ret.Add(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Anchored.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Catalyst.m_PassiveID, out passive))
+            {
+                ret.Add(passive);
+            }
+            if (passives.ContainsPassiveAbility(Passives.Anchored.m_PassiveID))
             {
                 ret.Add(Passives.Anchored);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Delicate.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Delicate.m_PassiveID))
             {
                 ret.Add(Passives.Delicate);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Leaky.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Leaky1.m_PassiveID, out passive))
             {
                 ret.Add(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.PanicAttack.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.PanicAttack.m_PassiveID, out passive))
             {
                 ret.Add(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Transfusion.ToString()))
+            if (passives.ContainsPassiveAbility(Passives.Transfusion.m_PassiveID))
             {
                 ret.Add(Passives.Transfusion);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Abomination.ToString(), out passive))
+            if (passives.ContainsPassiveAbility(Passives.Abomination1.m_PassiveID, out passive))
             {
                 bool cont = true;
                 for (int i = -1; i < 13; i++)
@@ -564,7 +572,25 @@ namespace SaltEnemies_Reseasoned
                 }
                 if (cont) ret.Add(Passives.Abomination1);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.BoneSpurs.ToString(), out passive))
+            else if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Abomination.ToString(), out passive))
+            {
+                bool cont = true;
+                for (int i = -1; i < 13; i++)
+                {
+                    if (passive._passiveName.Contains("(" + i.ToString() + ")"))
+                    {
+                        ret.Add(Passives.AbominationGenerator(i));
+                        cont = false;
+                        break;
+                    }
+                }
+                if (cont) ret.Add(Passives.Abomination1);
+            }
+            if (passives.ContainsPassiveAbility(Passives.BoneSpurs1.m_PassiveID, out passive))
+            {
+                ret.Add(passive);
+            }
+            else if (passives.ContainsPassiveAbility(PassiveType_GameIDs.BoneSpurs.ToString(), out passive))
             {
                 ret.Add(passive);
             }
@@ -572,7 +598,15 @@ namespace SaltEnemies_Reseasoned
             {
                 ret.Add(passive);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Masochism.ToString(), out passive))
+            else if (passives.ContainsPassiveAbility(Passives.Infestation1.m_PassiveID, out passive))
+            {
+                ret.Add(passive);
+            }
+            else if (passives.ContainsPassiveAbility(UnitStoredValueNames_GameIDs.InfestationPA.ToString(), out passive))
+            {
+                ret.Add(passive);
+            }
+            if (passives.ContainsPassiveAbility(Passives.Masochism1.m_PassiveID, out passive))
             {
                 bool cont = true;
                 for (int i = -1; i < 13; i++)
@@ -586,7 +620,21 @@ namespace SaltEnemies_Reseasoned
                 }
                 if (cont) ret.Add(Passives.Masochism1);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Construct.ToString()))
+            else if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Masochism.ToString(), out passive))
+            {
+                bool cont = true;
+                for (int i = -1; i < 13; i++)
+                {
+                    if (passive._passiveName.Contains("(" + i.ToString() + ")"))
+                    {
+                        ret.Add(Passives.MasochismGenerator(i));
+                        cont = false;
+                        break;
+                    }
+                }
+                if (cont) ret.Add(Passives.Masochism1);
+            }
+            if (passives.ContainsPassiveAbility(Passives.Construct.m_PassiveID))
             {
                 RandomAbilityPassive instance1 = ScriptableObject.CreateInstance<RandomAbilityPassive>();
                 instance1._passiveName = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._passiveName;
@@ -600,7 +648,21 @@ namespace SaltEnemies_Reseasoned
                 };
                 ret.Add(instance1);
             }
-            if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Cashout.ToString(), out passive))
+            else if (passives.ContainsPassiveAbility(PassiveType_GameIDs.Construct.ToString()))
+            {
+                RandomAbilityPassive instance1 = ScriptableObject.CreateInstance<RandomAbilityPassive>();
+                instance1._passiveName = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._passiveName;
+                instance1.passiveIcon = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0].passiveIcon;
+                instance1.m_PassiveID = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0].m_PassiveID;
+                instance1._enemyDescription = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._enemyDescription;
+                instance1._characterDescription = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._characterDescription;
+                instance1._triggerOn = new TriggerCalls[]
+                {
+                (TriggerCalls) 889532//old zensuke trigger
+                };
+                ret.Add(instance1);
+            }
+            if (passives.ContainsPassiveAbility(Passives.Cashout.m_PassiveID, out passive))
             {
                 bool cont = true;
                 for (int i = -1; i < 13; i++)

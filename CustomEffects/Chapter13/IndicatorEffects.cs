@@ -26,7 +26,7 @@ namespace SaltEnemies_Reseasoned
     {
         public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
         {
-            if (caster.ContainsPassiveAbility(PassiveType_GameIDs.Withering.ToString())) return false;
+            if (caster.ContainsPassiveAbility(Passives.Withering.m_PassiveID)) return false;
             foreach (CombatSlot slot in CombatManager.Instance._stats.combatSlots.EnemySlots) if (!slot.HasUnit) return true;
             return false;
         }

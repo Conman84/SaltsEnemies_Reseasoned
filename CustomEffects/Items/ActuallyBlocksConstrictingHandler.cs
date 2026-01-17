@@ -1,4 +1,5 @@
-﻿using MonoMod.RuntimeDetour;
+﻿using BrutalAPI;
+using MonoMod.RuntimeDetour;
 using System;
 using System.Collections;
 using System.Reflection;
@@ -13,7 +14,7 @@ namespace SaltsEnemies_Reseasoned
         }
         public static IEnumerator ConstrictedConnectedAction_Execute(Func<ConstrictedConnectedAction, CombatStats, IEnumerator> orig, ConstrictedConnectedAction self, CombatStats stats)
         {
-            if (!stats.IsPassiveLocked(PassiveType_GameIDs.Constricting.ToString()))
+            if (!stats.IsPassiveLocked(Passives.Constricting.m_PassiveID))
             {
                 yield return orig(self, stats);
             }

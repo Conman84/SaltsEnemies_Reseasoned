@@ -297,8 +297,8 @@ namespace SaltsEnemies_Reseasoned
         }
         public bool CanLive(EnemyCombat enemy)
         {
-            if (ContainsPassiveAbility(enemy.Enemy, PassiveType_GameIDs.Dying.ToString())) return false;
-            if (ContainsPassiveAbility(enemy.Enemy, PassiveType_GameIDs.Inanimate.ToString())) return false;
+            if (ContainsPassiveAbility(enemy.Enemy, Passives.Dying.m_PassiveID)) return false;
+            if (ContainsPassiveAbility(enemy.Enemy, Passives.Inanimate.m_PassiveID)) return false;
             return true;
         }
 

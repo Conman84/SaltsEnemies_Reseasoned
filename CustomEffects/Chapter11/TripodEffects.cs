@@ -24,7 +24,7 @@ namespace SaltEnemies_Reseasoned
             int maxExclusive2 = 0;
             List<int> intList1 = new List<int>();
             List<int> intList2 = new List<int>();
-            bool hasconfus = unit.ContainsPassiveAbility(PassiveType_GameIDs.Confusion.ToString());
+            bool hasconfus = unit.ContainsPassiveAbility(Passives.Confusion.m_PassiveID);
             for (int index = 0; index < abilities.Count; ++index)
             {
                 if (this.ShouldBeIgnored(abilities[index], unit))
@@ -61,18 +61,18 @@ namespace SaltEnemies_Reseasoned
         {
             bool name = ability.ability._abilityName.Contains(longslice);
             bool other = ability.ability._abilityName.Contains(lens);
-            return ((name && (!unit.ContainsPassiveAbility(PassiveType_GameIDs.Confusion.ToString()))) || (other && unit.ContainsStatusEffect(StatusField_GameIDs.Spotlight_ID.ToString()) && unit.ContainsPassiveAbility(PassiveType_GameIDs.Confusion.ToString())));
+            return ((name && (!unit.ContainsPassiveAbility(Passives.Confusion.m_PassiveID))) || (other && unit.ContainsStatusEffect(StatusField_GameIDs.Spotlight_ID.ToString()) && unit.ContainsPassiveAbility(Passives.Confusion.m_PassiveID)));
         }
         public int ValueWithoutConfuse(CombatAbility ability, IUnit unit)
         {
             bool name = !ability.ability._abilityName.Contains(shortstomp);
-            if (name || unit.ContainsPassiveAbility(PassiveType_GameIDs.Confusion.ToString())) return ability.rarity.rarityValue;
+            if (name || unit.ContainsPassiveAbility(Passives.Confusion.m_PassiveID)) return ability.rarity.rarityValue;
             else return 1;
         }
         public int ValueWithConfuse(CombatAbility ability, IUnit unit)
         {
             bool name = !ability.ability._abilityName.Contains(lens);
-            if (name || (!unit.ContainsPassiveAbility(PassiveType_GameIDs.Confusion.ToString()))) return ability.rarity.rarityValue;
+            if (name || (!unit.ContainsPassiveAbility(Passives.Confusion.m_PassiveID))) return ability.rarity.rarityValue;
             else return 1;
         }
     }
@@ -81,7 +81,7 @@ namespace SaltEnemies_Reseasoned
         public bool returnTrue;
         public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
         {
-            return caster.ContainsPassiveAbility(PassiveType_GameIDs.Confusion.ToString()) == returnTrue;
+            return caster.ContainsPassiveAbility(Passives.Confusion.m_PassiveID) == returnTrue;
         }
         public static HasConfusionCondition Create(bool returntrue)
         {

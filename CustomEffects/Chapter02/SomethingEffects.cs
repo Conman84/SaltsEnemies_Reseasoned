@@ -214,7 +214,7 @@ namespace SaltEnemies_Reseasoned
             {
                 if (enemy.Enemy == LoadedAssetsHandler.GetEnemy("Derogatory_EN"))
                 {
-                    if (enemy.TryRemovePassiveAbility(PassiveType_GameIDs.Withering.ToString()))
+                    if (enemy.TryRemovePassiveAbility(Passives.Withering.m_PassiveID))
                     {
                         exitAmount++;
                         CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(enemy.ID, enemy.IsUnitCharacter, "Withering Removed", Passives.Withering.passiveIcon));

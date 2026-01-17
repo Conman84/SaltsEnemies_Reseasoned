@@ -180,7 +180,7 @@ namespace SaltEnemies_Reseasoned
         }
         public bool CanLive(EnemyCombat enemy)
         {
-            if (ContainsPassiveAbility(enemy.Enemy, PassiveType_GameIDs.Inanimate.ToString())) return false;
+            if (ContainsPassiveAbility(enemy.Enemy, Passives.Inanimate.m_PassiveID)) return false;
             return true;
         }
 
@@ -286,7 +286,7 @@ namespace SaltEnemies_Reseasoned
         }
         public bool CanLive(EnemyCombat enemy)
         {
-            if (ContainsPassiveAbility(enemy.Enemy, PassiveType_GameIDs.Inanimate.ToString())) return false;
+            if (ContainsPassiveAbility(enemy.Enemy, Passives.Inanimate.m_PassiveID)) return false;
             return true;
         }
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)

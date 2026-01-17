@@ -39,7 +39,7 @@ namespace SaltsEnemies_Reseasoned
             //decay
             PerformEffectPassiveAbility decay = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             decay._passiveName = "Decay";
-            decay.m_PassiveID = PassiveType_GameIDs.Decay.ToString();
+            decay.m_PassiveID = Passives.Example_Decay_MudLung.m_PassiveID;
             decay.passiveIcon = Passives.Example_Decay_MudLung.passiveIcon;
             decay._enemyDescription = "On death, spawn a Candy Stone.\nTransfer all Power from this enemy to the Candy Stone.";
             decay._characterDescription = decay._enemyDescription;

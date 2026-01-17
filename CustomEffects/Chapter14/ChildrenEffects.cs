@@ -281,7 +281,7 @@ namespace SaltEnemies_Reseasoned
                     {
                         int damageAmount = damageInfo.damageAmount;
                         IUnit unit = target.Unit;
-                        if (!unit.ContainsPassiveAbility(PassiveType_GameIDs.Parasite.ToString()))
+                        if (!unit.ContainsPassiveAbility(Passives.ParasiteParasitism.m_PassiveID))
                             unit.AddPassiveAbility(this._passiveToAdd);
                         int num5 = unit.SimpleGetStoredValue(UnitStoredValueNames_GameIDs.ParasiteCurrentHealthPA.ToString()) + damageAmount;
                         unit.SimpleSetStoredValue(UnitStoredValueNames_GameIDs.ParasiteCurrentHealthPA.ToString(), num5);
@@ -311,7 +311,7 @@ namespace SaltEnemies_Reseasoned
             {
                 if (targets[index].HasUnit)
                 {
-                    if (!targets[index].Unit.ContainsPassiveAbility(PassiveType_GameIDs.Parasite.ToString()))
+                    if (!targets[index].Unit.ContainsPassiveAbility(Passives.ParasiteParasitism.m_PassiveID))
                         targets[index].Unit.AddPassiveAbility(this._passiveToAdd);
                     int num = targets[index].Unit.SimpleGetStoredValue(UnitStoredValueNames_GameIDs.ParasiteCurrentHealthPA.ToString()) + entryVariable;
                     targets[index].Unit.SimpleSetStoredValue(UnitStoredValueNames_GameIDs.ParasiteCurrentHealthPA.ToString(), num);
@@ -374,7 +374,7 @@ namespace SaltEnemies_Reseasoned
                 };
                 parasitePassiveAbility.passiveIcon = ((AddPassiveEffect)LoadedAssetsHandler.GetCharacterAbility("Eviscerate_1_A").effects[5].effect)._passiveToAdd.passiveIcon;
                 parasitePassiveAbility.specialStoredData = ((ParasitePassiveAbility)((AddPassiveEffect)LoadedAssetsHandler.GetCharacterAbility("Eviscerate_1_A").effects[5].effect)._passiveToAdd).specialStoredData;
-                parasitePassiveAbility.m_PassiveID = PassiveType_GameIDs.Parasite.ToString();
+                parasitePassiveAbility.m_PassiveID = Passives.ParasiteParasitism.m_PassiveID;
                 parasitePassiveAbility._characterDescription = "Increases the damage received by 5% per point of Parasite. Parasite will decrease by the original unmutliplied damage amount. Parasite will remove 0-1 health from this party member at the end of every turn and convert it into more Parasite.";
                 parasitePassiveAbility._damagePercentage = ((ParasitePassiveAbility)((AddPassiveEffect)LoadedAssetsHandler.GetCharacterAbility("Eviscerate_1_A").effects[5].effect)._passiveToAdd)._damagePercentage;
                 parasitePassiveAbility._enemyDescription = "Increases the damage received by 5% per point of Parasite. Parasite will decrease by the original unmutliplied damage amount. Parasite will remove 0-1 health from this enemy at the end of every turn and convert it into more Parasite.";

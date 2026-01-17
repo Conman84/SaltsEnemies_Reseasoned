@@ -22,7 +22,7 @@ namespace SaltEnemies_Reseasoned
             int maxExclusive2 = 0;
             List<int> intList1 = new List<int>();
             List<int> intList2 = new List<int>();
-            bool hasFleeting = unit.ContainsPassiveAbility(PassiveType_GameIDs.Fleeting.ToString());
+            bool hasFleeting = unit.ContainsPassiveAbility(Passives.Fleeting1.m_PassiveID);
             for (int index = 0; index < abilities.Count; ++index)
             {
                 if (this.ShouldBeIgnored(abilities[index], unit))

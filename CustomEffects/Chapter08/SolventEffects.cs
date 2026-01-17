@@ -154,7 +154,7 @@ namespace SaltEnemies_Reseasoned
                             coward++;
                             continue;
                         }
-                        else if (value.TryGetPassiveAbility(PassiveType_GameIDs.Withering.ToString(), out var passive) && value.CanPassiveTrigger(PassiveType_GameIDs.Withering.ToString()))
+                        else if (value.TryGetPassiveAbility(Passives.Withering.m_PassiveID, out var passive) && value.CanPassiveTrigger(Passives.Withering.m_PassiveID))
                         {
                             wither++;
                             continue;

@@ -71,7 +71,7 @@ namespace SaltEnemies_Reseasoned
         {
             if (sender is IUnit unit)
             {
-                if (unit.ContainsPassiveAbility(PassiveType_GameIDs.Dying.ToString()) || unit.ContainsPassiveAbility(PassiveType_GameIDs.Inanimate.ToString()) || unit.ContainsStatusEffect(StatusField_GameIDs.Cursed_ID.ToString())) return;
+                if (unit.ContainsPassiveAbility(Passives.Dying.m_PassiveID) || unit.ContainsPassiveAbility(Passives.Inanimate.m_PassiveID) || unit.ContainsStatusEffect(StatusField_GameIDs.Cursed_ID.ToString())) return;
             }
             BooleanReference reference = args as BooleanReference;
             if (reference == null)

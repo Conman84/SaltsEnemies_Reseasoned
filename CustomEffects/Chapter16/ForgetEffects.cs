@@ -148,7 +148,7 @@ namespace SaltEnemies_Reseasoned
             {
                 nums.Add(enemy.ID);
                 enemy.TryRemovePassiveAbility("Forgetting_PA");
-                enemy.TryRemovePassiveAbility(PassiveType_GameIDs.Withering.ToString());
+                enemy.TryRemovePassiveAbility(Passives.Withering.m_PassiveID);
                 sprites.Add(sprite);
             }
             CombatManager.Instance.AddUIAction(new ShowMultiplePassiveInformationUIAction(nums.ToArray(), [false, false, false, false, false], ["Forgetting", "Forgetting", "Forgetting", "Forgetting", "Forgetting"], sprites.ToArray()));

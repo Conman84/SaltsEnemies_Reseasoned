@@ -8,6 +8,7 @@ using System.Collections;
 using Tools;
 using Yarn.Unity;
 using Yarn;
+using BrutalAPI;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -19,10 +20,49 @@ namespace SaltsEnemies_Reseasoned
 
             IDetour hook1 = new Hook(typeof(UnboxOnNoEnemies_UUH).GetMethod(nameof(UnboxOnNoEnemies_UUH.CanBeUnboxed), ~BindingFlags.Default), typeof(Research).GetMethod(nameof(UnboxOnNoEnemies_UUH_CanUnbox), ~BindingFlags.Default));
 
-
+            PrintPassives();
             //IDetour hook2 = new Hook(typeof(DialogueHandler).GetMethod(nameof(DialogueHandler.DataInitialization), ~BindingFlags.Default), typeof(Research).GetMethod(nameof(DialogueHandler_DataInitialization), ~BindingFlags.Default));
             //IDetour hook3 = new Hook(typeof(OverworldManagerBG).GetMethod(nameof(OverworldManagerBG.Awake), ~BindingFlags.Default), typeof(Research).GetMethod(nameof(OverworldManagerBG_Awake), ~BindingFlags.Default));
             //IDetour hook4 = new Hook(typeof(OverworldManagerBG).GetMethod(nameof(OverworldManagerBG.GenerateZoneWorld), ~BindingFlags.Default), typeof(Research).GetMethod(nameof(OverworldManagerBG_GenerateZoneWorld), ~BindingFlags.Default));
+        }
+
+        public static void PrintPassives()
+        {
+            Debug.Log(Passives.Focus.m_PassiveID);
+            Debug.Log(Passives.Skittish.m_PassiveID);
+            Debug.Log(Passives.Slippery.m_PassiveID);
+            Debug.Log(Passives.Infantile.m_PassiveID);
+            Debug.Log(Passives.Example_Parental_Vengeance.m_PassiveID);
+            Debug.Log(Passives.Unstable.m_PassiveID);
+            Debug.Log(Passives.Constricting.m_PassiveID);
+            Debug.Log(Passives.Formless.m_PassiveID);
+            Debug.Log(Passives.Pure.m_PassiveID);
+            Debug.Log(Passives.Absorb.m_PassiveID);
+            Debug.Log(Passives.Forgetful.m_PassiveID);
+            Debug.Log(Passives.Withering.m_PassiveID);
+            Debug.Log(Passives.Overexert1.m_PassiveID);
+            Debug.Log(Passives.MultiAttack2.m_PassiveID);
+            Debug.Log(Passives.Obscure.m_PassiveID);
+            Debug.Log(Passives.Confusion.m_PassiveID);
+            Debug.Log(Passives.Fleeting1.m_PassiveID);
+            Debug.Log(Passives.Dying.m_PassiveID);
+            Debug.Log(Passives.Inanimate.m_PassiveID);
+            Debug.Log(Passives.Inferno.m_PassiveID);
+            Debug.Log(Passives.Enfeebled.m_PassiveID);
+            Debug.Log(Passives.Immortal.m_PassiveID);
+            Debug.Log(Passives.TwoFaced.m_PassiveID);
+            Debug.Log(Passives.Catalyst.m_PassiveID);
+            Debug.Log(Passives.Anchored.m_PassiveID);
+            Debug.Log(Passives.Delicate.m_PassiveID);
+            Debug.Log(Passives.Leaky1.m_PassiveID);
+            Debug.Log(Passives.PanicAttack.m_PassiveID);
+            Debug.Log(Passives.Transfusion.m_PassiveID);
+            Debug.Log(Passives.Abomination1.m_PassiveID);
+            Debug.Log(Passives.BoneSpurs1.m_PassiveID);
+            Debug.Log(Passives.Masochism1.m_PassiveID);
+            Debug.Log(Passives.Construct.m_PassiveID);
+            Debug.Log(Passives.Cashout.m_PassiveID);
+            Debug.Log(Passives.Infestation1.m_PassiveID);
         }
 
         public static bool UnboxOnNoEnemies_UUH_CanUnbox(Func<UnboxOnNoEnemies_UUH, CombatStats, BoxedUnit, object, bool> orig, UnboxOnNoEnemies_UUH self, CombatStats stats, BoxedUnit unit, object senderData)

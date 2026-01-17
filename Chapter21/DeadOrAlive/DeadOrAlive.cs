@@ -43,7 +43,7 @@ namespace SaltEnemies_Reseasoned
 
             AbilitySelector_Clown selector = ScriptableObject.CreateInstance<AbilitySelector_Clown>();
             selector.Ability = "MySpecialAttack_A";
-            selector.CheckPassive = PassiveType_GameIDs.Infantile.ToString();
+            selector.CheckPassive = Passives.Infantile.m_PassiveID;
             clown.AbilitySelector = selector;
 
             Ability special = new Ability("My Special Attack", "MySpecialAttack_A");

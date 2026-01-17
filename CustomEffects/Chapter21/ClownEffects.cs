@@ -1,6 +1,5 @@
 ﻿using BrutalAPI;
-using JetBrains.Annotations;
-using MonoMod.RuntimeDetour;
+using UnityEngine;
 using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections;
@@ -23,9 +22,9 @@ namespace SaltEnemies_Reseasoned
         {
             if (notifname == TriggerCalls.OnDirectDamaged.ToString())
             {
-                if (sender is IUnit unit && !CombatManager.Instance._stats.IsPassiveLocked(PassiveType_GameIDs.Infantile.ToString()))
+                if (sender is IUnit unit && !CombatManager.Instance._stats.IsPassiveLocked(Passives.Infantile.m_PassiveID))
                 {
-                    if (!unit.ContainsPassiveAbility(PassiveType_GameIDs.Infantile.ToString())) return;
+                    if (!unit.ContainsPassiveAbility(Passives.Infantile.m_PassiveID)) return;
                     CombatManager.Instance.AddRootAction(new ClownPassiveSubAction(unit));
                 }
             }
@@ -37,6 +36,7 @@ namespace SaltEnemies_Reseasoned
         public ClownPassiveSubAction(IUnit Unit)
         {
             unit = Unit;
+            if (SaltsReseasoned.Testing) Debug.Log("clown trigger");
         }
         public override IEnumerator Execute(CombatStats stats)
         {
