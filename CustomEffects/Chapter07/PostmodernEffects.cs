@@ -381,12 +381,13 @@ namespace SaltEnemies_Reseasoned
             if (addcommand == null) Debug.LogError("FUCK GODDAMNIT FUCK YOU FUCK YOU");
 
             //addcommand.Invoke(dialogueRunner, ["SaltPostmodernity", TriggerPostmodern]);
-            //dialogueRunner.AddCommandHandler("SaltPostmodernity", TriggerPostmodern);
+            dialogueRunner.AddCommandHandler("SaltPostmodernity", TriggerPostmodern);
             DialogueFunctions.Setup(dialogueRunner, self, addcommand);
         }
 
         public static void TriggerPostmodern(string[] info)
         {
+            if (SaltsReseasoned.Testing) Debug.Log("triggering command postmodern combat");
             world.StartCoroutine(HandlePrePostmodernEvent(world));
         }
 
