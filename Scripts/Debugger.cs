@@ -71,4 +71,21 @@ namespace SaltsEnemies_Reseasoned
             }
         }
     }
+
+    public class DebugNPCRoom : NPCRoomHandler
+    {
+        public override void PrepareRoom()
+        {
+            if (SaltsReseasoned.Testing)
+            {
+                Debug.Log("talking entity data is gone: " + _entityData.IsGone);
+                Debug.Log(RoomSelectables.Length);
+                foreach (BaseRoomItem item in RoomSelectables)
+                {
+                    Debug.Log("item "+ item.transform.parent.name);
+                }
+            }
+            base.PrepareRoom();
+        }
+    }
 }

@@ -504,7 +504,7 @@ namespace SaltEnemies_Reseasoned
         public static void postmodernevent()
         {
             //if (LetsYouIgnoreMissingEnemiesHook.IsDisabled("Postmodern_EN")) return;
-            NPCRoomHandler room = SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Postmodern/PostmodernRoom.prefab").AddComponent<NPCRoomHandler>();
+            NPCRoomHandler room = SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Postmodern/PostmodernRoom.prefab").AddComponent<DebugNPCRoom>();
 
             room._npcSelectable = room.transform.GetChild(0).gameObject.AddComponent<BasicRoomItem>();
             room._npcSelectable._renderers = new SpriteRenderer[]
