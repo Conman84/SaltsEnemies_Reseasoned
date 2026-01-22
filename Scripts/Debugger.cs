@@ -25,6 +25,7 @@ namespace SaltsEnemies_Reseasoned
                 TalkingEntityContentData newEntity = new TalkingEntityContentData(PostmodernHandler.Dialogue);
                 int idInfo = self.CurrentZoneData.AddDialoguePathData(newEntity);
                 Card newCard = new Card(self.CurrentZoneData.CardCount, idInfo, CardType.Flavour, card.PilePosition, PostmodernHandler.Sign, PostmodernHandler.RoomPrefab);
+                self.CurrentZoneData._zoneCards[self.CurrentCardID] = newCard;
 
                 return orig(self, newCard);
                 //throw ex;
