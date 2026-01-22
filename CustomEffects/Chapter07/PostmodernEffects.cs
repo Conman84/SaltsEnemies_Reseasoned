@@ -393,6 +393,7 @@ namespace SaltEnemies_Reseasoned
 
         public static IEnumerator HandlePrePostmodernEvent(OverworldManagerBG self)
         {
+            if (SaltsReseasoned.Testing) Debug.Log("handling postmodern combat");
             RunDataSO run = self._informationHolder.Run;
             BaseRoomHandler currentRoomInstance = run.GetCurrentRoomInstance();
             if (currentRoomInstance != null)
