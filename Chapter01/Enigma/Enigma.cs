@@ -143,6 +143,7 @@ namespace SaltsEnemies_Reseasoned
                 paranoia.GenerateEnemyAbility(true),
             });
             Enigma.AddEnemy(true, true, false);
+            Enigma.enemy.AddToSynodPool();
         }
     }
 }

@@ -113,6 +113,7 @@ namespace SaltsEnemies_Reseasoned
                 notLong.GenerateEnemyAbility(true),
             });
             MortalSpoggle.AddEnemy(true, false, false);
+            MortalSpoggle.enemy.AddToSynodPool();
         }
     }
 }

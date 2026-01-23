@@ -118,6 +118,7 @@ namespace SaltsEnemies_Reseasoned
                 catching.GenerateEnemyAbility(true),
             });
             AFlower.AddEnemy(true, true, false);
+            AFlower.enemy.AddToSynodPool();
         }
     }
 }

@@ -94,6 +94,7 @@ namespace SaltsEnemies_Reseasoned
                 dust.GenerateEnemyAbility(true),
             });
             RusticJumbleGuts.AddEnemy(true, true, true);
+            RusticJumbleGuts.enemy.AddToSynodPool();
         }
     }
 }

@@ -183,6 +183,7 @@ namespace SaltsEnemies_Reseasoned
                 interference.GenerateEnemyAbility(true),
             });
             DeadPixel.AddEnemy(true, true, true);
+            DeadPixel.enemy.AddToSynodPool();
         }
     }
 }

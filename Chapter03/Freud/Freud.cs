@@ -138,6 +138,7 @@ namespace SaltsEnemies_Reseasoned
                 Unlocking.GenerateEnemyAbility(true),
             });
             Freud.AddEnemy(true, true, false);
+            Freud.enemy.AddToSynodPool();
         }
     }
 }

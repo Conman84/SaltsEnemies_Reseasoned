@@ -164,6 +164,7 @@ namespace SaltsEnemies_Reseasoned
                 bitter.GenerateEnemyAbility(true),
             });
             Satyr.AddEnemy(true, true, false);
+            Satyr.enemy.AddToSynodPool();
         }
     }
 }

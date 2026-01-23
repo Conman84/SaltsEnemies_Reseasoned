@@ -171,6 +171,7 @@ namespace SaltsEnemies_Reseasoned
             EnemySO clone = UnityEngine.Object.Instantiate(LoadedAssetsHandler.GetEnemy("LittleAngel_EN"));
             clone.passiveAbilities = [lightweight];
             EnemyUtils.AddEnemyToHealthSpawnPool(clone, PoolList_GameIDs.Sepulchre);
+            clone.AddToSynodPool();
         }
     }
 }

@@ -274,6 +274,7 @@ namespace SaltsEnemies_Reseasoned
                 affectionate.GenerateEnemyAbility(true),
             });
             Something.AddEnemy(true, true, false);
+            Something.enemy.AddToSynodPool();
         }
     }
 }

@@ -161,6 +161,7 @@ namespace SaltsEnemies_Reseasoned
                 serenity.GenerateEnemyAbility(true),
             });
             Crow.AddEnemy(true, true, false);
+            Crow.enemy.AddToSynodPool();
         }
     }
 }

@@ -118,7 +118,7 @@ namespace SaltsEnemies_Reseasoned
                 weep.GenerateEnemyAbility(true),
                 agony.GenerateEnemyAbility(true)
             });
-            ManFish.AddEnemy(true, true, false);
+            ManFish.AddEnemy(true, false, false);
         }
     }
 }
