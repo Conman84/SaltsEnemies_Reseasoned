@@ -9,7 +9,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Setup()
         {
-            Yolk();
+            //Yolk();
         }
 
         public static void Yolk()
