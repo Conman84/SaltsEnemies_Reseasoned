@@ -95,6 +95,7 @@ namespace SaltsEnemies_Reseasoned
                 larvate.GenerateEnemyAbility(true)
             });
             template.AddEnemy(true, true);
+            template.enemy.AddToSynodPool();
         }
     }
 }

@@ -100,6 +100,7 @@ namespace SaltsEnemies_Reseasoned
                 shortStomp.GenerateEnemyAbility(true)
             });
             tripod.AddEnemy(true, true);
+            tripod.enemy.AddToSynodPool();
         }
     }
 }

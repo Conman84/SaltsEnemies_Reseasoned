@@ -132,7 +132,7 @@ namespace SaltEnemies_Reseasoned
 
         public bool Check(EnemyCombat enemy)
         {
-            if (IsntSuperboss(enemy) && !enemy.Enemy._enemyName.Contains("Bronzo") && enemy.Enemy != LoadedAssetsHandler.GetEnemy("OsmanSinnoks_BOSS") && enemy.Enemy._enemyName != "Sepulchre" && (!(enemy.Enemy._enemyName.Contains("Fountain") && enemy.Enemy._enemyName.Contains("Youth"))))
+            if (IsntSuperboss(enemy) && !enemy.Enemy._enemyName.Contains("Bronzo") && enemy.Enemy != LoadedAssetsHandler.GetEnemy("OsmanSinnoks_BOSS") && enemy.Enemy._enemyName != "Sepulchre" && (!(enemy.Enemy._enemyName.Contains("Fountain") && enemy.Enemy._enemyName.Contains("Youth")) & enemy.Enemy.name != Enemies.Synod))
             {
                 return true;
             }

@@ -65,6 +65,7 @@ namespace SaltsEnemies_Reseasoned
                 sunset.GenerateEnemyAbility(true)
             });
             sundowner.SilentAddEnemy(true, true);
+            sundowner.enemy.AddToSynodPool();
         }
     }
 }

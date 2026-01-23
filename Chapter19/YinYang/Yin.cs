@@ -103,6 +103,7 @@ namespace SaltsEnemies_Reseasoned
                 cruel.GenerateEnemyAbility(true),
             });
             yin.AddEnemy(true, true);
+            yin.enemy.AddToSynodPool();
         }
     }
 }

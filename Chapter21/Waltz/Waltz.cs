@@ -58,6 +58,7 @@ namespace SaltsEnemies_Reseasoned
                 collapse.GenerateEnemyAbility(true)
             });
             waltz.AddEnemy(true, true);
+            waltz.enemy.AddToSynodPool();
         }
     }
 }

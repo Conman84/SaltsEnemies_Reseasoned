@@ -65,6 +65,7 @@ namespace SaltsEnemies_Reseasoned
                 blast.GenerateEnemyAbility(true)
             });
             mortar.AddEnemy(true, true);
+            mortar.enemy.AddToSynodPool();
         }
     }
 }

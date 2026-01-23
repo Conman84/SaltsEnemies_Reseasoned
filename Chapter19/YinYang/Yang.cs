@@ -98,6 +98,7 @@ namespace SaltsEnemies_Reseasoned
                 equals.GenerateEnemyAbility(true)
             });
             yang.AddEnemy(true, true);
+            yang.enemy.AddToSynodPool();
         }
     }
 }

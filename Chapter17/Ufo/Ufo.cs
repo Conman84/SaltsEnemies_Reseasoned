@@ -97,6 +97,7 @@ namespace SaltsEnemies_Reseasoned
                 wheeling.GenerateEnemyAbility(true)
             });
             ufo.AddEnemy(true, true);
+            ufo.enemy.AddToSynodPool();
         }
     }
 }

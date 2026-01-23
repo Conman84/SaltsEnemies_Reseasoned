@@ -141,6 +141,7 @@ namespace SaltsEnemies_Reseasoned
                 flip.GenerateEnemyAbility(false)
             });
             train.AddEnemy(true, true);
+            train.enemy.AddToSynodPool();
         }
     }
 }

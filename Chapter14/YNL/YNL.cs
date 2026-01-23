@@ -149,6 +149,7 @@ namespace SaltsEnemies_Reseasoned
                 Replace.GenerateEnemyAbility(true)
             });
             lobotomy.AddEnemy(true, true);
+            lobotomy.enemy.AddToSynodPool();
         }
     }
 }

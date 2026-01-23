@@ -95,6 +95,7 @@ namespace SaltsEnemies_Reseasoned
                 sweepers.GenerateEnemyAbility(true)
             });
             grey.AddEnemy(true, true);
+            grey.enemy.AddToSynodPool();
         }
     }
 }

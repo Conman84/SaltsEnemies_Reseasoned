@@ -33,6 +33,7 @@ namespace SaltsEnemies_Reseasoned
                 IllusionHandler.SwapSupport.GenerateEnemyAbility(false)
             });
             illusion.AddEnemy(true, true);
+            illusion.enemy.AddToSynodPool();
         }
     }
 }

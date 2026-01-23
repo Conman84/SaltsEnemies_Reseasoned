@@ -105,6 +105,7 @@ namespace SaltsEnemies_Reseasoned
                 suicide.GenerateEnemyAbility(true)
             });
             author.AddEnemy(true, true);
+            author.enemy.AddToSynodPool();
         }
     }
 }

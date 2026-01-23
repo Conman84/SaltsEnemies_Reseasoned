@@ -64,6 +64,7 @@ namespace SaltsEnemies_Reseasoned
                 hurter.GenerateEnemyAbility(true)
             });
             eater.SilentAddEnemy(true, true);
+            eater.enemy.AddToSynodPool();
         }
     }
 }

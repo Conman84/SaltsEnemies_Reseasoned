@@ -262,6 +262,7 @@ namespace SaltsEnemies_Reseasoned
                 snort.GenerateEnemyAbility(true)
             });
             dargon.AddEnemy(true, true);
+            dargon.enemy.AddToSynodPool();
         }
     }
 }

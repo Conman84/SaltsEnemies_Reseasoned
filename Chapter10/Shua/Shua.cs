@@ -128,6 +128,7 @@ namespace SaltsEnemies_Reseasoned
                 waver.GenerateEnemyAbility(true)
             });
             shua.AddEnemy(true, true);
+            shua.enemy.AddToSynodPool();
         }
     }
 }

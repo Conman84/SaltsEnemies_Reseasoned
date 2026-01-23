@@ -142,6 +142,7 @@ namespace SaltsEnemies_Reseasoned
                 salivate.GenerateEnemyAbility(true)
             });
             maw.AddEnemy(true, true);
+            maw.enemy.AddToSynodPool();
         }
     }
 }

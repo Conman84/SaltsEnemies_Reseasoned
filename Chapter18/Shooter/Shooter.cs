@@ -109,6 +109,7 @@ namespace SaltsEnemies_Reseasoned
                 bash
             });
             skeleton.AddEnemy(true, true);
+            skeleton.enemy.AddToSynodPool();
         }
     }
 }

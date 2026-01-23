@@ -105,6 +105,7 @@ namespace SaltsEnemies_Reseasoned
                 murder.GenerateEnemyAbility(true)
             });
             pawn.AddEnemy(true, true);
+            pawn.enemy.AddToSynodPool();
         }
     }
 }

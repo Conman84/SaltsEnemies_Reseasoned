@@ -97,6 +97,7 @@ namespace SaltsEnemies_Reseasoned
                 track.GenerateEnemyAbility(true)
             });
             hunting.AddEnemy(true, true);
+            hunting.enemy.AddToSynodPool();
         }
     }
 }

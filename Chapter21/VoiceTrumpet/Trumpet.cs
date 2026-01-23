@@ -76,7 +76,8 @@ namespace SaltEnemies_Reseasoned
                 third.GenerateEnemyAbility(true),
                 seventh.GenerateEnemyAbility(true)
             });
-            trumpet.AddEnemy(true, true);
+            trumpet.AddEnemy(true);
+            trumpet.enemy.AddToSynodPool();
         }
     }
 }

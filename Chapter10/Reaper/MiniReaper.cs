@@ -78,6 +78,7 @@ namespace SaltsEnemies_Reseasoned
                 rightKill.GenerateEnemyAbility(true)
             });
             template.AddEnemy(true, true);
+            template.enemy.AddToSynodPool();
         }
     }
 }

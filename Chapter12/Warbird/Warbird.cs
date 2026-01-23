@@ -80,6 +80,7 @@ namespace SaltsEnemies_Reseasoned
                 screech.GenerateEnemyAbility(true)
             });
             scarecrow.AddEnemy(true, true);
+            scarecrow.enemy.AddToSynodPool();
         }
     }
 }

@@ -113,6 +113,7 @@ namespace SaltsEnemies_Reseasoned
                 cracking.GenerateEnemyAbility(true),
             });
             clock.AddEnemy(true, true);
+            clock.enemy.AddToSynodPool();
         }
     }
 }

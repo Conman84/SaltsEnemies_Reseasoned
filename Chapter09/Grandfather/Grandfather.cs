@@ -96,6 +96,7 @@ namespace SaltsEnemies_Reseasoned
                 writhe.GenerateEnemyAbility(true)
             });
             coffin.AddEnemy(true, true);
+            coffin.enemy.AddToSynodPool();
         }
     }
 }

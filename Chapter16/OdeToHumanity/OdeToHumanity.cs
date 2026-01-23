@@ -133,6 +133,7 @@ namespace SaltsEnemies_Reseasoned
                 yourvoice.GenerateEnemyAbility(true),
             });
             vase.AddEnemy(true, true);
+            vase.enemy.AddToSynodPool();
         }
     }
 }

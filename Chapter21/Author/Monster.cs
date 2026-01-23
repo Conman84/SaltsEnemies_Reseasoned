@@ -104,6 +104,7 @@ namespace SaltsEnemies_Reseasoned
                 stereo.GenerateEnemyAbility(true)
             });
             monster.AddEnemy(true, true);
+            monster.enemy.AddToSynodPool();
         }
     }
 }

@@ -99,6 +99,7 @@ namespace SaltsEnemies_Reseasoned
                 tail.GenerateEnemyAbility(true)
             });
             cliome.AddEnemy(true, true);
+            cliome.enemy.AddToSynodPool();
         }
     }
 }

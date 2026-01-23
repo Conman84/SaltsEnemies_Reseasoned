@@ -102,6 +102,7 @@ namespace SaltsEnemies_Reseasoned
                 dieu.GenerateEnemyAbility(true),
             });
             greyFlower.AddEnemy(true, true);
+            greyFlower.enemy.AddToSynodPool();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("AmalgaDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
-                UnitTypes = ["Fish", "Bird", "Female_ID"]
+                UnitTypes = ["Fish", "Bird", "Female_ID", "Alien"]
             };
 
             amalga.PrepareMultiEnemyPrefab("Assets/Amalga/Amalga_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Amalga/Amalga_Gibs.prefab").GetComponent<ParticleSystem>());
@@ -151,7 +151,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("AmalgaDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
-                UnitTypes = ["Fish", "Bird", "Female_ID"]
+                UnitTypes = ["Fish", "Bird", "Female_ID", "Alien"]
             };
             amalga.PrepareMultiEnemyPrefab("Assets/Amalga/Amalga_Alt_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Amalga/Amalga_Gibs.prefab").GetComponent<ParticleSystem>());
             (amalga.enemy.enemyTemplate as MultiSpriteEnemyLayout).OtherRenderers = new SpriteRenderer[]
@@ -260,6 +260,7 @@ namespace SaltsEnemies_Reseasoned
                 flail
             });
             amalga.AddEnemy(true, true);
+            amalga.enemy.AddToSynodPool();
         }
         public static void Add_Fake()
         {

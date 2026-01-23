@@ -283,6 +283,11 @@ namespace SaltsEnemies_Reseasoned
                 lieu.GenerateEnemyAbility(true),
             });
             purpleflower.AddEnemy(true, true);
+
+            redflower.enemy.AddToSynodPool();
+            blueflower.enemy.AddToSynodPool();
+            yellowflower.enemy.AddToSynodPool();
+            purpleflower.enemy.AddToSynodPool();
         }
     }
 }

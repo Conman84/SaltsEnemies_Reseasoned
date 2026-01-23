@@ -129,6 +129,7 @@ namespace SaltsEnemies_Reseasoned
                 disembowel.GenerateEnemyAbility(true)
             });
             tortoise.AddEnemy(true, true);
+            tortoise.enemy.AddToSynodPool();
         }
     }
 }

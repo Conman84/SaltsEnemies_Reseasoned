@@ -105,6 +105,7 @@ namespace SaltsEnemies_Reseasoned
                 pain.GenerateEnemyAbility(true)
             });
             dog.AddEnemy(true, true);
+            dog.enemy.AddToSynodPool();
         }
     }
 }

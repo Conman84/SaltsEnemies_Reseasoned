@@ -89,6 +89,7 @@ namespace SaltsEnemies_Reseasoned
                 flare.GenerateEnemyAbility(true)
             });
             star.AddEnemy(true, true);
+            star.enemy.AddToSynodPool();
         }
     }
 }

@@ -42,6 +42,7 @@ namespace SaltEnemies_Reseasoned
                 crush
             });
             wall1.AddEnemy(true, true);
+            wall1.enemy.AddToSynodPool();
 
             Enemy wall2 = new Enemy("Wall", "Wall_2_EN")
             {

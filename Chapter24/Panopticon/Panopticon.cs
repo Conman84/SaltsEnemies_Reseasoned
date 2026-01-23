@@ -121,6 +121,7 @@ namespace SaltsEnemies_Reseasoned
                 right.GenerateEnemyAbility(true)
             });
             panopticon.SilentAddEnemy(true, true);
+            panopticon.enemy.AddToSynodPool();
         }
     }
 }

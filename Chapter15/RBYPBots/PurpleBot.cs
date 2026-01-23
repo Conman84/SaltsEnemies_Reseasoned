@@ -51,6 +51,7 @@ namespace SaltsEnemies_Reseasoned
                 test.GenerateEnemyAbility(true),
             });
             purple.AddEnemy(true, true);
+            purple.enemy.AddToSynodPool();
         }
     }
 }

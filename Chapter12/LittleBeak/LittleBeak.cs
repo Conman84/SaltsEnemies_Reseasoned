@@ -117,6 +117,7 @@ namespace SaltsEnemies_Reseasoned
                 scratch.GenerateEnemyAbility(true)
             });
             beak.AddEnemy(true, true);
+            beak.enemy.AddToSynodPool();
         }
     }
 }

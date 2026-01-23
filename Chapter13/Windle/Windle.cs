@@ -60,6 +60,7 @@ namespace SaltsEnemies_Reseasoned
                 _windle1.GenerateEnemyAbility(true)
             });
             windle.AddEnemy(true, true, true);
+            windle.enemy.AddToSynodPool();
 
             WindleCharacter.Add();
         }

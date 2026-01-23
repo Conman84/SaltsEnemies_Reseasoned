@@ -124,6 +124,7 @@ namespace SaltsEnemies_Reseasoned
                 death.GenerateEnemyAbility(true)
             });
             firebird.AddEnemy(true);
+            firebird.enemy.AddToSynodPool();
         }
     }
 }

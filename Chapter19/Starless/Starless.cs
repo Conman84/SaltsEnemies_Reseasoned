@@ -138,6 +138,7 @@ namespace SaltsEnemies_Reseasoned
                 apathy.GenerateEnemyAbility(true)
             });
             starless.AddEnemy(true, true);
+            starless.enemy.AddToSynodPool();
         }
     }
 }

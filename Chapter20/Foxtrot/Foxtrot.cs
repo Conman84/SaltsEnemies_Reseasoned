@@ -119,6 +119,7 @@ namespace SaltsEnemies_Reseasoned
                 bomb.GenerateEnemyAbility(true)
             });
             foxtrot.AddEnemy(true, true);
+            foxtrot.enemy.AddToSynodPool();
         }
     }
 }

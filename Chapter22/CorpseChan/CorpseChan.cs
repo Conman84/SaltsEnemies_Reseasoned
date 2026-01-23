@@ -101,6 +101,7 @@ namespace SaltsEnemies_Reseasoned
                 er.GenerateEnemyAbility(true),
             });
             corpse.SilentAddEnemy(true, true);
+            corpse.enemy.AddToSynodPool();
         }
     }
 }

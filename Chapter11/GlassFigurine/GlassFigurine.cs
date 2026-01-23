@@ -102,6 +102,7 @@ namespace SaltsEnemies_Reseasoned
                 pain.GenerateEnemyAbility(true)
             });
             glass.AddEnemy(true, true);
+            glass.enemy.AddToSynodPool();
         }
     }
 }

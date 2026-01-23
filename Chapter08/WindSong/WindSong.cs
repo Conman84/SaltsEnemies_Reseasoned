@@ -101,6 +101,7 @@ namespace SaltsEnemies_Reseasoned
                 finale.GenerateEnemyAbility(true)
             });
             windsong.AddEnemy(true, true);
+            windsong.enemy.AddToSynodPool();
         }
     }
 }

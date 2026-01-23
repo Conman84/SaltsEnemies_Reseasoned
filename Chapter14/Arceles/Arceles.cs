@@ -107,6 +107,7 @@ namespace SaltsEnemies_Reseasoned
                 rush.GenerateEnemyAbility(true)
             });
             boat.AddEnemy(true, true);
+            boat.enemy.AddToSynodPool();
         }
     }
 }

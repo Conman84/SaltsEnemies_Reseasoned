@@ -48,6 +48,7 @@ namespace SaltsEnemies_Reseasoned
                 descent.GenerateEnemyAbility(true),
             });
             whale.SilentAddEnemy(true, true);
+            whale.enemy.AddToSynodPool();
         }
     }
 }

@@ -95,6 +95,7 @@ namespace SaltsEnemies_Reseasoned
                 hell.GenerateEnemyAbility(true),
             });
             devil.AddEnemy(true, true);
+            devil.enemy.AddToSynodPool();
         }
     }
 }

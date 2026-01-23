@@ -104,6 +104,7 @@ namespace SaltEnemies_Reseasoned
                 special.GenerateEnemyAbility(true)
             });
             clown.AddEnemy(true, true);
+            clown.enemy.AddToSynodPool();
         }
     }
 }

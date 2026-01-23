@@ -103,6 +103,7 @@ namespace SaltsEnemies_Reseasoned
                 taylor.GenerateEnemyAbility(true)
             });
             lunoscope.SilentAddEnemy(true, true);
+            lunoscope.enemy.AddToSynodPool();
         }
     }
 }

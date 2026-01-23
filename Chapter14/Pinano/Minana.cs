@@ -70,6 +70,7 @@ namespace SaltsEnemies_Reseasoned
                 burp.GenerateEnemyAbility()
             });
             minana.AddEnemy(true, true, true);
+            minana.enemy.AddToSynodPool();
         }
     }
 }

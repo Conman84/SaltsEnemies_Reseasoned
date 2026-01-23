@@ -182,6 +182,7 @@ namespace SaltsEnemies_Reseasoned
                 dreamers.GenerateEnemyAbility(true),
             });
             tv.AddEnemy(true, true);
+            tv.enemy.AddToSynodPool();
 
             child.AddEnemyAbilities(new EnemyAbilityInfo[]
             {

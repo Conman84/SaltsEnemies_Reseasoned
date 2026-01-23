@@ -109,6 +109,7 @@ namespace SaltsEnemies_Reseasoned
                 reflect.GenerateEnemyAbility(true)
             });
             glass.AddEnemy(true, true);
+            glass.enemy.AddToSynodPool();
         }
     }
 }

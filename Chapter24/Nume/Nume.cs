@@ -88,6 +88,7 @@ namespace SaltsEnemies_Reseasoned
                 murcury.GenerateEnemyAbility(true)
             });
             nume.SilentAddEnemy(true, true);
+            nume.enemy.AddToSynodPool();
         }
     }
 }

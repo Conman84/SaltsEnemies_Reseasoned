@@ -80,6 +80,7 @@ namespace SaltsEnemies_Reseasoned
                 bander.GenerateEnemyAbility(true)
             });
             jabber.SilentAddEnemy(true, true);
+            jabber.enemy.AddToSynodPool();
         }
     }
 }

@@ -139,6 +139,7 @@ namespace SaltsEnemies_Reseasoned
             //ADD ENEMY
             template.AddEnemyAbilities(abilities);
             template.AddEnemy(true, true);
+            template.enemy.AddToSynodPool();
         }
     }
 }

@@ -185,6 +185,7 @@ namespace SaltsEnemies_Reseasoned
                 delta.GenerateEnemyAbility(true)
             });
             insider.SilentAddEnemy(true, true);
+            insider.enemy.AddToSynodPool();
         }
     }
 }

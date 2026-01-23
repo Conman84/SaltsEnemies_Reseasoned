@@ -108,6 +108,7 @@ namespace SaltsEnemies_Reseasoned
                 despair.GenerateEnemyAbility(true),
             });
             eyeless.AddEnemy(true, true);
+            eyeless.enemy.AddToSynodPool();
         }
     }
 }

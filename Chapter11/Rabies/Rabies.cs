@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -36,6 +37,7 @@ namespace SaltsEnemies_Reseasoned
                 chomp
             });
             template.AddEnemy(true, true);
+            template.enemy.AddToSynodPool();
         }
     }
 }

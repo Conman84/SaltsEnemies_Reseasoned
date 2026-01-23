@@ -68,6 +68,7 @@ namespace SaltsEnemies_Reseasoned
             EnemySO clone = UnityEngine.Object.Instantiate(LoadedAssetsHandler.GetEnemy("Stalker2_EN"));
             clone.passiveAbilities = [flee, Passives.Anchored, Passives.Inanimate];
             EnemyUtils.AddEnemyToHealthSpawnPool(clone, PoolList_GameIDs.Sepulchre);
+            clone.AddToSynodPool();
         }
     }
 }

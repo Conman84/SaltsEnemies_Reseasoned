@@ -164,6 +164,7 @@ namespace SaltsEnemies_Reseasoned
                 eyeFive.GenerateEnemyAbility(true)
             });
             evileye.AddEnemy(true, true);
+            evileye.enemy.AddToSynodPool();
         }
     }
 }

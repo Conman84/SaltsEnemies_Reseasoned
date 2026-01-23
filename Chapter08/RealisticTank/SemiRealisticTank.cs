@@ -114,6 +114,7 @@ namespace SaltsEnemies_Reseasoned
                 coarse.GenerateEnemyAbility(true),
             });
             template.AddEnemy(true, true);
+            template.enemy.AddToSynodPool();
         }
     }
 }

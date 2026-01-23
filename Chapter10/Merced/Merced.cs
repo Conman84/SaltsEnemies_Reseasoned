@@ -183,6 +183,7 @@ namespace SaltsEnemies_Reseasoned
                 _indexing.GenerateEnemyAbility(true),
             });
             merced.AddEnemy(true);
+            merced.enemy.AddToSynodPool();
         }
     }
 }
