@@ -122,6 +122,7 @@ namespace SaltsEnemies_Reseasoned
                 "Github Skeletor",
                 "Singing My Lalala Songs",
                 "\"Ok\" - Ok",
+                "Enem"
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside),
