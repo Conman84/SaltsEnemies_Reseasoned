@@ -37,6 +37,11 @@ namespace SaltsEnemies_Reseasoned
                 public static string Med => "H_Zone03_GigglingMinister_Medium_EnemyBundle";
                 public static string Hard => "H_Zone03_GigglingMinister_Hard_EnemyBundle";
             }
+            public static class Foundling
+            {
+                public static string Med => "H_Zone03_ProdigalFoundling_Medium_EnemyBundle";
+                public static string Hard => "H_Zone03_ProdigalFoundling_Hard_EnemyBundle";
+            }
             public static class Sepulchre
             {
                 public static string Hard => "H_Zone03_Sepulchre_Hard_EnemyBundle";

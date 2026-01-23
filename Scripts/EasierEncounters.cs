@@ -197,5 +197,6 @@ namespace SaltsEnemies_Reseasoned
         public static string Polyp => "SpectralPolyp_EN";
         public static string Puker => "PetrifiedPuker_EN";
         public static string Phalaris => "GreatPhalaris_EN";
+        public static string Foundling => "ProdigalFoundling_EN";
     }
 }
