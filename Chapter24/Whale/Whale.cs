@@ -21,6 +21,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("WhaleDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("TheDeep_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("TheDeep_EN").deathSound,
+                UnitTypes = ["Fish"]
             };
             whale.PrepareEnemyPrefab("Assets/wip5/Whale_Wip_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/wip5/Whale_Wip_Gibs.prefab").GetComponent<ParticleSystem>());
             Collisionless = SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/wip5/Whale_Far_Wip_Gibs.prefab").GetComponent<ParticleSystem>();
