@@ -27,5 +27,12 @@ namespace SaltEnemies_Reseasoned
                 EnemyUtils.AddEnemyToSpawnPool(self.enemy, PoolList_GameIDs.SmallEnemy);
             }
         }
+        public static void AddToSynodPool(this EnemySO self)
+        {
+            EnemySO synod = LoadedAssetsHandler.GetEnemy(Enemies.Synod);
+            AbilitySO abil = synod.abilities[0].ability;
+            SpawnRandomEnemyAnywhereEffect spawn = abil.effects[0].effect as SpawnRandomEnemyAnywhereEffect;
+            spawn._enemies.Add(self);
+        }
     }
 }
