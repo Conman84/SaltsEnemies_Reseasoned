@@ -348,7 +348,7 @@ namespace SaltEnemies_Reseasoned
             }
             else
             {
-                if (SaltsReseasoned.Testing) Debug.Log("what is going on...");
+                //if (SaltsReseasoned.Testing) Debug.Log("what is going on...");
                 IDetour diologo = new Hook(method, typeof(NewDialogueFunctions).GetMethod(nameof(NewDialogueFunctions.InitializeDialogueFunctionsNEW), ~BindingFlags.Default));
             }
 

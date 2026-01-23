@@ -136,14 +136,11 @@ namespace SaltEnemies_Reseasoned
             PCall(WolfEncounters.Post);
             PCall(StalkerEncounters.Post);
 
-            if (Testing)
-            {
-                PCall(LunoscopeEncounters.Post);
-                PCall(PanopticonEncounters.Post);
-                PCall(NumeEncounters.Post);
-                PCall(PapereaterEncounters.Post);
-                PCall(WhaleEncounters.Post);
-            }
+            PCall(LunoscopeEncounters.Post);
+            PCall(PanopticonEncounters.Post);
+            PCall(NumeEncounters.Post);
+            PCall(PapereaterEncounters.Post);
+            PCall(WhaleEncounters.Post);
 
             //Crossovers
 
