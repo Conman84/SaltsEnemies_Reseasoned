@@ -223,7 +223,7 @@ namespace SaltsEnemies_Reseasoned
                 if (pos.z >= 4f)
                 {
                     float dif = pos.z - 4f;
-                    if (pos.y > -0.5f - dif/5) continue;
+                    if (pos.y > -1.2f - dif/5) continue;
 
                     //Debug.Log(pos);
                     particles[i].remainingLifetime = 0;
@@ -238,9 +238,12 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Perform()
         {
+            //return;
             CombatEnvironmentHandler room = LoadedAssetsHandler.TryGetCombatEnvironmentPrefab(LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_02").CombatEnvironment);
             Vector3 pos = room.transform.Find("Cube").localPosition;
-            pos.y += 0.7f;
+            pos.z = -2f;
+            pos.y = -0.5f;
+            //pos.z += 1f;
             room.transform.Find("Cube").localPosition = pos;
         }
         public static void Test()
