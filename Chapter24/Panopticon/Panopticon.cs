@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy panopticon = new Enemy("Panopticon", "Panopticon_EN")
             {
-                Health = 36,
+                Health = 34,
                 HealthColor = Pigments.Yellow,
                 CombatSprite = ResourceLoader.LoadSprite("PanopticonIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("PanopticonWorld.png", new Vector2(0.5f, 0f), 32),

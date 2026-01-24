@@ -270,7 +270,6 @@ namespace SaltsEnemies_Reseasoned
             public static class Ecstasy99
             {
                 public static string Med => "H_Zone03_ECSTASY99_Medium_EnemyBundle";
-                public static string Hard => "H_Zone03_ECSTASY99_Hard_EnemyBundle";
             }
 
             //marmo

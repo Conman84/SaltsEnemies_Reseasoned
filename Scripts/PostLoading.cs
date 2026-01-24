@@ -141,6 +141,7 @@ namespace SaltEnemies_Reseasoned
             PCall(NumeEncounters.Post);
             PCall(PapereaterEncounters.Post);
             PCall(WhaleEncounters.Post);
+            PCall(Ecstasy99Encounters.Post);
 
             //basegame
             PCall(FoundlingEncounters.Post);

@@ -453,6 +453,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(NumeEncounters.Add);
             PCall(PapereaterEncounters.Add);
             PCall(WhaleEncounters.Add);
+            PCall(Ecstasy99Encounters.Add);
 
             //BOSSES
             //shore
