@@ -15,7 +15,7 @@ using static UnityEngine.UI.CanvasScaler;
 
 namespace SaltsEnemies_Reseasoned
 {
-    public class TransformerEnemyHandler
+    public static class TransformerEnemyHandler
     {
         public static Sprite Wish;
         public static void Setup()
@@ -123,7 +123,7 @@ namespace SaltsEnemies_Reseasoned
                 self.TryUpdateEnemyIDInformation(newEnemInfo.ID);
             }
         }
-        public static void EnemyCombat_FinalizationEnd(Action<EnemyCombat, bool> orig, EnemyCombat self, bool disconnectPassives = false)
+        public static void EnemyCombat_FinalizationEnd(Action<EnemyCombat, bool> orig, EnemyCombat self, bool disconnectPassives)
         {
             if (self.TryGetStoredData(Ecstasy.Gray, out UnitStoreDataHolder holder, false) && holder.m_MainData > 0 && holder.m_ObjectData is EnemySO enem)
             {
@@ -137,7 +137,7 @@ namespace SaltsEnemies_Reseasoned
 
             orig(self, disconnectPassives);
         }
-        public void EnemyCombat_InitializationEnd(Action<EnemyCombat> orig, EnemyCombat self)
+        public static void EnemyCombat_InitializationEnd(Action<EnemyCombat> orig, EnemyCombat self)
         {
             if (self.TryGetStoredData(Ecstasy.Gray, out UnitStoreDataHolder holder, false) && holder.m_MainData > 0 && holder.m_ObjectData is EnemySO enem)
             {
@@ -173,7 +173,20 @@ namespace SaltsEnemies_Reseasoned
                     newpos.y = image.pivot.y < 1 ? 2.06f : 2.56f;
                     //if (image.pivot.y != 0f & image.pivot.y != 0.5f) Debug.Log("sprite pivot Y " + image.pivot.y);
 
+                    Vector3 newscale = CombatManager.Instance._combatUI._enemyZone._enemies[value.FieldID].FieldEntity.m_Data.m_Locator.transform.Find("Sprite").Find("Icon").localScale;
+                    if (image.pivot.y > 32)
+                    {
+                        newscale.x = 0.6f;
+                        newscale.y = 0.6f;
+                    }
+                    else
+                    {
+                        newscale.x = 1f;
+                        newscale.y = 1f;
+                    }
+
                     CombatManager.Instance._combatUI._enemyZone._enemies[value.FieldID].FieldEntity.m_Data.m_Locator.transform.Find("Sprite").Find("Icon").position = newpos;
+                    CombatManager.Instance._combatUI._enemyZone._enemies[value.FieldID].FieldEntity.m_Data.m_Locator.transform.Find("Sprite").Find("Icon").localScale = newscale;
                 }
             }
         }
@@ -237,10 +250,12 @@ namespace SaltsEnemies_Reseasoned
                 ret = LoadedAssetsHandler.LoadedEnemies.Values.ToArray().GetRandom();
             }
 
+            if (ret == null || ret.Equals(null)) return GetRandomEnemy(exclude, attempts + 1);
+
             if (exclude == null) return ret;
 
             if (attempts > 10) Debug.LogWarning("ecstasy99 what are you doing????");
-            if (ret.name == exclude.name && attempts < 999) return GetRandomEnemy(exclude, attempts + 1);
+            if ((ret.name == exclude.name || ret == exclude) && attempts < 999) return GetRandomEnemy(exclude, attempts + 1);
 
             return ret;
         }
@@ -259,8 +274,9 @@ namespace SaltsEnemies_Reseasoned
             {
                 exclude = enemyself.Enemy;
             }
+            //Debug.Log("transforming; exclude isnt null: " + (exclude != null).ToString());
 
-                _enemyTransformation = GetRandomEnemy(exclude);
+            _enemyTransformation = GetRandomEnemy(exclude);
             return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
         }
     }
