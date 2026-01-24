@@ -289,6 +289,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(Nume.Add);
             PCall(Papereater.Add);
             PCall(Whale.Add);
+            PCall(Ecstasy99.Add);
 
             //BOSSES
             //shore

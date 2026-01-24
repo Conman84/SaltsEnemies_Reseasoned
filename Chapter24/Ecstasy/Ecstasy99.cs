@@ -22,6 +22,8 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = LoadedAssetsHandler.GetEnemy(Ecstasy.Yellow).deathSound,
             };
             ecstasy.PrepareEnemyPrefab("Assets/enem5/Ecstasy_Gray_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/enem5/Ecstasy_Gray_Gibs.prefab").GetComponent<ParticleSystem>());
+            ecstasy.enemy.enemyTemplate.m_Data.m_Renderer = ecstasy.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").GetChild(1).GetComponent<SpriteRenderer>();
+
             PerformEffectPassiveAbility overdose = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             overdose.name = "MissDose_PA";
             overdose._passiveName = "Miss-Dose";
@@ -42,12 +44,34 @@ namespace SaltsEnemies_Reseasoned
 
             ecstasy.AddPassives(new BasePassiveAbilitySO[] { overdose });
 
-            Ability test = new Ability("Test_A");
+            Ability bless = new Ability("1000 Blessings", "1000Blessings_A");
+            bless.Description = "Invert the health of all party members.";
+            bless.Rarity = Rarity.GetCustomRarity("rarity5");
+            bless.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<InvertTargetHealthEffect>(), 0, Targeting.Unit_AllOpponents)];
+            bless.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Other_MaxHealth_Alt.ToString()]);
+            bless.Visuals = Visuals.Providence;
+            bless.AnimationTarget = Targeting.Unit_AllOpponents;
+
+            AnimationVisualsEffect hit = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
+            hit._animationTarget = Slots.FrontLeftRight;
+            hit._visuals = Visuals.Scales;
+
+            Ability pray = new Ability("1000 Prayers", "1000Prayers_A");
+            pray.Description = "Revive as many party members as possible at 1 health.\nDeal an Impossible amount of damage to the Left, Right, and Opposing party members.";
+            pray.Rarity = Rarity.GetCustomRarity("rarity5");
+            pray.Effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ResurrectEffect>(), 1, Targetting.Everything(false)),
+                Effects.GenerateEffect(hit, 0, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 1000, Slots.FrontLeftRight),
+                ];
+            pray.AddIntentsToTarget(Targetting.Everything(false), [IntentType_GameIDs.Other_Resurrect.ToString()]);
+            pray.AddIntentsToTarget(Slots.FrontLeftRight, ["Damage_Death"]);
 
             //ADD ENEMY
             ecstasy.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                test.GenerateEnemyAbility(true),
+                bless.GenerateEnemyAbility(true),
+                pray.GenerateEnemyAbility(true),
             });
             ecstasy.SilentAddEnemy(true, true);
             ecstasy.enemy.AddToSynodPool();

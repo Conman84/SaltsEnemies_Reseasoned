@@ -22,6 +22,9 @@ namespace SaltsEnemies_Reseasoned
         {
             Wish = ResourceLoader.LoadSprite("WishIcon.png");
             IDetour hook1 = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.TransformEnemy), ~BindingFlags.Default), typeof(TransformerEnemyHandler).GetMethod(nameof(EnemyCombat_TransformEnemy), ~BindingFlags.Default));
+            IDetour hook2 = new Hook(typeof(CombatVisualizationController).GetMethod(nameof(CombatVisualizationController.TryTransformEnemy), ~BindingFlags.Default), typeof(TransformerEnemyHandler).GetMethod(nameof(CombatVisualizationController_TryTransformEnemy), ~BindingFlags.Default));
+            IDetour hook3 = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.FinalizationEnd), ~BindingFlags.Default), typeof(TransformerEnemyHandler).GetMethod(nameof(EnemyCombat_FinalizationEnd), ~BindingFlags.Default));
+            IDetour hook4 = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.InitializationEnd), ~BindingFlags.Default), typeof(TransformerEnemyHandler).GetMethod(nameof(EnemyCombat_InitializationEnd), ~BindingFlags.Default));
         }
         public static void EnemyCombat_TransformEnemy(Action<EnemyCombat, EnemySO, bool, bool, bool> orig, EnemyCombat self, EnemySO enemy, bool fullyHeal, bool maintainMaxHealth, bool currentToMaxHealth)
         {
@@ -31,8 +34,15 @@ namespace SaltsEnemies_Reseasoned
                 return;
             }
 
-
             self.FinalizationEnd();
+
+
+            self.SimpleSetStoredValue(Ecstasy.Gray, 1);
+            if (self.TryGetStoredData(Ecstasy.Gray, out UnitStoreDataHolder holder, false))
+            {
+                holder.m_ObjectData = enemy;
+            }
+
             //self.Enemy = enemy;
             //self.Name = self.Enemy.GetName();
             //self.UnitTurnSprite = self.Enemy.enemySprite;
@@ -99,7 +109,47 @@ namespace SaltsEnemies_Reseasoned
                 }
             }
         }
+        public static void CombatVisualizationController_TryTransformEnemy(Action<CombatVisualizationController, EnemyCombat, ManaColorSO, int, int> orig, CombatVisualizationController self, EnemyCombat newEnemInfo, ManaColorSO newHealthColor, int newCurrentHealth, int newMaxHealth)
+        {
+            if (newEnemInfo.SimpleGetStoredValue(Ecstasy.Gray) <= 0)
+            {
+                orig(self, newEnemInfo, newHealthColor, newCurrentHealth, newMaxHealth);
+                return;
+            }
+            if (self._enemiesInCombat.TryGetValue(newEnemInfo.ID, out var value))
+            {
+                value.Transform(newEnemInfo, newHealthColor, newCurrentHealth, newMaxHealth);
+                self._enemyZone._enemies[value.FieldID].UpdateHealthLayout(value.HealthColor, value.CurrentHealth, value.MaxHealth, value.HealthBarSpriteType);
+                self.TryUpdateEnemyIDInformation(newEnemInfo.ID);
+            }
+        }
+        public static void EnemyCombat_FinalizationEnd(Action<EnemyCombat, bool> orig, EnemyCombat self, bool disconnectPassives = false)
+        {
+            if (self.TryGetStoredData(Ecstasy.Gray, out UnitStoreDataHolder holder, false) && holder.m_MainData > 0 && holder.m_ObjectData is EnemySO enem)
+            {
+                self.RemoveAndDisconnectAllPassiveAbilities(disconnectPassives);
+                if (enem.exitEffects != null)
+                {
+                    CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(enem.exitEffects, self));
+                }
+                return;
+            }
 
+            orig(self, disconnectPassives);
+        }
+        public void EnemyCombat_InitializationEnd(Action<EnemyCombat> orig, EnemyCombat self)
+        {
+            if (self.TryGetStoredData(Ecstasy.Gray, out UnitStoreDataHolder holder, false) && holder.m_MainData > 0 && holder.m_ObjectData is EnemySO enem)
+            {
+                if (enem.enterEffects != null)
+                {
+                    CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(enem.enterEffects, self));
+                }
+                return;
+            }
+
+            orig(self);
+        }
     }
     public class TransformerUIAction : CombatAction
     {
@@ -118,6 +168,12 @@ namespace SaltsEnemies_Reseasoned
                 if (CombatManager.Instance._combatUI._enemyZone._enemies.Length > value.FieldID)
                 {
                     CombatManager.Instance._combatUI._enemyZone._enemies[value.FieldID].FieldEntity.m_Data.m_Locator.transform.Find("Sprite").Find("Icon").GetComponent<SpriteRenderer>().sprite = image;
+
+                    Vector3 newpos = CombatManager.Instance._combatUI._enemyZone._enemies[value.FieldID].FieldEntity.m_Data.m_Locator.transform.Find("Sprite").Find("Icon").position;
+                    newpos.y = image.pivot.y < 1 ? 2.06f : 2.56f;
+                    //if (image.pivot.y != 0f & image.pivot.y != 0.5f) Debug.Log("sprite pivot Y " + image.pivot.y);
+
+                    CombatManager.Instance._combatUI._enemyZone._enemies[value.FieldID].FieldEntity.m_Data.m_Locator.transform.Find("Sprite").Find("Icon").position = newpos;
                 }
             }
         }
@@ -128,6 +184,7 @@ namespace SaltsEnemies_Reseasoned
                 if (target.Enemy.name == Ecstasy.Gray)
                 {
                     Sprite icon = enemy.enemySprite;
+
                     if (enemy.name == Ecstasy.Gray)
                     {
                         icon = TransformerEnemyHandler.Wish;
@@ -167,23 +224,43 @@ namespace SaltsEnemies_Reseasoned
     }
     public class TransformRandomEnemyEffect : CasterTransformationEffect
     {
-        public static EnemySO GetRandomEnemy()
+        public static EnemySO GetRandomEnemy(EnemySO exclude = null, int attempts = 0)
         {
+            EnemySO ret;
+
             if (LoadedDBsHandler.EnemyDB.TryGetEnemyPoolEffect(PoolList_GameIDs.Bronzo.ToString(), out SpawnRandomEnemyAnywhereEffect list))
             {
-                return list._enemies.GetRandom();
+                ret =  list._enemies.GetRandom();
             }
             else
             {
-                return LoadedAssetsHandler.LoadedEnemies.Values.ToArray().GetRandom();
+                ret = LoadedAssetsHandler.LoadedEnemies.Values.ToArray().GetRandom();
             }
+
+            if (exclude == null) return ret;
+
+            if (attempts > 10) Debug.LogWarning("ecstasy99 what are you doing????");
+            if (ret.name == exclude.name && attempts < 999) return GetRandomEnemy(exclude, attempts + 1);
+
+            return ret;
         }
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             _fullyHeal = false;
             _maintainMaxHealth = true;
             _maintainTimelineAbilities = false;
-            _enemyTransformation = GetRandomEnemy();
+
+            EnemySO exclude = null;
+            if (caster.TryGetStoredData(Ecstasy.Gray, out UnitStoreDataHolder holder, false) && holder.m_MainData > 0 && holder.m_ObjectData is EnemySO en)
+            {
+                exclude = en;
+            }
+            else if (caster is EnemyCombat enemyself)
+            {
+                exclude = enemyself.Enemy;
+            }
+
+                _enemyTransformation = GetRandomEnemy(exclude);
             return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
         }
     }
