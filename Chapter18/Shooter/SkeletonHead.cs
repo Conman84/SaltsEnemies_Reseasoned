@@ -29,6 +29,7 @@ namespace SaltsEnemies_Reseasoned
             SuicideGibs.transform.GetChild(4).gameObject.AddComponent<HeadGibsManager>().SetTargetSystem(SuicideGibs.transform.GetChild(4).GetComponent<ParticleSystem>());
             SuicideGibs.transform.GetChild(5).gameObject.AddComponent<HeadGibsManager>().SetTargetSystem(SuicideGibs.transform.GetChild(5).GetComponent<ParticleSystem>());
             SuicideGibs.transform.GetChild(6).gameObject.AddComponent<HeadGibsManager>().SetTargetSystem(SuicideGibs.transform.GetChild(6).GetComponent<ParticleSystem>());
+            SuicideGibs.transform.GetChild(7).gameObject.AddComponent<HeadGibsManager>().SetTargetSystem(SuicideGibs.transform.GetChild(7).GetComponent<ParticleSystem>());
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Forgetful, Passives.Enfeebled });
 
