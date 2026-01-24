@@ -220,10 +220,10 @@ namespace SaltsEnemies_Reseasoned
                 if (particles[i].remainingLifetime < particles[i].startLifetime / 2) continue;
 
                 Vector3 pos = _self.transform.TransformPoint(particles[i].position);
-                if (pos.z >= 6.5f)
+                if (pos.z >= 6f)
                 {
                     float dif = pos.z - 6f;
-                    if (pos.y > 0f - dif/5) continue;
+                    if (pos.y > -1f - dif/6) continue;
 
                     //Debug.Log(pos);
                     particles[i].remainingLifetime = 0;
