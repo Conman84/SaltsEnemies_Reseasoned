@@ -265,10 +265,14 @@ namespace SaltsEnemies_Reseasoned
             _maintainMaxHealth = true;
             _maintainTimelineAbilities = false;
 
+            int origSize = -1;
+            bool is_selfing = false;
+
             EnemySO exclude = null;
             if (caster.TryGetStoredData(Ecstasy.Gray, out UnitStoreDataHolder holder, false) && holder.m_MainData > 0 && holder.m_ObjectData is EnemySO en)
             {
                 exclude = en;
+                is_selfing = true;
             }
             else if (caster is EnemyCombat enemyself)
             {
@@ -277,7 +281,20 @@ namespace SaltsEnemies_Reseasoned
             //Debug.Log("transforming; exclude isnt null: " + (exclude != null).ToString());
 
             _enemyTransformation = GetRandomEnemy(exclude);
-            return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+            if (is_selfing)
+            {
+                origSize = _enemyTransformation.size;
+                _enemyTransformation.size = caster.Size;
+            }
+
+            bool ret = base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+
+            if (origSize > 0)
+            {
+                _enemyTransformation.size = origSize;
+            }
+
+            return ret;
         }
     }
     public class ShowMissDosePassiveEffect : EffectSO
