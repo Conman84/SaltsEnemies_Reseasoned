@@ -142,6 +142,9 @@ namespace SaltEnemies_Reseasoned
             PCall(PapereaterEncounters.Post);
             PCall(WhaleEncounters.Post);
 
+            //basegame
+            PCall(FoundlingEncounters.Post);
+
             //Crossovers
 
             //marmo
