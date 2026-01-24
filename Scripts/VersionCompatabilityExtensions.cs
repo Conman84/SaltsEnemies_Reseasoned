@@ -222,7 +222,7 @@ namespace SaltsEnemies_Reseasoned
         public static string[] Hardest = ["Postmodern_EN", "War_EN", "ClockTower_EN", Enemies.Tank, "Miriam_EN", "33_EN", "Author_EN", "Monster_EN", "Starless_EN", "Yang_EN", "Cruelties1_EN", "YNL_EN", "Firebird_EN"];
         public static string[] Expert = ["Damocles_EN", "GlassFigurine_EN", "Nameless_EN", "Children6_EN", "TheDragon_EN", "OdeToHumanity_EN", "EvilDog_EN", "PersonalAngel_EN", "Yin_EN", "Eyeless_EN", "Solitaire_EN", "Spades_EN", "WolfColony_EN", "WolfLarvae_EN", "Stalker2_EN", "ReverseFalseHydra_EN"];
         public static string[] Hidden = ["Hauntling_EN", "Insider_EN", "Jabberwocky_EN", "Nume_EN", "Papereater_EN", "TheWhale_EN"];
-        public static string[] Secret = ["CorpseChan_EN", "Untitled_EN", "InTheDark_EN", "Sundowner_EN", "Lunoscope_EN", "Panopticon_EN"];
+        public static string[] Secret = ["CorpseChan_EN", "Untitled_EN", "InTheDark_EN", "Sundowner_EN", "Lunoscope_EN", "Panopticon_EN", Ecstasy.Gray];
 
 
         public static string[] VersionCompatability = [Orph.H.Insider.Med, Garden.H.Insider.Med, Shore.H.Jabber.Med, Orph.H.Nume.Med, Shore.H.Papereater.Easy, Shore.H.Papereater.Med, Orph.H.Whale.Med];

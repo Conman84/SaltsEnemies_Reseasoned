@@ -5,10 +5,12 @@ using SaltEnemies_Reseasoned;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using static UnityEngine.EventSystems.EventTrigger;
 using static UnityEngine.UI.CanvasScaler;
 
 namespace SaltsEnemies_Reseasoned
@@ -68,9 +70,10 @@ namespace SaltsEnemies_Reseasoned
             }
 
             self.Priority = enemy.priority;
-            //self.DefaultPassiveAbilityInitialization();
+            self._passiveAbilities = [];
+            self.DefaultPassiveAbilityInitialization();
 
-            if (self.ExternalPassives != null)
+            /*if (self.ExternalPassives != null)
             {
                 foreach (BasePassiveAbilitySO externalPassife in self.ExternalPassives)
                 {
@@ -82,19 +85,17 @@ namespace SaltsEnemies_Reseasoned
                 }
 
                 return;
-            }
+            }*/
 
-            if (enemy.passiveAbilities == null)
+            if (enemy.passiveAbilities != null)
             {
-                return;
-            }
-
-            foreach (BasePassiveAbilitySO passiveAbility in enemy.passiveAbilities)
-            {
-                if (!self.ContainsPassiveAbility(passiveAbility.m_PassiveID))
+                foreach (BasePassiveAbilitySO passiveAbility in enemy.passiveAbilities)
                 {
-                    self.PassiveAbilities.Add(passiveAbility);
-                    passiveAbility.OnTriggerAttached(self);
+                    if (!self.ContainsPassiveAbility(passiveAbility.m_PassiveID))
+                    {
+                        self.PassiveAbilities.Add(passiveAbility);
+                        passiveAbility.OnTriggerAttached(self);
+                    }
                 }
             }
         }
@@ -162,6 +163,37 @@ namespace SaltsEnemies_Reseasoned
 
             exitAmount = list1.Count;
             return exitAmount > 0;
+        }
+    }
+    public class TransformRandomEnemyEffect : CasterTransformationEffect
+    {
+        public static EnemySO GetRandomEnemy()
+        {
+            if (LoadedDBsHandler.EnemyDB.TryGetEnemyPoolEffect(PoolList_GameIDs.Bronzo.ToString(), out SpawnRandomEnemyAnywhereEffect list))
+            {
+                return list._enemies.GetRandom();
+            }
+            else
+            {
+                return LoadedAssetsHandler.LoadedEnemies.Values.ToArray().GetRandom();
+            }
+        }
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            _fullyHeal = false;
+            _maintainMaxHealth = true;
+            _maintainTimelineAbilities = false;
+            _enemyTransformation = GetRandomEnemy();
+            return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+        }
+    }
+    public class ShowMissDosePassiveEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, caster.IsUnitCharacter, "Miss-Dose", ResourceLoader.LoadSprite("MissDosePassive.png")));
+            return true;
         }
     }
 }
