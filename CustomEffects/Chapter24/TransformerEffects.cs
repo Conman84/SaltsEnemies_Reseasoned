@@ -3,6 +3,7 @@ using HarmonyLib;
 using MonoMod.RuntimeDetour;
 using SaltEnemies_Reseasoned;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
@@ -14,8 +15,10 @@ namespace SaltsEnemies_Reseasoned
 {
     public class TransformerEnemyHandler
     {
+        public static Sprite Wish;
         public static void Setup()
         {
+            Wish = ResourceLoader.LoadSprite("WishIcon.png");
             IDetour hook1 = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.TransformEnemy), ~BindingFlags.Default), typeof(TransformerEnemyHandler).GetMethod(nameof(EnemyCombat_TransformEnemy), ~BindingFlags.Default));
         }
         public static void EnemyCombat_TransformEnemy(Action<EnemyCombat, EnemySO, bool, bool, bool> orig, EnemyCombat self, EnemySO enemy, bool fullyHeal, bool maintainMaxHealth, bool currentToMaxHealth)
@@ -31,6 +34,8 @@ namespace SaltsEnemies_Reseasoned
             //self.Enemy = enemy;
             //self.Name = self.Enemy.GetName();
             //self.UnitTurnSprite = self.Enemy.enemySprite;
+            CombatManager.Instance.AddUIAction(new TransformerUIAction(self, enemy));
+
             if (!maintainMaxHealth)
             {
                 self.MaximumHealth = enemy.health;
@@ -95,7 +100,45 @@ namespace SaltsEnemies_Reseasoned
         }
 
     }
-    
+    public class TransformerUIAction : CombatAction
+    {
+        public IUnit unit;
+        public EnemySO enemy;
+        public TransformerUIAction(IUnit unit, EnemySO enemy)
+        {
+            this.unit = unit;
+            this.enemy = enemy;
+        }
+        public static void Transform(IUnit unit, Sprite image)
+        {
+            if (unit.IsUnitCharacter) return;
+            if (CombatManager.Instance._combatUI._enemiesInCombat.TryGetValue(unit.ID, out var value))
+            {
+                if (CombatManager.Instance._combatUI._enemyZone._enemies.Length > value.FieldID)
+                {
+                    CombatManager.Instance._combatUI._enemyZone._enemies[value.FieldID].FieldEntity.m_Data.m_Locator.transform.Find("Sprite").Find("Icon").GetComponent<SpriteRenderer>().sprite = image;
+                }
+            }
+        }
+        public override IEnumerator Execute(CombatStats stats)
+        {
+            if (unit is EnemyCombat target)
+            {
+                if (target.Enemy.name == Ecstasy.Gray)
+                {
+                    Sprite icon = enemy.enemySprite;
+                    if (enemy.name == Ecstasy.Gray)
+                    {
+                        icon = TransformerEnemyHandler.Wish;
+                    }
+
+                    Transform(target, icon);
+                }
+            }
+            yield return null;
+        }
+    }
+
     public class GenerateNewEnemyTurnEffect : EffectSO
     {
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)

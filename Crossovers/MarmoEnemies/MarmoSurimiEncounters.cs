@@ -121,6 +121,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                     "MechanicalLens_EN",
                     "Surimi_EN",
+                    "Surimi_EN",
                     "Snaurce_EN",
                 }));
                 if (SaltsReseasoned.rando == 86)

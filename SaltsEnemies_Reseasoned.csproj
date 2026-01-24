@@ -550,6 +550,7 @@
 	  <None Remove="Chapter23\WolfColony\WolfDead.png" />
 	  <None Remove="Chapter23\WolfColony\WolfIcon.png" />
 	  <None Remove="Chapter23\WolfColony\WolfWorld.png" />
+	  <None Remove="Chapter24\Ecstasy\WishIcon.png" />
 	  <None Remove="Chapter24\Lunoscope\LunoscopeDead.png" />
 	  <None Remove="Chapter24\Lunoscope\LunoscopeIcon.png" />
 	  <None Remove="Chapter24\Lunoscope\LunoscopePortal.png" />
@@ -1529,6 +1530,7 @@
 	  <EmbeddedResource Include="Chapter23\WolfColony\WolfDead.png" />
 	  <EmbeddedResource Include="Chapter23\WolfColony\WolfIcon.png" />
 	  <EmbeddedResource Include="Chapter23\WolfColony\WolfWorld.png" />
+	  <EmbeddedResource Include="Chapter24\Ecstasy\WishIcon.png" />
 	  <EmbeddedResource Include="Chapter24\Lunoscope\LunoscopeDead.png" />
 	  <EmbeddedResource Include="Chapter24\Lunoscope\LunoscopeIcon.png" />
 	  <EmbeddedResource Include="Chapter24\Lunoscope\LunoscopePortal.png" />

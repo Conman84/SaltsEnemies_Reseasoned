@@ -65,7 +65,7 @@ namespace SaltsEnemies_Reseasoned
             easy.AddRandomGroup("Snaurce_EN", "Papereater_EN");
 
             AddTo med = new AddTo(Shore.H.Papereater.Med);
-            med.SimpleAddGroup(2, "Papereater_EN", 1, "Snaurce_EN");
+            med.SimpleAddGroup(2, "Papereater_EN", 2, "Snaurce_EN");
             med.SimpleAddGroup(2, "Papereater_EN", 1, "Surimi_EN");
             med.AddRandomGroup("Papereater_EN", Jumble.Red, "Surimi_EN");
             med.SimpleAddGroup(2, "Papereater_EN", 1, "Mungman_EN");

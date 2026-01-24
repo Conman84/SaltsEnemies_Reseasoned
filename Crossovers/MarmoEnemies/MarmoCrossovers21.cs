@@ -125,8 +125,8 @@ namespace SaltsEnemies_Reseasoned
 
             easy = new AddTo(Shore.H.Snaurce.Easy);
             easy.AddRandomGroup("Snaurce_EN", "Waltz_EN", "Waltz_EN");
-            easy.AddRandomGroup("Snaurce_EN", "Snaurce_EN", "Waltz_EN");
-            easy.AddRandomGroup("Snaurce_EN", "Wall_EN");
+            //easy.AddRandomGroup("Snaurce_EN", "Snaurce_EN", "Waltz_EN");
+            //easy.AddRandomGroup("Snaurce_EN", "Wall_EN");
 
             med = new AddTo(Shore.H.Snaurce.Med);
             med.AddRandomGroup("Snaurce_EN", "Snaurce_EN", "Wall_EN");

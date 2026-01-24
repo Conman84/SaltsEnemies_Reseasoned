@@ -74,6 +74,7 @@ namespace SaltsEnemies_Reseasoned
                     "AFlower_EN",
                     "Keko_EN",
                     "Keko_EN",
+                    "Keko_EN",
                     "Snaurce_EN",
                 }));
                 ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone01_AFlower_Hard_EnemyBundle"))._enemyBundles = list4;
@@ -110,28 +111,6 @@ namespace SaltsEnemies_Reseasoned
                 ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone01_TeachaMantoFish_Hard_EnemyBundle"))._enemyBundles = list6;
 
                 //Base Game
-                if (SaltsReseasoned.silly < 50)
-                {
-                    List<RandomEnemyGroup> list7 = new List<RandomEnemyGroup>(((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone01_JumbleGuts_Waning_Medium_EnemyBundle"))._enemyBundles);
-                    list7.Add(new RandomEnemyGroup(new string[]
-                    {
-                        "JumbleGuts_Waning_EN",
-                        "Snaurce_EN",
-                        "LostSheep_EN",
-                    }));
-                    ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone01_JumbleGuts_Waning_Medium_EnemyBundle"))._enemyBundles = list7;
-                }
-                if (SaltsReseasoned.silly > 50)
-                {
-                    List<RandomEnemyGroup> list8 = new List<RandomEnemyGroup>(((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone01_JumbleGuts_Clotted_Medium_EnemyBundle"))._enemyBundles);
-                    list8.Add(new RandomEnemyGroup(new string[]
-                    {
-                        "JumbleGuts_Clotted_EN",
-                        "Snaurce_EN",
-                        "LostSheep_EN",
-                    }));
-                    ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone01_JumbleGuts_Clotted_Medium_EnemyBundle"))._enemyBundles = list8;
-                }
 
                 List<RandomEnemyGroup> list9 = new List<RandomEnemyGroup>(((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone01_Flarb_Hard_EnemyBundle"))._enemyBundles);
                 list9.Add(new RandomEnemyGroup(new string[]

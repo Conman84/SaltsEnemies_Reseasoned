@@ -31,7 +31,7 @@ namespace SaltsEnemies_Reseasoneds
             med.SimpleAddGroup(2, "CorpseChan_EN", 1, Enemies.Polyp);
 
             med = new AddTo(Shore.H.Hauntling.Med);
-            med.SimpleAddGroup(2, "Hauntling_EN", 1, "Snaurce_EN");
+            med.SimpleAddGroup(3, "Hauntling_EN", 1, "Snaurce_EN");
             med.SimpleAddGroup(2, "Hauntling_EN", 1, "Flakkid_EN");
             med.SimpleAddGroup(2, "Hauntling_EN", 1, Enemies.Swine);
             med.SimpleAddGroup(2, "Hauntling_EN", 1, Colophon.Red);
@@ -72,10 +72,10 @@ namespace SaltsEnemies_Reseasoneds
             hard.SimpleAddGroup(2, "InTheDark_EN", 2, "EggKeeper_EN");
 
             med = new AddTo(Shore.H.Jabber.Med);
-            med.SimpleAddGroup(2, "Snaurce_EN", 1, "Jabberwocky_EN");
+            med.SimpleAddGroup(1, "Snaurce_EN", 1, "Jabberwocky_EN", 2, "MudLung_EN");
             med.SimpleAddGroup(2, "Surimi_EN", 1, "Jabberwocky_EN");
             med.AddRandomGroup("VoiceTrumpet_EN", "Jabberwocky_EN", Jumble.Unstable);
-            med.AddRandomGroup("Jabberwocky_EN", Spoggle.Unstable, "Snaurce_EN");
+            med.AddRandomGroup("Jabberwocky_EN", Spoggle.Unstable, Jumble.Yellow, "Snaurce_EN");
             med.AddRandomGroup("Jabberwocky_EN", Enemies.Swine, Enemies.Swine);
             med.AddRandomGroup("Jabberwocky_EN", "Mungman_EN", "Mungman_EN");
             med.AddRandomGroup("Jabberwocky_EN", "Squirmer_EN", Spoggle.Unstable);

@@ -16,10 +16,10 @@ namespace SaltsEnemies_Reseasoned
         {
             AddTo med = new AddTo(Shore.H.Clione.Med);
             med.AddRandomGroup("Clione_EN", "Surimi_EN", "Surimi_EN");
-            med.AddRandomGroup("Clione_EN", "Snaurce_EN", "Snaurce_EN");
+            med.AddRandomGroup("Clione_EN", Enemies.Mungling, "Snaurce_EN");
             med.AddRandomGroup("Clione_EN", "Pinano_EN", "Surimi_EN");
-            med.AddRandomGroup("Clione_EN", "Snaurce_EN", "Wall_EN");
-            med.AddRandomGroup("Clione_EN", "Snaurce_EN", "VoiceTrumpet_EN");
+            med.AddRandomGroup("Clione_EN", "Snaurce_EN", "Wall_EN", "Wall_EN");
+            //med.AddRandomGroup("Clione_EN", "Snaurce_EN", "VoiceTrumpet_EN");
             med.AddRandomGroup("Clione_EN", "Surimi_EN", Jumble.Unstable);
 
             AddTo hard = new AddTo(Shore.H.Clione.Hard);
@@ -28,8 +28,8 @@ namespace SaltsEnemies_Reseasoned
             if (SaltsReseasoned.silly < 50) hard.AddRandomGroup("Clione_EN", Spoggle.Yellow, Spoggle.Unstable, "MudLung_EN");
 
             AddTo easy = new AddTo(Shore.H.Snaurce.Easy);
-            easy.SimpleAddGroup(2, "Snaurce_EN", 1, "Windle_EN");
-            if (SaltsReseasoned.silly > 50) easy.SimpleAddGroup(2, "Snaurce_EN", 1, "Arceles_EN");
+            //easy.SimpleAddGroup(2, "Snaurce_EN", 1, "Windle_EN");
+            //if (SaltsReseasoned.silly > 50) easy.SimpleAddGroup(2, "Snaurce_EN", 1, "Arceles_EN");
 
             easy = new AddTo(Shore.H.Surimi.Easy);
             if (SaltsReseasoned.trolling > 50) easy.SimpleAddGroup(2, "Surimi_EN", 1, "Windle_EN");
@@ -55,6 +55,7 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Shore.H.Pinano.Med);
             med.SimpleAddGroup(2, "Pinano_EN", 1, "Surimi_EN");
             med.SimpleAddGroup(2, "Pinano_EN", 1, "Snaurce_EN");
+            med.SimpleAddGroup(2, "Pinano_EN", 2, "Snaurce_EN");
             med.SimpleAddGroup(2, "Pinano_EN", 1, Spoggle.Unstable);
             med.SimpleAddGroup(2, "Pinano_EN", 1, Jumble.Unstable);
         }

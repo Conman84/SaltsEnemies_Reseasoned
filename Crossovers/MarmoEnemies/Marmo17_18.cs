@@ -9,23 +9,23 @@ namespace SaltsEnemies_Reseasoned
         public static void AddShore()
         {
             AddTo easy = new AddTo(Shore.H.Snaurce.Easy);
-            easy.SimpleAddGroup(2, "Snaurce_EN", 1, "NobodyGrave_EN");
+            //easy.SimpleAddGroup(2, "Snaurce_EN", 1, "NobodyGrave_EN");
 
             easy = new AddTo(Shore.H.Surimi.Easy);
             easy.SimpleAddGroup(2, "Surimi_EN", 1, "NobodyGrave_EN");
 
             AddTo med = new AddTo(Shore.H.Ufo.Med);
             med.AddRandomGroup("ToyUfo_EN", "Surimi_EN", "Surimi_EN");
-            med.SimpleAddGroup(1, "ToyUfo_EN", 2, "Snaurce_EN", 1, "TortureMeNot_EN");
-            med.AddRandomGroup("ToyUfo_EN", "Snaurce_EN", "Pinano_EN");
+            //med.SimpleAddGroup(1, "ToyUfo_EN", 3, "Snaurce_EN");
+            med.AddRandomGroup("ToyUfo_EN", "Snaurce_EN", "Snaurce_EN", "Pinano_EN");
             if (SaltsReseasoned.silly < 50) med.AddRandomGroup("ToyUfo_EN", "Surimi_EN", Jumble.Yellow);
             if (SaltsReseasoned.silly > 50) med.AddRandomGroup("ToyUfo_EN", "Surimi_EN", Jumble.Red);
             med.AddRandomGroup("ToyUfo_EN", "Surimi_EN", Jumble.Unstable);
-            med.AddRandomGroup("ToyUfo_EN", "Snaurce_EN", Spoggle.Unstable);
+            med.AddRandomGroup("ToyUfo_EN", "Snaurce_EN", Spoggle.Unstable, Spoggle.Blue);
             med.AddRandomGroup("ToyUfo_EN", "Pinano_EN", Jumble.Unstable);
             med.AddRandomGroup("ToyUfo_EN", "MudLung_EN", Spoggle.Unstable);
             med.AddRandomGroup("ToyUfo_EN", "Snaurce_EN", "DeadPixel_EN", "DeadPixel_EN");
-            med.AddRandomGroup("ToyUfo_EN", "Snaurce_EN", "Snaurce_EN", "Skyloft_EN");
+            //med.AddRandomGroup("ToyUfo_EN", "Snaurce_EN", "Snaurce_EN", "Skyloft_EN");
             med.AddRandomGroup("ToyUfo_EN", "Surimi_EN", "MudLung_EN");
             med.SimpleAddGroup(1, "ToyUfo_EN", 3, "Snaurce_EN");
 
@@ -39,7 +39,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("AFlower_EN", "ToyUfo_EN", Spoggle.Unstable);
 
             med = new AddTo(Shore.H.LittleBeak.Med);
-            med.AddRandomGroup("LittleBeak_EN", "ToyUfo_EN", "Snaurce_EN");
+            med.AddRandomGroup("LittleBeak_EN", "ToyUfo_EN", "Snaurce_EN", "Snaurce_EN");
             med.AddRandomGroup("LittleBeak_EN", "ToyUfo_EN", "Surimi_EN");
             med.AddRandomGroup("LittleBeak_EN", "ToyUfo_EN", Jumble.Unstable);
 
@@ -54,18 +54,18 @@ namespace SaltsEnemies_Reseasoned
 
             hard = new AddTo(Shore.H.Clione.Hard);
             hard.AddRandomGroup("Clione_EN", "Sinker_EN", "Surimi_EN");
-            hard.AddRandomGroup("Clione_EN", "Sinker_EN", "Snaurce_EN");
+            hard.AddRandomGroup("Clione_EN", "Sinker_EN", "Snaurce_EN", "Snaurce_EN");
             hard.AddRandomGroup("Clione_EN", "Sinker_EN", Jumble.Unstable);
             hard.AddRandomGroup("Clione_EN", "Sinker_EN", Spoggle.Unstable);
 
             med = new AddTo(Shore.H.Sinker.Med);
-            med.AddRandomGroup("Sinker_EN", "Snaurce_EN", "Arceles_EN");
+            med.AddRandomGroup("Sinker_EN", "Snaurce_EN", "Flarblet_EN", "Flarblet_EN");
+            med.SimpleAddGroup(1, "Sinker_EN", 3, "Snaurce_EN");
             med.AddRandomGroup("Sinker_EN", "Surimi_EN", "Skyloft_EN");
             if (SaltsReseasoned.trolling > 50) med.AddRandomGroup("Sinker_EN", Spoggle.Yellow, Spoggle.Unstable);
             if (SaltsReseasoned.trolling < 50) med.AddRandomGroup("Sinker_EN", Spoggle.Blue, Spoggle.Unstable);
 
             hard = new AddTo(Shore.H.Sinker.Hard);
-            hard.SimpleAddGroup(1, "Sinker_EN", 3, "Snaurce_EN");
             hard.SimpleAddGroup(1, "Sinker_EN", 3, "Surimi_EN");
             hard.AddRandomGroup("Sinker_EN", Jumble.Unstable, Jumble.Yellow, Jumble.Red);
 

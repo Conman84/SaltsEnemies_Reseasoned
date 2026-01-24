@@ -11,12 +11,12 @@ namespace SaltsEnemies_Reseasoned
             AddTo med = new AddTo(Shore.H.TwoThousandNine.Med);
             med.AddRandomGroup("2009_EN", "Surimi_EN", "Surimi_EN");
             med.AddRandomGroup("2009_EN", "Surimi_EN", "Pinano_EN");
-            med.AddRandomGroup("2009_EN", "Snaurce_EN", Jumble.Yellow);
-            med.AddRandomGroup("2009_EN", "Snaurce_EN", Jumble.Unstable);
-            med.AddRandomGroup("2009_EN", "Snaurce_EN", Jumble.Red);
+            med.AddRandomGroup("2009_EN", "Snaurce_EN", Jumble.Yellow, Jumble.Red);
+            med.AddRandomGroup("2009_EN", "Snaurce_EN", Jumble.Unstable, Jumble.Yellow);
+            med.AddRandomGroup("2009_EN", "Snaurce_EN", Jumble.Red, Jumble.Unstable);
 
             med = new AddTo(Shore.H.Chiito.Med);
-            med.AddRandomGroup("Chiito_EN", "Snaurce_EN", "Snaurce_EN");
+            med.AddRandomGroup("Chiito_EN", "Snaurce_EN", "Pinano_EN", "Pinano_EN");
             med.AddRandomGroup("Chiito_EN", Jumble.Unstable, Jumble.Yellow);
             med.AddRandomGroup("Chiito_EN", "Surimi_EN", "ToyUfo_EN");
             med.AddRandomGroup("Chiito_EN", "Surimi_EN", "Surimi_EN", "Skyloft_EN");
@@ -31,7 +31,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("LittleBeak_EN", "2009_EN", Jumble.Unstable);
 
             med = new AddTo(Shore.H.Ufo.Med);
-            med.AddRandomGroup("ToyUfo_EN", "2009_EN", "Snaurce_EN");
+            med.AddRandomGroup("ToyUfo_EN", "2009_EN", "Snaurce_EN", "Snaurce_EN");
 
             med = new AddTo(Shore.H.Clione.Med);
             med.AddRandomGroup("Clione_EN", "2009_EN", "Surimi_EN");
@@ -46,7 +46,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("Flarb_EN", "Chiito_EN", "Surimi_EN");
 
             hard = new AddTo(Shore.H.Tripod.Hard);
-            hard.AddRandomGroup("Tripod_EN", "Chiito_EN", "Snaurce_EN");
+            hard.AddRandomGroup("Tripod_EN", "Chiito_EN", "Snaurce_EN", "Snaurce_EN");
 
             hard = new AddTo(Shore.H.Warbird.Hard);
             hard.AddRandomGroup("Warbird_EN", "Chiito_EN", "Surimi_EN");

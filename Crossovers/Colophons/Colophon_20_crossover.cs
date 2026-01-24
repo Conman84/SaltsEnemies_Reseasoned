@@ -12,7 +12,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("2009_EN", Colophon.Red, Colophon.Blue);
             med.AddRandomGroup("2009_EN", Colophon.Red, "Pinano_EN");
             med.AddRandomGroup("2009_EN", Colophon.Blue, "MudLung_EN");
-            med.AddRandomGroup("2009_EN", "Snaurce_EN", Colophon.Blue);
+            med.AddRandomGroup("2009_EN", "Snaurce_EN", "Snaurce_EN", Colophon.Blue);
 
             med = new AddTo(Shore.H.Chiito.Med);
             med.AddRandomGroup("Chiito_EN", Colophon.Red, Colophon.Blue, "MudLung_EN");

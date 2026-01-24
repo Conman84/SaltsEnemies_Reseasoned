@@ -25,7 +25,7 @@ namespace SaltsEnemies_Reseasoned
             if (SaltsReseasoned.trolling < 50) med.AddRandomGroup(Spoggle.Blue, "Skyloft_EN", Spoggle.Unstable);
 
             AddTo easy = new AddTo(Shore.H.Snaurce.Easy);
-            easy.SimpleAddGroup(2, "Snaurce_EN", 1, "Skyloft_EN");
+            //easy.SimpleAddGroup(2, "Snaurce_EN", 1, "Skyloft_EN");
             easy = new AddTo(Shore.H.Surimi.Easy);
             easy.SimpleAddGroup(2, "Surimi_EN", 1, "Skyloft_EN");
         }
