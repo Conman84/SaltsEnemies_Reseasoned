@@ -109,7 +109,7 @@ namespace SaltEnemies_Reseasoned
                 Vector3 position = Gibs.transform.TransformPoint(particles[i].position);
 
                 //Debug.Log(velocity);
-                if (position.y <= -0.3f && position.z < 7f)
+                if (position.y <= -0.3f && position.z < 6.5f)
                 {
                     //if (particles[i].position.y > 0.1f) continue;
                     triggerOn.Add(particles[i]);
