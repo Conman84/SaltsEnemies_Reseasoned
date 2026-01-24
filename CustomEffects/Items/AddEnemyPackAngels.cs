@@ -32,6 +32,7 @@ namespace SaltsEnemies_Reseasoned
             if (LoadedAssetsHandler.LoadedEnemies.ContainsKey(enemy))
             {
                 EnemySO character = LoadedAssetsHandler.GetEnemy(enemy);
+                if (character == null) return;
                 if (character.unitTypes == null) character.unitTypes = [];
                 character.unitTypes.Add("Angel");
             }
