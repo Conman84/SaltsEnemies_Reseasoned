@@ -9,6 +9,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.PlayerLoop;
 using static UnityEngine.EventSystems.EventTrigger;
 using static UnityEngine.UI.CanvasScaler;
@@ -131,7 +132,13 @@ namespace SaltsEnemies_Reseasoned
                 self.RemoveAndDisconnectAllPassiveAbilities(disconnectPassives);
                 if (enem.exitEffects != null)
                 {
-                    CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(enem.exitEffects, self));
+                    List<EffectInfo> effects = [];
+                    foreach (EffectInfo effect in enem.exitEffects)
+                    {
+                        if (effect.effect is SpecialSceneEndingSetUpEffect) continue;
+                        effects.Add(effect);
+                    }
+                    CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(effects.ToArray(), self));
                 }
                 return;
             }
@@ -144,7 +151,13 @@ namespace SaltsEnemies_Reseasoned
             {
                 if (enem.enterEffects != null)
                 {
-                    CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(enem.enterEffects, self));
+                    List<EffectInfo> effects = [];
+                    foreach (EffectInfo effect in enem.enterEffects)
+                    {
+                        if (effect.effect is SpecialSceneEndingSetUpEffect) continue;
+                        effects.Add(effect);
+                    }
+                    CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(effects.ToArray(), self));
                 }
                 return;
             }
