@@ -21,6 +21,7 @@ namespace SaltEnemies_Reseasoned
     {
         public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
         {
+            return ScriptableObject.CreateInstance<IsAliveEffectorCondition>().MeetCondition(caster as IEffectorChecks, null);
             return caster.CurrentHealth > 0;
         }
     }

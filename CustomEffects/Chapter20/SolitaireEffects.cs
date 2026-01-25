@@ -580,10 +580,13 @@ namespace SaltsEnemies_Reseasoned
 
             if (mana == null || mana.Equals(null)) return false;
 
-            if (mana.SharesPigmentColor(Pigments.Red)) CombatManager.Instance.AddUIAction(new LoadIntoPresentAction(caster.ID, Color.red));
-            else if (mana.SharesPigmentColor(Pigments.Blue)) CombatManager.Instance.AddUIAction(new LoadIntoPresentAction(caster.ID, Color.blue));
-            else if (mana.SharesPigmentColor(Pigments.Yellow)) CombatManager.Instance.AddUIAction(new LoadIntoPresentAction(caster.ID, Color.yellow));
-            else if (mana.SharesPigmentColor(Pigments.Purple)) CombatManager.Instance.AddUIAction(new LoadIntoPresentAction(caster.ID, Color.magenta));
+            if (caster is EnemyCombat enemy && enemy.Enemy.name == "Solitaire_EN")
+            {
+                if (mana.SharesPigmentColor(Pigments.Red)) CombatManager.Instance.AddUIAction(new LoadIntoPresentAction(caster.ID, Color.red));
+                else if (mana.SharesPigmentColor(Pigments.Blue)) CombatManager.Instance.AddUIAction(new LoadIntoPresentAction(caster.ID, Color.blue));
+                else if (mana.SharesPigmentColor(Pigments.Yellow)) CombatManager.Instance.AddUIAction(new LoadIntoPresentAction(caster.ID, Color.yellow));
+                else if (mana.SharesPigmentColor(Pigments.Purple)) CombatManager.Instance.AddUIAction(new LoadIntoPresentAction(caster.ID, Color.magenta));
+            }
 
             return true;
         }
