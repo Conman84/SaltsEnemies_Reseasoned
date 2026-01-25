@@ -25,6 +25,7 @@ namespace SaltsEnemies_Reseasoned
             IDetour hook2 = new Hook(typeof(CombatVisualizationController).GetMethod(nameof(CombatVisualizationController.TryTransformEnemy), ~BindingFlags.Default), typeof(TransformerEnemyHandler).GetMethod(nameof(CombatVisualizationController_TryTransformEnemy), ~BindingFlags.Default));
             IDetour hook3 = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.FinalizationEnd), ~BindingFlags.Default), typeof(TransformerEnemyHandler).GetMethod(nameof(EnemyCombat_FinalizationEnd), ~BindingFlags.Default));
             IDetour hook4 = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.InitializationEnd), ~BindingFlags.Default), typeof(TransformerEnemyHandler).GetMethod(nameof(EnemyCombat_InitializationEnd), ~BindingFlags.Default));
+            NotificationHook.AddAction(NotifCheck);
         }
         public static void EnemyCombat_TransformEnemy(Action<EnemyCombat, EnemySO, bool, bool, bool> orig, EnemyCombat self, EnemySO enemy, bool fullyHeal, bool maintainMaxHealth, bool currentToMaxHealth)
         {
@@ -149,6 +150,13 @@ namespace SaltsEnemies_Reseasoned
             }
 
             orig(self);
+        }
+        public static void NotifCheck(string name, object sender, object args)
+        {
+            if (name == TriggerCalls.OnBeingDamaged.ToString() && sender is EnemyCombat enemy && enemy.Enemy.name == Ecstasy.Gray)
+            {
+                if (!enemy.ContainsPassiveAbility(Ecstasy99.Passive.m_PassiveID)) enemy.AddPassiveAbility(Ecstasy99.Passive);
+            }
         }
     }
     public class TransformerUIAction : CombatAction

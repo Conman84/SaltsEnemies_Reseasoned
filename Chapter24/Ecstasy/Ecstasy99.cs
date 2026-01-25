@@ -9,6 +9,7 @@ namespace SaltsEnemies_Reseasoned
 {
     public static class Ecstasy99
     {
+        public static BasePassiveAbilitySO Passive;
         public static void Add()
         {
             Enemy ecstasy = new Enemy("ECSTASY99", Ecstasy.Gray)
@@ -24,25 +25,26 @@ namespace SaltsEnemies_Reseasoned
             ecstasy.PrepareEnemyPrefab("Assets/enem5/Ecstasy_Gray_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/enem5/Ecstasy_Gray_Gibs.prefab").GetComponent<ParticleSystem>());
             ecstasy.enemy.enemyTemplate.m_Data.m_Renderer = ecstasy.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").GetChild(1).GetComponent<SpriteRenderer>();
 
-            PerformEffectPassiveAbility overdose = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
-            overdose.name = "MissDose_PA";
-            overdose._passiveName = "Miss-Dose";
-            overdose.m_PassiveID = "MissDose_PA";
-            overdose.passiveIcon = ResourceLoader.LoadSprite("MissDosePassive.png");
-            overdose._enemyDescription = "This enemy is always itself.\nOn being directly damaged, assume the properties of a random enemy.";
-            overdose._characterDescription = "wonr work";
-            overdose.doesPassiveTriggerInformationPanel = false;
-            overdose._triggerOn = [TriggerCalls.OnDirectDamaged];
-            overdose.conditions = Passives.Slippery.conditions;
-            overdose.effects = [
+            PerformEffectPassiveAbility missdose = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            missdose.name = "MissDose_PA";
+            missdose._passiveName = "Miss-Dose";
+            missdose.m_PassiveID = "MissDose_PA";
+            missdose.passiveIcon = ResourceLoader.LoadSprite("MissDosePassive.png");
+            missdose._enemyDescription = "This enemy is always itself.\nOn being directly damaged, assume the properties of a random enemy.";
+            missdose._characterDescription = "wonr work";
+            missdose.doesPassiveTriggerInformationPanel = false;
+            missdose._triggerOn = [TriggerCalls.OnDirectDamaged];
+            missdose.conditions = Passives.Slippery.conditions;
+            missdose.effects = [
                 Effects.GenerateEffect(CasterRootActionEffect.Create([
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ShowMissDosePassiveEffect>(), 0, Slots.Self, ScriptableObject.CreateInstance<HasHealthEffectCondition>()),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<TransformRandomEnemyEffect>(), 99, Slots.Self, ScriptableObject.CreateInstance<HasHealthEffectCondition>()),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateNewEnemyTurnEffect>(), 0, Slots.Self, ScriptableObject.CreateInstance <HasHealthEffectCondition>())
                     ]))
                 ];
+            Passive = missdose;
 
-            ecstasy.AddPassives(new BasePassiveAbilitySO[] { overdose });
+            ecstasy.AddPassives(new BasePassiveAbilitySO[] { missdose });
 
             Ability bless = new Ability("1000 Blessings", "1000Blessings_A");
             bless.Description = "Invert the health of all party members.";
