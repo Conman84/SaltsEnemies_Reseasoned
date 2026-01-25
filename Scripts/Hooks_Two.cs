@@ -121,8 +121,8 @@ namespace SaltEnemies_Reseasoned
                     (self as IStatusEffector).RemoveStatusEffect(Inspiration.StatusID);
                     if (self.UnitTypes.Contains(Inspiration.Passive)) self.TryRemovePassiveAbility(Inspiration.Passive);
                 }
-                if (killerHas) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(self.ID, self.IsUnitCharacter));
-                if (killerHas) CombatManager.Instance.AddPrioritySubAction(new RemoveInspirationAction(killer.ID, killer.IsUnitCharacter));
+                if (killerHas && amount > 0) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(self.ID, self.IsUnitCharacter));
+                if (killerHas && amount > 0) CombatManager.Instance.AddPrioritySubAction(new RemoveInspirationAction(killer.ID, killer.IsUnitCharacter));
                 if (selfHas && ret.damageAmount > 0) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(killer.ID, killer.IsUnitCharacter));
             }
 
