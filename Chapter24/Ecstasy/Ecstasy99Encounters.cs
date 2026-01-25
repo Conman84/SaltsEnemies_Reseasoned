@@ -10,7 +10,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Portals.AddPortalSign("Salt_TemplateEncounter_Sign", ResourceLoader.LoadSprite("GrayEcstasyWorld.png"), Portals.EnemyIDColor);
+            Portals.AddPortalSign("Salt_Ecstasy99Encounter_Sign", ResourceLoader.LoadSprite("GrayEcstasyWorld.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Garden.H.Ecstasy99.Med, "Salt_Ecstasy99Encounter_Sign");
             med.MusicEvent = "event:/Hawthorne/EcstasySong";
