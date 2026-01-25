@@ -33,7 +33,7 @@ namespace SaltsEnemies_Reseasoned
             hunter.doesPassiveTriggerInformationPanel = true;
             hunter.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyTerrorEffect>(), 1, Slots.Front).SelfArray();
             hunter._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
-            hunter.Amount = 10;
+            hunter.Amount = 15;
 
             hunting.AddPassives(new BasePassiveAbilitySO[] { Passives.Constricting, hunter });
             hunting.AddUnitType("Bird");
