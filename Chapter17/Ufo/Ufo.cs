@@ -20,6 +20,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("UFODead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Noisy/UFO_Hit",
                 DeathSound = "event:/Hawthorne/Noisy/UFO_Death",
+                UnitTypes = ["Alien"]
             };
             ufo.PrepareEnemyPrefab("assets/enemie/UFO_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("assets/giblets/UFO_Gibs.prefab").GetComponent<ParticleSystem>());
 
