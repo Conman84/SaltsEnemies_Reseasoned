@@ -47,7 +47,7 @@ namespace SaltEnemies_Reseasoned
             clown.AbilitySelector = selector;
 
             Ability special = new Ability("My Special Attack", "MySpecialAttack_A");
-            special.Description = "Turn Blue.\nSpawn a Waltz.";
+            special.Description = "Turn Blue.\nSpawn a Waltz.\n\"Forget It. I Can't Do This Anymore\"";
             special.Rarity = Rarity.GetCustomRarity("rarity5");
             special.Effects = new EffectInfo[2];
             special.Effects[1] = Effects.GenerateEffect(spawnWaltz, 1, Slots.Self);
