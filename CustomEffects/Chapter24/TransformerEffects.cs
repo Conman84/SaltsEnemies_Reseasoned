@@ -294,6 +294,9 @@ namespace SaltsEnemies_Reseasoned
                 _enemyTransformation.size = origSize;
             }
 
+
+            if (!ret && entryVariable > 0) return PerformEffect(stats, caster, targets, areTargetSlots, entryVariable - 1, out exitAmount);
+
             return ret;
         }
     }
