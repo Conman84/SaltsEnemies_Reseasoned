@@ -441,32 +441,6 @@ namespace SaltsEnemies_Reseasoned
             sea.item._ItemTypeIDs = [];
             sea.item.AddBlueSkyUnlock("Patch_CH", "locked_seaglass.png", "ach_seaglass.png");
 
-            CopyAndSpawnCustomCharacterAnywhereEffect spawn_six = ScriptableObject.CreateInstance<CopyAndSpawnCustomCharacterAnywhereEffect>();
-            spawn_six._characterCopy = "Six_CH";
-            spawn_six._permanentSpawn = true;
-
-            PerformEffect_Item six = new PerformEffect_Item("Salt_Six_EW", [Effects.GenerateEffect(spawn_six, 1, Slots.Self)]);
-            six.Name = "Six";
-            six.Flavour = "\"Hi I'm Six!\"";
-            six.Description = "On combat start, destroy this item and spawn Six.";
-            six.Icon = ResourceLoader.LoadSprite("item_six.png");
-            six.TriggerOn = TriggerCalls.OnCombatStart;
-            six.EquippedModifiers = [];
-            six.DoesPopUpInfo = true;
-            six.Conditions = [];
-            six.DoesActionOnTriggerAttached = false;
-            six.ConsumeOnTrigger = TriggerCalls.Count;
-            six.ConsumeOnUse = true;
-            six.ConsumeConditions = [];
-            six.ShopPrice = 7;
-            six.IsShopItem = false;
-            six.StartsLocked = true;
-            six.OnUnlockUsesTHE = true;
-            six.UsesSpecialUnlockText = true;
-            six.SpecialUnlockID = UILocID.ItemFishLocationLabel;
-            six.item._ItemTypeIDs = [];
-            six.item.AddBlueSkyUnlock("Six_CH", "locked_six.png", "ach_six.png", 1);
-
             Ability inbetweener = new Ability("Inbetweener", "Inbetweener_A");
             inbetweener.Description = "Deal 5-10 damage to the Opposing enemy.\nAttempt to split the Opposing enemy in two.";
             inbetweener.AbilitySprite = ResourceLoader.LoadSprite("ability_inbetweener.png");
@@ -587,6 +561,32 @@ namespace SaltsEnemies_Reseasoned
             bucket.SpecialUnlockID = UILocID.None;
             bucket.item._ItemTypeIDs = [];
             bucket.item.AddBlueSkyUnlock("Sunflower_CH", "locked_bucket.png", "ach_bucket.png");
+
+            CopyAndSpawnCustomCharacterAnywhereEffect spawn_six = ScriptableObject.CreateInstance<CopyAndSpawnCustomCharacterAnywhereEffect>();
+            spawn_six._characterCopy = "Six_CH";
+            spawn_six._permanentSpawn = true;
+
+            PerformEffect_Item six = new PerformEffect_Item("Salt_Six_EW", [Effects.GenerateEffect(spawn_six, 1, Slots.Self)]);
+            six.Name = "Six";
+            six.Flavour = "\"Hi I'm Six!\"";
+            six.Description = "On combat start, destroy this item and spawn Six.";
+            six.Icon = ResourceLoader.LoadSprite("item_six.png");
+            six.TriggerOn = TriggerCalls.OnCombatStart;
+            six.EquippedModifiers = [];
+            six.DoesPopUpInfo = true;
+            six.Conditions = [];
+            six.DoesActionOnTriggerAttached = false;
+            six.ConsumeOnTrigger = TriggerCalls.Count;
+            six.ConsumeOnUse = true;
+            six.ConsumeConditions = [];
+            six.ShopPrice = 7;
+            six.IsShopItem = false;
+            six.StartsLocked = true;
+            six.OnUnlockUsesTHE = true;
+            six.UsesSpecialUnlockText = true;
+            six.SpecialUnlockID = UILocID.ItemFishLocationLabel;
+            six.item._ItemTypeIDs = [];
+            six.item.AddBlueSkyUnlock("Six_CH", "locked_six.png", "ach_six.png", 1);
 
             PerformEffect_Item ring = new PerformEffect_Item("Salt_TheRing_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleByTenEffect>(), 1, Slots.Front)]);
             ring.Name = "The Ring";
