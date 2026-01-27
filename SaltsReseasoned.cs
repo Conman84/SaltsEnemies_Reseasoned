@@ -88,6 +88,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(Research.Setup);
             PCall(TransformerEnemyHandler.Setup);
             PCall(ExtendOrphFloor.Perform);
+            PCall(GeneralConfig.Setup);
             #endregion
 
             //Add To Glossary

@@ -32,13 +32,13 @@ namespace SaltsEnemies_Reseasoned
             decay._characterDescription = "On dying, nothing happens. This effect won't work on party members. Be glad it doesnt break the game.";
             decay.doesPassiveTriggerInformationPanel = true;
             decay._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDeath };
+            decay.conditions = [];
+
             DeathReferenceDetectionEffectorCondition detectWither = ScriptableObject.CreateInstance<DeathReferenceDetectionEffectorCondition>();
             detectWither._witheringDeath = false;
             detectWither._useWithering = true;
-            decay.conditions = new EffectorConditionSO[]
-            {
-                detectWither
-            };
+            decay.conditions = new List<EffectorConditionSO>(decay.conditions) { detectWither }.ToArray();
+
             DelayRespawnEffect spawn = ScriptableObject.CreateInstance<DelayRespawnEffect>();
             decay.effects = new EffectInfo[]
             {

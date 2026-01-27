@@ -61,11 +61,18 @@ namespace SaltsEnemies_Reseasoned
             trolley._enemyDescription = "This enemy will perforn an extra ability \"Trolley\" each turn.";
             trolley._characterDescription = baseExtra._characterDescription;
             trolley._triggerOn = baseExtra._triggerOn;
+
+            AnimationVisualsEffect trainrun = BasicEffects.GetVisuals("Salt/Train", false, TrainTargetting.Create(false));
+            if (!GeneralConfig.MidnightStoplightTrainAnimation.Value)
+            {
+                trainrun = BasicEffects.GetVisuals("Clobber_1_A", true, TrainTargetting.Create(false));
+            }
+
             Ability bonus = new Ability("Trolley_Problem_A");
             bonus.Name = "Trolley";
             bonus.Description = "If the Light phase is Green, deal maybe a Little or a Lot of damage to either all enemies or all party members.";
             bonus.Effects = new EffectInfo[4];
-            bonus.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Train", false, TrainTargetting.Create(false)), 0, TrainTargetting.Create(true), ScriptableObject.CreateInstance<SecondTrainCondition>());
+            bonus.Effects[1] = Effects.GenerateEffect(trainrun, 0, TrainTargetting.Create(true), ScriptableObject.CreateInstance<SecondTrainCondition>());
             bonus.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ExtraVariableForNextEffect>(), 0, TrainTargetting.Create(true));
             bonus.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomDamageBetweenPreviousAndEntryEffect>(), 20, TrainTargetting.Create(true), ScriptableObject.CreateInstance<SecondTrainCondition>());
             bonus.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<TrainSongEffect>(), 1, TrainTargetting.Create(true), ScriptableObject.CreateInstance<SecondTrainCondition>());
