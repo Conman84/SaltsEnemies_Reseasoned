@@ -308,7 +308,19 @@ namespace SaltEnemies_Reseasoned
                 return _inverted;
             }
         }//direct healing --> indirect damage; direct damge --> indirect healing
-        public static EffectSO[] Array => new EffectSO[] { Oil, Left, Frail, Scar, Cursed, Pale, Inverted };
+        static ApplyRupturedEffect _ruptured;
+        public static ApplyRupturedEffect Ruptured
+        {
+            get
+            {
+                if (_ruptured == null)
+                {
+                    _ruptured = ScriptableObject.CreateInstance<ApplyRupturedEffect>();
+                }
+                return _ruptured;
+            }
+        }
+        public static EffectSO[] Array => new EffectSO[] { Oil, Left, Frail, Scar, Cursed, Pale, Inverted, Ruptured, Oil, Left, Frail, Scar, Pale, Inverted, Oil, Left, Frail, Inverted, Oil, Left, Frail, Left };
 
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {

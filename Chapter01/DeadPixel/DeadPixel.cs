@@ -173,6 +173,7 @@ namespace SaltsEnemies_Reseasoned
                 "Status_Inverted",
                 "Status_Left",
                 "Status_Pale",
+                "Status_Ruptured"
             });
 
             //Add
