@@ -78,7 +78,6 @@ namespace SaltsEnemies_Reseasoned
 
             AddTo hard = new AddTo(Shore.H.Clione.Hard);
             hard.AddRandomGroup("Clione_EN", "Draugr_EN", Jumble.Red, Jumble.Yellow);
-            hard.AddRandomGroup("Clione_EN", "Draugr_EN", "DeadPixel_EN", "DeadPixel_EN");
 
             //orpheum
             med = new AddTo(Orph.H.Maw.Med);
