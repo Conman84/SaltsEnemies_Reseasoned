@@ -65,7 +65,7 @@ namespace SaltsEnemies_Reseasoned
             AnimationVisualsEffect trainrun = BasicEffects.GetVisuals("Salt/Train", false, TrainTargetting.Create(false));
             if (!GeneralConfig.MidnightStoplightTrainAnimation.Value)
             {
-                trainrun = BasicEffects.GetVisuals("Clobber_1_A", true, TrainTargetting.Create(false));
+                trainrun = BasicEffects.GetVisuals("Clobber_1_A", true, TrainTargetting.Create(true));
             }
 
             Ability bonus = new Ability("Trolley_Problem_A");
