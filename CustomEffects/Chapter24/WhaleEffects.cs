@@ -61,6 +61,14 @@ namespace SaltsEnemies_Reseasoned
         }
     }
 
+    public class SimpleWhaleCondition : WhaleCondition
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            return caster.SimpleGetStoredValue(enable) > 0 && caster.SimpleGetStoredValue(value) <= 0;
+        }
+    }
+
     public class WhaleEnterEffect : EffectSO
     {
         static bool set;

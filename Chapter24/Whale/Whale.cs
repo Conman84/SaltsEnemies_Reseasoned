@@ -28,6 +28,11 @@ namespace SaltsEnemies_Reseasoned
 
             whale.CombatEnterEffects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<WhaleEnterEffect>())];
 
+            SetMusicParameterByStringEffect song = ScriptableObject.CreateInstance<SetMusicParameterByStringEffect>();
+            song.Parameter = "Whale";
+
+            whale.CombatExitEffects = [Effects.GenerateEffect(song, -1, Slots.Self, ScriptableObject.CreateInstance<SimpleWhaleCondition>())];
+
             Ability descent = new Ability("Descent", "Whale_Descent_A");
             descent.Name = "Descent";
             descent.Description = "If this ability is used 3 or more times, deal a Painful amount of damage to all party members.";
@@ -35,7 +40,8 @@ namespace SaltsEnemies_Reseasoned
             descent.Effects = [
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Anchoring", false, Targetting.Everything(false)), 0, Slots.Self, ScriptableObject.CreateInstance<WhaleCondition>()),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Targetting.Everything(false), BasicEffects.DidThat(true)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<WhaleEffect>())
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<WhaleEffect>()),
+                Effects.GenerateEffect(song, 1, Slots.Self, BasicEffects.DidThat(true, 3))
                 ];
             descent.AddIntentsToTarget(Slots.Self, ["Misc_Hidden"]);
             descent.AddIntentsToTarget(Targetting.Everything(false), ["Damage_3_6"]);

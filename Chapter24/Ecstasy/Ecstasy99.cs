@@ -19,8 +19,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("GrayEcstasyIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("GrayEcstasyWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("GrayEcstasyDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy(Ecstasy.Yellow).damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy(Ecstasy.Yellow).deathSound,
+                DamageSound = "event:/Hawthorne/Sound3/GreyEcHit",
+                DeathSound = "event:/Hawthorne/Sound3/GreyEcDie",
             };
             ecstasy.PrepareEnemyPrefab("Assets/enem5/Ecstasy_Gray_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/enem5/Ecstasy_Gray_Gibs.prefab").GetComponent<ParticleSystem>());
             ecstasy.enemy.enemyTemplate.m_Data.m_Renderer = ecstasy.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").GetChild(1).GetComponent<SpriteRenderer>();

@@ -13,8 +13,8 @@ namespace SaltsEnemies_Reseasoned
             Portals.AddPortalSign("Salt_Ecstasy99Encounter_Sign", ResourceLoader.LoadSprite("GrayEcstasyWorld.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Garden.H.Ecstasy99.Med, "Salt_Ecstasy99Encounter_Sign");
-            med.MusicEvent = "event:/Hawthorne/EcstasySong";
-            med.RoarEvent = "event:/Hawthorne/Sound3/YelEcRoar";
+            med.MusicEvent = "event:/Hawthorne/GreyEcstasyTheme";
+            med.RoarEvent = "event:/Hawthorne/Sound3/GreyEcRoar";
 
             med.SimpleAddEncounter(4, Ecstasy.Gray);
             if (SaltsReseasoned.rando < 5) med.SimpleAddEncounter(3, Ecstasy.Gray, 2, "TortureMeNot_EN");
