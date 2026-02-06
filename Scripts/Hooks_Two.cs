@@ -49,7 +49,7 @@ namespace SaltEnemies_Reseasoned
             WontKillDamageHook.Setup();
 
             return;
-            try
+            /*try
             {
                 IDetour idetour17 = new Hook(typeof(WontKillDamageExtension).GetMethod(nameof(WontKillDamageExtension.NoKillDamageEN), ~BindingFlags.Default), typeof(HooksGeneral).GetMethod(nameof(Damage), ~BindingFlags.Default));
                 IDetour idetour18 = new Hook(typeof(WontKillDamageExtension).GetMethod(nameof(WontKillDamageExtension.NoKillDamageCH), ~BindingFlags.Default), typeof(HooksGeneral).GetMethod(nameof(Damage), ~BindingFlags.Default));
@@ -58,7 +58,7 @@ namespace SaltEnemies_Reseasoned
             {
                 UnityEngine.Debug.LogWarning("you knows what up");
                 UnityEngine.Debug.LogWarning(edx.ToString());
-            }
+            }*/
         }
 
         public static DamageInfo Damage(Func<IUnit, int, IUnit, string, int, bool, bool, bool, string, DamageInfo> orig, IUnit self, int amount, IUnit killer, string deathType, int targetSlotOffset = -1, bool addHealthMana = true, bool directDamage = true, bool ignoresShield = false, string specialDamage = "")

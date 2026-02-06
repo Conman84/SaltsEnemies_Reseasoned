@@ -476,6 +476,7 @@ namespace SaltEnemies_Reseasoned
     }
     public static class WontKillDamageExtension
     {
+        /*
         public static DamageInfo NoKillDamageCH(this CharacterCombat self, int amount, IUnit killer, string deathTypeID, int targetSlotOffset = -1, bool addHealthMana = true, bool directDamage = true, bool ignoresShield = false, string specialDamage = "")
         {
             int num = self.SlotID;
@@ -592,6 +593,6 @@ namespace SaltEnemies_Reseasoned
             if (self is CharacterCombat chara) return chara.NoKillDamageCH(amount, killer, deathTypeID, targetSlotOffset, addHealthMana, directDamage, ignoresShield, specialDamage);
             else return (self as EnemyCombat).NoKillDamageEN(amount, killer, deathTypeID, targetSlotOffset, addHealthMana, directDamage, ignoresShield, specialDamage);
         }
-
+        */
     }
 }
