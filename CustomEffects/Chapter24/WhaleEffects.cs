@@ -61,11 +61,23 @@ namespace SaltsEnemies_Reseasoned
         }
     }
 
-    public class SimpleWhaleCondition : WhaleCondition
+    public class ComplexWhaleCondition : WhaleCondition
+    {
+        public static string song => "ActivatedWhaleSong";
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            if (caster.SimpleGetStoredValue(enable) > 0 && caster.SimpleGetStoredValue(value) == 1)
+            {
+                caster.SimpleSetStoredValue(song, 1);
+            }
+            return false;
+        }
+    }
+    public class SimpleWhaleCondition : ComplexWhaleCondition
     {
         public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
         {
-            return caster.SimpleGetStoredValue(enable) > 0 && caster.SimpleGetStoredValue(value) <= 0;
+            return caster.SimpleGetStoredValue(song) > 0;
         }
     }
 

@@ -41,7 +41,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Anchoring", false, Targetting.Everything(false)), 0, Slots.Self, ScriptableObject.CreateInstance<WhaleCondition>()),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Targetting.Everything(false), BasicEffects.DidThat(true)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<WhaleEffect>()),
-                Effects.GenerateEffect(song, 1, Slots.Self, BasicEffects.DidThat(true, 3))
+                Effects.GenerateEffect(song, 1, Slots.Self, ScriptableObject.CreateInstance<ComplexWhaleCondition>())
                 ];
             descent.AddIntentsToTarget(Slots.Self, ["Misc_Hidden"]);
             descent.AddIntentsToTarget(Targetting.Everything(false), ["Damage_3_6"]);
