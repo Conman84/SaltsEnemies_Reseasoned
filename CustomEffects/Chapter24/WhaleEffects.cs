@@ -69,6 +69,7 @@ namespace SaltsEnemies_Reseasoned
             if (caster.SimpleGetStoredValue(enable) > 0 && caster.SimpleGetStoredValue(value) == 1)
             {
                 caster.SimpleSetStoredValue(song, 1);
+                return true;
             }
             return false;
         }
