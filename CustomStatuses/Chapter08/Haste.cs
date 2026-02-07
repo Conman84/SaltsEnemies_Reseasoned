@@ -19,7 +19,7 @@ namespace SaltEnemies_Reseasoned
             StatusEffectInfoSO HasteInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             HasteInfo.icon = ResourceLoader.LoadSprite("Haste.png");
             HasteInfo._statusName = "Haste";
-            HasteInfo._description = "On enemies: Give this enemy an extra action per turn. Decreases by 1 at the start of each round.\nOn Party Members: On performing an ability, refresh this party member and decrease Haste by 1.";
+            HasteInfo._description = "This unit can perform an extra action each round. Decreases by 1 at the start of each round.";
             HasteInfo._applied_SE_Event = "event:/Hawthorne/Misc/Haste";
             HasteInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             HasteInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
@@ -38,6 +38,7 @@ namespace SaltEnemies_Reseasoned
             if (!LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
 
             Setup();
+            AddValue();
         }
         public static string Trigger => "SaltEnemies_Haste_Trigger";
         public static void CombatStats_TurnStart(Action<CombatStats> orig, CombatStats self)
@@ -52,30 +53,43 @@ namespace SaltEnemies_Reseasoned
         {
             IDetour hook = new Hook(typeof(CombatStats).GetMethod(nameof(CombatStats.PlayerTurnStart), ~System.Reflection.BindingFlags.Default), typeof(Haste).GetMethod(nameof(CombatStats_TurnStart), ~System.Reflection.BindingFlags.Default));
         }
+
+
+        public static string Refresh => "SaltEnemies_Haste_Refresh";
+        public static void AddValue()
+        {
+            UnitStoreData.CreateAndAdd_IntTooltip_UnitStoreDataToPool(Refresh, "Haste +{0}", Misc.GetInGame_UITextColor(Misc.UITextColorIDs.Positive));
+        }
     }
     public class HasteSE_SO : StatusEffect_SO
     {
         public override bool IsPositive => true;
         public override void OnTriggerAttached(StatusEffect_Holder holder, IStatusEffector caller)
         {
-            if (caller.IsStatusEffectorCharacter) CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
-            else CombatManager.Instance.AddObserver(holder.OnEventTriggered_03, Haste.Trigger, caller);
+            if (caller.IsStatusEffectorCharacter)
+            {
+                CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
+            }
+            CombatManager.Instance.AddObserver(holder.OnEventTriggered_03, Haste.Trigger, caller);
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, TriggerCalls.AttacksPerTurn.ToString(), caller);
         }
 
         public override void OnTriggerDettached(StatusEffect_Holder holder, IStatusEffector caller)
         {
-            if (caller.IsStatusEffectorCharacter) CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
-            else CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_03, Haste.Trigger, caller);
+            if (caller.IsStatusEffectorCharacter)
+            {
+                CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
+            }
+            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_03, Haste.Trigger, caller);
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, TriggerCalls.AttacksPerTurn.ToString(), caller);
         }
 
         public override void OnEventCall_01(StatusEffect_Holder holder, object sender, object args)
         {
-            if (sender is CharacterCombat chara)
+            if (sender is CharacterCombat chara && chara.SimpleGetStoredValue(Haste.Refresh) > 0)
             {
-                chara.RefreshAbilityUse();
-                ReduceDuration(holder, sender as IStatusEffector);
+                if (chara.RefreshAbilityUse())
+                    chara.SimpleSetStoredValue(Haste.Refresh, chara.SimpleGetStoredValue(Haste.Refresh) - 1);
             }
         }
         public override void OnEventCall_02(StatusEffect_Holder holder, object sender, object args)
