@@ -1,5 +1,6 @@
 ﻿using BrutalAPI;
 using MonoMod.RuntimeDetour;
+using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -59,6 +60,23 @@ namespace SaltEnemies_Reseasoned
         public static void AddValue()
         {
             UnitStoreData.CreateAndAdd_IntTooltip_UnitStoreDataToPool(Refresh, "Haste +{0}", Misc.GetInGame_UITextColor(Misc.UITextColorIDs.Positive));
+            NotificationHook.AddAction(RefreshHook);
+            NotificationHook.AddAction(RemoveHook);
+        }
+        public static void RefreshHook(string name, object sender, object args)
+        {
+            if (name == TriggerCalls.OnAbilityUsed.ToString() && sender is IUnit chara && chara.SimpleGetStoredValue(Refresh) > 0)
+            {
+                if (chara.RefreshAbilityUse())
+                    chara.SimpleSetStoredValue(Refresh, chara.SimpleGetStoredValue(Refresh) - 1);
+            }
+        }
+        public static void RemoveHook(string name, object sender, object args)
+        {
+            if (name == TriggerCalls.OnTurnFinished.ToString() && sender is IUnit unit)
+            {
+                unit.SimpleSetStoredValue(Refresh, 0);
+            }
         }
     }
     public class HasteSE_SO : StatusEffect_SO
@@ -68,7 +86,7 @@ namespace SaltEnemies_Reseasoned
         {
             if (caller.IsStatusEffectorCharacter)
             {
-                CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
+                CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnStart.ToString(), caller);
             }
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_03, Haste.Trigger, caller);
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, TriggerCalls.AttacksPerTurn.ToString(), caller);
@@ -78,7 +96,7 @@ namespace SaltEnemies_Reseasoned
         {
             if (caller.IsStatusEffectorCharacter)
             {
-                CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnAbilityUsed.ToString(), caller);
+                CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnStart.ToString(), caller);
             }
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_03, Haste.Trigger, caller);
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, TriggerCalls.AttacksPerTurn.ToString(), caller);
@@ -86,10 +104,9 @@ namespace SaltEnemies_Reseasoned
 
         public override void OnEventCall_01(StatusEffect_Holder holder, object sender, object args)
         {
-            if (sender is CharacterCombat chara && chara.SimpleGetStoredValue(Haste.Refresh) > 0)
+            if (sender is IUnit unit)
             {
-                if (chara.RefreshAbilityUse())
-                    chara.SimpleSetStoredValue(Haste.Refresh, chara.SimpleGetStoredValue(Haste.Refresh) - 1);
+                unit.SimpleSetStoredValue(Haste.Refresh, unit.SimpleGetStoredValue(Haste.Refresh) + 1);
             }
         }
         public override void OnEventCall_02(StatusEffect_Holder holder, object sender, object args)
