@@ -46,8 +46,11 @@ namespace SaltEnemies_Reseasoned
                     {
                         Effects.GenerateEffect(CasterSubActionEffect.Create(new EffectInfo[]
                         {
-                            Effects.GenerateEffect(e, amount, Slots.Self, ScriptableObject.CreateInstance<HasHealthEffectCondition>()),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), amount, Slots.Front, ScriptableObject.CreateInstance<HasHealthEffectCondition>())
+                            Effects.GenerateEffect(CasterSubActionEffect.Create(new EffectInfo[]
+                            {
+                                Effects.GenerateEffect(e, amount, Slots.Self, ScriptableObject.CreateInstance<HasHealthEffectCondition>()),
+                                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), amount, Slots.Front, ScriptableObject.CreateInstance<HasHealthEffectCondition>())
+                            }), 1, Slots.Self)
                         }), 1, Slots.Self)
                     }), 1, Slots.Self)
             };
