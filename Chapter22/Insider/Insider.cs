@@ -124,7 +124,7 @@ namespace SaltsEnemies_Reseasoned
                 "\"Ok\" - Ok",
                 "Enem",
                 "Hi I'm Pimple",
-                "Kill All Coders And Spriters"
+                "KILL ALL CODERS AND SPRITERS"
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside),
