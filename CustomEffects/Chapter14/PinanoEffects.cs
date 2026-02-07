@@ -29,6 +29,7 @@ namespace SaltEnemies_Reseasoned
     {
         public static BasePassiveAbilitySO Generate(int amount)
         {
+            LateTriggerHandler.Setup();
             PerformEffectPassiveAbility vil = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             vil._passiveName = "Violent (" + amount.ToString() + ")";
             vil.passiveIcon = ResourceLoader.LoadSprite("ViolentPassive.png");
@@ -37,26 +38,39 @@ namespace SaltEnemies_Reseasoned
             vil.m_PassiveID = "Violent_PA";
             vil.name = "Violent_" + amount.ToString() + "_PA";
             vil.doesPassiveTriggerInformationPanel = false;
-            vil._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged };
+            vil._triggerOn = new TriggerCalls[] { LateTriggerHandler.LateDamaged };
             ShowViolentPassiveEffect e = ScriptableObject.CreateInstance<ShowViolentPassiveEffect>();
             e.image = vil.passiveIcon;
             vil.effects = new EffectInfo[]
             {
                     Effects.GenerateEffect(CasterSubActionEffect.Create(new EffectInfo[]
                     {
-                        Effects.GenerateEffect(CasterSubActionEffect.Create(new EffectInfo[]
-                        {
-                            Effects.GenerateEffect(CasterSubActionEffect.Create(new EffectInfo[]
-                            {
-                                Effects.GenerateEffect(e, amount, Slots.Self, ScriptableObject.CreateInstance<HasHealthEffectCondition>()),
-                                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), amount, Slots.Front, ScriptableObject.CreateInstance<HasHealthEffectCondition>())
-                            }), 1, Slots.Self)
-                        }), 1, Slots.Self)
+                        Effects.GenerateEffect(e, amount, Slots.Self, ScriptableObject.CreateInstance<HasHealthEffectCondition>()),
+                        Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), amount, Slots.Front, ScriptableObject.CreateInstance<HasHealthEffectCondition>())
                     }), 1, Slots.Self)
             };
             vil.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<IsAliveCondition>() };
             if (!LoadedAssetsHandler.LoadedPassives.ContainsKey(vil.name)) vil.AddToPassiveDatabase();
             return vil;
+        }
+    }
+
+    public static class LateTriggerHandler
+    {
+        public static TriggerCalls LateDamaged => (TriggerCalls)2985611;
+        static bool _set;
+        public static void Setup()
+        {
+            if (_set) return;
+            _set = true;
+            NotificationHook.AddAction(NotifCheck);
+        }
+        public static void NotifCheck(string name, object sender, object args)
+        {
+            if (name == TriggerCalls.OnDirectDamaged.ToString())
+            {
+                CombatManager.Instance.PostNotification(LateDamaged.ToString(), sender, args);
+            }
         }
     }
 }
