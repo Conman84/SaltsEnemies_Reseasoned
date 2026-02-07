@@ -5,35 +5,35 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
+using TMPro;
 using UnityEngine;
 
 namespace SaltEnemies_Reseasoned
 {
     public static class Determined
     {
-        public static string HealType => "";
+        public static string HealType => "Heal_Determined";
         public static string StatusID => "Determined_ID";
         public static string Intent => "Status_Determined";
         public static DeterminedSE_SO Object;
         public static void Add()
         {
             //Debug.LogWarning("Determined.Add. I've left some leftover code for the damage color setting in case you want to use it, for the heal color you'd just copy the code and change DamageType --> HealType");
-            /*TMP_ColorGradient PaleGradient = ScriptableObject.CreateInstance<TMP_ColorGradient>();
-            UnityEngine.Color32 paleColor = new UnityEngine.Color32(63, 205, 189, 255);
-            PaleGradient.bottomLeft = paleColor;
-            PaleGradient.bottomRight = paleColor;
-            PaleGradient.topLeft = paleColor;
-            PaleGradient.topRight = paleColor;
-            if (LoadedDBsHandler.CombatDB.m_TxtColorPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_TxtColorPool[DamageType] = PaleGradient;
-            else LoadedDBsHandler.CombatDB.AddNewTextColor(DamageType, PaleGradient);
+            TMP_ColorGradient determinedColor = ScriptableObject.CreateInstance<TMP_ColorGradient>();
+            determinedColor.bottomRight = new Color32(75, 18, 18, 255);
+            determinedColor.bottomLeft = new Color32(121, 30, 30, 255);
+            determinedColor.topRight = new Color32(172, 50, 50, 255);
+            determinedColor.topLeft = new Color32(255, 255, 255, 255);
+            if (LoadedDBsHandler.CombatDB.m_TxtColorPool.ContainsKey(HealType)) LoadedDBsHandler.CombatDB.m_TxtColorPool[HealType] = determinedColor;
+            else LoadedDBsHandler.CombatDB.AddNewTextColor(HealType, determinedColor);
 
-            if (LoadedDBsHandler.CombatDB.m_SoundPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_SoundPool[DamageType] = LoadedDBsHandler.CombatDB.m_SoundPool[CombatType_GameIDs.Dmg_Linked.ToString()];
-            else LoadedDBsHandler.CombatDB.AddNewSound(DamageType, LoadedDBsHandler.CombatDB.m_SoundPool[CombatType_GameIDs.Dmg_Linked.ToString()]);
-            */
+            if (LoadedDBsHandler.CombatDB.m_SoundPool.ContainsKey(HealType)) LoadedDBsHandler.CombatDB.m_SoundPool[HealType] = LoadedDBsHandler.CombatDB.m_SoundPool[CombatType_GameIDs.Heal_Basic.ToString()];
+            else LoadedDBsHandler.CombatDB.AddNewSound(HealType, LoadedDBsHandler.CombatDB.m_SoundPool[CombatType_GameIDs.Heal_Basic.ToString()]);
+
             StatusEffectInfoSO DeterminedInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             DeterminedInfo.icon = ResourceLoader.LoadSprite("Determined.png");
             DeterminedInfo._statusName = "Determined";
-            DeterminedInfo._description = "Upon dying, prevent death and heal this character however many stacks of Determined they have. Remove all Determined. Decreases by 1 at the start of each turn. Does not work on Cursed, Dying or Inanimate units.";
+            DeterminedInfo._description = "Upon dying, prevent death and indirectly heal this character however many stacks of Determined they have. Remove all Determined. Decreases by 1 at the start of each turn. Does not work on Cursed, Dying or Inanimate units.";
             DeterminedInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo._applied_SE_Event;
             DeterminedInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             DeterminedInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
@@ -84,7 +84,7 @@ namespace SaltEnemies_Reseasoned
         {
             int Amount = holder.m_ContentMain + holder.Restrictor;
             int restoreVal = Amount;
-            (sender as IUnit).Heal(restoreVal, null, true, Determined.HealType);//THIS STUFF IS SPECIFIC TO MY STATUS EFFECT
+            (sender as IUnit).Heal(restoreVal, null, false, Determined.HealType);//THIS STUFF IS SPECIFIC TO MY STATUS EFFECT
             (sender as IStatusEffector).RemoveStatusEffect(holder.StatusID);//THIS IS THE DELETE DURATION LINE
             if ((sender as IUnit).CurrentHealth <= 0) (sender as IUnit).GenericDirectDeath(null);
         }
