@@ -258,6 +258,9 @@ namespace SaltEnemies_Reseasoned
 
             //sucklemod
             PCall(SuckleModCrossovers.Add);
+
+            //siren
+            PCall(SirenCrossovers.Add);
         }
     }
 }
