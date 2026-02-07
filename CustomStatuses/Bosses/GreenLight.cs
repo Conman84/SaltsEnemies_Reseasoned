@@ -19,9 +19,9 @@ namespace SaltsEnemies_Reseasoned
             GreenInfo.icon = ResourceLoader.LoadSprite("GreenLight.png");
             GreenInfo._fieldName = "Green Lights";
             GreenInfo._description = "Deal double direct damage while in Green Lights.";
-            GreenInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo._applied_SE_Event;
-            GreenInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.RemovedSoundEvent;
-            GreenInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
+            //GreenInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo._applied_SE_Event;
+            //GreenInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.RemovedSoundEvent;
+            //GreenInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 
             GameObject Fool = SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Lights/GreenLight_Fool.prefab");
             GameObject_CFE_Layout LayoutFool = Fool.AddComponent<GameObject_CFE_Layout>();

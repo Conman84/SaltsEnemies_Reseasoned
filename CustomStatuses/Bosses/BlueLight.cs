@@ -18,9 +18,9 @@ namespace SaltsEnemies_Reseasoned
             BlueInfo.icon = ResourceLoader.LoadSprite("BlueLight.png");
             BlueInfo._fieldName = "Blue Lights";
             BlueInfo._description = "On moving into Blue Lights, randomize all pigment in the tray.";
-            BlueInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo._applied_SE_Event;
-            BlueInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.RemovedSoundEvent;
-            BlueInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
+            //BlueInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo._applied_SE_Event;
+            //BlueInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.RemovedSoundEvent;
+            //BlueInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 
             GameObject Fool = SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Lights/BlueLight_Fool.prefab");
             GameObject_CFE_Layout LayoutFool = Fool.AddComponent<GameObject_CFE_Layout>();

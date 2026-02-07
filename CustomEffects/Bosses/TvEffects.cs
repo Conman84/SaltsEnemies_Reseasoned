@@ -14,12 +14,31 @@ namespace SaltsEnemies_Reseasoneds
         {
             StatusFieldSpeedSecondUIAction.SpeedUp(stats);
 
+            Vector3 loc = default(Vector3);
+            try
+            {
+                if (!caster.IsUnitCharacter)
+                {
+                    loc = stats.combatUI._enemyZone._enemies[caster.FieldID].FieldEntity.Position;
+                }
+                else
+                {
+                    loc = stats.combatUI._characterZone.GetCharacterPosition(caster.FieldID);
+                }
+            }
+            catch { }
+
+            CombatManager.Instance.AddUIAction(new PlaySoundUIAction(LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo._applied_SE_Event, loc));
+
             foreach (TargetSlotInfo target in targets)
             {
                 RemoveFieldEffect("GreenLight_ID", stats, target);
                 RemoveFieldEffect("RedLight_ID", stats, target);
                 RemoveFieldEffect("BlueLight_ID", stats, target);
             }
+
+            CombatManager.Instance.AddUIAction(new PlaySoundUIAction(LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo._removed_SE_Event, loc));
+
             foreach (TargetSlotInfo target in targets)
             {
                 stats.combatSlots.ApplyFieldEffect(target.SlotID, target.IsTargetCharacterSlot, (new FieldEffect_SO[] { Green.Object, Red.Object, Blue.Object }).GetRandom(), 1);

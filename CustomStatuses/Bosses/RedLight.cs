@@ -18,9 +18,9 @@ namespace SaltsEnemies_Reseasoned
             RedInfo.icon = ResourceLoader.LoadSprite("RedLight.png");
             RedInfo._fieldName = "Red Lights";
             RedInfo._description = "On using an ability in Red Lights, move Left or Right.";
-            RedInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo._applied_SE_Event;
-            RedInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.RemovedSoundEvent;
-            RedInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
+            //RedInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo._applied_SE_Event;
+            //RedInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.RemovedSoundEvent;
+            //RedInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Spotlight_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 
             GameObject Fool = SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Lights/RedLight_Fool.prefab");
             GameObject_CFE_Layout LayoutFool = Fool.AddComponent<GameObject_CFE_Layout>();
