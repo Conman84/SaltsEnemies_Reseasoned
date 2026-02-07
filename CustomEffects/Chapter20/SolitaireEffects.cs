@@ -308,10 +308,12 @@ namespace SaltsEnemies_Reseasoned
                         //CombatManager.Instance._soundManager.ForceSetAmbience(current.combatAmbienceType);
                         MethodInfo method = typeof(AudioControllerSO).GetMethod(nameof(AudioControllerSO.ForceSetAmbience));
 
-                        if (typeof(ZoneDataBaseSO).GetField("CombatAmbience") != null)
+                        /*if (typeof(ZoneDataBaseSO).GetField("CombatAmbience") != null)
                             method.Invoke(CombatManager.Instance._soundManager, [typeof(ZoneDataBaseSO).GetField("CombatAmbience").GetValue(current)]);
                         else if (typeof(ZoneDataBaseSO).GetField("m_AmbienceID") != null)
                             method.Invoke(CombatManager.Instance._soundManager, [typeof(ZoneDataBaseSO).GetField("m_AmbienceID").GetValue(current), typeof(ZoneDataBaseSO).GetField("m_CombatAmbVarID").GetValue(current)]);
+                        */
+                        CombatManager.Instance._soundManager.ForceSetAmbience(current.m_AmbienceEvent, current.m_CombatAmbienceType);
 
                     }
                     else
@@ -324,10 +326,12 @@ namespace SaltsEnemies_Reseasoned
                     //CombatManager.Instance._soundManager.TrySetAmbienceState(current.combatAmbienceType);
                     MethodInfo method = typeof(AudioControllerSO).GetMethod(nameof(AudioControllerSO.TrySetAmbienceState));
 
-                    if (typeof(ZoneDataBaseSO).GetField("CombatAmbience") != null)
-                        method.Invoke(CombatManager.Instance._soundManager, [typeof(ZoneDataBaseSO).GetField("CombatAmbience").GetValue(current)]);
-                    else if (typeof(ZoneDataBaseSO).GetField("m_AmbienceID") != null)
-                        method.Invoke(CombatManager.Instance._soundManager, [typeof(ZoneDataBaseSO).GetField("m_AmbienceID").GetValue(current), typeof(ZoneDataBaseSO).GetField("m_CombatAmbVarID").GetValue(current)]);
+                    /*if (typeof(ZoneDataBaseSO).GetField("CombatAmbience") != null)
+                            method.Invoke(CombatManager.Instance._soundManager, [typeof(ZoneDataBaseSO).GetField("CombatAmbience").GetValue(current)]);
+                        else if (typeof(ZoneDataBaseSO).GetField("m_AmbienceID") != null)
+                            method.Invoke(CombatManager.Instance._soundManager, [typeof(ZoneDataBaseSO).GetField("m_AmbienceID").GetValue(current), typeof(ZoneDataBaseSO).GetField("m_CombatAmbVarID").GetValue(current)]);
+                        */
+                    CombatManager.Instance._soundManager.ForceSetAmbience(current.m_AmbienceEvent, current.m_CombatAmbienceType);
                 }
                 else
                 {
