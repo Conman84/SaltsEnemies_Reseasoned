@@ -17,13 +17,13 @@ namespace SaltsEnemies_Reseasoned
             AddTo med = new AddTo(Orph.H.Feaster.Med);
             med.AddRandomGroup(Enemies.Feaster, Enemies.Feaster, Enemies.Alchemist, "LostSheep_EN");
             med.AddRandomGroup(Enemies.Feaster, Enemies.Feaster, Enemies.Alchemist, "Nameless_EN");
-            if (SaltsReseasoned.silly < 50) med.AddRandomGroup(Enemies.Feaster, Enemies.Feaster, Enemies.Alchemist, "Sigil_EN");
+            if (SaltsReseasoned.silly < 50) med.AddRandomGroup(Enemies.Feaster, Enemies.Feaster, Enemies.Alchemist, "Sigil_EN", Enemies.Suckle);
             if (SaltsReseasoned.silly > 50) med.AddRandomGroup(Enemies.Feaster, Enemies.Feaster, Enemies.Alchemist, "Wednesday_EN");
             if (SaltsReseasoned.silly > 50) med.AddRandomGroup(Enemies.Feaster, Enemies.Feaster, Enemies.Alchemist, "Enigma_EN");
             if (SaltsReseasoned.silly < 50) med.AddRandomGroup(Enemies.Feaster, Enemies.Feaster, "Enigma_EN", "Enigma_EN");
             if (SaltsReseasoned.trolling > 50) med.AddRandomGroup(Enemies.Feaster, Enemies.Feaster, Enemies.Feaster, Bots.Red);
             if (SaltsReseasoned.trolling < 50) med.AddRandomGroup(Enemies.Feaster, Enemies.Feaster, Enemies.Feaster, Bots.Yellow);
-            med.AddRandomGroup(Enemies.Feaster, Enemies.Feaster, Enemies.Alchemist, "TheWhale_EN");
+            med.AddRandomGroup(Enemies.Feaster, Enemies.Suckle, Enemies.Suckle, Enemies.Alchemist, "TheWhale_EN");
 
             easy = new AddTo(Orph.H.Enigma.Easy);
             easy.SimpleAddGroup(2, "Enigma_EN", 1, Enemies.Accelerator);
@@ -49,8 +49,14 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup(Bots.Blue, Bots.Purple, Enemies.Feaster);
 
             med = new AddTo(Orph.H.Evileye.Med);
-            med.AddRandomGroup("Evileye_EN", Enemies.Feaster, Enemies.Feaster, Enemies.Alchemist);
+            med.AddRandomGroup("Evileye_EN", Enemies.Suckle, Enemies.Suckle, Enemies.Feaster, Enemies.Alchemist);
             med.AddRandomGroup("Evileye_EN", "MusicMan_EN", "MusicMan_EN", Enemies.Accelerator);
+
+            easy = new AddTo(Orph.H.Shooter.Easy);
+            easy.AddRandomGroup(Enemies.Shooter, Enemies.Accelerator, Enemies.Accelerator);
+
+            med = new AddTo(Orph.H.Shooter.Med);
+            med.AddRandomGroup(Enemies.Shooter, Enemies.Shooter, Enemies.Accelerator);
 
             easy = new AddTo(Orph.H.Something.Easy);
             easy.AddRandomGroup("Something_EN", Enemies.Feaster);
@@ -59,11 +65,11 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Something_EN", Enemies.Feaster, Enemies.Alchemist);
 
             med = new AddTo(Orph.H.Crow.Med);
-            med.AddRandomGroup("TheCrow_EN", Enemies.Feaster, Enemies.Feaster, Enemies.Alchemist);
+            med.AddRandomGroup("TheCrow_EN", Enemies.Suckle, Enemies.Suckle, Enemies.Feaster, Enemies.Alchemist);
             med.AddRandomGroup("TheCrow_EN", Spoggle.Red, Enemies.Accelerator, Enemies.Accelerator);
 
             med = new AddTo(Orph.H.Freud.Med);
-            med.AddRandomGroup("Freud_EN", Enemies.Feaster, Enemies.Feaster, Enemies.Alchemist);
+            med.AddRandomGroup("Freud_EN", Enemies.Suckle, Enemies.Suckle, Enemies.Feaster, Enemies.Alchemist);
             med.AddRandomGroup("Freud_EN", Enemies.Shooter, Enemies.Alchemist);
 
             med = new AddTo(Orph.H.Camera.Med);
@@ -74,7 +80,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Delusion_EN", "Delusion_EN", "FakeAngel_EN", Enemies.Accelerator);
 
             med = new AddTo(Orph.H.Flower.Yellow.Med);
-            med.AddRandomGroup(Flower.Yellow, Enemies.Feaster, Enemies.Feaster, Enemies.Alchemist);
+            med.AddRandomGroup(Flower.Yellow, Enemies.Suckle, Enemies.Suckle, Enemies.Feaster, Enemies.Alchemist);
             med.AddRandomGroup(Flower.Yellow, Flower.Purple, Enemies.Feaster);
             med = new AddTo(Orph.H.Flower.Purple.Med);
             med.AddRandomGroup(Flower.Purple, Enemies.Accelerator, Enemies.Accelerator, Enemies.Alchemist);
@@ -105,6 +111,71 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Orph.H.Crystal.Med);
             med.AddRandomGroup("Crystal_EN", Enemies.Feaster, Enemies.Feaster);
             med.AddRandomGroup("Crystal_EN", Jumble.Red, Jumble.Purple, Enemies.Accelerator);
+
+            hard = new AddTo(Orph.H.Dragon.Hard);
+            hard.AddRandomGroup("TheDragon_EN", Enemies.Feaster, Enemies.Alchemist, Enemies.Suckle);
+            hard.AddRandomGroup("TheDragon_EN", Enemies.Accelerator, Enemies.Accelerator);
+
+            med = new AddTo(Orph.H.YellowAngel.Med);
+            med.AddRandomGroup("YellowAngel_EN", Enemies.Feaster, Enemies.Feaster, Enemies.Feaster);
+            med.AddRandomGroup("YellowAngel_EN", Enemies.Alchemist, Enemies.Suckle, Enemies.Suckle, Enemies.Suckle);
+            med.AddRandomGroup("YellowAngel_EN", Enemies.Accelerator, "Scrungie_EN", "Scrungie_EN");
+
+            med = new AddTo(Orph.H.Wednesday.Med);
+            if (SaltsReseasoned.rando < 33) med.AddRandomGroup("Wednesday_EN", Enemies.Accelerator, Enemies.Accelerator, Enemies.Accelerator, "MusicMan_EN");
+            med.AddRandomGroup("Wednesday_EN", Enemies.Feaster, Enemies.Feaster, Enemies.Suckle);
+
+            med = new AddTo(Orph.H.Solitaire.Med);
+            med.SimpleAddGroup(2, "Solitaire_EN", 2, Enemies.Feaster);
+            med.SimpleAddGroup(3, "Solitaire_EN", 1, Enemies.Accelerator);
+            med.SimpleAddGroup(2, "Solitaire_EN", 1, Enemies.Alchemist, 2, Enemies.Suckle);
+
+            easy = new AddTo(Orph.H.Foxtrot.Easy);
+            easy.SimpleAddGroup(3, "Foxtrot_EN", 1, Enemies.Accelerator);
+
+            med = new AddTo(Orph.H.Author.Med);
+            med.SimpleAddGroup(1, "Author_EN", 2, Enemies.Feaster, 1, Enemies.Accelerator);
+            med.SimpleAddGroup(1, "Author_EN", 2, "MusicMan_EN", 1, Enemies.Accelerator);
+            med.SimpleAddGroup(1, "Author_EN", 1, Enemies.Alchemist, 3, Enemies.Suckle);
+
+            hard = new AddTo(Orph.H.Author.Hard);
+            hard.SimpleAddGroup(3, "Author_EN", 1, Enemies.Alchemist);
+            hard.SimpleAddGroup(3, "Author_EN", 1, Enemies.Accelerator, 1, Enemies.Suckle);
+
+            med = new AddTo(Orph.H.Insider.Med);
+            med.SimpleAddGroup(2, "insider_EN", 1, Enemies.Feaster, 2, Enemies.Suckle);
+
+            med = new AddTo(Orph.H.Nume.Med);
+            med.AddRandomGroup("Nume_EN", Enemies.Feaster, Enemies.Feaster);
+            med.AddRandomGroup("Nume_EN", Jumble.Red, Jumble.Blue, Enemies.Accelerator);
+
+            med = new AddTo(Orph.H.Whale.Med);
+            med.SimpleAddGroup(2, "TheWhale_EN", 2, Enemies.Feaster, 1, Enemies.Suckle);
+            med.SimpleAddGroup(2, "TheWhale_EN", 1, Enemies.Alchemist, 1, Enemies.Accelerator, 1, Enemies.Suckle);
+
+            med = new AddTo(Orph.H.Errant.Med);
+            med.AddRandomGroup("Errant_EN", Enemies.Accelerator, "TheWhale_EN");
+
+            hard = new AddTo(Orph.H.Errant.Hard);
+            hard.AddRandomGroup("Errant_EN", Enemies.Accelerator, Enemies.Camera);
+
+            med = new AddTo(Orph.H.MusicMan.Med);
+            med.AddRandomGroup("MusicMan_EN", "MusicMan_EN", Enemies.Shooter, Enemies.Alchemist);
+
+            med = new AddTo(Orph.H.Shuffler.Med);
+            med.AddRandomGroup(Enemies.Shuffler, Enemies.Shuffler, "Enigma_EN", Enemies.Accelerator);
+
+            med = new AddTo(Orph.H.Colophon.Yellow.Med);
+            med.AddRandomGroup(Colophon.Yellow, "Enigma_EN", "Enigma_EN", Enemies.Accelerator);
+
+            med = new AddTo(Orph.H.Colophon.Purple.Med);
+            med.AddRandomGroup(Colophon.Purple, "Spectre_EN", "Spectre_EN", Enemies.Accelerator);
+
+            med = new AddTo(Orph.H.Thunderdome.Med);
+            med.AddRandomGroup("Thunderdome_EN", Enemies.Accelerator, Bots.Red, Enemies.Suckle);
+
+            hard = new AddTo(Orph.H.Heehoo.Hard);
+            hard.AddRandomGroup("Heehoo_EN", "Solitaire_EN", "Solitaire_EN", Enemies.Alchemist);
         }
     }
 }
