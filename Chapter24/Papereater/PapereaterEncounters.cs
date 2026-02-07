@@ -150,7 +150,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Sinker_EN", "Papereater_EN", "Windle_EN");
 
             hard = new AddTo(Shore.H.Sinker.Hard);
-            hard.AddRandomGroup("Sinker_EN", "Papereater_EN", "Papereater_EN", "VoiceTrumpet_EN");
+            //hard.AddRandomGroup("Sinker_EN", "Papereater_EN", "Papereater_EN", "VoiceTrumpet_EN");
 
             med = new AddTo(Shore.H.TwoThousandNine.Med);
             med.AddRandomGroup("2009_EN", "Papereater_EN", "Waltz_EN", "Waltz_EN");

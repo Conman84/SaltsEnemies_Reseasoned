@@ -16,12 +16,12 @@ namespace SaltsEnemies_Reseasoned
             easy.AddRandomGroup("Squirmer_EN", "Wall_EN", "LostSheep_EN");
 
             AddTo med = new AddTo(Shore.H.Mungman.Med);
-            med.AddRandomGroup("Mungman_EN", "Mungman_EN", "Wall_EN");
+            //med.AddRandomGroup("Mungman_EN", "Mungman_EN", "Wall_EN");
             med.AddRandomGroup("Mungman_EN", "Mungman_EN", "2009_EN");
 
             med = new AddTo(Shore.H.Squirmer.Med);
             med.AddRandomGroup("Squirmer_EN", "Squirmer_EN", "Waltz_EN", "Waltz_EN");
-            med.AddRandomGroup("Squirmer_EN", "Squirmer_EN", "VoiceTrumpet_EN");
+            //med.AddRandomGroup("Squirmer_EN", "Squirmer_EN", "VoiceTrumpet_EN");
 
             med = new AddTo(Shore.H.Digger.Med);
             med.AddRandomGroup("Digger_EN", "Wall_EN", "Wall_EN");
@@ -44,7 +44,7 @@ namespace SaltsEnemies_Reseasoned
 
             AddTo hard = new AddTo(Shore.H.Wailer.Hard);
             hard.SimpleAddGroup(1, "Wailer_EN", 4, "Waltz_EN");
-            hard.SimpleAddGroup(1, "Wailer_EN", 2, "VoiceTrumpet_EN", 1, "Skyloft_EN");
+            //hard.SimpleAddGroup(1, "Wailer_EN", 2, "VoiceTrumpet_EN", 1, "Skyloft_EN");
 
             hard = new AddTo(Shore.H.Clown.Hard);
             hard.AddRandomGroup("Clown_EN", "Squirmer_EN", "Waltz_EN");

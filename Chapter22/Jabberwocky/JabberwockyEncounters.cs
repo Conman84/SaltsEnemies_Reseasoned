@@ -17,7 +17,7 @@ namespace SaltsEnemies_Reseasoned
             med.RoarEvent = "event:/Hawthorne/Soisenay/IndicatorDie";
 
             med.SimpleAddEncounter(2, "Jabberwocky_EN", 1, "LostSheep_EN");
-            med.SimpleAddEncounter(2, "Wall_EN", 1, "Jabberwocky_EN");
+            //med.SimpleAddEncounter(2, "Wall_EN", 1, "Jabberwocky_EN");
             med.AddRandomEncounter("ToyUfo_EN", "Flarblet_EN", "Jabberwocky_EN");
             med.AddRandomEncounter("Jabberwocky_EN", Jumble.Red, Jumble.Yellow);
             med.AddRandomEncounter("Jabberwocky_EN", Spoggle.Blue, "MudLung_EN");
@@ -99,7 +99,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("DryBait_EN", "Jabberwocky_EN", "Waltz_EN", "Waltz_EN", "Waltz_EN");
 
             med = new AddTo(Shore.H.Digger.Med);
-            med.AddRandomGroup("Digger_EN", "Jabberwocky_EN", "Goa_ENs");
+            med.AddRandomGroup("Digger_EN", "Jabberwocky_EN", "Goa_EN");
 
             med = new AddTo(Shore.H.Wailer.Med);
             med.AddRandomGroup("Wailer_EN", "Jabberwocky_EN");

@@ -83,128 +83,128 @@ namespace SaltsEnemies_Reseasoned
             AddTo med = new AddTo(Shore.H.DeadPixel.Med);
             med.AddRandomGroup("DeadPixel_EN", "DeadPixel_EN", "Wall_EN", "MudLung_EN");
             med.AddRandomGroup("DeadPixel_EN", "DeadPixel_EN", "Wall_EN", Jumble.Yellow);
-            med.AddRandomGroup("DeadPixel_EN", "DeadPixel_EN", "Wall_EN", Jumble.Red);
+            //med.AddRandomGroup("DeadPixel_EN", "DeadPixel_EN", "Wall_EN", Jumble.Red);
 
             med = new AddTo(Shore.H.Angler.Med);
-            med.AddRandomGroup("AFlower_EN", "Wall_EN", "Wall_EN");
+            //med.AddRandomGroup("AFlower_EN", "Wall_EN", "Wall_EN");
             med.AddRandomGroup("AFlower_EN", "Wall_EN", "Pinano_EN");
 
             AddTo hard = new AddTo(Shore.H.Angler.Hard);
-            hard.SimpleAddGroup(1, "AFlower_EN", 3, "Wall_EN");
+            //hard.SimpleAddGroup(1, "AFlower_EN", 3, "Wall_EN");
             hard.AddRandomGroup("AFlower_EN", "Wall_EN", "Wall_EN", "LostSheep_EN");
-            hard.AddRandomGroup("AFlower_EN", "Wall_EN", Enemies.Mungling);
+            //hard.AddRandomGroup("AFlower_EN", "Wall_EN", Enemies.Mungling);
             hard.AddRandomGroup("AFlower_EN", "Wall_EN", "FlaMinGoa_EN");
-            hard.AddRandomGroup("AFlower_EN", "Wall_EN", "Wall_EN", "Chiito_EN");
+            //hard.AddRandomGroup("AFlower_EN", "Wall_EN", "Wall_EN", "Chiito_EN");
 
             easy = new AddTo(Shore.H.Skyloft.Easy);
             easy.AddRandomGroup("Skyloft_EN", "Wall_EN", "Wall_EN");
 
             hard = new AddTo(Shore.H.Camera.Hard);
-            hard.SimpleAddGroup(2, Enemies.Camera, 3, "Wall_EN");
+            //hard.SimpleAddGroup(2, Enemies.Camera, 3, "Wall_EN");
             hard.AddRandomGroup(Enemies.Camera, "Wall_EN", "Sinker_EN", "ToyUfo_EN");
-            hard.AddRandomGroup(Enemies.Camera, Enemies.Camera, "Wall_EN", "Chiito_EN");
+            //hard.AddRandomGroup(Enemies.Camera, Enemies.Camera, "Wall_EN", "Chiito_EN");
 
             hard = new AddTo(Shore.Tripod.Hard);
-            hard.AddRandomGroup("Tripod_EN", "Wall_EN", "Wall_EN");
+            //hard.AddRandomGroup("Tripod_EN", "Wall_EN", "Wall_EN");
 
             hard = new AddTo(Shore.H.Tripod.Hard);
             hard.AddRandomGroup("Tripod_EN", "Wall_EN", "Wall_EN", "LostSheep_EN");
-            hard.AddRandomGroup("Tripod_EN", "Wall_EN", "Clione_EN");
+            //hard.AddRandomGroup("Tripod_EN", "Wall_EN", "Clione_EN");
 
             med = new AddTo(Shore.H.LittleBeak.Med);
-            med.AddRandomGroup("LittleBeak_EN", "Wall_EN", "Wall_EN", "Minana_EN");
+            //med.AddRandomGroup("LittleBeak_EN", "Wall_EN", "Wall_EN", "Minana_EN");
             med.AddRandomGroup("LittleBeak_EN", "Wall_EN", "Pinano_EN");
-            med.AddRandomGroup("LittleBeak_EN", "Wall_EN", Spoggle.Blue);
+            //med.AddRandomGroup("LittleBeak_EN", "Wall_EN", Spoggle.Blue);
             med.AddRandomGroup("LittleBeak_EN", "Wall_EN", Spoggle.Yellow);
-            med.SimpleAddGroup(1, "LittleBeak_EN", 3, "Wall_EN");
+            //med.SimpleAddGroup(1, "LittleBeak_EN", 3, "Wall_EN");
             med.AddRandomGroup("LittleBeak_EN", "Wall_EN", "MudLung_EN", "MudLung_EN");
-            med.AddRandomGroup("LittleBeak_EN", "Wall_EN", "2009_EN");
+            //med.AddRandomGroup("LittleBeak_EN", "Wall_EN", "2009_EN");
 
             hard = new AddTo(Shore.H.Warbird.Hard);
-            hard.SimpleAddGroup(1, "Warbird_EN", 3, "Wall_EN");
+            //hard.SimpleAddGroup(1, "Warbird_EN", 3, "Wall_EN");
             hard.AddRandomGroup("Warbird_EN", "Wall_EN", "DeadPixel_EN", "DeadPixel_EN");
             hard.AddRandomGroup("Warbird_EN", "Wall_EN", "Wall_EN", "ToyUfo_EN");
 
             easy = new AddTo(Shore.H.Windle.Easy);
-            easy.AddRandomGroup("Windle_EN", "Wall_EN", "LostSheep_EN");
+            //easy.AddRandomGroup("Windle_EN", "Wall_EN", "LostSheep_EN");
 
             med = new AddTo(Shore.H.Clione.Med);
-            med.AddRandomGroup("Clione_EN", "Wall_EN", "Wall_EN");
+            //med.AddRandomGroup("Clione_EN", "Wall_EN", "Wall_EN");
             med.AddRandomGroup("Clione_EN", "Wall_EN", Jumble.Red);
 
             hard = new AddTo(Shore.H.Clione.Hard);
-            hard.AddRandomGroup("Clione_EN", "Wall_EN", "Wall_EN", "Arceles_EN");
+            //hard.AddRandomGroup("Clione_EN", "Wall_EN", "Wall_EN", "Arceles_EN");
             hard.AddRandomGroup("Clione_EN", "Wall_EN", "Sinker_EN");
             hard.AddRandomGroup("Clione_EN", "Wall_EN", "Pinano_EN", "Pinano_EN");
-            hard.AddRandomGroup("Clione_EN", "Wall_EN", "Wall_EN", Enemies.Mungling);
+            //hard.AddRandomGroup("Clione_EN", "Wall_EN", "Wall_EN", Enemies.Mungling);
 
             easy = new AddTo(Shore.H.Arceles.Easy);
-            easy.AddRandomGroup("Arceles_EN", "Wall_EN", "Wall_EN");
+            //easy.AddRandomGroup("Arceles_EN", "Wall_EN", "Wall_EN");
 
             med = new AddTo(Shore.Pinano.Med);
-            med.AddRandomGroup("Pinano_EN", "Wall_EN", "Wall_EN");
+            //med.AddRandomGroup("Pinano_EN", "Wall_EN", "Wall_EN");
             med.AddRandomGroup("Pinano_EN", "Pinano_EN", "Wall_EN");
-            med.AddRandomGroup("Pinano_EN", "Wall_EN", "LostSheep_EN");
+            //med.AddRandomGroup("Pinano_EN", "Wall_EN", "LostSheep_EN");
             med.AddRandomGroup("Pinano_EN", "Wall_EN", Jumble.Yellow);
 
             easy = new AddTo(Shore.H.Pinano.Easy);
-            easy.AddRandomGroup("Pinano_EN", "Wall_EN", "Wall_EN");
+            //easy.AddRandomGroup("Pinano_EN", "Wall_EN", "Wall_EN");
             easy.AddRandomGroup("Pinano_EN", "Wall_EN", "Pinano_EN");
-            easy.AddRandomGroup("Pinano_EN", "Wall_EN", "LostSheep_EN");
+            //easy.AddRandomGroup("Pinano_EN", "Wall_EN", "LostSheep_EN");
 
             med = new AddTo(Shore.H.Pinano.Med);
             med.AddRandomGroup("Pinano_EN", "Wall_EN", Jumble.Yellow);
-            med.SimpleAddGroup(2, "Pinano_EN", 2, "Wall_EN");
+            //med.SimpleAddGroup(2, "Pinano_EN", 2, "Wall_EN");
             med.AddRandomGroup("Pinano_EN", "Pinano_EN", "Wall_EN", "LostSheep_EN");
-            med.AddRandomGroup("Pinano_EN", "Pinano_EN", "Wall_EN", "Windle_EN");
+            //med.AddRandomGroup("Pinano_EN", "Pinano_EN", "Wall_EN", "Windle_EN");
             med.AddRandomGroup("Pinano_EN", "Pinano_EN", "Wall_EN", "NobodyGrave_EN");
-            med.AddRandomGroup("Pinano_EN", "Pinano_EN", "Wall_EN", "Chiito_EN");
+            //med.AddRandomGroup("Pinano_EN", "Pinano_EN", "Wall_EN", "Chiito_EN");
 
             easy = new AddTo(Shore.Grave.Easy);
-            easy.AddRandomGroup("NobodyGrave_EN", "Wall_EN", "Wall_EN");
+            //easy.AddRandomGroup("NobodyGrave_EN", "Wall_EN", "Wall_EN");
 
             easy = new AddTo(Shore.H.Grave.Easy);
-            easy.AddRandomGroup("NobodyGrave_EN", "Wall_EN", "Wall_EN");
+            //easy.AddRandomGroup("NobodyGrave_EN", "Wall_EN", "Wall_EN");
             easy.AddRandomGroup("NobodyGrave_EN", "Wall_EN", "TortureMeNot_EN", "TortureMeNot_EN");
 
             med = new AddTo(Shore.Ufo.Med);
-            med.AddRandomGroup("ToyUfo_EN", "Wall_EN", "Wall_EN");
+            //med.AddRandomGroup("ToyUfo_EN", "Wall_EN", "Wall_EN");
             med.AddRandomGroup("ToyUfo_EN", "Wall_EN", Jumble.Yellow);
             med.AddRandomGroup("ToyUfo_EN", "Wall_EN", "MudLung_EN");
 
             med = new AddTo(Shore.H.Ufo.Med);
-            med.SimpleAddGroup(1, "ToyUfo_EN", 3, "Wall_EN");
-            med.AddRandomGroup("ToyUfo_EN", "Wall_EN", "Wall_EN", "LostSheep_EN");
+            //med.SimpleAddGroup(1, "ToyUfo_EN", 3, "Wall_EN");
+            //med.AddRandomGroup("ToyUfo_EN", "Wall_EN", "Wall_EN", "LostSheep_EN");
             med.AddRandomGroup("ToyUfo_EN", "Wall_EN", "Wall_EN", Jumble.Yellow);
             med.AddRandomGroup("ToyUfo_EN", "Wall_EN", "MudLung_EN", "MudLung_EN");
             med.AddRandomGroup("ToyUfo_EN", "Wall_EN", "Pinano_EN", "LostSheep_EN");
-            med.AddRandomGroup("ToyUfo_EN", "Wall_EN", "Wall_EN", Jumble.Red);
+            //med.AddRandomGroup("ToyUfo_EN", "Wall_EN", "Wall_EN", Jumble.Red);
 
             med = new AddTo(Shore.H.Sinker.Med);
             med.AddRandomGroup("Sinker_EN", "ToyUfo_EN", "Wall_EN");
-            med.AddRandomGroup("Sinker_EN", "2009_EN", "Wall_EN");
+            //med.AddRandomGroup("Sinker_EN", "2009_EN", "Wall_EN");
             med.AddRandomGroup("Sinker_EN", "Pinano_EN", "Wall_EN");
             med.AddRandomGroup("Sinker_EN", Jumble.Yellow, "Wall_EN");
             med.AddRandomGroup("Sinker_EN", Spoggle.Yellow, "Wall_EN");
-            med.AddRandomGroup("Sinker_EN", "Chiito_EN", "Wall_EN");
+            //med.AddRandomGroup("Sinker_EN", "Chiito_EN", "Wall_EN");
 
             hard = new AddTo(Shore.H.Sinker.Hard);
             hard.AddRandomGroup("Sinker_EN", "LittleBeak_EN", "Wall_EN");
             hard.AddRandomGroup("Sinker_EN", "FlaMinGoa_EN", "Wall_EN");
-            hard.AddRandomGroup("Sinker_EN", "AFlower_EN", "Wall_EN");
+            //hard.AddRandomGroup("Sinker_EN", "AFlower_EN", "Wall_EN");
 
             med = new AddTo(Shore.H.TwoThousandNine.Med);
-            med.AddRandomGroup("2009_EN", "Wall_EN", "Wall_EN");
+            //med.AddRandomGroup("2009_EN", "Wall_EN", "Wall_EN");
             med.AddRandomGroup("2009_EN", "Wall_EN", Jumble.Yellow);
-            med.AddRandomGroup("2009_EN", "Wall_EN", Jumble.Red);
+            //med.AddRandomGroup("2009_EN", "Wall_EN", Jumble.Red);
             med.AddRandomGroup("2009_EN", "Wall_EN", "MudLung_EN", "Flarblet_EN");
 
             med = new AddTo(Shore.H.Chiito.Med);
-            med.SimpleAddGroup(1, "Chiito_EN", 3, "Wall_EN");
+            //med.SimpleAddGroup(1, "Chiito_EN", 3, "Wall_EN");
             med.AddRandomGroup("Chiito_EN", "Wall_EN", "Wall_EN", "Pinano_EN");
             med.AddRandomGroup("Chiito_EN", "Wall_EN", "ToyUfo_EN", "Flarblet_EN");
-            med.AddRandomGroup("Chiito_EN", "Wall_EN", "2009_EN", "LostSheep_EN");
-            med.AddRandomGroup("Chiito_EN", "Wall_EN", "Wall_EN", "Skyloft_EN");
+            //med.AddRandomGroup("Chiito_EN", "Wall_EN", "2009_EN", "LostSheep_EN");
+            //med.AddRandomGroup("Chiito_EN", "Wall_EN", "Wall_EN", "Skyloft_EN");
 
             hard = new AddTo(Shore.H.Unmung.Hard);
             hard.AddRandomGroup(Enemies.Unmung, "Wall_EN");
@@ -214,30 +214,30 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Shore.MudLung.Med);
             med.AddRandomGroup("MudLung_EN", "MudLung_EN", "Wall_EN");
-            med.AddRandomGroup("MudLung_EN", "Wall_EN", "LostSheep_EN");
+            //med.AddRandomGroup("MudLung_EN", "Wall_EN", "LostSheep_EN");
 
             easy = new AddTo(Shore.H.MudLung.Easy);
             easy.AddRandomGroup("MudLung_EN", "MudLung_EN", "Wall_EN");
-            easy.AddRandomGroup("MudLung_EN", "Wall_EN");
+            //easy.AddRandomGroup("MudLung_EN", "Wall_EN");
             easy.AddRandomGroup("MudLung_EN", "Wall_EN", "LostSheep_EN");
-            easy.AddRandomGroup("MudLung_EN", "Wall_EN", "Skyloft_EN");
+            //easy.AddRandomGroup("MudLung_EN", "Wall_EN", "Skyloft_EN");
 
             med = new AddTo(Shore.H.MudLung.Med);
-            med.SimpleAddGroup(2, "MudLung_EN", 2, "Wall_EN");
+            //med.SimpleAddGroup(2, "MudLung_EN", 2, "Wall_EN");
             med.AddRandomGroup("MudLung_EN", "MudLung_EN", "Wall_EN", "NobodyGrave_EN");
             med.AddRandomGroup("MudLung_EN", "MudLung_EN", "Wall_EN", Jumble.Yellow);
-            med.AddRandomGroup("MudLung_EN", "MudLung_EN", "Wall_EN", Jumble.Red);
+            //med.AddRandomGroup("MudLung_EN", "MudLung_EN", "Wall_EN", Jumble.Red);
 
             easy = new AddTo(Shore.H.Mungling.Easy);
-            easy.AddRandomGroup(Enemies.Mungling, "Wall_EN");
+            //easy.AddRandomGroup(Enemies.Mungling, "Wall_EN");
             easy.AddRandomGroup(Enemies.Mungling, "Wall_EN", "Flarblet_EN");
-            easy.AddRandomGroup(Enemies.Mungling, "Wall_EN", "LostSheep_EN");
+            //easy.AddRandomGroup(Enemies.Mungling, "Wall_EN", "LostSheep_EN");
 
             med = new AddTo(Shore.H.Mungling.Med);
-            med.AddRandomGroup(Enemies.Mungling, "Wall_EN", "Wall_EN");
+            //med.AddRandomGroup(Enemies.Mungling, "Wall_EN", "Wall_EN");
             med.AddRandomGroup(Enemies.Mungling, "MudLung_EN", "Wall_EN");
             med.AddRandomGroup(Enemies.Mungling, "Pinano_EN", "Wall_EN");
-            med.SimpleAddGroup(1, Enemies.Mungling, 3, "Wall_EN");
+            //med.SimpleAddGroup(1, Enemies.Mungling, 3, "Wall_EN");
 
             easy = new AddTo(Shore.Jumble.Red.Easy);
             if (SaltsReseasoned.silly > 50) easy.AddRandomGroup(Jumble.Red, "Wall_EN");
@@ -253,76 +253,76 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Shore.H.Jumble.Red.Med);
             med.AddRandomGroup(Jumble.Red, Jumble.Yellow, "Wall_EN");
-            med.AddRandomGroup(Jumble.Red, "Wall_EN", "Wall_EN", "MudLung_EN");
-            med.AddRandomGroup(Jumble.Red, Jumble.Yellow, "Wall_EN", "LostSheep_EN");
+            //med.AddRandomGroup(Jumble.Red, "Wall_EN", "Wall_EN", "MudLung_EN");
+            //med.AddRandomGroup(Jumble.Red, Jumble.Yellow, "Wall_EN", "LostSheep_EN");
 
             med = new AddTo(Shore.H.Jumble.Yellow.Med);
             med.AddRandomGroup(Jumble.Yellow, Jumble.Red, "Wall_EN");
-            med.AddRandomGroup(Jumble.Yellow, "Wall_EN", "Wall_EN", "MudLung_EN");
-            med.AddRandomGroup(Jumble.Yellow, Jumble.Red, "Wall_EN", "Skyloft_EN");
+            //med.AddRandomGroup(Jumble.Yellow, "Wall_EN", "Wall_EN", "MudLung_EN");
+            //med.AddRandomGroup(Jumble.Yellow, Jumble.Red, "Wall_EN", "Skyloft_EN");
 
             med = new AddTo(Shore.Spoggle.Yellow.Med);
-            med.AddRandomGroup(Spoggle.Yellow, "Wall_EN", "Wall_EN");
+            //med.AddRandomGroup(Spoggle.Yellow, "Wall_EN", "Wall_EN");
 
             med = new AddTo(Shore.Spoggle.Blue.Med);
             med.AddRandomGroup(Spoggle.Blue, "Wall_EN", "Wall_EN");
 
             med = new AddTo(Shore.H.Spoggle.Yellow.Med);
             med.AddRandomGroup(Spoggle.Yellow, Spoggle.Blue, "Wall_EN");
-            med.AddRandomGroup(Spoggle.Yellow, "Wall_EN", "Wall_EN");
+            //med.AddRandomGroup(Spoggle.Yellow, "Wall_EN", "Wall_EN");
             med.AddRandomGroup(Spoggle.Yellow, "Wall_EN", "Wall_EN", "Flarblet_EN");
-            med.AddRandomGroup(Spoggle.Yellow, "2009_EN", "Wall_EN");
+            //med.AddRandomGroup(Spoggle.Yellow, "2009_EN", "Wall_EN");
 
             med = new AddTo(Shore.H.Spoggle.Blue.Med);
             med.AddRandomGroup(Spoggle.Blue, Spoggle.Yellow, "Wall_EN");
-            med.AddRandomGroup(Spoggle.Blue, "Wall_EN", "Wall_EN");
-            med.AddRandomGroup(Spoggle.Blue, "Wall_EN", "Wall_EN", "NobodyGrave_EN");
+            //med.AddRandomGroup(Spoggle.Blue, "Wall_EN", "Wall_EN");
+            //med.AddRandomGroup(Spoggle.Blue, "Wall_EN", "Wall_EN", "NobodyGrave_EN");
             med.AddRandomGroup(Spoggle.Blue, "ToyUfo_EN", "Wall_EN");
 
             med = new AddTo(Shore.FlaMinGoa.Med);
-            med.AddRandomGroup("FlaMinGoa_EN", "Wall_EN", "Wall_EN");
+            //med.AddRandomGroup("FlaMinGoa_EN", "Wall_EN", "Wall_EN");
             med.AddRandomGroup("FlaMinGoa_EN", "MudLung_EN", "Wall_EN");
             med.AddRandomGroup("FlaMinGoa_EN", "Pinano_EN", "Wall_EN");
 
             med = new AddTo(Shore.H.FlaMinGoa.Med);
-            med.SimpleAddGroup(1, "FlaMinGoa_EN", 3, "Wall_EN");
+            //med.SimpleAddGroup(1, "FlaMinGoa_EN", 3, "Wall_EN");
             med.AddRandomGroup("FlaMinGoa_EN", "MudLung_EN", "MudLung_EN", "Wall_EN");
-            med.AddRandomGroup("FlaMinGoa_EN", "Pinano_EN", "Wall_EN", "Wall_EN");
+            //med.AddRandomGroup("FlaMinGoa_EN", "Pinano_EN", "Wall_EN", "Wall_EN");
             med.AddRandomGroup("FlaMinGoa_EN", "Wall_EN", "DeadPixel_EN", "DeadPixel_EN");
             med.AddRandomGroup("FlaMinGoa_EN", "Wall_EN", Jumble.Yellow, Jumble.Red);
             med.AddRandomGroup("FlaMinGoa_EN", "ToyUfo_EN", "Wall_EN");
-            med.AddRandomGroup("FlaMinGoa_EN", "2009_EN", "Wall_EN", "LostSheep_EN");
-            med.AddRandomGroup("FlaMinGoa_EN", "Wringle_EN", "Wall_EN", "Wall_EN");
-            med.AddRandomGroup("FlaMinGoa_EN", "Wall_EN", "Wall_EN", "Skyloft_EN", "TortureMeNot_EN");
+            //med.AddRandomGroup("FlaMinGoa_EN", "2009_EN", "Wall_EN", "LostSheep_EN");
+            //med.AddRandomGroup("FlaMinGoa_EN", "Wringle_EN", "Wall_EN", "Wall_EN");
+            //med.AddRandomGroup("FlaMinGoa_EN", "Wall_EN", "Wall_EN", "Skyloft_EN", "TortureMeNot_EN");
 
             hard = new AddTo(Shore.H.FlaMinGoa.Hard);
-            hard.AddRandomGroup("FlaMinGoa_EN", "LittleBeak_EN", "Wall_EN", "Wall_EN");
+            //hard.AddRandomGroup("FlaMinGoa_EN", "LittleBeak_EN", "Wall_EN", "Wall_EN");
             hard.AddRandomGroup("FlaMinGoa_EN", "LittleBeak_EN", "Wall_EN", "Skyloft_EN");
-            hard.AddRandomGroup("FlaMinGoa_EN", "LittleBeak_EN", "Wall_EN", "Arceles_EN");
+            //hard.AddRandomGroup("FlaMinGoa_EN", "LittleBeak_EN", "Wall_EN", "Arceles_EN");
             hard.AddRandomGroup("FlaMinGoa_EN", Enemies.Mungling, "Wall_EN", "Wall_EN");
-            hard.AddRandomGroup("FlaMinGoa_EN", "Wall_EN", Spoggle.Blue, Spoggle.Yellow);
-            hard.AddRandomGroup("FlaMinGoa_EN", "ToyUfo_EN", "Wall_EN", "Wall_EN");
+            //hard.AddRandomGroup("FlaMinGoa_EN", "Wall_EN", Spoggle.Blue, Spoggle.Yellow);
+            //hard.AddRandomGroup("FlaMinGoa_EN", "ToyUfo_EN", "Wall_EN", "Wall_EN");
             hard.AddRandomGroup("FlaMinGoa_EN", "Pinano_EN", "Pinano_EN", "Wall_EN");
-            hard.AddRandomGroup("FlaMinGoa_EN", "2009_EN", "Wall_EN", "Wall_EN");
+            //hard.AddRandomGroup("FlaMinGoa_EN", "2009_EN", "Wall_EN", "Wall_EN");
 
             hard = new AddTo(Shore.Flarb.Hard);
-            hard.AddRandomGroup("Flarb_EN", "Wall_EN", "Wall_EN");
+            //hard.AddRandomGroup("Flarb_EN", "Wall_EN", "Wall_EN");
             hard.AddRandomGroup("Flarb_EN", "Wall_EN", "LostSheep_EN");
             hard.AddRandomGroup("Flarb_EN", "Wall_EN", "Flarblet_EN");
-            hard.AddRandomGroup("Flarb_EN", "Wall_EN", "NobodyGrave_EN");
+            //hard.AddRandomGroup("Flarb_EN", "Wall_EN", "NobodyGrave_EN");
 
             hard = new AddTo(Shore.H.Flarb.Hard);
-            hard.AddRandomGroup("Flarb_EN", "Wall_EN", "Wall_EN");
+            //hard.AddRandomGroup("Flarb_EN", "Wall_EN", "Wall_EN");
             hard.AddRandomGroup("Flarb_EN", "Wall_EN", "LostSheep_EN");
             hard.AddRandomGroup("Flarb_EN", "Wall_EN", "Flarblet_EN");
-            hard.AddRandomGroup("Flarb_EN", "Wall_EN", "NobodyGrave_EN");
+            //hard.AddRandomGroup("Flarb_EN", "Wall_EN", "NobodyGrave_EN");
 
             hard = new AddTo(Shore.H.Voboola.Hard);
-            hard.AddRandomGroup("Voboola_EN", "Wall_EN", "Wall_EN");
+            //hard.AddRandomGroup("Voboola_EN", "Wall_EN", "Wall_EN");
             hard.AddRandomGroup("Voboola_EN", "Pinano_EN", "Wall_EN");
 
             hard = new AddTo(Shore.H.Kekastle.Hard);
-            hard.AddRandomGroup("Kekastle_EN", "Wall_EN", "Wall_EN");
+            //hard.AddRandomGroup("Kekastle_EN", "Wall_EN", "Wall_EN");
             hard.AddRandomGroup("Kekastle_EN", "Wall_EN");
         }
     }

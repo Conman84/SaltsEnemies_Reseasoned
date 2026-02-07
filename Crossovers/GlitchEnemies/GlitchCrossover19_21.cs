@@ -11,19 +11,19 @@ namespace SaltsEnemies_Reseasoned
             //shore
             AddTo easy = new AddTo(Shore.H.Flakkid.Easy);
             easy.AddRandomGroup("Flakkid_EN", "Waltz_EN", "Waltz_EN");
-            easy.AddRandomGroup("Flakkid_EN", "Wall_EN", "Wall_EN");
+            //easy.AddRandomGroup("Flakkid_EN", "Wall_EN", "Wall_EN");
 
             easy = new AddTo(Shore.H.Swine.Easy);
             easy.AddRandomGroup(Enemies.Swine, "Waltz_EN", "Waltz_EN");
 
             AddTo med = new AddTo(Shore.H.Flakkid.Med);
             med.AddRandomGroup("Flakkid_EN", "Flakkid_EN", "Wall_EN");
-            med.AddRandomGroup("Flakkid_EN", "VoiceTrumpet_EN", Jumble.Yellow);
+            //med.AddRandomGroup("Flakkid_EN", "VoiceTrumpet_EN", Jumble.Yellow);
 
             med = new AddTo(Shore.H.Swine.Med);
-            med.AddRandomGroup(Enemies.Swine, "Wall_EN", "Wall_EN");
+            //med.AddRandomGroup(Enemies.Swine, "Wall_EN", "Wall_EN");
             med.AddRandomGroup(Enemies.Swine, "VoiceTrumpet_EN", "ToyUfo_EN");
-            med.AddRandomGroup(Enemies.Swine, "VoiceTrumpet_EN", Spoggle.Blue);
+            //med.AddRandomGroup(Enemies.Swine, "VoiceTrumpet_EN", Spoggle.Blue);
 
             med = new AddTo(Shore.H.TwoThousandNine.Med);
             med.AddRandomGroup("2009_EN", "Flakkid_EN", "Flarblet_EN", "Flarblet_EN");
@@ -40,7 +40,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("NotAn_EN", "2009_EN", "Waltz_EN", "Waltz_EN");
 
             med = new AddTo(Shore.H.Bait.Med);
-            med.AddRandomGroup("DryBait_EN", "VoiceTrumpet_EN", "VoiceTrumpet_EN");
+            //med.AddRandomGroup("DryBait_EN", "VoiceTrumpet_EN", "VoiceTrumpet_EN");
 
             AddTo hard = new AddTo(Shore.H.Clown.Hard);
             hard.AddRandomGroup("Clown_EN", "Flakkid_EN", Jumble.Yellow);

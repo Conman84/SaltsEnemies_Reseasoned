@@ -74,7 +74,7 @@ namespace SaltsEnemies_Reseasoned
 
             AddTo med = new AddTo(Shore.H.Wall.Med);
             med.SimpleAddGroup(2, "Wall_EN", 3, "Waltz_EN");
-            med.AddRandomGroup("Wall_EN", "VoiceTrumpet_EN", "Waltz_EN", "Waltz_EN");
+            //med.AddRandomGroup("Wall_EN", "VoiceTrumpet_EN", "Waltz_EN", "Waltz_EN");
 
             med = new AddTo(Shore.H.DeadPixel.Med);
             med.SimpleAddGroup(2, "DeadPixel_EN", 2, "Waltz_EN");

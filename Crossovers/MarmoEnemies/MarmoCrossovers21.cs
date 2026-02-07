@@ -86,11 +86,11 @@ namespace SaltsEnemies_Reseasoned
         {
             AddTo easy = new AddTo(Shore.H.Wall.Easy);
             easy.AddRandomGroup("Wall_EN", Jumble.Unstable);
-            easy.AddRandomGroup("Wall_EN", "Snaurce_EN");
+            //easy.AddRandomGroup("Wall_EN", "Snaurce_EN");
 
             AddTo med = new AddTo(Shore.H.Wall.Med);
             med.AddRandomGroup("Wall_EN", "Wall_EN", Jumble.Unstable);
-            med.AddRandomGroup("Wall_EN", "Wall_EN", "Snaurce_EN");
+            //med.AddRandomGroup("Wall_EN", "Wall_EN", "Snaurce_EN");
             med.AddRandomGroup("Wall_EN", Jumble.Yellow, "Snaurce_EN");
 
             AddTo hard = new AddTo(Shore.H.Amalga.Hard);
@@ -115,12 +115,12 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("Clown_EN", Enemies.Mungling, "Surimi_EN");
 
             easy = new AddTo(Shore.H.Trumpet.Easy);
-            easy.AddRandomGroup("VoiceTrumpet_EN", Jumble.Unstable);
+            //easy.AddRandomGroup("VoiceTrumpet_EN", Jumble.Unstable);
             easy.AddRandomGroup("VoiceTrumpet_EN", "Snaurce_EN");
 
             med = new AddTo(Shore.H.Trumpet.Med);
             med.AddRandomGroup("VoiceTrumpet_EN", "VoiceTrumpet_EN", Jumble.Unstable);
-            med.AddRandomGroup("VoiceTrumpet_EN", "VoiceTrumpet_EN", "Snaurce_EN");
+            //med.AddRandomGroup("VoiceTrumpet_EN", "VoiceTrumpet_EN", "Snaurce_EN");
             med.AddRandomGroup("VoiceTrumpet_EN", "VoiceTrumpet_EN", "Surimi_EN");
 
             easy = new AddTo(Shore.H.Snaurce.Easy);
@@ -131,24 +131,24 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Shore.H.Snaurce.Med);
             med.AddRandomGroup("Snaurce_EN", "Snaurce_EN", "Wall_EN");
             med.AddRandomGroup("Snaurce_EN", "Snaurce_EN", "Waltz_EN", "Waltz_EN");
-            med.AddRandomGroup("Snaurce_EN", "Snaurce_EN", "VoiceTrumpet_EN");
+            //med.AddRandomGroup("Snaurce_EN", "Snaurce_EN", "VoiceTrumpet_EN");
 
             easy = new AddTo(Shore.H.Surimi.Easy);
             easy.AddRandomGroup("Surimi_EN", "Waltz_EN", "Waltz_EN");
             easy.AddRandomGroup("Surimi_EN", "Surimi_EN", "Waltz_EN");
 
             med = new AddTo(Shore.H.Surimi.Med);
-            med.AddRandomGroup("Surimi_EN", "Surimi_EN", "Wall_EN");
+            //med.AddRandomGroup("Surimi_EN", "Surimi_EN", "Wall_EN");
             med.AddRandomGroup("Surimi_EN", "Surimi_EN", "Waltz_EN", "Waltz_EN");
             med.AddRandomGroup("Surimi_EN", "Surimi_EN", "VoiceTrumpet_EN");
 
             med = new AddTo(Shore.H.Jumble.Yellow.Med);
             med.AddRandomGroup(Jumble.Yellow, Jumble.Unstable, "Wall_EN");
             med.AddRandomGroup(Jumble.Yellow, Jumble.Unstable, "Waltz_EN", "Waltz_EN");
-            med.AddRandomGroup(Jumble.Yellow, Jumble.Unstable, "VoiceTrumpet_EN");
+            //med.AddRandomGroup(Jumble.Yellow, Jumble.Unstable, "VoiceTrumpet_EN");
 
             med = new AddTo(Shore.H.Jumble.Red.Med);
-            med.AddRandomGroup(Jumble.Red, Jumble.Unstable, "Wall_EN");
+            //med.AddRandomGroup(Jumble.Red, Jumble.Unstable, "Wall_EN");
             med.AddRandomGroup(Jumble.Red, Jumble.Unstable, "Waltz_EN", "Waltz_EN");
             med.AddRandomGroup(Jumble.Red, Jumble.Unstable, "VoiceTrumpet_EN");
 
@@ -156,10 +156,10 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup(Spoggle.Yellow, Spoggle.Unstable, "Wall_EN");
             med.AddRandomGroup(Spoggle.Yellow, Spoggle.Unstable, "Waltz_EN", "Waltz_EN");
             med.AddRandomGroup(Spoggle.Yellow, Spoggle.Unstable, "Waltz_EN");
-            med.AddRandomGroup(Spoggle.Yellow, Spoggle.Unstable, "VoiceTrumpet_EN");
+            //med.AddRandomGroup(Spoggle.Yellow, Spoggle.Unstable, "VoiceTrumpet_EN");
 
             med = new AddTo(Shore.H.Spoggle.Blue.Med);
-            med.AddRandomGroup(Spoggle.Blue, Spoggle.Unstable, "Wall_EN");
+            //med.AddRandomGroup(Spoggle.Blue, Spoggle.Unstable, "Wall_EN");
             med.AddRandomGroup(Spoggle.Blue, Spoggle.Unstable, "Waltz_EN", "Waltz_EN");
             med.AddRandomGroup(Spoggle.Blue, Spoggle.Unstable, "Waltz_EN");
             med.AddRandomGroup(Spoggle.Blue, Spoggle.Unstable, "VoiceTrumpet_EN");

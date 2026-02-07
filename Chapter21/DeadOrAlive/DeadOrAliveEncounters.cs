@@ -55,7 +55,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomEncounter("Clown_EN", "Waltz_EN", "Sinker_EN");
             hard.AddRandomEncounter("Clown_EN", "Waltz_EN", "2009_EN");
             hard.AddRandomEncounter("Clown_EN", "Waltz_EN", "VoiceTrumpet_EN");
-            hard.AddRandomEncounter("Clown_EN", "VoiceTrumpet_EN", "VoiceTrumpet_EN");
+            //hard.AddRandomEncounter("Clown_EN", "VoiceTrumpet_EN", "VoiceTrumpet_EN");
 
             hard.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Clown.Hard, 20 * April.Mod, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Hard);

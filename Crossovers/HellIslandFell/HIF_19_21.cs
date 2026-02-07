@@ -11,7 +11,7 @@ namespace SaltsEnemies_Reseasoned
             //SHORE
             AddTo easy = new AddTo(Shore.H.Draugr.Easy);
             easy.AddRandomGroup("Draugr_EN", "Waltz_EN", "Waltz_EN");
-            easy.AddRandomGroup("Draugr_EN", "Wall_EN");
+            //easy.AddRandomGroup("Draugr_EN", "Wall_EN");
 
             AddTo med = new AddTo(Shore.H.TwoThousandNine.Med);
             med.AddRandomGroup("2009_EN", "Draugr_EN", "VoiceTrumpet_EN");
