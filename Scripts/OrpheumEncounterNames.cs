@@ -412,6 +412,13 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "H_Zone02_Bloatfinger_Medium_EnemyBundle";
             }
+
+            //sucklemod
+            public static class Feaster
+            {
+                public static string Easy => "FeasterEasy";
+                public static string Med => "FeasterMedium";
+            }
         }
     }
 }

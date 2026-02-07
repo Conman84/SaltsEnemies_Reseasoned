@@ -199,5 +199,8 @@ namespace SaltsEnemies_Reseasoned
         public static string Phalaris => "GreatPhalaris_EN";
         public static string Foundling => "ProdigalFoundling_EN";
         public static string Synod => "CadaverSynod_EN";
+        public static string Feaster => "FerrousFeaster_EN";
+        public static string Alchemist => "AluminumAlchemist_EN";
+        public static string Accelerator => "ArgonAccelerator_EN";
     }
 }

@@ -67,6 +67,11 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Hard => "PhalarisHard";
             }
+            public static class Scuttle
+            {
+                public static string Med => "ScuttlebunkMed";
+                public static string Hard => "ScuttlebunkHard";
+            }
 
             //ita
             public static class Soothsayer
