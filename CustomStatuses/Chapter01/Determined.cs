@@ -20,8 +20,8 @@ namespace SaltEnemies_Reseasoned
         {
             //Debug.LogWarning("Determined.Add. I've left some leftover code for the damage color setting in case you want to use it, for the heal color you'd just copy the code and change DamageType --> HealType");
             TMP_ColorGradient determinedColor = ScriptableObject.CreateInstance<TMP_ColorGradient>();
-            determinedColor.bottomRight = new Color32(75, 18, 18, 255);
-            determinedColor.bottomLeft = new Color32(121, 30, 30, 255);
+            determinedColor.bottomRight = new Color32(121, 30, 30, 255);
+            determinedColor.bottomLeft = new Color32(172, 50, 50, 255);
             determinedColor.topRight = new Color32(172, 50, 50, 255);
             determinedColor.topLeft = new Color32(255, 255, 255, 255);
             if (LoadedDBsHandler.CombatDB.m_TxtColorPool.ContainsKey(HealType)) LoadedDBsHandler.CombatDB.m_TxtColorPool[HealType] = determinedColor;
