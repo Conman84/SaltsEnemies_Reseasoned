@@ -84,4 +84,15 @@ namespace SaltsEnemies_Reseasoned
             return (unit.GetStatusAmount("Drowning_ID") <= 4 && name == submerge) || (unit.GetStatusAmount("Drowning_ID") >= 6 && name == hoist);
         }
     }
+    public class EnemiesAliveEffectCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            foreach (EnemyCombat enemy in CombatManager.Instance._stats.Enemies.Values)
+            {
+                if (enemy.CurrentHealth > 0 || enemy.ContainsStatusEffect(Determined.StatusID)) return true;
+            }
+            return false;
+        }
+    }
 }

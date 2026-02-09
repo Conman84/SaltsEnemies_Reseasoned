@@ -32,7 +32,7 @@ namespace SaltsEnemies_Reseasoned
             sunk._enemyDescription = "All positions are in permenant Deep Water.";
             sunk.m_PassiveID = "Sunk_PA";
             sunk.connectionEffects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<PermenantApplyWaterEffect>(), 1, MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false)))];
-            sunk.disconnectionEffects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveRestrictorWaterEffect>(), 1, MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false)))];
+            sunk.disconnectionEffects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveRestrictorWaterEffect>(), 1, MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false)), ScriptableObject.CreateInstance<EnemiesAliveEffectCondition>())];
             
             template.AddPassives(new BasePassiveAbilitySO[] { sunk, Passives.Skittish, Passives.Constricting });
 
