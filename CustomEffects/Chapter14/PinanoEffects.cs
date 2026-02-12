@@ -47,9 +47,9 @@ namespace SaltEnemies_Reseasoned
                     {
                         Effects.GenerateEffect(e, amount, Slots.Self, ScriptableObject.CreateInstance<HasHealthEffectCondition>()),
                         Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), amount, Slots.Front, ScriptableObject.CreateInstance<HasHealthEffectCondition>())
-                    }), 1, Slots.Self)
+                    }), 1, Slots.Self, ScriptableObject.CreateInstance<HasHealthEffectCondition>())
             };
-            vil.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<IsAliveCondition>() };
+            vil.conditions = Passives.Slippery.conditions;
             if (!LoadedAssetsHandler.LoadedPassives.ContainsKey(vil.name)) vil.AddToPassiveDatabase();
             return vil;
         }
