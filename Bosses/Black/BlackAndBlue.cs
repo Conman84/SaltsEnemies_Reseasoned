@@ -37,10 +37,10 @@ namespace SaltsEnemies_Reseasoned
             template.AddPassives(new BasePassiveAbilitySO[] { sunk, Passives.Skittish, Passives.Constricting });
 
             Ability bb = new Ability("Hoist", "BlackAndBlue_A");
-            bb.Description = "Deal a Painful amount of damage to the Opposing party member.\nRemove all Status Effects from them.";
+            bb.Description = "Deal a Barely Painful amount of damage to the Opposing party member.\nRemove all Status Effects from them.";
             bb.Rarity = Rarity.Common;
             bb.Effects = new EffectInfo[2];
-            bb.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Front);
+            bb.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 3, Slots.Front);
             bb.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveAllStatusEffectsEffect>(), 1, Slots.Front);
             bb.AddIntentsToTarget(Slots.Front, ["Damage_3_6", "Misc"]);
             bb.Visuals = CustomVisuals.GetVisuals("Salt/Anchoring");
