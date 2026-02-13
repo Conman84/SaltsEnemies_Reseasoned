@@ -175,7 +175,7 @@ namespace SaltEnemies_Reseasoned
             }
             CombatManager.Instance.AddRootAction(new PlayAbilityAnimationAction(ability.visuals, ability.animationTarget, self));
             CombatManager.Instance.AddRootAction(new EffectAction(ability.effects, self));
-            CombatManager.Instance.AddRootAction(new Help.CompatibleEndAbilityAction(self.ID, self.IsUnitCharacter, ability));
+            CombatManager.Instance.AddRootAction(new CustomEndAbilityAction(self.ID, self.IsUnitCharacter, ability));
             CombatManager.Instance.AddRootAction(new ForceTurnCleanupAction(self));
         }
     }
