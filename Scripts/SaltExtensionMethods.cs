@@ -150,7 +150,7 @@ namespace SaltEnemies_Reseasoned
             BossRoomHandler orph = LoadedAssetsHandler.GetRoomPrefab(CardType.Boss, (LoadedAssetsHandler.GetZoneDB("ZoneDB_Hard_" + zone) as ZoneBGDataBaseSO).EnemyEncounterData.m_BossSelector._defaultRoomPrefab) as BossRoomHandler;
             SpriteRenderer temp = GameObject.Instantiate(orph._bossPortalRenderer);
             //temp.AddComponent<SpriteRenderer>().material = orph._bossPortalRenderer.material;
-            temp.sprite = ResourceLoader.LoadSprite(name);
+            temp.sprite = ResourceLoader.LoadSprite(name, new Vector2(0.5f, 0f));
             temp.gameObject.SetActive(false);
 
             return temp.GetComponent<SpriteRenderer>().sprite;

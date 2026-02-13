@@ -72,8 +72,8 @@ namespace SaltsEnemies_Reseasoned
             PCall(FeatherGunCondition.AddTypes);
             PCall(GlowingHatManager.Setup);
             PCall(Tracker.Setup);
-            PCall(EncounterExtensions.PrepareSortingOrders);
-            PCall(EncounterExtensions.IncreaseGardenPortalOrder);
+            //PCall(EncounterExtensions.PrepareSortingOrders);
+            //PCall(EncounterExtensions.IncreaseGardenPortalOrder);
             PCall(CascadingDamageItemHandler.Setup);
             PCall(FirstPerTurnHandler.Setup);
             PCall(AllyTriggersHandler.Setup);
