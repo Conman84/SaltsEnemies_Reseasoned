@@ -131,7 +131,7 @@ namespace SaltEnemies_Reseasoned
             if (abilitySlot < 0 || abilitySlot >= self.Abilities.Count)
             {
                 Debug.LogError(self.Name + " cannot use ability in slot " + abilitySlot + ", it does not exist");
-                CombatManager.Instance.AddRootAction(new EnemyTurnEndAction(self.ID));
+                //CombatManager.Instance.AddRootAction(new EnemyTurnEndAction(self.ID));
                 return;
             }
 
@@ -139,7 +139,7 @@ namespace SaltEnemies_Reseasoned
             if (!self.CanUseAbility)
             {
                 Debug.LogError(self.Name + " cannot use " + ability.GetAbilityLocData().text + " probably due to stunned");
-                CombatManager.Instance.AddRootAction(new EnemyTurnEndAction(self.ID));
+                //CombatManager.Instance.AddRootAction(new EnemyTurnEndAction(self.ID));
                 return;
             }
 
