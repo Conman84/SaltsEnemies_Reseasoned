@@ -67,7 +67,7 @@ namespace SaltsEnemies_Reseasoned
             third.Effects = [
                 Effects.GenerateEffect(adulting, 1, Slots.Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 13, Slots.Front),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 3, Slots.Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 1, Slots.Front),
                 ];
             third.AddIntentsToTarget(Slots.Front, ["Damage_11_15", "Heal_1_4"]);
             third.Visuals = null;
