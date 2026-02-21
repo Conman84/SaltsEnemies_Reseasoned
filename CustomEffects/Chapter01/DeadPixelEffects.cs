@@ -368,7 +368,7 @@ namespace SaltEnemies_Reseasoned
                 return _sacrifice;
             }
         }
-        public static EffectSO[] Array => new EffectSO[] { Oil, Left, Frail, Scar, Inverted, Pimples, Linked, Gutted, Pale, Sacrifice };
+        public static EffectSO[] Array => new EffectSO[] { Oil, Left, Frail, Scar, Inverted, Pimples, Linked, Gutted, Ruptured, Oil, Left, Frail, Pimples, Gutted, Linked, Oil, Left, Frail, Pimples, Scar };
 
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {

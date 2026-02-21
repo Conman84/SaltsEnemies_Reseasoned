@@ -174,7 +174,7 @@ namespace SaltsEnemies_Reseasoned
                 Pimples.Intent,
                 "Status_Linked",
                 "Status_Gutted",
-                Pale.Intent,
+                "Status_Ruptured",
                 DivineSacrifice.Intent
             });
 
