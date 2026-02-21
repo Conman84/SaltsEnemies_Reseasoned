@@ -166,14 +166,16 @@ namespace SaltsEnemies_Reseasoned
             interference.AddIntentsToTarget(allEnemy, new string[]
             {
                 FallColor.Intent,
-                "Status_Cursed",
                 "Status_Scars",
                 "Status_Frail",
                 "Status_OilSlicked",
                 "Status_Inverted",
                 "Status_Left",
-                "Status_Pale",
-                "Status_Ruptured"
+                Pimples.Intent,
+                "Status_Linked",
+                "Status_Gutted",
+                Pale.Intent,
+                DivineSacrifice.Intent
             });
 
             //Add

@@ -320,7 +320,55 @@ namespace SaltEnemies_Reseasoned
                 return _ruptured;
             }
         }
-        public static EffectSO[] Array => new EffectSO[] { Oil, Left, Frail, Scar, Cursed, Pale, Inverted, Ruptured, Oil, Left, Frail, Scar, Pale, Inverted, Oil, Left, Frail, Inverted, Oil, Left, Frail, Left };
+        static ApplyPimplesEffect _pimples;
+        public static ApplyPimplesEffect Pimples
+        {
+            get
+            {
+                if (_pimples == null)
+                {
+                    _pimples = ScriptableObject.CreateInstance<ApplyPimplesEffect>();
+                }
+                return _pimples;
+            }
+        }
+        static ApplyLinkedEffect _linked;
+        public static ApplyLinkedEffect Linked
+        {
+            get
+            {
+                if (_linked == null)
+                {
+                    _linked = ScriptableObject.CreateInstance<ApplyLinkedEffect>();
+                }
+                return _linked;
+            }
+        }
+        static ApplyGuttedEffect _gutted;
+        public static ApplyGuttedEffect Gutted
+        {
+            get
+            {
+                if (_gutted == null)
+                {
+                    _gutted = ScriptableObject.CreateInstance<ApplyGuttedEffect>();
+                }
+                return _gutted;
+            }
+        }
+        static ApplyDivineSacrificeEffect _sacrifice;
+        public static ApplyDivineSacrificeEffect Sacrifice
+        {
+            get
+            {
+                if (_sacrifice == null)
+                {
+                    _sacrifice = ScriptableObject.CreateInstance<ApplyDivineSacrificeEffect>();
+                }
+                return _sacrifice;
+            }
+        }
+        public static EffectSO[] Array => new EffectSO[] { Oil, Left, Frail, Scar, Inverted, Pimples, Linked, Gutted, Pale, Sacrifice };
 
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
