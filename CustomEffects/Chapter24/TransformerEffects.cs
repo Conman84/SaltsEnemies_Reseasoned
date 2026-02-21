@@ -258,6 +258,7 @@ namespace SaltsEnemies_Reseasoned
     }
     public class TransformRandomEnemyEffect : CasterTransformationEffect
     {
+        //i was gonna remove bosses from being pulled  but this uses the damn bronzo pool so i cant :sob:
         public static EnemySO GetRandomEnemy(EnemySO exclude = null, int attempts = 0)
         {
             EnemySO ret;
