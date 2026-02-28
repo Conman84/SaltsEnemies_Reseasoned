@@ -34,6 +34,7 @@ namespace SaltEnemies_Reseasoned
             CameraEffects.AddPassive("Trench_PA");
             CameraEffects.AddPassive("Liminal_PA");
             CameraEffects.AddPassive("Ripper_PA");
+            CameraEffects.AddPassive("Permanent_PA");
             //Add Every single passive ID you've made for all salt enemies thus far. and also do this in the future too. unless it shares a passiveID with a base game passive. or if its like a unique passive to the enemy or something. or a bonus attack
             //Specifically:
             /*
