@@ -2,6 +2,7 @@
 using DG.Tweening;
 using MonoMod.RuntimeDetour;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -88,6 +89,8 @@ namespace SaltEnemies_Reseasoned
         }
         public override void OnEventCall_01(StatusEffect_Holder holder, object sender, object args)
         {
+            CombatManager.Instance.AddSubAction(new TriggerEntropyAction(this, holder, sender, args));
+            return;
             if (sender is IUnit && (sender as IUnit).IsAlive && (sender as IUnit).CurrentHealth > 0)
             {
                 (sender as IUnit).Damage(1, null, DeathType_GameIDs.None.ToString(), -1, false, false, true, Entropy.DamageType);
@@ -100,31 +103,54 @@ namespace SaltEnemies_Reseasoned
                 if ((sender as IUnit).ContainsStatusEffect(holder.StatusID)) ReduceDuration(holder, sender as IStatusEffector);
             }
         }
-        public static void AddTurnsThread(object obj)
+        public class TriggerEntropyAction : CombatAction
         {
-            try
+            public EntropySE_SO self;
+            public StatusEffect_Holder holder;
+            public object sender;
+            public object args;
+            public TriggerEntropyAction(EntropySE_SO self, StatusEffect_Holder holder, object sender, object args)
             {
-                if (obj is IUnit unit)
+                this.self = self;
+                this.holder = holder;
+                this.sender = sender;
+                this.args = args;
+            }
+            public override IEnumerator Execute(CombatStats stats)
+            {
+                if (sender is IUnit && (sender as IUnit).IsAlive && (sender as IUnit).CurrentHealth > 0)
                 {
-                    int timing = unit.SimpleGetStoredValue(Entropy.Limit);
-                    Debug.Log(timing);
-                    if (!unit.Equals(null) && unit.IsAlive)
-                    {
-                        for (int i = 0; i < timing; i++)
-                        {
-                            Thread.Sleep(1000);
-                        }
-                        if (!unit.Equals(null) && unit.IsAlive && unit.ContainsStatusEffect(Entropy.StatusID))
-                        {
-                            CombatManager.Instance.PostNotification(Entropy.TriggerCall, unit, null);
-                        }
-
-                    }
+                    self.ReduceDuration(holder, sender as IStatusEffector);
+                    (sender as IUnit).Damage(1, null, DeathType_GameIDs.None.ToString(), -1, false, false, true, Entropy.DamageType);
+                    if (!(sender as IUnit).ContainsStatusEffect(Entropy.StatusID)) yield break;
+                    int reduction = UnityEngine.Random.Range(3, 10);
+                    int timing = (sender as IUnit).SimpleGetStoredValue(Entropy.Limit) - reduction;
+                    int time = Math.Max(timing, 1);
+                    (sender as IUnit).SimpleSetStoredValue(Entropy.Limit, time);
+                    Thread timerThread = new Thread(new ParameterizedThreadStart(AddTurnsThread));
+                    timerThread.Start(sender as IUnit);
                 }
             }
-            catch
+        }
+        public static void AddTurnsThread(object obj)
+        {
+            if (CombatManager._instance == null || CombatManager._instance.Equals(null)) return;
+            if (obj is IUnit unit)
             {
+                if (!unit.Equals(null) && unit.IsAlive)
+                {
+                    int timing = unit.SimpleGetStoredValue(Entropy.Limit);
+                    for (int i = 0; i < timing; i++)
+                    {
+                        Thread.Sleep(1000);
+                        if (CombatManager._instance == null || CombatManager._instance.Equals(null)) return;
+                    }
+                    if (!unit.Equals(null) && unit.IsAlive && unit.ContainsStatusEffect(Entropy.StatusID))
+                    {
+                        CombatManager.Instance.PostNotification(Entropy.TriggerCall, unit, null);
+                    }
 
+                }
             }
         }
     }
