@@ -120,8 +120,8 @@ namespace SaltEnemies_Reseasoned
             {
                 if (sender is IUnit && (sender as IUnit).IsAlive && (sender as IUnit).CurrentHealth > 0)
                 {
-                    self.ReduceDuration(holder, sender as IStatusEffector);
                     (sender as IUnit).Damage(1, null, DeathType_GameIDs.None.ToString(), -1, false, false, true, Entropy.DamageType);
+                    self.ReduceDuration(holder, sender as IStatusEffector);
                     if (!(sender as IUnit).ContainsStatusEffect(Entropy.StatusID)) yield break;
                     int reduction = UnityEngine.Random.Range(3, 10);
                     int timing = (sender as IUnit).SimpleGetStoredValue(Entropy.Limit) - reduction;
