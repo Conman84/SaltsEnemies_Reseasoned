@@ -92,10 +92,12 @@ namespace SaltsEnemies_Reseasoned
                 }
             }
 
-            if (ability.ability.name != Knight) return;
-            foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+            if (ability.ability.name == Knight)
             {
-                enemy.SimpleSetStoredValue(Absurdism, 1);
+                foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+                {
+                    enemy.SimpleSetStoredValue(Absurdism, 1);
+                }
             }
         }
 

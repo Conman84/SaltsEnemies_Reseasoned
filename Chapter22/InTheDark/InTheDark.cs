@@ -38,8 +38,8 @@ namespace SaltsEnemies_Reseasoned
             dark.AddPassives(new BasePassiveAbilitySO[] { altruistic, Passives.Forgetful, Passives.Fleeting4});
 
             AbilitySelector_Dark selector = ScriptableObject.CreateInstance<AbilitySelector_Dark>();
-            selector.Absurdism = "Absurdism_A";
-            selector.Knight = "4Knight_A";
+            selector.Absurdism = "Dark_Absurdism_A";
+            selector.Knight = "Dark_4Knight_A";
             dark.AbilitySelector = selector;
 
             AbilitySelector_Dark.Setup();
@@ -49,7 +49,7 @@ namespace SaltsEnemies_Reseasoned
             TargetSetValueChangeEffect reset = ScriptableObject.CreateInstance<TargetSetValueChangeEffect>();
             reset._valueName = "Absurdism_A";
 
-            Ability absurd = new Ability("Absurdism", "Absurdism_A");
+            Ability absurd = new Ability("Absurdism", "Dark_Absurdism_A");
             absurd.Description = "Deal an Agonizing amount of damage to all party members and remove all Frail from them.\nHeal all party members that survive for the amount of damage they took.";
             absurd.Rarity = Rarity.Common;
             absurd.Effects = [
@@ -65,7 +65,7 @@ namespace SaltsEnemies_Reseasoned
             absurd.Visuals = LoadedAssetsHandler.GetCharacterAbility("Conversion_1_A").visuals;
             absurd.Priority = Priority.Slow;
 
-            Ability knight = new Ability("Knight Knight Knight Knight", "4Knight_A");
+            Ability knight = new Ability("Knight Knight Knight Knight", "Dark_4Knight_A");
             knight.Description = "Remove all Status Effects from the Opposing party member. Inflict 3 Frail on all party members not Opposing this enemy if they have no Frail.\nMove Left or Right.";
             knight.Rarity = Rarity.Common;
             knight.Effects = [
@@ -80,7 +80,7 @@ namespace SaltsEnemies_Reseasoned
             knight.Visuals = CustomVisuals.GetVisuals("Salt/Nailing");
             knight.Priority = Priority.Fast;
 
-            Ability kill = new Ability("Killing", "Killing_A");
+            Ability kill = new Ability("Killing", "Dark_Killing_A");
             kill.Description = "\"The Opposing party member suffers immensely as their skin dissolves and their flesh melts off.\"\nLower the Opposing party member's maximum health to their current health, then instantly kill them.";
             kill.Rarity = Rarity.Common;
             kill.Effects = [
@@ -91,7 +91,7 @@ namespace SaltsEnemies_Reseasoned
             kill.Visuals = CustomVisuals.GetVisuals("Salt/Monster");
             kill.AnimationTarget = Slots.Front;
 
-            Ability nope = new Ability("Yes Yes No", "YYN_A");
+            Ability nope = new Ability("Yes Yes No", "Dark_YYN_A");
             nope.Description = "Randomly shuffle the Left and Opposing party member positions.\nReduce the maximum health of the Right party member to their current health.";
             nope.Rarity = Rarity.CreateAndAddCustomRarityToPool("dark_1", 1);
             nope.Priority = Priority.Fast;
@@ -104,7 +104,7 @@ namespace SaltsEnemies_Reseasoned
             nope.Visuals = CustomVisuals.GetVisuals("Salt/Notif");
             nope.AnimationTarget = Slots.FrontLeftRight;
 
-            Ability yep = new Ability("No Yes Yes", "NYY_A");
+            Ability yep = new Ability("No Yes Yes", "Dark_NYY_A");
             yep.Description = "Reduce the maximum health of the Left party member to their current health.\nRandomly shuffle the Opposing and Right party member positions.";
             yep.Rarity = Rarity.GetCustomRarity("dark_1");
             yep.Priority = Priority.Fast;
