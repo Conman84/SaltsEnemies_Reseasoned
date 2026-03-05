@@ -30,6 +30,7 @@ namespace SaltsEnemies_Reseasoned
         [SerializeField]
         public string Knight = "4Knight_A";
 
+        public static string UsedAbsurdism => "Used_Absurdism_A";
         public override bool UsesRarity => true;
 
         public override int GetNextAbilitySlotUsage(List<CombatAbility> abilities, IUnit unit)
@@ -79,14 +80,31 @@ namespace SaltsEnemies_Reseasoned
         public bool ShouldBeIgnored(CombatAbility ability, IUnit unit)
         {
             string name = ability.ability.name;
-            return unit.SimpleGetStoredValue(Absurdism) <= 0 && name == this.Absurdism;
+            return (unit.SimpleGetStoredValue(UsedAbsurdism) > 0 || unit.SimpleGetStoredValue(Absurdism) <= 0) && name == this.Absurdism;
         }
         public void SetValue(CombatAbility ability, IUnit unit)
         {
+            if (ability.ability.name == Absurdism)
+            {
+                foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+                {
+                    enemy.SimpleSetStoredValue(UsedAbsurdism, 1);
+                }
+            }
+
             if (ability.ability.name != Knight) return;
             foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
             {
                 enemy.SimpleSetStoredValue(Absurdism, 1);
+            }
+        }
+
+        public static void Setup() => NotificationHook.AddAction(NotifCheck);
+        public static void NotifCheck(string name, object sender, object args)
+        {
+            if (name == TriggerCalls.TimelineEndReached.ToString() && sender is IUnit unit)
+            {
+                unit.SimpleSetStoredValue(UsedAbsurdism, 0);
             }
         }
     }

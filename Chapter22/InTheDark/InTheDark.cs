@@ -89,12 +89,40 @@ namespace SaltsEnemies_Reseasoned
             kill.Visuals = CustomVisuals.GetVisuals("Salt/Monster");
             kill.AnimationTarget = Slots.Front;
 
+            Ability nope = new Ability("Yes Yes No", "YYN_A");
+            nope.Description = "Randomly shuffle the Left and Opposing party member positions.\nReduce the maximum health of the Right party member to their current health.";
+            nope.Rarity = Rarity.CreateAndAddCustomRarityToPool("dark_1", 1);
+            nope.Priority = Priority.Fast;
+            nope.Effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<MassSwapZoneEffect>(), 1, Slots.SlotTarget([-1, 0], false)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ChangeMaxHealthByCurrentHealthEffect>(), 1, Slots.Right)
+                ];
+            nope.AddIntentsToTarget(Slots.SlotTarget([-1, 0], false), ["Swap_Mass"]);
+            nope.AddIntentsToTarget(Slots.Right, ["Other_MaxHealth"]);
+            nope.Visuals = CustomVisuals.GetVisuals("Salt/Notif");
+            nope.AnimationTarget = Slots.FrontLeftRight;
+
+            Ability yep = new Ability("No Yes Yes", "NYY_A");
+            yep.Description = "Reduce the maximum health of the Left party member to their current health.\nRandomly shuffle the Opposing and Right party member positions.";
+            yep.Rarity = Rarity.GetCustomRarity("dark_1");
+            yep.Priority = Priority.Fast;
+            yep.Effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ChangeMaxHealthByCurrentHealthEffect>(), 1, Slots.Left),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<MassSwapZoneEffect>(), 1, Targeting.Slot_FrontAndRight),
+                ];
+            yep.AddIntentsToTarget(Slots.Left, ["Other_MaxHealth"]);
+            yep.AddIntentsToTarget(Targeting.Slot_FrontAndRight, ["Swap_Mass"]);
+            yep.Visuals = CustomVisuals.GetVisuals("Salt/Notif");
+            yep.AnimationTarget = Slots.FrontLeftRight;
+
             //ADD ENEMY
             dark.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 absurd.GenerateEnemyAbility(true),
                 knight.GenerateEnemyAbility(true),
-                kill.GenerateEnemyAbility(true)
+                kill.GenerateEnemyAbility(true),
+                nope.GenerateEnemyAbility(true),
+                yep.GenerateEnemyAbility(true),
             });
             dark.SilentAddEnemy(true, true);
             dark.enemy.AddToSynodPool();
