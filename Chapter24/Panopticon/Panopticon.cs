@@ -96,7 +96,7 @@ namespace SaltsEnemies_Reseasoned
             right.Description = "Gain 1 Ruptured.\nDeal a Painful amount of damage to the Right party member and consume 1 random Pigment.";
             right.Rarity = left.Rarity;
             right.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Self),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Right)
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Right),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeRandomManaEffect>(), 1, Slots.Self),];
             right.AddIntentsToTarget(Slots.Self, ["Status_Ruptured"]);
             right.AddIntentsToTarget(Slots.Right, ["Damage_3_6"]);
