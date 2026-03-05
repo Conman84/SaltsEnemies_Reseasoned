@@ -42,6 +42,8 @@ namespace SaltsEnemies_Reseasoned
             selector.Knight = "4Knight_A";
             dark.AbilitySelector = selector;
 
+            AbilitySelector_Dark.Setup();
+
             RemoveStatusEffectEffect rem_frail = ScriptableObject.CreateInstance<RemoveStatusEffectEffect>();
             rem_frail._status = StatusField.Frail;
             TargetSetValueChangeEffect reset = ScriptableObject.CreateInstance<TargetSetValueChangeEffect>();
