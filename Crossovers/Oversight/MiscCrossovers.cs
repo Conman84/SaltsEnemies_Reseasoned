@@ -82,6 +82,8 @@ namespace SaltsEnemies_Reseasoneds
             med.AddRandomGroup("Jabberwocky_EN", "Draugr_EN", Colophon.Blue);
             med.AddRandomGroup("Jabberwocky_EN", Colophon.Red, Colophon.Blue);
             med.AddRandomGroup("Jabberwocky_EN", "Pinano_EN", Jumble.Unstable);
+            med.AddRandomGroup("Jabberwocky_EN", "MudLung_EN", "SandSifter_EN");
+            med.AddRandomGroup("Jabberwocky_EN", "Asterism_EN", "Waltz_EN", "Waltz_EN");
 
             med = new AddTo(Garden.H.Sundowner.Med);
             med.SimpleAddGroup(4, "Sundowner_EN", 1, "Romantic_EN");

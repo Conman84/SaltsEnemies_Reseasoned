@@ -202,5 +202,27 @@ namespace SaltsEnemies_Reseasoned
         public static string Feaster => "FerrousFeaster_EN";
         public static string Alchemist => "AluminumAlchemist_EN";
         public static string Accelerator => "ArgonAccelerator_EN";
+        public static string MainSister
+        {
+            get
+            {
+                if (AddTo.BundleExist(Garden.H.Sisters.Med) && LoadedAssetsHandler.GetEnemyBundle(Garden.H.Sisters.Med) is RandomEnemyBundleSO bundle)
+                {
+                    foreach (string enemy in bundle._enemyBundles[0].EnemyNames)
+                    {
+                        if (enemy.Contains("Sister_EN")) return enemy;
+                    }
+                }
+                return "SomeoneSister_EN";
+            }
+        }
+        public static string SubSister
+        {
+            get
+            {
+                if (MainSister == "SomeoneSister_EN") return "NooneSister_EN";
+                return "SomeoneSister_EN";
+            }
+        }
     }
 }

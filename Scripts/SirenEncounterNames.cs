@@ -84,6 +84,12 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "H_ZoneSiren_OneShooter_Medium_EnemyBundle";
             }
+
+            //aaa
+            public static class Winterlantern
+            {
+                public static string Med => "H_ZoneSiren_WinterLantern_Medium_EnemyBundle";
+            }
         }
     }
 }

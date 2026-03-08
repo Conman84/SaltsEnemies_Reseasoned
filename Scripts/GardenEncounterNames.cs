@@ -336,6 +336,20 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "PolypMedium";
             }
+
+            //aaa
+            public static class Sisters
+            {
+                public static string Med => "H_Zone03_OnesSisters_Medium_EnemyBundle";
+
+                public static string Hard => "H_Zone03_OnesSisters_Hard_EnemyBundle";
+            }
+            public static class Phobia
+            {
+                public static string Med => "H_Zone03_Phobias_Medium_EnemyBundle";
+
+                public static string Hard => "H_Zone03_Phobias_Hard_EnemyBundle";
+            }
         }
     }
 }
