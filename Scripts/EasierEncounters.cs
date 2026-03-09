@@ -224,5 +224,6 @@ namespace SaltsEnemies_Reseasoned
                 return "SomeoneSister_EN";
             }
         }
+        public static string Phobia => "Phobia_Phobias_EN";
     }
 }
