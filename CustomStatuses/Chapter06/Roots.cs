@@ -124,12 +124,13 @@ namespace SaltEnemies_Reseasoned
         {
             if (sender is IUnit unit)
             {
-                CombatManager.Instance.AddSubAction(new RootsDamageAction(UnityEngine.Random.Range(2, 4), unit));
+                CombatManager.Instance.AddSubAction(new RootsDamageAction(UnityEngine.Random.Range(2, 4), unit, holder.SlotID));
             }
         }
         public override void OnEventCall_02(FieldEffect_Holder holder, object sender, object args)
         {
-            ReduceDuration(holder);
+            if (args is int slot && slot == holder.SlotID)
+                ReduceDuration(holder);
         }
         public override void OnSubActionTrigger(FieldEffect_Holder holder, object sender, object args, bool stateCheck)
         {
@@ -149,16 +150,18 @@ namespace SaltEnemies_Reseasoned
     {
         public int Amount;
         public IUnit Target;
-        public RootsDamageAction(int amount, IUnit target)
+        public int Slot;
+        public RootsDamageAction(int amount, IUnit target, int slot)
         {
             Amount = amount;
             Target = target;
+            Slot = slot;
         }
         public override IEnumerator Execute(CombatStats stats)
         {
             int gruh = Target.Damage(UnityEngine.Random.Range(2, 4), null, DeathType_GameIDs.Basic.ToString(), -1, false, false, true, Roots.DamageType).damageAmount;
             CombatManager.Instance.AddSubAction(new RootsHealAction(gruh));
-            CombatManager.Instance.PostNotification(Roots.Trigger, Target, null);
+            CombatManager.Instance.PostNotification(Roots.Trigger, Target, Slot);
             yield return null;
         }
     }
