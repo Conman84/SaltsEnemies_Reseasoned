@@ -98,11 +98,11 @@ namespace SaltEnemies_Reseasoned
         public override void OnSlotEffectorTriggerAttached(FieldEffect_Holder holder)
         {
             if (holder.Effector is CombatSlot slot && slot.HasUnit) Roots.IgnoreSet[holder.SlotID] = true;
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, TriggerCalls.OnTurnFinished.ToString(), holder.Effector);
+            CombatManager.Instance.AddObserver(holder.OnEventTriggered_03, TriggerCalls.OnTurnFinished.ToString(), holder.Effector);
         }
         public override void OnSlotEffectorTriggerDettached(FieldEffect_Holder holder)
         {
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, TriggerCalls.OnTurnFinished.ToString(), holder.Effector);
+            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_03, TriggerCalls.OnTurnFinished.ToString(), holder.Effector);
         }
         public override void OnTriggerAttached(FieldEffect_Holder holder, IUnit caller)
         {
@@ -131,6 +131,10 @@ namespace SaltEnemies_Reseasoned
         {
             if (args is int slot && slot == holder.SlotID)
                 ReduceDuration(holder);
+        }
+        public override void OnEventCall_03(FieldEffect_Holder holder, object sender, object args)
+        {
+            ReduceDuration(holder);
         }
         public override void OnSubActionTrigger(FieldEffect_Holder holder, object sender, object args, bool stateCheck)
         {
