@@ -444,6 +444,7 @@ namespace SaltsEnemies_Reseasoned
             CopyAndSpawnCustomCharacterAnywhereEffect spawn_six = ScriptableObject.CreateInstance<CopyAndSpawnCustomCharacterAnywhereEffect>();
             spawn_six._characterCopy = "Six_CH";
             spawn_six._permanentSpawn = true;
+            spawn_six._extraModifiers = [];
 
             PerformEffect_Item six = new PerformEffect_Item("Salt_Six_EW", [Effects.GenerateEffect(spawn_six, 1, Slots.Self)]);
             six.Name = "Six";
