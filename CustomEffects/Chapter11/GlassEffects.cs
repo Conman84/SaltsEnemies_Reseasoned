@@ -12,10 +12,10 @@ namespace SaltEnemies_Reseasoned
     {
         public EnemySO[] enemies = new EnemySO[]
         {
-            LoadedAssetsHandler.GetEnemy("HeavensGateRed_BOSS"),
-            LoadedAssetsHandler.GetEnemy("HeavensGateBlue_BOSS"),
-            LoadedAssetsHandler.GetEnemy("HeavensGateYellow_BOSS"),
-            LoadedAssetsHandler.GetEnemy("HeavensGatePurple_BOSS")
+            LoadedAssetsHandler.GetEnemy("HeavensGateRed_Enemy"),
+            LoadedAssetsHandler.GetEnemy("HeavensGateBlue_Enemy"),
+            LoadedAssetsHandler.GetEnemy("HeavensGateYellow_Enemy"),
+            LoadedAssetsHandler.GetEnemy("HeavensGatePurple_Enemy")
         };
 
         public EnemySO enemy
