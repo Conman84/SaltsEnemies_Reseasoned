@@ -38,7 +38,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 "ClockTower_EN",
                 "SkinningHomunculus_EN",
-                "SkinningHomunculus_EN",
+                Jumble.Gray,
                 "ShiveringHomunculus_EN",
             }, null);
             mainEncounters.CreateNewEnemyEncounterData(new string[]
@@ -74,13 +74,6 @@ namespace SaltsEnemies_Reseasoned
                 "InHerImage_EN",
                 "InHerImage_EN",
                 Spoggle.Grey,
-            }, null);
-            mainEncounters.CreateNewEnemyEncounterData(new string[]
-            {
-                "ClockTower_EN",
-                "SkinningHomunculus_EN",
-                "SkinningHomunculus_EN",
-                Jumble.Grey,
             }, null);
             mainEncounters.CreateNewEnemyEncounterData(new string[]
             {
