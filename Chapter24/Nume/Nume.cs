@@ -32,7 +32,7 @@ namespace SaltsEnemies_Reseasoned
             causality._characterDescription = "On moving, deal a Barely Painful amount of damage to the current Opposing enemy position at the start of the next turn.";
             causality._triggerOn = [TriggerCalls.OnMoved];
             causality.conditions = [];
-            causality.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 5, Slots.Front)];
+            causality.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 3, Slots.Front)];
             causality.AddToPassiveDatabase();
 
             //Revenge
