@@ -16,7 +16,6 @@ namespace SaltEnemies_Reseasoned
             med.MusicEvent = "event:/Hawthorne/CrystalSong";
             med.RoarEvent = "event:/Hawthorne/Noise/CrystalRoar";
 
-            med.SimpleAddEncounter(1, "Crystal_EN", 3, "CandyStone_EN");
             med.AddRandomEncounter("Crystal_EN", "MusicMan_EN", "MusicMan_EN");
             med.AddRandomEncounter("Crystal_EN", "Enigma_EN", "Enigma_EN");
             med.SimpleAddEncounter(1, "Crystal_EN", 1, "MusicMan_EN", 3, Enemies.Suckle);
