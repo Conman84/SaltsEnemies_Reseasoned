@@ -207,7 +207,7 @@ namespace SaltsEnemies_Reseasoned
             exitAmount = 0;
 
             OverworldCombatSharedDataSO current = CombatManager.Instance._informationHolder.CombatData;
-            if (current.enemyBundle.SpecialEnvironment != "") return false;
+            //if (current.enemyBundle.SpecialEnvironment != "") return false;
 
             //destroy old environment?
             //GameObject.Destroy(CombatManager.Instance._combatEnvHandler);
