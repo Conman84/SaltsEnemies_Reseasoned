@@ -438,12 +438,12 @@ namespace SaltsEnemies_Reseasoned
             hat.item.AddItem("Locked_GlowingHat.png", AchievementIDs.Chapter16, Test);
 
             PerformEffect_Item wings = new PerformEffect_Item("Salt_ItsWings_TW", [
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 5, Slots.Front),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 10, Slots.Self, BasicEffects.DidThat(true))
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 7, Slots.Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 7, Slots.Self, BasicEffects.DidThat(true))
                 ]);
             wings.Name = "Its Wings";
             wings.Flavour = "\"As it spreads its wings for an old god, a heaven just for you burrows its way.\"";
-            wings.Description = "At the start of combat, apply 5 Power to the Opposing enemy.\nIf successful, gain 10 Power.";
+            wings.Description = "At the start of combat, apply 7 Power to the Opposing enemy.\nIf successful, gain 7 Power.";
             wings.Icon = ResourceLoader.LoadSprite("Item_ItsWings.png");
             wings.EquippedModifiers = [];
             wings.TriggerOn = TriggerCalls.OnCombatStart;
