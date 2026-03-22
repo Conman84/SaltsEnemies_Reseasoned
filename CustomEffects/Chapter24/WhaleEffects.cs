@@ -97,4 +97,35 @@ namespace SaltsEnemies_Reseasoned
             return true;
         }
     }
+    public class TransformEnemyAudioEffect : EffectSO
+    {
+        public EnemySO new_sounds;
+
+        public string HitSound;
+        public string DieSound;
+
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+
+            if (caster is EnemyCombat enemy)
+            {
+                if (new_sounds == null || new_sounds.Equals(null))
+                {
+                    new_sounds = ScriptableObject.Instantiate(enemy.Enemy);
+                    new_sounds.damageSound = HitSound;
+                    new_sounds.deathSound = DieSound;
+                }
+
+                enemy.Enemy = new_sounds;
+                foreach (EnemyCombatUIInfo ui in stats.combatUI._enemiesInCombat.Values)
+                {
+                    if (ui.ID == caster.ID) ui.EnemyBase = new_sounds;
+                }
+                
+            }
+
+            return true;
+        }
+    }
 }

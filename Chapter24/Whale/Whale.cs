@@ -19,8 +19,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("WhaleIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("WhaleWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("WhaleDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("TheDeep_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("TheDeep_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Sound4/WhaleHitFar",
+                DeathSound = "event:/Hawthorne/Sound4/WhaleDieFar",
                 UnitTypes = ["Fish"]
             };
             whale.PrepareEnemyPrefab("Assets/wip5/Whale_Wip_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/wip5/Whale_Wip_Gibs.prefab").GetComponent<ParticleSystem>());
@@ -30,6 +30,9 @@ namespace SaltsEnemies_Reseasoned
 
             SetMusicParameterByStringEffect song = ScriptableObject.CreateInstance<SetMusicParameterByStringEffect>();
             song.Parameter = "Whale";
+            TransformEnemyAudioEffect sounds = ScriptableObject.CreateInstance<TransformEnemyAudioEffect>();
+            sounds.HitSound = "event:/Hawthorne/Sound4/WhaleHitNear";
+            sounds.DieSound = "event:/Hawthorne/Sound4/WhaleDieNear";
 
             whale.CombatExitEffects = [Effects.GenerateEffect(song, -1, Slots.Self, ScriptableObject.CreateInstance<SimpleWhaleCondition>())];
 
@@ -41,7 +44,8 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Anchoring", false, Targetting.Everything(false)), 0, Slots.Self, ScriptableObject.CreateInstance<WhaleCondition>()),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Targetting.Everything(false), BasicEffects.DidThat(true)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<WhaleEffect>()),
-                Effects.GenerateEffect(song, 1, Slots.Self, ScriptableObject.CreateInstance<ComplexWhaleCondition>())
+                Effects.GenerateEffect(song, 1, Slots.Self, ScriptableObject.CreateInstance<ComplexWhaleCondition>()),
+                Effects.GenerateEffect(sounds, 1, Slots.Self, BasicEffects.DidThat(true))
                 ];
             descent.AddIntentsToTarget(Slots.Self, ["Misc_Hidden"]);
             descent.AddIntentsToTarget(Targetting.Everything(false), ["Damage_3_6"]);

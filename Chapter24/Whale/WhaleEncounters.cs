@@ -14,7 +14,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Orph.H.Whale.Med, "Salt_WhaleEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/WhaleTheme";
-            med.RoarEvent = "event:/Hawthorne/Surround/DeepRoar";
+            med.RoarEvent = "event:/Hawthorne/Sound4/WhaleRoar";
 
             if (SaltsReseasoned.silly < 40 || SaltsReseasoned.silly > 90) med.SimpleAddEncounter(4, "TheWhale_EN");
             med.SimpleAddEncounter(2, "TheWhale_EN", 2, "MusicMan_EN");

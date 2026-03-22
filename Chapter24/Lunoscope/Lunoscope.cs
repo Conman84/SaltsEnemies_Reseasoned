@@ -16,8 +16,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("LunoscopeIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("LunoscopeWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("LunoscopeDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("BlackStar_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("BlackStar_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Sund/LunoHit",
+                DeathSound = "event:/Hawthorne/Sund/LunoDie",
             };
             lunoscope.PrepareEnemyPrefab("Assets/wip5/Lunoscope_Wip_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/wip5/Lunoscope_Wip_Gibs.prefab").GetComponent<ParticleSystem>());
 

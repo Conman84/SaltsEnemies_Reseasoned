@@ -19,7 +19,7 @@ namespace SaltsEnemies_Reseasoned
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Garden.H.Lunoscope.Med, "Salt_LunoscopeEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/LunoscopeSong";
-            med.RoarEvent = LoadedAssetsHandler.GetEnemy("BlackStar_EN").deathSound;
+            med.RoarEvent = "event:/Hawthorne/Sund/LunoRoar";
 
             med.AddRandomEncounter("Lunoscope_EN", "InHisImage_EN", "InHerImage_EN");
             med.AddRandomEncounter("Lunoscope_EN", Spoggle.Grey, "EyePalm_EN");
