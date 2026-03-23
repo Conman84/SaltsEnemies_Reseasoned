@@ -25,7 +25,7 @@ namespace SaltsEnemies_Reseasoned
                 AbilitySelector = BotGeneral.Selector
             };
             blue.PrepareEnemyPrefab("assets/bot/BlueBot_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/bot/BlueBot_Gibs.prefab").GetComponent<ParticleSystem>());
-
+            blue.AddUnitType("Robot");
             blue.AddPassives(new BasePassiveAbilitySO[] { BotGeneral.Pillar, Passives.MultiAttack2 });
 
             Ability test = new Ability("Please the Portrait", "PleaseThePortrait_A");

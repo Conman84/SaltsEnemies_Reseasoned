@@ -31,6 +31,7 @@ namespace SaltsEnemies_Reseasoned
                 yellow.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("WALL_R").GetComponent<SpriteRenderer>(),
                 yellow.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("WALL_T").GetComponent<SpriteRenderer>(),
             };
+            yellow.AddUnitType("Robot");
             yellow.AddPassives(new BasePassiveAbilitySO[] { BotGeneral.Pillar, Passives.MultiAttack2 });
 
             Ability test = new Ability("Please the Point", "PleaseThePoint_A");

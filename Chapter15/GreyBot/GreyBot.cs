@@ -22,6 +22,7 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = "event:/Hawthorne/Surround/GreyBotDie",
             };
             grey.PrepareEnemyPrefab("assets/bot/GreyBot_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/bot/GreyBot_Gibs.prefab").GetComponent<ParticleSystem>());
+            grey.AddUnitType("Robot");
 
             //CCTV
             PerformEffectPassiveAbility cctv = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();

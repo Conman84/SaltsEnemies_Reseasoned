@@ -25,7 +25,7 @@ namespace SaltsEnemies_Reseasoned
             };
             template.PrepareEnemyPrefab("Assets/Bosses/Invention/Invention_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/Invention/Invention_Gibs.prefab").GetComponent<ParticleSystem>());
             template.enemy.enemyTemplate.m_Data.m_Renderer = template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Sprite").Find("Outline").GetComponent<SpriteRenderer>();
-
+            template.AddUnitType("Robot");
 
             //template.enemy.enemyTemplate = LoadedAssetsHandler.GetEnemy("Wall_EN").enemyTemplate;
 

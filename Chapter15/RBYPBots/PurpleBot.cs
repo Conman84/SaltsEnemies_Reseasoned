@@ -24,7 +24,7 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = "event:/Hawthorne/Noise/ApparatusDie",
             };
             purple.PrepareEnemyPrefab("assets/bot/PurpleBot_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/bot/PurpleBot_Gibs.prefab").GetComponent<ParticleSystem>());
-
+            purple.AddUnitType("Robot");
             purple.AddPassives(new BasePassiveAbilitySO[] { BotGeneral.Pillar, Passives.MultiAttack2 });
 
             //selector

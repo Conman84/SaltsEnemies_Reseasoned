@@ -37,6 +37,8 @@ namespace SaltsEnemies_Reseasoned
                 Passives.Pure
             });
 
+            RusticJumbleGuts.AddUnitType("Robot");
+
             //Melt
             Ability melt = new Ability("Melting Point", "Salt_MeltingPoint_A");
             melt.Description = "\"Deal 11 damage to the opposing enemy.\"\n(Deals a Deadly amount of damage to the Opposing party member.)";

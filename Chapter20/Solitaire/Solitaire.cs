@@ -38,6 +38,8 @@ namespace SaltsEnemies_Reseasoned
                 tv.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").GetComponent<SpriteRenderer>(),
             };
 
+            tv.AddUnitType("Robot");
+
             Enemy child = new Enemy("Spades", "Spades_EN")
             {
                 Health = 4,
@@ -52,6 +54,8 @@ namespace SaltsEnemies_Reseasoned
             child.enemy.enemyTemplate.m_Data.m_Renderer = child.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").GetComponent<SpriteRenderer>();
             child.AddPassives([mf, Passives.Withering, Passives.Dying]);
             child.CombatExitEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<SolitaireExitEffect>(), 1, Slots.Self).SelfArray();
+
+            child.AddUnitType("Robot");
 
             //decay
             PerformEffectPassiveAbility decay = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();

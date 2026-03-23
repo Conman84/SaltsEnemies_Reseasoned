@@ -27,6 +27,8 @@ namespace SaltsEnemies_Reseasoned
                 foxtrot.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Handle").Find("Outline").GetComponent<SpriteRenderer>(),
             };
 
+            foxtrot.AddUnitType("Robot");
+
             //RUPTURE
             StatusEffectPassiveAbility rupture = ScriptableObject.CreateInstance<StatusEffectPassiveAbility>();
             //Connection_PerformEffectPassiveAbility rupture = ScriptableObject.CreateInstance<Connection_PerformEffectPassiveAbility>();

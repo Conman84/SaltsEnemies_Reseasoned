@@ -37,6 +37,7 @@ namespace SaltsEnemies_Reseasoned
                 lobotomy.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Sprite (9)").GetComponent<SpriteRenderer>(),
                 lobotomy.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Sprite (10)").GetComponent<SpriteRenderer>(),
             };
+            lobotomy.AddUnitType("Robot");
 
             //APPOINTMENT
             ExtraAttackPassiveAbility baseExtra = LoadedAssetsHandler.GetEnemy("Xiphactinus_EN").passiveAbilities[1] as ExtraAttackPassiveAbility;

@@ -39,7 +39,7 @@ namespace SaltsEnemies_Reseasoned
             repression.integerValue = 1;
 
             scarecrow.AddPassives(new BasePassiveAbilitySO[] { Passives.Formless, repression });
-            scarecrow.UnitTypes = new List<string> { "Bird" };
+            scarecrow.UnitTypes = new List<string> { "Bird", "Robot" };
 
             //statue
             Ability statue = new Ability("Scarecrow_Statue_A")

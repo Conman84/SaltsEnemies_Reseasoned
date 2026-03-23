@@ -25,7 +25,7 @@ namespace SaltsEnemies_Reseasoned
                 AbilitySelector = BotGeneral.Selector
             };
             red.PrepareEnemyPrefab("assets/bot/RedBot_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/bot/RedBot_Gibs.prefab").GetComponent<ParticleSystem>());
-
+            red.AddUnitType("Robot");
             red.AddPassives(new BasePassiveAbilitySO[] { BotGeneral.Pillar, Passives.MultiAttack2 });
 
             Targetting_ByUnit_SideCasterColor targettingCasterColor = ScriptableObject.CreateInstance<Targetting_ByUnit_SideCasterColor>();

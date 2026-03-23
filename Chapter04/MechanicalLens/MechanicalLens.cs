@@ -36,6 +36,7 @@ namespace SaltsEnemies_Reseasoned
             });
 
             MechanicalLens.AddUnitType("Camera");
+            MechanicalLens.AddUnitTypes("Robot");
 
             //Lens Flash
             PreviousEffectCondition didntThat = ScriptableObject.CreateInstance<PreviousEffectCondition>();

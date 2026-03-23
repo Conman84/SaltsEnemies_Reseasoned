@@ -31,6 +31,7 @@ namespace SaltsEnemies_Reseasoned
 
             windle.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery });
             windle.AddUnitType("Fish");
+            windle.AddUnitType("Robot");
 
             CopyAndSpawnCustomCharacterAnywhereLikeCasterEffect win = ScriptableObject.CreateInstance<CopyAndSpawnCustomCharacterAnywhereLikeCasterEffect>();
             win._characterCopy = "Windle_CH";

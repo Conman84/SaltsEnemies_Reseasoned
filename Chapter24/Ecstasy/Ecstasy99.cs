@@ -25,6 +25,8 @@ namespace SaltsEnemies_Reseasoned
             ecstasy.PrepareEnemyPrefab("Assets/enem5/Ecstasy_Gray_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/enem5/Ecstasy_Gray_Gibs.prefab").GetComponent<ParticleSystem>());
             ecstasy.enemy.enemyTemplate.m_Data.m_Renderer = ecstasy.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").GetChild(1).GetComponent<SpriteRenderer>();
 
+            ecstasy.UnitTypes = ["Robot"];
+
             PerformEffectPassiveAbility missdose = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             missdose.name = "MissDose_PA";
             missdose._passiveName = "Miss-Dose";

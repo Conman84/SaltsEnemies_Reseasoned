@@ -112,6 +112,7 @@ namespace SaltsEnemies_Reseasoned
             Add_Enemy(overdose, Pigments.Purple, "ECSTASY87", "Purple", [psy, bub, philosophy.GenerateEnemyAbility(true)]);
 
             LoadedAssetsHandler.GetEnemy(Ecstasy.Blue).AddToToysPool();
+            LoadedAssetsHandler.GetEnemy(Ecstasy.Yellow).unitTypes = ["Robot"];
 
             overdose_effect._allTransforms = new List<TransformOption>()
             {

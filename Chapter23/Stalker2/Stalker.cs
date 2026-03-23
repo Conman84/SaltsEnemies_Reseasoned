@@ -29,6 +29,7 @@ namespace SaltsEnemies_Reseasoned
             flee._characterDescription += "\nOn successfully fleeing, attempt to trigger \"Withering\" on all characters.";
 
             stalker.AddPassives(new BasePassiveAbilitySO[] { Passives.Immortal, flee, Passives.Anchored, Passives.Inanimate });
+            stalker.UnitTypes = ["Robot"];
 
             stalker.CombatEnterEffects = [Effects.GenerateEffect(StalkerConnectionEffect.Create(true))];
             stalker.CombatExitEffects = [Effects.GenerateEffect(CasterRootActionEffect.Create([Effects.GenerateEffect(StalkerConnectionEffect.Create(false))]))];

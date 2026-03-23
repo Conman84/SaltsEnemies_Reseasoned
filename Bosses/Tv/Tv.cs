@@ -24,6 +24,7 @@ namespace SaltsEnemies_Reseasoned
             };
             template.PrepareEnemyPrefab("Assets/Bosses/Tv/Megalania_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Bosses/Tv/Megalania_Gibs.prefab").GetComponent<ParticleSystem>());
             template.enemy.enemyTemplate.m_Data.m_Renderer = template.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Head").GetComponent<SpriteRenderer>();
+            template.AddUnitType("Robot");
 
             //radical
             PerformEffectPassiveAbility radical = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();

@@ -23,7 +23,7 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetCharacter("Doll_CH").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("Doll_CH").deathSound,
                 DialogueSound = LoadedAssetsHandler.GetCharacter("Doll_CH").dxSound,
-                UnitTypes = new List<string>() { "Fish", "Sandwich_Fish" }
+                UnitTypes = new List<string>() { "Fish", "Sandwich_Fish", "Robot" }
             };
 
             //automated

@@ -22,8 +22,10 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = LoadedAssetsHandler.GetEnemy("DeadPixel_EN").deathSound,
             };
             spinner.PrepareEnemyPrefab("assets/enem3/2009_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("assets/gib3/2009_Gibs.prefab").GetComponent<ParticleSystem>());
-
+            
             spinner.enemy.enemyTemplate.m_Data.m_Renderer = spinner.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("Face").Find("Outline").GetComponent<SpriteRenderer>();
+
+            spinner.AddUnitType("Robot");
 
             //ROTARY
             PerformEffectPassiveAbility rotary = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
