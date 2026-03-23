@@ -120,6 +120,7 @@ namespace SaltsEnemies_Reseasoned
             });
             foxtrot.AddEnemy(true, true);
             foxtrot.enemy.AddToSynodPool();
+            foxtrot.enemy.AddToToysPool();
         }
     }
 }

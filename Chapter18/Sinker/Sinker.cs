@@ -86,6 +86,7 @@ namespace SaltsEnemies_Reseasoned
                 alarm.GenerateEnemyAbility(true)
             });
             sinker.AddEnemy(true, true);
+            sinker.enemy.AddToSynodPool();
         }
     }
 }

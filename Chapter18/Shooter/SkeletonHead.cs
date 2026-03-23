@@ -84,6 +84,7 @@ namespace SaltsEnemies_Reseasoned
                 wobble.GenerateEnemyAbility(true),
             });
             template.AddEnemy(true, true);
+            template.enemy.AddToToysPool();
         }
     }
 }

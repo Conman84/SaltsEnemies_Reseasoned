@@ -2255,6 +2255,7 @@
 	  <Folder Include="Crossovers\Dude...IDK\" />
 	  <Folder Include="CustomEffects\Chapter06\" />
 	  <Folder Include="CustomEffects\Chapter12\" />
+	  <Folder Include="Chapter25\" />
 	</ItemGroup>
 
 	<ItemGroup>

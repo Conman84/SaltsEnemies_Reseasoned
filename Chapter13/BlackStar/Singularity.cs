@@ -92,7 +92,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 gravity.GenerateEnemyAbility(true)
             });
-            blackhole.AddEnemy(true, true);
+            blackhole.AddEnemy(true);
         }
     }
 }

@@ -29,12 +29,17 @@ namespace SaltEnemies_Reseasoned
         }
         public static void AddToSynodPool(this EnemySO self)
         {
+            EnemyUtils.AddEnemyToSpawnPool(self, PoolList_GameIDs.CadaverSynod);
             return;
             //BrutalAPI.EnemyUtils.AddEnemyToSpawnPool(self, ) FIX THIS LATER. prob needs to update assemblies and get con to do that too....
             EnemySO synod = LoadedAssetsHandler.GetEnemy(Enemies.Synod);
             AbilitySO abil = synod.abilities[0].ability;
             SpawnRandomEnemyAnywhereEffect spawn = abil.effects[0].effect as SpawnRandomEnemyAnywhereEffect;
             spawn._enemies.Add(self);
+        }
+        public static void AddToToysPool(this EnemySO self)
+        {
+            EnemyUtils.AddEnemyToCustomSpawnPool(self, ToysPool.ID);
         }
     }
 }

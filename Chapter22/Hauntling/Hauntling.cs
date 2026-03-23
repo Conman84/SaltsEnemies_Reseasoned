@@ -80,6 +80,7 @@ namespace SaltsEnemies_Reseasoned
             });
             hauntling.AddEnemy(true, true);
             hauntling.enemy.AddToSynodPool();
+            hauntling.enemy.AddToToysPool();
 
             Spawn = ScriptableObject.CreateInstance<SpawnEnemyAnywhereEffect>();
             Spawn.enemy = LoadedAssetsHandler.GetEnemy("Hauntling_EN");

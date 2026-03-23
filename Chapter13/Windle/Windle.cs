@@ -61,6 +61,7 @@ namespace SaltsEnemies_Reseasoned
             });
             windle.AddEnemy(true, true, true);
             windle.enemy.AddToSynodPool();
+            windle.enemy.AddToToysPool();
 
             WindleCharacter.Add();
         }

@@ -59,6 +59,7 @@ namespace SaltsEnemies_Reseasoned
             });
             waltz.AddEnemy(true, true);
             waltz.enemy.AddToSynodPool();
+            waltz.enemy.AddToToysPool();
         }
     }
 }

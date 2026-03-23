@@ -139,7 +139,8 @@ namespace SaltsEnemies_Reseasoned
                 gone.GenerateEnemyAbility(true),
                 hearbreaker
             });
-            skyloft.AddEnemy(true, true, true);
+            skyloft.AddEnemy(true, true, false);
+            skyloft.enemy.AddToToysPool();
         }
     }
 }

@@ -111,6 +111,8 @@ namespace SaltsEnemies_Reseasoned
             Add_Enemy(overdose, Pigments.Yellow, "ECSTASY02", "Yellow", [psy, bub, industry.GenerateEnemyAbility(true)]);
             Add_Enemy(overdose, Pigments.Purple, "ECSTASY87", "Purple", [psy, bub, philosophy.GenerateEnemyAbility(true)]);
 
+            LoadedAssetsHandler.GetEnemy(Ecstasy.Blue).AddToToysPool();
+
             overdose_effect._allTransforms = new List<TransformOption>()
             {
                 new TransformOption(LoadedAssetsHandler.GetEnemy(Ecstasy.Red)),

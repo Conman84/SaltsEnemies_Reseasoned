@@ -116,7 +116,7 @@ namespace SaltsEnemies_Reseasoned
                 nobody.GenerateEnemyAbility(true),
                 cubism.GenerateEnemyAbility(true),
             });
-            template.AddEnemy(true);
+            template.AddEnemy(true, true);
         }
     }
 }

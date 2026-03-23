@@ -66,6 +66,7 @@ namespace SaltsEnemies_Reseasoned
             });
             mortar.AddEnemy(true, true);
             mortar.enemy.AddToSynodPool();
+            mortar.enemy.AddToToysPool();
         }
     }
 }

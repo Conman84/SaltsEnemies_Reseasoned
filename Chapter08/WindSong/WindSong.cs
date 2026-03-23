@@ -102,6 +102,7 @@ namespace SaltsEnemies_Reseasoned
             });
             windsong.AddEnemy(true, true);
             windsong.enemy.AddToSynodPool();
+            windsong.enemy.AddToToysPool();
         }
     }
 }

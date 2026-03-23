@@ -185,7 +185,7 @@ namespace SaltsEnemies_Reseasoned
                 multicolors.GenerateEnemyAbility(true),
                 interference.GenerateEnemyAbility(true),
             });
-            DeadPixel.AddEnemy(true, true, true);
+            DeadPixel.AddEnemy(true, true, false);
             DeadPixel.enemy.AddToSynodPool();
         }
     }
