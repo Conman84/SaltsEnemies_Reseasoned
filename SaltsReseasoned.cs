@@ -243,6 +243,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(Shooter.Add);
             PCall(SkeletonHead.Add);
             PCall(Sinker.Add);
+            PCall(Dangler.Add);
             PCall(PersonalAngel.Add);
             PCall(Complimentary.Add);
 
