@@ -92,7 +92,8 @@ namespace SaltsEnemies_Reseasoned
                 "666 Evil Avenue",
                 "Sandpaper Watermelon",
                 "Shotgun",
-                "Bart Symptom"
+                "Bart Symptom",
+                "Hmumu"
                 ];
             CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             third.PossibleNames = [
