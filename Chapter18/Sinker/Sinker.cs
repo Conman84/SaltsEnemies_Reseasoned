@@ -55,34 +55,49 @@ namespace SaltsEnemies_Reseasoned
             };
             nailing.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Status_Ruptured.ToString(), IntentType_GameIDs.Field_Constricted.ToString()]);
 
-            //gulp
-            EnemyAbilityInfo gulp = new EnemyAbilityInfo()
-            {
-                ability = LoadedAssetsHandler.GetEnemyAbility("Gulp_A"),
-                rarity = nailing.Rarity
-            };
+            ApplyShieldSlotEffect exit_shield = ScriptableObject.CreateInstance<ApplyShieldSlotEffect>();
+            exit_shield._UsePreviousExitValueAsMultiplier = true;
+            SpawnEnemyByStringNameEffect danglers = ScriptableObject.CreateInstance<SpawnEnemyByStringNameEffect>();
+            danglers.enemyName = "Dangler_EN";
+            //inchoking
+            Ability inchoking = new Ability("SinkerInchoking_A");
+            inchoking.Name = "Inchoking";
+            inchoking.Description = "Take a Painful amount of damage and apply an equivalent amount of Shield to the Left and Right enemy positions.\nIf this is the only enemy in combat, attempt to spawn as many Danglers as possible.";
+            inchoking.Rarity = Rarity.GetCustomRarity("rarity5");
+            inchoking.Effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Slots.Self),
+                Effects.GenerateEffect(exit_shield, 1, Slots.Sides),
+                Effects.GenerateEffect(danglers, 5, Slots.Self, ScriptableObject.CreateInstance<NewAlarmCondition>())
+                ];
+            inchoking.AddIntentsToTarget(Slots.Self, ["Damage_3_6"]);
+            inchoking.AddIntentsToTarget(Slots.Sides, ["Field_Shield"]);
+            inchoking.AddIntentsToTarget(Slots.Self, ["Other_Spawn"]);
+            inchoking.Visuals = Visuals.Gulp;
+            inchoking.AnimationTarget = Slots.Self;
 
             //ALARM
             Ability alarm = new Ability("SinkerAlarm_A")
             {
                 Name = "Alarm",
-                Description = "30% chance to spawn a random single tile Fish(?) enemy, doubles this chance if this is the only enemy in combat.\nIf this fails, give this enemy another action.",
+                Description = "Inflict 1 Ruptured on the Left, Right, and Opposing party members.\nIf this is the only enemy in combat, deal a Painful amount of damage to them as well.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnFishEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<AlarmCondition>()),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnTargetToTimelineEffect>(), 1, Slots.Self, BasicEffects.DidThat(false)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.FrontLeftRight),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.FrontLeftRight, ScriptableObject.CreateInstance<NewAlarmCondition>())
                 },
-                Visuals = CustomVisuals.GetVisuals("Salt/Alarm"),
-                AnimationTarget = Slots.Self,
+                Visuals = CustomVisuals.GetVisuals("Salt/Gears"),
+                AnimationTarget = Slots.FrontLeftRight,
             };
-            alarm.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Other_Spawn.ToString(), IntentType_GameIDs.Misc.ToString()]);
+            alarm.AddIntentsToTarget(Slots.FrontLeftRight, ["Status_Ruptured"]);
+            alarm.AddIntentsToTarget(Slots.Self, ["Misc_Hidden"]);
+            alarm.AddIntentsToTarget(Slots.FrontLeftRight, ["Damage_3_6"]);
 
             //ADD ENEMY
             sinker.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 nailing.GenerateEnemyAbility(true),
-                gulp,
+                inchoking.GenerateEnemyAbility(true),
                 alarm.GenerateEnemyAbility(true)
             });
             sinker.AddEnemy(true, true);

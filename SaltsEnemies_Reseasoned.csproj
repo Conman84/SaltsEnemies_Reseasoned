@@ -419,6 +419,7 @@
 	  <None Remove="Chapter18\Shooter\ShooterDead.png" />
 	  <None Remove="Chapter18\Shooter\ShooterIcon.png" />
 	  <None Remove="Chapter18\Shooter\ShooterWorld.png" />
+	  <None Remove="Chapter18\Sinker\DanglerIcon.png" />
 	  <None Remove="Chapter18\Sinker\LonelyIcon.png" />
 	  <None Remove="Chapter18\Sinker\SinkerDead.png" />
 	  <None Remove="Chapter18\Sinker\SinkerIcon.png" />
@@ -1039,6 +1040,7 @@
 	  <EmbeddedResource Include="Chapter10\Medamaude\ScramblePassive.png" />
 	  <EmbeddedResource Include="Chapter11\Nameless\FractalPassive.png" />
 	  <EmbeddedResource Include="Chapter16\OdeToHumanity\AutodidactPassive.png" />
+	  <EmbeddedResource Include="Chapter18\Sinker\DanglerIcon.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaDead.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaIcon.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaPortal.png" />
