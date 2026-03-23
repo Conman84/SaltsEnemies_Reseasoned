@@ -201,6 +201,7 @@ namespace SaltsEnemies_Reseasoned
             Enemies.Shooter,
             "SkeletonHead_EN",
             "Sinker_EN",
+            "Dangler_EN",
             "PawnA_EN",
             "Starless_EN",
             "Eyeless_EN",
