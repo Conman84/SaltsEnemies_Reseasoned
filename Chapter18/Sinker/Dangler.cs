@@ -22,7 +22,7 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
             };
             dangler.PrepareEnemyPrefab("Assets/enem2/Dangler_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/enem2/Dangler_Gibs.prefab").GetComponent<ParticleSystem>());
-            dangler.enemy.enemyTemplate.m_Data.m_Renderer = dangler.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").GetChild(0).GetComponent<SpriteRenderer>();
+            dangler.enemy.enemyTemplate.m_Data.m_Renderer = dangler.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").GetChild(1).GetComponent<SpriteRenderer>();
 
             dangler.AddPassives(LoadedAssetsHandler.GetEnemy("Sinker_EN").passiveAbilities.ToArray());
             dangler.AddUnitType("Fish");
