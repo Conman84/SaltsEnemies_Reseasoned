@@ -28,6 +28,8 @@ namespace SaltEnemies_Reseasoned
                 if (CombatManager.Instance._stats.TurnsPassed >= 2) ret /= 2;
                 if (CombatManager.Instance._stats.TurnsPassed >= 4) ret /= 2;
                 if (CombatManager.Instance._stats.TurnsPassed >= 8) return 0;
+
+                if (CombatManager.Instance._stats.PlayerCurrency >= 128) ret *= 10;
             }
             catch
             {
