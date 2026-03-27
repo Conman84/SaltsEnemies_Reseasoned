@@ -674,34 +674,6 @@ namespace SaltsEnemies_Reseasoned
             forever.AddEffectTrigger(new EffectTrigger([Effects.GenerateEffect(haunt, 1)], [TriggerCalls.OnDamaged], []));
             forever.item.AddBlueSkyUnlock("Izide_CH", "locked_forever.png", "ach_forever.png");
 
-            CopyAndSpawnCustomCharacterAnywhereEffect spawn_fribble = ScriptableObject.CreateInstance<CopyAndSpawnCustomCharacterAnywhereEffect>();
-            spawn_fribble._characterCopy = "Fribble_CH";
-            spawn_fribble._permanentSpawn = true;
-            spawn_fribble._rank = 0;
-            spawn_fribble._extraModifiers = [];
-
-            PerformEffect_Item fribble = new PerformEffect_Item("Salt_Fribble_SW", [Effects.GenerateEffect(spawn_fribble, 1)]);
-            fribble.Name = "Fribble";
-            fribble.Flavour = "\"Hi my name is: Fribble\"";
-            fribble.Description = "At the start of combat, spawn a permenant level 1 party member.\nThis item is consumed on use.";
-            fribble.Icon = ResourceLoader.LoadSprite("item_fribble.png");
-            fribble.TriggerOn = TriggerCalls.OnCombatStart;
-            fribble.EquippedModifiers = [];
-            fribble.DoesPopUpInfo = true;
-            fribble.Conditions = [];
-            fribble.DoesActionOnTriggerAttached = false;
-            fribble.ConsumeOnTrigger = TriggerCalls.Count;
-            fribble.ConsumeOnUse = true;
-            fribble.ConsumeConditions = [];
-            fribble.ShopPrice = 7;
-            fribble.IsShopItem = true;
-            fribble.StartsLocked = true;
-            fribble.OnUnlockUsesTHE = false;
-            fribble.UsesSpecialUnlockText = false;
-            fribble.SpecialUnlockID = UILocID.None;
-            fribble.item._ItemTypeIDs = [];
-            fribble.item.AddBlueSkyUnlock("Qualia_CH", "locked_fribble.png", "ach_fribble.png");
-
             PerformEffect_Item ring = new PerformEffect_Item("Salt_TheRing_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleByTenEffect>(), 1, Slots.Front)]);
             ring.Name = "The Ring";
             ring.Flavour = "\"For whom?\"";
@@ -745,6 +717,34 @@ namespace SaltsEnemies_Reseasoned
             sanddial.SpecialUnlockID = UILocID.None;
             sanddial.Item._ItemTypeIDs = [];
             sanddial.item.AddBlueSkyUnlock("Alpha_CH", "locked_sanddial.png", "ach_sanddial.png");
+
+            CopyAndSpawnCustomCharacterAnywhereEffect spawn_fribble = ScriptableObject.CreateInstance<CopyAndSpawnCustomCharacterAnywhereEffect>();
+            spawn_fribble._characterCopy = "Fribble_CH";
+            spawn_fribble._permanentSpawn = true;
+            spawn_fribble._rank = 0;
+            spawn_fribble._extraModifiers = [];
+
+            PerformEffect_Item fribble = new PerformEffect_Item("Salt_Fribble_SW", [Effects.GenerateEffect(spawn_fribble, 1)]);
+            fribble.Name = "Fribble";
+            fribble.Flavour = "\"Hi my name is: Fribble\"";
+            fribble.Description = "At the start of combat, spawn a permenant level 1 party member.\nThis item is consumed on use.";
+            fribble.Icon = ResourceLoader.LoadSprite("item_fribble.png");
+            fribble.TriggerOn = TriggerCalls.OnCombatStart;
+            fribble.EquippedModifiers = [];
+            fribble.DoesPopUpInfo = true;
+            fribble.Conditions = [];
+            fribble.DoesActionOnTriggerAttached = false;
+            fribble.ConsumeOnTrigger = TriggerCalls.Count;
+            fribble.ConsumeOnUse = true;
+            fribble.ConsumeConditions = [];
+            fribble.ShopPrice = 7;
+            fribble.IsShopItem = true;
+            fribble.StartsLocked = true;
+            fribble.OnUnlockUsesTHE = false;
+            fribble.UsesSpecialUnlockText = false;
+            fribble.SpecialUnlockID = UILocID.None;
+            fribble.item._ItemTypeIDs = [];
+            fribble.item.AddBlueSkyUnlock("Qualia_CH", "locked_fribble.png", "ach_fribble.png");
 
             RankChange_Wearable_SMS up1 = ScriptableObject.CreateInstance<RankChange_Wearable_SMS>();
             up1._rankAdditive = 1;
