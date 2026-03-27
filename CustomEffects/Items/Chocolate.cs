@@ -65,4 +65,12 @@ namespace SaltsEnemies_Reseasoned
         }
         public static bool added = false;
     }
+
+    public class NotEnemyOnSlotIDEffectorCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            return !CombatManager.Instance._stats.combatSlots.EnemySlots[effector.SlotID].HasUnit;
+        }
+    }
 }

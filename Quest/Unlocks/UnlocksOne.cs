@@ -280,6 +280,46 @@ namespace SaltsEnemies_Reseasoned
             rubber.item._ItemTypeIDs = ["Knife"];
             rubber.item.AddBlueSkyUnlock("Dimitri_CH", "locked_rubberknife.png", "ach_rubberknife.png");
 
+            Ability apotheosis = new Ability("Process Towards Apotheosis", "Salt_Apotheosis_A");
+            apotheosis.Description = "Fully heal the Right ally.\nInflict Acid on them equal to the health healed.";
+            apotheosis.AbilitySprite = ResourceLoader.LoadSprite("ability_apotheosis.png");
+            apotheosis.Cost = [Pigments.Purple];
+            apotheosis.Effects = new EffectInfo[2];
+            apotheosis.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<FullHealEffect>(), 1, Targeting.Slot_AllyRight);
+            ApplyAcidEffect acid_exit = ScriptableObject.CreateInstance<ApplyAcidEffect>();
+            acid_exit._MultPreviousExitValueForEntry = true;
+            apotheosis.Effects[1] = Effects.GenerateEffect(acid_exit, 1, Targeting.Slot_AllyRight);
+            apotheosis.AddIntentsToTarget(Targeting.Slot_AllyRight, [IntentType_GameIDs.Heal_11_20.ToString(), Acid.Intent]);
+            apotheosis.AnimationTarget = Targeting.Slot_AllyRight;
+            apotheosis.Visuals = Visuals.Excommunicate;
+
+            ExtraAbility_Wearable_SMS add_apotheosis = ScriptableObject.CreateInstance<ExtraAbility_Wearable_SMS>();
+            add_apotheosis._extraAbility = apotheosis.GenerateCharacterAbility(true);
+
+            ((Passives.Construct as Connection_PerformEffectPassiveAbility).connectionEffects[1].effect as CasterAddRandomExtraAbilityEffect)._extraData.Add(add_apotheosis);
+
+            Basic_Item hearts = new Basic_Item("Salt_BleedingHearts_TW");
+            hearts.Name = "Bleeding Hearts";
+            hearts.Flavour = "\"One day you will die, but I will live forever.\"";
+            hearts.Description = "Adds the extra ability \"Process Towards Apotheosis,\" a powerful healing ability with a downside.";
+            hearts.Icon = ResourceLoader.LoadSprite("item_bleedinghearts.png");
+            hearts.EquippedModifiers = [add_apotheosis];
+            hearts.TriggerOn = TriggerCalls.Count;
+            hearts.DoesPopUpInfo = false;
+            hearts.Conditions = [];
+            hearts.DoesActionOnTriggerAttached = false;
+            hearts.ConsumeOnUse = false;
+            hearts.ConsumeOnTrigger = TriggerCalls.Count;
+            hearts.ConsumeConditions = [];
+            hearts.ShopPrice = 4;
+            hearts.IsShopItem = false;
+            hearts.StartsLocked = true;
+            hearts.OnUnlockUsesTHE = true;
+            hearts.UsesSpecialUnlockText = false;
+            hearts.SpecialUnlockID = UILocID.None;
+            hearts.item._ItemTypeIDs = ["Heart"];
+            hearts.item.AddBlueSkyUnlock("ShellyK_CH", "locked_bleedinghearts.png", "ach_bleedinghearts.png");
+
             MultiPerformEffectItem friend = new MultiPerformEffectItem("Salt_FriendshipBriefcase_SW", []);
             friend.Name = "Friendship Briefcase";
             friend.Flavour = "\"Friends everywhere you look!\"";
@@ -511,6 +551,28 @@ namespace SaltsEnemies_Reseasoned
             lunar.SpecialUnlockID = UILocID.None;
             lunar.item._ItemTypeIDs = ["Magic"];
             lunar.item.AddBlueSkyUnlock("Bimini_CH", "locked_lunarcharm.png", "ach_lunarcharm.png");
+
+            PerformEffect_Item weep = new PerformEffect_Item("WeepingAngel_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Slots.Self)]);
+            weep.Name = "Weeping Angel";
+            weep.Flavour = "\"Cry for me.\"";
+            weep.Description = "On turn end, if there is no Opposing enemy, move Left or Right and become Focused.";
+            weep.Icon = ResourceLoader.LoadSprite("item_weepingangel.png");
+            weep.EquippedModifiers = [];
+            weep.TriggerOn = TriggerCalls.OnTurnFinished;
+            weep.DoesPopUpInfo = true;
+            weep.Conditions = [];
+            weep.DoesActionOnTriggerAttached = false;
+            weep.ConsumeOnTrigger = TriggerCalls.Count;
+            weep.ConsumeOnUse = false;
+            weep.ConsumeConditions = [];
+            weep.ShopPrice = 4;
+            weep.IsShopItem = true;
+            weep.StartsLocked = true;
+            weep.OnUnlockUsesTHE = true;
+            weep.UsesSpecialUnlockText = false;
+            weep.SpecialUnlockID = UILocID.None;
+            weep.item._ItemTypeIDs = ["Angel"];
+            weep.item.AddBlueSkyUnlock("Formosus_CH", "locked_weepingangel.png", "ach_weepingangel.png");
 
             PassiveLockingEffect cogEffect = ScriptableObject.CreateInstance<PassiveLockingEffect>();
             cogEffect.m_PassiveIDs = [
