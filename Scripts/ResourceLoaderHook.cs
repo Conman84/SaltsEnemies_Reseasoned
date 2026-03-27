@@ -29,7 +29,7 @@ public static class ResourceLoader
     {
         Sprite ret = BrutalAPI.ResourceLoader.LoadSprite(name);
 
-        if (ret == null) Debug.LogWarning("FAILED TO GET SPRITE FOR: " + name);
+        if (ret == null) Debug.LogError("FAILED TO GET SPRITE FOR: " + name);
 
         return ret;
     }
