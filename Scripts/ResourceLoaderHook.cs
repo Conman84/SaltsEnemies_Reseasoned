@@ -22,3 +22,17 @@ namespace SaltsEnemies_Reseasoned
         }
     }
 }
+
+public static class ResourceLoader
+{
+    public static Sprite LoadSprite(string name)
+    {
+        Sprite ret = BrutalAPI.ResourceLoader.LoadSprite(name);
+
+        if (ret == null) Debug.LogWarning("FAILED TO GET SPRITE FOR: " + name);
+
+        return ret;
+    }
+    public static Texture2D LoadTexture(string name) => BrutalAPI.ResourceLoader.LoadTexture(name);
+    public static byte[] ResourceBinary(string name) => BrutalAPI.ResourceLoader.ResourceBinary(name);
+}
