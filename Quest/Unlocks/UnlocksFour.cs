@@ -329,6 +329,28 @@ namespace SaltsEnemies_Reseasoned
             kaleidoscope.SpecialUnlockID = UILocID.None;
             kaleidoscope.item._ItemTypeIDs = [];
             kaleidoscope.item.AddBlueSkyUnlock("Jebrick_CH", "locked_kaleidoscope.png", "ach_kaleidoscope.png");
+
+            PerformEffect_Item glyphs = new PerformEffect_Item("Salt_IncomprehensibleGlyphs_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyLinkedEffect>(), 1, Slots.FrontLeftRight)]);
+            glyphs.Name = "Incomprehensible Glyphs";
+            glyphs.Flavour = "\"Nine Hour Work Day\"";
+            glyphs.Description = "On being directly damaged, inflict 1 Linked to the Left, Right, and Opposing enemies.";
+            glyphs.Icon = ResourceLoader.LoadSprite("item_incomprehensibleglyphs.png");
+            glyphs.TriggerOn = TriggerCalls.OnDirectDamaged;
+            glyphs.EquippedModifiers = [];
+            glyphs.DoesPopUpInfo = true;
+            glyphs.Conditions = [];
+            glyphs.DoesActionOnTriggerAttached = false;
+            glyphs.ConsumeOnTrigger = TriggerCalls.Count;
+            glyphs.ConsumeOnUse = false;
+            glyphs.ConsumeConditions = [];
+            glyphs.ShopPrice = 8;
+            glyphs.IsShopItem = true;
+            glyphs.StartsLocked = true;
+            glyphs.OnUnlockUsesTHE = true;
+            glyphs.UsesSpecialUnlockText = false;
+            glyphs.SpecialUnlockID = UILocID.None;
+            glyphs.item._ItemTypeIDs = [];
+            glyphs.item.AddBlueSkyUnlock("Sasha_CH", "locked_incomprehensibleglyphs.png", "ach_incomprehensibleglyphs.png");
         }
     }
 }
