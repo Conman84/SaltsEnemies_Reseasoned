@@ -654,14 +654,14 @@ namespace SaltsEnemies_Reseasoned
             MultiPerformEffectItem forever = new MultiPerformEffectItem("Salt_Forever_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ResurrectOnRandomSlotEffect>(), 1, Targetting.Everything(true))]);
             forever.Name = "Forever";
             forever.Flavour = "\"I need you.\"";
-            forever.Description = "On kill, attempt to resurrect a random party member at 1 health.\nOn taking any damage, something else appears.";
+            forever.Description = "On kill, attempt to resurrect a random party member at 1 health.\nOn taking any damage, something else appears.\nThis item is destroyed on death.";
             forever.Icon = ResourceLoader.LoadSprite("item_forever.png");
             forever.EquippedModifiers = [];
             forever.TriggerOn = TriggerCalls.OnKill;
             forever.DoesPopUpInfo = true;
             forever.Conditions = [];
             forever.DoesActionOnTriggerAttached = false;
-            forever.ConsumeOnTrigger = TriggerCalls.Count;
+            forever.ConsumeOnTrigger = TriggerCalls.OnDeath;
             forever.ConsumeOnUse = false;
             forever.ConsumeConditions = [];
             forever.ShopPrice = 10;
