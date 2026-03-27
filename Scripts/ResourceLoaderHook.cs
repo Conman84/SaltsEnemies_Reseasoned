@@ -23,7 +23,7 @@ namespace SaltsEnemies_Reseasoned
     }
 }
 
-public static class ResourceLoader
+/*public static class ResourceLoader
 {
     public static Sprite LoadSprite(string name, Vector2? pivot = null, int ppu = 32, Assembly assembly = null)
     {
@@ -35,4 +35,4 @@ public static class ResourceLoader
     }
     public static Texture2D LoadTexture(string name) => BrutalAPI.ResourceLoader.LoadTexture(name);
     public static byte[] ResourceBinary(string name) => BrutalAPI.ResourceLoader.ResourceBinary(name);
-}
+}*/
