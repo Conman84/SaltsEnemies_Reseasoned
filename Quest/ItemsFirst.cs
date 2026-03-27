@@ -375,10 +375,10 @@ namespace SaltsEnemies_Reseasoned
             fish_fifteen.triggerPercentage = 15;
 
             PerformEffect_Item fish = new PerformEffect_Item("Salt_Coelacanth_EW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 2, Slots.Self)]);
-            fish.Name = "Coelacanth";
-            fish.Flavour = "\"You caught a... coelacanth! 150cm.\"";
+            fish.Name = "Chimaera";
+            fish.Flavour = "\"You caught a... chimaera! talia stole the coelocanth item from me so you cant blame me for anything anymore.\"";
             fish.Description = "On taking any damage, heal 2 health. 15% chance to be destroyed on activation.";
-            fish.Icon = ResourceLoader.LoadSprite("Item_Coelocanth.png");
+            fish.Icon = ResourceLoader.LoadSprite("item_ratfish.png");
             fish.EquippedModifiers = [];
             fish.TriggerOn = TriggerCalls.OnDamaged;
             fish.DoesPopUpInfo = true;
@@ -393,7 +393,7 @@ namespace SaltsEnemies_Reseasoned
             fish.OnUnlockUsesTHE = true;
             fish.UsesSpecialUnlockText = true;
             fish.SpecialUnlockID = UILocID.ItemFishLocationLabel;
-            fish.item.AddFishItem(2, "Locked_Coelocanth.png", AchievementIDs.Chapter14, Test);
+            fish.item.AddFishItem(2, "locked_ratfish.png", AchievementIDs.Chapter14, Test);
 
             PerformEffect_Item gas = new PerformEffect_Item("Salt_HormoneGasses_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPimplesEffect>(), 2, Slots.Front), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPimplesEffect>(), 1, Slots.Front, Effects.ChanceCondition(50))]);
             gas.Name = "Hormone Gasses";
