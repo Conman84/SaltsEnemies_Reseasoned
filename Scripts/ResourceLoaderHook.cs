@@ -25,9 +25,9 @@ namespace SaltsEnemies_Reseasoned
 
 public static class ResourceLoader
 {
-    public static Sprite LoadSprite(string name, Vector2? pivot = null, int ppu = 32)
+    public static Sprite LoadSprite(string name, Vector2? pivot = null, int ppu = 32, Assembly assembly = null)
     {
-        Sprite ret = BrutalAPI.ResourceLoader.LoadSprite(name, pivot, ppu);
+        Sprite ret = BrutalAPI.ResourceLoader.LoadSprite(name, pivot, ppu, assembly);
 
         if (ret == null) Debug.LogError("FAILED TO GET SPRITE FOR: " + name);
 
