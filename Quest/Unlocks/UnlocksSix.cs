@@ -246,7 +246,29 @@ namespace SaltsEnemies_Reseasoned
             recycler.item._ItemTypeIDs = [];
             recycler.item.AddBlueSkyUnlock("Drubberslunger_CH", "locked_recycler.png", "ach_recycler.png");
 
-
+            ApplyFoundStatusEffect partaking = ScriptableObject.CreateInstance<ApplyFoundStatusEffect>();
+            partaking.useStatus = "Partaking_ID";
+            PerformEffect_Item confession = new PerformEffect_Item("Salt_Confession_SW", [Effects.GenerateEffect(partaking, 1, Slots.Self)]);
+            confession.Name = "Confession";
+            confession.Flavour = "\"Have you done anything to feel guilty of?\"";
+            confession.Description = "On being healed, gain 1 Partaking.";
+            confession.Icon = ResourceLoader.LoadSprite("item_confession.png");
+            confession.TriggerOn = TriggerCalls.OnWillBeHealed;
+            confession.EquippedModifiers = [];
+            confession.DoesPopUpInfo = true;
+            confession.Conditions = [];
+            confession.DoesActionOnTriggerAttached = false;
+            confession.ConsumeOnTrigger = TriggerCalls.Count;
+            confession.ConsumeOnUse = false;
+            confession.ConsumeConditions = [];
+            confession.ShopPrice = 5;
+            confession.IsShopItem = true;
+            confession.StartsLocked = true;
+            confession.OnUnlockUsesTHE = true;
+            confession.UsesSpecialUnlockText = false;
+            confession.SpecialUnlockID = UILocID.None;
+            confession.item._ItemTypeIDs = ["Heart"];
+            confession.item.AddBlueSkyUnlock("Pavel&Perseus_CH", "locked_confession.png", "ach_confession.png");
         }
     }
 }
