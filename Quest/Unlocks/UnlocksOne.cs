@@ -552,7 +552,7 @@ namespace SaltsEnemies_Reseasoned
             lunar.item._ItemTypeIDs = ["Magic"];
             lunar.item.AddBlueSkyUnlock("Bimini_CH", "locked_lunarcharm.png", "ach_lunarcharm.png");
 
-            PerformEffect_Item weep = new PerformEffect_Item("WeepingAngel_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Slots.Self)]);
+            PerformEffect_Item weep = new PerformEffect_Item("Salt_WeepingAngel_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Slots.Self)]);
             weep.Name = "Weeping Angel";
             weep.Flavour = "\"Cry for me.\"";
             weep.Description = "On turn end, if there is no Opposing enemy, move Left or Right and become Focused.";
