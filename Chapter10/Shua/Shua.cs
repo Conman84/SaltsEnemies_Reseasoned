@@ -104,21 +104,17 @@ namespace SaltsEnemies_Reseasoned
             Ability waver = new Ability("Waver_A")
             {
                 Name = "Waver",
-                Description = "Move the Opposing party member to the Left or Right. Repeat this.",
+                Description = "Curse the Opposing party member and inflict 4 Linked on them.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Front),
-                            Effects.GenerateEffect(CasterSubActionEffect.Create(new EffectInfo[]
-                            {
-                                Effects.GenerateEffect(ads, 1, Slots.Front, yeah),
-                                Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Front),
-                            }), 1, Slots.Front),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.Front),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyLinkedEffect>(), 4, Slots.Front)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Censor"),
                 AnimationTarget = Slots.Front,
             };
-            waver.AddIntentsToTarget(Slots.Front, ["Swap_Sides", "Swap_Sides"]);
+            waver.AddIntentsToTarget(Slots.Front, ["Status_Cursed", "Status_Linked"]);
 
             //ADD ENEMY
             shua.AddEnemyAbilities(new EnemyAbilityInfo[]
