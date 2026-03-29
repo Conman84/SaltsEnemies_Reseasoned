@@ -12,7 +12,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy template = new Enemy("Candy Stone", "CandyStone_EN")
             {
-                Health = 10,
+                Health = 15,
                 HealthColor = Pigments.Blue,
                 CombatSprite = ResourceLoader.LoadSprite("StoneIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("StoneWorld.png", new Vector2(0.5f, 0f), 32),
