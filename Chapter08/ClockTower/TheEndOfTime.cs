@@ -49,68 +49,65 @@ namespace SaltsEnemies_Reseasoned
 
             //ADDPASSIVES
             clock.AddPassives(new BasePassiveAbilitySO[] { Passives.OverexertGenerator(12), acceleration });
-            clock.CombatExitEffects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<ClockTowerExitEffect>(), 1, Targeting.Slot_SelfSlot) };
 
-            //CRIPPLE
-            TargettingByHealthUnits lowest = ScriptableObject.CreateInstance<TargettingByHealthUnits>();
-            lowest.Lowest = true;
-            lowest.getAllies = false;
-            Ability cripple = new Ability("Clock_Cripple_A")
-            {
-                Name = "Cripple",
-                Description = "Inflict 3 Frail and 1 Scar on the lowest health party member.",
-                Rarity = Rarity.GetCustomRarity("rarity5"),
-                Effects = new EffectInfo[]
-                {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 3, lowest),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, lowest)
-                },
-                Visuals = CustomVisuals.GetVisuals("Salt/Needle"),
-                AnimationTarget = lowest,
-            };
-            cripple.AddIntentsToTarget(lowest, new string[] { IntentType_GameIDs.Status_Frail.ToString(), IntentType_GameIDs.Status_Scars.ToString() });
-            cripple.AddIntentsToTarget(allEnemy, new string[] { IntentType_GameIDs.Misc.ToString() });
+            EffectTargetsByManualUseEffect abilities = ScriptableObject.CreateInstance<EffectTargetsByManualUseEffect>();
+            abilities.RunEffect = ScriptableObject.CreateInstance<ApplyEntropyEffect>();
+            abilities.check_ability = true;
+            abilities.damage_if_used = false;
 
-            //CRUCIFY
-            TargettingByHealthUnits highest = ScriptableObject.CreateInstance<TargettingByHealthUnits>();
-            highest.Lowest = false;
-            highest.getAllies = false;
-            Ability crucify = new Ability("Clock_Crucify_A")
-            {
-                Name = "Crucify",
-                Description = "Inflict 4 Ruptured on the highest health party member.",
-                Rarity = Rarity.GetCustomRarity("rarity5"),
-                Effects = new EffectInfo[]
-                {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 4, highest),
-                },
-                Visuals = LoadedAssetsHandler.GetEnemyAbility("RapturousReverberation_A").visuals,
-                AnimationTarget = highest,
-            };
-            crucify.AddIntentsToTarget(highest, new string[] { IntentType_GameIDs.Status_Ruptured.ToString() });
-            crucify.AddIntentsToTarget(allEnemy, new string[] { IntentType_GameIDs.Misc.ToString() });
-            
-            //CRACKING
-            Ability cracking = new Ability("Clock_Cracking_A")
-            {
-                Name = "Cracking",
-                Description = "Start a 150 second timer. If this enemy is still alive at the end of the timer, apply 12 Entropy on a random party member.",
-                Rarity = Rarity.CreateAndAddCustomRarityToPool("Clock_10", 10),
-                Effects = new EffectInfo[]
-                {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<CrackingEffect>(), 12, allEnemy),
-                },
-                Visuals = LoadedAssetsHandler.GetCharacterAbility("Wrath_1_A").visuals,
-                AnimationTarget = Targeting.Slot_SelfSlot,
-            };
-            cracking.AddIntentsToTarget(allEnemy, new string[] { Entropy.Intent });
+            EffectTargetsByManualUseEffect movement = ScriptableObject.CreateInstance<EffectTargetsByManualUseEffect>();
+            movement.RunEffect = ScriptableObject.CreateInstance<ApplyEntropyEffect>();
+            movement.check_swap = true;
+            movement.damage_if_used = false;
+
+            Ability cbt = new Ability("Cognitive Behavioral Therapy", "Salt_CBT_A");
+            cbt.Description = "Inflict 6 Entropy on all party members that did not manually use an ability this turn.\nIf unsuccessful, gain 12 Entropy.";
+            cbt.Rarity = Rarity.GetCustomRarity("rarity5");
+            cbt.Effects = [
+                Effects.GenerateEffect(abilities, 6, Targeting.Unit_AllOpponents),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyEntropyEffect>(), 12, Slots.Self, BasicEffects.DidThat(false))
+                ];
+            cbt.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Other_Refresh.ToString(), Entropy.Intent]);
+            cbt.AddIntentsToTarget(Slots.Self, [Entropy.Intent]);
+            cbt.Visuals = Visuals.Scales;
+            cbt.AnimationTarget = Slots.Self;
+
+            Ability prb = new Ability("Physical Rehabilitation Therapy", "Salt_PRB_A");
+            prb.Description = "Inflict 6 Entropy on all party members that did not manually use their movement this turn.\nIf unsuccessful, gain 12 Entropy.";
+            prb.Rarity = Rarity.GetCustomRarity("rarity5");
+            prb.Effects = [
+                Effects.GenerateEffect(movement, 6, Targeting.Unit_AllOpponents),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyEntropyEffect>(), 12, Slots.Self, BasicEffects.DidThat(false))
+                ];
+            prb.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Other_RestoreMovement.ToString(), Entropy.Intent]);
+            prb.AddIntentsToTarget(Slots.Self, [Entropy.Intent]);
+            prb.Visuals = Visuals.Scales;
+            prb.AnimationTarget = Slots.Self;
+
+            TargettingByStatusEffect has_entropy = ScriptableObject.CreateInstance<TargettingByStatusEffect>();
+            has_entropy.HasStatus = true;
+            has_entropy.Type = Entropy.StatusID;
+            has_entropy.origin = Targeting.Unit_AllOpponents;
+
+            Ability teb = new Ability("Trauma Exposure Therapy", "Salt_TEB_A");
+            teb.Description = "Inflict 12 Entropy on the Opposing party member.\nIf there is no Opposing party member, inflict 6 Entropy on all party members with Entropy.";
+            teb.Rarity = Rarity.CreateAndAddCustomRarityToPool("clock_low", 4);
+            teb.Effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyEntropyEffect>(), 12, Slots.Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyEntropyEffect>(), 6, has_entropy, IsFrontTargetCondition.Create(false))
+                ];
+            teb.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", Entropy.Intent]);
+            teb.AddIntentsToTarget(Targeting.Unit_AllOpponents, [Entropy.Intent]);
+            teb.Visuals = Visuals.Womb;
+            teb.AnimationTarget = Slots.Front;
+
 
             //ADD ENEMY
             clock.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                cripple.GenerateEnemyAbility(true),
-                crucify.GenerateEnemyAbility(true),
-                cracking.GenerateEnemyAbility(true),
+                cbt.GenerateEnemyAbility(true),
+                prb.GenerateEnemyAbility(true),
+                teb.GenerateEnemyAbility(true)
             });
             clock.AddEnemy(true, true);
             clock.enemy.AddToSynodPool();

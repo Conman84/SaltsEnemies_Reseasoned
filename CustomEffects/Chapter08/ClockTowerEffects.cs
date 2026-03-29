@@ -395,4 +395,27 @@ namespace SaltEnemies_Reseasoned
             yield return null;
         }
     }
+    public class EffectTargetsByManualUseEffect : EffectSO
+    {
+        public EffectSO RunEffect;
+
+        public bool damage_if_used;
+        public bool check_swap;
+        public bool check_ability;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            List<TargetSlotInfo> ret = [];
+
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit)
+                {
+                    if (check_swap && target.Unit.HasManuallySwappedThisTurn == damage_if_used) ret.Add(target);
+                    else if (check_ability && target.Unit.HasManuallyUsedAbilityThisTurn == damage_if_used) ret.Add(target);
+                }
+            }
+
+            return RunEffect.PerformEffect(stats, caster, ret.ToArray(), areTargetSlots, entryVariable, out exitAmount);
+        }
+    }
 }
