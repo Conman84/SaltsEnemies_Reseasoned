@@ -94,7 +94,6 @@ namespace SaltsEnemies_Reseasoned
                 "Shotgun",
                 "Bart Symptom",
                 "Hmumu",
-                "Mmbbll Fabsganglrr To The Far Shore",
                 "Boy Named \"Boy Named Kanye West\""
                 ];
             CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
@@ -127,7 +126,8 @@ namespace SaltsEnemies_Reseasoned
                 "\"Ok\" - Ok",
                 "Enem",
                 "Hi I'm Pimple",
-                "KILL ALL CODERS AND SPRITERS"
+                "KILL ALL CODERS AND SPRITERS",
+                "Mmbbll Fabsganglrr To The Far Shore",
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside),
