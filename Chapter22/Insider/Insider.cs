@@ -93,7 +93,9 @@ namespace SaltsEnemies_Reseasoned
                 "Sandpaper Watermelon",
                 "Shotgun",
                 "Bart Symptom",
-                "Hmumu"
+                "Hmumu",
+                "Mmbbll Fabsganglrr To The Far Shore",
+                "Boy Named \"Boy Named Kanye West\""
                 ];
             CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             third.PossibleNames = [
