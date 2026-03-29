@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy boat = new Enemy("Arceles", "Arceles_EN")
             {
-                Health = 7,
+                Health = 8,
                 HealthColor = Pigments.Grey,
                 CombatSprite = ResourceLoader.LoadSprite("BoatIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("BoatWorld.png", new Vector2(0.5f, 0f), 32),
@@ -42,62 +42,66 @@ namespace SaltsEnemies_Reseasoned
             AbilitySO ability = bonus.GenerateEnemyAbility(true).ability;
             knock._extraAbility.ability = ability;
 
+            //nylon
+            PerformEffectPassiveAbility nylon = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            nylon._passiveName = "Nylon (3)";
+            nylon.m_PassiveID = "Nylon_PA";
+            nylon.name = "Nylon_3_PA";
+            nylon.passiveIcon = ResourceLoader.LoadSprite("NylonPassive.png");
+            nylon._enemyDescription = "On being directly damaged, apply 3 Slip on the Opposing position.";
+            nylon._characterDescription = nylon._enemyDescription;
+            nylon.doesPassiveTriggerInformationPanel = false;
+            nylon.effects = Effects.GenerateEffect(CasterRootActionEffect.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<NylonPassiveEffect>()), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 3, Slots.Front)]), 1, Slots.Self).SelfArray();
+            nylon._triggerOn = [TriggerCalls.OnDirectDamaged];
+            nylon.AddToPassiveDatabase();
 
-            boat.AddPassives(new BasePassiveAbilitySO[] { knock });
+            boat.AddPassives(new BasePassiveAbilitySO[] { nylon, knock });
 
             //windy day
             Ability windy = new Ability("WindyDay_A")
             {
                 Name = "Windy Day",
-                Description = "Move to the Left or Right. Inflict 2 Slip on the Left and Right enemy positions.",
+                Description = "Move to the Left or Right. Inflict 3 Slip on this enemy's position.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 2, Slots.Self),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Slots.Sides)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Slots.Self)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Swirl"),
                 AnimationTarget = Slots.Self,
             };
-            windy.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Sides.ToString()]);
-            windy.AddIntentsToTarget(Slots.Sides, [Slip.Intent]);
+            windy.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Sides.ToString(), Slip.Intent]);
 
             //drift
             Ability drift = new Ability("Adrift_A")
             {
                 Name = "Adrift",
-                Description = "Inflict 3 Slip on the Opposing party member position. Inflict 2 Ruptured on the Left and Right party members.",
+                Description = "Inflict 2 Slip on the Left and Right party member positions.",
                 Rarity = windy.Rarity,
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 3, Slots.Front),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Slots.LeftRight)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Slots.LeftRight),
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Wheel"),
-                AnimationTarget = Slots.Front,
+                AnimationTarget = Slots.LeftRight,
             };
-            drift.AddIntentsToTarget(Slots.Front, [Slip.Intent]);
-            drift.AddIntentsToTarget(Slots.LeftRight, [IntentType_GameIDs.Status_Ruptured.ToString()]);
+            drift.AddIntentsToTarget(Slots.LeftRight, [Slip.Intent]);
 
             //rush
             Ability rush = new Ability("Boat_Rush_A")
             {
                 Name = "Rush",
-                Description = "Move to Right. Inflict 4 Left on the Opposing party member, then move to the Left or Right.",
+                Description = "Inflict 1 Left on the Left, Right, and Opposing party members.",
                 Rarity = windy.Rarity,
                 Effects = new EffectInfo[]
                         {
-                            Effects.GenerateEffect(BasicEffects.GoRight, 1, Slots.Self),
-                            Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Shatter", false, Slots.Front), 1, Slots.Front),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyLeftEffect>(), 4, Slots.Front),
-                            Effects.GenerateEffect(SubActionEffect.Create(new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self) }), 1, Slots.Self)
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyLeftEffect>(), 1, Slots.FrontLeftRight),
                         },
-                Visuals = null,
-                AnimationTarget = Slots.Self,
+                Visuals = CustomVisuals.GetVisuals("Salt/Shatter"),
+                AnimationTarget = Slots.FrontLeftRight,
             };
-            rush.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Right.ToString()]);
-            rush.AddIntentsToTarget(Slots.Front, [Left.Intent]);
-            rush.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Sides.ToString()]);
+            rush.AddIntentsToTarget(Slots.FrontLeftRight, [Left.Intent]);
 
             //ADD ENEMY
             boat.AddEnemyAbilities(new EnemyAbilityInfo[]
