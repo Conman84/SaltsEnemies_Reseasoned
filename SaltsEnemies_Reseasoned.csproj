@@ -428,6 +428,7 @@
 	  <None Remove="Chapter20\2009\2009Icon.png" />
 	  <None Remove="Chapter20\2009\2009World.png" />
 	  <None Remove="Chapter20\2009\RotaryPassive.png" />
+	  <None Remove="Chapter20\Foxtrot\FluidDynamicsPassive.png" />
 	  <None Remove="Chapter21\Amalga\AmalgaDead.png" />
 	  <None Remove="Chapter21\Amalga\AmalgaIcon.png" />
 	  <None Remove="Chapter21\Amalga\AmalgaPortal.png" />
@@ -1068,6 +1069,7 @@
 	  <EmbeddedResource Include="Chapter11\Nameless\FractalPassive.png" />
 	  <EmbeddedResource Include="Chapter16\OdeToHumanity\AutodidactPassive.png" />
 	  <EmbeddedResource Include="Chapter18\Sinker\DanglerIcon.png" />
+	  <EmbeddedResource Include="Chapter20\Foxtrot\FluidDynamicsPassive.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaDead.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaIcon.png" />
 	  <EmbeddedResource Include="Chapter21\Amalga\AmalgaPortal.png" />

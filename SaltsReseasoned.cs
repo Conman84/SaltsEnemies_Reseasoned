@@ -604,6 +604,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("RotaryPassive.png"), "Rotary", "On being damaged, move all the way to the Left or Right.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("StealthPassive.png"), "Stealth Mechanics", "At the start of combat, instantly flee.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MarchingPassive.png"), "Marching", "On any ally without \"Marching\" as a passive moving, move Left or Right.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("FluidDynamicsPassive.png"), "Fluid Dynamics", "On death, inflict a certain amount of Slip to the Opposing position.");
 
             //CH21
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ProphecyPassive.png"), "Prophecy", "On death, spawn a specific unit.\nIncrease the unit's health proportional to the amount of turns this unit has been in combat.\nTransfer all status effects from this unit to the spawned unit.");

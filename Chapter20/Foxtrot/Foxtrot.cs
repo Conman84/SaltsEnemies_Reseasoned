@@ -58,7 +58,20 @@ namespace SaltsEnemies_Reseasoned
             march.conditions = [ScriptableObject.CreateInstance<IsAliveEffectorCondition>()];
             march._triggerOn = [MarchingHandler.Call];
 
-            foxtrot.AddPassives(new BasePassiveAbilitySO[] { march, rupture });
+            //fluid dynamics
+            PerformEffectPassiveAbility fluids = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            fluids._passiveName = "Fluid Dynamics (3)";
+            fluids.name = "FluidDynamics_3_PA";
+            fluids.passiveIcon = ResourceLoader.LoadSprite("FluidDynamicsPassive.png");
+            fluids.m_PassiveID = "FluidDynamics_PA";
+            fluids._enemyDescription = "On death, inflict 3 Slip to the Opposing position.";
+            fluids._characterDescription = fluids._enemyDescription;
+            fluids.doesPassiveTriggerInformationPanel = true;
+            fluids.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 3, Slots.Front)];
+            fluids.conditions = [];
+            fluids._triggerOn = [TriggerCalls.OnDeath];
+
+            foxtrot.AddPassives(new BasePassiveAbilitySO[] { march, rupture, fluids });
             AbilitySelector_Foxtrot selector = ScriptableObject.CreateInstance<AbilitySelector_Foxtrot>();
             selector._passive = MarchingHandler.Passive;
             selector._hasPassive = "TakeRoot_A";
