@@ -84,6 +84,7 @@ namespace SaltsEnemies_Reseasoned
                 clone.GenerateEnemyAbility(true)
             });
             visuals.AddEnemy(true, true, true);
+            visuals.enemy.AddToToysPool();
         }
     }
 }
