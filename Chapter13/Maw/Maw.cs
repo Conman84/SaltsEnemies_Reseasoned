@@ -39,13 +39,13 @@ namespace SaltsEnemies_Reseasoned
             RefreshAbilityUseEffect exhaust = ScriptableObject.CreateInstance<RefreshAbilityUseEffect>();
             exhaust._doesExhaustInstead = true;
 
-            //skinning
+            //skinning IMPLEMENT
             PerformEffectPassiveAbility skinning = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             skinning._passiveName = "Skinning";
             skinning.passiveIcon = ResourceLoader.LoadSprite("SkinPeelingPassive.png");
             skinning.m_PassiveID = "Skinning_PA";
-            skinning._enemyDescription = "On being directly damaged, exhaust the Opposing party member's ability and movement usage.";
-            skinning._characterDescription = "wont work";
+            skinning._enemyDescription = "On being directly damaged, spawn as many Spectres as possible.";
+            skinning._characterDescription = "dude... idk";
             skinning.doesPassiveTriggerInformationPanel = true;
             skinning.effects = [
                     Effects.GenerateEffect(exhaust, 1, Slots.Front),

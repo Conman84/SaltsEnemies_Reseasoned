@@ -756,8 +756,12 @@ namespace SaltEnemies_Reseasoned
                     {
                         List<string> turns = Actions.Keys.Contains(enemy.ID) ? new List<string>(Actions[enemy.ID]) : new List<string>();
                         int amount = 0;
+                        //int count = -1;
                         foreach (TurnInfo turn in stats.timeline.Round)
                         {
+                            //count++;
+                            //UnityEngine.Debug.Log("current turn index: " + stats.timeline.CurrentTurn.ToString());
+                            //if (count <= stats.timeline.CurrentTurn) continue;
                             if (!turn.isPlayer && (turn.turnUnit == enemy || (turn.turnUnit.ID == enemy.ID && turn.turnUnit.SlotID == enemy.SlotID)))
                             {
                                 if (turn.abilitySlot < enemy.AbilityCount)
