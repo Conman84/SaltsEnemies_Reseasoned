@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace SaltsEnemies_Reseasoned
 {
-    public static class Visuals
+    public static class Visual
     {
         public static void Add()
         {
