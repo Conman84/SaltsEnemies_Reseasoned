@@ -53,7 +53,7 @@ namespace SaltsEnemies_Reseasoned
             rewrite.m_PassiveID = "Rewrite_PA";
             rewrite._enemyDescription = "On receiving direct damage, randomize the health colors of all party members and enemies.";
             rewrite._characterDescription = rewrite._enemyDescription;
-            rewrite.conditions = Passives.Slippery.conditions;
+            rewrite.conditions = [];
             rewrite.doesPassiveTriggerInformationPanel = true;
             rewrite.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeTargetHealthColorEffect>(), 1, Targeting.AllUnits).SelfArray();
             rewrite._triggerOn = [TriggerCalls.OnDirectDamaged];
@@ -71,7 +71,18 @@ namespace SaltsEnemies_Reseasoned
             auto.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ReRollAllTargetTimelineAbilityEffect>(), 1, Slots.Self)];
             auto._triggerOn = [TriggerCalls.OnPlayerTurnEnd_ForEnemy];
 
-            vase.AddPassives(new BasePassiveAbilitySO[] { auto, rewrite, Passives.Transfusion, Passives.Skittish });
+            //scary
+            PerformEffectPassiveAbility scary = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            scary._passiveName = "Scary";
+            scary.passiveIcon = ResourceLoader.LoadSprite("ScaryPassive.png");
+            scary.m_PassiveID = "Scary_PA";
+            scary._enemyDescription = "On being directly damaged, Curse the Opposing party member.";
+            scary._characterDescription = "On being directly damaged, Curse the Opposing enemy.";
+            scary.doesPassiveTriggerInformationPanel = true;
+            scary.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.Front).SelfArray();
+            scary._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
+
+            vase.AddPassives(new BasePassiveAbilitySO[] { auto, rewrite, scary, Passives.Skittish });
             vase.CombatEnterEffects = Effects.GenerateEffect(ScriptableObject.CreateInstance<OdeEnterEffect>()).SelfArray();
 
             Ability colors = new Ability("Remember Colors", "RememberColors_A");
@@ -91,15 +102,21 @@ namespace SaltsEnemies_Reseasoned
             remCurse._status = StatusField.Cursed;
 
             Ability holdhands = new Ability("Hold Hands", "HoldHands_A");
-            holdhands.Description = "Attempt to remove Cursed from the Opposing party member. If successful, inflict 3 Frail on them.\nOtherwise, deal an Agonizing amount of damage to the Opposing party member.";
+            holdhands.Description = "Attempt to remove Cursed from the Left, Right, and Opposing party members. If successful, inflict 3 Frail on them.\nOtherwise, deal an Agonizing amount of damage to that Opposing party member.";
             holdhands.Rarity = Rarity.GetCustomRarity("rarity5");
-            holdhands.Effects = new EffectInfo[3];
-            holdhands.Effects[0] = Effects.GenerateEffect(remCurse, 1, Slots.Front);
-            holdhands.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 3, Slots.Front, BasicEffects.DidThat(true));
-            holdhands.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front, BasicEffects.DidThat(false, 2));
-            holdhands.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Rem_Status_Cursed.ToString(), IntentType_GameIDs.Status_Frail.ToString(), IntentType_GameIDs.Damage_7_10.ToString()]);
+            holdhands.Effects = new EffectInfo[9];
+            holdhands.Effects[0] = Effects.GenerateEffect(remCurse, 1, Slots.Left);
+            holdhands.Effects[1] = Effects.GenerateEffect(remCurse, 1, Slots.Front);
+            holdhands.Effects[2] = Effects.GenerateEffect(remCurse, 1, Slots.Right);
+            holdhands.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 3, Slots.Left, BasicEffects.DidThat(true, 3));
+            holdhands.Effects[4] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Left, BasicEffects.DidThat(false, 4));
+            holdhands.Effects[5] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 3, Slots.Front, BasicEffects.DidThat(true, 4));
+            holdhands.Effects[6] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front, BasicEffects.DidThat(false, 5));
+            holdhands.Effects[7] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 3, Slots.Right, BasicEffects.DidThat(true, 5));
+            holdhands.Effects[8] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Right, BasicEffects.DidThat(false, 6));
+            holdhands.AddIntentsToTarget(Slots.FrontLeftRight, [IntentType_GameIDs.Rem_Status_Cursed.ToString(), IntentType_GameIDs.Status_Frail.ToString(), IntentType_GameIDs.Damage_7_10.ToString()]);
             holdhands.Visuals = LoadedAssetsHandler.GetCharacterAbility("Weave_1_A").visuals;
-            holdhands.AnimationTarget = Slots.Front;
+            holdhands.AnimationTarget = Slots.FrontLeftRight;
 
             /*Ability lockfingers = new Ability("Lock Fingers", "LockFingers_A");
             lockfingers.Description = "Move to the Left or Right, then deal a Barely Painful amount of damage to the Opposing party member and change their health color to this enemy's.";
@@ -115,15 +132,19 @@ namespace SaltsEnemies_Reseasoned
             lockfingers.AnimationTarget = Slots.Self;*/
 
             Ability yourvoice = new Ability("Your Voice", "YourVoice_A");
-            yourvoice.Description = "Apply Inspiration on the Opposing party member.\nIf the Opposing party member shares this enemy's health color, deal a Painful damage to the Opposing party member.";
+            yourvoice.Description = "Apply Inspiration on the Left, Right, and Opposing party members.\nIf they share this enemy's health color, deal a Painful damage to them.";
             yourvoice.Rarity = Rarity.GetCustomRarity("rarity5");
-            yourvoice.Effects = new EffectInfo[3];
-            yourvoice.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyInspirationEffect>(), 1, Slots.Front);
-            yourvoice.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetIsCasterHealthColorEffect>(), 1, Slots.Front);
-            yourvoice.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Front, BasicEffects.DidThat(true));
-            yourvoice.AddIntentsToTarget(Slots.Front, [Inspiration.Intent, "Misc_Hidden", IntentType_GameIDs.Damage_3_6.ToString()]);
+            yourvoice.Effects = new EffectInfo[7];
+            yourvoice.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyInspirationEffect>(), 1, Slots.FrontLeftRight);
+            yourvoice.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetIsCasterHealthColorEffect>(), 1, Slots.Left);
+            yourvoice.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Left, BasicEffects.DidThat(true));
+            yourvoice.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetIsCasterHealthColorEffect>(), 1, Slots.Front);
+            yourvoice.Effects[4] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Front, BasicEffects.DidThat(true));
+            yourvoice.Effects[5] = Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetIsCasterHealthColorEffect>(), 1, Slots.Right);
+            yourvoice.Effects[6] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Right, BasicEffects.DidThat(true));
+            yourvoice.AddIntentsToTarget(Slots.FrontLeftRight, [Inspiration.Intent, "Misc_Hidden", IntentType_GameIDs.Damage_3_6.ToString()]);
             yourvoice.Visuals = CustomVisuals.GetVisuals("Salt/Whisper");
-            yourvoice.AnimationTarget = Slots.Front;
+            yourvoice.AnimationTarget = Slots.FrontLeftRight;
 
             //ADD ENEMY
             vase.AddEnemyAbilities(new EnemyAbilityInfo[]
