@@ -65,9 +65,6 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Garden.H.Ode.Med);
             med.AddRandomGroup("OdeToHumanity_EN", "CorpseChan_EN", "EyePalm_EN");
 
-            med = new AddTo(Garden.H.Complimentary.Med);
-            med.AddRandomGroup("Complimentary_EN", "CorpseChan_EN");
-
             med = new AddTo(Garden.H.PersonalAngel.Med);
             med.AddRandomGroup("PersonalAngel_EN", "CorpseChan_EN", "EyePalm_EN");
 

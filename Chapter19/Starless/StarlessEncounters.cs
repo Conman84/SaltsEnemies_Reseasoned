@@ -148,11 +148,6 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("OdeToHumanity_EN", "Starless_EN", Enemies.Minister);
             med.AddRandomGroup("OdeToHumanity_EN", "Starless_EN", "Grandfather_EN", "Damocles_EN");
 
-            med = new AddTo(Garden.H.Complimentary.Med);
-            med.AddRandomGroup("Complimentary_EN", "Starless_EN", "TortureMeNot_EN");
-            med.AddRandomGroup("Complimentary_EN", "Starless_EN", "EyePalm_EN");
-            med.AddRandomGroup("Complimentary_EN", "Starless_EN", "MiniReaper_EN");
-
             med = new AddTo(Garden.H.PersonalAngel.Med);
             med.AddRandomGroup("PersonalAngel_EN", "Starless_EN", Enemies.Minister);
             med.AddRandomGroup("PersonalAngel_EN", "Starless_EN", "Shua_EN");

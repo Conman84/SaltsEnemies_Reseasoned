@@ -114,7 +114,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddGroup(3, "EvilDog_EN", 1, Ecstasy.Gray);
 
             med = new AddTo(Garden.H.Complimentary.Med);
-            med.AddRandomGroup("Complimentary_EN", Ecstasy.Gray, "Beakart_EN");
+            med.AddRandomGroup("Complimentary_EN", Ecstasy.Gray, Ecstasy.Gray);
 
             med = new AddTo(Garden.H.PersonalAngel.Med);
             med.AddRandomGroup("PersonalAngel_EN", Ecstasy.Gray, "InHisImage_EN", "InHisImage_EN");

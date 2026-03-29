@@ -111,7 +111,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("OdeToHumanity_EN", "Insider_EN", "MiniReaper_EN");
 
             med = new AddTo(Garden.H.Complimentary.Med);
-            med.AddRandomGroup("Complimentary_EN", "Insider_EN");
+            med.AddRandomGroup("Complimentary_EN", "Insider_EN", "Insider_EN");
 
             med = new AddTo(Garden.H.PersonalAngel.Med);
             med.AddRandomGroup("PersonalAngel_EN", "Insider_EN", "Surrogate_EN");

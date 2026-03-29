@@ -162,9 +162,6 @@ namespace SaltsEnemies_Reseasoned
             hard = new AddTo(Garden.H.Miriam.Hard);
             hard.AddRandomGroup("Miriam_EN", "Yang_EN", "Yang_EN");
 
-            med = new AddTo(Garden.H.Complimentary.Med);
-            med.AddRandomGroup("Complimentary_EN", "Yang_EN", "PawnA_EN");
-
             med = new AddTo(Garden.H.PersonalAngel.Med);
             med.AddRandomGroup("PersonalAngel_EN", "Yang_EN", "PawnA_EN", "PawnA_EN");
             med.AddRandomGroup("PersonalAngel_EN", "Yang_EN", "Starless_EN");

@@ -64,11 +64,8 @@ namespace SaltsEnemies_Reseasoned
             hard = new AddTo(Garden.H.Miriam.Hard);
             hard.AddRandomGroup("Miriam_EN", "PersonalAngel_EN", "Stoplight_EN");
 
-            med = new AddTo(Garden.H.Complimentary.Med);
-            med.AddRandomGroup("Complimentary_EN", "PersonalAngel_EN");
-
             med = new AddTo(Garden.H.Skinning.Med);
-            med.AddRandomGroup(Enemies.Skinning, "Complimentary_EN", Enemies.Shivering);
+            med.AddRandomGroup(Enemies.Skinning, "PersonalAngel_EN", Enemies.Shivering);
 
             hard = new AddTo(Garden.H.Skinning.Hard);
             hard.AddRandomGroup(Enemies.Skinning, "PersonalAngel_EN", "MiniReaper_EN");
