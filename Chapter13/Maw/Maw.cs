@@ -38,18 +38,20 @@ namespace SaltsEnemies_Reseasoned
 
             RefreshAbilityUseEffect exhaust = ScriptableObject.CreateInstance<RefreshAbilityUseEffect>();
             exhaust._doesExhaustInstead = true;
+            SpawnEnemyByStringNameEffect spawn = ScriptableObject.CreateInstance<SpawnEnemyByStringNameEffect>();
+            spawn.enemyName = "Visual_EN";
+            spawn._spawnTypeID = "Spawn_Basic";
 
-            //skinning IMPLEMENT
+            //skinning
             PerformEffectPassiveAbility skinning = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             skinning._passiveName = "Skinning";
             skinning.passiveIcon = ResourceLoader.LoadSprite("SkinPeelingPassive.png");
             skinning.m_PassiveID = "Skinning_PA";
-            skinning._enemyDescription = "On being directly damaged, spawn as many Spectres as possible.";
+            skinning._enemyDescription = "On being directly damaged, spawn as many Visuals as possible.";
             skinning._characterDescription = "dude... idk";
             skinning.doesPassiveTriggerInformationPanel = true;
             skinning.effects = [
-                    Effects.GenerateEffect(exhaust, 1, Slots.Front),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ExhaustMovementEffect>(), 1, Slots.Front)
+                    Effects.GenerateEffect(spawn, 5)
                 ];
             skinning._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
             skinning.conditions = Passives.Slippery.conditions;

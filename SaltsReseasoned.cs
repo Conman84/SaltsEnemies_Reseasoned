@@ -206,6 +206,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(Windle.Add);
             PCall(Indicator.Add);
             PCall(Maw.Add);
+            PCall(Visuals.Add);
 
             //CH14 Enemies
             PCall(AbyssAngel.Add);

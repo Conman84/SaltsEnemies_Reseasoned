@@ -169,6 +169,9 @@
 	  <None Remove="Chapter13\Maw\MawIcon.png" />
 	  <None Remove="Chapter13\Maw\MawPassive.png" />
 	  <None Remove="Chapter13\Maw\MawWorld.png" />
+	  <None Remove="Chapter13\Maw\VisualsDead.png" />
+	  <None Remove="Chapter13\Maw\VisualsIcon.png" />
+	  <None Remove="Chapter13\Maw\VisualsWorld.png" />
 	  <None Remove="Chapter14\AbyssAngel\ClioneDead.png" />
 	  <None Remove="Chapter14\AbyssAngel\ClioneIcon.png" />
 	  <None Remove="Chapter14\AbyssAngel\ClioneWorld.png" />
@@ -1067,6 +1070,9 @@
 	  <EmbeddedResource Include="Chapter10\Medamaude\GraspingPassive.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\ScramblePassive.png" />
 	  <EmbeddedResource Include="Chapter11\Nameless\FractalPassive.png" />
+	  <EmbeddedResource Include="Chapter13\Maw\VisualsDead.png" />
+	  <EmbeddedResource Include="Chapter13\Maw\VisualsIcon.png" />
+	  <EmbeddedResource Include="Chapter13\Maw\VisualsWorld.png" />
 	  <EmbeddedResource Include="Chapter16\OdeToHumanity\AutodidactPassive.png" />
 	  <EmbeddedResource Include="Chapter18\Sinker\DanglerIcon.png" />
 	  <EmbeddedResource Include="Chapter20\Foxtrot\FluidDynamicsPassive.png" />
