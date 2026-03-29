@@ -54,6 +54,7 @@ namespace SaltsEnemies_Reseasoned
                 pray.GenerateEnemyAbility(true),
             });
             angel.AddEnemy(true, true);
+            angel.enemy.AddToToysPool();
         }
     }
 }
