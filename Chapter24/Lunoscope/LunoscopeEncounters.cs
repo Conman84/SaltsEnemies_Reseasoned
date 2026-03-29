@@ -146,9 +146,6 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Garden.H.PersonalAngel.Med);
             med.AddRandomGroup("PersonalAngel_EN", "Lunoscope_EN", "Skyloft_EN");
 
-            med = new AddTo(Garden.H.Complimentary.Med);
-            med.AddRandomGroup("Complimentary_EN", "Lunoscope_EN");
-
             hard = new AddTo(Garden.H.Eyeless.Hard);
             hard.AddRandomGroup("Eyeless_EN", "Lunoscope_EN", "Indicator_EN");
             hard.AddRandomGroup("Eyeless_EN", "Lunoscope_EN", "Damocles_EN", "Damocles_EN");

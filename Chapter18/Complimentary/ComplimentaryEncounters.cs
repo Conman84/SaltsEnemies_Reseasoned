@@ -19,7 +19,6 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Complimentary_EN", "InHisImage_EN", "InHisImage_EN");
             med.AddRandomEncounter("Complimentary_EN", "InHerImage_EN", "InHerImage_EN");
             med.AddRandomEncounter("Complimentary_EN", "ChoirBoy_EN");
-            med.AddRandomEncounter("Complimentary_EN", Enemies.Minister);
             med.AddRandomEncounter("Complimentary_EN", Jumble.Grey, Enemies.Shivering);
             med.AddRandomEncounter("Complimentary_EN", Spoggle.Grey, Enemies.Shivering);
             med.AddRandomEncounter("Complimentary_EN", Enemies.Camera, Enemies.Camera);
@@ -32,14 +31,11 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Complimentary_EN", "Merced_EN", "Skyloft_EN");
             med.AddRandomEncounter("Complimentary_EN", "Shua_EN", Enemies.Shivering);
             med.AddRandomEncounter("Complimentary_EN", "GlassFigurine_EN", Enemies.Shivering);
-            med.AddRandomEncounter("Complimentary_EN", "Hunter_EN", Enemies.Shivering);
-            med.AddRandomEncounter("Complimentary_EN", "Firebird_EN");
             med.AddRandomEncounter("Complimentary_EN", "BlackStar_EN", "EyePalm_EN");
             med.AddRandomEncounter("Complimentary_EN", "MiniReaper_EN", "BlackStar_EN");
             med.AddRandomEncounter("Complimentary_EN", "Indicator_EN", "EyePalm_EN");
             med.AddRandomEncounter("Complimentary_EN", "YNL_EN", Enemies.Shivering);
             med.AddRandomEncounter("Complimentary_EN", Bots.Grey, "TortureMeNot_EN");
-            med.AddRandomEncounter("Complimentary_EN", "OdeToHumanity_EN", "EyePalm_EN");
             med.AddRandomEncounter("Complimentary_EN", "EvilDog_EN", "EvilDog_EN");
             med.AddRandomEncounter("Complimentary_EN", "Complimentary_EN");
 
