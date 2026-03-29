@@ -629,10 +629,12 @@ namespace SaltsEnemies_Reseasoned
             auto.conditions = new EffectorConditionSO[] { m };
             auto.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<PerformRandomAbilityEffect>(), 1, Slots.Self).SelfArray();
             add_automated.passive = auto;
-            PerformEffect_Item eggs = new PerformEffect_Item("Salt_BrainEggsAndHam_SW", [Effects.GenerateEffect(add_automated, 1, Targeting.Slot_AllyRight)]);
+            BaseCombatTargettingSO right = Targeting.GenerateSlotTarget(new int[] { 1, -4 }, false);
+
+            PerformEffect_Item eggs = new PerformEffect_Item("Salt_BrainEggsAndHam_SW", [Effects.GenerateEffect(add_automated, 1, right)]);
             eggs.Name = "Brain Eggs and Ham";
             eggs.Flavour = "\"Worms Worms Worms!\"";
-            eggs.Description = "At the start of each turn, add \"Automated\" as a passive to the Right ally.";
+            eggs.Description = "At the start of each turn, add \"Automated\" as a passive to the Right ally.\nThis item assumes the grid loops around.";
             eggs.Icon = ResourceLoader.LoadSprite("item_braineggsandham.png");
             eggs.EquippedModifiers = [];
             eggs.TriggerOn = TriggerCalls.OnTurnStart;

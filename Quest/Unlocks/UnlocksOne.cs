@@ -280,17 +280,19 @@ namespace SaltsEnemies_Reseasoned
             rubber.item._ItemTypeIDs = ["Knife"];
             rubber.item.AddBlueSkyUnlock("Dimitri_CH", "locked_rubberknife.png", "ach_rubberknife.png");
 
+            BaseCombatTargettingSO right = Targeting.GenerateSlotTarget(new int[] { 1, -4 }, false);
+
             Ability apotheosis = new Ability("Process Towards Apotheosis", "Salt_Apotheosis_A");
-            apotheosis.Description = "Fully heal the Right ally.\nInflict Acid on them equal to the health healed.";
+            apotheosis.Description = "Fully heal the Right ally.\nInflict Acid on them equal to the health healed.\nThis ability assumes the grid loops around.";
             apotheosis.AbilitySprite = ResourceLoader.LoadSprite("ability_apotheosis.png");
             apotheosis.Cost = [Pigments.Purple];
             apotheosis.Effects = new EffectInfo[2];
-            apotheosis.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<FullHealEffect>(), 1, Targeting.Slot_AllyRight);
+            apotheosis.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<FullHealEffect>(), 1, right);
             ApplyAcidEffect acid_exit = ScriptableObject.CreateInstance<ApplyAcidEffect>();
             acid_exit._MultPreviousExitValueForEntry = true;
-            apotheosis.Effects[1] = Effects.GenerateEffect(acid_exit, 1, Targeting.Slot_AllyRight);
-            apotheosis.AddIntentsToTarget(Targeting.Slot_AllyRight, [IntentType_GameIDs.Heal_11_20.ToString(), Acid.Intent]);
-            apotheosis.AnimationTarget = Targeting.Slot_AllyRight;
+            apotheosis.Effects[1] = Effects.GenerateEffect(acid_exit, 1, right);
+            apotheosis.AddIntentsToTarget(right, [IntentType_GameIDs.Heal_11_20.ToString(), Acid.Intent]);
+            apotheosis.AnimationTarget = right;
             apotheosis.Visuals = Visuals.Excommunicate;
 
             ExtraAbility_Wearable_SMS add_apotheosis = ScriptableObject.CreateInstance<ExtraAbility_Wearable_SMS>();
