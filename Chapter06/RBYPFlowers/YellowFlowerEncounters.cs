@@ -76,7 +76,7 @@ namespace SaltsEnemies_Reseasoned
             }, null);
 
             mainEncounters2.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_YellowFlower_Medium_EnemyBundle", 10, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone02_YellowFlower_Medium_EnemyBundle", 7, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
 
             //Secondary
             AddTo bundle1 = new AddTo("H_Zone02_MusicMan_Medium_EnemyBundle");
