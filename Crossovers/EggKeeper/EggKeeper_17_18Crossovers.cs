@@ -19,7 +19,6 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Garden.H.Complimentary.Med);
             med.AddRandomGroup("Complimentary_EN", "EggKeeper_EN", "EggKeeper_EN");
-            med.AddRandomGroup("Complimentary_EN", "EggKeeper_EN", "Firebird_EN");
             med.AddRandomGroup("Complimentary_EN", "EggKeeper_EN", Spoggle.Grey);
 
             AddTo hard = new AddTo(Garden.H.Stoplight.Hard);

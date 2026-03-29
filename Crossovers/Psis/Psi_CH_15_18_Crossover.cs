@@ -65,7 +65,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Complimentary_EN", "Beakart_EN");
 
             med = new AddTo(Garden.H.PersonalAngel.Med);
-            med.AddRandomGroup("Beakart_EN", "Complimentary_EN", "Grandfather_EN");
+            med.AddRandomGroup("Beakart_EN", "PersonalAngel_EN", "Grandfather_EN");
         }
     }
 }
