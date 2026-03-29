@@ -40,19 +40,20 @@ namespace SaltsEnemies_Reseasoned
             rotary.conditions = Passives.Slippery.conditions;
 
             spinner.AddPassives(new BasePassiveAbilitySO[] { rotary });
-            spinner.CombatExitEffects = Effects.GenerateEffect(SetMusicParameterByStringIfCasterValueEffect._Create("2009"), -1).SelfArray();
+            spinner.CombatExitEffects = Effects.GenerateEffect(SetMusicParameterByStringIfCasterValueEffect._Create("2009"), -1).SelfArray();\
+
+            GenericTargetting_BySlot_Index furthest = ScriptableObject.CreateInstance<GenericTargetting_BySlot_Index>();
+            furthest.getAllies = true;
+            furthest.slotPointerDirections = new int[] { 0, 4 };
 
             Ability breaker = new Ability("Breakdown", "Breakdown_A");
-            breaker.Description = "Inflict 2 Frail on the Opposing party member then give this enemy another action.\nDeal a Little damage to this enemy.";
+            breaker.Description = "Apply 6 Shield to the Furthest Left and Right enemy positions.";
             breaker.Rarity = Rarity.GetCustomRarity("rarity5");
-            breaker.Effects = new EffectInfo[3];
-            breaker.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 2, Slots.Front);
-            breaker.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Slots.Self);
-            breaker.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Self);
-            breaker.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Status_Frail.ToString()]);
-            breaker.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Misc_Additional.ToString(), IntentType_GameIDs.Damage_1_2.ToString()]);
+            breaker.Effects = new EffectInfo[1];
+            breaker.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 6, furthest);
+            breaker.AddIntentsToTarget(furthest, [IntentType_GameIDs.Field_Shield.ToString()]);
             breaker.Visuals = CustomVisuals.GetVisuals("Salt/Gears");
-            breaker.AnimationTarget = Slots.Self;
+            breaker.AnimationTarget = furthest;
 
             Ability classic = new Ability("The Classic", "TheClassic_A");
             classic.Description = "Deal 6 damage to the Opposing party member. This ability has random critical hits.\nMove to the Left or Right 3 times.";
@@ -67,25 +68,37 @@ namespace SaltsEnemies_Reseasoned
             classic.Visuals = CustomVisuals.GetVisuals("Salt/Gunshot");
             classic.AnimationTarget = Slots.Front;
 
-            Ability bart = new Ability("Bartimaeus", "Bartimaeus_A");
-            bart.Description = "Inflict 2 Fire on the Opposing position and 1 Scar on this enemy.\n50% probability to give this enemy another action on the timeline.";
-            bart.Rarity = Rarity.GetCustomRarity("rarity5");
-            bart.Effects = new EffectInfo[3];
-            bart.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 2, Slots.Front);
-            bart.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Slots.Self);
-            bart.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Slots.Self, Effects.ChanceCondition(50));
-            bart.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Field_Fire.ToString()]);
-            bart.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Status_Scars.ToString(), IntentType_GameIDs.Misc_Additional.ToString()]);
-            bart.Visuals = LoadedAssetsHandler.GetCharacterAbility("Sear_1_A").visuals;
-            bart.AnimationTarget = Slots.Front;
+            StatusWithDamageEffect rupture = ScriptableObject.CreateInstance<StatusWithDamageEffect>();
+            rupture.Status = StatusField.Ruptured;
+            BaseCombatTargettingSO left = Slots.SlotTarget([0, -1, -2], false);
+            BaseCombatTargettingSO right = Slots.SlotTarget([0, 1, 2], false);
+
+            Ability bart_l = new Ability("Bartimaeus Left", "BartimaeusLeft_A");
+            bart_l.Description = "Inflict 2 Ruptured on the Opposing, Left, and Far Left party members.\nIf they already were Ruptured, deal a Little damage to them.";
+            bart_l.Rarity = Rarity.GetCustomRarity("rarity5");
+            bart_l.Effects = new EffectInfo[1];
+            bart_l.Effects[0] = Effects.GenerateEffect(rupture, 2, left);
+            bart_l.AddIntentsToTarget(left, ["Status_Ruptured", "Damage_1_2"]);
+            bart_l.Visuals = CustomVisuals.GetVisuals("Salt/Four");
+            bart_l.AnimationTarget = left;
+
+            Ability bart_r = new Ability("Bartimaeus Right", "BartimaeusRight_A");
+            bart_r.Description = "Inflict 2 Ruptured on the Opposing, Right, and Far Right party members.\nIf they already were Ruptured, deal a Little damage to them.";
+            bart_r.Rarity = Rarity.GetCustomRarity("rarity5");
+            bart_r.Effects = new EffectInfo[1];
+            bart_r.Effects[0] = Effects.GenerateEffect(rupture, 2, right);
+            bart_r.AddIntentsToTarget(right, ["Status_Ruptured", "Damage_1_2"]);
+            bart_r.Visuals = CustomVisuals.GetVisuals("Salt/Four");
+            bart_r.AnimationTarget = right;
 
 
             //ADD ENEMY
             spinner.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                breaker.GenerateEnemyAbility(true),
+                bart_l.GenerateEnemyAbility(true),
                 classic.GenerateEnemyAbility(true),
-                bart.GenerateEnemyAbility(true)
+                bart_r.GenerateEnemyAbility(true),
+                breaker.GenerateEnemyAbility(true),
             });
             spinner.AddEnemy(true, true);
             spinner.enemy.AddToSynodPool();

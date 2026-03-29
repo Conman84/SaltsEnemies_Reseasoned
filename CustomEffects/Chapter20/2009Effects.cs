@@ -56,4 +56,28 @@ namespace SaltsEnemies_Reseasoned
             return ret;
         }
     }
+
+    public class StatusWithDamageEffect : DamageEffect
+    {
+        public StatusEffect_SO Status;
+
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            List<TargetSlotInfo> use = [];
+            
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit)
+                {
+                    if (target.Unit.ContainsStatusEffect(Status.StatusID))
+                    {
+                        use.Add(target);
+                    }
+                    target.Unit.ApplyStatusEffect(Status, entryVariable);
+                }
+            }
+
+            return base.PerformEffect(stats, caster, use.ToArray(), areTargetSlots, entryVariable, out exitAmount);
+        }
+    }
 }
