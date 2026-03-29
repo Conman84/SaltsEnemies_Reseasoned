@@ -331,4 +331,21 @@ namespace SaltsEnemies_Reseasoned
             return true;
         }
     }
+
+    public class DamageIfUnderHalfEffect : DamageEffect
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            List<TargetSlotInfo> ret = [];
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit)
+                {
+                    if (target.Unit.CurrentHealth / (float)target.Unit.MaximumHealth < 0.5f) ret.Add(target);
+                }
+            }
+
+            return base.PerformEffect(stats, caster, ret.ToArray(), areTargetSlots, entryVariable, out exitAmount);
+        }
+    }
 }

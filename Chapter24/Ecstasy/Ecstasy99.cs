@@ -49,33 +49,43 @@ namespace SaltsEnemies_Reseasoned
             ecstasy.AddPassives(new BasePassiveAbilitySO[] { missdose });
 
             Ability bless = new Ability("1000 Blessings", "1000Blessings_A");
-            bless.Description = "Invert the health of all party members.";
+            bless.Description = "Invert the health of the Left, Right, and Opposing party members and apply 1 Determined on them.";
             bless.Rarity = Rarity.GetCustomRarity("rarity5");
-            bless.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<InvertTargetHealthEffect>(), 0, Targeting.Unit_AllOpponents)];
-            bless.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Other_MaxHealth_Alt.ToString()]);
+            bless.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<InvertTargetHealthEffect>(), 0, Slots.FrontLeftRight),
+            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDeterminedEffect>(), 1, Slots.FrontLeftRight)];
+            bless.AddIntentsToTarget(Slots.FrontLeftRight, [IntentType_GameIDs.Other_MaxHealth_Alt.ToString(), Determined.Intent]);
             bless.Visuals = Visuals.Providence;
-            bless.AnimationTarget = Targeting.Unit_AllOpponents;
+            bless.AnimationTarget = Slots.FrontLeftRight;
 
             AnimationVisualsEffect hit = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
             hit._animationTarget = Slots.FrontLeftRight;
             hit._visuals = Visuals.Scales;
 
             Ability pray = new Ability("1000 Prayers", "1000Prayers_A");
-            pray.Description = "Revive as many party members as possible at 1 health.\nDeal an Impossible amount of damage to the Left, Right, and Opposing party members.";
+            pray.Description = "Revive as many party members as possible at 1 health.\nIf the Left, Right, and Opposing party members are below half health, deal an Impossible amount of damage to them.";
             pray.Rarity = Rarity.GetCustomRarity("rarity5");
             pray.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ResurrectEffect>(), 1, Targetting.Everything(false)),
                 Effects.GenerateEffect(hit, 0, Slots.Self),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 1000, Slots.FrontLeftRight),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageIfUnderHalfEffect>(), 1000, Slots.FrontLeftRight),
                 ];
             pray.AddIntentsToTarget(Targetting.Everything(false), [IntentType_GameIDs.Other_Resurrect.ToString()]);
-            pray.AddIntentsToTarget(Slots.FrontLeftRight, ["Damage_Death"]);
+            pray.AddIntentsToTarget(Slots.FrontLeftRight, ["Misc_Hidden", "Damage_Death"]);
+
+            Ability death = new Ability("1000 Burials", "1000Deaths_A");
+            death.Description = "Inflict 1000 Pale on the Opposing party member.";
+            death.Rarity = Rarity.GetCustomRarity("rarity5");
+            death.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleByTenEffect>(), 100, Slots.Front)];
+            death.AddIntentsToTarget(Slots.Front, [Pale.Intent]);
+            death.Visuals = CustomVisuals.GetVisuals("Salt/Hung");
+            death.AnimationTarget = Slots.Front;
 
             //ADD ENEMY
             ecstasy.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 bless.GenerateEnemyAbility(true),
                 pray.GenerateEnemyAbility(true),
+                death.GenerateEnemyAbility(true),
             });
             ecstasy.SilentAddEnemy(true, true);
             ecstasy.enemy.AddToSynodPool();
