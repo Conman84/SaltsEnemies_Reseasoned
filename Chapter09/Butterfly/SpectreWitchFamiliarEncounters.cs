@@ -21,7 +21,7 @@ namespace SaltsEnemies_Reseasoned
             for (int t = 0; t < 2; t++) med.AddRandomEncounter("Spectre_EN", "Spectre_EN", "Spectre_EN", "Spectre_EN", "Spectre_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Butterfly.Med, 12, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Butterfly.Med, 7, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Medium);
         }
 
         public static void Post()
