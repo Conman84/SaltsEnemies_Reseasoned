@@ -34,7 +34,7 @@ namespace SaltsEnemies_Reseasoned
             easy.AddRandomEncounter("Shua_EN", "ChoirBoy_EN");
 
             easy.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Shua.Easy, 5, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Shua.Easy, 3, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
         }
         public static void Add_Med()
         {
