@@ -40,7 +40,7 @@ namespace SaltsEnemies_Reseasoned
             rotary.conditions = Passives.Slippery.conditions;
 
             spinner.AddPassives(new BasePassiveAbilitySO[] { rotary });
-            spinner.CombatExitEffects = Effects.GenerateEffect(SetMusicParameterByStringIfCasterValueEffect._Create("2009"), -1).SelfArray();\
+            spinner.CombatExitEffects = Effects.GenerateEffect(SetMusicParameterByStringIfCasterValueEffect._Create("2009"), -1).SelfArray();
 
             GenericTargetting_BySlot_Index furthest = ScriptableObject.CreateInstance<GenericTargetting_BySlot_Index>();
             furthest.getAllies = true;
