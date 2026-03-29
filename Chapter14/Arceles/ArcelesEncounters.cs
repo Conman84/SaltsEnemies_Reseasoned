@@ -24,7 +24,7 @@ namespace SaltsEnemies_Reseasoned
             easy.SimpleAddEncounter(2, "Arceles_EN");
 
             easy.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Arceles.Easy, 5, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Easy);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Arceles.Easy, 3, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Easy);
         }
         public static void Post()
         {
