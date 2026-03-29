@@ -49,7 +49,20 @@ namespace SaltsEnemies_Reseasoned
             rupture._Status = StatusField.Ruptured;
             rupture._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
 
-            visuals.AddPassives(new BasePassiveAbilitySO[] { jitter, rupture, Passives.Withering });
+            //fluid dynamics
+            PerformEffectPassiveAbility fluids = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            fluids._passiveName = "Fluid Dynamics (1)";
+            fluids.name = "FluidDynamics_1_PA";
+            fluids.passiveIcon = ResourceLoader.LoadSprite("FluidDynamicsPassive.png");
+            fluids.m_PassiveID = "FluidDynamics_PA";
+            fluids._enemyDescription = "On death, inflict 1 Slip to the Opposing position.";
+            fluids._characterDescription = fluids._enemyDescription;
+            fluids.doesPassiveTriggerInformationPanel = true;
+            fluids.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.Front)];
+            fluids.conditions = [];
+            fluids._triggerOn = [TriggerCalls.OnDeath];
+
+            visuals.AddPassives(new BasePassiveAbilitySO[] { jitter, rupture, fluids, Passives.Withering });
 
             SpawnEnemyByStringNameEffect spawn = ScriptableObject.CreateInstance<SpawnEnemyByStringNameEffect>();
             spawn.enemyName = "Visual_EN";
