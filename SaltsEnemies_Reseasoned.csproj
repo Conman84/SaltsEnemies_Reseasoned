@@ -577,6 +577,22 @@
 	  <None Remove="Chapter24\Whale\WhaleIcon.png" />
 	  <None Remove="Chapter24\Whale\WhalePortal.png" />
 	  <None Remove="Chapter24\Whale\WhaleWorld.png" />
+	  <None Remove="Chapter25\AbandonedPuppet\PuppetDead.png" />
+	  <None Remove="Chapter25\AbandonedPuppet\PuppetIcon.png" />
+	  <None Remove="Chapter25\AbandonedPuppet\PuppetPortal.png" />
+	  <None Remove="Chapter25\AbandonedPuppet\PuppetWorld.png" />
+	  <None Remove="Chapter25\HandOfGod\HandOfGodDead.png" />
+	  <None Remove="Chapter25\HandOfGod\HandOfGodIcon.png" />
+	  <None Remove="Chapter25\HandOfGod\HandOfGodWorld.png" />
+	  <None Remove="Chapter25\MechanicalAngel\MechanismDead.png" />
+	  <None Remove="Chapter25\MechanicalAngel\MechanismIcon.png" />
+	  <None Remove="Chapter25\MechanicalAngel\MechanismPortal.png" />
+	  <None Remove="Chapter25\MechanicalAngel\MechanismWorld.png" />
+	  <None Remove="Chapter25\Mimita\MimitaIcon.png" />
+	  <None Remove="Chapter25\Nine\ControlPassive.png" />
+	  <None Remove="Chapter25\Nine\NineDead.png" />
+	  <None Remove="Chapter25\Nine\NineIcon.png" />
+	  <None Remove="Chapter25\Nine\NineWorld.png" />
 	  <None Remove="CustomPassives\Chapter02\Decay.png" />
 	  <None Remove="CustomPassives\Chapter03\DontTouchMe.png" />
 	  <None Remove="CustomPassives\Chapter03\StarPassive.png" />
@@ -1593,6 +1609,22 @@
 	  <EmbeddedResource Include="Chapter24\Whale\WhaleIcon.png" />
 	  <EmbeddedResource Include="Chapter24\Whale\WhalePortal.png" />
 	  <EmbeddedResource Include="Chapter24\Whale\WhaleWorld.png" />
+	  <EmbeddedResource Include="Chapter25\AbandonedPuppet\PuppetDead.png" />
+	  <EmbeddedResource Include="Chapter25\AbandonedPuppet\PuppetIcon.png" />
+	  <EmbeddedResource Include="Chapter25\AbandonedPuppet\PuppetPortal.png" />
+	  <EmbeddedResource Include="Chapter25\AbandonedPuppet\PuppetWorld.png" />
+	  <EmbeddedResource Include="Chapter25\HandOfGod\HandOfGodDead.png" />
+	  <EmbeddedResource Include="Chapter25\HandOfGod\HandOfGodIcon.png" />
+	  <EmbeddedResource Include="Chapter25\HandOfGod\HandOfGodWorld.png" />
+	  <EmbeddedResource Include="Chapter25\MechanicalAngel\MechanismDead.png" />
+	  <EmbeddedResource Include="Chapter25\MechanicalAngel\MechanismIcon.png" />
+	  <EmbeddedResource Include="Chapter25\MechanicalAngel\MechanismPortal.png" />
+	  <EmbeddedResource Include="Chapter25\MechanicalAngel\MechanismWorld.png" />
+	  <EmbeddedResource Include="Chapter25\Mimita\MimitaIcon.png" />
+	  <EmbeddedResource Include="Chapter25\Nine\ControlPassive.png" />
+	  <EmbeddedResource Include="Chapter25\Nine\NineDead.png" />
+	  <EmbeddedResource Include="Chapter25\Nine\NineIcon.png" />
+	  <EmbeddedResource Include="Chapter25\Nine\NineWorld.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter01\Desperate.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Decay.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Fishing.png" />
@@ -2319,7 +2351,6 @@
 	  <Folder Include="Crossovers\Dude...IDK\" />
 	  <Folder Include="CustomEffects\Chapter06\" />
 	  <Folder Include="CustomEffects\Chapter12\" />
-	  <Folder Include="Chapter25\" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -24,4 +24,30 @@ namespace SaltsEnemies_Reseasoned
             LoadedDBsHandler.EnemyDB.m_SpawnRandomListPools.Add(ID, Effect);
         }
     }
+
+    public class FitSizeCondition : EffectConditionSO
+    {
+        public int Size;
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            if (caster.IsUnitCharacter) return CombatManager.Instance._stats.CharactersOnField.Count <= 4;
+
+            int temp = 0;
+            for (int i = 0; i < CombatManager.Instance._stats.combatSlots.EnemySlots.Length; i++)
+            {
+                if (CombatManager.Instance._stats.combatSlots.EnemySlots[i].HasUnit) temp = 0;
+                else temp++;
+
+                if (temp >= Size) return true;
+            }
+            return false;
+        }
+
+        public static FitSizeCondition Create(int size)
+        {
+            FitSizeCondition ret = ScriptableObject.CreateInstance<FitSizeCondition>();
+            ret.Size = size;
+            return ret;
+        }
+    }
 }
