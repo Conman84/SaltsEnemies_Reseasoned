@@ -104,17 +104,17 @@ namespace SaltsEnemies_Reseasoned
             Ability waver = new Ability("Waver_A")
             {
                 Name = "Waver",
-                Description = "Curse the Opposing party member and inflict 4 Linked on them.",
+                Description = "Curse and inflict 4 Linked on the Opposing and Right party members.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.Front),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyLinkedEffect>(), 4, Slots.Front)
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Targeting.Slot_FrontAndRight),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyLinkedEffect>(), 4, Targeting.Slot_FrontAndRight)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Censor"),
-                AnimationTarget = Slots.Front,
+                AnimationTarget = Targeting.Slot_FrontAndRight,
             };
-            waver.AddIntentsToTarget(Slots.Front, ["Status_Cursed", "Status_Linked"]);
+            waver.AddIntentsToTarget(Targeting.Slot_FrontAndRight, ["Status_Cursed", "Status_Linked"]);
 
             //ADD ENEMY
             shua.AddEnemyAbilities(new EnemyAbilityInfo[]
