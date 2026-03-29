@@ -69,10 +69,11 @@ namespace SaltsEnemies_Reseasoned
             spawn._spawnTypeID = "Spawn_Basic";
 
             Ability clone = new Ability("Salt_WatchesYou_A");
-            clone.Name = "Watches You";
-            clone.Description = "Spawn as many Visuals as possible.";
+            clone.Name = "Hurts You and Watches You";
+            clone.Description = "Deal an Agonizing amount of damage to the Opposing party member.\nSpawn as many Visuals as possible.";
             clone.Rarity = Rarity.Common;
-            clone.Effects = [Effects.GenerateEffect(spawn, 5)];
+            clone.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front), Effects.GenerateEffect(spawn, 5)];
+            clone.AddIntentsToTarget(Slots.Front, ["Damage_7_10"]);
             clone.AddIntentsToTarget(Slots.Self, ["Other_Spawn"]);
             clone.AnimationTarget = Slots.Self;
             clone.Visuals = null;
