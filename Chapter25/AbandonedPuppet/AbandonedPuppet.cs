@@ -85,8 +85,8 @@ namespace SaltsEnemies_Reseasoned
             found.Description = "Call for Mimita.\nIf unsuccessful, inflict 1 Frail on all party members Not Opposing this enemy.";
             found.Rarity = Rarity.GetCustomRarity("rarity5");
             found.Effects = [
-                Effects.GenerateEffect(mimita, 1),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 1, allnotfront, FitSizeCondition.Create(3))
+                Effects.GenerateEffect(mimita, 1, null, FitSizeCondition.Create(3)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 1, allnotfront, BasicEffects.DidThat(false))
                 ];
             found.AddIntentsToTarget(Slots.Self, ["Other_Spawn"]);
             found.AddIntentsToTarget(allnotfront, ["Status_Frail"]);
