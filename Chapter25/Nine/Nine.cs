@@ -36,8 +36,8 @@ namespace SaltsEnemies_Reseasoned
             control.doesPassiveTriggerInformationPanel = true;
             control.conditions = [];
             control.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterSwapToSidesUpToEntryVariableEffect>(), 4, Slots.Self)];
-            control._min = 0.5f;
-            control._max = 5f;
+            control._min = 4f;
+            control._max = 12f;
             control.Coroutines = [];
 
             //SURVIVAL
