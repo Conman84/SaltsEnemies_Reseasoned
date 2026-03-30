@@ -23,7 +23,7 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = LoadedAssetsHandler.GetEnemy("PersonalAngel_EN").deathSound,
             };
             mimita.PrepareEnemyPrefab("Assets/Abyss/Mimita_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Abyss/Mimita_Gibs.prefab").GetComponent<ParticleSystem>());
-
+            mimita.AddUnitType("FemaleID");
             //desperate
             PerformEffectImmediatePassiveAbility desperate = ScriptableObject.CreateInstance<PerformEffectImmediatePassiveAbility>();
             desperate._passiveName = "Desperate (3)";
