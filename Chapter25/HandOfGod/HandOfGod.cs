@@ -113,7 +113,7 @@ namespace SaltsEnemies_Reseasoned
                 god.GenerateEnemyAbility(true)
             });
             hand.AddEnemy(true, true);
-            hand.enemy.AddToSynodPool()
+            hand.enemy.AddToSynodPool();
         }
     }
 }
