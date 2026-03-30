@@ -104,11 +104,11 @@ namespace SaltsEnemies_Reseasoned
             perfect_right.Description = "Deal 0 damage to the Rightmost party member.\nDamage directly spreads Left increasing by 3 each time.";
             perfect_right.Rarity = Rarity.GetCustomRarity("rarity5");
             perfect_right.Effects = [Effects.GenerateEffect(left, 3, rightmost)];
-            perfect_left.AddIntentsToTarget(right_right, [FallColor.Intent, "Damage_3_6", "Damage_7_10", "Damage_11_15", FallColor.StopIntent]);
-            perfect_left.AddIntentsToTarget(rightmost, ["Damage_1_2"]);
-            perfect_left.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
-            perfect_left.Visuals = CustomVisuals.GetVisuals("Salt/Gears");
-            perfect_left.AnimationTarget = rightmost;
+            perfect_right.AddIntentsToTarget(right_right, [FallColor.Intent, "Damage_3_6", "Damage_7_10", "Damage_11_15", FallColor.StopIntent]);
+            perfect_right.AddIntentsToTarget(rightmost, ["Damage_1_2"]);
+            perfect_right.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
+            perfect_right.Visuals = CustomVisuals.GetVisuals("Salt/Gears");
+            perfect_right.AnimationTarget = rightmost;
 
             Ability perfect_center = new Ability("Perfect Center", "angel_center_A");
             perfect_center.Description = "Deal 0 damage to the Central party member position.\nDamage directly spreads to adjacent units increasing by 5 each time.";

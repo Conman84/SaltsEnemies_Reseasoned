@@ -1454,6 +1454,7 @@ namespace SaltEnemies_Reseasoned
                 for (int i = 0; i < colors.Length; i++)
                 {
                     if (colors[i] == FallColor._color || colors[i].Equals(FallColor._color)) continue;
+                    if (colors[i] == FallColor._stopColor || colors[i].Equals(FallColor._stopColor)) continue;
                     animateSprites.Add(icons[i]);
                     animateColors.Add(colors[i]);
                 }
