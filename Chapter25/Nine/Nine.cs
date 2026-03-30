@@ -38,6 +38,7 @@ namespace SaltsEnemies_Reseasoned
             control.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterSwapToSidesUpToEntryVariableEffect>(), 4, Slots.Self)];
             control._min = 0.5f;
             control._max = 5f;
+            control.Coroutines = [];
 
             //SURVIVAL
             AnimationVisualsEffect core = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
