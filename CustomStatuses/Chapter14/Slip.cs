@@ -14,6 +14,7 @@ namespace SaltEnemies_Reseasoned
     {
         public static string FieldID => "Slip_ID";
         public static string Intent => "Field_Slip";
+        public static string Rem_Intent => "Rem_Field_Slip";
         public static SlipFE_SO Object;
         public static string Trigger => "Slip_Trigger";
         public static void Add()
@@ -53,6 +54,14 @@ namespace SaltEnemies_Reseasoned
             intentinfo._sprite = ResourceLoader.LoadSprite("SlipIcon.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
+
+
+
+            IntentInfoBasic reminfo = new IntentInfoBasic();
+            reminfo._color = Intents.GetInGame_IntentInfo(IntentType_GameIDs.Rem_Field_Shield)._color;
+            reminfo._sprite = ResourceLoader.LoadSprite("SlipIcon.png");
+            if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Rem_Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Rem_Intent] = reminfo;
+            else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Rem_Intent, reminfo);
         }
     }
 
