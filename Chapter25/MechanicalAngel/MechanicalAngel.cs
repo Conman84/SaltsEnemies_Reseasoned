@@ -104,7 +104,7 @@ namespace SaltsEnemies_Reseasoned
             perfect_right.Description = "Deal 0 damage to the Rightmost party member.\nDamage directly spreads Left increasing by 3 each time.";
             perfect_right.Rarity = Rarity.GetCustomRarity("rarity5");
             perfect_right.Effects = [Effects.GenerateEffect(left, 3, rightmost)];
-            perfect_left.AddIntentsToTarget(right_right, [FallColor.Intent, "Damage_3_6", "Damage_7_10", "Damage_11_15"]);
+            perfect_left.AddIntentsToTarget(right_right, [FallColor.Intent, "Damage_3_6", "Damage_7_10", "Damage_11_15", FallColor.StopIntent]);
             perfect_left.AddIntentsToTarget(rightmost, ["Damage_1_2"]);
             perfect_left.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
             perfect_left.Visuals = CustomVisuals.GetVisuals("Salt/Gears");
@@ -117,13 +117,37 @@ namespace SaltsEnemies_Reseasoned
             perfect_center.AddIntentsToTarget(center_left, [FallColor.Intent, "Damage_3_6", "Damage_7_10", FallColor.StopIntent]);
             perfect_center.AddIntentsToTarget(center, ["Damage_1_2"];
             perfect_center.AddIntentsToTarget(center_right, [FallColor.Intent, "Damage_3_6", "Damage_7_10"]);
+            perfect_center.AnimationTarget = center;
+            perfect_center.Visuals = CustomVisuals.GetVisuals("Salt/Crush");
+
+            Ability wastes = new Ability("The Future Wastes", "angel_waste_A");
+            wastes.Description = "At the start of this enemy's next turn, deal a Lethal amount of damage to the current Opposing position.";
+            wastes.Rarity = Rarity.GetCustomRarity("rarity5");
+            wastes.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 18, Slots.Front)];
+            wastes.AddIntentsToTarget(Slots.Front, ["Damage_Delay", "Damage_16_20"]);
+            wastes.AnimationTarget = Slots.Front;
+            wastes.Visuals = Visuals.Melt;
+
+            MultiTargetting all = MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false));
+
+            Ability accumulates = new Ability("The Future Accumulates", "angel_future_A");
+            accumulates.Description = "Remove all Slip.\nIf any Slip was removed, gain 1 Haste.";
+            accumulates.Effects = [Effects.GenerateEffect(rem_slip, 1, all), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyHasteEffect>(), 1, Slots.Self, BasicEffects.DidThat(true))];
+            accumulates.AddIntentsToTarget(all, [Slip.Rem_Intent]);
+            accumulates.AddIntentsToTarget(Slots.Self, ["Misc_Hidden", Haste.Intent]);
+            accumulates.Visuals = Visuals.Crush;
+            accumulates.AnimationTarget = Slots.Self;
 
             //ADD ENEMY
             mechanism.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                test.GenerateEnemyAbility(true),
+                perfect_left.GenerateEnemyAbility(true),
+                perfect_center.GenerateEnemyAbility(true),
+                perfect_right.GenerateEnemyAbility(true),
+                wastes.GenerateEnemyAbility(true),
+                accumulates.GenerateEnemyAbility(true),
             });
-            mechanism.AddEnemy(true, true);
+            mechanism.AddEnemy();
         }
     }
 }
