@@ -115,7 +115,7 @@ namespace SaltsEnemies_Reseasoned
             perfect_center.Rarity = Rarity.GetCustomRarity("rarity5");
             perfect_center.Effects = [Effects.GenerateEffect(both, 5, center)];
             perfect_center.AddIntentsToTarget(center_left, [FallColor.Intent, "Damage_3_6", "Damage_7_10", FallColor.StopIntent]);
-            perfect_center.AddIntentsToTarget(center, ["Damage_1_2"];
+            perfect_center.AddIntentsToTarget(center, ["Damage_1_2"]);
             perfect_center.AddIntentsToTarget(center_right, [FallColor.Intent, "Damage_3_6", "Damage_7_10"]);
             perfect_center.AnimationTarget = center;
             perfect_center.Visuals = CustomVisuals.GetVisuals("Salt/Crush");
