@@ -1,6 +1,7 @@
 ﻿using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SaltsEnemies_Reseasoned
@@ -93,28 +94,50 @@ namespace SaltsEnemies_Reseasoned
         public override bool AreTargetSlots => true;
 
         public bool _leftmost;
+        public bool _rightmost;
+        public int[] _offset;
 
         public override TargetSlotInfo[] GetTargets(SlotsCombat slots, int casterSlotID, bool isCasterCharacter)
         {
+            List<TargetSlotInfo> ret = [];
+
+            bool got = false;
+            int counting = 0;
+
             if (_leftmost)
             {
                 for (int i = 0; i < 5; i++)
                 {
                     CombatSlot slot = getAllies == isCasterCharacter ? slots.CharacterSlots[i] : slots.EnemySlots[i];
 
-                    if (slot.HasUnit) return [slot.TargetSlotInformation];
+                    if (slot.HasUnit || got)
+                    {
+                        if (_offset.Contains(counting)) ret.Add(slot.TargetSlotInformation);
+                        got = true;
+                        counting++;
+                    }
                 }
             }
-            else
+
+            got = false;
+            counting = 0;
+
+            if (_rightmost)
             {
                 for (int i = 4; i >= 0; i--)
                 {
                     CombatSlot slot = getAllies == isCasterCharacter ? slots.CharacterSlots[i] : slots.EnemySlots[i];
 
-                    if (slot.HasUnit) return [slot.TargetSlotInformation];
+                    if (slot.HasUnit || got)
+                    {
+                        if (_offset.Contains(counting)) ret.Add(slot.TargetSlotInformation);
+                        got = true;
+                        counting++;
+                    }
                 }
             }
-            return [];
+
+            return ret.ToArray();
         }
     }
 }

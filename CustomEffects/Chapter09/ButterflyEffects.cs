@@ -1121,27 +1121,41 @@ namespace SaltEnemies_Reseasoned
                 }
                 if (colors.Contains(FallColor._color))
                 {
-                    List<Sprite> animateSprites = new List<Sprite>();
-                    List<Color> animateColors = new List<Color>();
+                    List<Sprite> new_icons = [];
+                    List<Color> new_colors = [];
+
+                    List<List<Sprite>> animateSprites = new List<List<Sprite>>();
+                    List<List<Color>> animateColors = new List<List<Color>>();
                     bool animateThese = false;
-                    int upTo = colors.Length;
+                    //int upTo = colors.Length;
+                    //int stopAt = colors.Length;
                     for (int checkColor = 0; checkColor < colors.Length; checkColor++)
                     {
-                        if (animateThese)
+                        if (colors[checkColor] == FallColor._stopColor || colors[checkColor].Equals(FallColor._stopColor))
                         {
-                            animateSprites.Add(icons[checkColor]);
-                            animateColors.Add(colors[checkColor]);
+                            animateThese = false;
                         }
-                        if (colors[checkColor] == FallColor._color || colors[checkColor].Equals(FallColor._color))
+                        else if (animateThese)
                         {
-                            animateThese = true;
-                            upTo = checkColor;
+                            animateSprites[animateSprites.Count - 1].Add(icons[checkColor]);
+                            animateColors[animateColors.Count - 1].Add(colors[checkColor]);
+                        }
+                        else
+                        {
+                            if (colors[checkColor] == FallColor._color || colors[checkColor].Equals(FallColor._color))
+                            {
+                                animateThese = true;
+                                animateSprites.Add([]);
+                                animateColors.Add([]);
+                            }
+                            new_colors.Add(colors[checkColor]);
+                            new_icons.Add(icons[checkColor]);
                         }
                     }
-                    while (self._intents.Count <= upTo) self.GenerateNewIntent();
+                    while (self._intents.Count <= new_icons.Count) self.GenerateNewIntent();
                     for (int index = 0; index < self._intents.Count; ++index)
                     {
-                        if (index < upTo)
+                        if (new_colors[index] == FallColor._color || new_colors[index].Equals(FallColor._color))
                         {
                             IntentLayoutAnimator[] array = self._intents[index].gameObject.GetComponents<IntentLayoutAnimator>();
                             foreach (IntentLayoutAnimator ain in array)
@@ -1154,34 +1168,37 @@ namespace SaltEnemies_Reseasoned
                                 old.IsActive = false;
                                 old.enabled = false;
                             }
-                            self._intents[index].SetInformation(icons[index], colors[index]);
-                            self._intents[index].SetActivation(true);
-                        }
-                        else if (index > upTo)
-                        {
-                            self._intents[index].SetActivation(false);
-                        }
-                        else 
-                        {
-                            IntentLayoutAnimator[] array = self._intents[index].gameObject.GetComponents<IntentLayoutAnimator>();
-                            foreach (IntentLayoutAnimator ain in array)
-                            {
-                                ain.enabled = false;
-                                ain.IsActive = false;
-                            }
-                            foreach (IntentLayoutSelective_BySolitaire old in self._intents[index].gameObject.GetComponents<IntentLayoutSelective_BySolitaire>())
-                            {
-                                old.IsActive = false;
-                                old.enabled = false;
-                            }
-                            self._intents[index].SetInformation(icons[icons.Length - 1], colors[colors.Length - 1]);
+                            self._intents[index].SetInformation(animateSprites[0][0], animateColors[0][0]);
                             self._intents[index].SetActivation(true);
                             IntentLayoutAnimator grah = self._intents[index].gameObject.AddComponent<IntentLayoutAnimator>();
                             grah.animate = self._intents[index];
-                            grah.icons = animateSprites.ToArray();
-                            grah.colors = animateColors.ToArray();
+                            grah.icons = animateSprites[0].ToArray();
+                            grah.colors = animateColors[0].ToArray();
                             grah.IsActive = true;
                             grah.limit = 0.1f;
+
+                            animateSprites.RemoveAt(0);
+                            animateColors.RemoveAt(0);
+                        }
+                        else if (index > new_icons.Count)
+                        {
+                            self._intents[index].SetActivation(false);
+                        }
+                        else
+                        {
+                            IntentLayoutAnimator[] array = self._intents[index].gameObject.GetComponents<IntentLayoutAnimator>();
+                            foreach (IntentLayoutAnimator ain in array)
+                            {
+                                ain.enabled = false;
+                                ain.IsActive = false;
+                            }
+                            foreach (IntentLayoutSelective_BySolitaire old in self._intents[index].gameObject.GetComponents<IntentLayoutSelective_BySolitaire>())
+                            {
+                                old.IsActive = false;
+                                old.enabled = false;
+                            }
+                            self._intents[index].SetInformation(new_icons[index], new_colors[index]);
+                            self._intents[index].SetActivation(true);
                         }
                     }
                 }

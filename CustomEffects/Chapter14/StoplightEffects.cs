@@ -158,12 +158,16 @@ namespace SaltEnemies_Reseasoned
         public static Color _color3 => new Color(28f, 78f, 130f);
         public static string Intent4 => "SelectiveIntent4_Identifier";
         public static Color _color4 => new Color(68f, 78f, 160f);
+
+        public static string StopIntent => "StopAnimatingIntents_Identifier";
+        public static Color _stopColor => new Color(22f, 72f, 100f);
         public static void Setup()
         {
             Intents.CreateAndAddCustom_Basic_IntentToPool(Intent, ResourceLoader.LoadSprite("idk.png"), _color);
             Intents.CreateAndAddCustom_Basic_IntentToPool(Intent2, ResourceLoader.LoadSprite("idk.png"), _color2);
             Intents.CreateAndAddCustom_Basic_IntentToPool(Intent3, ResourceLoader.LoadSprite("idk.png"), _color3);
             Intents.CreateAndAddCustom_Basic_IntentToPool(Intent4, ResourceLoader.LoadSprite("idk.png"), _color4);
+            Intents.CreateAndAddCustom_Basic_IntentToPool(StopIntent, ResourceLoader.LoadSprite("idk.png"), _stopColor);
         }
     }
     public class AntiCrosswalkEffect : EffectSO
