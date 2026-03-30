@@ -35,6 +35,13 @@ namespace SaltEnemies_Reseasoned
                     PCall(WolfEncounters.Add);
                     PCall(StalkerEncounters.Add);
                 }
+                //abyss
+                if (Abyss.Exists)
+                {
+                    PCall(PuppetEncounters.Add);
+                    PCall(HandEncounters.Add);
+                    PCall(MechanicalAngelEncounters.Add);
+                }
             }
 
             orig(self);
@@ -142,6 +149,9 @@ namespace SaltEnemies_Reseasoned
             PCall(PapereaterEncounters.Post);
             PCall(WhaleEncounters.Post);
             PCall(Ecstasy99Encounters.Post);
+            PCall(PuppetEncounters.Post);
+            PCall(HandEncounters.Post);
+            PCall(MechanicalAngelEncounters.Post);
 
             //basegame
             PCall(FoundlingEncounters.Post);
