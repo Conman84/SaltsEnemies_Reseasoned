@@ -295,6 +295,13 @@ namespace SaltsEnemies_Reseasoned
             PCall(Whale.Add);
             PCall(Ecstasy99.Add);
 
+            //CH25 Enemies
+            PCall(AbandonedPuppet.Add);
+            PCall(HandOfGod.Add);
+            PCall(Nine.Add);
+            PCall(Mimita.Add);
+            PCall(MechanicalAngel.Add);
+
             //BOSSES
             //shore
             PCall(Smilers.Add);
