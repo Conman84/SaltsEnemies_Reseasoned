@@ -15,6 +15,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 Health = 3,
                 HealthColor = Pigments.Red,
+                Size = 3,
                 CombatSprite = ResourceLoader.LoadSprite("MimitaIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("MimitaIcon.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("MimitaIcon.png", new Vector2(0.5f, 0f), 32),
