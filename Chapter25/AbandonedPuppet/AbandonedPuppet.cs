@@ -100,8 +100,7 @@ namespace SaltsEnemies_Reseasoned
                 lost.GenerateEnemyAbility(true),
                 found.GenerateEnemyAbility(true)
             });
-            puppet.AddEnemy(true, true);
-            puppet.enemy.AddToSynodPool();
+            puppet.AddEnemy();
             puppet.enemy.AddToToysPool();
         }
     }

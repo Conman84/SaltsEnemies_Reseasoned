@@ -112,8 +112,7 @@ namespace SaltsEnemies_Reseasoned
                 hunter.GenerateEnemyAbility(true),
                 god.GenerateEnemyAbility(true)
             });
-            hand.AddEnemy(true, true);
-            hand.enemy.AddToSynodPool();
+            hand.AddEnemy();
         }
     }
 }
