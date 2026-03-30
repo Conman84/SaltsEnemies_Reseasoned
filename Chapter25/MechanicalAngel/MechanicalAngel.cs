@@ -148,7 +148,8 @@ namespace SaltsEnemies_Reseasoned
                 wastes.GenerateEnemyAbility(true),
                 accumulates.GenerateEnemyAbility(true),
             });
-            mechanism.AddEnemy();
+            mechanism.AddEnemy(true, true);
+            mechanism.enemy.AddToSynodPool();
         }
     }
 }
