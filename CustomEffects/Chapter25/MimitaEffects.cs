@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         public static void Add()
         {
             Effect = ScriptableObject.CreateInstance<SpawnRandomEnemyAnywhereEffect>();
-            Effect._spawnTypeID = "Basic";
+            Effect._spawnTypeID = "Spawn_Basic";
             Effect._enemies = [
                 LoadedAssetsHandler.GetEnemy("Chordophone_EN"),
                 LoadedAssetsHandler.GetEnemy("Psaltery_EN"),
