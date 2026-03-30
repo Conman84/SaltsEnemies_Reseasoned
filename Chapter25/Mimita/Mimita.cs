@@ -60,9 +60,9 @@ namespace SaltsEnemies_Reseasoned
             mimita.AddPassives(new BasePassiveAbilitySO[] { desperate, Passives.Infantile, lovely, Passives.OverexertGenerator(3), Passives.Withering });
 
             Ability death = new Ability("The God Of Life And Death", "Mimita_Death_A");
-            death.Description = "Take a Barely Painful amount of damage.";
+            death.Description = "Gain 3 Determined.\nTake a Barely Painful amount of damage.";
             death.Rarity = Rarity.Common;
-            death.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 3, TargettingSelf_NotSlot.Create())];
+            death.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDeterminedEffect>(), 3, Slots.Self), Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 3, TargettingSelf_NotSlot.Create())];
             death.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), ["Damage_3_6"]);
             death.AnimationTarget = TargettingSelf_NotSlot.Create();
             death.Visuals = Visuals.Headshot;
