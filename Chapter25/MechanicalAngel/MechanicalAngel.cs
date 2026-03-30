@@ -122,7 +122,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability wastes = new Ability("The Future Wastes", "angel_waste_A");
             wastes.Description = "At the start of this enemy's next turn, deal a Lethal amount of damage to the current Opposing position.";
-            wastes.Rarity = Rarity.GetCustomRarity("rarity5");
+            wastes.Rarity = Rarity.CreateAndAddCustomRarityToPool("mechanism_low", 3);
             wastes.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 18, Slots.Front)];
             wastes.AddIntentsToTarget(Slots.Front, ["Damage_Delay", "Damage_16_20"]);
             wastes.AnimationTarget = Slots.Front;
@@ -132,6 +132,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability accumulates = new Ability("The Future Accumulates", "angel_future_A");
             accumulates.Description = "Remove all Slip.\nIf any Slip was removed, gain 1 Haste.";
+            accumulates.Rarity = Rarity.GetCustomRarity("rarity5");
             accumulates.Effects = [Effects.GenerateEffect(rem_slip, 1, all), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyHasteEffect>(), 1, Slots.Self, BasicEffects.DidThat(true))];
             accumulates.AddIntentsToTarget(all, [Slip.Rem_Intent]);
             accumulates.AddIntentsToTarget(Slots.Self, ["Misc_Hidden", Haste.Intent]);
