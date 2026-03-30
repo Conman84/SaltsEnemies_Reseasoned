@@ -1152,7 +1152,7 @@ namespace SaltEnemies_Reseasoned
                             new_icons.Add(icons[checkColor]);
                         }
                     }
-                    while (self._intents.Count <= new_icons.Count) self.GenerateNewIntent();
+                    while (self._intents.Count < new_icons.Count) self.GenerateNewIntent();
                     for (int index = 0; index < self._intents.Count; ++index)
                     {
                         if (new_colors[index] == FallColor._color || new_colors[index].Equals(FallColor._color))
@@ -1180,7 +1180,7 @@ namespace SaltEnemies_Reseasoned
                             animateSprites.RemoveAt(0);
                             animateColors.RemoveAt(0);
                         }
-                        else if (index > new_icons.Count)
+                        else if (index >= new_icons.Count)
                         {
                             self._intents[index].SetActivation(false);
                         }
@@ -1436,8 +1436,6 @@ namespace SaltEnemies_Reseasoned
                     self.GenerateUnusedIntent();
                 TargetIntentLayout targetIntentLayout = self._unusedIntents.Dequeue();
                 targetIntentLayout.MoveToLast();
-                targetIntentLayout.SetInformation(icons[icons.Length - 1], colors[colors.Length - 1]);
-                targetIntentLayout.SetActivation(true);
                 self._intentsInUse.Add(targetIntentLayout);
                 foreach (IntentLayoutAnimator old in targetIntentLayout.gameObject.GetComponents<IntentLayoutAnimator>())
                 {
@@ -1458,6 +1456,9 @@ namespace SaltEnemies_Reseasoned
                     animateSprites.Add(icons[i]);
                     animateColors.Add(colors[i]);
                 }
+
+                targetIntentLayout.SetInformation(animateSprites[0], animateColors[0]);
+                targetIntentLayout.SetActivation(true);
 
                 IntentLayoutAnimator grah = targetIntentLayout.gameObject.AddComponent<IntentLayoutAnimator>();
                 grah.mutilate = targetIntentLayout;
@@ -1584,8 +1585,7 @@ namespace SaltEnemies_Reseasoned
             }
             else
             {
-                orig(self, icons, colors);
-                foreach (TargetIntentLayout lay in self._intentsInUse)
+                foreach (TargetIntentLayout lay in self._unusedIntents)
                 {
                     IntentLayoutAnimator[] array = lay.gameObject.GetComponents<IntentLayoutAnimator>();
                     foreach (IntentLayoutAnimator ain in array)
@@ -1599,6 +1599,7 @@ namespace SaltEnemies_Reseasoned
                         old.enabled = false;
                     }
                 }
+                orig(self, icons, colors);
             }
         }
 
