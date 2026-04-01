@@ -6,6 +6,7 @@ using BepInEx.Bootstrap;
 using System.Collections;
 using System;
 using MonoMod.RuntimeDetour;
+using SaltEnemies_Reseasoned;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -17,7 +18,7 @@ namespace SaltsEnemies_Reseasoned
         {
             get
             {
-                return LoadedDBsHandler.InfoHolder.Game.GetBoolData(Solo);
+                return LoadedDBsHandler.InfoHolder.Game.GetBoolData(Solo) || April.Birthday;
             }
         }
         public static IEnumerator CombatManager_ProcessSpecialSceneEnd(Func<CombatManager, string, IEnumerator> orig, CombatManager self, string scene)
