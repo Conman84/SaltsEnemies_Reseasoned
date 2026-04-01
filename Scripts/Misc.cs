@@ -49,6 +49,7 @@ namespace SaltEnemies_Reseasoned
         {
             get
             {
+                if (Birthday) return true;
                 bool ret = Directory.Exists(AppData + "/Mods/") && Directory.Exists(AppData + "/Mods/SaltHawthorne/") && File.Exists(AppData + "/Mods/SaltHawthorne/custom.txt");
 
                 if (SaltsReseasoned.DebugVer) Debug.Log("custom:" + ret.ToString());
