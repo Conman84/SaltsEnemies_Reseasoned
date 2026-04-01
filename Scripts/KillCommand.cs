@@ -46,7 +46,7 @@ namespace SaltsEnemies_Reseasoned
                 DebugController.Instance.WriteLine("fullheal party.");
             });
 
-            CHANGEBOSS = new DebugCommand("changezoneboss", "Replaces the THIS area's boss. Can only replace the boss with bosses that can normally appear in the next area.", new List<DebugCommandArgument>
+            CHANGEBOSS = new DebugCommand("changezoneboss", "Replaces the THIS area's boss. Can only replace the boss with bosses that can normally appear in the THIS area.", new List<DebugCommandArgument>
             {
                 new StringCommandArgument("boss", DebugController.BossAutocomplete)
             }, delegate (List<FilledCommandArgument> args)
