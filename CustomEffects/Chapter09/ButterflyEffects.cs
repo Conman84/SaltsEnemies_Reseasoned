@@ -1155,7 +1155,11 @@ namespace SaltEnemies_Reseasoned
                     while (self._intents.Count < new_icons.Count) self.GenerateNewIntent();
                     for (int index = 0; index < self._intents.Count; ++index)
                     {
-                        if (new_colors[index] == FallColor._color || new_colors[index].Equals(FallColor._color))
+                        if (index >= new_icons.Count)
+                        {
+                            self._intents[index].SetActivation(false);
+                        }
+                        else if (new_colors[index] == FallColor._color || new_colors[index].Equals(FallColor._color))
                         {
                             IntentLayoutAnimator[] array = self._intents[index].gameObject.GetComponents<IntentLayoutAnimator>();
                             foreach (IntentLayoutAnimator ain in array)
@@ -1179,10 +1183,6 @@ namespace SaltEnemies_Reseasoned
 
                             animateSprites.RemoveAt(0);
                             animateColors.RemoveAt(0);
-                        }
-                        else if (index >= new_icons.Count)
-                        {
-                            self._intents[index].SetActivation(false);
                         }
                         else
                         {
