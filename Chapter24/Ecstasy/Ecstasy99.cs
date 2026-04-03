@@ -62,7 +62,7 @@ namespace SaltsEnemies_Reseasoned
             hit._visuals = Visuals.Scales;
 
             Ability pray = new Ability("1000 Prayers", "1000Prayers_A");
-            pray.Description = "Revive as many party members as possible at 1 health.\nIf the Left, Right, and Opposing party members are below half health, deal an Impossible amount of damage to them.";
+            pray.Description = "Revive as many party members as possible at 1 health.\nIf the Left, Right, or Opposing party members are below half health, deal an Impossible amount of damage to them.";
             pray.Rarity = Rarity.GetCustomRarity("rarity5");
             pray.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ResurrectEffect>(), 1, Targetting.Everything(false)),
