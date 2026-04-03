@@ -69,7 +69,7 @@ namespace SaltsEnemies_Reseasoned
             patience.Effects[0] = Effects.GenerateEffect(BasicEffects.GetVisuals("Crush_A", false, Slots.LeftRight), 1, null, AnyTargetsAtMaxHealthCondition.Create(Slots.LeftRight));
             patience.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.LeftRight, AnyTargetsAtMaxHealthCondition.Create(Slots.LeftRight));
             patience.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<WasteTimeEffect>(), 1, Slots.Self, BasicEffects.DidThat(false, 2));
-            patience.AddIntentsToTarget(Slots.LeftRight, [IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Damage_3_6.ToString()]);
+            patience.AddIntentsToTarget(Slots.LeftRight, [IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Damage_7_10.ToString()]);
             patience.Visuals = null;
             patience.AnimationTarget = Slots.Self;
 
@@ -94,6 +94,7 @@ namespace SaltsEnemies_Reseasoned
             };
             track.AddIntentsToTarget(LeftRightTargetting.Create(false, true), [IntentType_GameIDs.Misc_Hidden.ToString()]);
             track.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Sides.ToString()]);
+            track.AddIntentsToTarget(Slots.Front, ["Damage_3_6"]);
 
             //ADD ENEMY
             hunting.AddEnemyAbilities(new EnemyAbilityInfo[]
