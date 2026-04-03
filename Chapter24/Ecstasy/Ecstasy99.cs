@@ -41,7 +41,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(CasterRootActionEffect.Create([
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ShowMissDosePassiveEffect>(), 0, Slots.Self, ScriptableObject.CreateInstance<HasHealthEffectCondition>()),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<TransformRandomEnemyEffect>(), 99, Slots.Self, ScriptableObject.CreateInstance<HasHealthEffectCondition>()),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateNewEnemyTurnEffect>(), 0, Slots.Self, BasicEffects.DidThat(true))
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateNewEnemyTurnEffect>(), 0, Slots.Self, DoubleCondition.Create(BasicEffects.DidThat(true), ScriptableObject.CreateInstance<HasTurnsEffectCondition>(), true))
                     ]))
                 ];
             Passive = missdose;
