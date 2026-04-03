@@ -123,7 +123,7 @@ namespace SaltsEnemies_Reseasoned
                 mines.GenerateEnemyAbility(true),
                 plus.GenerateEnemyAbility(true),
             });
-            nine.AddEnemy(false, true);
+            nine.AddEnemy(false);
             nine.enemy.AddToToysPool();
         }
     }
