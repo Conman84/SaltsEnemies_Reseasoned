@@ -63,11 +63,11 @@ namespace SaltsEnemies_Reseasoned
 
             //patience
             Ability patience = new Ability("Patience", "Hunter_Patience_A");
-            patience.Description = "If either the Left or Right party members are at full health, deal a Painful amount of damage to both of them.";
+            patience.Description = "If either the Left or Right party members are at full health, deal an Agonizing amount of damage to both of them.";
             patience.Rarity = Rarity.GetCustomRarity("rarity5");
             patience.Effects = new EffectInfo[3];
             patience.Effects[0] = Effects.GenerateEffect(BasicEffects.GetVisuals("Crush_A", false, Slots.LeftRight), 1, null, AnyTargetsAtMaxHealthCondition.Create(Slots.LeftRight));
-            patience.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Slots.LeftRight, AnyTargetsAtMaxHealthCondition.Create(Slots.LeftRight));
+            patience.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.LeftRight, AnyTargetsAtMaxHealthCondition.Create(Slots.LeftRight));
             patience.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<WasteTimeEffect>(), 1, Slots.Self, BasicEffects.DidThat(false, 2));
             patience.AddIntentsToTarget(Slots.LeftRight, [IntentType_GameIDs.Misc_Hidden.ToString(), IntentType_GameIDs.Damage_3_6.ToString()]);
             patience.Visuals = null;
