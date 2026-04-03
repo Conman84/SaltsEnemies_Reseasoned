@@ -348,4 +348,27 @@ namespace SaltsEnemies_Reseasoned
             return base.PerformEffect(stats, caster, ret.ToArray(), areTargetSlots, entryVariable, out exitAmount);
         }
     }
+
+    public class HasTurnsEffectCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            if (caster is EnemyCombat enemy)
+            {
+                if (CombatManager.Instance._stats.IsPlayerTurn) return enemy.TurnsInTimeline > 0;
+
+                CombatStats stats = CombatManager.Instance._stats;
+                for (int i = stats.timeline.CurrentTurn + (stats.IsPlayerTurn ? 0 : 1); i < stats.timeline.Round.Count; i++)
+                {
+                    if (stats.timeline.Round[i].isPlayer) continue;
+
+                    if (stats.timeline.Round[i].turnUnit == enemy)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+    }
 }

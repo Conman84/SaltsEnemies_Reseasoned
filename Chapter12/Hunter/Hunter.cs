@@ -74,16 +74,22 @@ namespace SaltsEnemies_Reseasoned
             patience.AnimationTarget = Slots.Self;
 
             //track
+            StatusEffectCheckerEffect hasTerror = ScriptableObject.CreateInstance<StatusEffectCheckerEffect>();
+            hasTerror._status = Terror.Object;
+            hasTerror._allTargetsHaveStatusEffect = false;
             Ability track = new Ability("Hunter_TrackDown_A")
             {
                 Name = "Track Down",
-                Description = "This enemy moves to the Left or Right, and will always attempt to move in front of a target with Terror if possible.",
+                Description = "This enemy moves to the Left or Right, and will always attempt to move in front of a target with Terror if possible.\nIf the Opposing party member does not have Terror, deal a Painful amount of damage to them.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<HuntDownEffect>(), 1, LeftRightTargetting.Create(false, true)),
+                    Effects.GenerateEffect(hasTerror, 1, Slots.Front),
+                    Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Gaze", false, Slots.Front), 1, Slots.Front, BasicEffects.DidThat(false, 1)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Slots.Front, BasicEffects.DidThat(false, 2))
                 },
-                Visuals = CustomVisuals.GetVisuals("Salt/Gaze"),
+                Visuals = null,
                 AnimationTarget = MultiTargetting.Create(Slots.Self, Slots.LeftRight),
             };
             track.AddIntentsToTarget(LeftRightTargetting.Create(false, true), [IntentType_GameIDs.Misc_Hidden.ToString()]);
