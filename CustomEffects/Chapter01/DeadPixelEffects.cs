@@ -429,7 +429,7 @@ namespace SaltEnemies_Reseasoned
                     mana = Pigments.Purple;
                 else if (choosing < 100)
                     mana = Pigments.Green;
-                CombatManager.Instance.ProcessImmediateAction(new AddManaToManaBarAction(mana, entryVariable, caster.IsUnitCharacter, caster.ID));
+                CombatManager.Instance.ProcessImmediateAction(new AddManaToManaBarAction(mana, 1, caster.IsUnitCharacter, caster.ID));
                 exitAmount++;
                 isBarFull = stats.MainManaBar.IsManaBarFull;
             }
