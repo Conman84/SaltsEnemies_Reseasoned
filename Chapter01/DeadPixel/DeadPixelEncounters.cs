@@ -35,12 +35,6 @@ namespace SaltsEnemies_Reseasoned
             {
                 "DeadPixel_EN",
                 "DeadPixel_EN",
-                "JumbleGuts_Waning_EN"
-            }, null);
-            mainEncounters.CreateNewEnemyEncounterData(new string[]
-            {
-                "DeadPixel_EN",
-                "DeadPixel_EN",
                 "JumbleGuts_Clotted_EN"
             }, null);
             mainEncounters.CreateNewEnemyEncounterData(new string[]
