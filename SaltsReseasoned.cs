@@ -567,7 +567,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("IndicatorPassive.png"), "Compulsory", "On an Opponent moving in front of this unit, force the Opposing unit to perform a random ability.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SpasmPassive.png"), "Spasm", "On death, all living allied units will attempt to prematurely perform their next turn then gain another action on the timeline if succesful.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MawPassive.png"), "Bad Dog", "At the start of each round and on anything moving during the player's turn, if this enemy has an Opposing party member, remove all of its actions from the timeline. \nOtherwise, return all lost actions.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SkinPeelingPassive.png"), "Skinning", "On being directly damaged, exhaust the Opposing party member's ability and movement usage.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SkinPeelingPassive.png"), "Skinning", "On being directly damaged, spawn as many of a specific enemy as possible.");
 
             //CH14
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WavesPassive.png"), "Waves", "On moving, inflict a certain amount of Deep Water on the Opposing position.");
