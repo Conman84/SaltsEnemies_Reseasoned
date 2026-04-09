@@ -40,6 +40,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 Flower.Yellow,
                 Flower.Purple,
+                "MusicMan_EN"
             }, null);
             mainEncounters2.CreateNewEnemyEncounterData(new string[]
             {
@@ -52,6 +53,8 @@ namespace SaltsEnemies_Reseasoned
                 Flower.Yellow,
                 Flower.Purple,
                 "MechanicalLens_EN",
+                "SingingStone_EN",
+                "SingingStone_EN",
             }, null);
             mainEncounters2.CreateNewEnemyEncounterData(new string[]
             {

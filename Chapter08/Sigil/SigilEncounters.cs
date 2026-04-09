@@ -338,12 +338,12 @@ namespace SaltsEnemies_Reseasoned
             bundle20.AddRandomGroup("Delusion_EN", "Delusion_EN", "Sigil_EN", "Enigma_EN");
 
             AddTo bundle21 = new AddTo("H_Zone02_YellowFlower_Medium_EnemyBundle");
-            bundle21.AddRandomGroup(Flower.Yellow, Flower.Purple, "Sigil_EN");
             bundle21.AddRandomGroup(Flower.Yellow, "Delusion_EN", "Sigil_EN", "FakeAngel_EN");
+            bundle21.AddRandomGroup(Flower.Yellow, "MusicMan_EN", "Sigil_EN");
 
             AddTo bundle22 = new AddTo("H_Zone02_PurpleFlower_Medium_EnemyBundle");
-            bundle22.AddRandomGroup(Flower.Purple, Flower.Yellow, "Sigil_EN");
             bundle22.AddRandomGroup(Flower.Purple, "Delusion_EN", "Sigil_EN", "FakeAngel_EN");
+            bundle22.AddRandomGroup(Flower.Purple, "MusicMan_EN", "Sigil_EN");
         }
     }
 }
