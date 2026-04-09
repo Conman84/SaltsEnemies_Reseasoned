@@ -57,19 +57,18 @@ namespace SaltsEnemies_Reseasoned
             Ability trappings = new Ability("UFO_Trappings_A")
             {
                 Name = "Trappings",
-                Description = "Move to the Left or Right and inflict 2 Constricted on the Opposing position.",
-                Rarity = Rarity.GetCustomRarity("rarity5"),
+                Description = "Move to the Left or Right and gain 4 Shield.",
+                Rarity = Rarity.Uncommon,
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self),
-                    Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Cube", false, Slots.Front), 1, Slots.Front),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 2, Slots.Front),
+                    Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Cube", false, Slots.Self), 1, Slots.Self),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 4, Slots.Self),
                 },
                 Visuals = null,
                 AnimationTarget = Slots.Front,
             };
-            trappings.AddIntentsToTarget(Slots.Self, IntentType_GameIDs.Swap_Sides.ToString().SelfArray());
-            trappings.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Field_Constricted.ToString().SelfArray());
+            trappings.AddIntentsToTarget(Slots.Self, ["Swap_Sides", "Field_Shield"]);
 
             //wheeling
             Ability wheeling = new Ability("UFO_Wheeling_A")
@@ -89,13 +88,42 @@ namespace SaltsEnemies_Reseasoned
             };
             wheeling.AddIntentsToTarget(Slots.Self, new string[] { "Swap_Sides", "Swap_Sides" });
             wheeling.AddIntentsToTarget(Slots.Front, IntentType_GameIDs.Damage_1_2.ToString().SelfArray());
+            wheeling.GenerateEnemyAbility(true);
+
+            Ability anti = new Ability("UFO_Antiwheeling_A");
+            anti.Name = "Antiwheeling";
+            anti.Description = "Move Left or Right.\nDeal Almost No damage to the Opposing party member 3 times.";
+            anti.Rarity = Rarity.GetCustomRarity("rarity5");
+            anti.Effects = [
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self),
+                    Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Wheel", false, Slots.Front)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 1, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 1, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 1, Slots.Front),
+                ];
+            anti.AddIntentsToTarget(Slots.Self, ["Swap_Sides"]);
+            anti.AddIntentsToTarget(Slots.Front, ["Damage_1_2", "Damage_1_2", "Damage_1_2"]);
+            anti.Visuals = null;
+            anti.AnimationTarget = Slots.Self;
+
+            //torture time
+            Ability torture = new Ability("UFO_TortureTime_A");
+            torture.Name = "Torture Time!";
+            torture.Description = "Inflict 5 Fire on the Opposing position.";
+            torture.Rarity = Rarity.CreateAndAddCustomRarityToPool("ufo_low", 3);
+            torture.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 5, Slots.Front)];
+            torture.AddIntentsToTarget(Slots.Front, ["Field_Fire"]);
+            torture.Visuals = Visuals.Burn;
+            torture.AnimationTarget = Slots.Front;
 
             //ADD ENEMY
             ufo.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 laser.GenerateEnemyAbility(true),
                 trappings.GenerateEnemyAbility(true),
-                wheeling.GenerateEnemyAbility(true)
+                //wheeling.GenerateEnemyAbility(true),
+                anti.GenerateEnemyAbility(true),
+                torture.GenerateEnemyAbility(true),
             });
             ufo.AddEnemy(true, true);
             ufo.enemy.AddToSynodPool();
