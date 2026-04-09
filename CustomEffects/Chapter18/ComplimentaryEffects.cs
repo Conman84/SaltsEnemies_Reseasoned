@@ -25,13 +25,13 @@ namespace SaltEnemies_Reseasoned
     }
     public class SplitInTwoEffect : EffectSO
     {
-        public bool SilentDeath(EnemyCombat self, IUnit killer, bool obliteration = false)
+        public bool SilentDeath(EnemyCombat self, IUnit killer)
         {
             int currentHealth = self.CurrentHealth;
             self.CurrentHealth = 0;
             self.HasFled = true;
-            CombatManager.Instance.AddUIAction(new EnemyDamagedUIAction(self.ID, self.CurrentHealth, self.MaximumHealth, currentHealth, CombatType_GameIDs.Dmg_Weak.ToString()));
-            CombatManager.Instance.AddSubAction(new GuaranteedEnemyDeathAction(self.ID, killer, DeathType_GameIDs.DirectDeath.ToString()));
+            CombatManager.Instance.AddUIAction(new EnemyDamagedUIAction(self.ID, self.CurrentHealth, self.MaximumHealth, currentHealth, "", false, false));
+            CombatManager.Instance.AddSubAction(new GuaranteedEnemyDeathAction(self.ID, killer, DeathType_GameIDs.Obliteration.ToString()));
             return true;
         }
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
