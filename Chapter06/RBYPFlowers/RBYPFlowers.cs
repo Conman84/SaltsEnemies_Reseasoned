@@ -60,7 +60,7 @@ namespace SaltsEnemies_Reseasoned
                 {
                             Effects.GenerateEffect(BasicEffects.GoRight, 1, Targeting.Slot_OpponentLeft),
                             Effects.GenerateEffect(BasicEffects.GoLeft, 1, Targeting.Slot_OpponentRight),
-                            Effects.GenerateEffect(CasterRootActionEffect.Create(new EffectInfo[]
+                            Effects.GenerateEffect(CasterSubActionEffect.Create(new EffectInfo[]
                             {
                                 Effects.GenerateEffect(BasicEffects.GetVisuals("Thorns_1_A", true, Targeting.Slot_Front), 1, Targeting.Slot_Front),
                                 Effects.GenerateEffect(ScriptableObject.CreateInstance<IfRootsDamageEffect>(), 5, Targeting.Slot_Front),
