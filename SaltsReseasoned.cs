@@ -9,7 +9,7 @@ using SaltsEnemies_Reseasoned.Chapter1.LostSheep;
 namespace SaltsEnemies_Reseasoned
 {
 
-    [BepInPlugin("000.saltenemies", "Salt Enemies (TM) Reseasoned", "1.1.7.1")]//next is 1.1.7.2
+    [BepInPlugin("000.saltenemies", "Salt Enemies (TM) Reseasoned", "1.1.7.2")]//next is 1.1.7.2
     [BepInDependency("BrutalOrchestra.BrutalAPI", BepInDependency.DependencyFlags.HardDependency)]
     public class SaltsReseasoned : BaseUnityPlugin
     {
