@@ -33,6 +33,17 @@ namespace SaltsEnemies_Reseasoned
             grow.effects = new EffectInfo[] { Effects.GenerateEffect(CasterRootActionEffect.Create(new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRootsSlotEffect>(), 3, Targeting.Slot_Front) }), 1, Targeting.Slot_SelfSlot) };
             grow._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
             grow.conditions = Passives.Slippery.conditions;
+            //escapist
+            PerformEffectPassiveAbility escape = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            escape.name = "Escapist_PA";
+            escape._passiveName = "Escapist";
+            escape.passiveIcon = ResourceLoader.LoadSprite("EscapistPassive.png");
+            escape.m_PassiveID = "Escapist_PA";
+            escape._enemyDescription = "On using an ability, move to a random unoccupied position.";
+            escape._characterDescription = escape._enemyDescription;
+            escape._triggerOn = [TriggerCalls.OnAbilityUsed];
+            escape.conditions = [];
+            escape.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToRandomEmptyTileEffect>(), 1, Slots.Self)];
 
             //enemy
             Enemy greyFlower = new Enemy("Ghastly Flower", "GreyFlower_EN")
@@ -47,7 +58,7 @@ namespace SaltsEnemies_Reseasoned
             };
             greyFlower.PrepareEnemyPrefab("assets/group4/GreyFlower/GreyFlower_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/GreyFlower/GreyFlower_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            greyFlower.AddPassives(new BasePassiveAbilitySO[] { Passives.Pure, splatter, grow });
+            greyFlower.AddPassives(new BasePassiveAbilitySO[] { Passives.Pure, splatter, grow, escape });
             greyFlower.AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_PigmentFlower>();
 
             //DIE4U

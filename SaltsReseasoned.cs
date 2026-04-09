@@ -515,6 +515,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("IllusionPassive.png"), "Delirium", "This unit has an Offense and a Supportive State and randomly picks between the two on entering battle.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("splatter.png"), "Splatter", "On death, produce a certain amount of Pigment of this unit's health color.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Overgrowth.png"), "Overgrowth", "On taking direct damage, inflict a certain amount of Roots on the Opposing position.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("EscapistPassive.png"), "Escapist", "On using an ability, move to a random unoccupied position.");
 
             //CH7
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("saltwater.png"), "Salinity", "On receiving direct damage, produce a certain amount of Blue Pigment.");
@@ -635,8 +636,7 @@ namespace SaltsEnemies_Reseasoned
             //CH24
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CausalityPassive.png"), "Causality", "On moving, deal a certain amount of damage to the current Opposing position at the start of the next turn.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ComissionerPassive.png"), "Commissioner", "On being directly damaged, force the Opposing party member to perform this enemy's first action.\nIf successful, remove that action and give this enemy another one.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("EscapistPassive.png"), "Escapist", "On using an ability, move to a random unoccupied position.");
-
+            
             //BOSSES
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SunkPassive.png"), "Sunk", "All positions are in permenant Deep Water.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("RadicalPassive.png"), "Radical", "On being damaged, Adjust All Lights.");
