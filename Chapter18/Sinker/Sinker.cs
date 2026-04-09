@@ -59,6 +59,7 @@ namespace SaltsEnemies_Reseasoned
             exit_shield._UsePreviousExitValueAsMultiplier = true;
             SpawnEnemyByStringNameEffect danglers = ScriptableObject.CreateInstance<SpawnEnemyByStringNameEffect>();
             danglers.enemyName = "Dangler_EN";
+            danglers._spawnTypeID = "Spawn_Basic";
             //inchoking
             Ability inchoking = new Ability("SinkerInchoking_A");
             inchoking.Name = "Inchoking";
