@@ -76,7 +76,7 @@ namespace SaltsEnemies_Reseasoned
             escape._triggerOn = [TriggerCalls.OnAbilityUsed];
             escape.conditions = [];
             escape.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToRandomEmptyTileEffect>(), 1, Slots.Self)];
-            escape.AddToPassiveDatabase();
+            //escape.AddToPassiveDatabase();
 
             panopticon.AddPassives([colors, commissioner, escape]);
 
