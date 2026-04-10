@@ -280,7 +280,7 @@ namespace SaltsEnemies_Reseasoned
             rubber.item._ItemTypeIDs = ["Knife"];
             rubber.item.AddBlueSkyUnlock("Dimitri_CH", "locked_rubberknife.png", "ach_rubberknife.png");
 
-            BaseCombatTargettingSO right = Targeting.GenerateSlotTarget(new int[] { 1, -4 }, false);
+            BaseCombatTargettingSO right = Targeting.GenerateSlotTarget(new int[] { 1, -4 }, true);
 
             Ability apotheosis = new Ability("Process Towards Apotheosis", "Salt_Apotheosis_A");
             apotheosis.Description = "Fully heal the Right ally.\nInflict Acid on them equal to the health healed.\nThis ability assumes the grid loops around.";
