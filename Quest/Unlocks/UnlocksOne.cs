@@ -283,15 +283,17 @@ namespace SaltsEnemies_Reseasoned
             BaseCombatTargettingSO right = Targeting.GenerateSlotTarget(new int[] { 1, -4 }, true);
 
             Ability apotheosis = new Ability("Process Towards Apotheosis", "Salt_Apotheosis_A");
-            apotheosis.Description = "Fully heal the Right ally.\nInflict Acid on them equal to the health healed.\nThis ability assumes the grid loops around.";
+            apotheosis.Description = "Fully heal the Right ally and inflict Acid on them equal to the health healed. This ability assumes the grid loops around.\nRemove this ability from this party member.";
             apotheosis.AbilitySprite = ResourceLoader.LoadSprite("ability_apotheosis.png");
-            apotheosis.Cost = [Pigments.Purple];
-            apotheosis.Effects = new EffectInfo[2];
+            apotheosis.Cost = [Pigments.Blue];
+            apotheosis.Effects = new EffectInfo[3];
             apotheosis.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<FullHealEffect>(), 1, right);
             ApplyAcidEffect acid_exit = ScriptableObject.CreateInstance<ApplyAcidEffect>();
             acid_exit._MultPreviousExitValueForEntry = true;
             apotheosis.Effects[1] = Effects.GenerateEffect(acid_exit, 1, right);
+            apotheosis.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterRemoveItemExtraAbilityEffect>());
             apotheosis.AddIntentsToTarget(right, [IntentType_GameIDs.Heal_11_20.ToString(), Acid.Intent]);
+            apotheosis.AddIntentsToTarget(Slots.Self, ["Misc"]);
             apotheosis.AnimationTarget = right;
             apotheosis.Visuals = Visuals.Excommunicate;
 
