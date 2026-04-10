@@ -21,8 +21,21 @@ namespace SaltEnemies_Reseasoned
         }
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
-            if (args is bool allies)
+            if (effector.CurrentHealth > 0 || (effector.ContainsStatusEffect(Determined.StatusID) && (effector as IUnit).CanHeal(true, (effector as IUnit).GetStatusAmount(Determined.StatusID))))
             {
+
+            }
+            else return false;
+
+
+                bool allies = false;
+            if (args is IntegerReference_Damage damage)
+            {
+                if (damage.possibleSourceUnit != null)
+                {
+                    allies = damage.possibleSourceUnit.IsUnitCharacter == (effector as IUnit).IsUnitCharacter;
+                }
+
                 if (!allies)
                 {
                     CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { Effects.GenerateEffect(PriorityRootActionEffect.Create(new EffectInfo[]

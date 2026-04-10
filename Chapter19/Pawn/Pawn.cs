@@ -26,15 +26,15 @@ namespace SaltsEnemies_Reseasoned
             pawn.PrepareEnemyPrefab("Assets/enem3/Pawn_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Pawn_Gibs.prefab").GetComponent<ParticleSystem>());
 
             //traitor
-            TraitorHandler.Setup();
+            //TraitorHandler.Setup();
             PerformEffectPassiveAbility traitor = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             traitor._passiveName = "Traitor";
             traitor.passiveIcon = ResourceLoader.LoadSprite("TraitorPassive.png");
             traitor.m_PassiveID = "Traitor_PA";
             traitor._enemyDescription = "On receiving damage from an enemy, deal a Painful amount of damage to the Opposing party member.\nOn receiving damage from a party member, deal a Little damage to the Left and Right enemies.\nThis passive does not trigger if this enemy dies.";
-            traitor._characterDescription = "Wont work cuz i didnt bother setting up the other half of the hook";
+            traitor._characterDescription = "On receiving damage from a party member, deal 4 damage to the Opposing party member.\nOn receiving damage from an enemy, deal 2 damage to the Left and Right enemies.\nThis passive does not trigger if this party member dies.";
             traitor.conditions = [ScriptableObject.CreateInstance<TraitorCondition>()];
-            traitor._triggerOn = [TraitorHandler.Call];
+            traitor._triggerOn = [TriggerCalls.OnDirectDamaged];
             traitor.effects = new EffectInfo[0];
 
             //parental
