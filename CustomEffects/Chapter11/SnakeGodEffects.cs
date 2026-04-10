@@ -1,6 +1,7 @@
 ﻿using BrutalAPI;
 using DG.Tweening;
 using MonoMod.RuntimeDetour;
+using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -39,32 +40,34 @@ namespace SaltEnemies_Reseasoned
     }
     public static class SnakeGodManager
     {
-        public static DamageInfo Damage(Func<EnemyCombat, int, IUnit, string, int, bool, bool, bool, string, DamageInfo> orig, EnemyCombat self, int amount, IUnit killer, string deathType, int targetSlotOffset, bool addHealthMana, bool directDamage, bool ignoresShield, string specialDamage)
+        public static void NotifCheck(string notif, object sender, object args)
         {
-            DamageInfo ret = orig(self, amount, killer, deathType, targetSlotOffset, addHealthMana, directDamage, ignoresShield, specialDamage);
-            if (ret.damageAmount > 0 && killer != null && killer.IsUnitCharacter)
+            if (notif == TriggerCalls.OnDirectDamaged.ToString() && args is IntegerReference_Damage ret && sender is IPassiveEffector unit)
             {
-                foreach (BasePassiveAbilitySO passive in self.PassiveAbilities)
+                if (ret.value > 0 && ret.possibleSourceUnit != null && ret.possibleSourceUnit.IsUnitCharacter)
                 {
-                    if (passive is SnakeGodPassive snakey)
+                    foreach (BasePassiveAbilitySO passive in unit.PassiveAbilities)
                     {
-                        if (killer is CharacterCombat chara)
+                        if (passive is SnakeGodPassive snakey)
                         {
-                            int id = chara.ID;
-                            if (id == 0) id = -1;
-                            snakey.LastAttacker = chara.ID;
-                            self.SimpleSetStoredValue(Last, id);
-                            if (!snakey.AllAttackers.Contains(chara.ID)) snakey.AllAttackers.Add(chara.ID);
-                        }
-                        if (killer != null)
-                        {
-                            killer.ApplyStatusEffect(StatusField.Scars, 1);
+                            if (ret.possibleSourceUnit is CharacterCombat chara)
+                            {
+                                int id = chara.ID;
+                                if (id == 0) id = -1;
+                                snakey.LastAttacker = chara.ID;
+                                (unit as IUnit).SimpleSetStoredValue(Last, id);
+                                if (!snakey.AllAttackers.Contains(chara.ID)) snakey.AllAttackers.Add(chara.ID);
+                            }
+                            if (ret.possibleSourceUnit != null)
+                            {
+                                ret.possibleSourceUnit.ApplyStatusEffect(StatusField.Scars, 1);
+                            }
                         }
                     }
                 }
             }
-            return ret;
         }
+
         public static string Last = "SnakeGod_Last_PA";
         public static void Setup()
         {
@@ -74,8 +77,10 @@ namespace SaltEnemies_Reseasoned
                 LoadedDBsHandler.MiscDB.m_UnitStoreDataPool[Last] = target;
             else
                 LoadedDBsHandler.MiscDB.AddNewUnitStoreData(target._UnitStoreDataID, target);
+
+            NotificationHook.AddAction(NotifCheck);
             
-            IDetour hook = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.Damage), ~BindingFlags.Default), typeof(SnakeGodManager).GetMethod(nameof(Damage), ~BindingFlags.Default));
+            //IDetour hook = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.Damage), ~BindingFlags.Default), typeof(SnakeGodManager).GetMethod(nameof(Damage), ~BindingFlags.Default));
         }
     }
     public class UnitStoreData_SnakeGodTargetSO : UnitStoreData_BasicSO
