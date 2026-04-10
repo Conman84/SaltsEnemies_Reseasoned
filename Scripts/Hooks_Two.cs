@@ -312,13 +312,12 @@ namespace SaltEnemies_Reseasoned
                 if (killer != null && damage.damageTypeID == "Fake")
                 {
                     bool selfHas = self.ContainsStatusEffect(Inspiration.StatusID);
-                    bool killerHas = killer.ContainsStatusEffect(Inspiration.StatusID);
                     if (selfHas && damage.value > 0)
                     {
                         (self as IStatusEffector).RemoveStatusEffect(Inspiration.StatusID);
                         if (self.UnitTypes.Contains(Inspiration.Passive)) self.TryRemovePassiveAbility(Inspiration.Passive);
+                        CombatManager.Instance.AddRootAction(new ApplyInspirationAction(killer.ID, killer.IsUnitCharacter));
                     }
-                    if (selfHas && damage.value > 0) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(killer.ID, killer.IsUnitCharacter));
                 }
             }
         }
