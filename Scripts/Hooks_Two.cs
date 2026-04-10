@@ -99,17 +99,7 @@ namespace SaltEnemies_Reseasoned
                     UnityEngine.Debug.LogError("Echo failed");
                 }
             }
-            if (killer != null && self.ContainsPassiveAbility(WarpingHandler.Type) && self.CanPassiveTrigger(WarpingHandler.Type) && ret.damageAmount > 0)
-            {
-                WarpingPassiveEffect w = ScriptableObject.CreateInstance<WarpingPassiveEffect>();
-                w.ID = self.ID;
-                w.IsUnitCharacter = self.IsUnitCharacter;
-                CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[]
-                {
-                    Effects.GenerateEffect(w, 1, Targeting.Slot_SelfSlot),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Targeting.Slot_SelfSlot)
-                }, killer));
-            }
+            
 
             //inspiration stuff
             if (killer != null && directDamage)
@@ -299,6 +289,36 @@ namespace SaltEnemies_Reseasoned
                 if (notificationName == TriggerCalls.OnDeath.ToString() || notificationName == TriggerCalls.OnFleetingEnd.ToString() || notificationName == TriggerCalls.OnMoved.ToString())
                 {
                     CombatManager.Instance.AddSubAction(new LonelySubAction());
+                }
+            }
+
+            if (notificationName == TriggerCalls.OnDirectDamaged.ToString() && args is IntegerReference_Damage damage && sender is IUnit u1)
+            {
+                IUnit killer = damage.possibleSourceUnit;
+                IUnit self = u1;
+                //warping
+                if (damage.possibleSourceUnit != null && u1.ContainsPassiveAbility(WarpingHandler.Type) && u1.CanPassiveTrigger(WarpingHandler.Type) && damage.value > 0)
+                {
+                    WarpingPassiveEffect w = ScriptableObject.CreateInstance<WarpingPassiveEffect>();
+                    w.ID = u1.ID;
+                    w.IsUnitCharacter = u1.IsUnitCharacter;
+                    CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[]
+                    {
+                    Effects.GenerateEffect(w, 1, Targeting.Slot_SelfSlot),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Targeting.Slot_SelfSlot)
+                    }, damage.possibleSourceUnit));
+                }
+                //inspiration stuff
+                if (killer != null && damage.damageTypeID == "Fake")
+                {
+                    bool selfHas = self.ContainsStatusEffect(Inspiration.StatusID);
+                    bool killerHas = killer.ContainsStatusEffect(Inspiration.StatusID);
+                    if (selfHas && damage.value > 0)
+                    {
+                        (self as IStatusEffector).RemoveStatusEffect(Inspiration.StatusID);
+                        if (self.UnitTypes.Contains(Inspiration.Passive)) self.TryRemovePassiveAbility(Inspiration.Passive);
+                    }
+                    if (selfHas && damage.value > 0) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(killer.ID, killer.IsUnitCharacter));
                 }
             }
         }
