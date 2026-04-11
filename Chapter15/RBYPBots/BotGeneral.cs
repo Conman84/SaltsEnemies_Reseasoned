@@ -34,14 +34,14 @@ namespace SaltsEnemies_Reseasoned
             Ability petrify = new Ability("Bot_Petrify_A")
             {
                 Name = "Petrify",
-                Description = "Deal a Painful amount of damage to the Opposing party member and move Left. \nChange the Right enemy's health color to this enemy's health color and inflict 1 Pimples on them.",
+                Description = "Deal a Painful amount of damage to the Opposing party member and move Left. \nChange the Right enemy's health color to this enemy's health color and inflict 2 Pimples on them.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("bot8", 8),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Front),
                     Effects.GenerateEffect(BasicEffects.GoLeft, 1, Slots.Self),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ChangeTargetHealthColorCasterHealthColorEffect>(), 1, Targeting.Slot_AllyRight),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPimplesEffect>(), 1, Targeting.Slot_AllyRight)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPimplesEffect>(), 2, Targeting.Slot_AllyRight)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Cannon"),
                 AnimationTarget = Slots.Front,
@@ -54,14 +54,14 @@ namespace SaltsEnemies_Reseasoned
             Ability partition = new Ability("Bot_Partition_A")
             {
                 Name = "Partition",
-                Description = "Deal a Painful amount of damage to the Opposing party member and move Right. \nChange the Left enemy's health color to this enemy's health color and inflict 1 Pimples on them.",
+                Description = "Deal a Painful amount of damage to the Opposing party member and move Right. \nChange the Left enemy's health color to this enemy's health color and inflict 2 Pimples on them.",
                 Rarity = Rarity.GetCustomRarity("bot8"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Front),
                     Effects.GenerateEffect(BasicEffects.GoRight, 1, Slots.Self),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ChangeTargetHealthColorCasterHealthColorEffect>(), 1, Targeting.Slot_AllyLeft),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPimplesEffect>(), 1, Targeting.Slot_AllyLeft)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPimplesEffect>(), 2, Targeting.Slot_AllyLeft)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Cannon"),
                 AnimationTarget = Slots.Front,
@@ -92,13 +92,12 @@ namespace SaltsEnemies_Reseasoned
             Ability postular = new Ability("Bot_Postular_A")
             {
                 Name = "Postular",
-                Description = "Inflict 1-2 Pimples on all enemies with this enemy's health color.\nIf all enemies have Pimples, gain Construct, otherwise, lose Construct.",
+                Description = "Inflict 2 Pimples on all enemies with this enemy's health color.\nIf all enemies have Pimples, gain Construct, otherwise, lose Construct.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("bot3", 3),
                 Priority = Priority.ExtremelySlow,
                 Effects = new EffectInfo[]
                 {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ExtraVariableForNextEffect>(), 1, TargettingBySameHealthColor.Create(true, false)),
-                            Effects.GenerateEffect(rando, 2, TargettingBySameHealthColor.Create(true, false)),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPimplesEffect>(), 2, TargettingBySameHealthColor.Create(true, false)),
                             Effects.GenerateEffect(BasicEffects.Empty, 1, Slots.Self, ScriptableObject.CreateInstance<AllAlliesPimplesEffectCondition>()),
                             Effects.GenerateEffect(gain, 1, Slots.Self, BasicEffects.DidThat(true)),
                             Effects.GenerateEffect(lose, 1, Slots.Self, BasicEffects.DidThat(false, 2))
