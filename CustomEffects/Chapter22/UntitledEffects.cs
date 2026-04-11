@@ -78,10 +78,6 @@ namespace SaltsEnemies_Reseasoned
 
             IDetour hook = new Hook(typeof(CombatManager).GetMethod(nameof(CombatManager.FullSaveInCombatGame), ~BindingFlags.Default), typeof(UntitledHandler).GetMethod(nameof(CombatManager_FullSaveInCombatGame), ~BindingFlags.Default));
         }
-        public static void NotifCheck(string name, object sender, object args)
-        {
-            if (name == TriggerCalls.OnCombatEnd.ToString()) Warped = 0;
-        }
         public static void OnMenu()
         {
             Warped = 0;

@@ -12,20 +12,20 @@ namespace SaltsEnemies_Reseasoned
             Killed = new List<string>();
             NotificationHook.AddAction(NotifCheck);
         }
+        public static void Calculate()
+        {
+            foreach (string value in Killed)
+            {
+                LoadedDBsHandler.InfoHolder.Game.SetBoolData(value, true);
+            }
+            Killed.Clear();
+
+            Check();
+        }
         public static List<string> Killed;
         public static void NotifCheck(string name, object sender, object args)
         {
             if (name == TriggerCalls.OnBeforeCombatStart.ToString()) Killed.Clear();
-            if (name == TriggerCalls.OnCombatEnd.ToString())
-            {
-                foreach (string value in Killed)
-                {
-                    LoadedDBsHandler.InfoHolder.Game.SetBoolData(value, true);
-                }
-                Killed.Clear();
-
-                Check();
-            }
 
             if (name == TriggerCalls.OnDeath.ToString())
             {

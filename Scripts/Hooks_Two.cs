@@ -43,6 +43,7 @@ namespace SaltEnemies_Reseasoned
             IDetour idetour19 = new Hook(typeof(MainMenuController).GetMethod(nameof(MainMenuController.FinalizeMainMenuSounds), ~BindingFlags.Default), typeof(HooksGeneral).GetMethod(nameof(MainMenuLoading), ~BindingFlags.Default));
             IDetour idetour15 = new Hook(typeof(CharacterCombat).GetMethod(nameof(CharacterCombat.UseAbility), ~BindingFlags.Default), typeof(HooksGeneral).GetMethod(nameof(UseAbilityChara), ~BindingFlags.Default));
             IDetour idetour16 = new Hook(typeof(EnemyCombat).GetMethod(nameof(EnemyCombat.UseAbility), ~BindingFlags.Default), typeof(HooksGeneral).GetMethod(nameof(UseAbilityEnemy), ~BindingFlags.Default));
+            IDetour idetour17 = new Hook(typeof(CombatStats).GetMethod(nameof(CombatStats.CombatEndTriggered), ~BindingFlags.Default), typeof(HooksGeneral).GetMethod(nameof(CombatEndTriggered), ~BindingFlags.Default));
 
             ResistanceHandler.AddValues();
 
@@ -185,6 +186,8 @@ namespace SaltEnemies_Reseasoned
             YNLHandler2.Grody();
             Roots.Clear();
             Water.Clear();
+            InspirationHandler.Clear();
+            OdeFieldHandler.Clear();
             orig(self);
         }
         public static void PlayerTurnStart(Action<CombatStats> orig, CombatStats self)
@@ -215,6 +218,7 @@ namespace SaltEnemies_Reseasoned
 
             orig(self);
             UntitledHandler.Warped = 0;
+            OdeFieldHandler.Clear();
 
             if (SaltsReseasoned.Testing) UnityEngine.Debug.Log("made it to overworld awake completed");
         }
@@ -239,6 +243,14 @@ namespace SaltEnemies_Reseasoned
         {
             if (self.Abilities.Count > abilityID) CopyLastAbilityEffect.LastAbility = self.Abilities[abilityID].ability;
             orig(self, abilityID);
+        }
+        public static void CombatEndTriggered(Action<CombatStats> orig, CombatStats self)
+        {
+            orig(self);
+            InspirationHandler.Clear();
+            OdeFieldHandler.Clear();
+            Tracker.Calculate();
+            UntitledHandler.Warped = 0;
         }
 
         public static void NotificationChecksIDGAF(string notificationName, object sender, object args)
@@ -312,12 +324,15 @@ namespace SaltEnemies_Reseasoned
                 if (killer != null && damage.damageTypeID == "Fake")
                 {
                     bool selfHas = self.ContainsStatusEffect(Inspiration.StatusID);
+                    bool killerHas = killer.ContainsStatusEffect(Inspiration.StatusID);
                     if (selfHas && damage.value > 0)
                     {
                         (self as IStatusEffector).RemoveStatusEffect(Inspiration.StatusID);
                         if (self.UnitTypes.Contains(Inspiration.Passive)) self.TryRemovePassiveAbility(Inspiration.Passive);
-                        CombatManager.Instance.AddRootAction(new ApplyInspirationAction(killer.ID, killer.IsUnitCharacter));
                     }
+                    if (killerHas && damage.value > 0) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(self.ID, self.IsUnitCharacter));
+                    if (killerHas && damage.value > 0) CombatManager.Instance.AddPrioritySubAction(new RemoveInspirationAction(killer.ID, killer.IsUnitCharacter));
+                    if (selfHas && damage.value > 0) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(killer.ID, killer.IsUnitCharacter));
                 }
             }
         }

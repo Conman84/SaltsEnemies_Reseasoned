@@ -209,6 +209,7 @@ namespace SaltEnemies_Reseasoned
     {
         public static List<int> Charas;
         public static List<int> Enemies;
+
         public int ID;
         public bool IsChara;
         public bool Skip;
@@ -219,9 +220,18 @@ namespace SaltEnemies_Reseasoned
             IsChara = ischara;
             if (IsChara)
             {
-                if (Charas == null) Charas = new List<int>();
-                if (Charas.Contains(ID)) Skip = true;
-                else Charas.Add(ID);
+                if (Charas == null)
+                {
+                    Charas = new List<int>();
+                }
+                if (Charas.Contains(ID))
+                {
+                    Skip = true;
+                }
+                else
+                {
+                    Charas.Add(ID);
+                }
             }
             else
             {
@@ -236,7 +246,10 @@ namespace SaltEnemies_Reseasoned
             if (Inspiration.Object == null || Inspiration.Object.Equals(null)) Debug.LogError("inspiration null");
             else
             {
-                if (Charas == null) Charas = new List<int>();
+                if (Charas == null)
+                {
+                    Charas = new List<int>();
+                }
                 if (Enemies == null) Enemies = new List<int>();
                 foreach (CharacterCombat chara in stats.CharactersOnField.Values)
                 {
@@ -294,8 +307,7 @@ namespace SaltEnemies_Reseasoned
         }
         public static void NotifCheck(string notifname, object sender, object args)
         {
-            if (notifname == TriggerCalls.OnCombatEnd.ToString()) Clear();
-            else if (notifname == TriggerCalls.OnBeforeCombatStart.ToString()) Clear();
+             if (notifname == TriggerCalls.OnBeforeCombatStart.ToString()) Clear();
         }
         public static void Setup()
         {

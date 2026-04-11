@@ -135,13 +135,13 @@ namespace SaltEnemies_Reseasoned
         public static List<GameObject> Fields;
         public static List<GameObject> Trees;
         public static void Setup() => NotificationHook.AddAction(NotifCheck);
+        public static void Clear()
+        {
+            Fields = new List<GameObject>();
+            Trees = new List<GameObject>();
+        }
         public static void NotifCheck(string notifname, object sender, object args)
         {
-            if (notifname == TriggerCalls.OnCombatEnd.ToString())
-            {
-                Fields = new List<GameObject>();
-                Trees = new List<GameObject>();
-            }
             if (sender is EnemyCombat enemy && Check.EnemyExist("OdeToHumanity_EN") && enemy.Enemy == LoadedAssetsHandler.GetEnemy("OdeToHumanity_EN"))
             {
                 if (notifname == TriggerCalls.OnDamaged.ToString())
