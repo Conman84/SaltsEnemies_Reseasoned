@@ -101,4 +101,31 @@ namespace SaltsEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
+    public class RemovePassiveWithDisplayEffect : EffectSO
+    {
+        public BasePassiveAbilitySO passive;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            List<int> ids = [];
+            List<bool> ischars = [];
+            List<string> passives = [];
+            List<Sprite> sprites = [];
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit && target.Unit.TryRemovePassiveAbility(passive.m_PassiveID))
+                {
+                    exitAmount++;
+                    ids.Add(target.Unit.ID);
+                    ischars.Add(target.Unit.IsUnitCharacter);
+                    passives.Add(passive.GetPassiveLocData().text + " Removed");
+                    sprites.Add(passive.passiveIcon);
+                }
+            }
+
+            CombatManager.Instance.AddUIAction(new ShowMultiplePassiveInformationUIAction(ids.ToArray(), ischars.ToArray(), passives.ToArray(), sprites.ToArray()));
+
+            return exitAmount > 0;
+        }
+    }
 }

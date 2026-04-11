@@ -71,24 +71,43 @@ namespace SaltsEnemies_Reseasoned
             partition.AddIntentsToTarget(Targeting.Slot_AllyLeft, new string[] { IntentType_GameIDs.Mana_Modify.ToString(), Pimples.Intent });
             Right = partition.GenerateEnemyAbility(true);
 
+            //construct that works on enemies
+            RandomAbilityPassive construct = ScriptableObject.CreateInstance<RandomAbilityPassive>();
+            construct._passiveName = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._passiveName;
+            construct.passiveIcon = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0].passiveIcon;
+            construct.m_PassiveID = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0].m_PassiveID;
+            construct._enemyDescription = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._enemyDescription;
+            construct._characterDescription = LoadedAssetsHandler.GetCharacter("Doll_CH").passiveAbilities[0]._characterDescription;
+            construct._triggerOn = new TriggerCalls[]
+            {
+                (TriggerCalls) 889532//old zensuke trigger
+            };
+            AddPassiveWithDisplayEffect gain = ScriptableObject.CreateInstance<AddPassiveWithDisplayEffect>();
+            gain.passive = construct;
+            RemovePassiveWithDisplayEffect lose = ScriptableObject.CreateInstance<RemovePassiveWithDisplayEffect>();
+            lose.passive = construct;
+
             ApplyPimplesEffect rando = ScriptableObject.CreateInstance<ApplyPimplesEffect>();
             rando._RandomBetweenPrevious = true;
             Ability postular = new Ability("Bot_Postular_A")
             {
                 Name = "Postular",
-                Description = "Inflict 1-2 Pimple on all other enemies with this enemy's health color.\nIf all enemies have Pimples, gain Spotlight.",
+                Description = "Inflict 1-2 Pimple on all enemies with this enemy's health color.\nIf all enemies have Pimples, gain Construct, otherwise, lose Construct.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("bot3", 3),
                 Priority = Priority.ExtremelySlow,
                 Effects = new EffectInfo[]
                 {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ExtraVariableForNextEffect>(), 1, TargettingBySameHealthColor.Create(true, false, true)),
-                            Effects.GenerateEffect(rando, 2, TargettingBySameHealthColor.Create(true, false, true)),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySpotlightEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<AllAlliesPimplesEffectCondition>())
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ExtraVariableForNextEffect>(), 1, TargettingBySameHealthColor.Create(true, false)),
+                            Effects.GenerateEffect(rando, 2, TargettingBySameHealthColor.Create(true, false)),
+                            Effects.GenerateEffect(BasicEffects.Empty, 1, Slots.Self, ScriptableObject.CreateInstance<AllAlliesPimplesEffectCondition>()),
+                            Effects.GenerateEffect(gain, 1, Slots.Self, BasicEffects.DidThat(true)),
+                            Effects.GenerateEffect(lose, 1, Slots.Self, BasicEffects.DidThat(false, 2))
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Pop"),
-                AnimationTarget = TargettingBySameHealthColor.Create(true, false, true),
+                AnimationTarget = TargettingBySameHealthColor.Create(true, false),
             };
-            postular.AddIntentsToTarget(TargettingBySameHealthColor.Create(true, false, true), Pimples.Intent.SelfArray());
+            postular.AddIntentsToTarget(TargettingBySameHealthColor.Create(true, false), Pimples.Intent.SelfArray());
+            postular.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.PA_Construct.ToString()]);
             Middle = postular.GenerateEnemyAbility(true);
 
             Selector = ScriptableObject.CreateInstance<AbilitySelector_Bots>();

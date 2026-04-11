@@ -279,17 +279,18 @@ namespace SaltEnemies_Reseasoned
                     _drain = new Ability("Salt_Drowse_A")
                     {
                         Name = "Drowse",
-                        Description = "Increase this enemy's maximum health by 3.\nGain 5 Shield.",
+                        Description = "Deal an Agonizing amount of damage to the Opposing party member.\nGain 5 Shield.",
                         Rarity = Rarity.CreateAndAddCustomRarityToPool("Delusion_6", 6),
                         Effects = new EffectInfo[]
                         {
-                            Effects.GenerateEffect(inc, 3, Targeting.Slot_SelfSlot),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 5, Slots.Self)
                         },
                         Visuals = CustomVisuals.GetVisuals("Salt/Pop"),
                         AnimationTarget = Targeting.Slot_SelfSlot
                     };
-                    _drain.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Other_MaxHealth.ToString(), IntentType_GameIDs.Field_Shield.ToString() });
+                    _drain.AddIntentsToTarget(Slots.Front, ["Damage_7_10"]);
+                    _drain.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Field_Shield.ToString() });
                 }
                 return _drain;
             }
@@ -476,7 +477,7 @@ namespace SaltEnemies_Reseasoned
             if (unit.SimpleGetStoredValue(UnitStoredValueNames_GameIDs.DemonCoreW.ToString()) > 0) return;
             unit.SimpleSetStoredValue(UnitStoredValueNames_GameIDs.DemonCoreW.ToString(), 1);
             IllusionHandler.Setup();
-            if (UnityEngine.Random.Range(0, 100) < 50)
+            if (UnityEngine.Random.Range(0, 100) < -1)
             {
                 EffectInfo[] ee = new EffectInfo[]
                 {
@@ -498,6 +499,8 @@ namespace SaltEnemies_Reseasoned
                 IllusionHandler.SwapSupport.Effects[1],
                 IllusionHandler.SwapSupport.Effects[2],
             };
+            CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(ef, unit));
+            return;
             EffectInfo[] af = new EffectInfo[]
             {
                     Effects.GenerateEffect(RootActionEffect.Create(ef), 1, Targeting.Slot_SelfSlot)
