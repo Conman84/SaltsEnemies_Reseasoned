@@ -76,13 +76,14 @@ namespace SaltsEnemies_Reseasoned
             Ability postular = new Ability("Bot_Postular_A")
             {
                 Name = "Postular",
-                Description = "Inflict 1-2 Pimple on all other enemies with this enemy's health color.",
+                Description = "Inflict 1-2 Pimple on all other enemies with this enemy's health color.\nIf all enemies have Pimples, gain Spotlight.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("bot3", 3),
                 Priority = Priority.ExtremelySlow,
                 Effects = new EffectInfo[]
                 {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ExtraVariableForNextEffect>(), 1, TargettingBySameHealthColor.Create(true, false, true)),
                             Effects.GenerateEffect(rando, 2, TargettingBySameHealthColor.Create(true, false, true)),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySpotlightEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<AllAlliesPimplesEffectCondition>())
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Pop"),
                 AnimationTarget = TargettingBySameHealthColor.Create(true, false, true),

@@ -48,4 +48,25 @@ namespace SaltsEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
+    public class AllAlliesPimplesEffectCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            if (caster.IsUnitCharacter)
+            {
+                foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
+                {
+                    if (!chara.ContainsStatusEffect(Pimples.StatusID)) return false;
+                }
+            }
+            else
+            {
+                foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+                {
+                    if (!enemy.ContainsStatusEffect(Pimples.StatusID)) return false;
+                }
+            }
+            return true;
+        }
+    }
 }
