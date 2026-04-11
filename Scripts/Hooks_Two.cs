@@ -250,7 +250,7 @@ namespace SaltEnemies_Reseasoned
             InspirationHandler.Clear();
             OdeFieldHandler.Clear();
             Tracker.Calculate();
-            UntitledHandler.Warped = 0;
+            //UntitledHandler.Warped = 0;
         }
 
         public static void NotificationChecksIDGAF(string notificationName, object sender, object args)
