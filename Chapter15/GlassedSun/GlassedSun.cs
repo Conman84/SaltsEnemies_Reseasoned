@@ -67,8 +67,8 @@ namespace SaltsEnemies_Reseasoned
                         Effects.GenerateEffect(p, 1, Slots.Self),
             };
             stain._triggerOn = new TriggerCalls[]
-            {
-                        TriggerCalls.TimelineEndReached, TriggerCalls.CanChangeHealthColor
+            {   
+                        StarlessPassiveAbility.Call, TriggerCalls.CanChangeHealthColor
             };
             stain.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<SunColorCondition>() };
 

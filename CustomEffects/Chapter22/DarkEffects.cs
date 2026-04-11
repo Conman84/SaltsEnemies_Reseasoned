@@ -104,7 +104,7 @@ namespace SaltsEnemies_Reseasoned
         public static void Setup() => NotificationHook.AddAction(NotifCheck);
         public static void NotifCheck(string name, object sender, object args)
         {
-            if (name == TriggerCalls.TimelineEndReached.ToString() && sender is IUnit unit)
+            if (name == StarlessPassiveAbility.Call.ToString() && sender is IUnit unit)
             {
                 unit.SimpleSetStoredValue(UsedAbsurdism, 0);
             }

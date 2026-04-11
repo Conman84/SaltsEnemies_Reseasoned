@@ -98,7 +98,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(param, 1, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DragonSongEffect>(), 1, Slots.Self),
             };
-            awake._triggerOn = new TriggerCalls[1] { TriggerCalls.TimelineEndReached };
+            awake._triggerOn = new TriggerCalls[1] { StarlessPassiveAbility.Call };
 
             //NORIMIMI
             RemovePassiveEffect r = ScriptableObject.CreateInstance<RemovePassiveEffect>();

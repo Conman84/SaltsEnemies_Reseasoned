@@ -36,7 +36,7 @@ namespace SaltsEnemies_Reseasoned
             fractal._enemyDescription = "At the end of the timeline, generate 3 random pigment.";
             fractal._characterDescription = fractal._enemyDescription;
             fractal.conditions = [];
-            fractal._triggerOn = [TriggerCalls.TimelineEndReached];
+            fractal._triggerOn = [StarlessPassiveAbility.Call];
             fractal.effects = [Effects.GenerateEffect(randomize, 3, Slots.Self)];
 
             //FLITHERING

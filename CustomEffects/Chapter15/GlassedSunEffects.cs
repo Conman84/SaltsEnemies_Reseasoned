@@ -201,6 +201,7 @@ namespace SaltsEnemies_Reseasoned
         }
         public static void Setup()
         {
+            return;
             IDetour hook = new Hook(typeof(TimelineEndReachedAction).GetMethod(nameof(TimelineEndReachedAction.Execute), ~BindingFlags.Default),
                 typeof(GlassedSunHandler).GetMethod(nameof(Execute), ~BindingFlags.Default));
         }

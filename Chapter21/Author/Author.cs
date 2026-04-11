@@ -38,7 +38,7 @@ namespace SaltsEnemies_Reseasoned
             prophet._characterDescription = "On death, spawn the Monster.\nIncrease the Monster's health proportional to the amount of turns this enemy has been in combat.\nTransfer all status effects from this enemy to the Monster.";
             prophet._enemyDescription = prophet._characterDescription;
             prophet.doesPassiveTriggerInformationPanel = false;
-            prophet._triggerOn = [TriggerCalls.OnDeath, TriggerCalls.TimelineEndReached];
+            prophet._triggerOn = [TriggerCalls.OnDeath, StarlessPassiveAbility.Call];
             prophet.effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ProphecyEffect>(), 0, null, ScriptableObject.CreateInstance<InsideOutCondition>()),
