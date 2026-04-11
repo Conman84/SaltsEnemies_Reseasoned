@@ -92,7 +92,7 @@ namespace SaltsEnemies_Reseasoned
             Ability postular = new Ability("Bot_Postular_A")
             {
                 Name = "Postular",
-                Description = "Inflict 1-2 Pimple on all enemies with this enemy's health color.\nIf all enemies have Pimples, gain Construct, otherwise, lose Construct.",
+                Description = "Inflict 1-2 Pimples on all enemies with this enemy's health color.\nIf all enemies have Pimples, gain Construct, otherwise, lose Construct.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("bot3", 3),
                 Priority = Priority.ExtremelySlow,
                 Effects = new EffectInfo[]
