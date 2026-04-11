@@ -118,7 +118,7 @@ namespace SaltsEnemies_Reseasoned
             if (args is DamageDealtValueChangeException value)
             {
                 (effector as IUnit).ShowItem();
-                value.AddModifier(new AdditionValueModifier(true, PigmentUsedCollector.PigmentsUsed.Count));
+                value.AddModifier(new AdditionValueModifier(true, PigmentUsedCollector.lastUsed.Count));
             }
             return false;
         }
