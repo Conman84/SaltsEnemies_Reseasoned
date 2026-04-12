@@ -305,17 +305,16 @@ namespace SaltEnemies_Reseasoned
                     _haunt = new Ability("Salt_Haunting_A")
                     {
                         Name = "Haunting",
-                        Description = "Apply 2 Muted and 2 Ruptured to the Opposing party member.",
+                        Description = "Inflict 2 Muted on the Opposing party member.",
                         Rarity = Rarity.GetCustomRarity("Delusion_5"),
                         Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 2, Targeting.Slot_Front),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Targeting.Slot_Front)
                         },
                         Visuals = CustomVisuals.GetVisuals("Salt/Claws"),
                         AnimationTarget = Targeting.Slot_Front
                     };
-                    _haunt.AddIntentsToTarget(Targeting.Slot_Front, new string[] { Muted.Intent, "Status_Ruptured" });
+                    _haunt.AddIntentsToTarget(Targeting.Slot_Front, new string[] { Muted.Intent });
                 }
                 return _haunt;
             }
@@ -422,7 +421,7 @@ namespace SaltEnemies_Reseasoned
                     SwapCasterPassivesEffect passi = ScriptableObject.CreateInstance<SwapCasterPassivesEffect>();
                     passi._passivesToSwap = new BasePassiveAbilitySO[]
                     {
-                        Passives.Skittish, Illusion, Passives.Formless
+                        Passives.Skittish, Passives.Formless
                     };
                     _resetDefault = new Ability("Salt_ResetDefault_A")
                     {
