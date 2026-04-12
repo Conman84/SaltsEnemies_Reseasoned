@@ -87,20 +87,23 @@ namespace SaltsEnemies_Reseasoned
             RemovePassiveWithDisplayEffect lose = ScriptableObject.CreateInstance<RemovePassiveWithDisplayEffect>();
             lose.passive = construct;
 
+            RerollTargetConstructEffect reroll = ScriptableObject.CreateInstance<RerollTargetConstructEffect>();
+
             ApplyPimplesEffect rando = ScriptableObject.CreateInstance<ApplyPimplesEffect>();
             rando._RandomBetweenPrevious = true;
             Ability postular = new Ability("Bot_Postular_A")
             {
                 Name = "Postular",
-                Description = "Inflict 2 Pimples on all enemies with this enemy's health color.\nIf all enemies have Pimples, gain Construct, otherwise, lose Construct.",
+                Description = "Inflict 2 Pimples on all enemies with this enemy's health color.\nIf all enemies have Pimples, gain Construct, rerolling their Construct ability if they already have it. Otherwise, lose Construct.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("bot3", 3),
                 Priority = Priority.ExtremelySlow,
                 Effects = new EffectInfo[]
                 {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPimplesEffect>(), 2, TargettingBySameHealthColor.Create(true, false)),
                             Effects.GenerateEffect(BasicEffects.Empty, 1, Slots.Self, ScriptableObject.CreateInstance<AllAlliesPimplesEffectCondition>()),
-                            Effects.GenerateEffect(gain, 1, Slots.Self, BasicEffects.DidThat(true)),
-                            Effects.GenerateEffect(lose, 1, Slots.Self, BasicEffects.DidThat(false, 2))
+                            Effects.GenerateEffect(reroll, 1, Slots.Self, BasicEffects.DidThat(true)),
+                            Effects.GenerateEffect(gain, 1, Slots.Self, BasicEffects.DidThat(true, 2)),
+                            Effects.GenerateEffect(lose, 1, Slots.Self, BasicEffects.DidThat(false, 3))
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Pop"),
                 AnimationTarget = TargettingBySameHealthColor.Create(true, false),
