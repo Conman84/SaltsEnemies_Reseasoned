@@ -29,7 +29,7 @@ namespace SaltsEnemies_Reseasoned
             illusion.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 IllusionHandler.Haunt.GenerateEnemyAbility(true),
-                IllusionHandler.Drain.GenerateEnemyAbility(true),
+                IllusionHandler.Insight.GenerateEnemyAbility(true),
                 IllusionHandler.ResetDefault.GenerateEnemyAbility(false)
             });
             illusion.AddEnemy(true, true);
