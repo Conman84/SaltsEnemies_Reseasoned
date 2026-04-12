@@ -305,16 +305,17 @@ namespace SaltEnemies_Reseasoned
                     _haunt = new Ability("Salt_Haunting_A")
                     {
                         Name = "Haunting",
-                        Description = "Apply 2 Muted to the Opposing party member.",
+                        Description = "Apply 2 Muted and 2 Ruptured to the Opposing party member.",
                         Rarity = Rarity.GetCustomRarity("Delusion_5"),
                         Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 2, Targeting.Slot_Front),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Targeting.Slot_Front)
                         },
                         Visuals = CustomVisuals.GetVisuals("Salt/Claws"),
                         AnimationTarget = Targeting.Slot_Front
                     };
-                    _haunt.AddIntentsToTarget(Targeting.Slot_Front, new string[] { Muted.Intent });
+                    _haunt.AddIntentsToTarget(Targeting.Slot_Front, new string[] { Muted.Intent, "Status_Ruptured" });
                 }
                 return _haunt;
             }
@@ -357,7 +358,7 @@ namespace SaltEnemies_Reseasoned
                     _insight = new Ability("Salt_Insight_A")
                     {
                         Name = "Divination",
-                        Description = "Apply Focused to this enemy. Generate 3 random pigment and apply 3 Shield to the Left and Right enemy positions.",
+                        Description = "Focus this enemy. Generate 3 random pigment and apply 3 Shield to the Left and Right enemy positions.",
                         Rarity = Rarity.GetCustomRarity("Delusion_5"),
                         Effects = new EffectInfo[]
                         {
@@ -381,21 +382,6 @@ namespace SaltEnemies_Reseasoned
             {
                 if (_swapSupport == null)
                 {
-                    RerollSwapCasterAbilitiesEffect abili = ScriptableObject.CreateInstance<RerollSwapCasterAbilitiesEffect>();
-                    EnemyAbilityInfo haunt = Haunt.GenerateEnemyAbility();
-                    EnemyAbilityInfo ins = Insight.GenerateEnemyAbility();
-                    EnemyAbilityInfo rage = ResetDefault.GenerateEnemyAbility();
-                    abili._abilitiesToSwap = new ExtraAbilityInfo[]
-                    {
-                        new ExtraAbilityInfo() { ability = haunt.ability, rarity = haunt.rarity },
-                        new ExtraAbilityInfo() { ability = ins.ability, rarity = ins.rarity },
-                        new ExtraAbilityInfo() { ability = rage.ability, rarity = rage.rarity }
-                    };
-                    SwapCasterPassivesEffect passi = ScriptableObject.CreateInstance<SwapCasterPassivesEffect>();
-                    passi._passivesToSwap = new BasePassiveAbilitySO[]
-                    {
-                        Passives.Skittish, Illusion, Passives.Forgetful
-                    };
                     _swapSupport = new Ability("Salt_SwapSupport_A")
                     {
                         Name = "Lucidity",
@@ -403,8 +389,8 @@ namespace SaltEnemies_Reseasoned
                         Rarity = Rarity.CreateAndAddCustomRarityToPool("Delusion_4", 4),
                         Effects = new EffectInfo[]
                         {
-                            Effects.GenerateEffect(abili, 1, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(passi, 1, Targeting.Slot_SelfSlot),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ResetCasterAbilitiesToDefaultEffect>(), 1, Targeting.Slot_SelfSlot),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ResetCasterPassivesToDefaultEffect>(), 1, Targeting.Slot_SelfSlot),
                             Effects.GenerateEffect(BasicEffects.SetStoreValue(State), 2, Targeting.Slot_SelfSlot),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnEnemyCopyBasedOffMissingHealth>(), 1, Targeting.Slot_SelfSlot)
                         },
@@ -423,6 +409,21 @@ namespace SaltEnemies_Reseasoned
             {
                 if (_resetDefault == null)
                 {
+                    RerollSwapCasterAbilitiesEffect abili = ScriptableObject.CreateInstance<RerollSwapCasterAbilitiesEffect>();
+                    EnemyAbilityInfo haunt = Gnaw.GenerateEnemyAbility();
+                    EnemyAbilityInfo ins = Drain.GenerateEnemyAbility(true);
+                    EnemyAbilityInfo rage = SwapSupport.GenerateEnemyAbility();
+                    abili._abilitiesToSwap = new ExtraAbilityInfo[]
+                    {
+                        new ExtraAbilityInfo() { ability = haunt.ability, rarity = haunt.rarity },
+                        new ExtraAbilityInfo() { ability = ins.ability, rarity = ins.rarity },
+                        new ExtraAbilityInfo() { ability = rage.ability, rarity = rage.rarity }
+                    };
+                    SwapCasterPassivesEffect passi = ScriptableObject.CreateInstance<SwapCasterPassivesEffect>();
+                    passi._passivesToSwap = new BasePassiveAbilitySO[]
+                    {
+                        Passives.Skittish, Illusion, Passives.Formless
+                    };
                     _resetDefault = new Ability("Salt_ResetDefault_A")
                     {
                         Name = "Enrage",
@@ -430,8 +431,8 @@ namespace SaltEnemies_Reseasoned
                         Rarity = Rarity.CreateAndAddCustomRarityToPool("Delusion_1", 1),
                         Effects = new EffectInfo[]
                         {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ResetCasterAbilitiesToDefaultEffect>(), 1, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ResetCasterPassivesToDefaultEffect>(), 1, Targeting.Slot_SelfSlot),
+                            Effects.GenerateEffect(abili, 1, Targeting.Slot_SelfSlot),
+                            Effects.GenerateEffect(passi, 1, Targeting.Slot_SelfSlot),
                             Effects.GenerateEffect(BasicEffects.SetStoreValue(State), 1, Targeting.Slot_SelfSlot),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnEnemyCopyBasedOffMissingHealth>(), 1, Targeting.Slot_SelfSlot)
                         },
@@ -477,7 +478,7 @@ namespace SaltEnemies_Reseasoned
             if (unit.SimpleGetStoredValue(UnitStoredValueNames_GameIDs.DemonCoreW.ToString()) > 0) return;
             unit.SimpleSetStoredValue(UnitStoredValueNames_GameIDs.DemonCoreW.ToString(), 1);
             IllusionHandler.Setup();
-            if (UnityEngine.Random.Range(0, 100) < -1)
+            if (UnityEngine.Random.Range(0, 100) < 0)
             {
                 EffectInfo[] ee = new EffectInfo[]
                 {
@@ -495,8 +496,8 @@ namespace SaltEnemies_Reseasoned
             }
             EffectInfo[] ef = new EffectInfo[]
             {
-                IllusionHandler.SwapSupport.Effects[0],
-                IllusionHandler.SwapSupport.Effects[1],
+                //IllusionHandler.SwapSupport.Effects[0],
+                //IllusionHandler.SwapSupport.Effects[1],
                 IllusionHandler.SwapSupport.Effects[2],
             };
             CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(ef, unit));

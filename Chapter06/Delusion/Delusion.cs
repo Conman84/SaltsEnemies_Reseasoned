@@ -22,15 +22,15 @@ namespace SaltsEnemies_Reseasoned
             };
             illusion.PrepareEnemyPrefab("assets/group4/Illusion/Illusion_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Illusion/Illusion_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            illusion.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, IllusionHandler.Illusion, Passives.Formless });
+            illusion.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, IllusionHandler.Illusion, Passives.Forgetful });
 
             Rarity.CreateAndAddCustomRarityToPool("Delusion_5", 5);
 
             illusion.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
+                IllusionHandler.Haunt.GenerateEnemyAbility(true),
                 IllusionHandler.Drain.GenerateEnemyAbility(true),
-                IllusionHandler.Gnaw.GenerateEnemyAbility(false),
-                IllusionHandler.SwapSupport.GenerateEnemyAbility(false)
+                IllusionHandler.ResetDefault.GenerateEnemyAbility(false)
             });
             illusion.AddEnemy(true, true);
             illusion.enemy.AddToSynodPool();
