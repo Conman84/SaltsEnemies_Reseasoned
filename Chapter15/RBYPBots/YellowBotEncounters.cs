@@ -68,7 +68,7 @@ namespace SaltEnemies_Reseasoned
             med.AddRandomGroup("Freud_EN", Bots.Yellow, "Enigma_EN");
 
             med = new AddTo(Orph.H.Delusion.Med);
-            med.SimpleAddGroup(3, "Delusion_EN", 1, Bots.Yellow);
+            med.SimpleAddGroup(2, "Delusion_EN", 1, Bots.Yellow, 1, "FakeAngel_EN");
 
             med = new AddTo(Orph.Sigil.Med);
             med.AddRandomGroup("Sigil_EN", Bots.Yellow, "MusicMan_EN");
