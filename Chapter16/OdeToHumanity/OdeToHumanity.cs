@@ -102,7 +102,7 @@ namespace SaltsEnemies_Reseasoned
             remCurse._status = StatusField.Cursed;
 
             Ability holdhands = new Ability("Hold Hands", "HoldHands_A");
-            holdhands.Description = "Attempt to remove Cursed from the Left, Right, and Opposing party members. If successful, inflict 3 Frail on them.\nOtherwise, deal an Agonizing amount of damage to that Opposing party member.";
+            holdhands.Description = "For each of the Left, Right, and Opposing party members, attempt to remove Cursed from them.\nIf successful, inflict 3 Frail on them, otherwise deal an Agonizing amount of damage to them.";
             holdhands.Rarity = Rarity.GetCustomRarity("rarity5");
             holdhands.Effects = new EffectInfo[9];
             holdhands.Effects[0] = Effects.GenerateEffect(remCurse, 1, Slots.Left);
