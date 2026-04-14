@@ -38,7 +38,7 @@ namespace SaltsEnemies_Reseasoned
             test.Description = "If the Opposing party member used Pigment of this enemy's health color last turn, deal an Agonizing amount of damage to them.";
             test.Rarity = Rarity.GetCustomRarity("bot3");
             test.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<YellowBotSpecialEffect>(), 10, Slots.Front).SelfArray();
-            test.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Misc.ToString()]);
+            test.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", IntentType_GameIDs.Damage_7_10.ToString()]);
             test.Visuals = CustomVisuals.GetVisuals("Salt/Keyhole");
             test.AnimationTarget = Slots.Front;
 
