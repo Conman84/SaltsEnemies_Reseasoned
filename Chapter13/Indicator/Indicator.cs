@@ -84,39 +84,40 @@ namespace SaltsEnemies_Reseasoned
             };
             pain.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Rem_Status_Linked.ToString(), IntentType_GameIDs.Damage_7_10.ToString()]);
 
+
+            ChangeHealthColorEffect turnRed = ChangeHealthColorEffect.Create(Pigments.Red);
             //transmit sensory
             Ability sensory = new Ability("TransmitSensory_A")
             {
                 Name = "Transmit Sensory",
-                Description = "Attempt to spawn a copy of this enemy. If successful, add Withering as a passive to this enemy. \nIf this enemy already has Withering as a passive, inflict 2 Linked on it.",
+                Description = "If this enemy is not Withering, gain Withering as a passive and spawn a clone of this enemy.\nTurn Red.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("indicator 1", 1),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(BasicEffects.AddPassive(Passives.Withering), 1, Slots.Self, ScriptableObject.CreateInstance<EmptyEnemySpaceNoWitheringEffectCondition>()),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnEnemyCopySelfEffect>(), 1, Slots.Self, BasicEffects.DidThat(true)),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyLinkedEffect>(), 2, Slots.Self, BasicEffects.DidThat(false, 2))
+                    Effects.GenerateEffect(turnRed, 1, Slots.Self),
                 },
                 Visuals = LoadedAssetsHandler.GetEnemyAbility("Weep_A").visuals,
                 AnimationTarget = Slots.Self,
             };
-            sensory.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.PA_Withering.ToString(), IntentType_GameIDs.Other_Spawn.ToString(), IntentType_GameIDs.Status_Linked.ToString()]);
+            sensory.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.PA_Withering.ToString(), IntentType_GameIDs.Other_Spawn.ToString(), IntentType_GameIDs.Mana_Modify.ToString()]);
 
             //emotional
             Ability emotion = new Ability("TransmitEmotion_A")
             {
                 Name = "Transmit Emotion",
-                Description = "Inflict 2 Linked on this enemy.\nForce the Opposing party member to perform a random one of their abilities.",
+                Description = "Inflict 4 Slip on the Opposing position.\nForce the Opposing party member to perform a random one of their abilities.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                     {
-                        Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyLinkedEffect>(), 2, Slots.Self),
+                        Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 4, Slots.Front),
                         Effects.GenerateEffect(ScriptableObject.CreateInstance<PerformRandomAbilityEffect>(), 1, Slots.Front)
                     },
                 Visuals = CustomVisuals.GetVisuals("Salt/Rose"),
                 AnimationTarget = Slots.Front,
             };
-            emotion.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Status_Linked.ToString()]);
-            emotion.AddIntentsToTarget(Slots.Front, [SkyloftIntent.Intent]);
+            emotion.AddIntentsToTarget(Slots.Front, [Slip.Intent, SkyloftIntent.Intent]);
 
             //hunger
             Ability hunger = new Ability("TransmitHunger_A")
