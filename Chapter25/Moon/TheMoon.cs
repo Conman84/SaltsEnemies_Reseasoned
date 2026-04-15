@@ -66,8 +66,9 @@ namespace SaltsEnemies_Reseasoned
             ApplyShieldSlotEffect use_exit = ScriptableObject.CreateInstance<ApplyShieldSlotEffect>();
             use_exit._UsePreviousExitValueAsMultiplier = false;
             further.Rarity = Rarity.Common;
-            further.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<FullHealEffect>(), 1, Targetting.Everything(true)),
-            Effects.GenerateEffect(use_exit, 20, Slots.Self)];
+            further.Effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 999, Slots.Self),
+                Effects.GenerateEffect(use_exit, 20, Targetting.Everything(true))];
             further.AddIntentsToTarget(Slots.Self, ["Heal_21"]);
             further.AddIntentsToTarget(Targetting.Everything(true), ["Field_Shield"]);
             further.Visuals = Visuals.Excommunicate;
