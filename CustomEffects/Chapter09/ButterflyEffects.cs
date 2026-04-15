@@ -174,6 +174,7 @@ namespace SaltEnemies_Reseasoned
             foreach (DelayedAttack attack in Attacks)
             {
                 if (attack.caster != null && attack.caster.IsUnitCharacter != playerTurn) ret.Add(attack);
+                else if (attack.caster == null && attack.Target.IsTargetCharacterSlot != playerTurn) ret.Add(attack);
             }
             Attacks = ret;
         }
@@ -328,7 +329,7 @@ namespace SaltEnemies_Reseasoned
                     CombatManager.Instance.AddSubAction(new EffectAction(info, unit));
                 }
             }
-            CombatManager.Instance.AddSubAction(new PerformCasterlessDelayedAttacksAction(DelayedAttackManager.Attacks.ToArray()));
+            CombatManager.Instance.AddSubAction(new PerformCasterlessDelayedAttacksAction(DelayedAttackManager.Attacks.ToArray(), !PlayerTurn));
             DelayedAttackManager.CleanList(PlayerTurn);
             DelayedAttackVisualizer.UpdateVisuals();
             yield return null;
@@ -336,12 +337,23 @@ namespace SaltEnemies_Reseasoned
     }
     public class PerformCasterlessDelayedAttacksAction : CombatAction
     {
-        public PerformCasterlessDelayedAttacksAction(DelayedAttack[] attacks)
+        public PerformCasterlessDelayedAttacksAction(DelayedAttack[] attacks, bool side)
         {
             List<DelayedAttack> ret = new List<DelayedAttack>();
             foreach (DelayedAttack hit in attacks)
             {
-                if (hit.caster == null) ret.Add(hit);
+                if (hit.caster == null && hit.Target.IsTargetCharacterSlot == side)
+                {
+                    foreach (DelayedAttack already in ret)
+                    {
+                        if (already.Target.SlotID == hit.Target.SlotID)
+                        {
+                            already.Damage += hit.Damage;
+                            break;
+                        }
+                    }
+                    ret.Add(hit);
+                }
             }
             Attacks = ret.ToArray();
         }
