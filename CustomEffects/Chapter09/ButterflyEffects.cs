@@ -134,7 +134,7 @@ namespace SaltEnemies_Reseasoned
             foreach (DelayedAttack attack in Attacks)
             {
                 if (attack.caster != null && !attack.caster.IsAlive) continue;
-                if (!targets.Contains(attack.Target) && (playerTurn == attack.caster.IsUnitCharacter || attack.caster == null)) targets.Add(attack.Target);
+                if (!targets.Contains(attack.Target) && (attack.caster == null || playerTurn == attack.caster.IsUnitCharacter)) targets.Add(attack.Target);
             }
             return targets.ToArray();
         }
