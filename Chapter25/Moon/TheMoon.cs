@@ -41,7 +41,7 @@ namespace SaltsEnemies_Reseasoned
             cosmic._enemyDescription = "At the start of each round, generate 2 Pigment of each primary color.";
             cosmic.m_PassiveID = "Cosmic_PA";
             cosmic.passiveIcon = ResourceLoader.LoadSprite("CosmicPassive.png");
-            cosmic._triggerOn = [TriggerCalls.OnMiscPlayerTurnStart];
+            cosmic._triggerOn = [TriggerCalls.OnCombatStart, TriggerCalls.OnRoundFinished];
             cosmic.conditions = [];
             cosmic.doesPassiveTriggerInformationPanel = true;
             cosmic.effects = [
@@ -125,7 +125,7 @@ namespace SaltsEnemies_Reseasoned
             cosmic._enemyDescription = "At the start of each round, generate 1 Red Pigment.";
             cosmic.m_PassiveID = "Cosmic_PA";
             cosmic.passiveIcon = ResourceLoader.LoadSprite("CosmicPassive.png");
-            cosmic._triggerOn = [TriggerCalls.OnMiscPlayerTurnStart];
+            cosmic._triggerOn = [TriggerCalls.OnCombatStart, TriggerCalls.OnRoundFinished];
             cosmic.conditions = [];
             cosmic.doesPassiveTriggerInformationPanel = true;
             cosmic.effects = [
