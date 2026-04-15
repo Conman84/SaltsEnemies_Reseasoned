@@ -54,10 +54,12 @@ namespace SaltsEnemies_Reseasoned
             template.AddPassives(new BasePassiveAbilitySO[] { temporal, cosmic, Passives.Forgetful, Passives.Withering });
 
             Ability closer = new Ability("Falling Closer", "MoonCloser_A");
-            closer.Description = "At the start of the next turn deal Almost No damage to all party member positions.";
+            closer.Description = "At the start of the next turn deal Almost No damage to all party member positions.\nConsume all Pigment.";
             closer.Rarity = Rarity.Common;
-            closer.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 1, Targetting.Everything(false))];
+            closer.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<AddDelayedAttackEffect>(), 1, Targetting.Everything(false)),
+            Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeAllManaEffect>(), 1, Slots.Self)];
             closer.AddIntentsToTarget(Targetting.Everything(false), ["Damage_Delay", "Damage_1_2"]);
+            closer.AddIntentsToTarget(Slots.Self, ["Mana_Consume"]);
             closer.Visuals = Visuals.Excommunicate;
             closer.AnimationTarget = Targetting.Everything(false);
 
