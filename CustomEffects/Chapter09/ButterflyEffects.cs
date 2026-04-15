@@ -134,7 +134,11 @@ namespace SaltEnemies_Reseasoned
             foreach (DelayedAttack attack in Attacks)
             {
                 if (attack.caster != null && !attack.caster.IsAlive) continue;
-                if (!targets.Contains(attack.Target) && (attack.caster == null || playerTurn == attack.caster.IsUnitCharacter)) targets.Add(attack.Target);
+                if (!targets.Contains(attack.Target))
+                {   
+                    if (attack.caster == null && playerTurn != attack.Target.IsTargetCharacterSlot) targets.Add(attack.Target);
+                    else if (playerTurn == attack.caster.IsUnitCharacter) targets.Add(attack.Target);
+                }
             }
             return targets.ToArray();
         }
@@ -174,7 +178,7 @@ namespace SaltEnemies_Reseasoned
             foreach (DelayedAttack attack in Attacks)
             {
                 if (attack.caster != null && attack.caster.IsUnitCharacter != playerTurn) ret.Add(attack);
-                else if (attack.caster == null && attack.Target.IsTargetCharacterSlot != playerTurn) ret.Add(attack);
+                else if (attack.caster == null && attack.Target.IsTargetCharacterSlot == playerTurn) ret.Add(attack);
             }
             Attacks = ret;
         }
