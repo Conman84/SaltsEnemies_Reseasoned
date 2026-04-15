@@ -226,6 +226,6 @@ namespace SaltsEnemies_Reseasoned
 
 
         public static string[] VersionCompatability = [Orph.H.Insider.Med, Garden.H.Insider.Med, Shore.H.Jabber.Med, Orph.H.Nume.Med, Shore.H.Papereater.Easy, Shore.H.Papereater.Med, Orph.H.Whale.Med];
-        public static string[] Insiders = [Shore.H.Hauntling.Med, Garden.H.Hauntling.Easy, Garden.H.CorpseChan.Med, Orph.H.Untitled.Hard, Garden.H.Dark.Med, Garden.H.Dark.Hard, Garden.H.Sundowner.Med, Garden.H.Lunoscope.Med, Garden.H.Lunoscope.Hard, Garden.H.Panopticon.Med, Garden.H.Ecstasy99.Med];
+        public static string[] Insiders = [Shore.H.Hauntling.Med, Garden.H.Hauntling.Easy, Garden.H.CorpseChan.Med, Orph.H.Untitled.Hard, Garden.H.Dark.Med, Garden.H.Dark.Hard, Garden.H.Sundowner.Med, Garden.H.Lunoscope.Med, Garden.H.Lunoscope.Hard, Garden.H.Panopticon.Med, Garden.H.Ecstasy99.Med, Garden.H.Moon.Hard];
     }
 }

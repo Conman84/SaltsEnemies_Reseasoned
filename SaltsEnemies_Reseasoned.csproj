@@ -589,6 +589,9 @@
 	  <None Remove="Chapter25\MechanicalAngel\MechanismPortal.png" />
 	  <None Remove="Chapter25\MechanicalAngel\MechanismWorld.png" />
 	  <None Remove="Chapter25\Mimita\MimitaIcon.png" />
+	  <None Remove="Chapter25\Moon\CosmicPassive.png" />
+	  <None Remove="Chapter25\Moon\MoonIcon.png" />
+	  <None Remove="Chapter25\Moon\TemporalPassive.png" />
 	  <None Remove="Chapter25\Nine\ControlPassive.png" />
 	  <None Remove="Chapter25\Nine\NineDead.png" />
 	  <None Remove="Chapter25\Nine\NineIcon.png" />
@@ -1621,6 +1624,9 @@
 	  <EmbeddedResource Include="Chapter25\MechanicalAngel\MechanismPortal.png" />
 	  <EmbeddedResource Include="Chapter25\MechanicalAngel\MechanismWorld.png" />
 	  <EmbeddedResource Include="Chapter25\Mimita\MimitaIcon.png" />
+	  <EmbeddedResource Include="Chapter25\Moon\CosmicPassive.png" />
+	  <EmbeddedResource Include="Chapter25\Moon\MoonIcon.png" />
+	  <EmbeddedResource Include="Chapter25\Moon\TemporalPassive.png" />
 	  <EmbeddedResource Include="Chapter25\Nine\ControlPassive.png" />
 	  <EmbeddedResource Include="Chapter25\Nine\NineDead.png" />
 	  <EmbeddedResource Include="Chapter25\Nine\NineIcon.png" />

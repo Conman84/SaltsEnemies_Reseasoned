@@ -271,6 +271,10 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "H_Zone03_ECSTASY99_Medium_EnemyBundle";
             }
+            public static class Moon
+            {
+                public static string Hard => "THEFREAKINGMOON";
+            }
 
             //marmo
             public static class Git

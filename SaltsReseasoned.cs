@@ -646,6 +646,11 @@ namespace SaltsEnemies_Reseasoned
             //EXTRA
             PCall(Tweak.Setup);
 
+            //FUN
+            PCall(TheMoon.AddMoon);
+            PCall(TheMoon.AddStars);
+            PCall(TheMoon.AddEncounters);
+
             Logger.LogInfo("Seasons greasons");
         }
 
