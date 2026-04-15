@@ -102,7 +102,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy template = new Enemy("The Stars", "TheStars_EN")
             {
-                Health = 300,
+                Health = 333,
                 HealthColor = Pigments.Grey,
                 CombatSprite = LoadedAssetsHandler.GetEnemy("StarGazer_EN").enemySprite,
                 OverworldAliveSprite = LoadedAssetsHandler.GetEnemy("StarGazer_EN").enemyOverworldSprite,
