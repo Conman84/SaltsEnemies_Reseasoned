@@ -137,7 +137,7 @@ namespace SaltEnemies_Reseasoned
                 if (!targets.Contains(attack.Target))
                 {   
                     if (attack.caster == null && playerTurn != attack.Target.IsTargetCharacterSlot) targets.Add(attack.Target);
-                    else if (playerTurn == attack.caster.IsUnitCharacter) targets.Add(attack.Target);
+                    else if (attack.caster != null && playerTurn == attack.caster.IsUnitCharacter) targets.Add(attack.Target);
                 }
             }
             return targets.ToArray();
