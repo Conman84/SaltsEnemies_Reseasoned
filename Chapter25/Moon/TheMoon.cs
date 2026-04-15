@@ -36,19 +36,19 @@ namespace SaltsEnemies_Reseasoned
             temporal.effects = [];
 
             PerformEffectPassiveAbility cosmic = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
-            cosmic.name = "Cosmic_8_PA";
-            cosmic._passiveName = "Cosmic (8)";
-            cosmic._enemyDescription = "At the start of each round, generate 2 Pigment of each primary color.";
+            cosmic.name = "Cosmic_4_PA";
+            cosmic._passiveName = "Cosmic (4)";
+            cosmic._enemyDescription = "At the start of each round, generate 1 Pigment of each primary color.";
             cosmic.m_PassiveID = "Cosmic_PA";
             cosmic.passiveIcon = ResourceLoader.LoadSprite("CosmicPassive.png");
             cosmic._triggerOn = [TriggerCalls.OnCombatStart, TriggerCalls.OnRoundFinished];
             cosmic.conditions = [];
             cosmic.doesPassiveTriggerInformationPanel = true;
             cosmic.effects = [
-                Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Red), 2),
-                Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Blue), 2),
-                Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Yellow), 2),
-                Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Purple), 2),
+                Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Red), 1),
+                Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Blue), 1),
+                Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Yellow), 1),
+                Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Purple), 1),
                 ];
 
             template.AddPassives(new BasePassiveAbilitySO[] { temporal, cosmic, Passives.Forgetful, Passives.Withering });
