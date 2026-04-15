@@ -62,13 +62,14 @@ namespace SaltsEnemies_Reseasoned
             closer.AnimationTarget = Targetting.Everything(false);
 
             Ability further = new Ability("Moving Further", "MoonFurther_A");
-            further.Description = "Fully heal this enemy. At the start of the next turn deal damage to this enemy equal to the amount healed.";
-            AddDelayedAttackNullCasterEffect use_exit = ScriptableObject.CreateInstance<AddDelayedAttackNullCasterEffect>();
-            use_exit._usePreviousExit = true;
+            further.Description = "Fully heal this enemy. Apply 20 Shield to all enemy positions.";
+            ApplyShieldSlotEffect use_exit = ScriptableObject.CreateInstance<ApplyShieldSlotEffect>();
+            use_exit._UsePreviousExitValueAsMultiplier = false;
             further.Rarity = Rarity.Common;
-            further.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<FullHealEffect>(), 1, Slots.Self),
-            Effects.GenerateEffect(use_exit, 1, Slots.Self)];
-            further.AddIntentsToTarget(Slots.Self, ["Heal_21", "Damage_Delay", "Damage_21"]);
+            further.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<FullHealEffect>(), 1, Targetting.Everything(true)),
+            Effects.GenerateEffect(use_exit, 20, Slots.Self)];
+            further.AddIntentsToTarget(Slots.Self, ["Heal_21"]);
+            further.AddIntentsToTarget(Targetting.Everything(true), ["Field_Shield"]);
             further.Visuals = Visuals.Excommunicate;
             further.AnimationTarget = Slots.Self;
 
@@ -98,7 +99,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy template = new Enemy("The Stars", "TheStars_EN")
             {
-                Health = 200,
+                Health = 300,
                 HealthColor = Pigments.Grey,
                 CombatSprite = LoadedAssetsHandler.GetEnemy("StarGazer_EN").enemySprite,
                 OverworldAliveSprite = LoadedAssetsHandler.GetEnemy("StarGazer_EN").enemyOverworldSprite,
@@ -159,24 +160,26 @@ namespace SaltsEnemies_Reseasoned
             pulsar.AnimationTarget = Slots.Front;
 
             Ability comet = new Ability("Comet", "Stars_3_A");
-            comet.Description = "Gain 2 Oil-Slicked. Move Left or Right.";
+            comet.Description = "Gain 2 Oil-Slicked and 35 Shield. Move Left or Right.";
             comet.Rarity = Rarity.Common;
             comet.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 2, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 35, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self)
                 ];
-            comet.AddIntentsToTarget(Slots.Self, ["Status_OilSlicked", "Swap_Sides"]);
+            comet.AddIntentsToTarget(Slots.Self, ["Status_OilSlicked", "Field_Shield", "Swap_Sides"]);
             comet.Visuals = Visuals.Wriggle;
             comet.AnimationTarget = Slots.Self;
 
             Ability singularity = new Ability("Singularity", "Stars_4_A");
-            singularity.Description = "Generate 1 Red Pigment. Gain 1 Divine Protection.";
+            singularity.Description = "Gain 1 Divine Protection.\nApply 20 Shield to the Left, Right, and this enemy positions.";
             singularity.Rarity = Rarity.Common;
             singularity.Effects = [
-                Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Red), 1, Slots.Self),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDivineProtectionEffect>(), 1, Slots.Self)
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDivineProtectionEffect>(), 1, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 20, Targeting.Slot_SelfAndSides)
                 ];
-            singularity.AddIntentsToTarget(Slots.Self, ["Status_DivineProtection", "Mana_Generate"]);
+            singularity.AddIntentsToTarget(Slots.Self, ["Status_DivineProtection"]);
+            singularity.AddIntentsToTarget(Targeting.Slot_SelfAndSides, ["Field_Shield"]);
             singularity.Visuals = Visuals.Excommunicate;
             singularity.AnimationTarget = Slots.Self;
 
