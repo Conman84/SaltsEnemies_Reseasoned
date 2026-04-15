@@ -38,6 +38,7 @@ namespace SaltsEnemies_Reseasoned
         {
             exitAmount = 0;
             if (_usePreviousExit) entryVariable *= PreviousExitValue;
+            if (entryVariable <= 0) return false;
             foreach (TargetSlotInfo target in targets)
             {
                 new DelayedAttack(entryVariable, target, null).Add();
