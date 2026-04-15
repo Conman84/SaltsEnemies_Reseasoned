@@ -348,14 +348,17 @@ namespace SaltEnemies_Reseasoned
             {
                 if (hit.caster == null && hit.Target.IsTargetCharacterSlot == side)
                 {
+                    bool skip = false;
                     foreach (DelayedAttack already in ret)
                     {
                         if (already.Target.SlotID == hit.Target.SlotID)
                         {
                             already.Damage += hit.Damage;
+                            skip = true;
                             break;
                         }
                     }
+                    if (skip) continue;
                     ret.Add(hit);
                 }
             }
