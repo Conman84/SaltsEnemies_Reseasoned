@@ -15,7 +15,7 @@ namespace SaltsEnemies_Reseasoned
         {
             if (args is IntegerReference damaged)
             {
-                foreach (TargetSlotInfo target in targetting.GetTargets(CombatManager.Instance._stats.combatSlots, effector.SlotID, effector.IsUnitCharacter)
+                foreach (TargetSlotInfo target in targetting.GetTargets(CombatManager.Instance._stats.combatSlots, effector.SlotID, effector.IsUnitCharacter))
                 {
                     new DelayedAttack(damaged.value, target, null).Add();
                 }
