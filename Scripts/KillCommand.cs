@@ -297,6 +297,7 @@ namespace SaltsEnemies_Reseasoned
         {
             if (DataManager.VersionCompatability.Contains(bundle)) return Legacy.Check;
             if (DataManager.Insiders.Contains(bundle)) return April.Custom;
+            if (DataManager.Invisible.Contains(bundle)) return false;
             return true;
         }
 
