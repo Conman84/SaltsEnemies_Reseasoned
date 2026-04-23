@@ -115,4 +115,16 @@ namespace SaltEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
+    public class MoreDisabledCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (args is IntegerReference skinteger)
+            {
+                if (skinteger.value >= 23)
+                    return true;
+            }
+            return false;
+        }
+    }
 }

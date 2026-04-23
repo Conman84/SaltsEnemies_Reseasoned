@@ -58,17 +58,64 @@ namespace SaltsEnemies_Reseasoned
 
             //splatter
             PerformEffectPassiveAbility splatter = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
-            splatter._passiveName = "Splatter (2)";
+            splatter._passiveName = "Splatter (1)";
             splatter.passiveIcon = ResourceLoader.LoadSprite("splatter.png");
-            splatter._enemyDescription = "On death, produce 2 pigment of this enemy's health color.";
-            splatter._characterDescription = "On death, produce 2 pigment of this character's health color.";
+            splatter._enemyDescription = "On death, produce 1 pigment of this enemy's health color.";
+            splatter._characterDescription = "On death, produce 1 pigment of this character's health color.";
             splatter.m_PassiveID = "Splatter_PA";
             splatter.doesPassiveTriggerInformationPanel = true;
             splatter._triggerOn = new TriggerCalls[] { TriggerCalls.OnDeath };
-            splatter.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateCasterHealthManaEffect>(), 2, Targeting.Slot_SelfSlot) };
+            splatter.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateCasterHealthManaEffect>(), 1, Targeting.Slot_SelfSlot) };
+
+            //fluid dynamics
+            PerformEffectPassiveAbility fluids = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            fluids._passiveName = "Fluid Dynamics (1)";
+            fluids.name = "FluidDynamics_1_PA";
+            fluids.passiveIcon = ResourceLoader.LoadSprite("FluidDynamicsPassive.png");
+            fluids.m_PassiveID = "FluidDynamics_PA";
+            fluids._enemyDescription = "On death, inflict 1 Slip to the Opposing position.";
+            fluids._characterDescription = fluids._enemyDescription;
+            fluids.doesPassiveTriggerInformationPanel = true;
+            fluids.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.Front)];
+            fluids.conditions = [];
+            fluids._triggerOn = [TriggerCalls.OnDeath];
+
+            //DISABLED
+            PerformEffectPassiveAbility disabled = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            disabled._passiveName = "Disabled (23)";
+            disabled.passiveIcon = ResourceLoader.LoadSprite("DisabledIcon.png");
+            disabled._enemyDescription = "On receiving any damage equal to or over 23, cancel one of this enemy's moves.";
+            disabled._characterDescription = "wont work, lol?";
+            disabled.m_PassiveID = "Disabled_PA";
+            disabled.doesPassiveTriggerInformationPanel = true;
+            disabled._triggerOn = new TriggerCalls[] { TriggerCalls.OnDamaged };
+            disabled.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<MoreDisabledCondition>() };
+            disabled.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveTargetTimelineAbilityEffect>(), 1, Slots.Self).SelfArray();
+
+            //substitute
+            StatusEffectPassiveAbility substitute = ScriptableObject.CreateInstance<StatusEffectPassiveAbility>();
+            substitute._passiveName = "Substitute";
+            substitute.m_PassiveID = "Substitute_PA";
+            substitute.passiveIcon = ResourceLoader.LoadSprite("DivineSacrifice.png");
+            substitute._characterDescription = "placeholder description";
+            substitute._enemyDescription = "Permanently inflicts Divine Sacrifice on this enemy.";
+            substitute.doesPassiveTriggerInformationPanel = false;
+            substitute._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
+            substitute._Status = DivineSacrifice.Object;
+
+            //ASPHYXIATION
+            AsphyxiationPassiveAbility noOver = ScriptableObject.CreateInstance<AsphyxiationPassiveAbility>();
+            noOver._passiveName = "Asphyxiation (6)";
+            noOver.passiveIcon = ResourceLoader.LoadSprite("Joeverflow.png");
+            noOver.m_PassiveID = "Salt_Asphyxiation_PA";
+            noOver._enemyDescription = "Overflow under 6 will not trigger.";
+            noOver._characterDescription = "Overflow under 6 will not trigger.";
+            noOver.doesPassiveTriggerInformationPanel = false;
+            noOver._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
+            noOver.ManaCap = 6;
 
             //addpassives
-            yin.AddPassives(new BasePassiveAbilitySO[] { Passives.Pure, Passives.Transfusion, Passives.Leaky3, Passives.Unstable, Passives.Slippery, Passives.Infantile, Violent.Generate(5), transform });
+            yin.AddPassives(new BasePassiveAbilitySO[] { Passives.Pure, Passives.Transfusion, Passives.Leaky3, Passives.Unstable, Passives.Slippery, Passives.Infantile, Violent.Generate(5), noOver, Passives.Forgetful, fluids, splatter, Passives.FleetingGenerator(10), disabled, substitute, Passives.Focus, Passives.Anointed1, Passives.Delicate, Passives.EssenceBlue, transform });
             yin.AddUnitType("Female_ID");
 
             //cruel
