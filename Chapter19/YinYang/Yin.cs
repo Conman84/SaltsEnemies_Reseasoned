@@ -114,8 +114,20 @@ namespace SaltsEnemies_Reseasoned
             noOver._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
             noOver.ManaCap = 6;
 
+
+            //Unmasking
+            UnmaskPassiveAbility unmask = ScriptableObject.CreateInstance<UnmaskPassiveAbility>();
+            unmask._passiveName = "Unmasking (23)";
+            unmask.m_PassiveID = "Unmasking_PA";
+            unmask.passiveIcon = ResourceLoader.LoadSprite("Unmasking.png");
+            unmask._characterDescription = "Upon taking 23 direct damage or higher, remove Confusion and Obscured as passives from this character.";
+            unmask._enemyDescription = "Upon taking 23 direct damage or higher, remove Confusion and Obscured as passives from this enemy.";
+            unmask.doesPassiveTriggerInformationPanel = false;
+            unmask._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged };
+            unmask._floorVal = 23;
+
             //addpassives
-            yin.AddPassives(new BasePassiveAbilitySO[] { Passives.Pure, Passives.Transfusion, Passives.Leaky3, Passives.Unstable, Passives.Slippery, Passives.Infantile, Violent.Generate(5), noOver, Passives.Forgetful, fluids, splatter, Passives.FleetingGenerator(10), disabled, substitute, Passives.Focus, Passives.Anointed1, Passives.Delicate, Passives.EssenceBlue, transform });
+            yin.AddPassives(new BasePassiveAbilitySO[] { Passives.Pure, Passives.Transfusion, Passives.Leaky3, Passives.Unstable, Passives.Slippery, Passives.Infantile, Violent.Generate(5), noOver, Passives.Forgetful, fluids, splatter, Passives.FleetingGenerator(10), disabled, substitute, Passives.Focus, Passives.Anointed1, Passives.Delicate, Passives.EssenceBlue, unmask, transform });
             yin.AddUnitType("Female_ID");
 
             //cruel
