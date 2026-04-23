@@ -412,12 +412,32 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "H_Zone02_Bloatfinger_Medium_EnemyBundle";
             }
+            public static class Aggregates
+            {
+                public static class Yellow
+                {
+                    public static string Easy => "H_Zone02_YellowAggregate_Easy_EnemyBundle";
+
+                    public static string Med => "H_Zone02_YellowAggregate_Medium_EnemyBundle";
+                }
+            }
+            public static class Uttershroom
+            {
+                public static string Med => "H_Zone02_Uttershroom_Medium_EnemyBundle";
+            }
 
             //sucklemod
             public static class Feaster
             {
                 public static string Easy => "FeasterEasy";
                 public static string Med => "FeasterMedium";
+            }
+
+            //sofanthiel
+            public static class Devout
+            {
+                public static string Med => "SF_Zone02_Devout_MediumBundle";
+                public static string Hard => "SF_Zone02_Devout_HardBundle";
             }
         }
     }

@@ -143,6 +143,23 @@ namespace SaltsEnemies_Reseasoned
                     purple.Add(LoadedAssetsHandler.GetEnemy(Humor.Purple));
                 }
             }
+            if (Check.MultiENExistInternal([Aggregates.Red, Aggregates.Blue, Aggregates.Yellow, Aggregates.Purple]))
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    red.Add(LoadedAssetsHandler.GetEnemy(Aggregates.Red));
+                    blue.Add(LoadedAssetsHandler.GetEnemy(Aggregates.Blue));
+                    yellow.Add(LoadedAssetsHandler.GetEnemy(Aggregates.Yellow));
+                    purple.Add(LoadedAssetsHandler.GetEnemy(Aggregates.Purple));
+                }
+            }
+            if (Check.MultiENExistInternal([Symbols.Red, Symbols.Blue, Symbols.Yellow, Symbols.Purple]))
+            {
+                red.Add(LoadedAssetsHandler.GetEnemy(Symbols.Red));
+                blue.Add(LoadedAssetsHandler.GetEnemy(Symbols.Blue));
+                yellow.Add(LoadedAssetsHandler.GetEnemy(Symbols.Yellow));
+                purple.Add(LoadedAssetsHandler.GetEnemy(Symbols.Purple));
+            }
             Red = red.ToArray();
             Blue = blue.ToArray();
             Yellow = yellow.ToArray();

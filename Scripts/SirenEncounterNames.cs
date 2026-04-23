@@ -90,6 +90,15 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "H_ZoneSiren_WinterLantern_Medium_EnemyBundle";
             }
+            public static class Aggregates
+            {
+                public static class Blue
+                {
+                    public static string Easy => "H_ZoneSiren_BlueAggregate_Easy_EnemyBundle";
+
+                    public static string Med => "H_ZoneSiren_BlueAggregate_Medium_EnemyBundle";
+                }
+            }
         }
     }
 }

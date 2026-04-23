@@ -179,6 +179,32 @@ namespace SaltsEnemies_Reseasoned
         public static string Red => "HumourSanguine_EN";
         public static string Blue => "HumourPhlegmatic_EN";
     }
+    public static class Aggregates
+    {
+        public static string Red => "RedAggregate_EN";
+
+        public static string Blue => "BlueAggregate_EN";
+
+        public static string Yellow => "YellowAggregate_EN";
+
+        public static string Purple => "PurpleAggregate_EN";
+
+        public static string Green => "GreenAggregate_EN";
+
+        public static string Grey => "GreyAggregate_EN";
+
+        public static string Gray => Grey;
+    }
+    public static class Symbols
+    {
+        public static string Red => "RedSymbol_EN";
+
+        public static string Blue => "BlueSymbol_EN";
+
+        public static string Yellow => "YellowSymbol_EN";
+
+        public static string Purple => "PurpleSymbol_EN";
+    }
     public static class Enemies
     {
         public static string Skinning => "SkinningHomunculus_EN";
