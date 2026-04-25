@@ -385,6 +385,12 @@ namespace SaltsEnemies_Reseasoned
                     public static string Med => "H_Zone01_PurpleAggregate_Medium_EnemyBundle";
                 }
             }
+            public static class Acolyte
+            {
+                public static string Easy => "H_Zone01_Acolyte_Easy_EnemyBundle";
+
+                public static string Med => "H_Zone01_Acolyte_Medium_EnemyBundle";
+            }
             //we will be waiting until the sand sifter has medium pool encounters.
         }
     }

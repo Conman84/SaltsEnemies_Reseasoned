@@ -61,6 +61,8 @@ namespace SaltEnemies_Reseasoned
             PCall(GlassedSunEffect.Instance.Setup);
             //angel setup
             PCall(AddCrossModAngels.Add);
+            //toys
+            PCall(ToysPool.Post);
 
             SaltDeadPixelEncounters.Add();
             PCall(SaltCrowEncounters.Add);

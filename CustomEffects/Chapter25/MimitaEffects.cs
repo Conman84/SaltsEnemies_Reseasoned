@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,6 +23,11 @@ namespace SaltsEnemies_Reseasoned
                 ];
 
             LoadedDBsHandler.EnemyDB.m_SpawnRandomListPools.Add(ID, Effect);
+        }
+
+        public static void Post()
+        {
+            if (Check.EnemyExist("Surrogate_EN")) LoadedAssetsHandler.GetEnemy("Surrogate_EN").AddToToysPool();
         }
     }
 
