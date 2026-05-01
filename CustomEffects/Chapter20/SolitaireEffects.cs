@@ -100,10 +100,10 @@ namespace SaltsEnemies_Reseasoned
                 MovedToGarden = false;
                 Clear();
             }
-            if (notifname == TriggerCalls.OnDamaged.ToString() && sender is EnemyCombat enemy && IsSolitaire(enemy))
+            if (notifname == TriggerCalls.OnDamaged.ToString() && sender is EnemyCombat enemy && IsSolitaire(enemy) && args is IntegerReference damageAmount)
             {
                 DreamScanner = CombatManager.Instance._informationHolder.Run.inGameData.GetIntData("DreamScanner");
-                DreamScanner++;
+                DreamScanner += damageAmount.value;
                 CombatManager.Instance._informationHolder.Run.inGameData.SetIntData("DreamScanner", DreamScanner);
             }
             if (notifname == TriggerCalls.OnAbilityUsed.ToString() && sender is CharacterCombat chara)

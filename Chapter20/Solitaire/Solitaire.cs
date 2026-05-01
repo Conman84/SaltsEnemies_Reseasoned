@@ -121,7 +121,7 @@ namespace SaltsEnemies_Reseasoned
 
             //scanner
             Ability scanner = new Ability("Dream Scanner", "DreamScanner_A");
-            scanner.Description = "Deal damage to the Opposing party member equal to the amount of times any Solitaire has taken any damage this run.";
+            scanner.Description = "Deal damage to the Opposing party member equal to the total damage any Solitaire has taken this run.";
             scanner.Rarity = radio.Rarity;
             scanner.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<DreamScannerEffect>(), 1, Slots.Front).SelfArray();
             scanner.AddIntentsToTarget(Slots.Front, new string[]
