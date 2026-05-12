@@ -137,6 +137,38 @@ namespace SaltEnemies_Reseasoned
             CameraEffects.AddPassive("Sadism_PA");
             CameraEffects.AddPassive("Fungus_PA");
             CameraEffects.AddPassive("Sparkling_PA");
+
+            //ITA
+            CameraEffects.AddPassive("Cultured_PA");
+            CameraEffects.AddPassive("Vandal_PA");
+            CameraEffects.AddPassive("Foolhardy_PA");
+            CameraEffects.AddPassive("Fungus_PA");
+            CameraEffects.AddPassive("Marked_PA");
+            CameraEffects.AddPassive("Euphony2_PA");
+            CameraEffects.AddPassive("Substitute_PA");
+            CameraEffects.AddPassive("TwoFacedEI_PA");
+            CameraEffects.AddPassive("KoAcceleration_PA");
+            CameraEffects.AddPassive("Economy_PA");
+            CameraEffects.AddPassive("Choke_1_PA");
+            CameraEffects.AddPassive("Watched_1_PA");
+            CameraEffects.AddPassive("Aberrant_PA");
+            CameraEffects.AddPassive("Capacitance_PA");
+            CameraEffects.AddPassive("Cute_PA");
+            CameraEffects.AddPassive("Thrombophilia_PA");
+            CameraEffects.AddPassive("Production_PA");
+            CameraEffects.AddPassive("Apostate_PA");
+            CameraEffects.AddPassive("Shepherd_PA");
+            CameraEffects.AddPassive("Nimble_PA");
+            CameraEffects.AddPassive("Stable_PA");
+            CameraEffects.AddPassive("Aid_2_PA");
+            CameraEffects.AddPassive("Arithmetic_Shiloh_ID");
+            CameraEffects.AddPassive("Waves_2_PA");
+            CameraEffects.AddPassive("VarViolent_PA");
+            CameraEffects.AddPassive("Groovy_2_PA");
+            CameraEffects.AddPassive("Judge_PA");
+            CameraEffects.AddPassive("Sinister_PA");
+            CameraEffects.AddPassive("Stronghold_6_PA");
+            CameraEffects.AddPassive("Chlorophyll_PA");
         }
         public static void PartyParental(CameraEffects.PassiveHolder passives, CharacterCombat chara, EnemyCombat enemy)
         {
