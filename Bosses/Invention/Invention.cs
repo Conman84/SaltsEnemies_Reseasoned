@@ -106,7 +106,7 @@ namespace SaltsEnemies_Reseasoned
             Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Targeting.Unit_AllAllies, ScriptableObject.CreateInstance<EverybodyAbilityCondition>())];
             encroach.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
             encroach.AddIntentsToTarget(targeting_ability, ["Damage_7_10"]);
-            encroach.AddIntentsToTarget(Targeting.Unit_AllAllies, ["Damage_1_2"]);
+            encroach.AddIntentsToTarget(Targeting.Unit_AllAllies, ["Mana_Generate"]);
 
             TargetingUnit_ManuallyAbilityAndMoved targeting_both = ScriptableObject.CreateInstance<TargetingUnit_ManuallyAbilityAndMoved>();
             targeting_both.getAllies = false;
@@ -148,7 +148,7 @@ namespace SaltsEnemies_Reseasoned
             Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Targeting.Unit_AllAllies, ScriptableObject.CreateInstance<EverybodyMovedCondition>())];
             limit.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
             limit.AddIntentsToTarget(targeting_moved, ["Damage_3_6"]);
-            limit.AddIntentsToTarget(Targeting.Unit_AllAllies, ["Damage_1_2"]);
+            limit.AddIntentsToTarget(Targeting.Unit_AllAllies, ["Mana_Generate"]);
 
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
