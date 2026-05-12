@@ -268,6 +268,7 @@ namespace SaltEnemies_Reseasoned
             //asdfagi
             PCall(MaceratorCrossovers.Add);
             PCall(WSP_AAA_Crossovers.Add);
+            PCall(AApocrypha_Set3Crossovers.Add);
 
             //sucklemod
             PCall(SuckleModCrossovers.Add);
