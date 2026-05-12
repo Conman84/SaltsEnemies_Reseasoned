@@ -8,7 +8,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-
+            AddTo easy = new AddTo(Shore.H.Aggregates.Red.Easy);
         }
     }
 }
