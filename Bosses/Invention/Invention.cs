@@ -79,10 +79,12 @@ namespace SaltsEnemies_Reseasoned
             systemic._triggerOn = [TriggerCalls.OnDirectDamaged];
 
             Ability repeat = new Ability("Repeater", "Repeater_A");
-            repeat.Description = "Scramble the Costs and Abilities of all party members.";
+            repeat.Description = "Scramble the Costs and Abilities of all party members.\nApply 6 Shield to all enemy positions.";
             repeat.Rarity = Rarity.Impossible;
-            repeat.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ScrambleAllAbilitiesEffect>())];
+            repeat.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ScrambleAllAbilitiesEffect>()),
+            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 6, Targetting.Everything(true))];
             repeat.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc"]);//custom intent maybe?
+            repeat.AddIntentsToTarget(Targetting.Everything(true), ["Field_Shield"]);
             repeat.Visuals = CustomVisuals.GetVisuals("Salt/DiamondBreak");
             repeat.AnimationTarget = TargettingSelf_NotSlot.Create();
 
