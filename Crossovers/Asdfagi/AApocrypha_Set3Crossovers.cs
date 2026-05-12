@@ -96,5 +96,57 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("Clown_EN", Aggregates.Red, "Waltz_EN");
             hard.AddRandomGroup("Clown_EN", Aggregates.Purple, "Waltz_EN");
         }
+        public static void Aggregates_Zone2()
+        {
+            AddTo easy = new AddTo(Orph.H.Aggregates.Yellow.Easy);
+            easy.AddRandomGroup(Aggregates.Yellow, "Foxtrot_EN", "Foxtrot_EN");
+            easy.AddRandomGroup(Aggregates.Yellow, Enemies.Solvent, Enemies.Suckle, Enemies.Suckle);
+
+            AddTo med = new AddTo(Orph.H.Aggregates.Yellow.Med);
+            med.AddRandomGroup(Aggregates.Yellow, "Enigma_EN", "Enigma_EN", "Enigma_EN");
+            med.AddRandomGroup(Aggregates.Yellow, Enemies.Shooter, "LostSheep_EN");
+            med.AddRandomGroup(Aggregates.Yellow, Enemies.Feaster, "Enigma_EN");
+            med.AddRandomGroup(Aggregates.Yellow, "Nameless_EN", "TheWhale_EN", "TheWhale_EN");
+            med.AddRandomGroup(Aggregates.Yellow, "Solitaire_EN", "Solitaire_EN", "Surrogate_EN");
+            med.AddRandomGroup(Aggregates.Yellow, "Nume_EN", "LostSheep_EN");
+            med.AddRandomGroup(Aggregates.Yellow, "Rabies_EN", "Romantic_EN", "Romantic_EN");
+
+            med = new AddTo(Orph.H.Something.Med);
+            med.AddRandomGroup("Something_EN", Aggregates.Yellow, "Sigil_EN");
+
+            med = new AddTo(Orph.H.Crow.Med);
+            med.AddRandomGroup("TheCrow_EN", Aggregates.Yellow, "Foxtrot_EN", "Foxtrot_EN");
+
+            med = new AddTo(Orph.H.Freud.Med);
+            med.AddRandomGroup("Freud_EN", Aggregates.Yellow, Enemies.Camera);
+
+            med = new AddTo(Orph.H.Crystal.Med);
+            med.AddRandomGroup("Crystal_EN", Aggregates.Yellow, "SingingStone_EN", "SingingStone_EN");
+
+            med = new AddTo(Orph.H.Evileye.Med);
+            med.AddRandomGroup("Evileye_EN", Aggregates.Yellow, "Wednesday_EN");
+
+            med = new AddTo(Orph.H.Maw.Med);
+            med.AddRandomGroup("Maw_EN", Aggregates.Yellow, "WindSong_EN");
+
+            med = new AddTo(Orph.H.YellowAngel.Med);
+            med.AddRandomGroup("YellowAngel_EN", Aggregates.Yellow, "Scrungie_EN");
+
+            AddTo hard = new AddTo(Orph.H.Maw.Hard);
+            hard.AddRandomGroup("Maw_EN", Aggregates.Yellow, "Author_EN");
+
+            hard = new AddTo(Orph.H.Dragon.Hard);
+            hard.AddRandomGroup("TheDragon_EN", Aggregates.Yellow, "Author_EN");
+
+            easy = new AddTo(Siren.H.Aggregates.Blue.Easy);
+            easy.AddRandomGroup(Aggregates.Blue, "Boiler_EN", "Stalker2_EN");
+
+            med = new AddTo(Siren.H.Aggregates.Blue.Med);
+            med.AddRandomGroup(Aggregates.Blue, "Tassnn_EN", "Tassnn_EN", "Stalker2_EN");
+            med.AddRandomGroup(Aggregates.Blue, "WolfColony_EN", "WolfColony_EN");
+
+            med = new AddTo(Siren.H.Wolf.Med);
+            med.AddRandomGroup("WolfColony_EN", "WolfColony_EN", Aggregates.Blue);
+        }
     }
 }
