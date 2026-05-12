@@ -118,4 +118,123 @@ namespace SaltsEnemies_Reseasoned
             return true;
         }
     }
+    public class TargetingUnit_NotManuallyAbility : Targetting_ByUnit_Side
+    {
+        public override TargetSlotInfo[] GetTargets(SlotsCombat slots, int casterSlotID, bool isCasterCharacter)
+        {
+            TargetSlotInfo[] orig = base.GetTargets(slots, casterSlotID, isCasterCharacter);
+
+            List<TargetSlotInfo> ret = new List<TargetSlotInfo>();
+
+            foreach (TargetSlotInfo target in orig)
+            {
+                if (target.HasUnit && !target.Unit.HasManuallyUsedAbilityThisTurn) ret.Add(target);
+            }
+
+            return ret.ToArray();
+        }
+    }
+    public class EverybodyAbilityCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
+            {
+                if (!chara.HasManuallyUsedAbilityThisTurn) return false;
+            }
+            return true;
+        }
+    }
+    public class TargetingUnit_ManuallyAbilityAndMoved : Targetting_ByUnit_Side
+    {
+        public override TargetSlotInfo[] GetTargets(SlotsCombat slots, int casterSlotID, bool isCasterCharacter)
+        {
+            TargetSlotInfo[] orig = base.GetTargets(slots, casterSlotID, isCasterCharacter);
+
+            List<TargetSlotInfo> ret = new List<TargetSlotInfo>();
+
+            foreach (TargetSlotInfo target in orig)
+            {
+                if (target.HasUnit && target.Unit.HasManuallyUsedAbilityThisTurn && target.Unit.HasManuallySwappedThisTurn) ret.Add(target);
+            }
+
+            return ret.ToArray();
+        }
+    }
+
+    public class ScrambleAllAbilitiesEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            List<AbilitySO> abilities = [];
+            List<ManaColorSO[]> costs = [];
+
+            foreach (CharacterCombat chara in stats.CharactersOnField.Values)
+            {
+                foreach (CombatAbility ability in chara.CombatAbilities)
+                {
+                    abilities.Add(ability.ability);
+                    costs.Add(ability.cost);
+                }
+
+                chara._combatAbilities = [];
+            }
+
+            int tick = 0;
+            while (abilities.Count > stats.CharactersOnField.Count && tick < 10)
+            {
+                tick++;
+
+                foreach (CharacterCombat chara in stats.CharactersOnField.Values)
+                {
+                    if (abilities.Count <= 0) break;
+                    if (chara.CombatAbilities.Count >= 10) continue;
+
+                    int a = UnityEngine.Random.Range(0, abilities.Count);
+                    AbilitySO ability = abilities[a];
+                    abilities.RemoveAt(a);
+
+                    int c = UnityEngine.Random.Range(0, costs.Count);
+                    ManaColorSO[] cost = costs[c];
+                    costs.RemoveAt(c);
+
+                    CombatAbility combat = new CombatAbility(ability, cost);
+
+                    chara.CombatAbilities.Add(combat);
+
+                    exitAmount++;
+                }
+            }
+
+            tick = 0;
+            while (abilities.Count > 0 && tick < 99)
+            {
+                tick++;
+
+                List<CharacterCombat> charas = [.. stats.CharactersOnField.Values];
+                CharacterCombat chara = charas[UnityEngine.Random.Range(0, charas.Count)];
+                if (chara.CombatAbilities.Count >= 10) continue;
+
+                int a = UnityEngine.Random.Range(0, abilities.Count);
+                AbilitySO ability = abilities[a];
+                abilities.RemoveAt(a);
+                int c = UnityEngine.Random.Range(0, costs.Count);
+                ManaColorSO[] cost = costs[c];
+                costs.RemoveAt(c);
+                CombatAbility combat = new CombatAbility(ability, cost);
+
+                chara.CombatAbilities.Add(combat);
+
+                exitAmount++;
+            }
+
+            foreach (CharacterCombat chara in stats.CharactersOnField.Values)
+            {
+                CombatManager.Instance.AddUIAction(new CharacterUpdateAllAttacksUIAction(chara.ID, chara.CombatAbilities.ToArray()));
+            }
+
+            return true;
+        }
+    }
 }

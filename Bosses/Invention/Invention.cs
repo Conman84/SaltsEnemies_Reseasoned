@@ -54,13 +54,12 @@ namespace SaltsEnemies_Reseasoned
             maintain._triggerOn = baseExtra._triggerOn;
             Ability bonus = new Ability("Maintenance_A");
             bonus.Name = "Maintenance";
-            bonus.Description = "Inflict 2 Scars on the Central party member and generate 3 random non-Red Pigment.\nIf there is no Central party member, inflict 1 Scar on all party members.";
-            bonus.Rarity = Rarity.Common;
-            bonus.Effects = new EffectInfo[3];
-            bonus.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 2, Targeting.GenerateGenericTarget([2]));
-            bonus.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Unit_AllOpponents, HasCentralPartyMemberCondition.Create(false));
-            bonus.Effects[2] = Effects.GenerateEffect(randomize, 3, Slots.Self);
-            bonus.AddIntentsToTarget(Targetting.Everything(false), ["Status_Scars"]);
+            bonus.Description = "Deal a Lethal amount of damage to the Central party member position.\nProduce 3 random non-Red Pigment.";
+            bonus.Rarity = Rarity.Impossible;
+            bonus.Effects = new EffectInfo[2];
+            bonus.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 16, Targeting.GenerateGenericTarget([2]));
+            bonus.Effects[1] = Effects.GenerateEffect(randomize, 3, Slots.Self);
+            bonus.AddIntentsToTarget(Targeting.GenerateGenericTarget([2]), ["Damage_16_20"]);
             bonus.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), ["Mana_Generate"]);
             bonus.Visuals = CustomVisuals.GetVisuals("Salt/Crush");
             bonus.AnimationTarget = Targeting.GenerateGenericTarget([2]);
@@ -79,52 +78,52 @@ namespace SaltsEnemies_Reseasoned
             systemic.specialStoredData = UnitStoreData.CreateAndAdd_IntTooltip_UnitStoreDataToPool("Repeater_PA", "Repeater: {0}", Color.magenta, true, -1);
             systemic._triggerOn = [TriggerCalls.OnDirectDamaged];
 
-            TargetingUnit_NotManuallyMoved allenemy = ScriptableObject.CreateInstance<TargetingUnit_NotManuallyMoved>();
-            allenemy.getAllies = false;
-            allenemy.getAllUnitSlots = false;
-
             Ability repeat = new Ability("Repeater", "Repeater_A");
-            repeat.Description = "Deal a Painful amount of damage to a random party member that did not manually move this turn.\nIf every party member manually moved, deal a Painful amount of damage to this enemy.";
+            repeat.Description = "Scramble the Costs and Abilities of all party members.";
             repeat.Rarity = Rarity.Impossible;
-            repeat.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageTargetRandomEffect>(), 5, allenemy),
-            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Self, ScriptableObject.CreateInstance<EverybodyMovedCondition>())];
-            repeat.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
-            repeat.AddIntentsToTarget(allenemy, ["Damage_3_6"]);
-            repeat.AddIntentsToTarget(Slots.Self, ["Damage_3_6"]);
-            repeat.Visuals = CustomVisuals.GetVisuals("Salt/Insta/Shatter");
+            repeat.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ScrambleAllAbilitiesEffect>())];
+            repeat.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc"]);//custom intent maybe?
+            repeat.Visuals = CustomVisuals.GetVisuals("Salt/DiamondBreak");
             repeat.AnimationTarget = TargettingSelf_NotSlot.Create();
 
             template.AddPassives(new BasePassiveAbilitySO[] { Passives.Formless, maintain, systemic });
 
+
+            TargetingUnit_NotManuallyMoved targeting_ability = ScriptableObject.CreateInstance<TargetingUnit_NotManuallyMoved>();
+            targeting_ability.getAllies = false;
+            targeting_ability.getAllUnitSlots = false;
             Ability encroach = new Ability("Encroach", "Encroach_A")
             {
-                Description = "Inflict 1 Ruptured on every party member who moved since the start of the last turn.\nIf no party members moved last turn, deal a Little damage to all party members.",
+                Description = "Deal an Agonizing amount of damage to a random party member that did not manually use an ability this turn.\nIf every party member manually used an ability, deal a Little of damage to this enemy.",
                 Rarity = Rarity.Common,
-                Effects = new EffectInfo[]
-                {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Targetting_By_Moved.Create(false)),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Targeting.Unit_AllOpponents, ScriptableObject.CreateInstance<NobodyMovedCondition>())
-                },
-                Visuals = CustomVisuals.GetVisuals("Salt/Class"),
-                AnimationTarget = Targetting_By_Moved.Create(false),
+                Visuals = CustomVisuals.GetVisuals("Salt/Insta/Shatter"),
+                AnimationTarget = targeting_ability,
             };
-            encroach.AddIntentsToTarget(Targetting.Everything(false), ["Misc_Hidden", "Status_Ruptured", "Damage_1_2"]);
+            encroach.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageTargetRandomEffect>(), 10, targeting_ability),
+            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Self, ScriptableObject.CreateInstance<EverybodyAbilityCondition>())];
+            encroach.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
+            encroach.AddIntentsToTarget(targeting_ability, ["Damage_7_10"]);
+            encroach.AddIntentsToTarget(Targeting.Unit_AllAllies, ["Damage_1_2"]);
 
+            TargetingUnit_NotManuallyMoved targeting_both = ScriptableObject.CreateInstance<TargetingUnit_NotManuallyMoved>();
+            targeting_both.getAllies = false;
+            targeting_both.getAllUnitSlots = false;
             Ability series = new Ability("Series", "Series_A");
-            series.Description = "Consume 3 random Pigment.\nDouble the maximum health of all party members.";
+            series.Description = "Consume all random Pigment.\nInflict 3 Frail on all party members that both manually moved or manually used an ability.";
             series.Rarity = Rarity.GetCustomRarity("rarity5");
             series.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeRandomManaEffect>(), 3, Slots.Self),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DoubleMaxHealthTargetEffect>(), 1, Targeting.Unit_AllOpponents)
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeAllManaEffect>(), 1, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 3, targeting_both)
             };
-            series.Visuals = CustomVisuals.GetVisuals("Salt/DiamondBreak");
-            series.AnimationTarget = TargettingSelf_NotSlot.Create();
+            series.Visuals = CustomVisuals.GetVisuals("Salt/Class");
+            series.AnimationTarget = targeting_both;
             series.AddIntentsToTarget(TargettingSelf_NotSlot.Create(), new string[]
             {
                 "Mana_Consume",
             });
-            series.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Other_MaxHealth_Alt.ToString()]);
+            series.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
+            series.AddIntentsToTarget(targeting_both, ["Status_Frail"]);
 
             DamageByStoredValueEffect limitdamage = ScriptableObject.CreateInstance<DamageByStoredValueEffect>();
             limitdamage._increaseDamage = false;
@@ -132,19 +131,21 @@ namespace SaltsEnemies_Reseasoned
             CasterSetStoredValueEffect resetlimit = ScriptableObject.CreateInstance<CasterSetStoredValueEffect>();
             resetlimit._valueName = "Limit_A";
 
-            Ability limit = new Ability("Limit", "Limit_A");
-            limit.Description = "Deal an Agonizing amount of damage to the Center position.\nCurse the highest health party member if there is no Central Opposing party member.";
-            limit.Rarity = Rarity.Common;
-            limit.Effects = [
-                Effects.GenerateEffect(limitdamage, 10, Targeting.GenerateGenericTarget([2])),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Targetting.HighestEnemy, HasCentralPartyMemberCondition.Create(false))
-                ];
-            limit.AddIntentsToTarget(Targeting.GenerateGenericTarget([2]), ["Damage_7_10"]);
-            limit.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Status_Cursed"]);
-            limit.Visuals = CustomVisuals.GetVisuals("Salt/Drill");
-            limit.AnimationTarget = Targeting.GenerateGenericTarget([2]);
-            limit.UnitStoreData = UnitStoreData.CreateAndAdd_IntTooltip_UnitStoreDataToPool("Limit_A", "Limit -{0}", Misc.GetInGame_UITextColor(Misc.UITextColorIDs.Negative));
-
+            TargetingUnit_NotManuallyMoved targeting_moved = ScriptableObject.CreateInstance<TargetingUnit_NotManuallyMoved>();
+            targeting_moved.getAllies = false;
+            targeting_moved.getAllUnitSlots = false;
+            Ability limit = new Ability("Limit", "Limit_A")
+            {
+                Description = "Deal a Painful amount of damage to all party members that did not manually move this turn.\nIf every party member manually moved, deal a Painful amount of damage to this enemy.",
+                Rarity = Rarity.Common,
+                Visuals = CustomVisuals.GetVisuals("Salt/Drill"),
+                AnimationTarget = targeting_moved,
+            };
+            limit.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, targeting_moved),
+            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Slots.Self, ScriptableObject.CreateInstance<EverybodyMovedCondition>())];
+            limit.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
+            limit.AddIntentsToTarget(targeting_moved, ["Damage_3_6"]);
+            limit.AddIntentsToTarget(Targeting.Unit_AllAllies, ["Damage_3_6"]);
 
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
