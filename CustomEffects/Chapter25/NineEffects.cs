@@ -69,6 +69,8 @@ namespace SaltsEnemies_Reseasoned
             exitAmount = 0;
 
             _swapRight = UnityEngine.Random.Range(0, 100) < 50;
+            if (caster.SlotID == 0) _swapRight = true;
+            if (caster.SlotID + caster.Size >= 5) _swapRight = false;
 
             int times = UnityEngine.Random.Range(1, entryVariable + 1);
 
