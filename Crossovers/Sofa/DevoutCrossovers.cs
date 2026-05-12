@@ -22,7 +22,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Devout_EN", "WindSong_EN", "MusicMan_EN", Enemies.Suckle);
             med.AddRandomGroup("Devout_EN", Enemies.Feaster, "Enigma_EN");
             med.AddRandomGroup("Devout_EN", "Sigil_EN", "Scrungie_EN", "Scrungie_EN");
-            med.AddRandomGroup("Devout_EN", "Rabies_EN", Enemies.Suckle);
+            med.AddRandomGroup("Devout_EN", "Rabies_EN", "Romantic_EN");
             med.AddRandomGroup("Devout_EN", Jumble.Red, Enemies.Camera, Enemies.Camera);
             med.AddRandomGroup("Devout_EN", "Nume_EN", "Scrungie_EN");
             med.AddRandomGroup("Devout_EN", "Author_EN", Jumble.Red);
@@ -33,12 +33,14 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Orph.H.Crow.Med);
             med.AddRandomGroup("TheCrow_EN", "Devout_EN", "Enigma_EN");
+            med.AddRandomGroup("TheCrow_EN", "Devout_EN", "Surrogate_EN");
 
             med = new AddTo(Orph.H.Freud.Med);
             med.AddRandomGroup("Freud_EN", "Devout_EN", "Solitaire_EN");
             med.AddRandomGroup("Freud_EN", "Devout_EN", "WindSong_EN");
 
             med = new AddTo(Orph.H.Maw.Med);
+            med.AddRandomGroup("Maw_EN", "Devout_EN");
             med.AddRandomGroup("Maw_EN", "Devout_EN");
 
             AddTo hard = new AddTo(Orph.H.Maw.Hard);
