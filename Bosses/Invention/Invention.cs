@@ -97,7 +97,7 @@ namespace SaltsEnemies_Reseasoned
             targeting_ability.getAllUnitSlots = false;
             Ability encroach = new Ability("Encroach", "Encroach_A")
             {
-                Description = "Deal an Agonizing amount of damage to a random party member that did not manually use an ability this turn.\nIf every party member manually used an ability, deal a Little of damage to this enemy.",
+                Description = "Deal an Agonizing amount of damage to a random party member that did not manually use an ability this turn.\nIf every party member manually used an ability, produce 3 random non-Red Pigment.",
                 Rarity = Rarity.Common,
                 Visuals = CustomVisuals.GetVisuals("Salt/Insta/Shatter"),
                 AnimationTarget = targeting_ability,
@@ -139,7 +139,7 @@ namespace SaltsEnemies_Reseasoned
             targeting_moved.getAllUnitSlots = false;
             Ability limit = new Ability("Limit", "Limit_A")
             {
-                Description = "Deal a Painful amount of damage to all party members that did not manually move this turn.\nIf every party member manually moved, deal a Little amount of damage to this enemy.",
+                Description = "Deal a Painful amount of damage to all party members that did not manually move this turn.\nIf every party member manually moved, produce 3 random non-Red Pigment.",
                 Rarity = Rarity.Common,
                 Visuals = CustomVisuals.GetVisuals("Salt/Drill"),
                 AnimationTarget = targeting_moved,
