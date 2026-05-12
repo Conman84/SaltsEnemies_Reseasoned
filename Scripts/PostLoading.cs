@@ -274,6 +274,9 @@ namespace SaltEnemies_Reseasoned
 
             //siren
             PCall(SirenCrossovers.Add);
+
+            //sofa
+            PCall(DevoutCrossovers.Add);
         }
     }
 }
