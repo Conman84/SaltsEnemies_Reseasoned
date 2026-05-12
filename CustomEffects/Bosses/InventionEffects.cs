@@ -155,7 +155,7 @@ namespace SaltsEnemies_Reseasoned
 
             foreach (TargetSlotInfo target in orig)
             {
-                if (target.HasUnit && target.Unit.HasManuallyUsedAbilityThisTurn && target.Unit.HasManuallySwappedThisTurn) ret.Add(target);
+                if (target.HasUnit && (target.Unit.HasManuallyUsedAbilityThisTurn || target.Unit.HasManuallySwappedThisTurn)) ret.Add(target);
             }
 
             return ret.ToArray();

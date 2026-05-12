@@ -55,7 +55,8 @@ namespace SaltsEnemies_Reseasoned
             Ability bonus = new Ability("Maintenance_A");
             bonus.Name = "Maintenance";
             bonus.Description = "Deal a Lethal amount of damage to the Central party member position.\nProduce 3 random non-Red Pigment.";
-            bonus.Rarity = Rarity.Impossible;
+            bonus.Rarity = Rarity.CreateAndAddCustomRarityToPool("inv_3", 3);
+            bonus.Priority = Priority.Fast;
             bonus.Effects = new EffectInfo[2];
             bonus.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 16, Targeting.GenerateGenericTarget([2]));
             bonus.Effects[1] = Effects.GenerateEffect(randomize, 3, Slots.Self);
@@ -107,11 +108,11 @@ namespace SaltsEnemies_Reseasoned
             encroach.AddIntentsToTarget(targeting_ability, ["Damage_7_10"]);
             encroach.AddIntentsToTarget(Targeting.Unit_AllAllies, ["Damage_1_2"]);
 
-            TargetingUnit_NotManuallyMoved targeting_both = ScriptableObject.CreateInstance<TargetingUnit_NotManuallyMoved>();
+            TargetingUnit_ManuallyAbilityAndMoved targeting_both = ScriptableObject.CreateInstance<TargetingUnit_ManuallyAbilityAndMoved>();
             targeting_both.getAllies = false;
             targeting_both.getAllUnitSlots = false;
             Ability series = new Ability("Series", "Series_A");
-            series.Description = "Consume all random Pigment.\nInflict 3 Frail on all party members that both manually moved or manually used an ability.";
+            series.Description = "Consume all Pigment.\nInflict 3 Frail on all party members that either manually moved or manually used an ability.";
             series.Rarity = Rarity.GetCustomRarity("rarity5");
             series.Effects = new EffectInfo[]
             {
@@ -138,16 +139,16 @@ namespace SaltsEnemies_Reseasoned
             targeting_moved.getAllUnitSlots = false;
             Ability limit = new Ability("Limit", "Limit_A")
             {
-                Description = "Deal a Painful amount of damage to all party members that did not manually move this turn.\nIf every party member manually moved, deal a Painful amount of damage to this enemy.",
+                Description = "Deal a Painful amount of damage to all party members that did not manually move this turn.\nIf every party member manually moved, deal a Little amount of damage to this enemy.",
                 Rarity = Rarity.Common,
                 Visuals = CustomVisuals.GetVisuals("Salt/Drill"),
                 AnimationTarget = targeting_moved,
             };
             limit.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, targeting_moved),
-            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Self, ScriptableObject.CreateInstance<EverybodyMovedCondition>())];
+            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Self, ScriptableObject.CreateInstance<EverybodyMovedCondition>())];
             limit.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
             limit.AddIntentsToTarget(targeting_moved, ["Damage_3_6"]);
-            limit.AddIntentsToTarget(Targeting.Unit_AllAllies, ["Damage_3_6"]);
+            limit.AddIntentsToTarget(Targeting.Unit_AllAllies, ["Damage_1_2"]);
 
             //ADD ENEMY
             template.AddEnemyAbilities(new EnemyAbilityInfo[]
