@@ -80,7 +80,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("Tripod_EN", Aggregates.Purple, "ToyUfo_EN");
 
             hard = new AddTo(Shore.H.Unmung.Hard);
-            hard.AddRandomGroup("Unmung_EN", Aggregates.Red);
+            hard.AddRandomGroup(Enemies.Unmung, Aggregates.Red);
 
             hard = new AddTo(Shore.H.Warbird.Hard);
             hard.AddRandomGroup("Warbird_EN", Aggregates.Red, "Papereater_EN");
