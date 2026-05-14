@@ -278,6 +278,9 @@ namespace SaltEnemies_Reseasoned
 
             //sofa
             PCall(DevoutCrossovers.Add);
+
+            //entmod
+            PCall(FreakFoesCrossovers_First.Add);
         }
     }
 }

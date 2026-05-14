@@ -15,6 +15,7 @@ namespace SaltsEnemies_Reseasoned
             AddTo easy = new AddTo(Shore.H.Lockjaw.Easy);
             easy.AddRandomGroup("LockJaw_EN", "Waltz_EN", "Waltz_EN");
             easy.AddRandomGroup("LockJaw_EN", "LostSheep_EN", "LockJaw_EN");
+            easy.AddRandomGroup("LockJaw_EN", "Papereater_EN");
 
             AddTo med = new AddTo(Shore.H.Lockjaw.Med);
             med.AddRandomGroup("LockJaw_EN", "DeadPixel_EN", "DeadPixel_EN");
@@ -42,9 +43,55 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Shore.H.LittleBeak.Med);
             med.AddRandomGroup("LittleBeak_EN", "Wavebreaker_EN", "MudLung_EN");
+            med.AddRandomGroup("LittleBeak_EN", "Wavebreaker_EN", "Papereater_EN");
 
             hard = new AddTo(Shore.H.Unmung.Hard);
             hard.AddRandomGroup(Enemies.Unmung, "LockJaw_EN");
+
+            hard = new AddTo(Shore.H.Camera.Hard);
+            hard.AddRandomGroup(Enemies.Camera, "LockJaw_EN", "2009_EN");
+
+            hard = new AddTo(Shore.H.Warbird.Hard);
+            hard.AddRandomGroup("Warbird_EN", "LockJaw_EN", "2009_EN");
+
+            med = new AddTo(Shore.H.Clione.Med);
+            med.AddRandomGroup("Clione_EN", "Wavebreaker_EN", Enemies.Mungling);
+
+            med = new AddTo(Shore.H.Sinker.Med);
+            med.AddRandomGroup("Sinker_EN", "Wavebreaker_EN", "VoiceTrumpet_EN");
+            med.AddRandomGroup("Sinker_EN", "LockJaw_EN", "ToyUfo_EN");
+
+            med = new AddTo(Shore.H.TwoThousandNine.Med);
+            med.AddRandomGroup("2009_EN", "LockJaw_EN", "Hauntling_EN");
+
+            hard = new AddTo(Shore.H.Clown.Hard);
+            hard.AddRandomGroup("Clown_EN", "Wavebreaker_EN");
+            hard.AddRandomGroup("Clown_EN", "LockJaw_EN", "Waltz_EN");
+
+            med = new AddTo(Shore.H.Papereater.Med);
+            med.AddRandomGroup("Papereater_EN", "Papereater_EN", "LockJaw_EN");
+
+            med = new AddTo(Shore.H.Jabber.Med);
+            med.AddRandomGroup("Jabberwocky_EN", "Wavebreaker_EN", "Pinano_EN");
+
+            hard = new AddTo(Shore.H.Amalga.Hard);
+            hard.AddRandomGroup("33_EN", "LockJaw_EN", "Keko_EN", "Keko_EN");
+
+            hard = new AddTo(Shore.H.Comber.Hard);
+            hard.AddRandomGroup("Beachcomber_EN", "Waltz_EN", "Waltz_EN");
+            hard.AddRandomGroup("Beachcomber_EN", "DeadPixel_EN", "DeadPixel_EN");
+            hard.AddRandomGroup("Beachcomber_EN", "Pinano_EN", Jumble.Red);
+            hard.AddRandomGroup("Beachcomber_EN", "Papereater_EN", "Papereater_EN");
+            hard.AddRandomGroup("Beachcomber_EN", "Clione_EN");
+            hard.AddRandomGroup("Beachcomber_EN", "LittleBeak_EN");
+            hard.AddRandomGroup("Beachcomber_EN", "TortureMeNot_EN", "TortureMeNot_EN");
+            hard.AddRandomGroup("Beachcomber_EN", "ToyUfo_EN", "Windle_EN");
+            hard.AddRandomGroup("Beachcomber_EN", "NobodyGrave_EN", "AFlower_EN");
+            hard.AddRandomGroup("Beachcomber_EN", "Sinker_EN", "Skyloft_EN");
+            hard.AddRandomGroup("Beachcomber_EN", "2009_EN", "LockJaw_EN");
+            hard.AddRandomGroup("Beachcomber_EN", "Hauntling_EN", "Wall_EN");
+            hard.AddRandomGroup("Beachcomber_EN", "Jabberwocky_EN", "NobodyGrave_EN");
+            hard.AddRandomGroup("Beachcomber_EN", "Clown_EN");
         }
     }
 }
