@@ -596,6 +596,12 @@
 	  <None Remove="Chapter25\Nine\NineDead.png" />
 	  <None Remove="Chapter25\Nine\NineIcon.png" />
 	  <None Remove="Chapter25\Nine\NineWorld.png" />
+	  <None Remove="Chapter26\Eclipse\AwakenedDead.png" />
+	  <None Remove="Chapter26\Eclipse\AwakenedIcon.png" />
+	  <None Remove="Chapter26\Eclipse\AwakenedWorld.png" />
+	  <None Remove="Chapter26\Eclipse\RisingDead.png" />
+	  <None Remove="Chapter26\Eclipse\RisingIcon.png" />
+	  <None Remove="Chapter26\Eclipse\RisingWorld.png" />
 	  <None Remove="CustomPassives\Chapter02\Decay.png" />
 	  <None Remove="CustomPassives\Chapter03\DontTouchMe.png" />
 	  <None Remove="CustomPassives\Chapter03\StarPassive.png" />
@@ -1631,6 +1637,12 @@
 	  <EmbeddedResource Include="Chapter25\Nine\NineDead.png" />
 	  <EmbeddedResource Include="Chapter25\Nine\NineIcon.png" />
 	  <EmbeddedResource Include="Chapter25\Nine\NineWorld.png" />
+	  <EmbeddedResource Include="Chapter26\Eclipse\AwakenedDead.png" />
+	  <EmbeddedResource Include="Chapter26\Eclipse\AwakenedIcon.png" />
+	  <EmbeddedResource Include="Chapter26\Eclipse\AwakenedWorld.png" />
+	  <EmbeddedResource Include="Chapter26\Eclipse\RisingDead.png" />
+	  <EmbeddedResource Include="Chapter26\Eclipse\RisingIcon.png" />
+	  <EmbeddedResource Include="Chapter26\Eclipse\RisingWorld.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter01\Desperate.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Decay.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Fishing.png" />
