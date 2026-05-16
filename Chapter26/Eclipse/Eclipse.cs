@@ -58,6 +58,9 @@ namespace SaltsEnemies_Reseasoned
             IntListWrapper f = new IntListWrapper() { list = { 0, 0, 0, 0, 0 } };
             random_set._AbilitySets = [ a, b, c, d, e, f ];
 
+            ExtraAbilityInfoListWrapper pool = new ExtraAbilityInfoListWrapper() { list = [] };
+            random_set._PoolsData = [pool];
+
             Ability fate = new Ability("Invisible Fates", "InvisibleFate_A");
             fate.Description = "If the Opposing party member is Cursed, deal an Agonizing amount of damage to them.";
             fate.Rarity = Rarity.CreateAndAddCustomRarityToPool("knight_20", 20);
@@ -68,6 +71,59 @@ namespace SaltsEnemies_Reseasoned
             fate.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_7_10"]);
             fate.AnimationTarget = Slots.Front;
             fate.Visuals = LoadedAssetsHandler.GetCharacterAbility("Conversion_1_A").visuals;
+
+            ExtraAttackPassiveAbility baseExtra = LoadedAssetsHandler.GetEnemy("Xiphactinus_EN").passiveAbilities[1] as ExtraAttackPassiveAbility;
+            ExtraAttackPassiveAbility bonusattack = ScriptableObject.Instantiate<ExtraAttackPassiveAbility>(baseExtra);
+            bonusattack._passiveName = "Invisible Fates";
+            bonusattack._enemyDescription = "This enemy will perforn the extra ability \"Invisible Fates\" each turn.";
+            bonusattack._extraAbility.ability = fate.GenerateEnemyAbility(true).ability;
+
+            Ability second = new Ability("Second Pain", "Eclipse2_A");
+            second.Description = "Inflict 4 Slip on the Left and Right enemy positions then a Little damage to all enemies in Slip.\nRemove this ability from this enemy's moveset.";
+            second.Rarity = Rarity.Common;
+            second.Effects = new EffectInfo[3];
+            second.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 4, Slots.Sides);
+            second.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<InSlipDamageEffect>(), 2, Targeting.Unit_AllAllies);
+            second.AddIntentsToTarget(Slots.Sides, [Slip.Intent]);
+            second.AddIntentsToTarget(Targeting.Unit_AllAllies, ["Damage_1_2"]);
+            second.AddIntentsToTarget(Slots.Self, ["Misc"]);
+            second.AnimationTarget = Slots.Self;
+            second.Visuals = Visuals.Melt;
+            second.GenerateEnemyAbility(true);
+
+            pool.list.Add(second.ExtraAbility(out CasterAddOrRemoveExtraAbilityEffect remove_second));
+            second.Effects[2] = Effects.GenerateEffect(remove_second);
+
+            Ability third = new Ability("Third Pain", "Eclipse3_A");
+            third.Description = "Inflict 2 Oil-Slicked on all enemies and take a Little damage.\nRemove this ability from this enemy's moveset.";
+            third.Rarity = Rarity.Common;
+            third.Effects = new EffectInfo[3];
+            third.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 2, Targeting.Unit_AllAllies);
+            third.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Self);
+            third.AddIntentsToTarget(Targeting.Unit_AllAllies, [IntentType_GameIDs.Status_OilSlicked.ToString()]);
+            third.AddIntentsToTarget(Slots.Self, ["Damage_1_2", "Misc"]);
+            third.AnimationTarget = Slots.Self;
+            third.Visuals = Visuals.Melt;
+            third.GenerateEnemyAbility(true);
+
+            pool.list.Add(third.ExtraAbility(out CasterAddOrRemoveExtraAbilityEffect remove_third));
+            third.Effects[2] = Effects.GenerateEffect(remove_third);
+
+            Ability fourth = new Ability("Fourth Pain", "Eclipse4_A");
+            fourth.Description = "Deal an Agonizing amount of damage to the Opposing party member and inflict 4 Slip on the Opposing position.\nRemove this ability from this enemy's moveset.";
+            fourth.Rarity = Rarity.Common;
+            fourth.Effects = new EffectInfo[3];
+            fourth.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front);
+            fourth.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 4, Slots.Front);
+            fourth.AddIntentsToTarget(Slots.Front, ["Damage_7_10", Slip.Intent]);
+            fourth.AddIntentsToTarget(Slots.Self, ["Misc"]);
+            fourth.AnimationTarget = Slots.Front;
+            fourth.Visuals = Visuals.Melt;
+            fourth.GenerateEnemyAbility(true);
+
+            pool.list.Add(fourth.ExtraAbility(out CasterAddOrRemoveExtraAbilityEffect remove_fourth));
+            fourth.Effects[2] = Effects.GenerateEffect(remove_fourth);
+
 
 
             //ADD ENEMY
