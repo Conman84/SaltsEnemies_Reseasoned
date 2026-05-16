@@ -90,6 +90,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(ExtendOrphFloor.Perform);
             PCall(GeneralConfig.Setup);
             PCall(ToysPool.Add);
+            PCall(SupportsGlitchConfigEr.Setup);
             #endregion
 
             //Add To Glossary
