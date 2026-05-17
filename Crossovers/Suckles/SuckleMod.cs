@@ -176,6 +176,12 @@ namespace SaltsEnemies_Reseasoned
 
             hard = new AddTo(Orph.H.Heehoo.Hard);
             hard.AddRandomGroup("Heehoo_EN", "Solitaire_EN", "Solitaire_EN", Enemies.Alchemist);
+
+            EcstasyPool.Add(Enemies.Feaster);
+            EcstasyPool.Add(Enemies.Alchemist);
+            EcstasyPool.Add(Enemies.Accelerator);
+            EcstasyPool.Add("GalvanizedGuzzler_EN");
+            EcstasyPool.Add("IridescentKnight_EN");
         }
     }
 }

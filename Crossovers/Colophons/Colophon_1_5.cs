@@ -105,6 +105,11 @@ namespace SaltEnemies_Reseasoned
             med.AddRandomGroup(Colophon.Yellow, Colophon.Purple, "Enigma_EN");
             med.AddRandomGroup(Colophon.Yellow, Colophon.Purple, "LostSheep_EN");
             med.AddRandomGroup(Colophon.Yellow, Colophon.Purple, Enemies.Camera);
+
+            EcstasyPool.Add(Colophon.Red);
+            EcstasyPool.Add(Colophon.Yellow);
+            EcstasyPool.Add(Colophon.Blue);
+            EcstasyPool.Add(Colophon.Purple);
         }
     }
 }

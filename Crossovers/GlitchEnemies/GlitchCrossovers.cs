@@ -15,6 +15,17 @@ namespace SaltsEnemies_Reseasoned
             Pipe();
             Dancer();
             Frostbite();
+
+            EcstasyPool.Add("DryBait_EN");
+            EcstasyPool.Add("Flakkid_EN");
+            EcstasyPool.Add(Enemies.Swine);
+            EcstasyPool.Add("NotAn_EN");
+            EcstasyPool.Add("Enno_EN");
+            EcstasyPool.Add("BackupDancer_EN");
+            EcstasyPool.Add("Metronome_EN");
+            EcstasyPool.Add("Loudhailer_EN");
+            EcstasyPool.Add("StageLight_EN");
+            EcstasyPool.Add("Frostbite_EN");
         }
         public static void Bait()
         {

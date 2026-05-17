@@ -100,6 +100,11 @@ namespace SaltsEnemies_Reseasoned
 
             hard = new AddTo(Shore.H.Amalga.Hard);
             hard.AddRandomGroup("33_EN", Aggregates.Red, Aggregates.Purple);
+
+            EcstasyPool.Add(Aggregates.Red);
+            EcstasyPool.Add(Aggregates.Blue);
+            EcstasyPool.Add(Aggregates.Purple);
+            EcstasyPool.Add(Aggregates.Yellow);
         }
         public static void Aggregates_Zone2()
         {
@@ -255,6 +260,10 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Orph.H.Author.Med);
             med.AddRandomGroup("Author_EN", "Author_EN", "Blemmigan_EN", "Blemmigan_EN");
+
+            EcstasyPool.Add("Blemmigan_EN");
+            EcstasyPool.Add("Acolyte_EN");
+            EcstasyPool.Add("UttershroomSpore_EN");
 
         }
     }

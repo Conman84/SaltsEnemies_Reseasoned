@@ -92,6 +92,10 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("Beachcomber_EN", "Hauntling_EN", "Wall_EN");
             hard.AddRandomGroup("Beachcomber_EN", "Jabberwocky_EN", "NobodyGrave_EN");
             hard.AddRandomGroup("Beachcomber_EN", "Clown_EN");
+
+            EcstasyPool.Add("LockJaw_EN");
+            EcstasyPool.Add("Wavebreaker_EN");
+            EcstasyPool.Add("Beachcomber_EN");
         }
     }
 }

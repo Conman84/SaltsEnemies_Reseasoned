@@ -10,6 +10,17 @@ namespace SaltsEnemies_Reseasoned
         public static void Add()
         {
             Unstable();
+
+            EcstasyPool.Add("Romantic_EN");
+            EcstasyPool.Add("Errant_EN");
+            EcstasyPool.Add("Snaurce_EN");
+            EcstasyPool.Add("Surimi_EN");
+            EcstasyPool.Add("Gungrot_EN");
+            EcstasyPool.Add("Git_EN");
+            EcstasyPool.Add(Jumble.Unstable);
+            EcstasyPool.Add(Spoggle.Unstable);
+            EcstasyPool.Add("Attrition_EN");
+            EcstasyPool.Add("Bonsai_EN");
         }
         public static void Unstable()
         {

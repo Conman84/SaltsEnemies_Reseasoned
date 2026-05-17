@@ -10,6 +10,21 @@ namespace SaltsEnemies_Reseasoned
         {
             Add_Scuttlebunk();
             Add_Tortures();
+
+            EcstasyPool.Add("Boiler_EN");
+            EcstasyPool.Add("BirdBath_EN");
+            EcstasyPool.Add("Tassnn_EN");
+            EcstasyPool.Add("Anthropoid_EN");
+            EcstasyPool.Add("Tumult_EN");
+            EcstasyPool.Add("Cairn_EN");
+            EcstasyPool.Add("Olmic_EN");
+            EcstasyPool.Add("GreatPhalaris_EN");
+            EcstasyPool.Add("PetrifiedPuker_EN");
+            EcstasyPool.Add("Sauna_EN");
+            EcstasyPool.Add("LivingPiscina_EN");
+            EcstasyPool.Add("TumultShell_EN");
+            EcstasyPool.Add("Scuttlebunk_EN");
+            EcstasyPool.Add("BeautifulPerson_EN");
         }
         public static void Add_Scuttlebunk()
         {

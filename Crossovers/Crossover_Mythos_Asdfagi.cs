@@ -35,6 +35,8 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddGroup(1, "Asterism_EN", 1, "ToyUfo_EN", 1, "NobodyGrave_EN");
             med.AddRandomGroup("Asterism_EN", "VoiceTrumpet_EN", "2009_EN");
 
+            EcstasyPool.Add("Asterism_EN");
+
             med = new AddTo(Shore.H.Angler.Med);
             med.AddRandomGroup("AFlower_EN", "Asterism_EN", "Windle_EN");
             med.AddRandomGroup("AFlower_EN", "SandSifter_EN", "Pinano_EN");
@@ -46,6 +48,8 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Shore.H.Clione.Med);
             med.AddRandomGroup("Clione_EN", "Asterism_EN", "LostSheep_EN");
             med.AddRandomGroup("Clione_EN", "SandSifter_EN", Jumble.Red);
+
+            EcstasyPool.Add("SandSifter_EN");
 
             med = new AddTo(Shore.H.Ufo.Med);
             med.AddRandomGroup("ToyUfo_EN", "SandSifter_EN", Spoggle.Blue);
@@ -114,6 +118,8 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddGroup(1, "Bloatfinger_EN", 2, "Foxtrot_EN", 1, "Wednesday_EN");
             med.AddRandomGroup("Bloatfinger_EN", "Author_EN", Jumble.Blue);
 
+            EcstasyPool.Add("Bloatfinger_EN");
+
             med = new AddTo(Orph.H.Byakhee.Med);
             med.SimpleAddGroup(1, "Byakhee_EN", 3, "Spectre_EN");
             med.SimpleAddGroup(1, "Byakhee_EN", 3, "Enigma_EN");
@@ -134,6 +140,8 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddGroup(1, "Byakhee_EN", 3, "Foxtrot_EN");
             med.SimpleAddGroup(1, "Byakhee_EN", 2, "Insider_EN");
 
+            EcstasyPool.Add("Byakhee_EN");
+
             med = new AddTo(Orph.H.Vampire.Med);
             med.SimpleAddGroup(2, "StarVampire_EN", 2, "Enigma_EN");
             med.AddRandomGroup("StarVampire_EN", Enemies.Camera, "MusicMan_EN", "MusicMan_EN");
@@ -147,6 +155,8 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("StarVampire_EN", Bots.Purple, Enemies.Shooter);
             med.SimpleAddGroup(1, "StarVampire_EN", 1, "Author_EN", 3, "TortureMeNot_EN");
             med.AddRandomGroup("StarVampire_EN", "Foxtrot_EN", Jumble.Purple, Enemies.Camera);
+
+            EcstasyPool.Add("StarVampire_EN");
 
             AddTo easy = new AddTo(Orph.H.Enigma.Easy);
             easy.SimpleAddGroup(2, "Enigma_EN", 1, "Lloigor_EN");
@@ -204,6 +214,8 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Orph.H.Nameless.Med);
             med.AddRandomGroup("Nameless_EN", "Lloigor_EN", Enemies.Solvent);
             med.AddRandomGroup("Nameless_EN", "StarVampire_EN", "Rabies_EN");
+
+            EcstasyPool.Add("Lloigor_EN");
 
             med = new AddTo(Orph.H.Rabies.Med);
             med.AddRandomGroup("Rabies_EN", "Rabies_EN", "Lloigor_EN");
@@ -270,6 +282,8 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddGroup(2, "Insider_EN", 1, "StarVampire_EN", 1, "SingingStone_EN");
             med.SimpleAddGroup(2, "Insider_EN", 1, "Byakhee_EN");
             med.SimpleAddGroup(2, "Insider_EN", 1, "Bloatfinger_EN");
+
+            EcstasyPool.Add("LemurianConstruct_EN");
         }
         public static void Add_Garden()
         {
@@ -294,6 +308,8 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Garden.H.Satyr.Med);
             med.AddRandomGroup("Satyr_EN", Enemies.Polyp, Enemies.Shivering, Enemies.Shivering);
             med.AddRandomGroup("Satyr_EN", Enemies.Polyp, Noses.Yellow);
+
+            EcstasyPool.Add(Enemies.Polyp);
 
             AddTo hard = new AddTo(Garden.H.Satyr.Hard);
             hard.AddRandomGroup("Satyr_EN", "ChoirBoy_EN", Enemies.Polyp);
@@ -390,6 +406,19 @@ namespace SaltsEnemies_Reseasoned
 
             hard = new AddTo(Garden.H.Dark.Med);
             hard.SimpleAddGroup(2, "InTheDark_EN", 1, Enemies.Polyp);
+
+            EcstasyPool.Add("Unflarb_EN");
+            EcstasyPool.Add("Flarbleft_EN");
+            EcstasyPool.Add("LipBug_EN");
+            EcstasyPool.Add("Seraphim_EN");
+            EcstasyPool.Add("NakedGizo_EN");
+            EcstasyPool.Add("Gizo_EN");
+            EcstasyPool.Add("Chapman_EN");
+            EcstasyPool.Add("Ophanim_EN");
+            EcstasyPool.Add("SterileBud_EN");
+            EcstasyPool.Add("Unterling_EN");
+            EcstasyPool.Add("TitteringPeon_EN");
+            EcstasyPool.Add("ScreamingHomunculus_EN");
         }
     }
 }

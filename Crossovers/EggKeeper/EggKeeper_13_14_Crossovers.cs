@@ -10,6 +10,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Add_13();
             Add_14();
+            EcstasyPool.Add("EggKeeper_EN");
         }
         public static void Add_13()
         {

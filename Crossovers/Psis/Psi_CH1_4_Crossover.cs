@@ -11,6 +11,8 @@ namespace SaltsEnemies_Reseasoned
             AddTo easy = new AddTo(Shore.H.Mungman.Easy);
             easy.AddRandomGroup("Mungman_EN", "MudLung_EN", "LostSheep_EN");
 
+            EcstasyPool.Add("Mungman_EN");
+
             AddTo med = new AddTo(Shore.H.Mungman.Med);
             med.AddRandomGroup("Mungman_EN", "Mungman_EN", "MudLung_EN", "LostSheep_EN");
             med.AddRandomGroup("Mungman_EN", "DeadPixel_EN", "DeadPixel_EN", "MudLung_EN");
@@ -19,8 +21,12 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Digger_EN", "MudLung_EN", "MudLung_EN", "LostSheep_EN");
             med.AddRandomGroup("Digger_EN", "DeadPixel_EN", "DeadPixel_EN");
 
+            EcstasyPool.Add("Digger_EN");
+
             easy = new AddTo(Shore.H.Squirmer.Easy);
             easy.AddRandomGroup("Squirmer_EN", "Squirmer_EN", "LostSheep_EN");
+
+            EcstasyPool.Add("Squirmer_EN");
 
             med = new AddTo(Shore.H.Squirmer.Med);
             med.AddRandomGroup("Squirmer_EN", "Squirmer_EN", "DeadPixel_EN", "DeadPixel_EN");
@@ -29,6 +35,8 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Wailer_EN", "DeadPixel_EN", "DeadPixel_EN", "ShoreRock_EN");
             med.AddRandomGroup("Wailer_EN", Jumble.Red, Jumble.Yellow, "LostSheep_EN");
             med.AddRandomGroup("Wailer_EN", "AFlower_EN", "ShoreRock_EN");
+
+            EcstasyPool.Add("Wailer_EN");
 
             AddTo hard = new AddTo(Shore.H.Wailer.Hard);
             hard.AddRandomGroup("Wailer_EN", "AFlower_EN", Jumble.Yellow);
@@ -80,6 +88,8 @@ namespace SaltsEnemies_Reseasoned
 
             hard = new AddTo(Garden.H.Skinning.Hard);
             hard.AddRandomGroup(Enemies.Skinning, "Satyr_EN", "Beakart_EN");
+
+            EcstasyPool.Add("Beakart_EN");
         }
     }
 }

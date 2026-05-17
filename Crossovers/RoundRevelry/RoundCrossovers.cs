@@ -132,6 +132,8 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Orph.H.Author.Med);
             med.AddRandomGroup("Author_EN", "Author_EN", Enemies.Shuffler, "SingingStone_EN");
+
+            EcstasyPool.Add(Enemies.Shuffler);
         }
     }
 }

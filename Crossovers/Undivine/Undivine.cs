@@ -134,6 +134,11 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Orph.H.Author.Med);
             med.AddRandomGroup("Author_EN", "ClayChild_EN", "ClayChildSleep_EN", "ClayChildSleep_EN");
+
+            EcstasyPool.Add("ClayChild_EN");
+            EcstasyPool.Add("ClayChildSleep_EN");
+            EcstasyPool.Add("Clergy_EN");
+            EcstasyPool.Add("Sonoduct_EN");
         }
     }
 }

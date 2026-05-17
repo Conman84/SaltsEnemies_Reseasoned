@@ -179,6 +179,18 @@ namespace SaltsEnemies_Reseasoned
             hard = new AddTo(Garden.H.GlassedSun.Hard);
             hard.SimpleAddGroup(2, "GlassedSun_EN", 1, Enemies.Phobia);
 
+            EcstasyPool.Add(Enemies.Phobia);
+            EcstasyPool.Add("SomeoneSister_EN");
+            EcstasyPool.Add("NooneSister_EN");
+            EcstasyPool.Add("WinterLantern_EN");
+            EcstasyPool.Add("Phobia_Eyes_EN");
+            EcstasyPool.Add("Phobia_Words_EN");
+            EcstasyPool.Add("Phobia_Darkness_EN");
+            EcstasyPool.Add("Phobia_Death_EN");
+            EcstasyPool.Add(Symbols.Red);
+            EcstasyPool.Add(Symbols.Blue);
+            EcstasyPool.Add(Symbols.Yellow);
+            EcstasyPool.Add(Symbols.Purple);
         }
     }
 }

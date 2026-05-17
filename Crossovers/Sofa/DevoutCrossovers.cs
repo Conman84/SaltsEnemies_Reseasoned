@@ -64,7 +64,7 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Orph.H.Author.Med);
             med.AddRandomGroup("Author_EN", "Author_EN", "Devout_EN");
 
-            
+            EcstasyPool.Add("Devout_EN");
 
 
             

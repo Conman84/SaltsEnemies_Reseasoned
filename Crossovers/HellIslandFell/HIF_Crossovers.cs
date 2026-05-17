@@ -13,6 +13,16 @@ namespace SaltsEnemies_Reseasoned
             NoseStones();
             Draugr();
             Thunderdome();
+
+            EcstasyPool.Add("Moone_EN");
+            EcstasyPool.Add("Heehoo_EN");
+            EcstasyPool.Add("Draugr_EN");
+            EcstasyPool.Add("Thunderdome_EN");
+            EcstasyPool.Add(Noses.Red);
+            EcstasyPool.Add(Noses.Blue);
+            EcstasyPool.Add(Noses.Yellow);
+            EcstasyPool.Add(Noses.Purple);
+            EcstasyPool.Add(Noses.Gray);
         }
         public static void Moone()
         {
