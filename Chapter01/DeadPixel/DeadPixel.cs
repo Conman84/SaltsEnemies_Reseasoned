@@ -187,6 +187,7 @@ namespace SaltsEnemies_Reseasoned
             });
             DeadPixel.AddEnemy(true, true, false);
             DeadPixel.enemy.AddToSynodPool();
+            DeadPixel.enemy.AddToEcstasyPool();
         }
     }
 }

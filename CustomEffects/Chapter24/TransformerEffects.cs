@@ -263,7 +263,7 @@ namespace SaltsEnemies_Reseasoned
         {
             EnemySO ret;
 
-            if (LoadedDBsHandler.EnemyDB.TryGetEnemyPoolEffect(PoolList_GameIDs.Bronzo.ToString(), out SpawnRandomEnemyAnywhereEffect list))
+            if (LoadedDBsHandler.EnemyDB.TryGetEnemyPoolEffect(EcstasyPool.ID, out SpawnRandomEnemyAnywhereEffect list))
             {
                 ret =  list._enemies.GetRandom();
             }
@@ -369,6 +369,85 @@ namespace SaltsEnemies_Reseasoned
                 }
             }
             return false;
+        }
+    }
+
+
+    public static class EcstasyPool
+    {
+        public static SpawnRandomEnemyAnywhereEffect Effect;
+        public static string ID => "SaltEnemies_EcstasyPool";
+        public static void Setup()
+        {
+            Effect = ScriptableObject.CreateInstance<SpawnRandomEnemyAnywhereEffect>();
+            Effect._spawnTypeID = "Spawn_Basic";
+            Effect._enemies = [
+                LoadedAssetsHandler.GetEnemy("Mung_EN"),
+                LoadedAssetsHandler.GetEnemy("MudLung_EN"),
+                LoadedAssetsHandler.GetEnemy("Mungie_EN"),
+                LoadedAssetsHandler.GetEnemy("FlaMinGoa_EN"),
+                LoadedAssetsHandler.GetEnemy("Goa_EN"),
+                LoadedAssetsHandler.GetEnemy("Keko_EN"),
+                LoadedAssetsHandler.GetEnemy("Flarb_EN"),
+                LoadedAssetsHandler.GetEnemy("Flarblet_EN"),
+                LoadedAssetsHandler.GetEnemy(Jumble.Yellow),
+                LoadedAssetsHandler.GetEnemy(Jumble.Red),
+                LoadedAssetsHandler.GetEnemy(Jumble.Blue),
+                LoadedAssetsHandler.GetEnemy(Jumble.Purple),
+                LoadedAssetsHandler.GetEnemy(Spoggle.Yellow),
+                LoadedAssetsHandler.GetEnemy(Spoggle.Blue),
+                LoadedAssetsHandler.GetEnemy(Spoggle.Red),
+                LoadedAssetsHandler.GetEnemy(Spoggle.Purple),
+                LoadedAssetsHandler.GetEnemy(Enemies.Mungling),
+                LoadedAssetsHandler.GetEnemy("Wringle_EN"),
+                LoadedAssetsHandler.GetEnemy("Kekastle_EN"),
+                LoadedAssetsHandler.GetEnemy("Voboola_EN"),
+                LoadedAssetsHandler.GetEnemy("TaMaGoa_EN"),
+                LoadedAssetsHandler.GetEnemy("TaintedYolk_EN"),
+                LoadedAssetsHandler.GetEnemy("MusicMan_EN"),
+                LoadedAssetsHandler.GetEnemy("SingingStone_EN"),
+                LoadedAssetsHandler.GetEnemy("Woodwind_EN"),
+                LoadedAssetsHandler.GetEnemy("Chordophone_EN"),
+                LoadedAssetsHandler.GetEnemy("Psaltery_EN"),
+                LoadedAssetsHandler.GetEnemy("Revola_EN"),
+                LoadedAssetsHandler.GetEnemy("Scrungie_EN"),
+                LoadedAssetsHandler.GetEnemy("Conductor_EN"),
+                LoadedAssetsHandler.GetEnemy("OneManBand_EN"),
+                LoadedAssetsHandler.GetEnemy("ManicMan_EN"),
+                LoadedAssetsHandler.GetEnemy("ManicHips_EN"),
+                LoadedAssetsHandler.GetEnemy(Enemies.Suckle),
+                LoadedAssetsHandler.GetEnemy("GildedGulper_EN"),
+                LoadedAssetsHandler.GetEnemy(Enemies.Sacrifice),
+                LoadedAssetsHandler.GetEnemy("NextOfKin_EN"),
+                LoadedAssetsHandler.GetEnemy("InHisImage_EN"),
+                LoadedAssetsHandler.GetEnemy("InHerImage_EN"),
+                LoadedAssetsHandler.GetEnemy("Zetigeist_EN"),
+                LoadedAssetsHandler.GetEnemy(Enemies.Skinning),
+                LoadedAssetsHandler.GetEnemy(Enemies.Shivering),
+                LoadedAssetsHandler.GetEnemy("ScatteringHomunculus_EN"),
+                LoadedAssetsHandler.GetEnemy("ChoirBoy_EN"),
+                LoadedAssetsHandler.GetEnemy(Enemies.Minister),
+                LoadedAssetsHandler.GetEnemy("ProdigalFoundling_EN"),
+                LoadedAssetsHandler.GetEnemy("DerelictFoundling_EN"),
+                LoadedAssetsHandler.GetEnemy("Xiphactinus_EN"),
+                LoadedAssetsHandler.GetEnemy("Bronzo_Bananas_Mean_EN"),
+                LoadedAssetsHandler.GetEnemy("Visage_Father_EN"),
+                LoadedAssetsHandler.GetEnemy("Visage_Mother_EN"),
+                LoadedAssetsHandler.GetEnemy("Visage_Siblings_EN"),
+                LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN"),
+                LoadedAssetsHandler.GetEnemy("Ouroboros_Body_BOSS"),
+                ];
+
+            LoadedDBsHandler.EnemyDB.m_SpawnRandomListPools.Add(ID, Effect);
+        }
+
+        public static void Add(string enemy)
+        {
+            if (Check.EnemyExist(enemy)) LoadedAssetsHandler.GetEnemy(enemy).AddToToysPool();
+        }
+
+        public static void Post()
+        {
         }
     }
 }

@@ -144,6 +144,7 @@ namespace SaltsEnemies_Reseasoned
             });
             Enigma.AddEnemy(true, true, false);
             Enigma.enemy.AddToSynodPool();
+            Enigma.enemy.AddToEcstasyPool();
         }
     }
 }

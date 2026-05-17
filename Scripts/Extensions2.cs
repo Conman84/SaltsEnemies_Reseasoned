@@ -41,5 +41,9 @@ namespace SaltEnemies_Reseasoned
         {
             EnemyUtils.AddEnemyToCustomSpawnPool(self, ToysPool.ID);
         }
+        public static void AddToEcstasyPool(this EnemySO self)
+        {
+            EnemyUtils.AddEnemyToCustomSpawnPool(self, EcstasyPool.ID);
+        }
     }
 }

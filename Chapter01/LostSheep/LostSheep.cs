@@ -145,6 +145,7 @@ namespace SaltsEnemies_Reseasoned
                 panic.GenerateEnemyAbility(true),
             });
             LostSheep.AddEnemy(true, true, true);
+            LostSheep.enemy.AddToEcstasyPool();
         }
     }
 }
