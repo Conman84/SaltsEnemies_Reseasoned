@@ -28,47 +28,46 @@ namespace SaltsEnemies_Reseasoned
             ret.effect = effect;
             return ret;
         }
+    }
+    public class TargettingFurthestSide : BaseCombatTargettingSO
+    {
+        public bool getAllies;
+        public override bool AreTargetAllies => getAllies;
+        public override bool AreTargetSlots => true;
 
-        public class TargettingFurthestSide : BaseCombatTargettingSO
+        public override TargetSlotInfo[] GetTargets(SlotsCombat slots, int casterSlotID, bool isCasterCharacter)
         {
-            public bool getAllies;
-            public override bool AreTargetAllies => getAllies;
-            public override bool AreTargetSlots => true;
-
-            public override TargetSlotInfo[] GetTargets(SlotsCombat slots, int casterSlotID, bool isCasterCharacter)
+            int size = 1;
+            if (!isCasterCharacter)
             {
-                int size = 1;
-                if (!isCasterCharacter)
+                foreach (CombatSlot slot in slots.EnemySlots)
                 {
-                    foreach (CombatSlot slot in slots.EnemySlots)
+                    if (slot.SlotID == casterSlotID)
                     {
-                        if (slot.SlotID == casterSlotID)
-                        {
-                            if (slot.HasUnit) size = slot.Unit.Size;
-                            break;
-                        }
+                        if (slot.HasUnit) size = slot.Unit.Size;
+                        break;
                     }
                 }
+            }
 
-                List<TargetSlotInfo> left = [];
-                List<TargetSlotInfo> right = [];
+            List<TargetSlotInfo> left = [];
+            List<TargetSlotInfo> right = [];
 
-                foreach (CombatSlot slot in isCasterCharacter == getAllies ? slots.CharacterSlots : slots.EnemySlots)
+            foreach (CombatSlot slot in isCasterCharacter == getAllies ? slots.CharacterSlots : slots.EnemySlots)
+            {
+                if (slot.HasUnit)
                 {
-                    if (slot.HasUnit)
-                    {
-                        if (slot.SlotID < casterSlotID) left.Add(slot.TargetSlotInformation);
-                        else if (slot.SlotID > casterSlotID + size - 1) right.Add(slot.TargetSlotInformation);
-                    }
+                    if (slot.SlotID < casterSlotID) left.Add(slot.TargetSlotInformation);
+                    else if (slot.SlotID > casterSlotID + size - 1) right.Add(slot.TargetSlotInformation);
                 }
+            }
 
-                if (left.Count > right.Count) return left.ToArray();
-                else if (right.Count > left.Count) return right.ToArray();
-                else
-                {
-                    left.AddRange(right);
-                    return left.ToArray();
-                }
+            if (left.Count > right.Count) return left.ToArray();
+            else if (right.Count > left.Count) return right.ToArray();
+            else
+            {
+                left.AddRange(right);
+                return left.ToArray();
             }
         }
     }
