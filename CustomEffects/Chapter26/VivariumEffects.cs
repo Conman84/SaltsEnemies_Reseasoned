@@ -12,6 +12,7 @@ using BrutalAPI;
 
 namespace SaltsEnemies_Reseasoned
 {
+    //set up the animator things later
     public class MouseHover_EnemyInFieldLayout : EnemyInFieldLayout
     {
         public static TriggerCalls Trigger => (TriggerCalls)1095224;
