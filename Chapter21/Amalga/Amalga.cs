@@ -261,6 +261,7 @@ namespace SaltsEnemies_Reseasoned
             });
             amalga.AddEnemy(true, true);
             amalga.enemy.AddToSynodPool();
+            amalga.enemy.AddToEcstasyPool();
         }
         public static void Add_Fake()
         {

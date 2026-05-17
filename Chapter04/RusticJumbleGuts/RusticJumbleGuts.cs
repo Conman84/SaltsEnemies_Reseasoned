@@ -98,6 +98,7 @@ namespace SaltsEnemies_Reseasoned
             RusticJumbleGuts.AddEnemy(true, true, false);
             RusticJumbleGuts.enemy.AddToSynodPool();
             RusticJumbleGuts.enemy.AddToToysPool();
+            RusticJumbleGuts.enemy.AddToEcstasyPool();
         }
     }
 }

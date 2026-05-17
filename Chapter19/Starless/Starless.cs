@@ -139,6 +139,7 @@ namespace SaltsEnemies_Reseasoned
             });
             starless.AddEnemy(true, true);
             starless.enemy.AddToSynodPool();
+            starless.enemy.AddToEcstasyPool();
         }
     }
 }

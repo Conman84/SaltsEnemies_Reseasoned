@@ -141,6 +141,7 @@ namespace SaltsEnemies_Reseasoned
             });
             skyloft.AddEnemy(true, true, false);
             skyloft.enemy.AddToToysPool();
+            skyloft.enemy.AddToEcstasyPool();
         }
     }
 }

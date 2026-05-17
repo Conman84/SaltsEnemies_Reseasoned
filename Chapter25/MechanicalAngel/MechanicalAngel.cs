@@ -150,6 +150,7 @@ namespace SaltsEnemies_Reseasoned
             });
             mechanism.AddEnemy(true, true);
             mechanism.enemy.AddToSynodPool();
+            mechanism.enemy.AddToEcstasyPool();
         }
     }
 }

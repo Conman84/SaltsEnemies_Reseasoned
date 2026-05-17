@@ -139,6 +139,7 @@ namespace SaltsEnemies_Reseasoned
             });
             Freud.AddEnemy(true, true, false);
             Freud.enemy.AddToSynodPool();
+            Freud.enemy.AddToEcstasyPool();
         }
     }
 }

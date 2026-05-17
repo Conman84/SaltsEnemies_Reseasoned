@@ -97,6 +97,7 @@ namespace SaltsEnemies_Reseasoned
             });
             pinano.AddEnemy(true, true);
             pinano.enemy.AddToSynodPool();
+            pinano.enemy.AddToEcstasyPool();
         }
     }
 }

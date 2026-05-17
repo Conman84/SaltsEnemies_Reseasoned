@@ -99,6 +99,7 @@ namespace SaltsEnemies_Reseasoned
             });
             yang.AddEnemy(true, true);
             yang.enemy.AddToSynodPool();
+            yang.enemy.AddToEcstasyPool();
         }
     }
 }

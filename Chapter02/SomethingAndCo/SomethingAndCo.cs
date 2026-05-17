@@ -72,6 +72,7 @@ namespace SaltsEnemies_Reseasoned
                 danger.GenerateEnemyAbility(true),
             });
             Denial.AddEnemy(true, true, true);
+            Denial.enemy.AddToEcstasyPool();
         }
     }
     public static class Derogatory
@@ -157,6 +158,7 @@ namespace SaltsEnemies_Reseasoned
                 convo.GenerateEnemyAbility(true),
             });
             Derogatory.AddEnemy(true, true, true);
+            Derogatory.enemy.AddToEcstasyPool();
 
 
             Ability interrupt = new Ability("Derogatory_Interrupt_A");
@@ -275,6 +277,7 @@ namespace SaltsEnemies_Reseasoned
             });
             Something.AddEnemy(true, true, false);
             Something.enemy.AddToSynodPool();
+            Something.enemy.AddToEcstasyPool();
         }
     }
 }

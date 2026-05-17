@@ -128,6 +128,7 @@ namespace SaltsEnemies_Reseasoned
             ufo.AddEnemy(true, true);
             ufo.enemy.AddToSynodPool();
             ufo.enemy.AddToToysPool();
+            ufo.enemy.AddToEcstasyPool();
         }
     }
 }

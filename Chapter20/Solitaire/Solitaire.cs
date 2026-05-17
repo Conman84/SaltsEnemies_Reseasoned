@@ -187,6 +187,7 @@ namespace SaltsEnemies_Reseasoned
             });
             tv.AddEnemy(true, true);
             tv.enemy.AddToSynodPool();
+            tv.enemy.AddToEcstasyPool();
 
             child.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
@@ -194,6 +195,8 @@ namespace SaltsEnemies_Reseasoned
                 dreamers.GenerateEnemyAbility(false),
             });
             child.AddEnemy(true, true, true);
+            child.enemy.AddToEcstasyPool();
+            child.enemy.AddToToysPool();
         }
     }
 }

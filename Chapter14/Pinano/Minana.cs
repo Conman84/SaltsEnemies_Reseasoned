@@ -71,6 +71,7 @@ namespace SaltsEnemies_Reseasoned
             });
             minana.AddEnemy(true, true, true);
             minana.enemy.AddToSynodPool();
+            minana.enemy.AddToEcstasyPool();
         }
     }
 }

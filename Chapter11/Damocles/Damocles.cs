@@ -130,6 +130,7 @@ namespace SaltsEnemies_Reseasoned
                 fall.GenerateEnemyAbility(true)
             });
             sword.AddEnemy(false);
+            sword.enemy.AddToEcstasyPool();
 
             EnemySO clone = UnityEngine.Object.Instantiate(LoadedAssetsHandler.GetEnemy("Damocles_EN"));
             clone.passiveAbilities = [Passives.Formless, damocles, Passives.Absorb, mf, Passives.Withering];

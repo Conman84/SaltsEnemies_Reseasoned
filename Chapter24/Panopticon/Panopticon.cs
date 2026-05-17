@@ -124,6 +124,7 @@ namespace SaltsEnemies_Reseasoned
             });
             panopticon.SilentAddEnemy(true, true);
             panopticon.enemy.AddToSynodPool();
+            panopticon.enemy.AddToEcstasyPool();
         }
     }
 }

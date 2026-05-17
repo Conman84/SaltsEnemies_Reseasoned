@@ -90,6 +90,7 @@ namespace SaltsEnemies_Reseasoned
             });
             ecstasy.SilentAddEnemy(true, true);
             ecstasy.enemy.AddToSynodPool();
+            ecstasy.enemy.AddToEcstasyPool();
         }
     }
 }

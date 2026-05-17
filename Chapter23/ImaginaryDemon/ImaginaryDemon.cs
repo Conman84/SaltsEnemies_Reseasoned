@@ -102,6 +102,7 @@ namespace SaltsEnemies_Reseasoned
                 unchainer.GenerateEnemyAbility(true)
             });
             demon.AddEnemy(true, true);
+            demon.enemy.AddToEcstasyPool();
         }
     }
 }

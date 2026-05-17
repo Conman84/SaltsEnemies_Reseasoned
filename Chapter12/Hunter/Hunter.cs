@@ -105,6 +105,7 @@ namespace SaltsEnemies_Reseasoned
             });
             hunting.AddEnemy(true, true);
             hunting.enemy.AddToSynodPool();
+            hunting.enemy.AddToEcstasyPool();
         }
     }
 }

@@ -99,6 +99,7 @@ namespace SaltsEnemies_Reseasoned
             //ADD ENEMY
             torture.AddEnemyAbilities(abilities);
             torture.AddEnemy(true, false, true);
+            torture.enemy.AddToEcstasyPool();
         }
     }
 }

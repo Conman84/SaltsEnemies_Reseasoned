@@ -144,6 +144,7 @@ namespace SaltsEnemies_Reseasoned
                 hunger.GenerateEnemyAbility(true)
             });
             nerve.AddEnemy(true, true);
+            nerve.enemy.AddToEcstasyPool();
         }
     }
 }

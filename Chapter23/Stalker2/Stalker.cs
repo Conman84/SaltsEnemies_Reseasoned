@@ -70,6 +70,7 @@ namespace SaltsEnemies_Reseasoned
             clone.passiveAbilities = [flee, Passives.Anchored, Passives.Inanimate];
             EnemyUtils.AddEnemyToHealthSpawnPool(clone, PoolList_GameIDs.Sepulchre);
             clone.AddToSynodPool();
+            clone.AddToEcstasyPool();
         }
     }
 }

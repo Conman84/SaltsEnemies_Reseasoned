@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -34,6 +35,7 @@ namespace SaltsEnemies_Reseasoned
                 nibble
             });
             template.AddEnemy(true, true, true);
+            template.enemy.AddToEcstasyPool();
         }
     }
 }

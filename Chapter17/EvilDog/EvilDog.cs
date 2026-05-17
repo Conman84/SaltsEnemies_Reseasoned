@@ -106,6 +106,7 @@ namespace SaltsEnemies_Reseasoned
             });
             dog.AddEnemy(true, true);
             dog.enemy.AddToSynodPool();
+            dog.enemy.AddToEcstasyPool();
         }
     }
 }

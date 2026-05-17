@@ -103,6 +103,7 @@ namespace SaltsEnemies_Reseasoned
             clone.health = 50;
             clone.AddToSynodPool();
             clone.AddToToysPool();
+            clone.AddToEcstasyPool();
         }
     }
 }

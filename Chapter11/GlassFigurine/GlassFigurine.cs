@@ -103,6 +103,7 @@ namespace SaltsEnemies_Reseasoned
             });
             glass.AddEnemy(true, true);
             glass.enemy.AddToSynodPool();
+            glass.enemy.AddToEcstasyPool();
         }
     }
 }

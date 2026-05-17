@@ -302,6 +302,10 @@ namespace SaltsEnemies_Reseasoned
             blueflower.enemy.AddToSynodPool();
             yellowflower.enemy.AddToSynodPool();
             purpleflower.enemy.AddToSynodPool();
+            redflower.enemy.AddToEcstasyPool();
+            blueflower.enemy.AddToEcstasyPool();
+            yellowflower.enemy.AddToEcstasyPool();
+            purpleflower.enemy.AddToEcstasyPool();
         }
     }
 }

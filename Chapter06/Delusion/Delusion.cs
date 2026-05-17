@@ -48,6 +48,7 @@ namespace SaltsEnemies_Reseasoned
             });
             illusion.AddEnemy(true, true);
             illusion.enemy.AddToSynodPool();
+            illusion.enemy.AddToEcstasyPool();
         }
     }
 }

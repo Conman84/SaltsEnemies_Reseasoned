@@ -98,6 +98,7 @@ namespace SaltsEnemies_Reseasoned
                 nibble
             });
             chiito.AddEnemy(true, true);
+            chiito.enemy.AddToEcstasyPool();
         }
     }
 }

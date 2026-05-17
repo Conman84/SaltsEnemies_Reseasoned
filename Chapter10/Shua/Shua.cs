@@ -125,6 +125,7 @@ namespace SaltsEnemies_Reseasoned
             });
             shua.AddEnemy(true, true);
             shua.enemy.AddToSynodPool();
+            shua.enemy.AddToEcstasyPool();
         }
     }
 }

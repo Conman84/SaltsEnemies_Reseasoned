@@ -117,6 +117,7 @@ namespace SaltsEnemies_Reseasoned
                 cubism.GenerateEnemyAbility(true),
             });
             template.AddEnemy(true, true);
+            template.enemy.AddToEcstasyPool();
         }
     }
 }

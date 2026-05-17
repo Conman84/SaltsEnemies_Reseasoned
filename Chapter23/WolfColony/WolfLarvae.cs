@@ -70,6 +70,7 @@ namespace SaltsEnemies_Reseasoned
                 anticanine.GenerateEnemyAbility(true)
             });
             larva.AddEnemy(true, true, true);
+            larva.enemy.AddToEcstasyPool();
         }
     }
 }

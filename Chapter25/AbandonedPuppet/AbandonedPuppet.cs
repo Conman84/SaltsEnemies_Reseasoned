@@ -103,6 +103,7 @@ namespace SaltsEnemies_Reseasoned
             puppet.AddEnemy(true, true);
             puppet.enemy.AddToSynodPool();
             puppet.enemy.AddToToysPool();
+            puppet.enemy.AddToEcstasyPool();
         }
     }
 }

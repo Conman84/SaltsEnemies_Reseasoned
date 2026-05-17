@@ -103,6 +103,7 @@ namespace SaltsEnemies_Reseasoned
             });
             sinker.AddEnemy(true, true);
             sinker.enemy.AddToSynodPool();
+            sinker.enemy.AddToEcstasyPool();
         }
     }
 }

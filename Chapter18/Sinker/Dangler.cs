@@ -32,6 +32,7 @@ namespace SaltsEnemies_Reseasoned
             dangler.AddEnemy(true, true, true);
             dangler.enemy.AddToSynodPool();
             dangler.enemy.AddToToysPool();
+            dangler.enemy.AddToEcstasyPool();
         }
     }
 }

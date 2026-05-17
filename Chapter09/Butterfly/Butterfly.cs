@@ -136,6 +136,7 @@ namespace SaltsEnemies_Reseasoned
                 phase.GenerateEnemyAbility(true),
             });
             butterfly.AddEnemy(true, true, false);
+            butterfly.enemy.AddToEcstasyPool();
         }
     }
 }

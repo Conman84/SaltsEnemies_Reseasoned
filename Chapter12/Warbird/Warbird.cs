@@ -81,6 +81,7 @@ namespace SaltsEnemies_Reseasoned
             });
             scarecrow.AddEnemy(true, true);
             scarecrow.enemy.AddToSynodPool();
+            scarecrow.enemy.AddToEcstasyPool();
         }
     }
 }

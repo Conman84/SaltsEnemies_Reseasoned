@@ -78,6 +78,7 @@ namespace SaltEnemies_Reseasoned
             });
             trumpet.AddEnemy(true);
             trumpet.enemy.AddToSynodPool();
+            trumpet.enemy.AddToEcstasyPool();
         }
     }
 }

@@ -153,6 +153,7 @@ namespace SaltsEnemies_Reseasoned
                 runaway.GenerateEnemyAbility(true)
             });
             solvent.AddEnemy(true, false, true);
+            solvent.enemy.AddToEcstasyPool();
 
             PassivesToCamera();
         }

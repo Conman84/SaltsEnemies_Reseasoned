@@ -100,6 +100,7 @@ namespace SaltsEnemies_Reseasoned
             });
             cliome.AddEnemy(true, true);
             cliome.enemy.AddToSynodPool();
+            cliome.enemy.AddToEcstasyPool();
         }
     }
 }

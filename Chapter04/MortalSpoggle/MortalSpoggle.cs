@@ -114,6 +114,7 @@ namespace SaltsEnemies_Reseasoned
             });
             MortalSpoggle.AddEnemy(true, true, false);
             MortalSpoggle.enemy.AddToSynodPool();
+            MortalSpoggle.enemy.AddToEcstasyPool();
         }
     }
 }

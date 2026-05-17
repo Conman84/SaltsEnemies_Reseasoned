@@ -155,6 +155,7 @@ namespace SaltsEnemies_Reseasoned
             });
             vase.AddEnemy(true, true);
             vase.enemy.AddToSynodPool();
+            vase.enemy.AddToEcstasyPool();
         }
     }
 }

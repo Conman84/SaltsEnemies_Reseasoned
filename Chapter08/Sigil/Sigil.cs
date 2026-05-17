@@ -149,6 +149,7 @@ namespace SaltsEnemies_Reseasoned
                 pure.GenerateEnemyAbility(true)
             });
             monolith.AddEnemy(true, true);
+            monolith.enemy.AddToEcstasyPool();
         }
     }
 }

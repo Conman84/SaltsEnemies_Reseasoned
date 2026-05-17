@@ -141,6 +141,7 @@ namespace SaltsEnemies_Reseasoned
             });
             crystal.AddEnemy(true, true);
             crystal.enemy.AddToSynodPool();
+            crystal.enemy.AddToEcstasyPool();
         }
     }
 }

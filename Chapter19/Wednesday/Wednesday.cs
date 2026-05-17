@@ -92,6 +92,7 @@ namespace SaltsEnemies_Reseasoned
                 pickup.GenerateEnemyAbility(true),
             });
             wednesday.AddEnemy(true, true);
+            wednesday.enemy.AddToEcstasyPool();
         }
     }
 }

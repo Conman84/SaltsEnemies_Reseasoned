@@ -119,6 +119,7 @@ namespace SaltsEnemies_Reseasoned
                 agony.GenerateEnemyAbility(true)
             });
             ManFish.AddEnemy(true, false, false);
+            ManFish.enemy.AddToEcstasyPool();
         }
     }
 }

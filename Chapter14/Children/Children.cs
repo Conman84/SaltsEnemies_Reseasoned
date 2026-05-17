@@ -228,6 +228,7 @@ namespace SaltsEnemies_Reseasoned
             child.AddPassives(passives);
             child.AddEnemyAbilities(abilities);
             child.AddEnemy();
+            child.enemy.AddToEcstasyPool();
         }
         public static void Add00(BasePassiveAbilitySO[] passives, EnemyAbilityInfo[] abilities)
         {

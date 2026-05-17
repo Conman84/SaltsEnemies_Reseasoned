@@ -118,6 +118,7 @@ namespace SaltsEnemies_Reseasoned
             });
             beak.AddEnemy(true, true);
             beak.enemy.AddToSynodPool();
+            beak.enemy.AddToEcstasyPool();
         }
     }
 }

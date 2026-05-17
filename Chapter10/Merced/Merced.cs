@@ -184,6 +184,7 @@ namespace SaltsEnemies_Reseasoned
             });
             merced.AddEnemy(true, true);
             merced.enemy.AddToSynodPool();
+            merced.enemy.AddToEcstasyPool();
         }
     }
 }

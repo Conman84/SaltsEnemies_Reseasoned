@@ -162,6 +162,7 @@ namespace SaltsEnemies_Reseasoned
             });
             Crow.AddEnemy(true, true, false);
             Crow.enemy.AddToSynodPool();
+            Crow.enemy.AddToEcstasyPool();
         }
     }
 }

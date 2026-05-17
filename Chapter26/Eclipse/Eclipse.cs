@@ -252,8 +252,12 @@ namespace SaltsEnemies_Reseasoned
                 fate.GenerateEnemyAbility(true),
             });
             eclipse.AddEnemy(true, true);
+            eclipse.enemy.AddToSynodPool();
+            eclipse.enemy.AddToEcstasyPool();
 
             awake.AddEnemy(true, true);
+            awake.enemy.AddToSynodPool();
+            awake.enemy.AddToEcstasyPool();
         }
     }
 }

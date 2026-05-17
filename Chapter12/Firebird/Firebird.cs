@@ -125,6 +125,7 @@ namespace SaltsEnemies_Reseasoned
             });
             firebird.AddEnemy(true);
             firebird.enemy.AddToSynodPool();
+            firebird.enemy.AddToEcstasyPool();
         }
     }
 }

@@ -97,6 +97,7 @@ namespace SaltsEnemies_Reseasoned
                 finish.GenerateEnemyAbility(true),
             });
             StarGazer.AddEnemy(true, false, false);
+            StarGazer.enemy.AddToEcstasyPool();
         }
     }
 }

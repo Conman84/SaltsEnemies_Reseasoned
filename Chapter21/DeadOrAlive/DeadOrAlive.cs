@@ -105,6 +105,7 @@ namespace SaltEnemies_Reseasoned
             });
             clown.AddEnemy(true, true);
             clown.enemy.AddToSynodPool();
+            clown.enemy.AddToEcstasyPool();
         }
     }
 }

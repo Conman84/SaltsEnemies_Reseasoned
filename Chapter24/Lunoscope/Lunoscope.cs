@@ -104,6 +104,7 @@ namespace SaltsEnemies_Reseasoned
             });
             lunoscope.SilentAddEnemy(true, true);
             lunoscope.enemy.AddToSynodPool();
+            lunoscope.enemy.AddToEcstasyPool();
         }
     }
 }

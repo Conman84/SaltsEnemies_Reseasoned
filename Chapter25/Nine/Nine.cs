@@ -125,6 +125,7 @@ namespace SaltsEnemies_Reseasoned
             });
             nine.AddEnemy(true);
             nine.enemy.AddToToysPool();
+            nine.enemy.AddToEcstasyPool();
         }
     }
 }

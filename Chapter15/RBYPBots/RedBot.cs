@@ -51,6 +51,7 @@ namespace SaltsEnemies_Reseasoned
             });
             red.AddEnemy(true, true);
             red.enemy.AddToSynodPool();
+            red.enemy.AddToEcstasyPool();
         }
     }
 }

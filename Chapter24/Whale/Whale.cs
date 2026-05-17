@@ -59,6 +59,7 @@ namespace SaltsEnemies_Reseasoned
             });
             whale.SilentAddEnemy(true, true);
             whale.enemy.AddToSynodPool();
+            whale.enemy.AddToEcstasyPool();
         }
     }
 }

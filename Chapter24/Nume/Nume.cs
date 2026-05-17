@@ -90,6 +90,7 @@ namespace SaltsEnemies_Reseasoned
             nume.SilentAddEnemy(true, true);
             nume.enemy.AddToSynodPool();
             nume.enemy.AddToToysPool();
+            nume.enemy.AddToEcstasyPool();
         }
     }
 }

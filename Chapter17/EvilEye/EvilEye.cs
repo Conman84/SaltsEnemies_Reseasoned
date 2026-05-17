@@ -165,6 +165,7 @@ namespace SaltsEnemies_Reseasoned
             });
             evileye.AddEnemy(true, true);
             evileye.enemy.AddToSynodPool();
+            evileye.enemy.AddToEcstasyPool();
         }
     }
 }

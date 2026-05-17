@@ -119,6 +119,7 @@ namespace SaltsEnemies_Reseasoned
             });
             AFlower.AddEnemy(true, true, false);
             AFlower.enemy.AddToSynodPool();
+            AFlower.enemy.AddToEcstasyPool();
         }
     }
 }

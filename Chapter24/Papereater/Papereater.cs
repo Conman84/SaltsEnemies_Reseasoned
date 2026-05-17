@@ -66,6 +66,7 @@ namespace SaltsEnemies_Reseasoned
             eater.SilentAddEnemy(true, true);
             eater.enemy.AddToSynodPool();
             eater.enemy.AddToToysPool();
+            eater.enemy.AddToEcstasyPool();
         }
     }
 }

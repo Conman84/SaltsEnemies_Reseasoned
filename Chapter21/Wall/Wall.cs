@@ -43,6 +43,7 @@ namespace SaltEnemies_Reseasoned
             });
             wall1.AddEnemy(true, true);
             wall1.enemy.AddToSynodPool();
+            wall1.enemy.AddToEcstasyPool();
 
             Enemy wall2 = new Enemy("Wall", "Wall_2_EN")
             {

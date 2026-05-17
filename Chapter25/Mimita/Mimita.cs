@@ -82,6 +82,7 @@ namespace SaltsEnemies_Reseasoned
                 life.GenerateEnemyAbility(true)
             });
             mimita.AddEnemy();
+            mimita.enemy.AddToEcstasyPool();
         }
     }
 }

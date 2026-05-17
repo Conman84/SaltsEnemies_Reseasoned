@@ -96,6 +96,7 @@ namespace SaltsEnemies_Reseasoned
                 under.GenerateEnemyAbility(true)
             });
             grave.AddEnemy(true, true);
+            grave.enemy.AddToEcstasyPool();
         }
     }
 }

@@ -81,6 +81,7 @@ namespace SaltsEnemies_Reseasoned
             });
 
             if (April.Custom) template.AddEnemyAbilities([custom.GenerateEnemyAbility()]);
+            if (April.Custom) template.enemy.AddToEcstasyPool();
 
             //template.AddEnemy();
             LoadedAssetsHandler.LoadedEnemies.Add(template.enemy.name, template.enemy);

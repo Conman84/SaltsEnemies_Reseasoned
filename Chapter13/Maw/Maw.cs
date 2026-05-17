@@ -145,6 +145,7 @@ namespace SaltsEnemies_Reseasoned
             });
             maw.AddEnemy(true, true);
             maw.enemy.AddToSynodPool();
+            maw.enemy.AddToEcstasyPool();
         }
     }
 }

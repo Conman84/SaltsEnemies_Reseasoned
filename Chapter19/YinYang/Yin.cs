@@ -163,6 +163,7 @@ namespace SaltsEnemies_Reseasoned
             });
             yin.AddEnemy(true, true);
             yin.enemy.AddToSynodPool();
+            yin.enemy.AddToEcstasyPool();
         }
     }
 }

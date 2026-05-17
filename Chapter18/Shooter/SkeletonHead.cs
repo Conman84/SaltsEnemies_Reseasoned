@@ -85,6 +85,7 @@ namespace SaltsEnemies_Reseasoned
             });
             template.AddEnemy(true, true);
             template.enemy.AddToToysPool();
+            template.enemy.AddToEcstasyPool();
         }
     }
 }

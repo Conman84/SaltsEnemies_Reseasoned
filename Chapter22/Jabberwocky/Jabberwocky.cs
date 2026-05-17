@@ -81,6 +81,7 @@ namespace SaltsEnemies_Reseasoned
             });
             jabber.SilentAddEnemy(true, true);
             jabber.enemy.AddToSynodPool();
+            jabber.enemy.AddToEcstasyPool();
         }
     }
 }
