@@ -436,6 +436,10 @@ namespace SaltsEnemies_Reseasoned
                 LoadedAssetsHandler.GetEnemy("Visage_Siblings_EN"),
                 LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN"),
                 LoadedAssetsHandler.GetEnemy("Ouroboros_Body_BOSS"),
+                LoadedAssetsHandler.GetEnemy("HeavensGateRed_Enemy"),
+                LoadedAssetsHandler.GetEnemy("HeavensGateBlue_Enemy"),
+                LoadedAssetsHandler.GetEnemy("HeavensGateYellow_Enemy"),
+                LoadedAssetsHandler.GetEnemy("HeavensGatePurple_Enemy")
                 ];
 
             LoadedDBsHandler.EnemyDB.m_SpawnRandomListPools.Add(ID, Effect);
