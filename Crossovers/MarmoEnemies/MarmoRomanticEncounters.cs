@@ -106,7 +106,7 @@ namespace SaltsEnemies_Reseasoned
                     "NextOfKin_EN",
                     "Romantic_EN",
                 }));
-                ((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone03_LittleAngel_Easy_EnemyBundle"))._enemyBundles = list8;
+                //((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone03_LittleAngel_Easy_EnemyBundle"))._enemyBundles = list8;
 
                 List<RandomEnemyGroup> list9 = new List<RandomEnemyGroup>(((RandomEnemyBundleSO)LoadedAssetsHandler.GetEnemyBundle("H_Zone03_Satyr_Medium_EnemyBundle"))._enemyBundles);
                 list9.Add(new RandomEnemyGroup(new string[]
