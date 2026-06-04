@@ -629,7 +629,7 @@ namespace SaltsEnemies_Reseasoned
             auto.conditions = new EffectorConditionSO[] { m };
             auto.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<PerformRandomAbilityEffect>(), 1, Slots.Self).SelfArray();
             add_automated.passive = auto;
-            BaseCombatTargettingSO right = Targeting.GenerateSlotTarget(new int[] { 1, -4 }, false);
+            BaseCombatTargettingSO right = Targeting.GenerateSlotTarget(new int[] { 1, -4 }, true);
 
             PerformEffect_Item eggs = new PerformEffect_Item("Salt_BrainEggsAndHam_SW", [Effects.GenerateEffect(add_automated, 1, right)]);
             eggs.Name = "Brain Eggs and Ham";
