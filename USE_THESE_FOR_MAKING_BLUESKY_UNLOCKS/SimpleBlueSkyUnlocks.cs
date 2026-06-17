@@ -59,7 +59,7 @@ namespace YourNamespace
 
         public static void GenerateBlueSkyUnlock(string characterID, string itemID, string unlock, string ACH)
         {
-            Unlocks.GetOrCreateUnlock_CustomFinalBoss("BlueSky_BOSS").AddUnlockData(LoadedAssetsHandler.GetCharacter(characterID).entityID, Unlocks.GenerateUnlockData(unlock, ACH, "", "", [itemID]));
+            Unlocks.GetOrCreateUnlock_CustomFinalBoss("BlueSky_BOSS").AddUnlockData(LoadedAssetsHandler.GetCharacter(characterID).entityID, Unlocks.GenerateUnlockData(unlock, ACH, "", "", new string[] { itemID }));
         }
         public static void GenerateBlueSkyAchievement(string itemName, string ACH, string achSprite)
         {
