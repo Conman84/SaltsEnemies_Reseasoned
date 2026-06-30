@@ -629,7 +629,7 @@ namespace SaltsEnemies_Reseasoned
             nautilus.UsesSpecialUnlockText = true;
             nautilus.SpecialUnlockID = UILocID.ItemFishLocationLabel;
             nautilus.item._ItemTypeIDs = [];
-            nautilus.item.AddBlueSkyUnlock("Mung_CH", "locked_nautilus.png", "ach_nautilus.png", 2);
+            nautilus.item.AddBlueSkyUnlock("Mung_CH", "locked_nautilus.png", "ach_nautilus.png", 4);
 
             MultiPerformEffectItem smile = new MultiPerformEffectItem("Salt_SmileMask_TW", []);
             smile.Name = "Smile Mask";
