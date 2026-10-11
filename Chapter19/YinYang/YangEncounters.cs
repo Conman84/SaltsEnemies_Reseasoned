@@ -79,7 +79,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomEncounter("Yang_EN", "Yang_EN", "Firebird_EN", "ChoirBoy_EN");
             hard.AddRandomEncounter("Yang_EN", "Yang_EN", "PawnA_EN", Enemies.Minister);
             hard.SimpleAddEncounter(3, "Yang_EN", 1, "Grandfather_EN");
-            hard.SimpleAddEncounter(2, "Yang_EN", 1, "Shua_EN", 2, "PawnA_EN");
+            hard.SimpleAddEncounter(2, "Yang_EN", 1, "Shua_EN", 1, "PawnA_EN");
             hard.SimpleAddEncounter(3, "Yang_EN", 1, "MiniReaper_EN");
             hard.SimpleAddEncounter(3, "Yang_EN", 1, "Damocles_EN");
             hard.SimpleAddEncounter(3, "Yang_EN", 1, "GlassFigurine_EN");
@@ -90,7 +90,7 @@ namespace SaltsEnemies_Reseasoned
             hard.SimpleAddEncounter(1, "Yang_EN", 1, "PersonalAngel_EN", 2, "PawnA_EN");
             hard.SimpleAddEncounter(1, "Yang_EN", 1, "Eyeless_EN", 2, "PawnA_EN");
             hard.SimpleAddEncounter(2, "Yang_EN", 1, "OdeToHumanity_EN", 1, "PawnA_EN");
-            hard.SimpleAddEncounter(2, "Yang_EN", 1, "ChoirBoy_EN", 2, "PawnA_EN");
+            hard.SimpleAddEncounter(2, "Yang_EN", 1, "ChoirBoy_EN", 1, "PawnA_EN");
 
             hard.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Yang.Hard, 5 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);

@@ -97,6 +97,7 @@ namespace SaltsEnemies_Reseasoned
                 "Boy Named \"Boy Named Kanye West\"",
                 "Lost Medias",
                 "Pomni",
+                "Jaguar",
                 ];
             CasterRandomizeNameEnemyEffect third = ScriptableObject.CreateInstance<CasterRandomizeNameEnemyEffect>();
             third.PossibleNames = [
@@ -130,6 +131,7 @@ namespace SaltsEnemies_Reseasoned
                 "Hi I'm Pimple",
                 "KILL ALL CODERS AND SPRITERS",
                 "Mmbbll Fabsganglrr To The Far Shore",
+                "Hidden Sofanial",
                 ];
 
             insider.CombatEnterEffects = [Effects.GenerateEffect(inside),
