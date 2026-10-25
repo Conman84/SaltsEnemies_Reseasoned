@@ -36,6 +36,11 @@ namespace SaltsEnemies_Reseasoned
 
             HEAL = new DebugCommand("fullheal", "set health max all party members.", new List<DebugCommandArgument>(), delegate
             {
+                if (CombatManager._instance == null || CombatManager._instance.Equals(null))
+                {
+                    DebugController.Instance.WriteLine("FUCK YOU");
+                    //make it get overworld party data
+                }
                 CombatManager.Instance.AddPriorityRootAction(new PerformDelegateAction(delegate (CombatStats x)
                 {
                     foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)

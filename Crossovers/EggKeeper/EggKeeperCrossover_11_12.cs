@@ -25,8 +25,8 @@ namespace SaltEnemies_Reseasoned
             AddTo hard = new AddTo(Garden.H.SnakeGod.Hard);
             hard.AddRandomGroup("SnakeGod_EN", "EggKeeper_EN");
 
-            AddTo easy = new AddTo(Garden.H.ChoirBoy.Easy);
-            easy.AddRandomGroup("ChoirBoy_EN", "EggKeeper_EN", "Damocles_EN");
+            //AddTo easy = new AddTo(Garden.H.ChoirBoy.Easy);
+            //easy.AddRandomGroup("ChoirBoy_EN", "EggKeeper_EN", "Damocles_EN");
 
             med = new AddTo(Garden.H.EggKeeper.Med);
             if (SaltsReseasoned.trolling < 25 || SaltsReseasoned.trolling > 75) med.AddRandomGroup("ChoirBoy_EN", "EggKeeper_EN", "GlassFigurine_EN");
