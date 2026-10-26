@@ -52,7 +52,7 @@ namespace SaltEnemies_Reseasoned
     }
     public class InvertedSE_SO : StatusEffect_SO
     {
-        public override bool IsPositive => false;
+        public override bool IsPositive => true;
         public override void OnTriggerAttached(StatusEffect_Holder holder, IStatusEffector caller)
         {
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnBeingDamaged.ToString(), caller);
