@@ -71,4 +71,59 @@ namespace SaltsEnemies_Reseasoned
             return ret;
         }
     }
+    public class OverrideMusicEffect : EffectSO
+    {
+        public string newsong;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            //return true;
+            CombatManager.Instance.AddUIAction(new OverrideMusicAction(newsong));
+            return true;
+        }
+        public static OverrideMusicEffect Create(string newsong)
+        {
+            OverrideMusicEffect ret = ScriptableObject.CreateInstance<OverrideMusicEffect>();
+            ret.newsong = newsong;
+            return ret;
+        }
+        public class OverrideMusicAction : CombatAction
+        {
+            public string newsong;
+            public OverrideMusicAction(string newsong)
+            {
+                this.newsong = newsong;
+            }
+            public override IEnumerator Execute(CombatStats stats)
+            {
+                CombatManager.Instance._musicEventHandler.OnWillStopCombatMusic(CombatManager.Instance._soundManager.MusicCombatEvent);
+                CombatManager.Instance._soundManager.StopCombatMusicTrack();
+                CombatManager.Instance._musicEventHandler.OnStopCombatMusic();
+                CombatManager.Instance._soundManager.PlayCombatMusicTrack(newsong);
+                CombatManager.Instance._musicEventHandler = new MusicTimelineEventHandler();
+                CombatManager.Instance._musicEventHandler.SetUpCombatMusicCallbacks(CombatManager.Instance._soundManager.MusicCombatEvent);
+                yield return null;
+            }
+        }
+    }
+    public class StopMusicEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            //return true;
+            CombatManager.Instance.AddUIAction(new StopMusicAction());
+            return true;
+        }
+        public class StopMusicAction : CombatAction
+        {
+            public override IEnumerator Execute(CombatStats stats)
+            {
+                CombatManager.Instance._musicEventHandler.OnWillStopCombatMusic(CombatManager.Instance._soundManager.MusicCombatEvent);
+                CombatManager.Instance._soundManager.StopCombatMusicTrack();
+                CombatManager.Instance._musicEventHandler.OnStopCombatMusic();
+                yield return null;
+            }
+        }
+    }
 }
