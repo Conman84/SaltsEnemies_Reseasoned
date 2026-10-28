@@ -836,14 +836,6 @@ namespace SaltsEnemies_Reseasoned
 
             CurrencyMultiplierChange_Wearable_SMS doubleMoney = ScriptableObject.CreateInstance<CurrencyMultiplierChange_Wearable_SMS>();
             doubleMoney._currencyMultiplier = 2;
-            LockedInPassiveAbility lockedIn = ScriptableObject.CreateInstance<LockedInPassiveAbility>();
-            lockedIn._passiveName = "Locked In";
-            lockedIn.passiveIcon = ResourceLoader.LoadSprite("NoMenu.png");
-            lockedIn._enemyDescription = "The Pause Menu can no longer be accessed.";
-            lockedIn._characterDescription = "The Pause Menu can no longer be accessed.";
-            lockedIn.m_PassiveID = "NoPause_PA";
-            lockedIn.doesPassiveTriggerInformationPanel = false;
-            lockedIn._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
             AddPassiveEffect lock_in = ScriptableObject.CreateInstance<AddPassiveEffect>();
             lock_in._passiveToAdd = lockedIn;
 
