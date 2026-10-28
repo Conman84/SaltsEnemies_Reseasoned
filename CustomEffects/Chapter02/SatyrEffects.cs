@@ -75,8 +75,8 @@ namespace SaltEnemies_Reseasoned
     {
         [Header("Special Abilities")]
         [SerializeField]
-        public string flavor = "Bitter Flavor";
-        public string flavour = "Bitter Flavour";
+        public string bitter;
+        public string sour;
 
         public override bool UsesRarity => true;
         public override int GetNextAbilitySlotUsage(List<CombatAbility> abilities, IUnit unit)
@@ -119,8 +119,9 @@ namespace SaltEnemies_Reseasoned
 
         public bool ShouldBeIgnored(CombatAbility ability, IUnit unit)
         {
-            string name = ability.ability._abilityName;
-            return (CombatManager.Instance._stats.TurnsPassed < 2 || unit.CurrentHealth > 15) && (name == this.flavor || name == this.flavour);
+            string name = ability.ability.name;
+            if (CombatManager.Instance._stats.EnemiesOnField.Count <= 1 && name == sour) return true;
+            return (CombatManager.Instance._stats.TurnsPassed < 2 || unit.CurrentHealth > 20) && name == bitter;
         }
     }
     public class ApplyDivineProtectionEffect : StatusEffect_Apply_Effect

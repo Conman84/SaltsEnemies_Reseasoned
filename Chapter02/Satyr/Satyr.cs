@@ -30,7 +30,10 @@ namespace SaltsEnemies_Reseasoned
             {
                 Satyr.enemy.enemyTemplate.m_Data.m_Locator.transform.Find("Sprite").Find("TorsoBack").GetComponent<SpriteRenderer>()
             };
-            Satyr.AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_Satyr>();
+            AbilitySelector_Satyr selector = ScriptableObject.CreateInstance<AbilitySelector_Satyr>();
+            selector.bitter = "Salt_BitterFlavour_A";
+            selector.sour = "Salt_SourFlavour_A";
+            Satyr.AbilitySelector = selector;
 
             Satyr.AddPassives(new BasePassiveAbilitySO[]
             {
