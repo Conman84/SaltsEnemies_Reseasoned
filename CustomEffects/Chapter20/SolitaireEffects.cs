@@ -313,11 +313,13 @@ namespace SaltsEnemies_Reseasoned
                         else if (typeof(ZoneDataBaseSO).GetField("m_AmbienceID") != null)
                             method.Invoke(CombatManager.Instance._soundManager, [typeof(ZoneDataBaseSO).GetField("m_AmbienceID").GetValue(current), typeof(ZoneDataBaseSO).GetField("m_CombatAmbVarID").GetValue(current)]);
                         */
+                        SaltsReseasoned.PCall(CombatManager.Instance._soundManager.TryStopAmbience);
                         CombatManager.Instance._soundManager.ForceSetAmbience(current.m_AmbienceEvent, current.m_CombatAmbienceType);
 
                     }
                     else
                     {
+                        SaltsReseasoned.PCall(CombatManager.Instance._soundManager.TryStopAmbience);
                         CombatManager.Instance._soundManager.StartExtraCombatAmbienceEvent(CombatManager.Instance._combatEnvHandler.ExtraAmbienceSound);
                     }
                 }
@@ -331,6 +333,7 @@ namespace SaltsEnemies_Reseasoned
                         else if (typeof(ZoneDataBaseSO).GetField("m_AmbienceID") != null)
                             method.Invoke(CombatManager.Instance._soundManager, [typeof(ZoneDataBaseSO).GetField("m_AmbienceID").GetValue(current), typeof(ZoneDataBaseSO).GetField("m_CombatAmbVarID").GetValue(current)]);
                         */
+                    SaltsReseasoned.PCall(CombatManager.Instance._soundManager.TryStopAmbience);
                     CombatManager.Instance._soundManager.ForceSetAmbience(current.m_AmbienceEvent, current.m_CombatAmbienceType);
                 }
                 else
