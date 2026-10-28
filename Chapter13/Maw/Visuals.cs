@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy visuals = new Enemy("Visual", "Visual_EN")
             {
-                Health = 2,
+                Health = 5,
                 HealthColor = Pigments.Purple,
                 CombatSprite = ResourceLoader.LoadSprite("VisualsIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("VisualsWorld.png", new Vector2(0.5f, 0f), 32),

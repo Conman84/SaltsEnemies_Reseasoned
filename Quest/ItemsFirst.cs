@@ -836,8 +836,19 @@ namespace SaltsEnemies_Reseasoned
 
             CurrencyMultiplierChange_Wearable_SMS doubleMoney = ScriptableObject.CreateInstance<CurrencyMultiplierChange_Wearable_SMS>();
             doubleMoney._currencyMultiplier = 2;
+            LockedInPassiveAbility lockedIn = ScriptableObject.CreateInstance<LockedInPassiveAbility>();
+            lockedIn._passiveName = "Locked In";
+            lockedIn.passiveIcon = ResourceLoader.LoadSprite("NoMenu.png");
+            lockedIn._enemyDescription = "The Pause Menu can no longer be accessed.";
+            lockedIn._characterDescription = "The Pause Menu can no longer be accessed.";
+            lockedIn.m_PassiveID = "NoPause_PA";
+            lockedIn.doesPassiveTriggerInformationPanel = false;
+            lockedIn._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
+            AddPassiveEffect lock_in = ScriptableObject.CreateInstance<AddPassiveEffect>();
+            lock_in._passiveToAdd = lockedIn;
 
             PerformEffect_Item dream = new PerformEffect_Item("Salt_RedDream_TW", [
+                Effects.GenerateEffect(lock_in, 1, Targeting.Unit_AllAllies),
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Curtains", false, Slots.Self)),
                 Effects.GenerateEffect(UIActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToGardenEffect>(), 1, Slots.Self).SelfArray()), 1, Targeting.Slot_SelfSlot),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<BoxAllEnemiesEffect>()),
