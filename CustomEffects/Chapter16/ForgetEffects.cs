@@ -38,6 +38,7 @@ namespace SaltEnemies_Reseasoned
             foreach (EnemyBundleData data in bundle.Enemies)
             {
                 if (data.enemy.name == "Postmodern_EN" || data.enemy.name == "Sepulchre_EN") continue;
+                if (data.enemy.name == "CadaverSynod_EN" || data.enemy.name == "Malachai_EN") continue;
 
                 bool skip = false;
                 foreach (BasePassiveAbilitySO passive in data.enemy.passiveAbilities)
