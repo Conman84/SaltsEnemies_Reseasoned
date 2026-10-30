@@ -183,14 +183,14 @@ namespace SaltsEnemies_Reseasoned
             eighth.Effects[1] = Effects.GenerateEffect(remove_eighth);
 
             Ability ninth = new Ability("Ninth Pain", "Eclipse9_A");
-            ninth.Description = "Inflict 3 Oil-Slicked and deal a Barely Painful amount of damage to the Opposing party member 3 times.\nRemove this ability from this enemy's moveset";
+            ninth.Description = "Inflict 3 Oil-Slicked and deal Almost No damage to the Opposing party member 3 times.\nRemove this ability from this enemy's moveset.";
             ninth.Rarity = Rarity.Common;
             ninth.Effects = new EffectInfo[5];
             ninth.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 3, Slots.Front);
-            ninth.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 3, Slots.Front);
-            ninth.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 3, Slots.Front);
-            ninth.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 3, Slots.Front);
-            ninth.AddIntentsToTarget(Slots.Front, ["Status_OilSlicked", "Damage_3_6", "Damage_3_6", "Damage_3_6"]);
+            ninth.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 1, Slots.Front);
+            ninth.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 1, Slots.Front);
+            ninth.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 1, Slots.Front);
+            ninth.AddIntentsToTarget(Slots.Front, ["Status_OilSlicked", "Damage_1_2", "Damage_1_2", "Damage_1_2"]);
             ninth.AddIntentsToTarget(Slots.Self, ["Misc"]);
             ninth.AnimationTarget = Slots.Front;
             ninth.Visuals = Visuals.Melt;
