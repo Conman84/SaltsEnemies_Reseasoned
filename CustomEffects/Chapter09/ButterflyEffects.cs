@@ -765,10 +765,9 @@ namespace SaltEnemies_Reseasoned
             CombatStats stats = CombatManager.Instance._stats;
             foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
             {
-                if (!enemy.IsAlive) continue;
                 if (enemy.HasBadDog())
                 {
-                    if (enemy.CurrentHealth <= 0)
+                    if (!enemy.IsAlive)
                     {
                         stats.timeline.TryRemoveAllNextEnemyTurns(enemy);
                         Actions.Remove(enemy.ID);
