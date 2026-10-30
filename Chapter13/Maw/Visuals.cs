@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy visuals = new Enemy("Visual", "Visual_EN")
             {
-                Health = 5,
+                Health = 2,
                 HealthColor = Pigments.Purple,
                 CombatSprite = ResourceLoader.LoadSprite("VisualsIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("VisualsWorld.png", new Vector2(0.5f, 0f), 32),
@@ -63,6 +63,7 @@ namespace SaltsEnemies_Reseasoned
             fluids._triggerOn = [TriggerCalls.OnDeath];
 
             visuals.AddPassives(new BasePassiveAbilitySO[] { jitter, rupture, fluids, Passives.Withering });
+            visuals.CombatEnterEffects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterGainTurnIfNoTurnsEnemyEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsPlayerTurnEffectCondition>())];
 
             SpawnEnemyByStringNameEffect spawn = ScriptableObject.CreateInstance<SpawnEnemyByStringNameEffect>();
             spawn.enemyName = "Visual_EN";

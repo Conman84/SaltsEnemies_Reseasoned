@@ -31,4 +31,28 @@ namespace SaltEnemies_Reseasoned
             return false;
         }
     }
+
+    public class CasterGainTurnIfNoTurnsEnemyEffect : AddTurnCasterToTimelineEffect
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            if (caster is EnemyCombat enemy)
+            {
+                if (CombatManager.Instance._stats.IsPlayerTurn && enemy.TurnsInTimeline > 0)
+                    return false;
+
+                for (int i = stats.timeline.CurrentTurn + (stats.IsPlayerTurn ? 0 : 1); i < stats.timeline.Round.Count; i++)
+                {
+                    if (stats.timeline.Round[i].isPlayer) continue;
+
+                    if (stats.timeline.Round[i].turnUnit == enemy)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+        }
+    }
 }
