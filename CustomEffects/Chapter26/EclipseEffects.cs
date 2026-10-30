@@ -29,7 +29,7 @@ namespace SaltsEnemies_Reseasoned
     }
     public static class ExtraAbilityExtensions
     {
-        public static ExtraAbilityInfo ExtraAbility(this Ability self, out CasterRemoveExtraAbilityEffect remove)
+        public static ExtraAbilityInfo ExtraAbility(this Ability self, out CasterAddOrRemoveExtraAbilityEffect remove)
         {
             ExtraAbilityInfo ret = new ExtraAbilityInfo()
             {
@@ -44,7 +44,7 @@ namespace SaltsEnemies_Reseasoned
             remove = ScriptableObject.CreateInstance<CasterRemoveExtraAbilityEffect>();
             remove._removeExtraAbility = true;
             remove._extraAbility = temp;
-            remove.abil = ret;
+            (remove as CasterRemoveExtraAbilityEffect).abil = ret;
 
             return ret;
         }
