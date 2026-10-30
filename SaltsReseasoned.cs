@@ -143,6 +143,7 @@ namespace SaltsEnemies_Reseasoned
             Satyr.Add();
             Denial.Add();
             Derogatory.Add();
+            Derogatory.Invoked();
             Something.Add();
 
             //CH3 Enemies

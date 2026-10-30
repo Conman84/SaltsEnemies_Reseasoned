@@ -312,7 +312,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 Effects.GenerateEffect(boreTalk, 3, Targeting.Slot_Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Targeting.Slot_Front),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveWitheringFromDerogatoriesEffect >(), 1, Targeting.Slot_SelfSlot, didntThat),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveWitheringFromDerogatoriesEffect>(), 1, Targeting.Slot_SelfSlot, didntThat),
             };
             bore.Visuals = null;
             bore.AnimationTarget = Targeting.Slot_Front;
