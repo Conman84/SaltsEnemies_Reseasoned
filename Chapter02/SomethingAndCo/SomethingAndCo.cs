@@ -240,7 +240,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 ability = LoadedAssetsHandler.GetEnemyAbility("Derogatory_Interrupt_A"),
                 rarity = Rarity.Common
-            }
+            };
             Derogatory.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 convo,
