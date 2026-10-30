@@ -43,7 +43,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 Name = "Laser",
                 Description = "Deal an Agonizing amount of damage to the Opposing position.",
-                Rarity = Rarity.GetCustomRarity("rarity5"),
+                Rarity = Rarity.Common,
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front),
@@ -109,9 +109,9 @@ namespace SaltsEnemies_Reseasoned
             //torture time
             Ability torture = new Ability("UFO_TortureTime_A");
             torture.Name = "Torture Time!";
-            torture.Description = "Inflict 5 Fire on the Opposing position.";
-            torture.Rarity = Rarity.CreateAndAddCustomRarityToPool("ufo_low", 3);
-            torture.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 5, Slots.Front)];
+            torture.Description = "Inflict 3 Fire on the Opposing position.";
+            torture.Rarity = Rarity.GetCustomRarity("rarity5");
+            torture.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 3, Slots.Front)];
             torture.AddIntentsToTarget(Slots.Front, ["Field_Fire"]);
             torture.Visuals = Visuals.Burn;
             torture.AnimationTarget = Slots.Front;
@@ -119,10 +119,10 @@ namespace SaltsEnemies_Reseasoned
             //ADD ENEMY
             ufo.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                laser.GenerateEnemyAbility(true),
                 trappings.GenerateEnemyAbility(true),
+                laser.GenerateEnemyAbility(true),
                 //wheeling.GenerateEnemyAbility(true),
-                anti.GenerateEnemyAbility(true),
+                //anti.GenerateEnemyAbility(true),
                 torture.GenerateEnemyAbility(true),
             });
             ufo.AddEnemy(true, true);
