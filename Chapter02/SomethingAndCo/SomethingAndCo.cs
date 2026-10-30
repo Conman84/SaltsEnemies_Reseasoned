@@ -163,13 +163,13 @@ namespace SaltsEnemies_Reseasoned
 
             Ability interrupt = new Ability("Derogatory_Interrupt_A");
             interrupt.Name = "Interrupt";
-            interrupt.Description = "Move Left or Right and inflict 1 Muted on the Opposing party member. If the Opposing party member was already Muted, deal a Painful amount of damage to them.";
+            interrupt.Description = "Move Left or Right and inflict 1 Muted on the Opposing party member. If the Opposing party member was already Muted, deal a Painful amount of damage to them instead.";
             interrupt.Rarity = Rarity.CreateAndAddCustomRarityToPool("Derogatory_5", 5);
             interrupt.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Targeting.Slot_SelfSlot),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<HasMutedEffect>(), 5, Targeting.Slot_Front),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 1, Slots.Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 1, Slots.Front, BasicEffects.DidThat(false)),
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Parry_1_A", true, Targeting.Slot_Front), 1, Targeting.Slot_SelfSlot, BasicEffects.DidThat(true, 2)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Targeting.Slot_Front, BasicEffects.DidThat(true, 3)),
             };
