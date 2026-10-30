@@ -128,7 +128,7 @@ namespace SaltsEnemies_Reseasoned
             fourth.Description = "Deal an Agonizing amount of damage to the Opposing party member and inflict 4 Slip on the Opposing position.\nRemove this ability from this enemy's moveset.";
             fourth.Rarity = Rarity.Common;
             fourth.Effects = new EffectInfo[3];
-            fourth.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front);
+            fourth.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front);
             fourth.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 4, Slots.Front);
             fourth.AddIntentsToTarget(Slots.Front, ["Damage_7_10", Slip.Intent]);
             fourth.AddIntentsToTarget(Slots.Self, ["Misc"]);
@@ -255,6 +255,16 @@ namespace SaltsEnemies_Reseasoned
             eclipse.enemy.AddToSynodPool();
             eclipse.enemy.AddToEcstasyPool();
 
+            Ability allpains = new Ability("Eclipse_AllPains_A");
+            allpains.Name = "All Pains";
+            allpains.Description = "Curse the Left, Right, and Opposing party members.";
+            allpains.Rarity = Rarity.CreateAndAddCustomRarityToPool("eclipse_3", 3);
+            allpains.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.FrontLeftRight)];
+            allpains.AddIntentsToTarget(Slots.FrontLeftRight, ["Status_Cursed"]);
+            allpains.Visuals = Visuals.UglyOnTheInside;
+            allpains.AnimationTarget = Slots.FrontLeftRight;
+
+            awake.AddEnemyAbilities([allpains.GenerateEnemyAbility(true)]);
             awake.AddEnemy(true, true);
             awake.enemy.AddToSynodPool();
             awake.enemy.AddToEcstasyPool();
