@@ -762,104 +762,107 @@ namespace SaltEnemies_Reseasoned
         }
         public static void RunCheckFunction(bool skipRoot = false)
         {
-            CombatStats stats = CombatManager.Instance._stats;
-            foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
+            if (!skipRoot) CombatManager.Instance.AddRootAction(new MawCheckAction());
+            else
             {
-                if (enemy.HasBadDog())
+                CombatStats stats = CombatManager.Instance._stats;
+                foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
                 {
-                    if (!enemy.IsAlive)
+                    if (enemy.HasBadDog())
                     {
-                        stats.timeline.TryRemoveAllNextEnemyTurns(enemy);
-                        Actions.Remove(enemy.ID);
-                    }
-                    else if (enemy.IsFacing())
-                    {
-                        List<string> turns = Actions.Keys.Contains(enemy.ID) ? new List<string>(Actions[enemy.ID]) : new List<string>();
-                        int amount = 0;
-                        //int count = -1;
-                        foreach (TurnInfo turn in stats.timeline.Round)
+                        if (!enemy.IsAlive)
                         {
-                            //count++;
-                            //UnityEngine.Debug.Log("current turn index: " + stats.timeline.CurrentTurn.ToString());
-                            //if (count <= stats.timeline.CurrentTurn) continue;
-                            if (!turn.isPlayer && (turn.turnUnit == enemy || (turn.turnUnit.ID == enemy.ID && turn.turnUnit.SlotID == enemy.SlotID)))
+                            stats.timeline.TryRemoveAllNextEnemyTurns(enemy);
+                            Actions.Remove(enemy.ID);
+                        }
+                        else if (enemy.IsFacing())
+                        {
+                            List<string> turns = Actions.Keys.Contains(enemy.ID) ? new List<string>(Actions[enemy.ID]) : new List<string>();
+                            int amount = 0;
+                            //int count = -1;
+                            foreach (TurnInfo turn in stats.timeline.Round)
                             {
-                                if (turn.abilitySlot < enemy.AbilityCount)
+                                //count++;
+                                //UnityEngine.Debug.Log("current turn index: " + stats.timeline.CurrentTurn.ToString());
+                                //if (count <= stats.timeline.CurrentTurn) continue;
+                                if (!turn.isPlayer && (turn.turnUnit == enemy || (turn.turnUnit.ID == enemy.ID && turn.turnUnit.SlotID == enemy.SlotID)))
                                 {
-                                    amount++;
-                                    turns.Add(enemy.Abilities[turn.abilitySlot].ability._abilityName);
-                                }
-                                else
-                                {
-                                    amount++;
-                                    turns.Add("");
+                                    if (turn.abilitySlot < enemy.AbilityCount)
+                                    {
+                                        amount++;
+                                        turns.Add(enemy.Abilities[turn.abilitySlot].ability._abilityName);
+                                    }
+                                    else
+                                    {
+                                        amount++;
+                                        turns.Add("");
+                                    }
                                 }
                             }
+                            stats.timeline.TryRemoveAllNextEnemyTurns(enemy);
+                            if (Actions.Keys.Contains(enemy.ID)) Actions[enemy.ID] = turns.ToArray();
+                            else Actions.Add(enemy.ID, turns.ToArray());
+                            enemy.SimpleSetStoredValue(Turns, enemy.SimpleGetStoredValue(Turns) + amount);
                         }
-                        stats.timeline.TryRemoveAllNextEnemyTurns(enemy);
-                        if (Actions.Keys.Contains(enemy.ID)) Actions[enemy.ID] = turns.ToArray();
-                        else Actions.Add(enemy.ID, turns.ToArray());
-                        enemy.SimpleSetStoredValue(Turns, enemy.SimpleGetStoredValue(Turns) + amount);
-                    }
-                    else if (enemy.SimpleGetStoredValue(Turns) > 0)
-                    {
-                        int num = enemy.SimpleGetStoredValue(Turns);
-                        List<EnemyCombat> en = new List<EnemyCombat>();
-                        List<int> turns = new List<int>();
+                        else if (enemy.SimpleGetStoredValue(Turns) > 0)
+                        {
+                            int num = enemy.SimpleGetStoredValue(Turns);
+                            List<EnemyCombat> en = new List<EnemyCombat>();
+                            List<int> turns = new List<int>();
 
-                        if (!Actions.Keys.Contains(enemy.ID))
-                        {
-                            try
+                            if (!Actions.Keys.Contains(enemy.ID))
                             {
-                                Try.AddNewFrontExtraEnemyTurns(enemy, num); 
-                                enemy.SimpleSetStoredValue(Turns, 0);
+                                try
+                                {
+                                    Try.AddNewFrontExtraEnemyTurns(enemy, num);
+                                    enemy.SimpleSetStoredValue(Turns, 0);
+                                }
+                                catch
+                                {
+                                    UnityEngine.Debug.LogError("adding front enemy turns failed, adding normally ");
+                                    stats.timeline.TryAddNewExtraEnemyTurns(enemy, num);
+                                    enemy.SimpleSetStoredValue(Turns, 0);
+                                }
                             }
-                            catch
+                            else
                             {
-                                UnityEngine.Debug.LogError("adding front enemy turns failed, adding normally ");
-                                stats.timeline.TryAddNewExtraEnemyTurns(enemy, num);
-                                enemy.SimpleSetStoredValue(Turns, 0);
-                            }
-                        }
-                        else
-                        {
-                            string[] array = Actions[enemy.ID];
-                            //array.Reverse();
-                            foreach (string name in array)
-                            {
-                                en.Add(enemy);
-                                int add = enemy.GetLastAbilityIDFromNameUsingAbilityName(name);
-                                if (add < 0) add = enemy.GetSingleAbilitySlotUsage(add);
-                                turns.Add(add);
-                            }
-                            if (en.Count < num)
-                            {
-                                for (int i = en.Count; i < num && en.Count < num; i++)
+                                string[] array = Actions[enemy.ID];
+                                //array.Reverse();
+                                foreach (string name in array)
                                 {
                                     en.Add(enemy);
-                                    turns.Add(enemy.GetSingleAbilitySlotUsage(-1));
+                                    int add = enemy.GetLastAbilityIDFromNameUsingAbilityName(name);
+                                    if (add < 0) add = enemy.GetSingleAbilitySlotUsage(add);
+                                    turns.Add(add);
                                 }
-                            }
-                            List<int> newer = new List<int>(turns);
-                            //for (int i = 0; i < turns.Count; i++) newer.Add(turns[i]);
-                            try
-                            {
-                                Try.AddNewFrontEnemyTurns(en, newer);
-                                enemy.SimpleSetStoredValue(Turns, 0);
-                                Actions[enemy.ID] = new string[0];
-                            }
-                            catch
-                            {
-                                UnityEngine.Debug.LogError("adding front enemy turns failed, adding normally ");
-                                stats.timeline.AddExtraEnemyTurns(en, turns);
-                                enemy.SimpleSetStoredValue(Turns, 0);
-                                Actions[enemy.ID] = new string[0];
+                                if (en.Count < num)
+                                {
+                                    for (int i = en.Count; i < num && en.Count < num; i++)
+                                    {
+                                        en.Add(enemy);
+                                        turns.Add(enemy.GetSingleAbilitySlotUsage(-1));
+                                    }
+                                }
+                                List<int> newer = new List<int>(turns);
+                                //for (int i = 0; i < turns.Count; i++) newer.Add(turns[i]);
+                                try
+                                {
+                                    Try.AddNewFrontEnemyTurns(en, newer);
+                                    enemy.SimpleSetStoredValue(Turns, 0);
+                                    Actions[enemy.ID] = new string[0];
+                                }
+                                catch
+                                {
+                                    UnityEngine.Debug.LogError("adding front enemy turns failed, adding normally ");
+                                    stats.timeline.AddExtraEnemyTurns(en, turns);
+                                    enemy.SimpleSetStoredValue(Turns, 0);
+                                    Actions[enemy.ID] = new string[0];
+                                }
                             }
                         }
                     }
                 }
             }
-            if (!skipRoot) CombatManager.Instance.AddRootAction(new MawCheckAction());
         }
         public static bool IsPlayerTurn() => CombatManager.Instance._stats.IsPlayerTurn;
     }
