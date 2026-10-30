@@ -33,6 +33,8 @@ namespace SaltsEnemies_Reseasoned
 
                 if (sender is EnemyCombat enemy)
                 {
+                    if (enemy.Enemy.name == "InvokedDerogatory_EN") AddKill("Derogatory_EN", reference.witheringDeath);
+
                     if (enemy.Enemy.name == "EmbersofaDeadGod_EN") AddKill("DeadGod_EN", reference.witheringDeath);
                     if (enemy.Enemy.name == "TeachaMantoFish_EN") AddKill("Unmung_EN", reference.witheringDeath);
                     if (enemy.Enemy.name == "Spectre_EN") AddKill("Butterfly_EN", reference.witheringDeath);

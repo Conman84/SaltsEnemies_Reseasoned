@@ -208,7 +208,7 @@ namespace SaltEnemies_Reseasoned
             exitAmount = 0;
             foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
             {
-                if (enemy.Enemy == LoadedAssetsHandler.GetEnemy("Derogatory_EN"))
+                if (enemy.Enemy.name == "Derogatory_EN")
                 {
                     if (stats.TryTransformEnemy(enemy.ID, LoadedAssetsHandler.GetEnemy("InvokedDerogatory_EN"), false, true, true, false))
                     {
