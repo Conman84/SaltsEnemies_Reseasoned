@@ -9,6 +9,7 @@ using System.Collections;
 using UnityEngine;
 using SaltEnemies_Reseasoned;
 using BrutalAPI;
+using FMOD;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -16,21 +17,31 @@ namespace SaltsEnemies_Reseasoned
     public class MouseHover_EnemyInFieldLayout : EnemyInFieldLayout
     {
         public static TriggerCalls Trigger => (TriggerCalls)1095224;
+        public float maxscale = 2f;
         public void Update()
         {
-            if (MouseSelected) Rage -= Time.deltaTime * 5;
+            if (MouseSelected || !CombatManager.Instance._stats.IsPlayerTurn) Rage -= Time.deltaTime * 5;
             else Rage += Time.deltaTime;
 
             if (Rage < 0f) Rage = 0f;
 
-            if (!CombatManager.Instance._stats.IsPlayerTurn) Rage = 0f;
+            float amt = Math.Min(Rage, 4f) / 4f;
+            if (m_Data != null && m_Data.m_Locator != null)
+            {
+                m_Data.m_Locator.transform.localScale = new Vector3(1f + maxscale * amt, 1f + maxscale * amt, 1f);
+            }
+
+            //if (!CombatManager.Instance._stats.IsPlayerTurn) Rage = 0f;
 
             if (Rage > 5f)
             {
                 Rage = 4f;
-                foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+                if (CombatManager.Instance._stats.IsPlayerTurn)
                 {
-                    if (enemy.ID == EnemyID) CombatManager.Instance.PostNotification(Trigger.ToString(), enemy, null);
+                    foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+                    {
+                        if (enemy.ID == EnemyID) CombatManager.Instance.PostNotification(Trigger.ToString(), enemy, null);
+                    }
                 }
             }
         }

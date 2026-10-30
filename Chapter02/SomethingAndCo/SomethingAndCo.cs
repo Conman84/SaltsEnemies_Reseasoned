@@ -131,7 +131,7 @@ namespace SaltsEnemies_Reseasoned
             didThat.wasSuccessful = true;
 
             Ability convo = new Ability("Conversation", "Salt_Conversation_A");
-            convo.Description = "Apply 1 Muted to the opposing party member. If successful, apply 2 Muted to self.";
+            convo.Description = "Inflict 1 Muted to the opposing party member. If successful, apply 2 Muted to self.";
             convo.Rarity = Rarity.GetCustomRarity("rarity10");
             convo.Effects = new EffectInfo[]
             {
@@ -163,20 +163,91 @@ namespace SaltsEnemies_Reseasoned
 
             Ability interrupt = new Ability("Derogatory_Interrupt_A");
             interrupt.Name = "Interrupt";
-            interrupt.Description = "Move Left or Right. If the Opposing party member is Muted, deal a Painful amount of damage to them.";
+            interrupt.Description = "Move Left or Right and inflict 1 Muted on the Opposing party member. If the Opposing party member was already Muted, deal a Painful amount of damage to them.";
             interrupt.Rarity = Rarity.CreateAndAddCustomRarityToPool("Derogatory_5", 5);
             interrupt.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Targeting.Slot_SelfSlot),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<HasMutedEffect>(), 5, Targeting.Slot_Front),
-                Effects.GenerateEffect(BasicEffects.GetVisuals("Parry_1_A", true, Targeting.Slot_Front), 1, Targeting.Slot_SelfSlot, BasicEffects.DidThat(true)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageIfMutedEffect>(), 5, Targeting.Slot_Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 1, Slots.Front),
+                Effects.GenerateEffect(BasicEffects.GetVisuals("Parry_1_A", true, Targeting.Slot_Front), 1, Targeting.Slot_SelfSlot, BasicEffects.DidThat(true, 2)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Targeting.Slot_Front, BasicEffects.DidThat(true, 3)),
             };
             interrupt.Priority = Priority.Slow;
             interrupt.AnimationTarget = Targeting.Slot_Front;
             interrupt.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Swap_Sides.ToString() });
-            interrupt.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Damage_3_6.ToString() });
+            interrupt.AddIntentsToTarget(Targeting.Slot_Front, new string[] { Muted.Intent, IntentType_GameIDs.Damage_3_6.ToString() });
             interrupt.GenerateEnemyAbility(true);
+
+        }
+        public static void Invoked()
+        {
+            //Decay
+            PerformEffectPassiveAbility decay = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            decay._passiveName = "Decay";
+            decay.m_PassiveID = "Decay_PA";
+            decay.passiveIcon = ResourceLoader.LoadSprite("Decay.png");
+            decay._characterDescription = "shouldnt be on a character. idk what it'd do. fuck you up, maybe?";
+            decay._enemyDescription = "Upon dying, this enemy has a 33% chance to decay into a Denial.";
+            decay.doesPassiveTriggerInformationPanel = true;
+            PercentageEffectorCondition decay33P = ScriptableObject.CreateInstance<PercentageEffectorCondition>();
+            decay33P.triggerPercentage = 33;
+            DeathReferenceDetectionEffectorCondition detectWither = ScriptableObject.CreateInstance<DeathReferenceDetectionEffectorCondition>();
+            detectWither._witheringDeath = false;
+            detectWither._useWithering = true;
+            decay.conditions = new EffectorConditionSO[2]
+            {
+                decay33P, detectWither
+            };
+            SpawnEnemyInSlotFromEntryEffect spawnDenial = ScriptableObject.CreateInstance<SpawnEnemyInSlotFromEntryEffect>();
+            spawnDenial.enemy = LoadedAssetsHandler.GetEnemy("Denial_EN");
+            spawnDenial._spawnTypeID = CombatType_GameIDs.Spawn_Basic.ToString();
+            decay.effects = new EffectInfo[]
+            {
+                Effects.GenerateEffect(spawnDenial, 0, Targeting.Slot_SelfSlot),
+            };
+            decay._triggerOn = new TriggerCalls[] { TriggerCalls.OnDeath };
+
+            //Enemy Code
+            Enemy Derogatory = new Enemy("Invoked Derogatory", "InvokedDerogatory_EN")
+            {
+                Health = 3,
+                HealthColor = Pigments.Yellow,
+                //Priority = BrutalAPI.Priority.GetCustomPriority("priority-1"),
+                CombatSprite = ResourceLoader.LoadSprite("DerogatoryIconB.png"),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("BubbleDead.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("DerogatoryIcon.png", new Vector2(0.5f, 0f), 32),
+                DamageSound = "event:/Hawthorne/Oisenay/Something_A_Hurt",
+                DeathSound = "event:/Hawthorne/Oisenay/Something_A_Die",
+            };
+            Derogatory.PrepareEnemyPrefab("Assets/Senis2/Invoked_Derogatory_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/Senis2/Something_Derogatory_Gibs.prefab").GetComponent<ParticleSystem>());
+
+            Derogatory.AddPassives(new BasePassiveAbilitySO[]
+            {
+                decay,
+                Passives.Slippery,
+            });
+
+
+
+            //Add
+            EnemyAbilityInfo convo = new EnemyAbilityInfo
+            {
+                ability = LoadedAssetsHandler.GetEnemyAbility("Salt_Conversation_A"),
+                rarity = Rarity.Common
+            };
+            EnemyAbilityInfo interrupt = new EnemyAbilityInfo
+            {
+                ability = LoadedAssetsHandler.GetEnemyAbility("Derogatory_Interrupt_A"),
+                rarity = Rarity.Common
+            }
+            Derogatory.AddEnemyAbilities(new EnemyAbilityInfo[]
+            {
+                convo,
+                interrupt
+            });
+            Derogatory.AddEnemy();
+            //Derogatory.enemy.AddToEcstasyPool();
 
         }
     }
@@ -235,7 +306,7 @@ namespace SaltsEnemies_Reseasoned
             boreTalk._text = new string[3] { "...", "...", "..." };
 
             Ability bore = new Ability("Bore", "Salt_Bore_A");
-            bore.Description = "Deal a Painful amount of damage to the Opposing Party Member. \nIf no damage is dealt, for all Derogatories in combat remove Withering as a passive and add the extra ability \"Interrupt.\"";
+            bore.Description = "Deal a Painful amount of damage to the Opposing Party Member. \nIf no damage is dealt, Invoke all Derogatories in combat.";
             bore.Rarity = Rarity.GetCustomRarity("rarity10");
             bore.Effects = new EffectInfo[]
             {

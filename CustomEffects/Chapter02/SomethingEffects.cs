@@ -204,22 +204,17 @@ namespace SaltEnemies_Reseasoned
     {
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
-            
-            ExtraAbilityInfo interrupt_a = new ExtraAbilityInfo();
-            interrupt_a.ability = LoadedAssetsHandler.GetEnemyAbility("Derogatory_Interrupt_A");
-            interrupt_a.rarity = Rarity.GetCustomRarity("Derogatory_5");
 
             exitAmount = 0;
             foreach (EnemyCombat enemy in stats.EnemiesOnField.Values)
             {
                 if (enemy.Enemy == LoadedAssetsHandler.GetEnemy("Derogatory_EN"))
                 {
-                    if (enemy.TryRemovePassiveAbility(Passives.Withering.m_PassiveID))
+                    if (stats.TryTransformEnemy(enemy.ID, LoadedAssetsHandler.GetEnemy("InvokedDerogatory_EN"), false, true, true, false))
                     {
                         exitAmount++;
                         CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(enemy.ID, enemy.IsUnitCharacter, "Withering Removed", Passives.Withering.passiveIcon));
                         //CombatManager.Instance.AddUIAction(new ShowAttackInformationUIAction(enemy.ID, enemy.IsUnitCharacter, "Extra Ability Interrupt Added"));
-                        enemy.AddExtraAbility(interrupt_a);
                     }
                 }
             }
