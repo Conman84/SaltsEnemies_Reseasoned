@@ -29,7 +29,7 @@ namespace SaltsEnemies_Reseasoned
     }
     public static class ExtraAbilityExtensions
     {
-        public static ExtraAbilityInfo ExtraAbility(this Ability self, out CasterAddOrRemoveExtraAbilityEffect remove)
+        public static ExtraAbilityInfo ExtraAbility(this Ability self, out CasterRemoveExtraAbilityEffect remove)
         {
             ExtraAbilityInfo ret = new ExtraAbilityInfo()
             {
@@ -41,11 +41,23 @@ namespace SaltsEnemies_Reseasoned
             ExtraAbility_Wearable_SMS temp = new ExtraAbility_Wearable_SMS();
             temp._extraAbility = self.GenerateCharacterAbility();
 
-            remove = ScriptableObject.CreateInstance<CasterAddOrRemoveExtraAbilityEffect>();
+            remove = ScriptableObject.CreateInstance<CasterRemoveExtraAbilityEffect>();
             remove._removeExtraAbility = true;
             remove._extraAbility = temp;
+            remove.abil = ret;
 
             return ret;
+        }
+    }
+
+    public class CasterRemoveExtraAbilityEffect : CasterAddOrRemoveExtraAbilityEffect
+    {
+        public ExtraAbilityInfo abil;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            caster.TryRemoveExtraAbility(abil);
+            return true;
         }
     }
 }
