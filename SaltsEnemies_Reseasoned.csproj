@@ -599,6 +599,7 @@
 	  <None Remove="Chapter26\Eclipse\AwakenedDead.png" />
 	  <None Remove="Chapter26\Eclipse\AwakenedIcon.png" />
 	  <None Remove="Chapter26\Eclipse\AwakenedWorld.png" />
+	  <None Remove="Chapter26\Eclipse\PassiveFantastic.png" />
 	  <None Remove="Chapter26\Eclipse\RisingDead.png" />
 	  <None Remove="Chapter26\Eclipse\RisingIcon.png" />
 	  <None Remove="Chapter26\Eclipse\RisingWorld.png" />
@@ -1640,6 +1641,7 @@
 	  <EmbeddedResource Include="Chapter26\Eclipse\AwakenedDead.png" />
 	  <EmbeddedResource Include="Chapter26\Eclipse\AwakenedIcon.png" />
 	  <EmbeddedResource Include="Chapter26\Eclipse\AwakenedWorld.png" />
+	  <EmbeddedResource Include="Chapter26\Eclipse\PassiveFantastic.png" />
 	  <EmbeddedResource Include="Chapter26\Eclipse\RisingDead.png" />
 	  <EmbeddedResource Include="Chapter26\Eclipse\RisingIcon.png" />
 	  <EmbeddedResource Include="Chapter26\Eclipse\RisingWorld.png" />

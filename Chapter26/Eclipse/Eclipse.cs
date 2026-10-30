@@ -23,7 +23,7 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetEnemy("Yang_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("Yang_EN").deathSound,
             };
-            eclipse.PrepareEnemyPrefab("assets/group4/Rising/Rising_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Rising/Rising_Gibs.prefab").GetComponent<ParticleSystem>());
+            eclipse.PrepareEnemyPrefab("Assets/ch_26/Eclipse_Rising_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/ch_26/Eclipse_Gibs.prefab").GetComponent<ParticleSystem>());
 
             Enemy awake = new Enemy("Eclipse Awakened", "EclipseAwakened_EN")
             {
@@ -35,7 +35,7 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetEnemy("Yin_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("Yin_EN").deathSound,
             };
-            awake.PrepareEnemyPrefab("assets/group4/Rising/Rising_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Rising/Rising_Gibs.prefab").GetComponent<ParticleSystem>());
+            awake.PrepareEnemyPrefab("Assets/ch_26/Eclipse_Awakened_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/ch_26/Eclipse_Gibs.prefab").GetComponent<ParticleSystem>());
 
 
             //JITERRY
@@ -91,7 +91,20 @@ namespace SaltsEnemies_Reseasoned
             bonusattack._enemyDescription = "This enemy will perforn the extra ability \"Invisible Fates\" each turn.";
             bonusattack._extraAbility.ability = fate.GenerateEnemyAbility(true).ability;
 
-            awake.AddPassives([jitter, scary, bonusattack]);
+            //fantastic
+            PerformEffectPassiveAbility fantastic = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            fantastic._passiveName = "Fantastic (1)";
+            fantastic.name = "Fantastic_1_PA";
+            fantastic.passiveIcon = ResourceLoader.LoadSprite("PassiveFantastic.png");
+            fantastic.m_PassiveID = "Fantastic_PA";
+            fantastic._enemyDescription = "On being directly damaged, gain 1 Dodge.";
+            fantastic._characterDescription = "On being directly damaged, gain 1 Dodge.";
+            fantastic.doesPassiveTriggerInformationPanel = true;
+            fantastic.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDodgeEffect>(), 1, Slots.Self).SelfArray();
+            fantastic._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
+            fantastic.AddToPassiveDatabase();
+
+            awake.AddPassives([jitter, scary, fantastic, bonusattack]);
 
             Ability second = new Ability("Second Pain", "Eclipse2_A");
             second.Description = "Inflict 4 Slip on the Left and Right enemy positions then a Little damage to all enemies in Slip.\nRemove this ability from this enemy's moveset.";
@@ -251,7 +264,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 fate.GenerateEnemyAbility(true),
             });
-            eclipse.AddEnemy(true, true);
+            eclipse.AddEnemy(true, true);//SilentAddEnemy!!
             eclipse.enemy.AddToSynodPool();
             eclipse.enemy.AddToEcstasyPool();
 
