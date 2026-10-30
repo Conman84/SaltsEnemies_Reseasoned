@@ -41,10 +41,10 @@ namespace SaltsEnemies_Reseasoned
             ExtraAbility_Wearable_SMS temp = ScriptableObject.CreateInstance<ExtraAbility_Wearable_SMS>();
             temp._extraAbility = self.GenerateCharacterAbility();
 
-            remove = ScriptableObject.CreateInstance<CasterAddOrRemoveExtraAbilityEffect>();
+            remove = ScriptableObject.CreateInstance<CasterRemoveExtraAbilityEffect>();
             remove._removeExtraAbility = true;
             remove._extraAbility = temp;
-            //(remove as CasterRemoveExtraAbilityEffect).abil = ret;
+            (remove as CasterRemoveExtraAbilityEffect).abil = ret;
 
             return ret;
         }

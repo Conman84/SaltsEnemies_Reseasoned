@@ -248,16 +248,23 @@ namespace SaltsEnemies_Reseasoned
             Ability twentieth = new Ability("Twentieth Pain", "Eclipse20_A");
             twentieth.Description = "Awaken.";
             twentieth.Rarity = Rarity.GetCustomRarity("rarity5");
-            twentieth.Effects = [Effects.GenerateEffect(awaken, 1, Slots.Self)];
+            twentieth.Effects = new EffectInfo[2];
+            twentieth.Effects[1] = Effects.GenerateEffect(awaken, 1, Slots.Self);
             twentieth.AddIntentsToTarget(Slots.Self, ["Yin_Yang"]);
             twentieth.AnimationTarget = Slots.Self;
             twentieth.Visuals = CustomVisuals.GetVisuals("Salt/YinYang");
             twentieth.GenerateEnemyAbility(true);
-
+            
             pool.list.Add(twentieth.ExtraAbility(out CasterAddOrRemoveExtraAbilityEffect remove_twentieth));
+            twentieth.Effects[0] = Effects.GenerateEffect(remove_twentieth);
+
+            RemoveAllExtraAbilities_Effect clean = ScriptableObject.CreateInstance<RemoveAllExtraAbilities_Effect>();
+            clean.m_JustCaster = true;
 
             eclipse.CombatEnterEffects = [Effects.GenerateEffect(random_set, 2, Slots.Self)];
+            eclipse.CombatExitEffects = [Effects.GenerateEffect(clean)];
             awake.CombatEnterEffects = [Effects.GenerateEffect(random_set, 4, Slots.Self)];
+            awake.CombatExitEffects = [Effects.GenerateEffect(clean)];
 
             //ADD ENEMY
             eclipse.AddEnemyAbilities(new EnemyAbilityInfo[]
