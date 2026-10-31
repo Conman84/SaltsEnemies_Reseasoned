@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using Tools;
 using UnityEngine;
+using static SaltsEnemies_Reseasoned.Garden.H;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -263,8 +264,14 @@ namespace SaltsEnemies_Reseasoned
 
             eclipse.CombatEnterEffects = [Effects.GenerateEffect(random_set, 2, Slots.Self)];
             eclipse.CombatExitEffects = [Effects.GenerateEffect(clean)];
-            awake.CombatEnterEffects = [Effects.GenerateEffect(random_set, 4, Slots.Self)];
-            awake.CombatExitEffects = [Effects.GenerateEffect(clean)];
+            awake.CombatEnterEffects = [
+                Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Awakened"), 1),
+                Effects.GenerateEffect(random_set, 4, Slots.Self)
+                ];
+            awake.CombatExitEffects = [
+                 Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Awakened"), -1),
+                 Effects.GenerateEffect(clean)
+                ];
 
             //ADD ENEMY
             eclipse.AddEnemyAbilities(new EnemyAbilityInfo[]
