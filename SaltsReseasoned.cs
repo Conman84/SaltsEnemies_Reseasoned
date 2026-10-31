@@ -644,6 +644,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ComissionerPassive.png"), "Commissioner", "On being directly damaged, force the Opposing party member to perform this enemy's first action.\nIf successful, remove that action and give this enemy another one.");
 
             //CH25
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ControlPassive.png"), "Control", "This enemy decides when it gets to move.");
 
             //CH26
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PassiveFantastic.png"), "Fantastic", "On being directly damaged, gain a certain amount of Dodge.");
