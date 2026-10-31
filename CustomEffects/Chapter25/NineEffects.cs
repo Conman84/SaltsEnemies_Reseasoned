@@ -104,9 +104,17 @@ namespace SaltsEnemies_Reseasoned
 
         public void Function(object sender, object args)
         {
-            float init = 0f;
-            if (CombatManager.Instance._stats.audioController.MusicCombatEvent.getParameterByName("Nine", out init) == FMOD.RESULT.OK)
-                CombatManager.Instance._stats.audioController.MusicCombatEvent.setParameterByName("Nine", Mathf.Clamp(init + 1, 0.0f, 12.0f));
+            CombatManager.Instance.AddUIAction(new IncNineSongAction());
+        }
+        public class IncNineSongAction : CombatAction
+        {
+            public override IEnumerator Execute(CombatStats stats)
+            {
+                float init = 0f;
+                if (CombatManager.Instance._stats.audioController.MusicCombatEvent.getParameterByName("Nine", out init) == FMOD.RESULT.OK)
+                    CombatManager.Instance._stats.audioController.MusicCombatEvent.setParameterByName("Nine", Mathf.Clamp(init + 1, 0.0f, 12.0f));
+                yield return null;
+            }
         }
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
