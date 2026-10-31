@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using SaltEnemies_Reseasoned;
 using HarmonyLib;
+using System.Data.Common;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -82,5 +83,45 @@ namespace SaltsEnemies_Reseasoned
 
             return exitAmount > 0;
         }
+    }
+    public class AddToMusicParameterEffect : EffectSO
+    {
+        public string ParameterName;
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            float init = 0f;
+            if (CombatManager.Instance._stats.audioController.MusicCombatEvent.getParameterByName(ParameterName, out init) == FMOD.RESULT.OK)
+                CombatManager.Instance._stats.audioController.MusicCombatEvent.setParameterByName(ParameterName, init + entryVariable);
+            else return false;
+            return true;
+        }
+    }
+
+    public class NineConnectionEffect : EffectSO
+    {
+        public bool Connect;
+
+        public void Function(object sender, object args)
+        {
+            float init = 0f;
+            if (CombatManager.Instance._stats.audioController.MusicCombatEvent.getParameterByName("Nine", out init) == FMOD.RESULT.OK)
+                CombatManager.Instance._stats.audioController.MusicCombatEvent.setParameterByName("Nine", init + 1);
+        }
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            if (Connect) CombatManager.Instance.AddObserver(Function, TriggerCalls.OnDamaged.ToString(), caster);
+            else CombatManager.Instance.RemoveObserver(Function, TriggerCalls.OnDamaged.ToString(), caster);
+            return true;
+        }
+
+        public static NineConnectionEffect Create(bool connection)
+        {
+            NineConnectionEffect ret = ScriptableObject.CreateInstance<NineConnectionEffect>();
+            ret.Connect = connection;
+            return ret;
+        }
+
     }
 }

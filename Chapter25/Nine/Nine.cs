@@ -117,6 +117,9 @@ namespace SaltsEnemies_Reseasoned
             plus.AnimationTarget = Slots.Self;
             plus.Visuals = null;
 
+            nine.CombatEnterEffects = [Effects.GenerateEffect(NineConnectionEffect.Create(true))];
+            nine.CombatExitEffects = [Effects.GenerateEffect(NineConnectionEffect.Create(false))];
+
             //ADD ENEMY
             nine.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
