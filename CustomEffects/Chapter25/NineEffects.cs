@@ -106,7 +106,7 @@ namespace SaltsEnemies_Reseasoned
         {
             float init = 0f;
             if (CombatManager.Instance._stats.audioController.MusicCombatEvent.getParameterByName("Nine", out init) == FMOD.RESULT.OK)
-                CombatManager.Instance._stats.audioController.MusicCombatEvent.setParameterByName("Nine", init + 1);
+                CombatManager.Instance._stats.audioController.MusicCombatEvent.setParameterByName("Nine", Mathf.Clamp(init + 1, 0.0f, 12.0f));
         }
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
