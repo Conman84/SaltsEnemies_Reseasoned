@@ -652,6 +652,7 @@ namespace SaltsEnemies_Reseasoned
 
             //CH26
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PassiveFantastic.png"), "Fantastic", "On being directly damaged, gain a certain amount of Dodge.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("BoxPassive.png"), "Curio", "When the Player's mouse is not hovering oveer this enemy, it becomes more aggressive and will attempt to perform its next ability in the timeline.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MeldedPassive.png"), "Melded", "On fleeing, halve the target unit's current health and inflict a slew of Negative Status Effects on them.");
 
             //BOSSES

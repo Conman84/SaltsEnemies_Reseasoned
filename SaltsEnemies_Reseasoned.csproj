@@ -603,6 +603,10 @@
 	  <None Remove="Chapter26\Eclipse\RisingDead.png" />
 	  <None Remove="Chapter26\Eclipse\RisingIcon.png" />
 	  <None Remove="Chapter26\Eclipse\RisingWorld.png" />
+	  <None Remove="Chapter26\ILoveYou\BoxPassive.png" />
+	  <None Remove="Chapter26\ILoveYou\LullabyDead.png" />
+	  <None Remove="Chapter26\ILoveYou\LullabyIcon.png" />
+	  <None Remove="Chapter26\ILoveYou\LullabyWorld.png" />
 	  <None Remove="Chapter26\Melder\MeldedPassive.png" />
 	  <None Remove="Chapter26\Melder\MelderDead.png" />
 	  <None Remove="Chapter26\Melder\MelderIcon.png" />
@@ -1649,6 +1653,10 @@
 	  <EmbeddedResource Include="Chapter26\Eclipse\RisingDead.png" />
 	  <EmbeddedResource Include="Chapter26\Eclipse\RisingIcon.png" />
 	  <EmbeddedResource Include="Chapter26\Eclipse\RisingWorld.png" />
+	  <EmbeddedResource Include="Chapter26\ILoveYou\BoxPassive.png" />
+	  <EmbeddedResource Include="Chapter26\ILoveYou\LullabyDead.png" />
+	  <EmbeddedResource Include="Chapter26\ILoveYou\LullabyIcon.png" />
+	  <EmbeddedResource Include="Chapter26\ILoveYou\LullabyWorld.png" />
 	  <EmbeddedResource Include="Chapter26\Melder\MeldedPassive.png" />
 	  <EmbeddedResource Include="Chapter26\Melder\MelderDead.png" />
 	  <EmbeddedResource Include="Chapter26\Melder\MelderIcon.png" />

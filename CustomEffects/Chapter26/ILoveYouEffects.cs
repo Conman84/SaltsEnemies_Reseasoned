@@ -13,6 +13,29 @@ using FMOD;
 
 namespace SaltsEnemies_Reseasoned
 {
+    public static class Fnaf2Helper
+    {
+
+        public static void PrepareLullabyEnemyPrefab(this Enemy E, string prefabBundlePath, AssetBundle fileBundle, ParticleSystem gibs = null)
+        {
+            GameObject gameObject = fileBundle.LoadAsset<GameObject>(prefabBundlePath);
+            MouseHover_EnemyInFieldLayout enemyInFieldLayout = gameObject.AddComponent<MouseHover_EnemyInFieldLayout>();
+            EnemyInFieldLayout_Data enemyInFieldLayout_Data = gameObject.GetComponent<EnemyInFieldLayout_Data>();
+            if (enemyInFieldLayout_Data == null)
+            {
+                enemyInFieldLayout_Data = gameObject.AddComponent<EnemyInFieldLayout_Data>();
+                enemyInFieldLayout_Data.SetDefaultData();
+            }
+
+            if (gibs != null)
+            {
+                enemyInFieldLayout_Data.m_Gibs = gibs;
+            }
+
+            enemyInFieldLayout.m_Data = enemyInFieldLayout_Data;
+            E.enemy.enemyTemplate = enemyInFieldLayout;
+        }
+    }
     //set up the animator things later
     public class MouseHover_EnemyInFieldLayout : EnemyInFieldLayout
     {
