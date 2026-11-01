@@ -40,7 +40,7 @@ namespace SaltsEnemies_Reseasoned
             box._passiveName = "Curio";
             box.m_PassiveID = "Curio_PA";
             box.passiveIcon = ResourceLoader.LoadSprite("BoxPassive.png");
-            box._enemyDescription = "When the Player's mouse is not hovering oveer this enemy, it becomes more aggressive and will attempt to perform its next ability in the timeline.";
+            box._enemyDescription = "When the Player's mouse is not hovering over this enemy, it becomes more aggressive and will attempt to perform its next ability in the timeline.";
             box._characterDescription = "Wont do jackshit";
             box.doesPassiveTriggerInformationPanel = true;
             box.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetForceFirstActionEffect>(), 1, Slots.Self).SelfArray();
