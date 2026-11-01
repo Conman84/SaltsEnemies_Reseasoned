@@ -55,6 +55,7 @@ namespace SaltsEnemies_Reseasoned
                 Name = "Dramaturgy",
                 Description = "If the Opposing party member has the least maximum health between them and the Left and Right party members, Meld with them.\nOtherwise, shuffle the Left, Right, and Opposing party member positions.",
                 Rarity = Rarity.Common,
+                Priority = Priority.Slow,
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<FrontIsWeakestOfTargetsEffect>(), 1, Slots.FrontLeftRight),
