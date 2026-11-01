@@ -271,6 +271,21 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "H_Zone03_ECSTASY99_Medium_EnemyBundle";
             }
+            public static class Eclipse
+            {
+                public static string Med => "H_Zone03_Eclipse_Medium_EnemyBundle";
+                public static string Hard => "H_Zone03_Eclipse_Hard_EnemyBundle";
+            }
+            public static class Celebration
+            {
+                public static string Med => "H_Zone03_Celebration_Medium_EnemyBundle";
+                public static string Hard => "H_Zone03_Celebration_Hard_EnemyBundle";
+            }
+            public static class Lightbulbkin
+            {
+                public static string Easy => "H_Zone03_Lightbulbkin_Easy_EnemyBundle";
+                public static string Med => "H_Zone03_Lightbulbkin_Medium_EnemyBundle";
+            }
             public static class Moon
             {
                 public static string Hard => "THEFREAKINGMOON";

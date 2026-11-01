@@ -304,6 +304,15 @@ namespace SaltsEnemies_Reseasoned
                 public static string Easy => "H_Zone02_TheWhale_Easy_EnemyBundle";
                 public static string Med => "H_Zone02_TheWhale_Med_EnemyBundle";
             }
+            public static class ILoveYou
+            {
+                public static string Med => "H_Zone02_ILoveYou_Med_EnemyBundle";
+                public static string Hard => "H_Zone02_ILoveYou_Hard_EnemyBundle";
+            }
+            public static class Melder
+            {
+                public static string Med => "H_Zone02_Melder_Med_EnemyBundle";
+            }
             public static class ReverseFalseHydra
             {
                 public static string Hard => "H_Zone02_ReverseFalseHydra_Med_EnemyBundle";

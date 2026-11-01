@@ -95,6 +95,7 @@ namespace SaltsEnemies_Reseasoned
             if (DataManager.Expert.Contains(enemy) && StoredRuns < 10) return false;
             if (DataManager.Hidden.Contains(enemy) && StoredRuns < 11) return false;
             if (DataManager.Secret.Contains(enemy) && StoredRuns < 12) return false;
+            if (DataManager.Unknown.Contains(enemy) && StoredRuns < 13) return false;
 
             //by prereq
             if (enemy == "Evileye_EN" && !Tracker.Track(["LostSheep_EN", "AFlower_EN"])) return false;

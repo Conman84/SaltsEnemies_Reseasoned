@@ -278,7 +278,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 fate.GenerateEnemyAbility(true),
             });
-            eclipse.AddEnemy(true, true);//SilentAddEnemy!!
+            eclipse.SilentAddEnemy(true, true);//SilentAddEnemy!!
             eclipse.enemy.AddToSynodPool();
             eclipse.enemy.AddToEcstasyPool();
 
@@ -292,7 +292,7 @@ namespace SaltsEnemies_Reseasoned
             allpains.AnimationTarget = Slots.FrontLeftRight;
 
             awake.AddEnemyAbilities([allpains.GenerateEnemyAbility(true)]);
-            awake.AddEnemy(true, true);
+            awake.SilentAddEnemy(true, true);
             awake.enemy.AddToSynodPool();
             awake.enemy.AddToEcstasyPool();
         }
