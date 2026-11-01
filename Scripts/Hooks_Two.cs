@@ -176,6 +176,10 @@ namespace SaltEnemies_Reseasoned
         public static void StartMenu(Action<MainMenuController> orig, MainMenuController self)
         {
             orig(self);
+            if (!(self.gameObject.GetComponent<KonamiHandler>() != null))
+            {
+                self.gameObject.AddComponent<KonamiHandler>();
+            }
             //SaltEnemies.PCall(PerformRandomEffectsSpecificAmongEffects.GO);
         }
         public static void InitializeCombat(Action<CombatManager> orig, CombatManager self)
@@ -189,6 +193,10 @@ namespace SaltEnemies_Reseasoned
             InspirationHandler.Clear();
             OdeFieldHandler.Clear();
             orig(self);
+            if (!(self.gameObject.GetComponent<KonamiHandler>() != null))
+            {
+                self.gameObject.AddComponent<KonamiHandler>();
+            }
         }
         public static void PlayerTurnStart(Action<CombatStats> orig, CombatStats self)
         {
@@ -219,6 +227,11 @@ namespace SaltEnemies_Reseasoned
             orig(self);
             UntitledHandler.Warped = 0;
             OdeFieldHandler.Clear();
+
+            if (!(self.gameObject.GetComponent<KonamiHandler>() != null))
+            {
+                self.gameObject.AddComponent<KonamiHandler>();
+            }
 
             if (SaltsReseasoned.Testing) UnityEngine.Debug.Log("made it to overworld awake completed");
         }
