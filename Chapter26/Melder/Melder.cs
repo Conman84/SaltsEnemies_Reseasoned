@@ -118,7 +118,7 @@ namespace SaltsEnemies_Reseasoned
                 metal.GenerateEnemyAbility(true),
                 thauma.GenerateEnemyAbility(true),
             });
-            melder.AddEnemy(true, true);//SILENT!!
+            melder.SilentAddEnemy(true, true);//SILENT!!
             melder.enemy.AddToToysPool();
             melder.enemy.AddToEcstasyPool();
         }
