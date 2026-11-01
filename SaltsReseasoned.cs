@@ -307,6 +307,10 @@ namespace SaltsEnemies_Reseasoned
 
             //CH26 Enemies
             PCall(Eclipse.Add);
+            //iloveyou
+            //celebration
+            //lightbulbkin
+            PCall(Melder.Add);
 
             //BOSSES
             //shore
@@ -648,6 +652,7 @@ namespace SaltsEnemies_Reseasoned
 
             //CH26
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PassiveFantastic.png"), "Fantastic", "On being directly damaged, gain a certain amount of Dodge.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MeldedPassive.png"), "Melded", "On fleeing, halve the target unit's current health and inflict a slew of Negative Status Effects on them.");
 
             //BOSSES
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SunkPassive.png"), "Sunk", "All positions are in permenant Deep Water.");

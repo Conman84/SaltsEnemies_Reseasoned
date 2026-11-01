@@ -50,6 +50,7 @@ namespace SaltsEnemies_Reseasoned
         {
             caster.SimpleSetStoredValue(UnitStoredValueNames_GameIDs.FleetingPA.ToString(), 0);
             caster.SimpleSetStoredValue(UnitStoredValueNames_GameIDs.FleetingPA_IgnoreFirstTurn.ToString(), 0);
+            CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, caster.IsUnitCharacter, "Fleeting Reset", Passives.Fleeting1.passiveIcon));
             exitAmount = 0;
             return true;
         }

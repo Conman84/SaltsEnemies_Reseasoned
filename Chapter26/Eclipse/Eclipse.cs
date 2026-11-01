@@ -281,6 +281,7 @@ namespace SaltsEnemies_Reseasoned
             eclipse.SilentAddEnemy(true, true);//SilentAddEnemy!!
             eclipse.enemy.AddToSynodPool();
             eclipse.enemy.AddToEcstasyPool();
+            eclipse.enemy.AddToToysPool();
 
             Ability allpains = new Ability("Eclipse_AllPains_A");
             allpains.Name = "All Pains";
