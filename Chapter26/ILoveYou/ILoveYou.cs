@@ -137,7 +137,7 @@ namespace SaltsEnemies_Reseasoned
                 eat.GenerateEnemyAbility(true),
                 reward.GenerateEnemyAbility(true),
             });
-            lullaby.AddEnemy(true, true);//SILENT!!
+            lullaby.SilentAddEnemy(true, true);//SILENT!!
             lullaby.enemy.AddToToysPool();
             lullaby.enemy.AddToEcstasyPool();
         }
