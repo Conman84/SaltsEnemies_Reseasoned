@@ -32,8 +32,13 @@ namespace SaltsEnemies_Reseasoned
                     TriggerMeldEffect trigger = ScriptableObject.CreateInstance<TriggerMeldEffect>();
                     trigger.target = target.Unit;
                     meld.effects = [Effects.GenerateEffect(trigger)];
-                    meld._triggerOn = [TriggerCalls.OnFleetingEnd];
+                    meld._triggerOn = [TriggerCalls.OnFleeting];
                     meld.conditions = [];
+                    meld.specialStoredData = UnitStoreData.GetCustom_UnitStoreData("Melded_PA");
+
+                    int num = target.Unit.ID;
+                    if (num == 0) num = -1;
+                    caster.SimpleSetStoredValue("Melded_PA", num);
 
                     caster.AddPassiveAbility(meld);
                     CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, caster.IsUnitCharacter, "Melded with " + target.Unit.Name, meld.passiveIcon));
@@ -149,6 +154,31 @@ namespace SaltsEnemies_Reseasoned
                 }
             }
             return exitAmount > 0;
+        }
+    }
+    public class UnitStoreData_MelderTargetSO : UnitStoreData_BasicSO
+    {
+        public override bool TryGetUnitStoreDataToolTip(UnitStoreDataHolder holder, out string result)
+        {
+            result = GenerateString(holder.m_MainData);
+            return result != "";
+        }
+
+        public string GenerateString(int value)
+        {
+            if (value == 0) return "";
+            CharacterCombat chara = null;
+            int check = value;
+            if (check == -1) check = 0;
+            foreach (CharacterCombat ch in CombatManager.Instance._stats.CharactersOnField.Values)
+            {
+                if (ch.ID == check) chara = ch;
+            }
+            if (chara == null) return "";
+            string str2 = "Melded with: " + chara._currentName;
+            string str3 = "<color=#" + ColorUtility.ToHtmlStringRGB(Color.yellow) + ">";
+            string str4 = "</color>";
+            return str3 + str2 + str4;
         }
     }
 }

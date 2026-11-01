@@ -24,6 +24,14 @@ namespace SaltsEnemies_Reseasoned
             };
             melder.PrepareEnemyPrefab("Assets/ch_26/Melder_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/ch_26/Melder_Gibs.prefab").GetComponent<ParticleSystem>());
 
+            //melder text
+            UnitStoreData_MelderTargetSO target = ScriptableObject.CreateInstance<UnitStoreData_MelderTargetSO>();
+            target._UnitStoreDataID = "Melded_PA";
+            if (LoadedDBsHandler.MiscDB.m_UnitStoreDataPool.ContainsKey("Melded_PA"))
+                LoadedDBsHandler.MiscDB.m_UnitStoreDataPool["Melded_PA"] = target;
+            else
+                LoadedDBsHandler.MiscDB.AddNewUnitStoreData(target._UnitStoreDataID, target);
+
             //JITERRY
             PerformEffectPassiveAbility jitter = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             jitter._passiveName = "Jittery";
@@ -36,7 +44,7 @@ namespace SaltsEnemies_Reseasoned
             jitter._triggerOn = new TriggerCalls[] { JitteryHandler.Call };
             jitter.conditions = new EffectorConditionSO[0];
 
-            melder.AddPassives(new BasePassiveAbilitySO[] { Passives.Fleeting4, Passives.Forgetful, jitter });
+            melder.AddPassives(new BasePassiveAbilitySO[] { Passives.Fleeting6, Passives.Forgetful, jitter });
 
 
             Intents.CreateAndAddCustom_Basic_IntentToPool("Melded_PA", ResourceLoader.LoadSprite("MeldedPassive.png"), Color.white);
