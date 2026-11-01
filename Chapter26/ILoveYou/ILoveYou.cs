@@ -20,6 +20,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("LullabyDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("Keko_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("Keko_EN").deathSound,
+                UnitTypes = ["FemaleID", "FemaleLooking"]
             };
             lullaby.PrepareLullabyEnemyPrefab("Assets/ch_26/Lullaby_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/ch_26/Lullaby_Gibs.prefab").GetComponent<ParticleSystem>());
 
