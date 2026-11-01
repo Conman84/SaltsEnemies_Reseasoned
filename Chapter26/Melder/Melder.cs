@@ -44,7 +44,7 @@ namespace SaltsEnemies_Reseasoned
             jitter._triggerOn = new TriggerCalls[] { JitteryHandler.Call };
             jitter.conditions = new EffectorConditionSO[0];
 
-            melder.AddPassives(new BasePassiveAbilitySO[] { Passives.Fleeting6, Passives.Forgetful, jitter });
+            melder.AddPassives(new BasePassiveAbilitySO[] { Passives.Fleeting3, Passives.Forgetful, jitter });
 
 
             Intents.CreateAndAddCustom_Basic_IntentToPool("Melded_PA", ResourceLoader.LoadSprite("MeldedPassive.png"), Color.white);
@@ -88,8 +88,8 @@ namespace SaltsEnemies_Reseasoned
                 Visuals = null,
                 AnimationTarget = Slots.Front,
             };
-            metal.AddIntentsToTarget(Slots.Self, ["Misc_Hidden", IntentType_GameIDs.PA_Fleeting.ToString()]);
-            metal.AddIntentsToTarget(Slots.Front, ["Damage_7_10"]);
+            metal.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.PA_Fleeting.ToString()]);
+            metal.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_7_10"]);
 
             
 
@@ -97,10 +97,12 @@ namespace SaltsEnemies_Reseasoned
             Ability thauma = new Ability("Melder_Thaumaturgy_A")
             {
                 Name = "Thaumaturgy",
-                Description = "All enemies generate 1 Red Pigment.\nReduce the maximum healths of the Left, Right, and Opposing party members to their current healths.",
+                Description = "If this enemy is not Melded with any targets, reset it's Fleeting.\nAll enemies generate 1 Red Pigment.\nReduce the maximum healths of the Left, Right, and Opposing party members to their current healths.",
                 Rarity = Rarity.Uncommon,
                 Effects = new EffectInfo[]
                 {
+                    Effects.GenerateEffect(melding, 1, Slots.Self),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ResetFleetingEffect>(), 0, Slots.Self, BasicEffects.DidThat(false)),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetGeneratePigmentEffect>(), 1, Targeting.Unit_AllAllies),
                     Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Ribbon", false, Slots.FrontLeftRight)),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<MaxToCurrentEffect>(), 0, Slots.FrontLeftRight)
@@ -108,6 +110,7 @@ namespace SaltsEnemies_Reseasoned
                 Visuals = null,
                 AnimationTarget = Slots.Self,
             };
+            thauma.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.PA_Fleeting.ToString()]);
             thauma.AddIntentsToTarget(Targeting.Unit_AllAllies, ["Mana_Generate"]);
             thauma.AddIntentsToTarget(Slots.FrontLeftRight, [IntentType_GameIDs.Other_MaxHealth.ToString()]);
 
