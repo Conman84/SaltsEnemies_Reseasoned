@@ -45,7 +45,7 @@ namespace SaltsEnemies_Reseasoned
             box.doesPassiveTriggerInformationPanel = true;
             box.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetForceFirstActionEffect>(), 1, Slots.Self).SelfArray();
             box._triggerOn = new TriggerCalls[] { MouseHover_EnemyInFieldLayout.Trigger };
-            box.conditions = new EffectorConditionSO[0];
+            box.conditions = [ScriptableObject.CreateInstance<HasTurnsCondition>(), ScriptableObject.CreateInstance<IsPlayerTurnEffectorCondition>()];
             //fantastic
             PerformEffectPassiveAbility fantastic = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             fantastic._passiveName = "Fantastic (2)";
@@ -61,6 +61,12 @@ namespace SaltsEnemies_Reseasoned
 
             lullaby.AddPassives(new BasePassiveAbilitySO[] { auto, box, fantastic, Passives.Fleeting6 });
 
+
+            AnimationVisualsEffect front = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
+            front._animationTarget = Slots.Front;
+            front._visuals = Visuals.Intrusion;
+            
+
             //punish
             Ability punish = new Ability("Lullaby_PUNISHMENT_A")
             {
@@ -70,8 +76,10 @@ namespace SaltsEnemies_Reseasoned
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self, Effects.ChanceCondition(60)),
-                    Effects.GenerateEffect(BasicEffects.GetVisuals("Crush_A", false, Slots.Front)),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<StopMusicEffect>(), 0, Slots.Self, CheckSpecificSongEffectCondition.Create("event:/Hawthorne/ILoveYouTheme")),
+                    Effects.GenerateEffect(front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front),
+                    Effects.GenerateEffect(OverrideMusicEffect.Create("event:/Hawthorne/ILoveYou2Theme"), 0, Slots.Self, BasicEffects.DidThat(true, 3))
                 },
                 Visuals = null,
                 AnimationTarget = Slots.Front,
@@ -92,7 +100,7 @@ namespace SaltsEnemies_Reseasoned
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 3, Slots.FrontLeftRight),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 3, Slots.FrontLeftRight),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeRandomButCasterHealthManaEffect>(), 10, Slots.Self),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeTargetHealthColorsNotSameEffect>(), 0, Slots.Self)
+                    Effects.GenerateEffect(RandomizeTargetHealthColorsNotSameEffect.Create(true), 0, Slots.Self)
 
                 },
                 Visuals = Visuals.Gulp,
@@ -129,7 +137,7 @@ namespace SaltsEnemies_Reseasoned
                 eat.GenerateEnemyAbility(true),
                 reward.GenerateEnemyAbility(true),
             });
-            lullaby.SilentAddEnemy(true, true);//SILENT!!
+            lullaby.AddEnemy(true, true);//SILENT!!
             lullaby.enemy.AddToToysPool();
             lullaby.enemy.AddToEcstasyPool();
         }

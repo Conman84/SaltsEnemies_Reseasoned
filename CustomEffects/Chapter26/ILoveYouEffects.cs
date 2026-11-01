@@ -40,11 +40,12 @@ namespace SaltsEnemies_Reseasoned
     public class MouseHover_EnemyInFieldLayout : EnemyInFieldLayout
     {
         public static TriggerCalls Trigger => (TriggerCalls)1095224;
-        public float maxscale = 2f;
+        public float maxscale = 0.5f;
         public void Update()
         {
-            if (MouseSelected || !CombatManager.Instance._stats.IsPlayerTurn) Rage -= Time.deltaTime * 5;
-            else Rage += Time.deltaTime;
+            if (MouseSelected) Rage -= Time.deltaTime * 1.2f;
+            else if (!CombatManager.Instance._stats.IsPlayerTurn) Rage -= Time.deltaTime * 0.5f;
+            else Rage += Time.deltaTime / 2f;
 
             if (Rage < 0f) Rage = 0f;
 
@@ -56,7 +57,7 @@ namespace SaltsEnemies_Reseasoned
 
             //if (!CombatManager.Instance._stats.IsPlayerTurn) Rage = 0f;
 
-            if (Rage > 5f)
+            if (Rage > 4.4f)
             {
                 Rage = 4f;
                 if (CombatManager.Instance._stats.IsPlayerTurn)
@@ -69,7 +70,7 @@ namespace SaltsEnemies_Reseasoned
             }
         }
 
-        public float Rage;
+        public float Rage = 0f;
 
     }
     public class RandomizeTargetHealthColorsNotCasterEffect : EffectSO
@@ -158,6 +159,20 @@ namespace SaltsEnemies_Reseasoned
                 CombatManager.Instance._musicEventHandler.OnStopCombatMusic();
                 yield return null;
             }
+        }
+    }
+    public class CheckSpecificSongEffectCondition : EffectConditionSO
+    {
+        public string Song;
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            return CombatManager.Instance._soundManager.CurrentCombatMusic == Song;
+        }
+        public static CheckSpecificSongEffectCondition Create(string song)
+        {
+            CheckSpecificSongEffectCondition ret = ScriptableObject.CreateInstance<CheckSpecificSongEffectCondition>();
+            ret.Song = song;
+            return ret;
         }
     }
 }
