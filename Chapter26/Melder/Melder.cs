@@ -114,6 +114,8 @@ namespace SaltsEnemies_Reseasoned
             thauma.AddIntentsToTarget(Targeting.Unit_AllAllies, ["Mana_Generate"]);
             thauma.AddIntentsToTarget(Slots.FrontLeftRight, [IntentType_GameIDs.Other_MaxHealth.ToString()]);
 
+            melder.CombatExitEffects = [Effects.GenerateEffect(BasicEffects.SetStoreValue("Melded_PA"), 0, Slots.Self)];
+
             //ADD ENEMY
             melder.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
