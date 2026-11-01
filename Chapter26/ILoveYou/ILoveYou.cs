@@ -100,7 +100,7 @@ namespace SaltsEnemies_Reseasoned
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 3, Slots.FrontLeftRight),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 3, Slots.FrontLeftRight),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeRandomButCasterHealthManaEffect>(), 10, Slots.Self),
-                    Effects.GenerateEffect(RandomizeTargetHealthColorsNotSameEffect.Create(true), 0, Slots.Self)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeTargetHealthColorEffect>(), 0, Slots.Self)
 
                 },
                 Visuals = Visuals.Gulp,
