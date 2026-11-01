@@ -447,7 +447,7 @@ namespace SaltsEnemies_Reseasoned
 
         public static void Add(string enemy)
         {
-            if (Check.EnemyExist(enemy)) LoadedAssetsHandler.GetEnemy(enemy).AddToToysPool();
+            if (Check.EnemyExist(enemy)) LoadedAssetsHandler.GetEnemy(enemy).AddToEcstasyPool();
         }
 
         public static void Post()
