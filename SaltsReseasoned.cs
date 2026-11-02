@@ -308,7 +308,7 @@ namespace SaltsEnemies_Reseasoned
             //CH26 Enemies
             PCall(Eclipse.Add);
             PCall(ILoveYou.Add);
-            //celebration
+            PCall(Celebration.Add);
             //lightbulbkin
             PCall(Melder.Add);
 
