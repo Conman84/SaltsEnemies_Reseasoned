@@ -43,7 +43,7 @@ namespace SaltsEnemies_Reseasoned
             Ability parental = new Ability("RadialDichotomy_A");
             parental.Name = "Radial Dichotomy";
             parental.Description = "Inflict 0 or 10 Slip on all party member and enemy positions.";
-            parental.Effects = new EffectInfo[3];
+            parental.Effects = new EffectInfo[1];
             parental.Effects[0] = Effects.GenerateEffect(ZeroOrEntryEffect.Create(ScriptableObject.CreateInstance<ApplySlipSlotEffect>()), 10, MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false)));
             parental.AddIntentsToTarget(Targetting.Everything(true), [Slip.Intent]);
             parental.AddIntentsToTarget(Targetting.Everything(false), [Slip.Intent]);
