@@ -21,7 +21,7 @@ namespace SaltsEnemies_Reseasoned
                 DamageSound = LoadedAssetsHandler.GetEnemy("War_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("War_EN").deathSound,
             };
-            mechanism.PrepareEnemyPrefab("Assets/Abyss/Mechanism_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Abyss/Puppet_Gibs.prefab").GetComponent<ParticleSystem>());
+            mechanism.PrepareEnemyPrefab("Assets/Abyss/Mechanism_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Abyss/Mechanism_Gibs.prefab").GetComponent<ParticleSystem>());
 
             //nylon
             PerformEffectPassiveAbility nylon = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
