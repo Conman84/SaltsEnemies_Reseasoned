@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy lightbulbkin = new Enemy("LIghtbulbkin", "Lightbulbkin_EN")
             {
-                Health = 20,
+                Health = 30,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("LightbulbkinIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("LightbulbkinWorld.png", new Vector2(0.5f, 0f), 32),
