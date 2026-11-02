@@ -25,7 +25,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("MechanicalAngel_EN", "EyePalm_EN", "EyePalm_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToCustomZoneSelector(Abyss.H.Hand.Med, 8, "TheAbyss_Zone3", BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToCustomZoneSelector(Abyss.H.Mechanism.Med, 8, "TheAbyss_Zone3", BundleDifficulty.Medium);
         }
         public static void Add_Hard()
         {
@@ -37,7 +37,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomEncounter("MechanicalAngel_EN", "EyePalm_EN", "EyePalm_EN", "EyePalm_EN");
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToCustomZoneSelector(Abyss.H.Hand.Hard, 8, "TheAbyss_Zone3", BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToCustomZoneSelector(Abyss.H.Mechanism.Hard, 8, "TheAbyss_Zone3", BundleDifficulty.Hard);
         }
         public static void Post()
         {
