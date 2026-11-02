@@ -1,4 +1,4 @@
-﻿using System;
+﻿using SaltEnemies_Reseasoned;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -71,4 +71,51 @@ namespace SaltsEnemies_Reseasoned
             }
         }
     }
+    public class MoveTowardsEdgeEffect : SwapToOneSideEffect
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            _swapRight = Random.Range(0, 100) < 50;
+            switch (caster.Size)
+            {
+                case 1:
+                    if (caster.SlotID < 2) _swapRight = false;
+                    else if (caster.SlotID > 2) _swapRight = true;
+                    break;
+                case 2:
+                    if (caster.SlotID <= 1) _swapRight = false;
+                    else _swapRight = true;
+                    break;
+                case 3:
+                    if (caster.SlotID <= 0) _swapRight = false;
+                    else if (caster.SlotID >= 2) _swapRight = true;
+                    break;
+                case 4:
+                    if (caster.SlotID <= 0) _swapRight = false;
+                    else _swapRight = true;
+                    break;
+            }
+            return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+        }
+    }
+    public class HasDodgeCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            return caster.ContainsStatusEffect(Dodge.StatusID);
+        }
+    }
+    public class QueueShiftEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            if (caster is EnemyCombat enemy)
+            {
+                stats.timeline.AddExtraEnemyTurns(new List<EnemyCombat>() { enemy }, new List<int>() { enemy.GetLastAbilityIDFromName("ShiftDistalParadigm_A") });
+            }
+            return true;
+        }
+    }
 }
+

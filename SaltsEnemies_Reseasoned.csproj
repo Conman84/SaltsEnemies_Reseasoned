@@ -611,6 +611,9 @@
 	  <None Remove="Chapter26\ILoveYou\LullabyDead.png" />
 	  <None Remove="Chapter26\ILoveYou\LullabyIcon.png" />
 	  <None Remove="Chapter26\ILoveYou\LullabyWorld.png" />
+	  <None Remove="Chapter26\Lightbulbkin\LightbulbkinDead.png" />
+	  <None Remove="Chapter26\Lightbulbkin\LightbulbkinIcon.png" />
+	  <None Remove="Chapter26\Lightbulbkin\LightbulbkinWorld.png" />
 	  <None Remove="Chapter26\Melder\MeldedPassive.png" />
 	  <None Remove="Chapter26\Melder\MelderDead.png" />
 	  <None Remove="Chapter26\Melder\MelderIcon.png" />
@@ -1665,6 +1668,9 @@
 	  <EmbeddedResource Include="Chapter26\ILoveYou\LullabyDead.png" />
 	  <EmbeddedResource Include="Chapter26\ILoveYou\LullabyIcon.png" />
 	  <EmbeddedResource Include="Chapter26\ILoveYou\LullabyWorld.png" />
+	  <EmbeddedResource Include="Chapter26\Lightbulbkin\LightbulbkinDead.png" />
+	  <EmbeddedResource Include="Chapter26\Lightbulbkin\LightbulbkinIcon.png" />
+	  <EmbeddedResource Include="Chapter26\Lightbulbkin\LightbulbkinWorld.png" />
 	  <EmbeddedResource Include="Chapter26\Melder\MeldedPassive.png" />
 	  <EmbeddedResource Include="Chapter26\Melder\MelderDead.png" />
 	  <EmbeddedResource Include="Chapter26\Melder\MelderIcon.png" />

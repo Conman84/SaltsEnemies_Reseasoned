@@ -309,7 +309,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(Eclipse.Add);
             PCall(ILoveYou.Add);
             PCall(Celebration.Add);
-            //lightbulbkin
+            PCall(Lightbulbkin.Add);
             PCall(Melder.Add);
 
             //BOSSES
@@ -475,6 +475,15 @@ namespace SaltsEnemies_Reseasoned
             PCall(PapereaterEncounters.Add);
             PCall(WhaleEncounters.Add);
             PCall(Ecstasy99Encounters.Add);
+
+            //CH25 Encounters
+
+            //CH26 Encounters
+            //eclipse
+            //iloveyou
+            //celebration
+            //lightbulbkin
+            //melder
 
             //BOSSES
             //shore

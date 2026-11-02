@@ -72,7 +72,7 @@ namespace SaltsEnemies_Reseasoned
                 eidolon.GenerateEnemyAbility(true),
                 birthday.GenerateEnemyAbility(true),
             });
-            pumpkin.AddEnemy(true, true);
+            pumpkin.SilentAddEnemy(true, true);
             pumpkin.enemy.AddToSynodPool();
             pumpkin.enemy.AddToToysPool();
             pumpkin.enemy.AddToEcstasyPool();
