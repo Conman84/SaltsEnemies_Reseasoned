@@ -596,7 +596,6 @@
 	  <None Remove="Chapter25\Nine\NineDead.png" />
 	  <None Remove="Chapter25\Nine\NineIcon.png" />
 	  <None Remove="Chapter25\Nine\NineWorld.png" />
-	  <None Remove="Chapter26\Celebration\CelebationWorld.png" />
 	  <None Remove="Chapter26\Celebration\CelebrationDead.png" />
 	  <None Remove="Chapter26\Celebration\CelebrationIcon.png" />
 	  <None Remove="Chapter26\Celebration\PawsomePassive.png" />
@@ -1653,7 +1652,7 @@
 	  <EmbeddedResource Include="Chapter25\Nine\NineDead.png" />
 	  <EmbeddedResource Include="Chapter25\Nine\NineIcon.png" />
 	  <EmbeddedResource Include="Chapter25\Nine\NineWorld.png" />
-	  <EmbeddedResource Include="Chapter26\Celebration\CelebationWorld.png" />
+	  <EmbeddedResource Include="Chapter26\Celebration\CelebrationWorld.png" />
 	  <EmbeddedResource Include="Chapter26\Celebration\CelebrationDead.png" />
 	  <EmbeddedResource Include="Chapter26\Celebration\CelebrationIcon.png" />
 	  <EmbeddedResource Include="Chapter26\Celebration\PawsomePassive.png" />
