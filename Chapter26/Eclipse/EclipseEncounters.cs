@@ -138,6 +138,13 @@ namespace SaltsEnemies_Reseasoned
 
             hard = new AddTo(Garden.H.Lunoscope.Hard);
             hard.AddRandomGroup("Lunoscope_EN", Enemies.Eclipse, Enemies.Shivering, Enemies.Shivering);
+
+            med = new AddTo(Garden.H.Dark.Med);
+            med.AddRandomGroup("InTheDark_EN", Enemies.Eclipse, "Damocles_EN");
+
+            hard = new AddTo(Garden.H.Dark.Hard);
+            hard.SimpleAddGroup(2, "InTheDark_EN", 1, Enemies.Eclipse);
+            hard.SimpleAddGroup(1, "InTheDark_EN", 2, Enemies.Eclipse);
         }
     }
 }

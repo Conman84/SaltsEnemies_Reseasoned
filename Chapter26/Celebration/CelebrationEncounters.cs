@@ -37,6 +37,13 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Celebration_EN", "Shua_EN", "BlackStar_EN", "BlackStar_EN");
             med.AddRandomEncounter("Celebration_EN", "Celebration_EN", "Damocles_EN");
             med.AddRandomEncounter("Celebration_EN", "Celebration_EN", "GlassFigurine_EN");
+            med.AddRandomEncounter("Celebration_EN", "Celebration_EN", "Indicator_EN");
+            med.SimpleAddEncounter(2, "Celebration_EN", 3, "TortureMeNot_EN");
+            med.AddRandomEncounter("Celebration_EN", "EvilDog_EN", "EvilDog_EN");
+            med.AddRandomEncounter("Celebration_EN", "Celebration_EN", "Yang_EN");
+            med.AddRandomEncounter("Celebration_EN", "Celebration_EN", "Insider_EN");
+            med.AddRandomEncounter("Celebration_EN", "Celebration_EN", "Sundowner_EN");
+            med.SimpleAddEncounter(2, "Celebration_EN", 1, Ecstasy.Gray);
 
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Celebration.Med, 8 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
@@ -55,7 +62,25 @@ namespace SaltsEnemies_Reseasoned
         }
         public static void Post()
         {
+            AddTo med = new AddTo(Garden.H.Skinning.Med);
+            med.AddRandomGroup(Enemies.Skinning, "Celebration_EN", Enemies.Shivering);
 
+            AddTo hard = new AddTo(Garden.H.Skinning.Hard);
+            hard.AddRandomGroup(Enemies.Skinning, "Celebration_EN", "Celebration_EN");
+
+            med = new AddTo(Garden.H.Minister.Med);
+            med.AddRandomGroup(Enemies.Minister, "Celebration_EN", "NextOfKin_EN", "NextOfKin_EN");
+
+            hard = new AddTo(Garden.H.Minister.Hard);
+            hard.AddRandomGroup(Enemies.Minister, "Celebration_EN", "Celebration_EN");
+            hard.AddRandomGroup(Enemies.Minister, Enemies.Minister, "Celebration_EN");
+
+            med = new AddTo(Garden.H.Foundling.Med);
+            med.AddRandomGroup(Enemies.Foundling, "Celebration_EN", "Celebration_EN");
+
+            hard = new AddTo(Garden.H.Foundling.Hard);
+            hard.AddRandomGroup(Enemies.Foundling, Enemies.Foundling, "Celebration_EN");
+            hard.SimpleAddGroup(1, Enemies.Foundling, 3, "Celebration_EN");
         }
     }
 }

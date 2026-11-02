@@ -11,7 +11,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Enemy lightbulbkin = new Enemy("LIghtbulbkin", "Lightbulbkin_EN")
+            Enemy lightbulbkin = new Enemy("Lightbulbkin", "Lightbulbkin_EN")
             {
                 Health = 30,
                 HealthColor = Pigments.Red,
