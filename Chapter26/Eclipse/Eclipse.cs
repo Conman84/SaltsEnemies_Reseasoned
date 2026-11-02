@@ -23,6 +23,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("RisingDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Snound1/KnightHit",
                 DeathSound = "event:/Hawthorne/Snound1/KnightDie",
+                UnitTypes = ["Bug"],
             };
             eclipse.PrepareEnemyPrefab("Assets/ch_26/Eclipse_Rising_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/ch_26/Eclipse_Gibs.prefab").GetComponent<ParticleSystem>());
 
@@ -35,6 +36,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("AwakenedDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Snound1/KnightHit",
                 DeathSound = "event:/Hawthorne/Snound1/KnightDie",
+                UnitTypes = ["Bug"],
             };
             awake.PrepareEnemyPrefab("Assets/ch_26/Eclipse_Awakened_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/ch_26/Eclipse_Gibs.prefab").GetComponent<ParticleSystem>());
 
