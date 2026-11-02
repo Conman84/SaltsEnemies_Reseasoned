@@ -94,7 +94,7 @@ namespace SaltsEnemies_Reseasoned
                 atrophy.GenerateEnemyAbility(true),
                 shift.GenerateEnemyAbility(true)
             });
-            lightbulbkin.AddEnemy(true, true);
+            lightbulbkin.SilentAddEnemy(true, true);
             lightbulbkin.enemy.AddToSynodPool();
             lightbulbkin.enemy.AddToToysPool();
             lightbulbkin.enemy.AddToEcstasyPool();
