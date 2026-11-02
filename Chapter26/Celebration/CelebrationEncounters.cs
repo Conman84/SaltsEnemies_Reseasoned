@@ -23,6 +23,20 @@ namespace SaltsEnemies_Reseasoned
 
             med.AddRandomEncounter("Celebration_EN", "PawnA_EN", "PawnA_EN", "Celebration_EN");
             med.SimpleAddEncounter(1, "Celebration_EN", 3, Enemies.Shivering);
+            med.SimpleAddEncounter(1, "Celebration_EN", 2, "InHerImage_EN");
+            med.AddRandomEncounter("Celebration_EN", "InHerImage_EN", "InHisImage_EN");
+            med.SimpleAddEncounter(1, "Celebration_EN", 4, "NextOfKin_EN");
+            med.SimpleAddEncounter(2, "Celebration_EN", 1, "ChoirBoy_EN");
+            med.AddRandomEncounter("Celebration_EN", Spoggle.Gray, "NextOfKin_EN", "NextOfKin_EN");
+            med.AddRandomEncounter("Celebration_EN", Jumble.Gray, "PawnA_EN", "PawnA_EN");
+            med.AddRandomEncounter("Celebration_EN", Enemies.Camera, Enemies.Camera);
+            med.AddRandomEncounter("Celebration_EN", Flower.Red, Flower.Blue);
+            med.AddRandomEncounter("Celebration_EN", "Celebration_EN", "WindSong_EN");
+            med.AddRandomEncounter("Celebration_EN", "MiniReaper_EN", "EyePalm_EN", "EyePalm_EN");
+            med.AddRandomEncounter("Celebration_EN", "Celebration_EN", "Grandfather_EN");
+            med.AddRandomEncounter("Celebration_EN", "Shua_EN", "BlackStar_EN", "BlackStar_EN");
+            med.AddRandomEncounter("Celebration_EN", "Celebration_EN", "Damocles_EN");
+            med.AddRandomEncounter("Celebration_EN", "Celebration_EN", "GlassFigurine_EN");
 
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Celebration.Med, 8 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
