@@ -52,7 +52,7 @@ namespace SaltsEnemies_Reseasoned
             eidolon.AnimationTarget = Slots.Self;
 
             Ability birthday = new Ability("Pawsome_Birthday_A");
-            birthday.Name = "Birthday";
+            birthday.Name = "Birthday!";
             birthday.Description = "Deals a Mortal amount of indirect damage to this enemy.\nInflict 3 Fire on all party member positions.";
             birthday.Rarity = Rarity.GetCustomRarity("rarity5");
             birthday.Effects = [Effects.GenerateEffect(BasicEffects.Indirect, 20, Slots.Self), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 3, Targetting.Everything(false))];
