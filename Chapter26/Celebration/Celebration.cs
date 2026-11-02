@@ -33,7 +33,7 @@ namespace SaltsEnemies_Reseasoned
             pawsome.m_PassiveID = "Pawsome_PA";
             pawsome.passiveIcon = ResourceLoader.LoadSprite("PawsomePassive.png");
             pawsome._enemyDescription = "On any party member manually moving, this enemy will change its health color from Red to Purple or vice versa.";
-            pawsome._characterDescription = "On any party member manually moving, this party member will change its health color from Red to Purple or vice versa.";
+            pawsome._characterDescription = "On any enemy \"manually moving\" (this cant happen), this party member will change its health color from Red to Purple or vice versa.";
             pawsome.doesPassiveTriggerInformationPanel = true;
             pawsome.effects = Effects.GenerateEffect(redpurple, 1, Slots.Self).SelfArray();
             pawsome._triggerOn = new TriggerCalls[] { JitteryHandler.Call };
