@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("MelderIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("MelderWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("MelderDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = "event:/Hawthorne/Noisy/UFO_Hit",
-                DeathSound = "event:/Hawthorne/Noisy/UFO_Death",
+                DamageSound = "event:/Hawthorne/Snound1/MelderHit",
+                DeathSound = "event:/Hawthorne/Snound1/MelderDie",
                 UnitTypes = ["Alien"]
             };
             melder.PrepareEnemyPrefab("Assets/ch_26/Melder_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/ch_26/Melder_Gibs.prefab").GetComponent<ParticleSystem>());

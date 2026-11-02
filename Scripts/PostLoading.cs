@@ -41,6 +41,7 @@ namespace SaltEnemies_Reseasoned
                     PCall(PuppetEncounters.Add);
                     PCall(HandEncounters.Add);
                     PCall(MechanicalAngelEncounters.Add);
+                    PCall(NineEncounters.Add);
                 }
             }
 
@@ -154,6 +155,11 @@ namespace SaltEnemies_Reseasoned
             PCall(PuppetEncounters.Post);
             PCall(HandEncounters.Post);
             PCall(MechanicalAngelEncounters.Post);
+            PCall(EclipseEncounters.Post);
+            PCall(ILoveYouEncounters.Post);
+            PCall(CelebrationEncounters.Post);
+            PCall(LightbulbkinEncounters.Post);
+            PCall(MelderEncounters.Post);
 
             //basegame
             PCall(FoundlingEncounters.Post);

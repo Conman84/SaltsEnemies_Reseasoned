@@ -18,8 +18,9 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("CelebrationIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("CelebrationWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("CelebrationDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Snound1/PumkinHit",
+                DeathSound = "event:/Hawthorne/Snound1/PumkinDie",
+                UnitTypes = ["FemaleID", "FemaleLooking"]
             };
             pumpkin.PrepareEnemyPrefab("Assets/ch_26/Celebration_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("assets/ch_26/Celebration_Gibs.prefab").GetComponent<ParticleSystem>());
 

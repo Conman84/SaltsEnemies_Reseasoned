@@ -13,8 +13,8 @@ namespace SaltsEnemies_Reseasoned
             Portals.AddPortalSign("Salt_PuppetEncounter_Sign", ResourceLoader.LoadSprite("PuppetPortal.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Abyss.H.Puppet.Med, "Salt_PuppetEncounter_Sign");
-            med.MusicEvent = "event:/Hawthorne/CorpseChanSong";
-            med.RoarEvent = LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN").deathSound;
+            med.MusicEvent = "event:/Hawthorne/PuppetTheme";
+            med.RoarEvent = "event:/Hawthorne/Snound1/PuppetRoar";
 
             med.SimpleAddEncounter(3, "AbandonedPuppet_EN", 1, "Nine_EN");
             med.SimpleAddEncounter(3, "AbandonedPuppet_EN", 1, "EyePalm_EN");

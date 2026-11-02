@@ -479,11 +479,11 @@ namespace SaltsEnemies_Reseasoned
             //CH25 Encounters
 
             //CH26 Encounters
-            //eclipse
-            //iloveyou
-            //celebration
-            //lightbulbkin
-            //melder
+            PCall(EclipseEncounters.Add);
+            PCall(ILoveYouEncounters.Add);
+            PCall(CelebrationEncounters.Add);
+            PCall(LightbulbkinEncounters.Add);
+            PCall(MelderEncounters.Add);
 
             //BOSSES
             //shore

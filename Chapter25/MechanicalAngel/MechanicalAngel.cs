@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("MechanismIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("MechanismWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("MechanismDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("War_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("War_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Sound5/MechanismHit",
+                DeathSound = "event:/Hawthorne/Sound5/MechanismDie",
             };
             mechanism.PrepareEnemyPrefab("Assets/Abyss/Mechanism_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Abyss/Mechanism_Gibs.prefab").GetComponent<ParticleSystem>());
 

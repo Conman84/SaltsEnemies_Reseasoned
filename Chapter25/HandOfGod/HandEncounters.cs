@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
             Portals.AddPortalSign("Salt_HandOfGodEncounter_Sign", ResourceLoader.LoadSprite("HandOfGodWorld.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Abyss.H.Hand.Med, "Salt_HandOfGodEncounter_Sign");
-            med.MusicEvent = "event:/Hawthorne/HauntlingSong";
-            med.RoarEvent = LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN").deathSound;
+            med.MusicEvent = "event:/Hawthorne/HandofGodTheme";
+            med.RoarEvent = LoadedAssetsHandler.GetEnemy(Jumble.Purple).deathSound;
 
             med.AddRandomEncounter("HandOfGod_EN", "AbandonedPuppet_EN");
 
@@ -29,8 +29,8 @@ namespace SaltsEnemies_Reseasoned
         public static void Add_Hard()
         {
             EnemyEncounter_API hard = new EnemyEncounter_API(EncounterType.Random, Abyss.H.Hand.Hard, "Salt_HandOfGodEncounter_Sign");
-            hard.MusicEvent = "event:/Hawthorne/HauntlingSong";
-            hard.RoarEvent = LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN").deathSound;
+            hard.MusicEvent = "event:/Hawthorne/HandofGodTheme";
+            hard.RoarEvent = LoadedAssetsHandler.GetEnemy(Jumble.Purple).deathSound;
 
             hard.AddRandomEncounter("HandOfGod_EN", "AbandonedPuppet_EN", "AbandonedPuppet_EN");
 

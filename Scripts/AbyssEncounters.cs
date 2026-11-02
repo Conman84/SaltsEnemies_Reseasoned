@@ -23,6 +23,10 @@ namespace SaltsEnemies_Reseasoned
                 public static string Med => "H_ZoneAbyss_MechanicalAngel_Medium_EnemyBundle";
                 public static string Hard => "H_ZoneAbyss_MechanicalAngel_Hard_EnemyBundle";
             }
+            public static class Nine
+            {
+                public static string Easy => "H_ZoneAbyss_NINE_Medium_EnemyBundle";
+            }
 
 
 

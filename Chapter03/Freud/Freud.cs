@@ -25,7 +25,7 @@ namespace SaltsEnemies_Reseasoned
             //Enemy Code
             Enemy Freud = new Enemy("Freud", "Freud_EN")
             {
-                Health = 28,
+                Health = 35,
                 HealthColor = Pigments.Red,
                 Priority = BrutalAPI.Priority.GetCustomPriority("priority0"),
                 CombatSprite = ResourceLoader.LoadSprite("TouchIconB.png"),

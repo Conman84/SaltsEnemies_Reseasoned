@@ -21,8 +21,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("RisingIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("RisingWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("RisingDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("Yang_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("Yang_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Snound1/KnightHit",
+                DeathSound = "event:/Hawthorne/Snound1/KnightDie",
             };
             eclipse.PrepareEnemyPrefab("Assets/ch_26/Eclipse_Rising_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/ch_26/Eclipse_Gibs.prefab").GetComponent<ParticleSystem>());
 
@@ -33,8 +33,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("AwakenedIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("AwakenedWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("AwakenedDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("Yin_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("Yin_EN").deathSound,
+                DamageSound = "event:/Hawthorne/Snound1/KnightHit",
+                DeathSound = "event:/Hawthorne/Snound1/KnightDie",
             };
             awake.PrepareEnemyPrefab("Assets/ch_26/Eclipse_Awakened_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/ch_26/Eclipse_Gibs.prefab").GetComponent<ParticleSystem>());
 

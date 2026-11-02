@@ -18,8 +18,9 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("LightbulbkinIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("LightbulbkinWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("LightbulbkinDead.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy("ManicHips_EN").deathSound,
+                DamageSound = LoadedAssetsHandler.GetEnemy("Crystal_EN").damageSound,
+                DeathSound = LoadedAssetsHandler.GetEnemy("Crystal_EN").deathSound,
+                UnitTypes = ["FemaleID", "FemaleLooking"]
             };
             lightbulbkin.PrepareEnemyPrefab("Assets/ch_26/Lightbulbkin_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/ch_26/Lightbulbkin_Gibs.prefab").GetComponent<ParticleSystem>());
             

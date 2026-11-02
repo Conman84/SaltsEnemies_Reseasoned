@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
             Portals.AddPortalSign("Salt_MechanicalAngelEncounter_Sign", ResourceLoader.LoadSprite("MechanismPortal.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Abyss.H.Mechanism.Med, "Salt_MechanicalAngelEncounter_Sign");
-            med.MusicEvent = "event:/Hawthorne/HauntlingSong";
-            med.RoarEvent = LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN").deathSound;
+            med.MusicEvent = "event:/Hawthorne/MechanicalAngelTheme";
+            med.RoarEvent = "event:/Hawthorne/Sound5/MechanismRoar";
 
             med.AddRandomEncounter("MechanicalAngel_EN", "AbandonedPuppet_EN", "AbandonedPuppet_EN");
             med.AddRandomEncounter("MechanicalAngel_EN", "EyePalm_EN", "EyePalm_EN");
@@ -30,8 +30,8 @@ namespace SaltsEnemies_Reseasoned
         public static void Add_Hard()
         {
             EnemyEncounter_API hard = new EnemyEncounter_API(EncounterType.Random, Abyss.H.Mechanism.Hard, "Salt_MechanicalAngelEncounter_Sign");
-            hard.MusicEvent = "event:/Hawthorne/HauntlingSong";
-            hard.RoarEvent = LoadedAssetsHandler.GetEnemy("Visage_MyOwn_EN").deathSound;
+            hard.MusicEvent = "event:/Hawthorne/MechanicalAngelTheme";
+            hard.RoarEvent = "event:/Hawthorne/Sound5/MechanismRoar";
 
             hard.AddRandomEncounter("MechanicalAngel_EN", "AbandonedPuppet_EN", "AbandonedPuppet_EN", "Nine_EN");
             hard.AddRandomEncounter("MechanicalAngel_EN", "EyePalm_EN", "EyePalm_EN", "EyePalm_EN");
