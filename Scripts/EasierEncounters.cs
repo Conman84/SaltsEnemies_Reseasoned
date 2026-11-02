@@ -251,5 +251,6 @@ namespace SaltsEnemies_Reseasoned
             }
         }
         public static string Phobia => "Phobia_Phobias_EN";
+        public static string Eclipse => "EclipseRising_EN";
     }
 }
