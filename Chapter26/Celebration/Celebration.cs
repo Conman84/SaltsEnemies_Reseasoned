@@ -51,10 +51,26 @@ namespace SaltsEnemies_Reseasoned
             eidolon.Visuals = Visuals.Slap;
             eidolon.AnimationTarget = Slots.Self;
 
+            Ability birthday = new Ability("Pawsome_Birthday_A");
+            birthday.Name = "Birthday";
+            birthday.Description = "Deals a Mortal amount of indirect damage to this enemy.\nInflict 3 Fire on all party member positions.";
+            birthday.Rarity = Rarity.GetCustomRarity("rarity5");
+            birthday.Effects = [Effects.GenerateEffect(BasicEffects.Indirect, 20, Slots.Self), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 3, Targetting.Everything(false))];
+            birthday.AddIntentsToTarget(Slots.Self, ["Damage_16_20"]);
+            birthday.AddIntentsToTarget(Targetting.Everything(false), ["Field_Fire"]);
+            birthday.Visuals = CustomVisuals.GetVisuals("Salt/Smile");
+            birthday.AnimationTarget = Slots.Self;
+
+            AbilitySelector_Heaven nobirthday = ScriptableObject.CreateInstance<AbilitySelector_Heaven>();
+            nobirthday._ComeHomeAbility = "Pawsome_Birthday_A";
+            nobirthday._useAfterTurns = 3;
+            pumpkin.AbilitySelector = nobirthday;
+
             //ADD ENEMY
             pumpkin.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 eidolon.GenerateEnemyAbility(true),
+                birthday.GenerateEnemyAbility(true),
             });
             pumpkin.AddEnemy(true, true);
             pumpkin.enemy.AddToSynodPool();
