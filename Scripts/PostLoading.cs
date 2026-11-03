@@ -201,6 +201,7 @@ namespace SaltEnemies_Reseasoned
             PCall(EggKeeper_15_16_Crossovers.Add);
             PCall(EggKeeper_17_18Crossovers.Add);
             PCall(EggKeeper_19_21.Crossover);
+            PCall(Eggkeeper26.Add);
 
             //marmo & eggkeeper massive lump
             PCall(Crossovers_Marmo_EggKeeper_6_7_8.Add);
@@ -213,6 +214,7 @@ namespace SaltEnemies_Reseasoned
             PCall(RoundCrossovers.Shufflers_11_14);
             PCall(RoundCrossovers.Shufflers_15_18);
             PCall(RoundCrossovers.Shufflers_19_21);
+            PCall(RoundCrossovers.Shufflers_22_26);
 
             //HIF
             PCall(HIF_Crossovers.Add_1_4);

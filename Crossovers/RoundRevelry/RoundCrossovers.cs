@@ -135,5 +135,39 @@ namespace SaltsEnemies_Reseasoned
 
             EcstasyPool.Add(Enemies.Shuffler);
         }
+        public static void Shufflers_22_26()
+        {
+            AddTo med = new AddTo(Orph.H.Shuffler.Med);
+            med.SimpleAddGroup(2, Enemies.Shuffler, 1, "TheWhale_EN");
+            med.SimpleAddGroup(2, Enemies.Shuffler, 1, "Nume_EN");
+            med.SimpleAddGroup(2, Enemies.Shuffler, 1, "Melder_EN");
+
+            med = new AddTo(Orph.H.Insider.Med);
+            med.SimpleAddGroup(2, "Insider_EN", 1, Enemies.Shuffler);
+
+            med = new AddTo(Orph.H.Nume.Med);
+            med.AddRandomGroup("Nume_EN", Enemies.Shuffler, "MusicMan_EN");
+            med.AddRandomGroup("Nume_EN", Enemies.Shuffler, Spoggle.Red);
+
+            med = new AddTo(Orph.H.Whale.Med);
+            med.SimpleAddGroup(2, "TheWhale_EN", 1, Enemies.Shuffler, 1, Enemies.Solvent);
+            med.SimpleAddGroup(2, "TheWhale_EN", 1, Enemies.Shuffler, 1, "Nameless_EN");
+
+            med = new AddTo(Orph.H.ILoveYou.Med);
+            med.SimpleAddGroup(1, "ILoveYou_EN", 2, Enemies.Shuffler);
+
+            AddTo hard = new AddTo(Orph.H.ILoveYou.Hard);
+            hard.AddRandomGroup("ILoveYou_EN", Enemies.Shuffler, Jumble.Blue, Jumble.Purple);
+            hard.AddRandomGroup("ILoveYou_EN", Enemies.Shuffler, Flower.Yellow, Flower.Purple);
+
+            hard = new AddTo(Orph.H.Conductor.Hard);
+            hard.AddRandomGroup("ILoveYou_EN", Enemies.Shuffler, "Conductor_EN");
+
+            med = new AddTo(Orph.H.Melder.Med);
+            med.SimpleAddGroup(2, "Melder_EN", 1, Enemies.Shuffler);
+
+            med = new AddTo(Orph.H.MusicMan.Med);
+            med.AddRandomGroup("Melder_EN", "MusicMan_EN", "MusicMan_EN", Enemies.Shuffler);
+        }
     }
 }

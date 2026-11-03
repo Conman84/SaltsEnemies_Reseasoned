@@ -223,6 +223,16 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("ILoveYou_EN", "ILoveYou_EN", "Melder_EN", "Melder_EN");
             hard.AddRandomGroup("ILoveYou_EN", "Melder_EN", "Melder_EN", "Melder_EN");
             hard.AddRandomGroup("ILoveYou_EN", "Melder_EN", "Melder_EN", "Nameless_EN");
+
+            med = new AddTo(Orph.H.Maw.Med);
+            med.AddRandomGroup("Maw_EN", "Melder_EN", Jumble.Purple);
+            med.AddRandomGroup("Maw_EN", "Melder_EN", Flower.Yellow);
+
+            hard = new AddTo(Orph.H.Maw.Hard);
+            hard.AddRandomGroup("Maw_EN", "Melder_EN", "Melder_EN");
+            hard.SimpleAddGroup(1, "Maw_EN", 1, "Melder_EN", 2, "MusicMan_EN");
+            hard.SimpleAddGroup(1, "Maw_EN", 1, "Melder_EN", 2, "Solitaire_EN");
+            hard.SimpleAddGroup(1, "Maw_EN", 1, "Melder_EN", 2, "TheWhale_EN");
         }
     }
 }
