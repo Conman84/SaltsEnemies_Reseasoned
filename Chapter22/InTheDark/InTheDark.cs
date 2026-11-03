@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace SaltsEnemies_Reseasoned
 {
-    public static class InTheDark
+    public static class InTheDark//NOT ALLOWED WITH LINKED ENEMIES UNTIL I FIGURE OUT HOW TO MAKE IT WORK
     {
         public static void Add()
         {

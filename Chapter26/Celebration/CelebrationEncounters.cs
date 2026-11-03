@@ -107,6 +107,9 @@ namespace SaltsEnemies_Reseasoned
             hard = new AddTo(Garden.H.Flower.Grey.Hard);
             hard.AddRandomGroup(Flower.Grey, "Celebration_EN", "Celebration_EN");
 
+            hard = new AddTo(Garden.H.SnakeGod.Hard);
+            hard.AddRandomGroup("SnakeGod_EN", "Celebration_EN");
+
             hard = new AddTo(Garden.H.ClockTower.Hard);
             hard.AddRandomGroup("ClockTower_EN", "Celebration_EN", "InHisImage_EN", "InHerImage_EN");
             hard.SimpleAddGroup(1, "ClockTower_EN", 3, "Celebration_EN");

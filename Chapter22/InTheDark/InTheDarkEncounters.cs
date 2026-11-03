@@ -22,8 +22,8 @@ namespace SaltsEnemies_Reseasoned
             med.RoarEvent = "event:/Hawthorne/Ssound/DarkRoar";
 
             med.SimpleAddEncounter(2, "InTheDark_EN");
-            med.AddRandomEncounter("InTheDark_EN", "InHisImage_EN", "InHerImage_EN");
-            med.SimpleAddEncounter(1, "InTheDark_EN", 3, "NextOfKin_EN", 1, "LittleAngel_EN");
+            //med.AddRandomEncounter("InTheDark_EN", "InHisImage_EN", "InHerImage_EN");
+            //med.SimpleAddEncounter(1, "InTheDark_EN", 3, "NextOfKin_EN", 1, "LittleAngel_EN");
             med.SimpleAddEncounter(1, "InTheDark_EN", 2, "BlackStar_EN");
             med.AddRandomEncounter("InTheDark_EN", "ChoirBoy_EN", "Indicator_EN");
             med.SimpleAddEncounter(1, "InTheDark_EN", 3, Enemies.Shivering);
@@ -60,7 +60,7 @@ namespace SaltsEnemies_Reseasoned
             hard.RoarEvent = "event:/Hawthorne/Ssound/DarkRoar";
 
             hard.SimpleAddEncounter(3, "InTheDark_EN");
-            hard.SimpleAddEncounter(1, "InTheDark_EN", 3, "InHisImage_EN");
+            //hard.SimpleAddEncounter(1, "InTheDark_EN", 3, "InHisImage_EN");
             hard.SimpleAddEncounter(1, "InTheDark_EN", 3, "EvilDog_EN");
             hard.SimpleAddEncounter(1, "InTheDark_EN", 3, "Sundowner_EN");
             hard.AddRandomEncounter("InTheDark_EN", "InTheDark_EN", "Stoplight_EN");
