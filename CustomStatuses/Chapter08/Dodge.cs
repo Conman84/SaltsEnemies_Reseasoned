@@ -119,7 +119,8 @@ namespace SaltEnemies_Reseasoned
 
         public override void OnEventCall_01(StatusEffect_Holder holder, object sender, object args)
         {
-            ReduceDuration(holder, sender as IStatusEffector);
+            if (sender is IUnit unit && unit.IsUnitCharacter) ReduceDuration(holder, sender as IStatusEffector);
+            else ForceReduceDuration(holder, sender as IStatusEffector);
         }
         public override void OnEventCall_02(StatusEffect_Holder holder, object sender, object args)
         {

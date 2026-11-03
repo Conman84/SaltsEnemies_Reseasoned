@@ -22,6 +22,10 @@ namespace SaltsEnemies_Reseasoned
             easy.RoarEvent = "event:/Hawthorne/Nois2/RusticDeath";
 
             easy.AddRandomEncounter("Lightbulbkin_EN", "NextOfKin_EN", "NextOfKin_EN", "NextOfKin_EN");
+            easy.SimpleAddEncounter(2, "Lightbulbkin_EN");
+            easy.AddRandomEncounter("Lightbulbkin_EN", "BlackStar_EN", "BlackStar_EN");
+            easy.AddRandomEncounter("Lightbulbkin_EN", "GlassFigurine_EN", "Damocles_EN");
+            easy.SimpleAddEncounter(2, "Lightbulbkin_EN", 1, "Children6_EN");
 
             easy.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Lightbulbkin.Easy, 15, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Easy);
@@ -35,6 +39,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddEncounter(2, "Lightbulbkin_EN", 2, "NextOfKin_EN");
             med.AddRandomEncounter("Lightbulbkin_EN", "InHisImage_EN", "InHerImage_EN", "NextOfKin_EN");
             med.SimpleAddEncounter(3, "Lightbulbkin_EN");
+            
 
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Lightbulbkin.Med, 10 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);

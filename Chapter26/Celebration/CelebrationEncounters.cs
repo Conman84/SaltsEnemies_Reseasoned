@@ -43,6 +43,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("Celebration_EN", "Celebration_EN", "Yang_EN");
             med.AddRandomEncounter("Celebration_EN", "Celebration_EN", "Insider_EN");
             med.AddRandomEncounter("Celebration_EN", "Celebration_EN", "Sundowner_EN");
+            med.SimpleAddEncounter(2, "Celebration_EN", 1, "Panopticon_EN");
             med.SimpleAddEncounter(2, "Celebration_EN", 1, Ecstasy.Gray);
 
             med.AddEncounterToDataBases();
@@ -56,6 +57,18 @@ namespace SaltsEnemies_Reseasoned
 
             hard.AddRandomEncounter("Celebration_EN", "InHerImage_EN", "InHerImage_EN", "Celebration_EN");
             hard.SimpleAddEncounter(3, "Celebration_EN");
+            hard.AddRandomEncounter("Celebration_EN", "Celebration_EN", "ChoirBoy_EN");
+            hard.AddRandomEncounter("Celebration_EN", "Celebration_EN", Spoggle.Gray);
+            hard.AddRandomEncounter("Celebration_EN", "Celebration_EN", "WindSong_EN");
+            hard.AddRandomEncounter("Celebration_EN", "Celebration_EN", "MiniReaper_EN", "Merced_EN");
+            hard.AddRandomEncounter("Celebration_EN", "Celebration_EN", "Shua_EN");
+            hard.AddRandomEncounter("Celebration_EN", "Celebration_EN", "BlackStar_EN", "Indicator_EN");
+            hard.AddRandomEncounter("Celebration_EN", "Celebration_EN", "EvilDog_EN", "EvilDog_EN");
+            hard.AddRandomEncounter("Celebration_EN", "Celebration_EN", "Yang_EN", "PawnA_EN");
+            hard.AddRandomEncounter("Celebration_EN", "Celebration_EN", "Insider_EN", "Insider_EN");
+            hard.AddRandomEncounter("Celebration_EN", "Celebration_EN", "Sundowner_EN", "Sundowner_EN");
+            hard.AddRandomEncounter("Celebration_EN", "Celebration_EN", "Panopticon_EN", "Panopticon_EN");
+            hard.AddRandomEncounter("Celebration_EN", "Celebration_EN", Ecstasy.Gray, Ecstasy.Gray);
 
             hard.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Celebration.Hard, 10, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
@@ -81,6 +94,89 @@ namespace SaltsEnemies_Reseasoned
             hard = new AddTo(Garden.H.Foundling.Hard);
             hard.AddRandomGroup(Enemies.Foundling, Enemies.Foundling, "Celebration_EN");
             hard.SimpleAddGroup(1, Enemies.Foundling, 3, "Celebration_EN");
+
+            med = new AddTo(Garden.H.Satyr.Med);
+            med.AddRandomGroup("Satyr_EN", "Celebration_EN", "NextOfKin_EN", "NextOfKin_EN");
+
+            hard = new AddTo(Garden.H.Satyr.Hard);
+            hard.SimpleAddGroup(1, "Satyr_EN", 2, "Celebration_EN");
+
+            med = new AddTo(Garden.H.Flower.Grey.Med);
+            med.AddRandomGroup(Flower.Grey, "Celebration_EN", Flower.Red);
+
+            hard = new AddTo(Garden.H.Flower.Grey.Hard);
+            hard.AddRandomGroup(Flower.Grey, "Celebration_EN", "Celebration_EN");
+
+            hard = new AddTo(Garden.H.ClockTower.Hard);
+            hard.AddRandomGroup("ClockTower_EN", "Celebration_EN", "InHisImage_EN", "InHerImage_EN");
+            hard.SimpleAddGroup(1, "ClockTower_EN", 3, "Celebration_EN");
+
+            med = new AddTo(Garden.H.Hunter.Med);
+            med.AddRandomGroup("Hunter_EN", "Celebration_EN", "PawnA_EN", "PawnA_EN");
+
+            med = new AddTo(Garden.H.Firebird.Med);
+            med.AddRandomGroup("Firebird_EN", "Celebration_EN", "ChoirBoy_EN");
+
+            med = new AddTo(Garden.H.YNL.Med);
+            med.AddRandomGroup("YNL_EN", "Celebration_EN", "Celebration_EN");
+
+            med = new AddTo(Garden.H.Stoplight.Med);
+            med.AddRandomGroup("Stoplight_EN", "Celebration_EN", "Damocles_EN", "Damocles_EN");
+
+            hard = new AddTo(Garden.H.Stoplight.Hard);
+            hard.AddRandomGroup("Stoplight_EN", "Celebration_EN", "Celebration_EN");
+
+            med = new AddTo(Garden.H.GreyBot.Med);
+            med.AddRandomGroup(Bots.Grey, "Celebration_EN", "Celebration_EN");
+
+            hard = new AddTo(Garden.H.GlassedSun.Hard);
+            hard.AddRandomGroup("GlassedSun_EN", "GlassedSun_EN", "GlassedSun_EN", "Celebration_EN");
+
+            med = new AddTo(Garden.H.Ode.Med);
+            med.AddRandomGroup("OdeToHumanity_EN", "Celebration_EN", "Celebration_EN");
+
+            med = new AddTo(Garden.H.Complimentary.Med);
+            med.AddRandomGroup("Complimentary_EN", "Celebration_EN", "Celebration_EN");
+
+            med = new AddTo(Garden.H.PersonalAngel.Med);
+            med.AddRandomGroup("PersonalAngel_EN", "Celebration_EN", "Celebration_EN");
+
+            med = new AddTo(Garden.H.Starless.Med);
+            med.AddRandomGroup("Starless_EN", "Celebration_EN", "Celebration_EN");
+
+            hard = new AddTo(Garden.H.Eyeless.Hard);
+            hard.AddRandomGroup("Eyeless_EN", "Celebration_EN", "Celebration_EN", "Damocles_EN");
+
+            hard = new AddTo(Garden.H.Yin.Hard);
+            hard.AddRandomGroup("Yin_EN", "Celebration_EN", "Yang_EN");
+
+            med = new AddTo(Garden.H.CorpseChan.Med);
+            med.AddRandomGroup("CorpseChan_EN", "Celebration_EN", "Celebration_EN");
+
+            med = new AddTo(Garden.H.Dark.Med);
+            med.AddRandomGroup("InTheDark_EN", "Celebration_EN", Jumble.Gray);
+
+            hard = new AddTo(Garden.H.Dark.Hard);
+            hard.SimpleAddGroup(1, "InTheDark_EN", 2, "Celebration_EN");
+
+            med = new AddTo(Garden.H.Lunoscope.Med);
+            med.AddRandomGroup("Lunoscope_EN", "Celebration_EN", "GlassFigurine_EN");
+
+            hard = new AddTo(Garden.H.Lunoscope.Hard);
+            hard.AddRandomGroup("Lunoscope_EN", "Celebration_EN", "Celebration_EN");
+
+            med = new AddTo(Garden.H.Ecstasy99.Med);
+            med.SimpleAddGroup(2, Ecstasy.Gray, 1, "Celebration_EN");
+
+            med = new AddTo(Garden.H.Panopticon.Med);
+            med.SimpleAddGroup(2, "Panopticon_EN", 1, "Celebration_EN");
+
+            med = new AddTo(Garden.H.Eclipse.Med);
+            med.AddRandomGroup(Enemies.Eclipse, "Celebration_EN", Enemies.Shivering);
+
+            hard = new AddTo(Garden.H.Eclipse.Hard);
+            hard.SimpleAddGroup(2, Enemies.Eclipse, 1, "Celebration_EN");
+            hard.SimpleAddGroup(1, Enemies.Eclipse, 2, "Celebration_EN");
         }
     }
 }
