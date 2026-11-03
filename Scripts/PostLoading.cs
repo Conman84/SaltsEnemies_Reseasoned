@@ -234,6 +234,7 @@ namespace SaltEnemies_Reseasoned
             PCall(HIF_17_18_Crossover.AddShore);
             PCall(HIF_17_18_Crossover.AddOrph);
             PCall(HIF_19_21.Add);
+            PCall(HIF_26_Crossovers.Add);
 
             //giltch freakazoids
             PCall(GlitchCrossovers_1_4.Add);
