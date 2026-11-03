@@ -311,11 +311,6 @@ namespace SaltEnemies_Reseasoned
                 }
             }
 
-            IUnit inspo_target = null;
-            IUnit inspo_killer = null;
-            bool inspo_targetHas = false;
-            bool inspo_killerHas = false;
-            int inspo_orig_amt = 0;
             if (notificationName == TriggerCalls.OnBeingDamaged.ToString() && args is DamageReceivedValueChangeException _received && sender is IUnit u)
             {
                 //inspiration stuff
@@ -362,6 +357,12 @@ namespace SaltEnemies_Reseasoned
                 }
             }
         }
+        //inspiration stuff
+        static IUnit inspo_target = null;
+        static IUnit inspo_killer = null;
+        static bool inspo_targetHas = false;
+        static bool inspo_killerHas = false;
+        static int inspo_orig_amt = 0;
         public static void NotificationChecksPre(string notif, object sender, object args)
         {
             if (notif == TriggerCalls.OnBeingDamaged.ToString() && args is DamageReceivedValueChangeException _received && sender is IUnit u)
