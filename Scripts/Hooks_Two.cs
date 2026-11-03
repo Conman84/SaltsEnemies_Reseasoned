@@ -62,6 +62,7 @@ namespace SaltEnemies_Reseasoned
             }*/
         }
 
+        //CHANGE ALL THESE TO A TRIGGERCALL SO THEY DONT BLOW UP RHYS
         public static DamageInfo Damage(Func<IUnit, int, IUnit, string, int, bool, bool, bool, string, DamageInfo> orig, IUnit self, int amount, IUnit killer, string deathType, int targetSlotOffset = -1, bool addHealthMana = true, bool directDamage = true, bool ignoresShield = false, string specialDamage = "")
         {
             if (specialDamage == CombatType_GameIDs.Dmg_Ruptured.ToString())
@@ -72,18 +73,8 @@ namespace SaltEnemies_Reseasoned
                 }
             }
 
-            CombatManager.Instance.PostNotification(GlowingHatCondition.Trigger.ToString(), self, null);
-            bool addDet = false;
-            if (killer != null && killer.HasUsableItem && killer.HeldItem.name.Contains("Salt_SilverBullet") && !self.ContainsStatusEffect(Determined.StatusID) && ScriptableObject.CreateInstance<IsAliveEffectorCondition>().MeetCondition(self as IEffectorChecks, null))
-            {
-                addDet = true;
-            }
             DamageInfo ret = orig(self, amount, killer, deathType, targetSlotOffset, addHealthMana, directDamage, ignoresShield, specialDamage);
-            if (addDet)
-            {
-                CombatManager.Instance.AddUIAction(new ShowItemInformationUIAction(killer.ID, killer.HeldItem.GetItemLocData().text, false, killer.HeldItem.wearableImage));
-                ScriptableObject.CreateInstance<ApplyDeterminedEffect>().PerformEffect(CombatManager.Instance._stats, self, Targeting.Slot_SelfSlot.GetTargets(CombatManager.Instance._stats.combatSlots, self.SlotID, self.IsUnitCharacter), Targeting.Slot_SelfSlot.AreTargetSlots, 3, out int exi);
-            }
+
             if (killer != null && killer.HasUsableItem && killer.HeldItem.name.Contains("Salt_Echo") && ret.damageAmount > 0)
             {
                 try
@@ -101,36 +92,6 @@ namespace SaltEnemies_Reseasoned
                 }
             }
             
-
-            //inspiration stuff
-            if (killer != null && directDamage)
-            {
-                bool selfHas = self.ContainsStatusEffect(Inspiration.StatusID);
-                bool killerHas = killer.ContainsStatusEffect(Inspiration.StatusID);
-                if (selfHas && ret.damageAmount > 0)
-                {
-                    (self as IStatusEffector).RemoveStatusEffect(Inspiration.StatusID);
-                    if (self.UnitTypes.Contains(Inspiration.Passive)) self.TryRemovePassiveAbility(Inspiration.Passive);
-                }
-                if (killerHas && amount > 0) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(self.ID, self.IsUnitCharacter));
-                if (killerHas && amount > 0) CombatManager.Instance.AddPrioritySubAction(new RemoveInspirationAction(killer.ID, killer.IsUnitCharacter));
-                if (selfHas && ret.damageAmount > 0) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(killer.ID, killer.IsUnitCharacter));
-            }
-
-            if (killer != null && ret.damageAmount > 0 && killer.HasUsableItem && killer.HeldItem.name.Contains("Salt_Torturepedia"))
-            {
-                if (self.IsUnitCharacter)
-                {
-                    if (!self.RefreshAbilityUse())
-                    {
-                        self.SimpleSetStoredValue(Inspiration.Multiattack, self.SimpleGetStoredValue(Inspiration.Multiattack) + 1);
-                    }
-                }
-                else if (self is EnemyCombat enemy)
-                {
-                    CombatManager.Instance._stats.timeline.TryAddNewExtraEnemyTurns(enemy, 1);
-                }
-            }
             if (killer != null && ret.damageAmount > 0 && killer.HasUsableItem && killer.HeldItem.name.Contains("Salt_Strepnut"))
             {
                 if (UnityEngine.Random.Range(0, 100) < 50 && ret.damageAmount % 2 != 0)
@@ -346,6 +307,58 @@ namespace SaltEnemies_Reseasoned
                     if (killerHas && damage.value > 0) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(self.ID, self.IsUnitCharacter));
                     if (killerHas && damage.value > 0) CombatManager.Instance.AddPrioritySubAction(new RemoveInspirationAction(killer.ID, killer.IsUnitCharacter));
                     if (selfHas && damage.value > 0) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(killer.ID, killer.IsUnitCharacter));
+                }
+            }
+
+            IUnit inspo_target = null;
+            IUnit inspo_killer = null;
+            bool inspo_targetHas = false;
+            bool inspo_killerHas = false;
+            int inspo_orig_amt = 0;
+            if (notificationName == TriggerCalls.OnBeingDamaged.ToString() && args is DamageReceivedValueChangeException _received && sender is IUnit u)
+            {
+                CombatManager.Instance.PostNotification(GlowingHatCondition.Trigger.ToString(), sender as IUnit, null);
+                //inspiration stuff
+                if (_received.possibleSourceUnit != null && _received.directDamage)
+                {
+                    inspo_killer = _received.possibleSourceUnit;
+                    inspo_target = u;
+                    inspo_targetHas = u.ContainsStatusEffect(Inspiration.StatusID);
+                    inspo_killerHas = _received.possibleSourceUnit.ContainsStatusEffect(Inspiration.StatusID);
+                    inspo_orig_amt = _received.amount;
+                }
+            }
+            if (notificationName == TriggerCalls.OnDamaged.ToString() && args is IntegerReference_Damage _damage && sender is IUnit _unit)
+            {
+                if (_damage.possibleSourceUnit != null && _damage.possibleSourceUnit.HasUsableItem && _damage.possibleSourceUnit.HeldItem.name.Contains("Salt_SilverBullet") && !_unit.ContainsStatusEffect(Determined.StatusID) && ScriptableObject.CreateInstance<IsAliveEffectorCondition>().MeetCondition(_unit as IEffectorChecks, null))
+                {
+                    CombatManager.Instance.AddUIAction(new ShowItemInformationUIAction(_damage.possibleSourceUnit.ID, _damage.possibleSourceUnit.HeldItem.GetItemLocData().text, false, _damage.possibleSourceUnit.HeldItem.wearableImage));
+                    ScriptableObject.CreateInstance<ApplyDeterminedEffect>().PerformEffect(CombatManager.Instance._stats, _unit, Targeting.Slot_SelfSlot.GetTargets(CombatManager.Instance._stats.combatSlots, _unit.SlotID, _unit.IsUnitCharacter), Targeting.Slot_SelfSlot.AreTargetSlots, 3, out int exi);
+                }
+                if (_damage.possibleSourceUnit == inspo_killer && _unit == inspo_target)
+                {
+                    if (inspo_targetHas && _damage.value > 0)
+                    {
+                        (inspo_target as IStatusEffector).RemoveStatusEffect(Inspiration.StatusID);
+                        if (inspo_target.UnitTypes.Contains(Inspiration.Passive)) inspo_target.TryRemovePassiveAbility(Inspiration.Passive);
+                    }
+                    if (inspo_killerHas && inspo_orig_amt > 0) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(inspo_target.ID, inspo_target.IsUnitCharacter));
+                    if (inspo_killerHas && inspo_orig_amt > 0) CombatManager.Instance.AddPrioritySubAction(new RemoveInspirationAction(inspo_killer.ID, inspo_killer.IsUnitCharacter));
+                    if (inspo_targetHas && _damage.value > 0) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(inspo_killer.ID, inspo_killer.IsUnitCharacter));
+                }
+                if (_damage.possibleSourceUnit != null && _damage.value > 0 && _damage.possibleSourceUnit.HasUsableItem && _damage.possibleSourceUnit.HeldItem.name.Contains("Salt_Torturepedia"))
+                {
+                    if (_unit.IsUnitCharacter)
+                    {
+                        if (!_unit.RefreshAbilityUse())
+                        {
+                            _unit.SimpleSetStoredValue(Inspiration.Multiattack, _unit.SimpleGetStoredValue(Inspiration.Multiattack) + 1);
+                        }
+                    }
+                    else if (_unit is EnemyCombat enemy)
+                    {
+                        CombatManager.Instance._stats.timeline.TryAddNewExtraEnemyTurns(enemy, 1);
+                    }
                 }
             }
         }
