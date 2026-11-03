@@ -99,6 +99,9 @@ namespace SaltsEnemies_Reseasoned
             AddTo hard = new AddTo(Orph.H.Conductor.Hard);
             hard.SimpleAddGroup(1, "Conductor_EN", 2, "ILoveYou_EN");
 
+            hard = new AddTo(Orph.H.Revola.Hard);
+            hard.AddRandomGroup("Revola_EN", "ILoveYou_EN", Enemies.Suckle, Enemies.Suckle);
+
             hard = new AddTo(Orph.H.Sacrifice.Hard);
             hard.SimpleAddGroup(2, Enemies.Sacrifice, 1, "ILoveYou_EN", 2, Enemies.Suckle);
 
