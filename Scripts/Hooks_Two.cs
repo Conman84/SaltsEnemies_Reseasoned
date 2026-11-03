@@ -174,6 +174,7 @@ namespace SaltEnemies_Reseasoned
         }
         public static void PostNotification(Action<CombatManager, string, object, object> orig, CombatManager self, string call, object sender, object args)
         {
+            NotificationChecksPre(call, sender, args);
             orig(self, call, sender, args);
             NotificationChecksIDGAF(call, sender, args);
         }
@@ -317,7 +318,6 @@ namespace SaltEnemies_Reseasoned
             int inspo_orig_amt = 0;
             if (notificationName == TriggerCalls.OnBeingDamaged.ToString() && args is DamageReceivedValueChangeException _received && sender is IUnit u)
             {
-                CombatManager.Instance.PostNotification(GlowingHatCondition.Trigger.ToString(), sender as IUnit, null);
                 //inspiration stuff
                 if (_received.possibleSourceUnit != null && _received.directDamage)
                 {
@@ -360,6 +360,13 @@ namespace SaltEnemies_Reseasoned
                         CombatManager.Instance._stats.timeline.TryAddNewExtraEnemyTurns(enemy, 1);
                     }
                 }
+            }
+        }
+        public static void NotificationChecksPre(string notif, object sender, object args)
+        {
+            if (notif == TriggerCalls.OnBeingDamaged.ToString() && args is DamageReceivedValueChangeException _received && sender is IUnit u)
+            {
+                CombatManager.Instance.PostNotification(GlowingHatCondition.Trigger.ToString(), sender as IUnit, null);
             }
         }
     }
