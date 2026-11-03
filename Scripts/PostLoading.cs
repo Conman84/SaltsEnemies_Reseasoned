@@ -265,6 +265,7 @@ namespace SaltEnemies_Reseasoned
             PCall(UndivineCrossovers.Add19_21);
             PCall(Undivine_Clergy_Crossovers.Add);
             PCall(Undivine_Sonoduct_Crossover.Add);
+            PCall(Undivine_24_26.Add);
 
             //psi's
             PCall(Psi_CH1_4_Crossover.Add);
