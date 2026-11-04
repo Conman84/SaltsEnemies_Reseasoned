@@ -216,7 +216,7 @@ namespace SaltsEnemies_Reseasoned
 
             AddTo hard = new AddTo(Orph.H.Maw.Hard);
             hard.AddRandomGroup("Maw_EN", "Showstopper_EN", "Showstopper_EN", Bots.Red);
-            hard.AddRandomGroup("Maw_EN", 'Showstopper_EN', "Solitaire_EN", "Solitaire_EN");
+            hard.AddRandomGroup("Maw_EN", "Showstopper_EN", "Solitaire_EN", "Solitaire_EN");
             hard.AddRandomGroup("Maw_EN", "Showstopper_EN", "Showstopper_EN", "Melder_EN");
             hard.AddRandomGroup("Maw_EN", "Showstopper_EN", "Showstopper_EN", "Nameless_EN");
 
