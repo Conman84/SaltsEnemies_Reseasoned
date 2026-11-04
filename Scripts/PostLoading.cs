@@ -307,6 +307,7 @@ namespace SaltEnemies_Reseasoned
             //entmod
             PCall(FreakFoesCrossovers_First.Add);
             PCall(FreakFoes_SecondSet.AddShore);
+            PCall(FreakFoes_SecondSet.AddOrph);
 
             //fishy
             PCall(Fishy_ShoreAndOrph_First.Add);
