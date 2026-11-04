@@ -49,10 +49,10 @@ namespace SaltsEnemies_Reseasoned
         }
         public static void AddLogos()
         {
-            _Logos(Garden.H.Logos.Red.Med, Garden.H.Logos.Red.Hard, Symbols.Red);
-            _Logos(Garden.H.Logos.Blue.Med, Garden.H.Logos.Blue.Hard, Symbols.Blue);
-            _Logos(Garden.H.Logos.Yellow.Med, Garden.H.Logos.Yellow.Hard, Symbols.Yellow);
-            _Logos(Garden.H.Logos.Purple.Med, Garden.H.Logos.Purple.Hard, Symbols.Purple);
+            _Logos(Garden.H.Logos.Red.Med, Garden.H.Logos.Red.Hard, Logos.Red);
+            _Logos(Garden.H.Logos.Blue.Med, Garden.H.Logos.Blue.Hard, Logos.Blue);
+            _Logos(Garden.H.Logos.Yellow.Med, Garden.H.Logos.Yellow.Hard, Logos.Yellow);
+            _Logos(Garden.H.Logos.Purple.Med, Garden.H.Logos.Purple.Hard, Logos.Purple);
         }
 
         public static void AddShore()
@@ -126,6 +126,14 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Shore.H.Jabber.Med);
             med.SimpleAddGroup(1, "Jabberwocky_EN", 3, "TangledGuests_EN");
+        }
+        public static void AddOrph()
+        {
+            //no totenmaske ?
+        }
+        public static void AddGarden()
+        {
+
         }
     }
 }

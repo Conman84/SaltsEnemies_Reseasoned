@@ -187,10 +187,10 @@ namespace SaltsEnemies_Reseasoned
             EcstasyPool.Add("Phobia_Words_EN");
             EcstasyPool.Add("Phobia_Darkness_EN");
             EcstasyPool.Add("Phobia_Death_EN");
-            EcstasyPool.Add(Symbols.Red);
-            EcstasyPool.Add(Symbols.Blue);
-            EcstasyPool.Add(Symbols.Yellow);
-            EcstasyPool.Add(Symbols.Purple);
+            EcstasyPool.Add(Logos.Red);
+            EcstasyPool.Add(Logos.Blue);
+            EcstasyPool.Add(Logos.Yellow);
+            EcstasyPool.Add(Logos.Purple);
         }
     }
 }

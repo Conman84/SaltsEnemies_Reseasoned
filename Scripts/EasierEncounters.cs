@@ -197,7 +197,7 @@ namespace SaltsEnemies_Reseasoned
 
         public static string Gray => Grey;
     }
-    public static class Symbols
+    public static class Logos
     {
         public static string Red => "CrimsonLogos_EN";
 
