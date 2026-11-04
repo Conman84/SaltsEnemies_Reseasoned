@@ -466,6 +466,17 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "H_Zone02_WhaleHead_Medium_EnemyBundle";
             }
+
+            //entra
+            public static class Showstopper
+            {
+                public static string Easy => "FF_Showstopper_EasyBundle";
+                public static string Med => "FF_Showstopper_MediumBundle";
+            }
+            public static class Tableau
+            {
+                public static string Hard => "FF_Tableau_HardBundle";
+            }
         }
     }
 }

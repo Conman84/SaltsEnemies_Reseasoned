@@ -38,7 +38,6 @@ namespace SaltsEnemies_Reseasoned
 
             MortalSpoggle.AddPassives(new BasePassiveAbilitySO[]
             {
-                Passives.Pure, 
                 Passives.Skittish, 
                 Passives.Absorb,
                 substitute
