@@ -92,6 +92,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(ToysPool.Add);
             PCall(SupportsGlitchConfigEr.Setup);
             PCall(EcstasyPool.Setup);
+            PCall(RemovesPure.Spoggles);
             #endregion
 
             //Add To Glossary
