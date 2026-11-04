@@ -46,8 +46,9 @@ namespace SaltsEnemies_Reseasoned
 
             ConditionEncounterSO garden = ScriptableObject.CreateInstance<ConditionEncounterSO>();
             garden.name = "Salt_Defacer_Garden";
-            garden.m_QuestsCompletedNeeded = ["Defacer_Quest"];
-            garden.encounterEntityIDs = ["Defacer"];
+            garden.m_QuestName = "SALTENEMIESDEFACERBOSSCHANGERDONTCOMPLETETHISQUESTGODDAMN!!";
+            garden.m_QuestsCompletedNeeded = ["Defacer_Quest"];//InGameDataSO
+            garden.encounterEntityIDs = ["Defacer"];//Defacer
             garden.signID = "Defacer_Sign";
             garden._dialogue = "Salt.Defacer.Garden";
             garden.encounterRoom = "Salt.Defacer.Room";
