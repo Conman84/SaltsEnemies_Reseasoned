@@ -404,6 +404,13 @@ namespace SaltsEnemies_Reseasoned
                 public static string Easy => "FF_Zone01_LockJaw_EasyBundle";
                 public static string Med => "FF_Zone01_LockJaw_MediumBundle";
             }
+
+            //mythos
+            public static class Munged
+            {
+                public static string Med => "MungedOneMedium";
+                public static string Hard => "MungedOneHard";
+            }
         }
     }
 }

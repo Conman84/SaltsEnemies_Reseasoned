@@ -160,6 +160,48 @@ namespace SaltsEnemies_Reseasoned
                 yellow.Add(LoadedAssetsHandler.GetEnemy(Symbols.Yellow));
                 purple.Add(LoadedAssetsHandler.GetEnemy(Symbols.Purple));
             }
+            if (Check.MultiENExistInternal([Jumble.Unstable, Spoggle.Unstable]))
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    grey.Add(LoadedAssetsHandler.GetEnemy(Jumble.Unstable));
+                    grey.Add(LoadedAssetsHandler.GetEnemy(Spoggle.Unstable));
+                }
+            }
+            if (Check.EnemyExist(Jumble.Mythos))
+            {
+                EnemySO first = LoadedAssetsHandler.GetEnemy(Jumble.Mythos);
+                EnemySO rE = ScriptableObject.Instantiate(first);
+                rE.enterEffects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<SunColorEffect>(), 1, Slots.Self) };
+                rE.healthColor = Pigments.Red;
+                for (int i = 0; i < 2; i++) red.Add(rE);
+                EnemySO bE = ScriptableObject.Instantiate(rE);
+                bE.healthColor = Pigments.Blue;
+                for (int i = 0; i < 2; i++) blue.Add(bE);
+                EnemySO yE = ScriptableObject.Instantiate(rE);
+                yE.healthColor = Pigments.Yellow;
+                for (int i = 0; i < 2; i++) yellow.Add(yE);
+                EnemySO pE = ScriptableObject.Instantiate(rE);
+                pE.healthColor = Pigments.Purple;
+                for (int i = 0; i < 2; i++) purple.Add(pE);
+            }
+            if (Check.EnemyExist(Spoggle.Mythos))
+            {
+                EnemySO first = LoadedAssetsHandler.GetEnemy(Spoggle.Mythos);
+                EnemySO rE = ScriptableObject.Instantiate(first);
+                rE.enterEffects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<SunColorEffect>(), 1, Slots.Self) };
+                rE.healthColor = Pigments.Red;
+                for (int i = 0; i < 2; i++) red.Add(rE);
+                EnemySO bE = ScriptableObject.Instantiate(rE);
+                bE.healthColor = Pigments.Blue;
+                for (int i = 0; i < 2; i++) blue.Add(bE);
+                EnemySO yE = ScriptableObject.Instantiate(rE);
+                yE.healthColor = Pigments.Yellow;
+                for (int i = 0; i < 2; i++) yellow.Add(yE);
+                EnemySO pE = ScriptableObject.Instantiate(rE);
+                pE.healthColor = Pigments.Purple;
+                for (int i = 0; i < 2; i++) purple.Add(pE);
+            }
             Red = red.ToArray();
             Blue = blue.ToArray();
             Yellow = yellow.ToArray();

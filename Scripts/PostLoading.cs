@@ -277,6 +277,9 @@ namespace SaltEnemies_Reseasoned
 
             //mythos
             PCall(MythosCrossover_26_UpToDate.Add);
+            PCall(MythosMoreCrossovers._Shore);
+            PCall(MythosMoreCrossovers._Orph);
+            PCall(MythosMoreCrossovers._Garden);
 
             //mythos & asdfagi misc
             PCall(Crossover_Mythos_Asdfagi.Add);

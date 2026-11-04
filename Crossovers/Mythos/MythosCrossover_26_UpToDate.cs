@@ -20,6 +20,8 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Orph.H.Byakhee.Med);
             med.AddRandomGroup("Byakhee_EN", "Byakhee_EN", "Melder_EN");
 
+            med = new AddTo(Orph.H.Vampire.Med);
+
             med = new AddTo(Orph.H.ILoveYou.Med);
             med.AddRandomGroup("ILoveYou_EN", "StarVampire_EN", "StarVampire_EN");
             med.AddRandomGroup("ILoveYou_EN", "MusicMan_EN", "MusicMan_EN", "Lloigor_EN");

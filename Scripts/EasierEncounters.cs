@@ -115,6 +115,7 @@ namespace SaltsEnemies_Reseasoned
         public static string Grey => "RusticJumbleguts_EN";
         public static string Gray => Grey;
         public static string Unstable => "JumbleGuts_Digital_EN";
+        public static string Mythos => "FormlessSpawn_EN";
     }
     public static class Spoggle
     {
@@ -125,6 +126,7 @@ namespace SaltsEnemies_Reseasoned
         public static string Grey => "MortalSpoggle_EN";
         public static string Gray => Grey;
         public static string Unstable => "Spoggle_Mechanical_EN";
+        public static string Mythos => "LiveliestAwfulness_EN";
     }
     public static class Flower
     {
@@ -252,5 +254,6 @@ namespace SaltsEnemies_Reseasoned
         }
         public static string Phobia => "Phobia_Phobias_EN";
         public static string Eclipse => "EclipseRising_EN";
+        public static string Shambler => "DimensionalShambler_EN";
     }
 }

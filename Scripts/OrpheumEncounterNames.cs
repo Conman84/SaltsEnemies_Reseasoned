@@ -115,6 +115,12 @@ namespace SaltsEnemies_Reseasoned
                     public static string Easy => "Marmo_Zone02_Digital_JumbleGuts_Easy";
                     public static string Hard => "Marmo_Zone02_Digital_JumbleGuts_Hard";
                 }
+
+                //mythos
+                public static class Mythos
+                {
+                    public static string Med => "FormlessSpawnMediumOrpheum";
+                }
             }
             public static class Spoggle
             {
@@ -132,6 +138,12 @@ namespace SaltsEnemies_Reseasoned
                 {
                     public static string Easy => "Marmo_Zone02_Mechanical_Spoggle_Easy";
                     public static string Hard => "Marmo_Zone02_Mechanical_Spoggle_Hard";
+                }
+
+                //mythos
+                public static class Mythos
+                {
+                    public static string Med => "AwfulnessMediumOrpheum";
                 }
             }
             public static class Maniskin
