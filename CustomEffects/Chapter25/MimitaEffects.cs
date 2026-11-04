@@ -28,6 +28,7 @@ namespace SaltsEnemies_Reseasoned
         public static void Post()
         {
             if (Check.EnemyExist("Surrogate_EN")) LoadedAssetsHandler.GetEnemy("Surrogate_EN").AddToToysPool();
+            if (Check.EnemyExist(Jumble.Unstable)) LoadedAssetsHandler.GetEnemy(Jumble.Unstable).AddToToysPool();
             if (Check.EnemyExist("RatThing_EN")) LoadedAssetsHandler.GetEnemy("RatThing_EN").AddToToysPool();
         }
     }
