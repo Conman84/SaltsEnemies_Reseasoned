@@ -392,6 +392,13 @@ namespace SaltsEnemies_Reseasoned
                 public static string Med => "H_Zone01_Acolyte_Medium_EnemyBundle";
             }
             //we will be waiting until the sand sifter has medium pool encounters.
+            public static class Guests
+            {
+                //public static string Easy => "H_Zone01_TangledGuests_Easy_EnemyBundle";
+                public static string Med => "H_Zone01_TangledGuests_Medium_EnemyBundle";
+                //public static string Med => "H_Zone01_GuestColony_Medium_EnemyBundle";
+                public static string Hard => "H_Zone01_GuestColony_Hard_EnemyBundle";
+            }
 
             //freakyfoes
             public static class Comber

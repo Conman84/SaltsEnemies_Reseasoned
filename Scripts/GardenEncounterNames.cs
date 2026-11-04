@@ -374,6 +374,47 @@ namespace SaltsEnemies_Reseasoned
 
                 public static string Hard => "H_Zone03_Phobias_Hard_EnemyBundle";
             }
+            public static class Logos
+            {
+                public static class Red
+                {
+                    public static string Med => "H_Zone03_CrimsonLogos_Medium_EnemyBundle";
+
+                    public static string Hard => "H_Zone03_CrimsonLogos_Hard_EnemyBundle";
+                }
+
+                public static class Blue
+                {
+                    public static string Med => "H_Zone03_CeruleanLogos_Medium_EnemyBundle";
+
+                    public static string Hard => "H_Zone03_CeruleanLogos_Hard_EnemyBundle";
+                }
+
+                public static class Yellow
+                {
+                    public static string Med => "H_Zone03_AureateLogos_Medium_EnemyBundle";
+
+                    public static string Hard => "H_Zone03_AureateLogos_Hard_EnemyBundle";
+                }
+
+                public static class Purple
+                {
+                    public static string Med => "H_Zone03_RegentLogos_Medium_EnemyBundle";
+
+                    public static string Hard => "H_Zone03_RegentLogos_Hard_EnemyBundle";
+                }
+
+                public static class Broken
+                {
+                    public static string Hard => "H_Zone03_DiscordantLogos_Hard_EnemyBundle";
+                }
+            }
+            public static class Vessel
+            {
+                public static string Med => "H_Zone03_EnlightenedVessel_Medium_EnemyBundle";
+
+                public static string Hard => "H_Zone03_EnlightenedVessel_Hard_EnemyBundle";
+            }
         }
     }
 }

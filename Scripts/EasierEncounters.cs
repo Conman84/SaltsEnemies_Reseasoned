@@ -199,13 +199,15 @@ namespace SaltsEnemies_Reseasoned
     }
     public static class Symbols
     {
-        public static string Red => "RedSymbol_EN";
+        public static string Red => "CrimsonLogos_EN";
 
-        public static string Blue => "BlueSymbol_EN";
+        public static string Blue => "CeruleanLogos_EN";
 
-        public static string Yellow => "YellowSymbol_EN";
+        public static string Yellow => "AureateLogos_EN";
 
-        public static string Purple => "PurpleSymbol_EN";
+        public static string Purple => "RegentLogos_EN";
+
+        public static string Broken => "DiscordantLogos_EN";
     }
     public static class Enemies
     {
