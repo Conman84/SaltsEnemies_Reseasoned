@@ -460,6 +460,12 @@ namespace SaltsEnemies_Reseasoned
                 public static string Med => "SF_Zone02_Devout_MediumBundle";
                 public static string Hard => "SF_Zone02_Devout_HardBundle";
             }
+
+            //fishy
+            public static class WhaleHead
+            {
+                public static string Med => "H_Zone02_WhaleHead_Medium_EnemyBundle";
+            }
         }
     }
 }

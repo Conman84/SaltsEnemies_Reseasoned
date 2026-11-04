@@ -259,5 +259,10 @@ namespace SaltsEnemies_Reseasoned
         public static string Shambler => "DimensionalShambler_EN";
         public static string Vessel => "EnlightenedVessel_EN";
         public static string Spirit => "EnlightenedSpirit_EN";
+        public static string Whalehead => "WhaleHeadFishy_EN";
+        public static string Zucchini => "ZucchiniFishy_EN";
+        public static string Prior => "MercifulPrior_EN";
+        public static string Prioress => "RelentlessPrioress_EN";
+        public static string Portrait => "PortraitLoss_EN";
     }
 }

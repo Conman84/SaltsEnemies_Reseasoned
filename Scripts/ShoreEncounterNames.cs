@@ -418,6 +418,17 @@ namespace SaltsEnemies_Reseasoned
                 public static string Med => "MungedOneMedium";
                 public static string Hard => "MungedOneHard";
             }
+
+            //fishy
+            public static class WhaleHead
+            {
+                public static string Med => "H_Zone01_WhaleHead_Medium_EnemyBundle";
+            }
+            public static class Zucchini
+            {
+                public static string Med => "Zucchini_MediumBundle";
+                public static string Hard => "Zucchini_HardBundle";
+            }
         }
     }
 }

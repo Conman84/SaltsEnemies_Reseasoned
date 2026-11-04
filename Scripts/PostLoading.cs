@@ -295,15 +295,21 @@ namespace SaltEnemies_Reseasoned
 
             //sucklemod
             PCall(SuckleModCrossovers.Add);
+            PCall(SuckleModUpdate26.Add);
 
             //siren
             PCall(SirenCrossovers.Add);
 
             //sofa
             PCall(DevoutCrossovers.Add);
+            PCall(DevoutCrossovers.Ch26);
 
             //entmod
             PCall(FreakFoesCrossovers_First.Add);
+
+            //fishy
+            PCall(Fishy_ShoreAndOrph_First.Add);
+            PCall(Fishy_Garden_First.Add);
         }
     }
 }

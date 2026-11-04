@@ -69,5 +69,21 @@ namespace SaltsEnemies_Reseasoned
 
             
         }
+        public static void Ch26()
+        {
+            AddTo med = new AddTo(Orph.H.Devout.Med);
+            med.AddRandomGroup("Devout_EN", "Devout_EN", "Melder_EN", "LostSheep_EN");
+
+            med = new AddTo(Orph.H.Melder.Med);
+            med.AddRandomGroup("Melder_EN", "Melder_EN", "Devout_EN", "LostSheep_EN");
+
+            med = new AddTo(Orph.H.ILoveYou.Med);
+            med.AddRandomGroup("ILoveYou_EN", "Devout_EN", "Foxtrot_EN", "Foxtrot_EN");
+            med.AddRandomGroup("ILoveYou_EN", "Devout_EN", "Enigma_EN");
+
+            AddTo hard = new AddTo(Orph.H.ILoveYou.Hard);
+            hard.SimpleAddGroup(2, "ILoveYou_EN", 1, "Devout_EN");
+            hard.SimpleAddGroup(1, "ILoveYou_EN", 2, "Devout_EN");
+        }
     }
 }

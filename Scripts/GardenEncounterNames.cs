@@ -415,6 +415,12 @@ namespace SaltsEnemies_Reseasoned
 
                 public static string Hard => "H_Zone03_EnlightenedVessel_Hard_EnemyBundle";
             }
+
+            //fishy
+            public static class Portrait
+            {
+                public static string Hard => "LossPortrait_HardBundle";
+            }
         }
     }
 }
