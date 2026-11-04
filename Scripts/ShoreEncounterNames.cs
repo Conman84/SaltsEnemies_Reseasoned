@@ -406,10 +406,20 @@ namespace SaltsEnemies_Reseasoned
                 public static string Med => "FF_Zone01_Beachcomber_MediumBundle";
                 public static string Hard => "FF_Zone01_Beachcomber_HardBundle";
             }
-            public static class Lockjaw
+            public static class Wnoch
             {
-                public static string Easy => "FF_Zone01_LockJaw_EasyBundle";
-                public static string Med => "FF_Zone01_LockJaw_MediumBundle";
+                public static string Easy => "FF_Zone01_LockJaw_EasyBundle";//deprecated
+                public static string Med => "FF_Beartrap_MediumBundle";
+            }
+            public static class Bullet
+            {
+                public static string Med => "FF_Bullet_MediumBundle";
+            }
+            public static class Misnomer
+            {
+                public static string Easy => "FF_Misnomer_EasyBundle";
+
+                public static string Med => "FF_Misnomer_MediumBundle";
             }
 
             //mythos

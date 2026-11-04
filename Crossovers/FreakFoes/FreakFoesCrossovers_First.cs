@@ -12,15 +12,15 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            AddTo easy = new AddTo(Shore.H.Lockjaw.Easy);
-            easy.AddRandomGroup("LockJaw_EN", "Waltz_EN", "Waltz_EN");
-            easy.AddRandomGroup("LockJaw_EN", "LostSheep_EN", "LockJaw_EN");
-            easy.AddRandomGroup("LockJaw_EN", "Papereater_EN");
+            AddTo easy = new AddTo(Shore.H.Wnoch.Easy);
+            //easy.AddRandomGroup("LockJaw_EN", "Waltz_EN", "Waltz_EN");
+            //easy.AddRandomGroup("LockJaw_EN", "LostSheep_EN", "LockJaw_EN");
+            //easy.AddRandomGroup("LockJaw_EN", "Papereater_EN");
 
-            AddTo med = new AddTo(Shore.H.Lockjaw.Med);
+            AddTo med = new AddTo(Shore.H.Wnoch.Med);
             med.AddRandomGroup("LockJaw_EN", "DeadPixel_EN", "DeadPixel_EN");
-            med.AddRandomGroup("LockJaw_EN", "LockJaw_EN", "MudLung_EN", "Skyloft_EN");
-            med.AddRandomGroup("LockJaw_EN", "LockJaw_EN", "Arceles_EN");
+            med.AddRandomGroup("LockJaw_EN", "MudLung_EN", "MudLung_EN", "Skyloft_EN");
+            med.AddRandomGroup("LockJaw_EN", "MudLung_EN", "Arceles_EN");
 
             med = new AddTo(Shore.H.Pinano.Med);
             med.AddRandomGroup("Pinano_EN", "LockJaw_EN", "Pinano_EN");
