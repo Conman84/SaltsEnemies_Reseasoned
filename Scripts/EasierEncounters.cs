@@ -257,5 +257,7 @@ namespace SaltsEnemies_Reseasoned
         public static string Phobia => "Phobia_Phobias_EN";
         public static string Eclipse => "EclipseRising_EN";
         public static string Shambler => "DimensionalShambler_EN";
+        public static string Vessel => "EnlightenedVessel_EN";
+        public static string Spirit => "EnlightenedSpirit_EN";
     }
 }

@@ -291,6 +291,7 @@ namespace SaltEnemies_Reseasoned
             PCall(Asdfagi26.Add);
             PCall(Asdfagi_LETT.AddLogos);
             PCall(Asdfagi_LETT.AddShore);
+            PCall(Asdfagi_LETT.AddGarden);
 
             //sucklemod
             PCall(SuckleModCrossovers.Add);

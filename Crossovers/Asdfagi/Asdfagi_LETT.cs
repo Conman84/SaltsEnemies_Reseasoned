@@ -133,7 +133,65 @@ namespace SaltsEnemies_Reseasoned
         }
         public static void AddGarden()
         {
+            AddTo med = new AddTo(Garden.H.Vessel.Med);
+            med.AddRandomGroup(Enemies.Vessel, Enemies.Spirit, "LittleAngel_EN");
+            med.AddRandomGroup(Enemies.Vessel, Flower.Red, Flower.Blue);
+            med.AddRandomGroup(Enemies.Vessel, Enemies.Spirit, Spoggle.Grey);
+            med.AddRandomGroup(Enemies.Vessel, Enemies.Spirit, "WindSong_EN");
+            med.AddRandomGroup(Enemies.Vessel, Enemies.Spirit, Enemies.Spirit, "MiniReaper_EN");
+            med.AddRandomGroup(Enemies.Vessel, Enemies.Spirit, "Shua_EN");
+            med.AddRandomGroup(Enemies.Vessel, Enemies.Spirit, "Damocles_EN");
+            med.AddRandomGroup(Enemies.Vessel, Enemies.Spirit, "Hunter_EN");
+            med.AddRandomGroup(Enemies.Vessel, "Firebird_EN");
+            med.AddRandomGroup(Enemies.Vessel, "Indicator_EN", "EyePalm_EN", "EyePalm_EN");
+            med.AddRandomGroup(Enemies.Vessel, Enemies.Spirit, "YNL_EN");
+            med.AddRandomGroup(Enemies.Vessel, "EvilDog_EN", "EvilDog_EN");
+            med.AddRandomGroup(Enemies.Vessel, "OdeToHumanity_EN", Enemies.Spirit);
+            med.AddRandomGroup(Enemies.Vessel, Enemies.Spirit, Bots.Grey);
+            med.AddRandomGroup(Enemies.Vessel, "Yang_EN", "PawnA_EN");
+            med.AddRandomGroup(Enemies.Vessel, Enemies.Eclipse);
+            med.AddRandomGroup(Enemies.Vessel, "Celebration_EN", "Celebration_EN");
+            med.SimpleAddGroup(1, Enemies.Vessel, 3, "TortureMeNot_EN");
+            med.AddRandomGroup(Enemies.Vessel, Enemies.Spirit, Enemies.Camera);
 
+            AddTo hard = new AddTo(Garden.H.Vessel.Hard);
+            hard.SimpleAddGroup(2, Enemies.Vessel, 1, "Grandfather_EN");
+            hard.SimpleAddGroup(2, Enemies.Vessel, 1, Enemies.Spirit, 1, Jumble.Gray);
+            hard.SimpleAddGroup(2, Enemies.Vessel, 1, Enemies.Spirit, 1, "Skyloft_EN");
+            hard.SimpleAddGroup(2, Enemies.Vessel, 1, Enemies.Spirit, 1, "BlackStar_EN");
+            hard.SimpleAddGroup(1, Enemies.Vessel, 3, "PawnA_EN");
+            hard.AddRandomGroup(Enemies.Vessel, Enemies.Spirit, "Stoplight_EN");
+            hard.AddRandomGroup(Enemies.Vessel, Enemies.Spirit, Ecstasy.Gray, Ecstasy.Gray);
+            hard.AddRandomGroup(Enemies.Vessel, Enemies.Spirit, "Complimentary_EN");
+            hard.AddRandomGroup(Enemies.Vessel, Enemies.Spirit, "PersonalAngel_EN");
+            hard.AddRandomGroup(Enemies.Vessel, Enemies.Spirit, "Starless_EN");
+            hard.AddRandomGroup(Enemies.Vessel, "Eyeless_EN", Enemies.Spirit);
+            hard.AddRandomGroup(Enemies.Vessel, "Yang_EN", "Yang_EN", Enemies.Spirit);
+            hard.AddRandomGroup(Enemies.Vessel, Enemies.Spirit, "Insider_EN", "Insider_EN");
+            hard.AddRandomGroup(Enemies.Vessel, Enemies.Spirit, "CorpseChan_EN");
+            hard.AddRandomGroup(Enemies.Vessel, Enemies.Spirit, "Lunoscope_EN");
+            hard.AddRandomGroup(Enemies.Spirit, Enemies.Vessel, "Panopticon_EN", "Panopticon_EN");
+            hard.AddRandomGroup(Enemies.Vessel, Enemies.Eclipse, Enemies.Eclipse);
+            hard.AddRandomGroup(Enemies.Vessel, "Lightbulbkin_EN", "InHerImage_EN", "InHerImage_EN");
+            hard.AddRandomGroup(Enemies.Vessel, "Satyr_EN", Enemies.Spirit);
+
+            med = new AddTo(Garden.H.Dark.Med);
+            med.AddRandomGroup("InTheDark_EN", Enemies.Vessel, Enemies.Spirit);
+
+            hard = new AddTo(Garden.H.Dark.Hard);
+            hard.AddRandomGroup("InTheDark_EN", "InTheDark_EN", Enemies.Vessel);
+
+            hard = new AddTo(Garden.H.SnakeGod.Hard);
+            hard.AddRandomGroup("SnakeGod_EN", Enemies.Vessel, Enemies.Spirit);
+
+            hard = new AddTo(Garden.H.Tank.Hard);
+            hard.AddRandomGroup(Enemies.Tank, Enemies.Vessel, Enemies.Spirit);
+
+            hard = new AddTo(Garden.H.ClockTower.Hard);
+            hard.AddRandomGroup("ClockTower_EN", Enemies.Vessel, Enemies.Spirit, "GlassFigurine_EN");
+
+            EcstasyPool.Add(Enemies.Vessel);
+            EcstasyPool.Add(Enemies.Spirit);
         }
     }
 }
