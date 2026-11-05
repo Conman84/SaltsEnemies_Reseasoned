@@ -44,11 +44,11 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Crystal_EN", "Crystal_EN", Jumble.Unstable);
 
             AddTo hard = new AddTo(Orph.H.Dragon.Hard);
-            hard.SimpleAddGroup(1, "TheDragon_EN", 3, "Romantic_EN");
+            hard.SimpleAddGroup(1, "TheDragon_EN", 2, "Romantic_EN", 1, Enemies.Accelerator);
             hard.AddRandomGroup("TheDragon_EN", "Romantic_EN", "Maw_EN");
             if (Winter.Chance) hard.AddRandomGroup("TheDragon_EN", "Surrogate_EN", "Crystal_EN");
             hard.AddRandomGroup("TheDragon_EN", "Gungrot_EN", "Gungrot_EN", "Gungrot_EN");
-            hard.AddRandomGroup("TheDragon_EN", "Romantic_EN", Jumble.Purple, Jumble.Unstable);
+            hard.AddRandomGroup("TheDragon_EN", "Romantic_EN", Jumble.Yellow, Jumble.Unstable);
             hard.AddRandomGroup("TheDragon_EN", Spoggle.Unstable, "WindSong_EN");
 
             AddTo easy = new AddTo(Orph.H.Jumble.Unstable.Easy);
