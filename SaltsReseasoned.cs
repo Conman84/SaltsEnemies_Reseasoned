@@ -312,6 +312,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(Celebration.Add);
             PCall(Lightbulbkin.Add);
             PCall(Melder.Add);
+            PCall(Vivarium.Add);
 
             //BOSSES
             //shore
@@ -665,12 +666,15 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("BoxPassive.png"), "Curio", "When the Player's mouse is not hovering over this enemy, it becomes more aggressive and will attempt to perform its next ability in the timeline.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PawsomePassive.png"), "Pawsome", "On any party member manually moving, this enemy will change its health color from Red to Purple or vice versa.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MeldedPassive.png"), "Melded", "On fleeing, halve the target unit's current health and inflict a slew of Negative Status Effects on them.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("NonomnumuburamumaPassive.png"), "Nonomnumuburamuma", "This enemy will perform 0 actions per turn by default.");
+
 
             //BOSSES
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SunkPassive.png"), "Sunk", "All positions are in permenant Deep Water.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("RadicalPassive.png"), "Radical", "On being damaged, Adjust All Lights.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SystemicPassive.png"), "Systemic", "When this enemy is damaged a certain amount of times, queue a specific ability.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ActingPassive.png"), "Acting", "On being damaged, perform this enemy's next ability on the timeline and queue another one.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ApostlePassive.png"), "Apostle", "On any other enemy being directly damaged, prematurely perform this enemy's next action on the timeline.");
 
             //EXTRA
             PCall(Tweak.Setup);

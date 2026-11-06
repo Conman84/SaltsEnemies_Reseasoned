@@ -617,6 +617,12 @@
 	  <None Remove="Chapter26\Melder\MelderDead.png" />
 	  <None Remove="Chapter26\Melder\MelderIcon.png" />
 	  <None Remove="Chapter26\Melder\MelderWorld.png" />
+	  <None Remove="Chapter26\Vivarium\ApostlePassive.png" />
+	  <None Remove="Chapter26\Vivarium\NonomnumuburamumaPassive.png" />
+	  <None Remove="Chapter26\Vivarium\VivariumDead.png" />
+	  <None Remove="Chapter26\Vivarium\VivariumEmptyWorld.png" />
+	  <None Remove="Chapter26\Vivarium\VivariumIcon.png" />
+	  <None Remove="Chapter26\Vivarium\VivariumWorld.png" />
 	  <None Remove="CustomPassives\Chapter02\Decay.png" />
 	  <None Remove="CustomPassives\Chapter03\DontTouchMe.png" />
 	  <None Remove="CustomPassives\Chapter03\StarPassive.png" />
@@ -1674,6 +1680,12 @@
 	  <EmbeddedResource Include="Chapter26\Melder\MelderDead.png" />
 	  <EmbeddedResource Include="Chapter26\Melder\MelderIcon.png" />
 	  <EmbeddedResource Include="Chapter26\Melder\MelderWorld.png" />
+	  <EmbeddedResource Include="Chapter26\Vivarium\ApostlePassive.png" />
+	  <EmbeddedResource Include="Chapter26\Vivarium\NonomnumuburamumaPassive.png" />
+	  <EmbeddedResource Include="Chapter26\Vivarium\VivariumDead.png" />
+	  <EmbeddedResource Include="Chapter26\Vivarium\VivariumEmptyWorld.png" />
+	  <EmbeddedResource Include="Chapter26\Vivarium\VivariumIcon.png" />
+	  <EmbeddedResource Include="Chapter26\Vivarium\VivariumWorld.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter01\Desperate.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Decay.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Fishing.png" />
