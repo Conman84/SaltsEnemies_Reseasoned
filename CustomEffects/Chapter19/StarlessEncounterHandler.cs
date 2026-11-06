@@ -62,30 +62,23 @@ namespace SaltsEnemies_Reseasoned
             EnemyBundleData[] array = new EnemyBundleData[num2];
             int num3 = 0;
             int num4 = 0;
-            int quit = 0;
+
+            for (int i = list.Count - 1; i >= 0; i--)
+            {
+                if (!(list[i] == null) && list[i].name == "Starless_EN")
+                {
+                    array[num3] = new EnemyBundleData(list[i], num4);
+                    num3++;
+                    num4 += list[i].size;
+                    list.RemoveAt(i);
+                }
+            }
+
             while (list.Count > 0)
             {
                 int index2 = UnityEngine.Random.Range(0, list.Count);
 
-                int stars = 0;
-                int first = -1;
-                for (int i = 0; i < list.Count; i++)
-                {
-                    if (list[i] != null && list[i]._enemyName == "Starless")
-                    {
-                        stars++;
-                        first = i;
-                    }
-                }
-                if (stars >= list.Count - 1 && first >= 0) index2 = first;
-
                 EnemySO enemy = list[index2];
-
-                if (quit <= 99 && num == 0 && enemy != null && enemy._enemyName == "Starless")
-                {
-                    quit++;
-                    continue;
-                }
 
                 list.RemoveAt(index2);
                 if (enemy == null)
