@@ -81,14 +81,14 @@ namespace SaltsEnemies_Reseasoned
             exitAmount = 0;
             if (Connect)
             {
-                CombatManager.Instance.AddObserver(Function, TriggerCalls.OnAnyAbilityUsed.ToString(), caster);
+                CombatManager.Instance.AddObserver(Function, TriggerCalls.OnAbilityUsed.ToString(), caster);
                 CombatManager.Instance.AddObserver(Function, TriggerCalls.OnRoundFinished.ToString(), caster);
                 CombatManager.Instance.AddObserver(Function, TriggerCalls.OnPlayerTurnEnd_ForEnemy.ToString(), caster);
                 CombatManager.Instance.AddObserver(Function, TriggerCalls.OnDamaged.ToString(), caster);
             }
             else
             {
-                CombatManager.Instance.RemoveObserver(Function, TriggerCalls.OnAnyAbilityUsed.ToString(), caster);
+                CombatManager.Instance.RemoveObserver(Function, TriggerCalls.OnAbilityUsed.ToString(), caster);
                 CombatManager.Instance.RemoveObserver(Function, TriggerCalls.OnRoundFinished.ToString(), caster);
                 CombatManager.Instance.RemoveObserver(Function, TriggerCalls.OnPlayerTurnEnd_ForEnemy.ToString(), caster);
                 CombatManager.Instance.RemoveObserver(Function, TriggerCalls.OnDamaged.ToString(), caster);
