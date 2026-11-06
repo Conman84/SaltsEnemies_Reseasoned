@@ -20,6 +20,8 @@ namespace SaltsEnemies_Reseasoned
         public static DebugCommand ADDEASYENEMY;
         public static DebugCommand ADDMEDIUMENEMY;
         public static DebugCommand ADDHARDENEMY;
+
+        public static DebugCommand ADDENCOUNTERRANDOM;
         public static void Add()
         {
             KILL = new DebugCommand("kill", "Instantly kill all enemies.", new List<DebugCommandArgument>(), delegate
@@ -196,6 +198,40 @@ namespace SaltsEnemies_Reseasoned
                     }
                 }
             });
+            ADDENCOUNTERRANDOM = new DebugCommand("addrandomencounter", "Add a random enemy enocunter of difficulty 0 to 2", new List<DebugCommandArgument>
+            {
+                new StringCommandArgument("difficulty")
+            }, delegate(List<FilledCommandArgument> args)
+            {
+                int difficulty = args[0].Read<int>();
+                RunDataSO run = LoadedDBsHandler.InfoHolder.Run;
+                if (run == null)
+                {
+                    DebugController.Instance.WriteLine("No active run.", LogLevel.Error);
+                }
+                else if (run.CurrentZoneID >= run.zoneData.Count)
+                {
+                    DebugController.Instance.WriteLine("No zone.", LogLevel.Error);
+                }
+                else if (difficulty < 0 || difficulty > 2)
+                {
+                    DebugController.Instance.WriteLine("Out of bounds difficulty: use 0, 1, or 2", LogLevel.Error);
+                }
+                else
+                {
+                    RunZoneData runZoneData = run.zoneData[run.CurrentZoneID];
+                    ZoneDataBaseSO zoneDataBaseSO = runZoneData.LoadZoneDB();
+                    if (zoneDataBaseSO is ZoneBGDataBaseSO zone)
+                    {
+                        zone._zoneData = runZoneData;
+                        zone.GenerateRandomEnemyCard(difficulty);
+                    }
+                    else
+                    {
+                        DebugController.Instance.WriteLine("Invalid zone.", LogLevel.Error);
+                    }
+                }
+            });
 
             RESETFLEETING = new DebugCommand("resetfleeting", "Reset fleeting on all enemies.", new List<DebugCommandArgument>(), delegate
             {
@@ -216,6 +252,7 @@ namespace SaltsEnemies_Reseasoned
             DebugController.Commands.children.Add(ADDEASYENEMY);
             DebugController.Commands.children.Add(ADDMEDIUMENEMY);
             DebugController.Commands.children.Add(ADDHARDENEMY);
+            DebugController.Commands.children.Add(ADDENCOUNTERRANDOM);
             DebugController.Commands.children.Add(RESETFLEETING);
         }
 
@@ -338,6 +375,55 @@ namespace SaltsEnemies_Reseasoned
             }
             self._zoneData.ZonePiles[pileID]._cards = temp.ToArray();
             DebugController.Instance.WriteLine("Added enemy encounter " + bundleName);
+        }
+        public static void GenerateRandomEnemyCard(this ZoneBGDataBaseSO self, int difficulty)
+        {
+            if (self._zoneData == null) Debug.LogWarning("zonedata null");
+            else if (self._zoneData.ZonePiles == null) Debug.LogWarning("zonepiles null");
+            if (self._zoneData.ZonePiles.Length <= 0) return;
+
+            EnemyEncounterSelectorSO selector = null;
+            switch (difficulty)
+            {
+                case 0:
+                    selector = self.EnemyEncounterData.m_EasySelector;
+                    break;
+                case 2:
+                    selector = self.EnemyEncounterData.m_HardSelector;
+                    break;
+                default:
+                    selector = self.EnemyEncounterData.m_MediumSelector;
+                    break;
+            }
+            if (selector == null)
+            {
+                Debug.LogWarning("area has no enemy selectors?");
+            }
+            EnemyCombatBundle enemyBundle = selector.GetEnemyBundle();
+
+            int idInfo = self._zoneData.AddEnemyBundle(enemyBundle);
+            Card card = new Card(self._zoneData.CardCount, idInfo, difficulty == 0 ? CardType.EnemyEasy : difficulty == 2 ? CardType.EnemyHard : CardType.EnemyMedium, PilePositionType.Any, enemyBundle.SignID, enemyBundle.RoomPrefabName);
+            self._zoneData.AddCard(card);
+
+            int pileID = UnityEngine.Random.Range(0, self._zoneData.ZonePiles.Length);
+            Card[] pile = self._zoneData.ZonePiles[pileID]._cards;
+            List<Card> temp = new List<Card>();
+            bool added = false;
+            foreach (Card item in pile)
+            {
+                if (item.PilePosition != PilePositionType.End)
+                {
+                    temp.Add(item);
+                }
+                else
+                {
+                    if (!added) temp.Add(card);
+                    added = true;
+                    temp.Add(item);
+                }
+            }
+            self._zoneData.ZonePiles[pileID]._cards = temp.ToArray();
+            DebugController.Instance.WriteLine("Added random enemy encounter of difficulty " + difficulty.ToString());
         }
         /*public static EnemyCombatBundle GetZoneEnemyBundle(this ZoneBGDataBaseSO self, string difficulty, string bundleName)
         {
