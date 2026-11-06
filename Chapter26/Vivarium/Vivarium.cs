@@ -18,8 +18,8 @@ namespace SaltsEnemies_Reseasoned
                 CombatSprite = ResourceLoader.LoadSprite("VivariumIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("VivariumEmptyWorld.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("VivariumEmptyWorld.png", new Vector2(0.5f, 0f), 32),
-                DamageSound = LoadedAssetsHandler.GetEnemy(Spoggle.Red).damageSound,
-                DeathSound = LoadedAssetsHandler.GetEnemy(Spoggle.Red).deathSound,
+                DamageSound = LoadedAssetsHandler.GetEnemy("SingingStone_EN").damageSound,
+                DeathSound = LoadedAssetsHandler.GetEnemy("SingingStone_EN").deathSound,
             };
             vivarium.PrepareEnemyPrefab("Assets/ch_26/Vivarium_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/ch_26/Vivarium_Gibs.prefab").GetComponent<ParticleSystem>());
 
