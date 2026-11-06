@@ -196,7 +196,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddGroup(4, "PawnA_EN", 1, "Vivarium_EN");
 
             med = new AddTo(Garden.H.Yang.Med);
-            med.SimpleAddGroup(2, "Yang_EN", 1, "EggKeeper_EN", 1, 'Vivarium_EN');
+            med.SimpleAddGroup(2, "Yang_EN", 1, "EggKeeper_EN", 1, "Vivarium_EN");
 
             hard = new AddTo(Garden.H.Yang.Hard);
             hard.SimpleAddGroup(3, "Yang_EN", 1, "Vivarium_EN");
