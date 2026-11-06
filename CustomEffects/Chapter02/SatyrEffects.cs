@@ -467,7 +467,7 @@ namespace SaltEnemies_Reseasoned
         public static int DamageReceivedValueChangeException_GetModifiedValue(Func<DamageReceivedValueChangeException, int> orig, DamageReceivedValueChangeException self)
         {
             int ret = orig(self);
-            if (self.damagedUnit.SimpleGetStoredValue(Value) > 0 && ret > self.damagedUnit.CurrentHealth) return self.damagedUnit.CurrentHealth - 1;
+            if (self.damagedUnit.SimpleGetStoredValue(Value) > 0 && ret >= self.damagedUnit.CurrentHealth) return self.damagedUnit.CurrentHealth - 1;
             return ret;
         }
         public static void Setup()
