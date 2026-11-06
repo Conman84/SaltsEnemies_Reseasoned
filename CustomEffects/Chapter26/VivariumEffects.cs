@@ -1,6 +1,7 @@
 ﻿using BrutalAPI;
 using SaltEnemies_Reseasoned;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -40,27 +41,39 @@ namespace SaltsEnemies_Reseasoned
         public void Function(object sender, object args)
         {
             //Debug.Log("hi");
-            if (sender is EnemyCombat enemy)
+            CombatManager.Instance.AddRootAction(new VivAction(sender as IUnit));
+        }
+        public class VivAction : CombatAction
+        {
+            public IUnit sender;
+            public VivAction(IUnit sender)
             {
-                if (CombatManager.Instance._stats.IsPlayerTurn && enemy.TurnsInTimeline > 0)
-                {
-                    CombatManager.Instance.AddUIAction(new SetUnitAnimationParameterUIAction(enemy.ID, enemy.IsUnitCharacter, "Active", 1));
-                    return;
-                }
+                this.sender = sender;
+            }
 
-                CombatStats stats = CombatManager.Instance._stats;
-                for (int i = stats.timeline.CurrentTurn + (stats.IsPlayerTurn ? 0 : 1); i < stats.timeline.Round.Count; i++)
+            public override IEnumerator Execute(CombatStats stats)
+            {
+                if (sender is EnemyCombat enemy)
                 {
-                    if (stats.timeline.Round[i].isPlayer) continue;
-
-                    if (stats.timeline.Round[i].turnUnit == enemy)
+                    if (CombatManager.Instance._stats.IsPlayerTurn && enemy.TurnsInTimeline > 0)
                     {
                         CombatManager.Instance.AddUIAction(new SetUnitAnimationParameterUIAction(enemy.ID, enemy.IsUnitCharacter, "Active", 1));
-                        return;
+                        yield break;
                     }
-                }
 
-                CombatManager.Instance.AddRootAction(new SetUnitAnimationParameterUIAction(enemy.ID, enemy.IsUnitCharacter, "Active", 0));
+                    for (int i = stats.timeline.CurrentTurn + (stats.IsPlayerTurn ? 0 : 1); i < stats.timeline.Round.Count; i++)
+                    {
+                        if (stats.timeline.Round[i].isPlayer) continue;
+
+                        if (stats.timeline.Round[i].turnUnit == enemy)
+                        {
+                            CombatManager.Instance.AddUIAction(new SetUnitAnimationParameterUIAction(enemy.ID, enemy.IsUnitCharacter, "Active", 1));
+                            yield break;
+                        }
+                    }
+
+                    CombatManager.Instance.AddUIAction(new SetUnitAnimationParameterUIAction(enemy.ID, enemy.IsUnitCharacter, "Active", 0));
+                }
             }
         }
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
@@ -71,12 +84,14 @@ namespace SaltsEnemies_Reseasoned
                 CombatManager.Instance.AddObserver(Function, TriggerCalls.OnAnyAbilityUsed.ToString(), caster);
                 CombatManager.Instance.AddObserver(Function, TriggerCalls.OnRoundFinished.ToString(), caster);
                 CombatManager.Instance.AddObserver(Function, TriggerCalls.OnPlayerTurnEnd_ForEnemy.ToString(), caster);
+                CombatManager.Instance.AddObserver(Function, TriggerCalls.OnDamaged.ToString(), caster);
             }
             else
             {
                 CombatManager.Instance.RemoveObserver(Function, TriggerCalls.OnAnyAbilityUsed.ToString(), caster);
                 CombatManager.Instance.RemoveObserver(Function, TriggerCalls.OnRoundFinished.ToString(), caster);
                 CombatManager.Instance.RemoveObserver(Function, TriggerCalls.OnPlayerTurnEnd_ForEnemy.ToString(), caster);
+                CombatManager.Instance.RemoveObserver(Function, TriggerCalls.OnDamaged.ToString(), caster);
             }
             return true;
         }
@@ -183,7 +198,7 @@ namespace SaltsEnemies_Reseasoned
                 targets.Add(slot.TargetSlotInformation);
             }
 
-            if (_randomOne) return [targets.GetRandom()];
+            if (_randomOne && targets.Count > 0) return [targets.GetRandom()];
             return targets.ToArray();
         }
     }
