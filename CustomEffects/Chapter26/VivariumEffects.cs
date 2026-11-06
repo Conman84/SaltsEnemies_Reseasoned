@@ -1,4 +1,5 @@
-﻿using SaltEnemies_Reseasoned;
+﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -59,7 +60,7 @@ namespace SaltsEnemies_Reseasoned
                     }
                 }
 
-                CombatManager.Instance.AddUIAction(new SetUnitAnimationParameterUIAction(enemy.ID, enemy.IsUnitCharacter, "Active", 0));
+                CombatManager.Instance.AddRootAction(new SetUnitAnimationParameterUIAction(enemy.ID, enemy.IsUnitCharacter, "Active", 0));
             }
         }
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
@@ -184,6 +185,24 @@ namespace SaltsEnemies_Reseasoned
 
             if (_randomOne) return [targets.GetRandom()];
             return targets.ToArray();
+        }
+    }
+
+    public class DivineProtectAndExhaustEffectHardCoded : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit)
+                {
+                    target.Unit.ApplyStatusEffect(StatusField.DivineProtection, entryVariable);
+                    target.Unit.ExhaustAbilityUse();
+                }
+
+            }
+            return true;
         }
     }
 }

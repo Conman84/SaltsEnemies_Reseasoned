@@ -102,8 +102,7 @@ namespace SaltsEnemies_Reseasoned
             beta.Description = "Divinely Protect and exhaust the ability usage of the highest health party member without Divine Protection.";
             beta.Rarity = torii.Rarity;
             beta.Effects = [
-                Effects.GenerateEffect(exhaust, 1, dpHigh),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDivineProtectionEffect>(), 3, dpHigh)
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DivineProtectAndExhaustEffectHardCoded>(), 3, dpHigh)
                 ];
             beta.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
             beta.AddIntentsToTarget(dpHigh, ["Status_DivineProtection"]);
