@@ -200,7 +200,7 @@ namespace SaltsEnemies_Reseasoned
             });
             ADDENCOUNTERRANDOM = new DebugCommand("addrandomencounter", "Add a random enemy enocunter of difficulty 0 to 2", new List<DebugCommandArgument>
             {
-                new StringCommandArgument("difficulty")
+                new NumericalCommandArgument("difficulty", 0, 2)
             }, delegate(List<FilledCommandArgument> args)
             {
                 int difficulty = args[0].Read<int>();
