@@ -148,7 +148,7 @@ namespace SaltsEnemies_Reseasoned
                 rome.GenerateEnemyAbility(true),
                 samsara.GenerateEnemyAbility(true),
             });
-            vivarium.AddEnemy(true, true, true);
+            vivarium.SilentAddEnemy(true, true, true);
             vivarium.enemy.AddToEcstasyPool();
             vivarium.enemy.AddToToysPool();
         }
