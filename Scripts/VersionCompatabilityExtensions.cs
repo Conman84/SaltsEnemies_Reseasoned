@@ -223,12 +223,12 @@ namespace SaltsEnemies_Reseasoned
         public static string[] Expert = ["Damocles_EN", "GlassFigurine_EN", "Nameless_EN", "Children6_EN", "TheDragon_EN", "OdeToHumanity_EN", "EvilDog_EN", "PersonalAngel_EN", "Yin_EN", "Eyeless_EN", "Solitaire_EN", "Spades_EN", "WolfColony_EN", "WolfLarvae_EN", "Stalker2_EN", "ReverseFalseHydra_EN"];
         public static string[] Hidden = ["Hauntling_EN", "Insider_EN", "Jabberwocky_EN", "Nume_EN", "Papereater_EN", "TheWhale_EN", "EclipseRising_EN", "EclipseAwakened_EN"];
         public static string[] Secret = ["CorpseChan_EN", "Untitled_EN", "InTheDark_EN", "Sundowner_EN", "ILoveYou_EN", "Celebration_EN"];
-        public static string[] Unknown = ["Lunoscope_EN", "Panopticon_EN", Ecstasy.Gray, "Lightbulbkin_EN", "Melder_EN"];
+        public static string[] Unknown = ["Lunoscope_EN", "Panopticon_EN", Ecstasy.Gray, "Lightbulbkin_EN", "Melder_EN", "Vivarium_EN"];
 
 
         public static string[] VersionCompatability = [Orph.H.Insider.Med, Garden.H.Insider.Med, Shore.H.Jabber.Med, Orph.H.Nume.Med, Shore.H.Papereater.Easy, Shore.H.Papereater.Med, Orph.H.Whale.Med, Garden.H.Eclipse.Med, Garden.H.Eclipse.Hard];
         public static string[] Insiders = [Shore.H.Hauntling.Med, Garden.H.Hauntling.Easy, Garden.H.CorpseChan.Med, Orph.H.Untitled.Hard, Garden.H.Dark.Med, Garden.H.Dark.Hard, Garden.H.Sundowner.Med, Orph.H.ILoveYou.Med, Orph.H.ILoveYou.Hard, Garden.H.Celebration.Med, Garden.H.Celebration.Hard];
-        public static string[] KonamiMode = [Garden.H.Lunoscope.Med, Garden.H.Lunoscope.Hard, Garden.H.Panopticon.Med, Garden.H.Ecstasy99.Med, Garden.H.Lightbulbkin.Easy, Garden.H.Lightbulbkin.Med, Orph.H.Melder.Med];
+        public static string[] KonamiMode = [Garden.H.Lunoscope.Med, Garden.H.Lunoscope.Hard, Garden.H.Panopticon.Med, Garden.H.Ecstasy99.Med, Garden.H.Lightbulbkin.Easy, Garden.H.Lightbulbkin.Med, Orph.H.Melder.Med, Garden.H.Vivarium.Easy];
         public static string[] Invisible = [Garden.H.Moon.Hard];
     }
 }

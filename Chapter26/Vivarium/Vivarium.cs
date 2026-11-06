@@ -86,40 +86,46 @@ namespace SaltsEnemies_Reseasoned
 
             Ability torii = new Ability("God_Torii_A");
             torii.Name = "Torii";
-            torii.Description = "If the Opposing party member is not Divinely Protected, Divinely Protect them and exhaust their ability usage.\nOtherwise, deal an Agonizing amount of damage to them.";
+            torii.Description = "If the Opposing party member is not Divinely Protected, Divinely Protect them and exhaust their ability usage. Otherwise, deal an Agonizing amount of damage to them.\nGain 6 Oil-Slicked.";
             torii.Rarity = Rarity.GetCustomRarity("rarity5");
             torii.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDivineProtectionIfNoneEffect>(), 3, Slots.Front),
                 Effects.GenerateEffect(exhaust, 1, Slots.Front, BasicEffects.DidThat(true)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front, BasicEffects.DidThat(false))
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front, BasicEffects.DidThat(false)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 6, Slots.Self)
                 ];
             torii.AddIntentsToTarget(Slots.Front, ["Status_DivineProtection", "Misc", "Damage_7_10"]);
+            torii.AddIntentsToTarget(Slots.Self, ["Status_OilSlicked"]);
             torii.AnimationTarget = Slots.Front;
             torii.Visuals = CustomVisuals.GetVisuals("Salt/Door");
 
             Ability beta = new Ability("God_ApotheosisBeta_A");
             beta.Name = "Apotheosis Beta";
-            beta.Description = "Divinely Protect and exhaust the ability usage of the highest health party member without Divine Protection.";
+            beta.Description = "Divinely Protect and exhaust the ability usage of the highest health party member without Divine Protection.\nGain 6 Oil-Slicked.";
             beta.Rarity = torii.Rarity;
             beta.Effects = [
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DivineProtectAndExhaustEffectHardCoded>(), 3, dpHigh)
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DivineProtectAndExhaustEffectHardCoded>(), 3, dpHigh),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 6, Slots.Self)
                 ];
             beta.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
             beta.AddIntentsToTarget(dpHigh, ["Status_DivineProtection"]);
+            beta.AddIntentsToTarget(Slots.Self, ["Status_OilSlicked"]);
             beta.AnimationTarget = Slots.Self;
             beta.Visuals = CustomVisuals.GetVisuals("Salt/Think");
 
             Ability rome = new Ability("God_AllRoads_A");
             rome.Name = "All Roads Lead to Rome";
-            rome.Description = "Divinely Protect the Left, Right, and Opposing party members if they are not already Divinely Protected.\nIf all party members are Divinely Protected, randomly shuffle all party member positions.";
+            rome.Description = "Divinely Protect the Left, Right, and Opposing party members if they are not already Divinely Protected.\nIf all party members are Divinely Protected, randomly shuffle all party member positions.\nGain 6 Oil-Slicked.";
             rome.Rarity = torii.Rarity;
             rome.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDivineProtectionIfNoneEffect>(), 3, Slots.FrontLeftRight),
                 Effects.GenerateEffect(all_dp, 1, Targeting.Unit_AllOpponents),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<MassSwapZoneEffect>(), 1, Targetting.Everything(false), BasicEffects.DidThat(true))
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<MassSwapZoneEffect>(), 1, Targetting.Everything(false), BasicEffects.DidThat(true)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 6, Slots.Self)
                 ];
             rome.AddIntentsToTarget(Slots.FrontLeftRight, ["Status_DivineProtection"]);
             rome.AddIntentsToTarget(Targetting.Everything(false), ["Swap_Mass"]);
+            rome.AddIntentsToTarget(Slots.Self, ["Status_OilSlicked"]);
             rome.AnimationTarget = Slots.Self;
             rome.Visuals = CustomVisuals.GetVisuals("Salt/Ribbon");
 
@@ -128,14 +134,15 @@ namespace SaltsEnemies_Reseasoned
 
             Ability samsara = new Ability("God_SawSamsara_A");
             samsara.Name = "I Saw Samsara In My Dreams";
-            samsara.Description = "Divinely Protect a random non-Divinely Protected party member.\nIf it is currently the Player's turn, queue another action on the timeline.\n\"And It Was Horrible.\"";
+            samsara.Description = "Divinely Protect a random non-Divinely Protected party member.\nIf it is currently the Player's turn, queue another action on the timeline.\nGain 6 Oil-Slicked.\n\"And It Was Horrible.\"";
             samsara.Rarity = torii.Rarity;
             samsara.Effects = [
                 Effects.GenerateEffect(onlyone, 3, Targeting.Unit_AllOpponents),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsPlayerTurnEffectCondition>())
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsPlayerTurnEffectCondition>()),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 6, Slots.Self)
                 ];
             samsara.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Status_DivineProtection"]);
-            samsara.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Misc_Additional.ToString()]);
+            samsara.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Misc_Additional.ToString(), "Status_OilSlicked"]);
             samsara.AnimationTarget = Slots.Self;
             samsara.Visuals = CustomVisuals.GetVisuals("Salt/Pop");
 

@@ -286,6 +286,10 @@ namespace SaltsEnemies_Reseasoned
                 public static string Easy => "H_Zone03_Lightbulbkin_Easy_EnemyBundle";
                 public static string Med => "H_Zone03_Lightbulbkin_Medium_EnemyBundle";
             }
+            public static class Vivarium
+            {
+                public static string Easy => "H_Zone03_Vivarium_Easy_EnemyBundle";
+            }
             public static class Moon
             {
                 public static string Hard => "THEFREAKINGMOON";

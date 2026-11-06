@@ -486,6 +486,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(CelebrationEncounters.Add);
             PCall(LightbulbkinEncounters.Add);
             PCall(MelderEncounters.Add);
+            PCall(VivariumEncounters.Add);
 
             //BOSSES
             //shore
