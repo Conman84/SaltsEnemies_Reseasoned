@@ -14,7 +14,7 @@ namespace SaltsEnemies_Reseasoned
         public static void Setup() => NotificationHook.AddAction(NotifCheck);
         public static void NotifCheck(string name, object sender, object args)
         {
-            if (name == TriggerCalls.OnDamaged.ToString() && sender is IUnit unit)
+            if (name == TriggerCalls.OnDirectDamaged.ToString() && sender is IUnit unit)
             {
                 if (unit.IsUnitCharacter)
                 {
