@@ -42,6 +42,7 @@ namespace SaltEnemies_Reseasoned
                     PCall(HandEncounters.Add);
                     PCall(MechanicalAngelEncounters.Add);
                     PCall(NineEncounters.Add);
+                    PCall(CelebrationEncounters.Add_Abyss);
                 }
             }
 

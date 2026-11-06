@@ -27,6 +27,10 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Easy => "H_ZoneAbyss_NINE_Medium_EnemyBundle";
             }
+            public static class Celebration
+            {
+                public static string Med => "H_ZoneAbyss_Celebration_Medium_EnemyBundle";
+            }
 
 
 

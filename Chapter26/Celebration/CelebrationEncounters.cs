@@ -73,6 +73,24 @@ namespace SaltsEnemies_Reseasoned
             hard.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Celebration.Hard, 10, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
         }
+
+        public static void Add_Abyss()
+        {
+            EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Abyss.H.Celebration.Med, "Salt_CelebrationEncounter_Sign");
+            med.MusicEvent = "event:/Hawthorne/CelebrationTheme";
+            med.RoarEvent = "event:/Hawthorne/Snound1/PumkinDie";
+
+            med.SimpleAddEncounter(3, "Celebration_EN");
+            med.SimpleAddEncounter(2, "Celebration_EN", 1, "AbandonedPuppet_EN");
+            med.SimpleAddEncounter(2, "Celebration_EN", 2, "AbandonedPuppet_EN");
+            med.SimpleAddEncounter(2, "Celebration_EN", 1, "Nine_EN");
+            med.SimpleAddEncounter(2, "Celebration_EN", 1, "EyePalm_EN");
+            med.SimpleAddEncounter(1, "Celebration_EN", 3, "EyePalm_EN");
+            med.SimpleAddEncounter(1, "Celebration_EN", 3, "AbandonedPuppet_EN");
+
+            med.AddEncounterToDataBases();
+            EnemyEncounterUtils.AddEncounterToCustomZoneSelector(Abyss.H.Celebration.Med, 8, "TheAbyss_Zone3", BundleDifficulty.Medium);
+        }
         public static void Post()
         {
             AddTo med = new AddTo(Garden.H.Skinning.Med);
@@ -180,6 +198,23 @@ namespace SaltsEnemies_Reseasoned
             hard = new AddTo(Garden.H.Eclipse.Hard);
             hard.SimpleAddGroup(2, Enemies.Eclipse, 1, "Celebration_EN");
             hard.SimpleAddGroup(1, Enemies.Eclipse, 2, "Celebration_EN");
+
+            //abyss
+            med = new AddTo(Abyss.H.Hand.Med);
+            med.AddRandomGroup("HandOfGod_EN", "Celebration_EN");
+
+            med = new AddTo(Abyss.H.Mechanism.Med);
+            med.AddRandomGroup("MechanicalAngel_EN", "Celebration_EN");
+
+            hard = new AddTo(Abyss.H.Hand.Hard);
+            hard.AddRandomGroup("HandOfGod_EN", "Celebration_EN", "AbandonedPuppet_EN");
+            hard.AddRandomGroup("HandOfGod_EN", "Celebration_EN", "Nine_EN");
+            hard.AddRandomGroup("HandOfGod_EN", "Celebration_EN", "EyePalm_EN", "EyePalm_EN");
+
+            hard = new AddTo(Abyss.H.Mechanism.Hard);
+            hard.AddRandomGroup("MechanicalAngel_EN", "Celebration_EN", "Celebration_EN");
+            hard.AddRandomGroup("MechanicalAngel_EN", "Celebration_EN", "AbandonedPuppet_EN", "AbandonedPuppet_EN");
+            hard.AddRandomGroup("MechanicalAngel_EN", "Celebration_EN", "EyePalm_EN", "EyePalm_EN");
         }
     }
 }
