@@ -29,7 +29,7 @@ namespace SaltEnemies_Reseasoned
             };
             wall1.CombatExitEffects = Effects.GenerateEffect(WallConnectionEffect.Create(false)).SelfArray();
 
-            Ability pass = new Ability("Pass", "Wall_Pass_A");
+            Ability pass = new Ability("A Perfect World", "Wall_Pass_A");
             pass.Description = "This enemy is asleep, but may awaken if it needs to defend itself.";
             pass.Rarity = Rarity.Common;
             pass.Effects = [
