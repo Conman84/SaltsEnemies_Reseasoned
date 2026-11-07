@@ -33,7 +33,7 @@ namespace SaltEnemies_Reseasoned
             pass.Description = "This enemy is asleep, but may awaken if it needs to defend itself.";
             pass.Rarity = Rarity.Common;
             pass.Effects = [
-                Effects.GenerateEffect(BasicEffects.Indirect, 2, Slots.Self, ScriptableObject.CreateInstance<WallAwakenCondition>())
+                Effects.GenerateEffect(BasicEffects.ShieldPierce, 2, Slots.Self, ScriptableObject.CreateInstance<WallAwakenCondition>())
                 ];
             pass.AddIntentsToTarget(Slots.Self, ["Misc_Hidden"]);
             pass.Visuals = null;
