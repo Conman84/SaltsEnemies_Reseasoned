@@ -14,9 +14,9 @@ namespace SaltsEnemies_Reseasoned
         {
             IUnit caster = sender as IUnit;
             if (caster.IsUnitCharacter || !caster.IsAlive) return;
-            CombatManager.Instance._stats.TryTransformEnemy(caster.ID, LoadedAssetsHandler.GetEnemy("Wall_2_EN"), false, true, true, false);
-            if (CombatManager.Instance._stats.timeline.IsConfused) return;
-            CombatManager.Instance.AddUIAction(new FixCasterTImelineIntentsUIAction(caster));
+            CombatManager.Instance._stats.TryTransformEnemy(caster.ID, LoadedAssetsHandler.GetEnemy("Wall_2_EN"), false, false, true, false);
+            //if (CombatManager.Instance._stats.timeline.IsConfused) return;
+            //CombatManager.Instance.AddUIAction(new FixCasterTImelineIntentsUIAction(caster));
         }
 
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)

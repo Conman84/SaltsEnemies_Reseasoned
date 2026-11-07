@@ -74,7 +74,7 @@ namespace SaltEnemies_Reseasoned
                 Priority = Priority.GetCustomPriority("wall1")
             };
             wall2.PrepareEnemyPrefab("assets/enem3/Wall_2_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Wall_Gibs.prefab").GetComponent<ParticleSystem>());
-            wall2.AddEnemyAbilities([emptyrarity, crush]);
+            wall2.AddEnemyAbilities([crush]);
             wall2.AddEnemy();
         }
     }
