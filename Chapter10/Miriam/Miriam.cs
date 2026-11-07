@@ -20,6 +20,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("MiriamDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetCharacter("Bimini_CH").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("Bimini_CH").deathSound,
+                UnitTypes = ["FemaleID", "FemaleLooking"]
             };
             miriam.PrepareEnemyPrefab("assets/group4/Miriam/Miriam_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Miriam/Miriam_Gibs.prefab").GetComponent<ParticleSystem>());
 

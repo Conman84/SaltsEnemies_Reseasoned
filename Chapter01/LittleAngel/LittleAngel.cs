@@ -52,6 +52,7 @@ namespace SaltsEnemies_Reseasoned
                 lightweight,
             });
             LittleAngel.AddUnitType("Angel");
+            LittleAngel.AddUnitType("FemaleID");
 
             //Kindness
             Targetting_ByUnit_Side allAlly = ScriptableObject.CreateInstance<Targetting_ByUnit_Side>();

@@ -22,6 +22,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldAliveSprite = ResourceLoader.LoadSprite("WindSongWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Hurt/BirdSound",
                 DeathSound = "event:/Hawthorne/Hurt/BirdSound",
+                UnitTypes = ["FemaleID", "FemaleLooking"]
             };
             windsong.PrepareEnemyPrefab("assets/group4/WindSong/WindSong_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/WindSong/WindSong_Gibs.prefab").GetComponent<ParticleSystem>());
 

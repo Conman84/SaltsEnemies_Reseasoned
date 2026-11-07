@@ -20,7 +20,8 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("PhoneDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Sund/PhoneHit",
                 DeathSound = "event:/Hawthorne/Sund/PhoneDie",
-                AbilitySelector = AbilitySelector_Wednesday.Create("PickUp_A")
+                AbilitySelector = AbilitySelector_Wednesday.Create("PickUp_A"),
+                UnitTypes = ["FemaleID"]
             };
             wednesday.PrepareEnemyPrefab("Assets/enem3/Phone_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Phone_Gibs.prefab").GetComponent<ParticleSystem>());
 

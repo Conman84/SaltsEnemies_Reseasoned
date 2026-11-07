@@ -20,7 +20,8 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("ShuaDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Soisenay/CoraHit",
                 DeathSound = "event:/Hawthorne/Soisenay/CoraDie",
-                AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_Shua>()
+                AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_Shua>(),
+                UnitTypes = ["FemaleID", "FemaleLooking"]
             };
             shua.PrepareEnemyPrefab("assets/group4/Shua/Shua_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Shua/Shua_Gibs.prefab").GetComponent<ParticleSystem>());
 
@@ -52,7 +53,7 @@ namespace SaltsEnemies_Reseasoned
 
             //add pasives
             shua.AddPassives(new BasePassiveAbilitySO[] { incomprehend, Passives.Fleeting4, Passives.Slippery });
-            shua.UnitTypes = new List<string> { "FemaleID" };
+            //shua.UnitTypes = new List<string> { "FemaleID" };
 
             //whisper
             Ability whisper = new Ability("Whisperings_A")

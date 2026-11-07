@@ -21,6 +21,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("CorpseChanDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Sosn2/RotHit",
                 DeathSound = "event:/Hawthorne/Sosn2/RotDie",
+                UnitTypes = ["FemaleID"]
             };
             corpse.PrepareEnemyPrefab("Assets/Item/CorpseChan_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Item/CorpseChan_Gibs.prefab").GetComponent<ParticleSystem>());
 
