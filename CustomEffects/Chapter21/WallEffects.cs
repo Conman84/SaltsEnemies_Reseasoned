@@ -70,4 +70,16 @@ namespace SaltsEnemies_Reseasoned
             return CombatManager.Instance._stats.EnemiesOnField.Count > 1;
         }
     }
+
+    public class WallAwakenCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+            {
+                if (enemy.EntityID != "Wall_EN" && enemy.EntityID != "33_EN") return false;
+            }
+            return UnityEngine.Random.Range(0, 100) < 40;
+        }
+    }
 }
