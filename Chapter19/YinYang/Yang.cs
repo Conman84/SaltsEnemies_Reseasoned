@@ -69,7 +69,7 @@ namespace SaltsEnemies_Reseasoned
 
             //addpassives
             yang.AddPassives(new BasePassiveAbilitySO[] { backlash, transform });
-            yang.AddUnitType("Female_ID");
+            yang.AddUnitType("FemaleID");
 
             //judge
             Ability judge = new Ability("Judiciary", "Judiciary_A");

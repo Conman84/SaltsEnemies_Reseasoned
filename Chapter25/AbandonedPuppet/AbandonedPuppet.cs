@@ -20,7 +20,8 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("PuppetDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Snound1/PuppetHit",
                 DeathSound = "event:/Hawthorne/Snound1/PuppetDie",
-                Priority = Priority.Fast
+                Priority = Priority.Fast,
+                UnitTypes = ["FemaleID", "FemaleLooking"]
             };
             puppet.PrepareEnemyPrefab("Assets/Abyss/Puppet_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Abyss/Puppet_Gibs.prefab").GetComponent<ParticleSystem>());
 

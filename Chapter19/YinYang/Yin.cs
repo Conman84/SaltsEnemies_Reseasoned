@@ -128,7 +128,7 @@ namespace SaltsEnemies_Reseasoned
 
             //addpassives
             yin.AddPassives(new BasePassiveAbilitySO[] { Passives.PanicAttack, Passives.Pure, Passives.Transfusion, Passives.Leaky3, Passives.Unstable, Passives.Slippery, Passives.Infantile, Violent.Generate(5), noOver, Passives.Forgetful, fluids, splatter, Passives.FleetingGenerator(10), disabled, substitute, Passives.Focus, Passives.Anointed1, Passives.Delicate, Passives.EssenceBlue, unmask, transform });
-            yin.AddUnitType("Female_ID");
+            yin.AddUnitType("FemaleID");
 
             //cruel
             Ability cruel = new Ability("Cruel Games", "CruelGames_A");

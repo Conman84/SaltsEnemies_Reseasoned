@@ -48,7 +48,7 @@ namespace SaltsEnemies_Reseasoned
 
             author.AddPassives(new BasePassiveAbilitySO[] { prophet, Passives.Forgetful });
             author.AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_Author>();
-            author.AddUnitType("Female_ID");
+            author.AddUnitType("FemaleID");
 
             //news reel
             Ability news = new Ability("News Reel", AuthorHandler.Spotlight);
