@@ -29,6 +29,16 @@ namespace SaltEnemies_Reseasoned
             };
             wall1.CombatExitEffects = Effects.GenerateEffect(WallConnectionEffect.Create(false)).SelfArray();
 
+            Ability pass = new Ability("Pass", "Wall_Pass_A");
+            pass.Description = "This enemy is asleep, but may awaken if attacked or alone.";
+            pass.Rarity = Rarity.Common;
+            pass.Effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Self, ScriptableObject.CreateInstance<IsOnlyEnemyEffectCondition>())
+                ];
+            pass.AddIntentsToTarget(Slots.Self, ["Misc_Hidden"]);
+            pass.Visuals = null;
+            pass.AnimationTarget = Slots.Self;
+
             //crush
             EnemyAbilityInfo crush = new EnemyAbilityInfo
             {
@@ -36,10 +46,17 @@ namespace SaltEnemies_Reseasoned
                 rarity = Rarity.CreateAndAddCustomRarityToPool("Wall_20", 20)
             };
 
+            //norar
+            EnemyAbilityInfo emptyrarity = new EnemyAbilityInfo
+            {
+                ability = pass.ability,
+                rarity = Rarity.Impossible
+            };
+
             //ADD ENEMY
             wall1.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                crush
+                pass.GenerateEnemyAbility(false),
             });
             wall1.AddEnemy(true, true);
             wall1.enemy.AddToSynodPool();
@@ -57,7 +74,7 @@ namespace SaltEnemies_Reseasoned
                 Priority = Priority.GetCustomPriority("wall1")
             };
             wall2.PrepareEnemyPrefab("assets/enem3/Wall_2_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/gib3/Wall_Gibs.prefab").GetComponent<ParticleSystem>());
-            wall2.AddEnemyAbilities([crush]);
+            wall2.AddEnemyAbilities([emptyrarity, crush]);
             wall2.AddEnemy();
         }
     }

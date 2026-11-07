@@ -281,17 +281,21 @@ namespace SaltsEnemies_Reseasoned
             wall1.CombatEnterEffects = Effects.GenerateEffect(AmalgaWallConnectionEffect.Create(true)).SelfArray();
             wall1.CombatExitEffects = Effects.GenerateEffect(AmalgaWallConnectionEffect.Create(false)).SelfArray();
 
-            //crush
-            EnemyAbilityInfo crush = new EnemyAbilityInfo
-            {
-                ability = LoadedAssetsHandler.GetEnemyAbility("Crush_A"),
-                rarity = Rarity.GetCustomRarity("Wall_20")
-            };
+            //pass
+            Ability pass = new Ability("Pass", "Wall_Pass_A");
+            pass.Description = "This enemy is asleep, but may awaken if attacked or if it is the only enemy in combat.";
+            pass.Rarity = Rarity.Common;
+            pass.Effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Self, ScriptableObject.CreateInstance<IsOnlyEnemyEffectCondition>())
+                ];
+            pass.AddIntentsToTarget(Slots.Self, ["Misc_Hidden"]);
+            pass.Visuals = null;
+            pass.AnimationTarget = Slots.Self;
 
             //ADD ENEMY
             wall1.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                crush
+                pass.GenerateEnemyAbility(false)
             });
             wall1.AddEnemy();
         }
