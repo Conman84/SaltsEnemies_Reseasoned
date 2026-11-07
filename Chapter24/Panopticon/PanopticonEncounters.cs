@@ -147,7 +147,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("Yin_EN", "Yang_EN", "Panopticon_EN", "Panopticon_EN");
 
             med = new AddTo(Garden.H.Insider.Med);
-            med.SimpleAddGroup(2, "Insider_EN", 2, "Panopticon_EN");
+            //med.SimpleAddGroup(2, "Insider_EN", 2, "Panopticon_EN");
 
             med = new AddTo(Garden.H.CorpseChan.Med);
             med.AddRandomGroup("CorpseChan_EN", "Panopticon_EN", "Panopticon_EN", "EggKeeper_EN");
