@@ -37,6 +37,21 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "H_ZoneSiren_Stalker2_Medium_EnemyBundle";
             }
+            //ADD THESE AFTER PLAYING SIREN SOME MORE
+            public static class Evileye
+            {
+                public static string Med => "H_ZoneSiren_Evileye_Medium_EnemyBundle";
+            }
+            public static class Author
+            {
+                public static string Med => "H_ZoneSiren_Author_Medium_EnemyBundle";
+                public static string Hard => "H_ZoneSiren_Author_Hard_EnemyBundle";
+            }
+            public static class Maw
+            {
+                public static string Med => "H_ZoneSiren_Maw_Medium_EnemyBundle";
+                public static string Hard => "H_ZoneSiren_Maw_Hard_EnemyBundle";
+            }
 
             //base
             public static class Piscina
