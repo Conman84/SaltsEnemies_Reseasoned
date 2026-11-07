@@ -81,7 +81,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 if (enemy.EntityID != "Wall_EN" && enemy.EntityID != "33_EN")
                 {
-                    if (enemy.ContainsPassiveAbility(PassiveType_GameIDs.Withering.ToString()) || enemy.CurrentHealth <= 6 && UnityEngine.Random.Range(0, 100) < 67) continue;
+                    if (enemy.ContainsPassiveAbility(PassiveType_GameIDs.Withering.ToString()) || enemy.ContainsPassiveAbility(PassiveType_GameIDs.Infantile.ToString()) || enemy.CurrentHealth <= 6 && UnityEngine.Random.Range(0, 100) < 67) continue;
 
                     return false;
                 }
