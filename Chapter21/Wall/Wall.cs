@@ -30,7 +30,7 @@ namespace SaltEnemies_Reseasoned
             wall1.CombatExitEffects = Effects.GenerateEffect(WallConnectionEffect.Create(false)).SelfArray();
 
             Ability pass = new Ability("Pass", "Wall_Pass_A");
-            pass.Description = "This enemy is asleep, but may awaken if attacked or alone with other sleeping enemies.";
+            pass.Description = "This enemy is asleep, but may awaken if it needs to defend itself.";
             pass.Rarity = Rarity.Common;
             pass.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Self, ScriptableObject.CreateInstance<WallAwakenCondition>())

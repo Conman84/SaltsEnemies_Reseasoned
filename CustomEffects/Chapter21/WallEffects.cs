@@ -75,11 +75,21 @@ namespace SaltsEnemies_Reseasoned
     {
         public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
         {
+            if (UnityEngine.Random.Range(0, 100) < 8) return true;
+
             foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
             {
-                if (enemy.EntityID != "Wall_EN" && enemy.EntityID != "33_EN") return false;
+                if (enemy.EntityID != "Wall_EN" && enemy.EntityID != "33_EN")
+                {
+                    if (enemy.ContainsPassiveAbility(PassiveType_GameIDs.Withering.ToString()) || enemy.CurrentHealth <= 6 && UnityEngine.Random.Range(0, 100) < 67) continue;
+
+                    return false;
+                }
             }
-            return UnityEngine.Random.Range(0, 100) < 40;
+
+            if (caster.EntityID == "33_EN") return UnityEngine.Random.Range(0, 100) < 35;
+
+            return UnityEngine.Random.Range(0, 100) < 60;
         }
     }
 }
