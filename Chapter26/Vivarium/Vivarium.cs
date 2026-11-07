@@ -20,6 +20,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("VivariumEmptyWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("SingingStone_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("SingingStone_EN").deathSound,
+                UnitTypes = ["FemaleID", "FemaleLooking"]
             };
             vivarium.PrepareEnemyPrefab("Assets/ch_26/Vivarium_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/ch_26/Vivarium_Gibs.prefab").GetComponent<ParticleSystem>());
 
