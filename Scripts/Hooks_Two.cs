@@ -339,8 +339,8 @@ namespace SaltEnemies_Reseasoned
                         (inspo_target as IStatusEffector).RemoveStatusEffect(Inspiration.StatusID);
                         if (inspo_target.UnitTypes.Contains(Inspiration.Passive)) inspo_target.TryRemovePassiveAbility(Inspiration.Passive);
                     }
-                    if (inspo_killerHas && inspo_orig_amt > 0) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(inspo_target.ID, inspo_target.IsUnitCharacter));
-                    if (inspo_killerHas && inspo_orig_amt > 0) CombatManager.Instance.AddPrioritySubAction(new RemoveInspirationAction(inspo_killer.ID, inspo_killer.IsUnitCharacter));
+                    if (inspo_killerHas && _damage.value > 0) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(inspo_target.ID, inspo_target.IsUnitCharacter));
+                    if (inspo_killerHas && _damage.value > 0) CombatManager.Instance.AddPrioritySubAction(new RemoveInspirationAction(inspo_killer.ID, inspo_killer.IsUnitCharacter));
                     if (inspo_targetHas && _damage.value > 0) CombatManager.Instance.AddRootAction(new ApplyInspirationAction(inspo_killer.ID, inspo_killer.IsUnitCharacter));
                 }
                 if (_damage.possibleSourceUnit != null && _damage.value > 0 && _damage.possibleSourceUnit.HasUsableItem && _damage.possibleSourceUnit.HeldItem.name.Contains("Salt_Torturepedia"))
