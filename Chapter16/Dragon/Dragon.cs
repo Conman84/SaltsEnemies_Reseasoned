@@ -175,7 +175,6 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(a, 1, Slots.Self),
                 Effects.GenerateEffect(abil, 1, Slots.Self),
                 Effects.GenerateEffect(pas, 1, Slots.Self),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ResetFleetingEffect>(), 1, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsPlayerTurnEffectCondition>()),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DragonSongEffect>(), 1, Slots.Self),
                 Effects.GenerateEffect(RootActionEffect.Create(new EffectInfo[]
