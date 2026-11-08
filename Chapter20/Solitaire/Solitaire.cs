@@ -188,6 +188,7 @@ namespace SaltsEnemies_Reseasoned
             tv.AddEnemy(true, true);
             tv.enemy.AddToSynodPool();
             tv.enemy.AddToEcstasyPool();
+            tv.enemy.AddToToysPool();
 
             child.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
