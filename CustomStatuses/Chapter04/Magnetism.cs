@@ -23,7 +23,7 @@ namespace SaltsEnemies_Reseasoned
             gradient.bottomLeft = new Color32(172, 50, 50, 255);//brightred
             gradient.bottomRight = new Color32(75, 18, 18, 255);//darkred
             gradient.topRight = new Color32(107, 107, 164, 255);//brightblue
-            gradient.topLeft = new Color32(23, 23, 48, 255);//darkblue
+            gradient.topLeft = Color.white;
             //note: this is the color of Pale damage in lobotomy corporation. it MUST be this color bc im autistic like that. feel free to change the sounds though
             if (LoadedDBsHandler.CombatDB.m_TxtColorPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_TxtColorPool[DamageType] = gradient;
             else LoadedDBsHandler.CombatDB.AddNewTextColor(DamageType, gradient);
