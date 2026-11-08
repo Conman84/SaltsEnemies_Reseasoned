@@ -34,8 +34,8 @@ namespace SaltsEnemies_Reseasoned
             {
                 Passives.Transfusion, 
                 Passives.Slippery, 
-                Passives.Pure
             });
+            RusticJumbleGuts.CombatEnterEffects = Effects.GenerateEffect(RootActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMagnetismEffect>(), 1, Slots.Self).SelfArray()), 1, Slots.Self).SelfArray();
 
             RusticJumbleGuts.AddUnitType("Robot");
 
@@ -71,22 +71,20 @@ namespace SaltsEnemies_Reseasoned
 
             //Dust
             Ability dust = new Ability("Dust to Dust", "Salt_DusttoDust_A");
-            dust.Description = "Deal almost no damage to this enemy. Give this enemy another action. Cannot be \"Dust to Dust\".";
-            dust.Rarity = Rarity.GetCustomRarity("rarity3");
+            dust.Description = "Gain 1 Magnetism.\nIf this enemy already had Magnetism, deal a Little damage to all party members.";
+            dust.Rarity = Rarity.CreateAndAddCustomRarityToPool("rustic_7", 7);
+            StatusEffectCheckerEffect hasmagnet = ScriptableObject.CreateInstance<StatusEffectCheckerEffect>();
+            hasmagnet._status = Magnetism.Object;
             dust.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 1, Targeting.Slot_SelfSlot),
-                Effects.GenerateEffect(BasicEffects.SetStoreValue(UnitStoredValueNames_GameIDs.DemonCoreW.ToString()), 1, Targeting.Slot_SelfSlot),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnTargetToTimelineEffect>(), 1, Targeting.Slot_SelfSlot),
-                Effects.GenerateEffect(BasicEffects.SetStoreValue(UnitStoredValueNames_GameIDs.DemonCoreW.ToString()), 0, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(hasmagnet, 1, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMagnetismEffect>(), 1, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Targeting.Unit_AllOpponents, BasicEffects.DidThat(true, 2))
             };
             dust.Visuals = LoadedAssetsHandler.GetEnemyAbility("MinorKey_A").visuals;
             dust.AnimationTarget = Targeting.Slot_SelfSlot;
-            dust.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
-            {
-                "Damage_1_2",
-                "Misc"
-            });
+            dust.AddIntentsToTarget(Slots.Self, [Magnetism.Intent, "Misc_Hidden"]);
+            dust.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Damage_1_2"]);
 
             //Add
             RusticJumbleGuts.AddEnemyAbilities(new EnemyAbilityInfo[]

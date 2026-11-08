@@ -643,6 +643,7 @@
 	  <None Remove="CustomStatuses\Bosses\RedLight.png" />
 	  <None Remove="CustomStatuses\Chapter04\Favor.png" />
 	  <None Remove="CustomStatuses\Chapter04\InspirationIcon.png" />
+	  <None Remove="CustomStatuses\Chapter04\MagnetismIcon.png" />
 	  <None Remove="CustomStatuses\Chapter06\MutedIcon.png" />
 	  <None Remove="CustomStatuses\Chapter06\PhotoIcon.png" />
 	  <None Remove="CustomStatuses\Chapter06\RootsIcon.png" />
@@ -1712,6 +1713,7 @@
 	  <EmbeddedResource Include="CustomStatuses\Chapter01\Power.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter04\Favor.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter04\InspirationIcon.png" />
+	  <EmbeddedResource Include="CustomStatuses\Chapter04\MagnetismIcon.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter06\MutedIcon.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter06\PhotoIcon.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter06\RootsIcon.png" />
