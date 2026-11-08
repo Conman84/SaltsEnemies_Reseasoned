@@ -60,7 +60,7 @@ namespace SaltsEnemies_Reseasoned
         public override void OnTriggerAttached(StatusEffect_Holder holder, IStatusEffector caller)
         {
             if (caller.IsStatusEffectorCharacter) CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnFinished.ToString(), caller);
-            else CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnMiscPlayerTurnStart.ToString(), caller);
+            else CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnPlayerTurnEnd_ForEnemy.ToString(), caller);
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, TriggerCalls.OnWillApplyDamage.ToString(), caller);
             CombatManager.Instance.AddObserver(holder.OnEventTriggered_03, TriggerCalls.OnDirectDamaged.ToString(), caller);
         }
@@ -68,7 +68,7 @@ namespace SaltsEnemies_Reseasoned
         public override void OnTriggerDettached(StatusEffect_Holder holder, IStatusEffector caller)
         {
             if (caller.IsStatusEffectorCharacter) CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnFinished.ToString(), caller);
-            else CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnMiscPlayerTurnStart.ToString(), caller);
+            else CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnPlayerTurnEnd_ForEnemy.ToString(), caller);
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, TriggerCalls.OnWillApplyDamage.ToString(), caller);
             CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_03, TriggerCalls.OnDirectDamaged.ToString(), caller);
         }
@@ -83,7 +83,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 if (var.casterUnit != null && var.damagedUnit != null)
                 {
-                    CombatManager.Instance.AddSubAction(new TransferMagnetismAction(var.damagedUnit, var.casterUnit, holder.m_ContentMain + holder.Restrictor));
+                    CombatManager.Instance.AddSubAction(new TransferMagnetismAction(var.damagedUnit, var.casterUnit, holder.m_ContentMain));
                 }
             }
         }
