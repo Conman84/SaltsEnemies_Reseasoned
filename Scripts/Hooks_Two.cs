@@ -49,6 +49,8 @@ namespace SaltEnemies_Reseasoned
 
             WontKillDamageHook.Setup();
 
+            SaltsReseasoned.PCall(InspirationZeroDamageHook.Setup);
+
             return;
             /*try
             {
@@ -369,6 +371,23 @@ namespace SaltEnemies_Reseasoned
             {
                 CombatManager.Instance.PostNotification(GlowingHatCondition.Trigger.ToString(), sender as IUnit, null);
             }
+        }
+    }
+    public static class InspirationZeroDamageHook
+    {
+        public static int DamageReceivedValueChangeException_GetModifiedValue(Func<DamageReceivedValueChangeException, int> orig, DamageReceivedValueChangeException self)
+        {
+            int ret = orig(self);
+            if (self.amount > 0 && ret <= 0 && self.possibleSourceUnit != null && self.damagedUnit != null && self.possibleSourceUnit.ContainsStatusEffect(Inspiration.StatusID))
+            {
+                CombatManager.Instance.AddRootAction(new ApplyInspirationAction(self.damagedUnit.ID, self.damagedUnit.IsUnitCharacter));
+                CombatManager.Instance.AddPrioritySubAction(new RemoveInspirationAction(self.possibleSourceUnit.ID, self.possibleSourceUnit.IsUnitCharacter));
+            }
+            return ret;
+        }
+        public static void Setup()
+        {
+            IDetour hook = new Hook(typeof(DamageReceivedValueChangeException).GetMethod(nameof(DamageReceivedValueChangeException.GetModifiedValue), ~BindingFlags.Default), typeof(InspirationZeroDamageHook).GetMethod(nameof(DamageReceivedValueChangeException_GetModifiedValue), ~BindingFlags.Default));
         }
     }
     public class GlowingHatCondition : EffectorConditionSO
