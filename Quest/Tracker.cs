@@ -62,6 +62,7 @@ namespace SaltsEnemies_Reseasoned
                     if (enemy.Enemy.name == Ecstasy.Blue) AddKill("Ecstasy_EN", reference.witheringDeath);
                     if (enemy.Enemy.name == Ecstasy.Yellow) AddKill("Ecstasy_EN", reference.witheringDeath);
                     if (enemy.Enemy.name == Ecstasy.Purple) AddKill("Ecstasy_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "EclipseRising_EN" || enemy.Enemy.name == "EclipseAwakened_EN") AddKill("Eclipse_EN", reference.witheringDeath);
 
                     if (enemy.Enemy.name == "Smiler_Corpse_BOSS") AddKill("Smilers_BOSS", reference.witheringDeath);
                     if (enemy.Enemy.name == "RedSky_BOSS") AddKill("BlueSky_BOSS", reference.witheringDeath);
@@ -231,6 +232,22 @@ namespace SaltsEnemies_Reseasoned
             "WolfColony_EN",
             "WolfLarvae_EN",
             "Stalker2_EN",
+            "Lunoscope_EN",
+            "Panopticon_EN",
+            "TheWhale_EN",
+            "Papereater_EN",
+            "Nume_EN",
+            Ecstasy.Gray,
+            "AbandonedPuppet_EN",
+            "HandOfGod_EN",
+            "Nine_EN",
+            "Mimita_EN",
+            "MechanicalAngel_EN",
+            "ILoveYou_EN",
+            "Celebration_EN",
+            "Lightbulbkin_EN",
+            "Melder_EN",
+            "Vivarium_EN",
             "Smilers_BOSS",
             "CrowChild_BOSS",
             "BlackAndBlue_BOSS",

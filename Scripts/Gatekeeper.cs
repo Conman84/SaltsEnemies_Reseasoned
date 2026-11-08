@@ -197,6 +197,16 @@ namespace SaltsEnemies_Reseasoned
             if (enemy == "Sundowner_EN" && !Tracker.Track(["DeadPixel_EN", "Complimentary_EN"])) return false;
             if (enemy == "Panopticon_EN" && !Tracker.Track(["Papereater_EN", "Enigma_EN"])) return false;
             if (enemy == "Lunoscope_EN" && !Tracker.Track(["Panopticon_EN", "Nume_EN"])) return false;
+            if (enemy == "Nine_EN" && !Tracker.Track(["ToyUfo_EN", Bots.Grey, "Freud_EN"])) return false;
+            if (enemy == "MechanicalAngel_EN" && !Tracker.Track(["YellowAngel_EN", "EvilDog_EN", Flower.Red, Flower.Blue, Flower.Yellow, Flower.Purple])) return false;
+            if (enemy == "HandOfGod_EN" && !Tracker.Track(["Pinano_EN", "LostSheep_EN", "Monster_EN"])) return false;
+            if (enemy == "AbandonedPuppet_EN" && !Tracker.Track(["EyePalm_EN", Flower.Red, Flower.Blue, Flower.Yellow, Flower.Purple])) return false;
+            if (enemy == "Lightbulbkin_EN" && !Tracker.Track(["Indicator_EN", "ClockTower_EN"])) return false;
+            if (enemy == "ILoveYou_EN" && !Tracker.Track(["Lightbulbkin_EN", "Freud_EN", "ClockTower_EN"])) return false;
+            if (enemy == Enemies.Eclipse && !Tracker.Track(["Lightbulbkin_EN", "ToyUfo_EN", Bots.Red, Bots.Blue, Bots.Yellow, Bots.Purple])) return false;
+            if (enemy == "Melder_EN" && !Tracker.Track(["ToyUfo_EN", "Solitaire_EN"])) return false;
+            if (enemy == "Celebration_EN" && !Tracker.Track(["Pinano_EN", "ToyUfo_EN"])) return false;
+            if (enemy == "Vivarium_EN" && !Tracker.Track(["Wall_EN", "TheDragon_EN", "2009_EN"])) return false;
             if (enemy == "ReverseFalseHydra_EN" && !Tracker.Track("TortureMeNot_EN")) return false;
 
             return true;
