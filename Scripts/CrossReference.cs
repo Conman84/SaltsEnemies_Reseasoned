@@ -1,4 +1,5 @@
 ﻿using MonoMod.RuntimeDetour;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,9 @@ namespace SaltsEnemies_Reseasoned
 
         public static bool Gatekeeper_AllowEnemy(Func<string, bool> orig, string enemy)
         {
+            if (!Check.EnemyExist(enemy)) return false;
+            if (April.Birthday || Gatekeeper.Randoming) return true;
+
             if (!Legacy.Check && DataManager.Hidden.Contains(enemy)) return false;
             if (!KonamiHandler.Solved && DataManager.Unknown.Contains(enemy)) return false;
 
