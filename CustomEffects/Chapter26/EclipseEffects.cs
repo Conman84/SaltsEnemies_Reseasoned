@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 using static UnityEngine.GraphicsBuffer;
 
 namespace SaltsEnemies_Reseasoned
@@ -56,6 +57,49 @@ namespace SaltsEnemies_Reseasoned
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             exitAmount = 0;
+            if (caster is EnemyCombat enemy)
+            {
+                for (int num2 = enemy.Abilities.Count - 1; num2 >= 0; num2--)
+                {
+                    if (!(enemy.Abilities[num2].ability != abil.ability) && !(enemy.Abilities[num2].rarity != abil.rarity))
+                    {
+                        //num2
+
+                        //update timeline ids
+                        List<int> turns_removed = [];
+
+                        for (int i = stats.timeline.Round.Count - 1; i >= stats.timeline.CurrentTurn; i--)
+                        {
+                            if (stats.timeline.Round[i].isPlayer) continue;
+
+                            if (stats.timeline.Round[i].turnUnit == enemy)
+                            {
+                                if (stats.timeline.Round[i].abilitySlot == num2)
+                                {
+                                    stats.timeline.Round.RemoveAt(i);
+                                    enemy.TurnsInTimeline--;
+                                    turns_removed.Add(i);
+                                }
+                                else if (stats.timeline.Round[i].abilitySlot > num2)
+                                {
+                                    TurnInfo turn = stats.timeline.Round[i];
+                                    turn.abilitySlot -= entryVariable;
+                                    stats.timeline.Round[i] = turn;
+
+                                    TimelineInfo timeline = stats.combatUI._TimelineHandler.TimelineSlotInfo[i];
+                                    timeline.abilitySlotID = turn.abilitySlot;
+                                    stats.combatUI._TimelineHandler.TimelineSlotInfo[i] = timeline;
+                                }
+                            }
+                        }
+
+                        CombatManager.Instance.AddUIAction(new RemoveSlotTimelineUIAction(turns_removed.ToArray()));
+                        CombatManager.Instance.AddUIAction(new UpdateTimelinePointerUIAction(stats.timeline.CurrentTurn));
+
+                        break;
+                    }
+                }
+            }
             caster.TryRemoveExtraAbility(abil);
             return true;
         }

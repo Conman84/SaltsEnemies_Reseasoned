@@ -247,6 +247,7 @@ namespace SaltsEnemies_Reseasoned
             CasterTransformByStringEffect awaken = ScriptableObject.CreateInstance<CasterTransformByStringEffect>();
             awaken.enemy = "EclipseAwakened_EN";
             awaken._fullyHeal = true;
+            awaken._maintainTimelineAbilities = false;
             
             Ability twentieth = new Ability("Twentieth Pain", "Eclipse20_A");
             twentieth.Description = "Awaken.";
