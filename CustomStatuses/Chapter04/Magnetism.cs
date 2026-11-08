@@ -83,7 +83,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 if (var.casterUnit != null && var.damagedUnit != null)
                 {
-                    CombatManager.Instance.AddSubAction(new TransferMagnetismAction(var.damagedUnit, var.casterUnit));
+                    CombatManager.Instance.AddSubAction(new TransferMagnetismAction(var.damagedUnit, var.casterUnit, holder.m_ContentMain + holder.Restrictor));
                 }
             }
         }
@@ -106,14 +106,16 @@ namespace SaltsEnemies_Reseasoned
     {
         public IUnit target;
         public IUnit source;
-        public TransferMagnetismAction(IUnit target, IUnit source)
+        public int amt;
+        public TransferMagnetismAction(IUnit target, IUnit source, int amt)
         {
             this.target = target;
             this.source = source;
+            this.amt = amt;
         }
         public override IEnumerator Execute(CombatStats stats)
         {
-            int amt = source.TryRemoveStatusEffect(Magnetism.StatusID);
+            source.TryRemoveStatusEffect(Magnetism.StatusID);
             target.ApplyStatusEffect(Magnetism.Object, amt);
             yield return null;
         }
