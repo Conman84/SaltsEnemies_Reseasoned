@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using static UnityEngine.UI.CanvasScaler;
 
 namespace SaltEnemies_Reseasoned
 {
@@ -255,7 +256,8 @@ namespace SaltEnemies_Reseasoned
                 {
                     if (Charas.Contains(chara.ID))
                     {
-                        if (!chara.ApplyStatusEffect(Inspiration.Object, 1)) continue;
+                        if (chara.ContainsStatusEffect(Inspiration.StatusID)) CombatManager.Instance.AddRootAction(new PartyMemberInspirationApplicationAction(chara));
+                        else if (!chara.ApplyStatusEffect(Inspiration.Object, 1)) continue;
                         if (chara.UnitTypes.Contains(Inspiration.Passive)) if (Inspiration.Inspired != null && !Inspiration.Inspired.Equals(null)) chara.AddPassiveAbility(Inspiration.Inspired);
                     }
                 }
@@ -264,7 +266,8 @@ namespace SaltEnemies_Reseasoned
                 {
                     if (Enemies.Contains(enemy.ID))
                     {
-                        if (!enemy.ApplyStatusEffect(Inspiration.Object, 1)) continue;
+                        if (enemy.ContainsStatusEffect(Inspiration.StatusID)) CombatManager.Instance._stats.timeline.TryAddNewExtraEnemyTurns(enemy, 1);
+                        else if (!enemy.ApplyStatusEffect(Inspiration.Object, 1)) continue;
                         if (enemy.UnitTypes.Contains(Inspiration.Passive)) if (Inspiration.Inspired != null && !Inspiration.Inspired.Equals(null)) enemy.AddPassiveAbility(Inspiration.Inspired);
                     }
                 }
