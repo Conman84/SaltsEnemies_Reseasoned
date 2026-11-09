@@ -22,6 +22,7 @@ namespace SaltsEnemies_Reseasoned
         public static DebugCommand ADDHARDENEMY;
 
         public static DebugCommand ADDENCOUNTERRANDOM;
+        public static DebugCommand ADDENCOUNTERSUITE;
         public static void Add()
         {
             KILL = new DebugCommand("kill", "Instantly kill all enemies.", new List<DebugCommandArgument>(), delegate
@@ -232,6 +233,59 @@ namespace SaltsEnemies_Reseasoned
                     }
                 }
             });
+            ADDENCOUNTERSUITE = new DebugCommand("addrandomencountersuite", "Adds a number of random enemy encounters (default of 6)", new List<DebugCommandArgument>()
+            {
+                new NumericalCommandArgument("amount", 0, null, true)
+            }, delegate (List<FilledCommandArgument> args)
+            {
+                int amount = 6;
+                if (args[0].TryRead<int>(out int input)) amount = input;
+                RunDataSO run = LoadedDBsHandler.InfoHolder.Run;
+                if (run == null)
+                {
+                    DebugController.Instance.WriteLine("No active run.", LogLevel.Error);
+                }
+                else if (run.CurrentZoneID >= run.zoneData.Count)
+                {
+                    DebugController.Instance.WriteLine("No zone.", LogLevel.Error);
+                }
+                else
+                {
+                    RunZoneData runZoneData = run.zoneData[run.CurrentZoneID];
+                    ZoneDataBaseSO zoneDataBaseSO = runZoneData.LoadZoneDB();
+                    if (zoneDataBaseSO is ZoneBGDataBaseSO zone)
+                    {
+                        zone._zoneData = runZoneData;
+
+                        for (int i = 0; i < amount; i++)
+                        {
+                            int dif = UnityEngine.Random.Range(0, 6);
+                            switch (dif)
+                            {
+                                case 0:
+                                    zone.GenerateRandomEnemyCard(0);
+                                    break;
+                                case 1:
+                                    zone.GenerateRandomEnemyCard(1);
+                                    break;
+                                case 2:
+                                    goto case 1;
+                                case 3:
+                                    goto case 1;
+                                case 4:
+                                    zone.GenerateRandomEnemyCard(2);
+                                    break;
+                                case 5:
+                                    goto case 4;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        DebugController.Instance.WriteLine("Invalid zone.", LogLevel.Error);
+                    }
+                }
+            });
 
             RESETFLEETING = new DebugCommand("resetfleeting", "Reset fleeting on all enemies.", new List<DebugCommandArgument>(), delegate
             {
@@ -253,6 +307,7 @@ namespace SaltsEnemies_Reseasoned
             DebugController.Commands.children.Add(ADDMEDIUMENEMY);
             DebugController.Commands.children.Add(ADDHARDENEMY);
             DebugController.Commands.children.Add(ADDENCOUNTERRANDOM);
+            DebugController.Commands.children.Add(ADDENCOUNTERSUITE);
             DebugController.Commands.children.Add(RESETFLEETING);
         }
 
