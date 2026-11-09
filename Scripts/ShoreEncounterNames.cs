@@ -428,6 +428,11 @@ namespace SaltsEnemies_Reseasoned
                 public static string Med => "MungedOneMedium";
                 public static string Hard => "MungedOneHard";
             }
+            public static class Penguin
+            {
+                public static string Med => "AlbinoPenguinMedium";
+                public static string Hard => "AlbinoPenguinHard";
+            }
 
             //fishy
             public static class WhaleHead

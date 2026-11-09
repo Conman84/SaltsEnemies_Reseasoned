@@ -264,5 +264,6 @@ namespace SaltsEnemies_Reseasoned
         public static string Prior => "MercifulPrior_EN";
         public static string Prioress => "RelentlessPrioress_EN";
         public static string Portrait => "PortraitLoss_EN";
+        public static string Penguin => "AlbinoPenguin_EN";
     }
 }

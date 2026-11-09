@@ -477,6 +477,11 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Hard => "FF_Tableau_HardBundle";
             }
+            public static class Teratoma
+            {
+                public static string Med => "FF_Teratoma_MediumBundle";
+            }
+
         }
     }
 }
