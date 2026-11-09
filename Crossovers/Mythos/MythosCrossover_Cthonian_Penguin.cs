@@ -8,7 +8,8 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-
+            AddTo med = new AddTo(Shore.H.Penguin.Med);
+            med.AddRandomGroup(Enemies.Penguin, "Pinano_EN", "Pinano_EN");
         }
     }
 }
