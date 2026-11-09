@@ -23,7 +23,7 @@ namespace SaltEnemies_Reseasoned
             StatusEffectInfoSO EntropyInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             EntropyInfo.icon = ResourceLoader.LoadSprite("EntropyIcon.png");
             EntropyInfo._statusName = "Entropy";
-            EntropyInfo._description = "Every 30 seconds, this unit receives 1 indirect damage; ignores Scars. \nUpon activation, speed up by 3-9 seconds and decrease Entropy by 1.";
+            EntropyInfo._description = "Every 30 seconds, this unit receives 1 indirect damage; ignores anything that would increase it.\nUpon activation, speed up by 3-9 seconds and decrease Entropy by 1.";
             EntropyInfo._applied_SE_Event = "event:/Hawthorne/Misc/EntropyApply";
             EntropyInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Gutted_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             EntropyInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Gutted_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
@@ -63,14 +63,16 @@ namespace SaltEnemies_Reseasoned
             else LoadedDBsHandler.CombatDB.AddNewSound(DamageType, "event:/Hawthorne/Misc/EntropyDmg");
         }
 
+
+        public static int DamageReceivedValueChangeException_GetModifiedValue(Func<DamageReceivedValueChangeException, int> orig, DamageReceivedValueChangeException self)
+        {
+            int num = orig(self);
+            if (self.damageTypeID == DamageType && num > 1) return 1;
+            return num;
+        }
         public static void Setup()
         {
-            IDetour hook = new Hook(typeof(ScarsSE_SO).GetMethod(nameof(ScarsSE_SO.OnEventCall_01), ~System.Reflection.BindingFlags.Default), typeof(Entropy).GetMethod(nameof(ScarsSE_SO_OnEventCall_01), ~System.Reflection.BindingFlags.Default));
-        }
-        public static void ScarsSE_SO_OnEventCall_01(Action<ScarsSE_SO, StatusEffect_Holder, object, object> orig, ScarsSE_SO self, StatusEffect_Holder holder, object sender, object args)
-        {
-            if (args is DamageReceivedValueChangeException value && value.damageTypeID == Entropy.DamageType) return;
-            orig(self, holder, sender, args);
+            IDetour hook = new Hook(typeof(DamageReceivedValueChangeException).GetMethod(nameof(DamageReceivedValueChangeException.GetModifiedValue), ~System.Reflection.BindingFlags.Default), typeof(Entropy).GetMethod(nameof(DamageReceivedValueChangeException_GetModifiedValue), ~System.Reflection.BindingFlags.Default));
         }
     }
     public class EntropySE_SO : StatusEffect_SO
