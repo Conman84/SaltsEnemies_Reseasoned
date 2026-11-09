@@ -24,7 +24,7 @@ namespace SaltsEnemies_Reseasoned
             };
             vivarium.PrepareEnemyPrefab("Assets/ch_26/Vivarium_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/ch_26/Vivarium_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            BasePassiveAbilitySO multi0 = Passives.MultiAttackGenerator(0);
+            BasePassiveAbilitySO multi0 = ScriptableObject.Instantiate<BasePassiveAbilitySO>(Passives.MultiAttackGenerator(0));
             multi0.name = "Nonomnumuburamuma_PA";
             multi0.m_PassiveID = "Nonomnumuburamuma_PA";
             multi0._passiveName = "Nonomnumuburamuma";
