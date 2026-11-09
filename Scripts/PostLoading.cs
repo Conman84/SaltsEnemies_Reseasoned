@@ -310,6 +310,7 @@ namespace SaltEnemies_Reseasoned
             PCall(FreakFoesCrossovers_First.Add);
             PCall(FreakFoes_SecondSet.AddShore);
             PCall(FreakFoes_SecondSet.AddOrph);
+            PCall(Teratoma_Cross.Add);
 
             //fishy
             PCall(Fishy_ShoreAndOrph_First.Add);
