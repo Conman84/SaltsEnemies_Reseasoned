@@ -68,7 +68,7 @@ namespace SaltsEnemies_Reseasoned
                         //update timeline ids
                         List<int> turns_removed = [];
 
-                        for (int i = stats.timeline.Round.Count - 1; i >= stats.timeline.CurrentTurn; i--)
+                        for (int i = stats.timeline.Round.Count - 1; i > stats.timeline.CurrentTurn; i--)
                         {
                             if (stats.timeline.Round[i].isPlayer) continue;
 
