@@ -38,14 +38,14 @@ namespace SaltsEnemies_Reseasoned
             RusticJumbleGuts.CombatEnterEffects = Effects.GenerateEffect(RootActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMagnetismEffect>(), 1, Slots.Self).SelfArray()), 1, Slots.Self).SelfArray();
 
             RusticJumbleGuts.AddUnitType("Robot");
-
+            
             //Melt
             Ability melt = new Ability("Melting Point", "Salt_MeltingPoint_A");
-            melt.Description = "\"Deal 11 damage to the opposing enemy.\"\n(Deals a Deadly amount of damage to the Opposing party member.)";
+            melt.Description = "Deals a Deadly amount of damage to the Opposing party member.\nThis damage is fully blocked by Shield.";
             melt.Rarity = Rarity.GetCustomRarity("rarity5");
             melt.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 11, Targeting.Slot_Front),
+                Effects.GenerateEffect(BasicEffects.ShieldPierce, 11, Targeting.Slot_Front),
             };
             melt.Visuals = LoadedAssetsHandler.GetEnemyAbility("Boil_A").visuals;
             melt.AnimationTarget = Targeting.Slot_Front;
