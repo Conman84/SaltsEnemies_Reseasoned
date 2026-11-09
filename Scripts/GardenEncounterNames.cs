@@ -364,6 +364,10 @@ namespace SaltsEnemies_Reseasoned
                 public static string Med => "ShamblerMedium";
                 public static string Hard => "ShamblerHard";
             }
+            public static class Cthonian
+            {
+                public static string Hard => "ChthonianMedium";
+            }
 
             //aaa
             public static class Sisters
