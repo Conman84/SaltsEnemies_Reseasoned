@@ -93,7 +93,6 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup(Enemies.Cthonian, "Eyeless_EN");
             hard.AddRandomGroup(Enemies.Cthonian, "PawnA_EN", "PawnA_EN");
             hard.AddRandomGroup(Enemies.Cthonian, "PawnA_EN", "Yang_EN");
-            hard.AddRandomGroup(Enemies.Cthonian, "InTheDark_EN");
             hard.AddRandomGroup(Enemies.Cthonian, "Panopticon_EN", "Panopticon_EN");
             hard.AddRandomGroup(Enemies.Cthonian, Enemies.Eclipse, Enemies.Eclipse);
             hard.AddRandomGroup(Enemies.Cthonian, "Celebration_EN", Spoggle.Mythos);
