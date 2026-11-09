@@ -91,7 +91,7 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Orph.H.YellowAngel.Med);
             med.AddRandomGroup("YellowAngel_EN", "Teratoma_EN", "Teratoma_EN");
-            med.AddRandomGroup("YellowAngel_EN", "Teratoma_EN", 'Scrungie_EN');
+            med.AddRandomGroup("YellowAngel_EN", "Teratoma_EN", "Scrungie_EN");
             med.AddRandomGroup("YellowAngel_EN", "Teratoma_EN", "TheCrow_EN");
 
             med = new AddTo(Orph.H.Wednesday.Med);
