@@ -66,7 +66,7 @@ namespace SaltsEnemies_Reseasoned
         public static void Post()
         {
             AddTo med = new AddTo(Garden.H.Jumble.Grey.Med);
-            med.AddRandomGroup(Jumble.Grey, "Shua_EN", Enemies.Camera, "Indicator_EN");
+            med.AddRandomGroup(Jumble.Grey, "Shua_EN", "Indicator_EN");
 
             med = new AddTo(Garden.H.Spoggle.Grey.Med);
             med.AddRandomGroup(Spoggle.Grey, "InHisImage_EN", "InHerImage_EN", "Indicator_EN");
