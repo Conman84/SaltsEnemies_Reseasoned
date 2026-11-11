@@ -1,10 +1,37 @@
-﻿using MonoMod.RuntimeDetour;
+﻿using BrutalAPI;
+using MonoMod.RuntimeDetour;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace EntraStuff2
 {
+    public static class Example
+    {
+        public static void AddEnemy()
+        {
+            Enemy test = new Enemy("Test", "Test_EN");
+
+            SetMusicParameterByStringEffect teratoma_music = SetMusicParameterByStringEffect.Create("Teeth");//MUST BE THIS PARAMETER
+
+            Ability ab1 = new Ability("Test_Ability_1_A");
+            ab1.Effects = [
+                //ability does some various things
+                //contains an AddTeethEffect HERE
+                //run a checkteethamountconditioneffect (NEW ONE, to account for new tooth added)
+                Effects.GenerateEffect(teratoma_music, 1, null)//conditions DidThat(true)
+                ];
+            //using "1" as the entryvariable for the music effect means ADD THE LAYER.
+            //using "0" as the entryvariable for the music means REMOVE THE LAYER : the effect has built in logic to only remove the layer if no other things are adding it.
+
+            //set combatexiteffects (i.e. on die or on flee)
+
+            test.CombatExitEffects = [Effects.GenerateEffect(teratoma_music, 0, null)];
+            //you dont need to do a check has teeth amount before removing the layer on death
+            //the effect has logic built in to only decrease the layer if this is one of the enemies actually increasing it.
+        }
+    }
+
     public class SetMusicParameterByStringEffect : EffectSO
     {
         public static Dictionary<string, List<int>> Params;
