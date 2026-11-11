@@ -58,7 +58,7 @@ namespace SaltsEnemies_Reseasoned
             };
             greyFlower.PrepareEnemyPrefab("assets/group4/GreyFlower/GreyFlower_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/GreyFlower/GreyFlower_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            greyFlower.AddPassives(new BasePassiveAbilitySO[] { Passives.Pure, splatter, grow, escape });
+            greyFlower.AddPassives(new BasePassiveAbilitySO[] { splatter, grow, escape });
             greyFlower.AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_PigmentFlower>();
 
             //DIE4U

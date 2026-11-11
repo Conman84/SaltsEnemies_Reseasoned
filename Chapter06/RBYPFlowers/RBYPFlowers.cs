@@ -131,7 +131,7 @@ namespace SaltsEnemies_Reseasoned
             };
             redflower.PrepareEnemyPrefab("assets/group4/RedFlower/RedFlower_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/RedFlower/RedFlower_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            redflower.AddPassives(new BasePassiveAbilitySO[] { Passives.Pure, splatter, grow, escape });
+            redflower.AddPassives(new BasePassiveAbilitySO[] { splatter, grow, escape });
             redflower.AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_PigmentFlower>();
 
             //RED SPECIAL
@@ -173,7 +173,7 @@ namespace SaltsEnemies_Reseasoned
             };
             blueflower.PrepareEnemyPrefab("assets/group4/BlueFlower/BlueFlower_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/BlueFlower/BlueFlower_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            blueflower.AddPassives(new BasePassiveAbilitySO[] { Passives.Pure, splatter, grow, escape });
+            blueflower.AddPassives(new BasePassiveAbilitySO[] { splatter, grow, escape });
             blueflower.AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_PigmentFlower>();
 
             //BLUE SPECIAL
@@ -215,7 +215,7 @@ namespace SaltsEnemies_Reseasoned
             };
             yellowflower.PrepareEnemyPrefab("assets/group4/YellowFlower/YellowFlower_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/YellowFlower/YellowFlower_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            yellowflower.AddPassives(new BasePassiveAbilitySO[] { Passives.Pure, splatter, grow, escape });
+            yellowflower.AddPassives(new BasePassiveAbilitySO[] { splatter, grow, escape });
             yellowflower.AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_PigmentFlower>();
 
             //YELLOW SPECIAL
@@ -263,7 +263,7 @@ namespace SaltsEnemies_Reseasoned
             };
             purpleflower.PrepareEnemyPrefab("assets/group4/PurpleFlower/PurpleFlower_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/PurpleFlower/PurpleFlower_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            purpleflower.AddPassives(new BasePassiveAbilitySO[] { Passives.Pure, splatter, grow, escape });
+            purpleflower.AddPassives(new BasePassiveAbilitySO[] { splatter, grow, escape });
             purpleflower.AbilitySelector = ScriptableObject.CreateInstance<AbilitySelector_PigmentFlower>();
 
             //PURPLE SPECIAL
