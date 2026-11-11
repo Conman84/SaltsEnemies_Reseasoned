@@ -43,6 +43,7 @@ namespace EntraStuff2
             if (!Params.ContainsKey(parameter))
             {
                 if (amount > 0) Params.Add(parameter, new List<int>() { caster });
+                else Params.Add(parameter, new List<int>());
             }
             else
             {
