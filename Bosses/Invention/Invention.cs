@@ -98,7 +98,7 @@ namespace SaltsEnemies_Reseasoned
             Ability encroach = new Ability("Encroach", "Encroach_A")
             {
                 Description = "Deal an Agonizing amount of damage to a random party member that did not manually use an ability this turn.\nIf every party member manually used an ability, produce 3 random non-Red Pigment.",
-                Rarity = Rarity.Common,
+                Rarity = Rarity.Uncommon,
                 Visuals = CustomVisuals.GetVisuals("Salt/Insta/Shatter"),
                 AnimationTarget = targeting_ability,
             };
@@ -113,7 +113,7 @@ namespace SaltsEnemies_Reseasoned
             targeting_both.getAllUnitSlots = false;
             Ability series = new Ability("Series", "Series_A");
             series.Description = "Consume all Pigment.\nInflict 2 Magnetism on all party members that both manually moved and manually used an ability.";
-            series.Rarity = Rarity.GetCustomRarity("rarity5");
+            series.Rarity = Rarity.Common;
             series.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeAllManaEffect>(), 1, Slots.Self),
@@ -140,7 +140,7 @@ namespace SaltsEnemies_Reseasoned
             Ability limit = new Ability("Limit", "Limit_A")
             {
                 Description = "Deal a Painful amount of damage to all party members that did not manually move this turn.\nIf every party member manually moved, produce 3 random non-Red Pigment.",
-                Rarity = Rarity.Common,
+                Rarity = Rarity.Uncommon,
                 Visuals = CustomVisuals.GetVisuals("Salt/Drill"),
                 AnimationTarget = targeting_moved,
             };
