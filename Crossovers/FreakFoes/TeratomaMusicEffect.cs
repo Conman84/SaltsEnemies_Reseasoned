@@ -19,7 +19,10 @@ namespace EntraStuff2
             }
             else
             {
-                if (amount > 0) Params[parameter].Add(caster);
+                if (amount > 0)
+                {
+                    if (!Params[parameter].Contains(caster)) Params[parameter].Add(caster);
+                }
                 else Params[parameter].Remove(caster);
             }
             CombatManager.Instance._stats.audioController.MusicCombatEvent.setParameterByName(parameter, Params[parameter].Count > 0 ? 1 : 0);

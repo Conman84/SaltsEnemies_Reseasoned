@@ -112,12 +112,12 @@ namespace SaltsEnemies_Reseasoned
             targeting_both.getAllies = false;
             targeting_both.getAllUnitSlots = false;
             Ability series = new Ability("Series", "Series_A");
-            series.Description = "Consume all Pigment.\nInflict 3 Frail on all party members that either manually moved or manually used an ability.";
+            series.Description = "Consume all Pigment.\nInflict 1 Magnetism on all party members that either manually moved or manually used an ability.";
             series.Rarity = Rarity.GetCustomRarity("rarity5");
             series.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeAllManaEffect>(), 1, Slots.Self),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 3, targeting_both)
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMagnetismEffect>(), 1, targeting_both)
             };
             series.Visuals = CustomVisuals.GetVisuals("Salt/Class");
             series.AnimationTarget = targeting_both;
@@ -126,7 +126,7 @@ namespace SaltsEnemies_Reseasoned
                 "Mana_Consume",
             });
             series.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
-            series.AddIntentsToTarget(targeting_both, ["Status_Frail"]);
+            series.AddIntentsToTarget(targeting_both, [Magnetism.Intent]);
 
             DamageByStoredValueEffect limitdamage = ScriptableObject.CreateInstance<DamageByStoredValueEffect>();
             limitdamage._increaseDamage = false;
