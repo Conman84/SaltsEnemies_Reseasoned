@@ -23,7 +23,7 @@ namespace SaltsEnemies_Reseasoned
             };
             template.PrepareEnemyPrefab("assets/group4/Rabies/Rabies_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Rabies/Rabies_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish2, Passives.SlipperyGenerator(2), Passives.MultiAttack2 });
+            template.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish2, Passives.SlipperyGenerator(2), Passives.Abomination1 });
 
             EnemyAbilityInfo chomp = new EnemyAbilityInfo()
             {
