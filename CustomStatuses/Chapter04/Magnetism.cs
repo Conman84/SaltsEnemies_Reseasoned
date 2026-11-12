@@ -34,7 +34,7 @@ namespace SaltsEnemies_Reseasoned
             StatusEffectInfoSO magnetismInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             magnetismInfo.icon = ResourceLoader.LoadSprite("MagnetismIcon.png");
             magnetismInfo._statusName = "Magnetism";
-            magnetismInfo._description = "At the end of the player's turn, take direct damage equal to Magnetism.\nAll Magnetism is transferred to the target upon attacking.\nAll Magnetism is transferred ot the attacker upon being damaged, if the attacker did not already have Magnetism.";
+            magnetismInfo._description = "At the end of the player's turn, take direct damage equal to Magnetism.\nAll Magnetism is transferred to the target upon attacking.\nAll Magnetism is transferred to the attacker upon being damaged, if the attacker did not already have Magnetism.";
             magnetismInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo._applied_SE_Event;
             magnetismInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             magnetismInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
