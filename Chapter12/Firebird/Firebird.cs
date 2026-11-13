@@ -63,6 +63,7 @@ namespace SaltsEnemies_Reseasoned
 
             firebird.AddPassives(new BasePassiveAbilitySO[] { pheonix, burning, Passives.Slippery, });
             firebird.AddUnitType("Bird");
+            firebird.CombatEnterEffects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterGainFleetingEffect>())];
 
             //singeing claws
             Ability claws = new Ability("SingeingClaws_A")
