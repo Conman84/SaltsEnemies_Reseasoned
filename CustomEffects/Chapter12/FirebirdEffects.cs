@@ -304,4 +304,15 @@ namespace SaltEnemies_Reseasoned
             return true;
         }
     }
+
+    public class CasterGainFleetingEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            if (stats.TurnsPassed <= 0) caster.AddPassiveAbility(Passives.FleetingGenerator(2, true));
+            else caster.AddPassiveAbility(Passives.FleetingGenerator(2));
+            return true;
+        }
+    }
 }
