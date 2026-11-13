@@ -107,7 +107,7 @@ namespace SaltsEnemies_Reseasoned
             veins.AddIntentsToTarget(Targetting.Everything(false), ["Damage_3_6"]);
             veins.AddIntentsToTarget(Targetting.Everything(true), ["Damage_3_6"]);
             veins.AddIntentsToTarget(Slots.Self, ["Damage_Death"]);
-            veins.Visuals = Visuals.Burn;
+            veins.Visuals = LoadedAssetsHandler.GetCharacterAbility("Sear_1_A").visuals;
             veins.AnimationTarget = fire_all;
 
             //flaming death
