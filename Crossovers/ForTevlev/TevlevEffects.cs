@@ -1,9 +1,49 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Text;
+using BrutalAPI;
 
 namespace SaltsEnemies_Reseasoned
 {
+    public static class Demonstration
+    {
+        public static void Add()
+        {
+            //1st ability
+            RemovePassiveEffect rem_1st = ScriptableObject.CreateInstance<RemovePassiveEffect>();
+            AddPassiveEffect add_2nd = ScriptableObject.CreateInstance<AddPassiveEffect>();
+
+            Ability first = new Ability("First_A");
+            first.Effects = [
+                Effects.GenerateEffect(rem_1st, 1, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(add_2nd, 1, Targeting.Slot_SelfSlot)
+                ];
+
+            BasePassiveAbilitySO passive_1st = Passives.BonusAttackGenerator(new ExtraAbilityInfo() { ability = first.ability, rarity = Rarity.Impossible });
+
+            rem_1st.m_PassiveID = passive_1st.m_PassiveID;
+
+            //2nd ability
+            RemovePassiveEffect rem_2nd = ScriptableObject.CreateInstance<RemovePassiveEffect>();
+            AddPassiveEffect add_3rd = ScriptableObject.CreateInstance<AddPassiveEffect>();
+
+            Ability second = new Ability("Second_A");
+            second.Effects = [
+                Effects.GenerateEffect(rem_2nd, 1, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(add_3rd, 1, Targeting.Slot_SelfSlot)
+                ];
+
+            BasePassiveAbilitySO passive_2nd = Passives.BonusAttackGenerator(new ExtraAbilityInfo() { ability = second.ability, rarity = Rarity.Impossible });
+
+            add_2nd._passiveToAdd = passive_2nd;
+
+            rem_2nd.m_PassiveID = passive_2nd.m_PassiveID;
+
+            
+        }
+    }
+
+
     public class RerollTargetFirstAbilitiesEffect : ReRollTargetTimelineAbilityEffect
     {
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
