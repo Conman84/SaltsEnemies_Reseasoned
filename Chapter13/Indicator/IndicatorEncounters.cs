@@ -30,7 +30,6 @@ namespace SaltsEnemies_Reseasoned
             easy.SimpleAddEncounter(1, "Indicator_EN", 2, "EyePalm_EN", 1, "Skyloft_EN");
             easy.SimpleAddEncounter(1, "Indicator_EN", 2, "EyePalm_EN", 1, "Damocles_EN");
             easy.SimpleAddEncounter(1, "Indicator_EN", 2, "EyePalm_EN", 1, "BlackStar_EN");
-            easy.AddRandomEncounter("Indicator_EN", Enemies.Camera, Enemies.Camera);
             easy.SimpleAddEncounter(1, "Indicator_EN", 2, Enemies.Shivering, 1, "Damocles_EN");
             easy.SimpleAddEncounter(1, "Indicator_EN", 2, Enemies.Shivering, 1, "BlackStar_EN");
             easy.SimpleAddEncounter(1, "Indicator_EN", 2, Enemies.Shivering, 1, "GlassFigurine_EN");
