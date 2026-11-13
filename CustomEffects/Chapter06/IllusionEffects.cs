@@ -318,9 +318,10 @@ namespace SaltEnemies_Reseasoned
                         Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleEffect>(), 15, Slots.FrontLeftRight),
+                            Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Claws", false, Slots.SlotTarget([-4, -3, -2, 2, 3, 4], false))),
                             Effects.GenerateEffect(mute, 1, Slots.SlotTarget([-4, -3, -2, 2, 3, 4], false)),
                         },
-                        Visuals = CustomVisuals.GetVisuals("Salt/Claws"),
+                        Visuals = null,
                         AnimationTarget = Slots.FrontLeftRight
                     };
                     _haunt.AddIntentsToTarget(Slots.FrontLeftRight, new string[] { Pale.Intent });
