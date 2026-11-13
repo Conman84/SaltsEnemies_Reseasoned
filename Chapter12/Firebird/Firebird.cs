@@ -43,7 +43,7 @@ namespace SaltsEnemies_Reseasoned
             burning._enemyDescription = "On receiving direct damage, inflict 1 Fire on this position and the Opposing position.";
             burning._characterDescription = burning._enemyDescription;
             burning.doesPassiveTriggerInformationPanel = true;
-            burning.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 1, MultiTargetting.Create(Targeting.Slot_SelfAll, Slots.Front))];
+            burning.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<BurningEffect>(), 1, MultiTargetting.Create(Targeting.Slot_SelfAll, Slots.Front))];
             burning._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged };
             burning.AddToPassiveDatabase();
 
@@ -88,25 +88,29 @@ namespace SaltsEnemies_Reseasoned
 
             Targeting_ByField_Side fire_enemies = ScriptableObject.CreateInstance<Targeting_ByField_Side>();
             fire_enemies.getAllies = false;
+            fire_enemies.FieldID = StatusField.OnFire.FieldID;
             Targeting_ByField_Side fire_allies = ScriptableObject.CreateInstance<Targeting_ByField_Side>();
             fire_allies.getAllies = true;
+            fire_allies.FieldID = StatusField.OnFire.FieldID;
             Targeting_ByField_Side fire_all = ScriptableObject.CreateInstance<Targeting_ByField_Side>();
             fire_all.getAllSides = true;
             fire_all.FieldID = StatusField.OnFire.FieldID;
+
+            BaseCombatTargettingSO isboth = MultiTargetting.Create(fire_allies, fire_enemies);
 
             //fiery veins
             Ability veins = new Ability("Fiery Veins", "FieryVeins_A");
             veins.Description = "Deals a Painful amount of damage to all party members and enemies in Fire.\nIf any damage was dealt, instantly dies.";
             veins.Rarity = claws.Rarity;
             veins.Effects = new EffectInfo[3];
-            veins.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, fire_all);
+            veins.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, isboth);
             veins.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Ash", false, Slots.Self), 0, null, ScriptableObject.CreateInstance<NoFireAnywhereCondition>());
             veins.Effects[2] = Effects.GenerateEffect(BasicEffects.Die(), 1, Slots.Self, ScriptableObject.CreateInstance<NoFireAnywhereCondition>());
             veins.AddIntentsToTarget(Targetting.Everything(false), ["Damage_3_6"]);
             veins.AddIntentsToTarget(Targetting.Everything(true), ["Damage_3_6"]);
             veins.AddIntentsToTarget(Slots.Self, ["Damage_Death"]);
             veins.Visuals = LoadedAssetsHandler.GetCharacterAbility("Sear_1_A").visuals;
-            veins.AnimationTarget = fire_all;
+            veins.AnimationTarget = isboth;
 
             //flaming death
             ApplyFireSlotEffect random = ScriptableObject.CreateInstance<ApplyFireSlotEffect>();

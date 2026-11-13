@@ -2,6 +2,7 @@
 using DG.Tweening;
 using DG.Tweening.Core.Easing;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -312,6 +313,31 @@ namespace SaltEnemies_Reseasoned
             exitAmount = 0;
             if (stats.TurnsPassed <= 0) caster.AddPassiveAbility(Passives.FleetingGenerator(2, true));
             else caster.AddPassiveAbility(Passives.FleetingGenerator(2));
+            return true;
+        }
+    }
+    public class BurningEffect : EffectSO
+    {
+        public class BurningAction : CombatAction
+        {
+            public TargetSlotInfo[] targets;
+            public BurningAction(TargetSlotInfo[] targets)
+            {
+                this.targets = targets;
+            }
+            public override IEnumerator Execute(CombatStats stats)
+            {
+                foreach (TargetSlotInfo target in targets)
+                {
+                    stats.combatSlots.ApplyFieldEffect(target.SlotID, target.IsTargetCharacterSlot, StatusField.OnFire, 1);
+                }
+                yield return null;
+            }
+        }
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            CombatManager.Instance.AddRootAction(new BurningAction(targets));
             return true;
         }
     }
