@@ -64,7 +64,7 @@ namespace SaltsEnemies_Reseasoned
             combative.specialStoredData = Passives.Fleeting3.specialStoredData;
             combative.fleeting_USD = "FleetingPA";
 
-            firebird.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, pheonix, burning, Passives.FleetingGenerator(2) });
+            firebird.AddPassives(new BasePassiveAbilitySO[] { pheonix, burning, Passives.FleetingGenerator(2), Passives.Slippery, });
             firebird.AddUnitType("Bird");
 
             //singeing claws
@@ -97,12 +97,12 @@ namespace SaltsEnemies_Reseasoned
 
             //fiery veins
             Ability veins = new Ability("Fiery Veins", "FieryVeins_A");
-            veins.Description = "Deals a Painful amount of damage to all party members and enemies in Fire.\nIf there is no Fire on the field, instantly dies.";
+            veins.Description = "Deals a Painful amount of damage to all party members and enemies in Fire.\nIf any damage was dealt, instantly dies.";
             veins.Rarity = claws.Rarity;
             veins.Effects = new EffectInfo[3];
             veins.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, fire_all);
-            veins.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Ash", false, Slots.Self), 0, null, ScriptableObject.CreateInstance<NoFireAnywhereCondition>());
-            veins.Effects[2] = Effects.GenerateEffect(BasicEffects.Die(), 1, Slots.Self, ScriptableObject.CreateInstance<NoFireAnywhereCondition>());
+            veins.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Ash", false, Slots.Self), 0, null, BasicEffects.DidThat(true));
+            veins.Effects[2] = Effects.GenerateEffect(BasicEffects.Die(), 1, Slots.Self, BasicEffects.DidThat(true, 2));
             veins.AddIntentsToTarget(Targetting.Everything(false), ["Damage_3_6"]);
             veins.AddIntentsToTarget(Targetting.Everything(true), ["Damage_3_6"]);
             veins.AddIntentsToTarget(Slots.Self, ["Damage_Death"]);
