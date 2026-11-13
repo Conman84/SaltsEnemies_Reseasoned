@@ -309,13 +309,12 @@ namespace SaltEnemies_Reseasoned
                     _haunt = new Ability("Salt_Haunting_A")
                     {
                         Name = "Haunting",
-                        Description = "Inflict 15 Pale on the Left, Right, and Opposing party members. Inflict 1 Muted on all party members not in the Left, Right, or Opposing positions.\nTake a Little damage, ignoring Shield.",
+                        Description = "Inflict 15 Pale on the Left, Right, and Opposing party members. Inflict 1 Muted on all party members not in the Left, Right, or Opposing positions.",
                         Rarity = Rarity.CreateAndAddCustomRarityToPool("haunt15", 15),
                         Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleEffect>(), 15, Slots.FrontLeftRight),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 1, Slots.SlotTarget([-4, -3, -2, 2, 3, 4], false)),
-                            Effects.GenerateEffect(BasicEffects.ShieldPierce, 2, Slots.Self)
                         },
                         Visuals = CustomVisuals.GetVisuals("Salt/Claws"),
                         AnimationTarget = Slots.FrontLeftRight
