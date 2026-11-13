@@ -43,10 +43,7 @@ namespace SaltsEnemies_Reseasoned
             burning._enemyDescription = "On receiving direct damage, inflict 1 Fire on this position and the Opposing position.";
             burning._characterDescription = burning._enemyDescription;
             burning.doesPassiveTriggerInformationPanel = true;
-            burning.effects = [Effects.GenerateEffect(RootActionEffect.Create(new EffectInfo[]
-            {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 1, MultiTargetting.Create(Targeting.Slot_SelfAll, Slots.Front))
-            }), 1, Slots.Self)];
+            burning.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 1, MultiTargetting.Create(Targeting.Slot_SelfAll, Slots.Front))];
             burning._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged };
             burning.AddToPassiveDatabase();
 
