@@ -424,7 +424,7 @@ namespace SaltEnemies_Reseasoned
             {
                 if (_resetDefault == null)
                 {
-                    RerollSwapCasterAbilitiesEffect abili = ScriptableObject.CreateInstance<RerollSwapCasterAbilitiesEffect>();
+                    /*RerollSwapCasterAbilitiesEffect abili = ScriptableObject.CreateInstance<RerollSwapCasterAbilitiesEffect>();
                     EnemyAbilityInfo haunt = Gnaw.GenerateEnemyAbility();
                     EnemyAbilityInfo ins = Drain.GenerateEnemyAbility(true);
                     EnemyAbilityInfo rage = SwapSupport.GenerateEnemyAbility();
@@ -438,7 +438,7 @@ namespace SaltEnemies_Reseasoned
                     passi._passivesToSwap = new BasePassiveAbilitySO[]
                     {
                         Passives.Skittish, Passives.Formless
-                    };
+                    };*/
 
                     CasterTransformByStringEffect delusion = ScriptableObject.CreateInstance<CasterTransformByStringEffect>();
                     delusion.enemy = "DelusionAngry_EN";
