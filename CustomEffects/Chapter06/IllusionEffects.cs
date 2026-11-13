@@ -276,21 +276,25 @@ namespace SaltEnemies_Reseasoned
                 {
                     ChangeMaxHealthEffect inc = ScriptableObject.CreateInstance<ChangeMaxHealthEffect>();
                     inc._increase = true;
+                    RandomizeTargetHealthColorEffect rand = ScriptableObject.CreateInstance<RandomizeTargetHealthColorEffect>();
+                    rand.NotGrey = true;
                     _drain = new Ability("Salt_Drowse_A")
                     {
                         Name = "Drowse",
-                        Description = "Deal an Agonizing amount of damage to the Opposing party member.\nGain 5 Shield.",
-                        Rarity = Rarity.CreateAndAddCustomRarityToPool("Delusion_6", 6),
+                        Description = "Inflict 35 Pale and 2 Muted on the Opposing party member.\nRandomize this enemy's health color and take a Little damage, ignoring Shield.",
+                        Rarity = Rarity.Common,
                         Effects = new EffectInfo[]
                         {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 5, Slots.Self)
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleEffect>(), 35, Slots.Front),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 2, Slots.Front),
+                            Effects.GenerateEffect(rand, 1, Slots.Self),
+                            Effects.GenerateEffect(BasicEffects.ShieldPierce, 2, Slots.Self)
                         },
                         Visuals = CustomVisuals.GetVisuals("Salt/Pop"),
-                        AnimationTarget = Targeting.Slot_SelfSlot
+                        AnimationTarget = Slots.Front
                     };
-                    _drain.AddIntentsToTarget(Slots.Front, ["Damage_7_10"]);
-                    _drain.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Field_Shield.ToString() });
+                    _drain.AddIntentsToTarget(Slots.Front, [Pale.Intent, Muted.Intent]);
+                    _drain.AddIntentsToTarget(Targeting.Slot_SelfSlot, ["Mana_Modify", "Damage_1_2"]);
                 }
                 return _drain;
             }
@@ -305,16 +309,20 @@ namespace SaltEnemies_Reseasoned
                     _haunt = new Ability("Salt_Haunting_A")
                     {
                         Name = "Haunting",
-                        Description = "Inflict 2 Muted on the Opposing party member.",
-                        Rarity = Rarity.GetCustomRarity("Delusion_5"),
+                        Description = "Inflict 15 Pale on the Left, Right, and Opposing party members. Inflict 1 Muted on all party members not in the Left, Right, or Opposing positions.\nTake a Little damage, ignoring Shield.",
+                        Rarity = Rarity.CreateAndAddCustomRarityToPool("haunt15", 15),
                         Effects = new EffectInfo[]
                         {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 2, Targeting.Slot_Front),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleEffect>(), 15, Slots.FrontLeftRight),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 1, Slots.SlotTarget([-4, -3, -2, 2, 3, 4], false)),
+                            Effects.GenerateEffect(BasicEffects.ShieldPierce, 2, Slots.Self)
                         },
                         Visuals = CustomVisuals.GetVisuals("Salt/Claws"),
-                        AnimationTarget = Targeting.Slot_Front
+                        AnimationTarget = Slots.FrontLeftRight
                     };
-                    _haunt.AddIntentsToTarget(Targeting.Slot_Front, new string[] { Muted.Intent });
+                    _haunt.AddIntentsToTarget(Slots.FrontLeftRight, new string[] { Pale.Intent });
+                    _haunt.AddIntentsToTarget(Slots.SlotTarget([-4, -3, -2, 2, 3, 4], false), [Muted.Intent]);
+                    _haunt.AddIntentsToTarget(Slots.Self, ["Damage_1_2"]);
                 }
                 return _haunt;
             }
@@ -330,7 +338,7 @@ namespace SaltEnemies_Reseasoned
                     {
                         Name = "Gnaw",
                         Description = "Deal a Painful amount of damage to the Left and Right party members. \nThis enemy consumes 2 Pigment not of this enemy's health colour.",
-                        Rarity = Rarity.CreateAndAddCustomRarityToPool("Delusion_8", 8),
+                        Rarity = Rarity.Common,
                         Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Targeting.Slot_OpponentSides),
@@ -358,7 +366,7 @@ namespace SaltEnemies_Reseasoned
                     {
                         Name = "Divination",
                         Description = "Focus this enemy. Generate 3 random pigment and apply 3 Shield to the Left and Right enemy positions.",
-                        Rarity = Rarity.GetCustomRarity("Delusion_5"),
+                        Rarity = Rarity.CreateAndAddCustomRarityToPool("ins15", 15),
                         Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFocusedEffect>(), 1, Targeting.Slot_SelfSlot),
@@ -381,17 +389,25 @@ namespace SaltEnemies_Reseasoned
             {
                 if (_swapSupport == null)
                 {
+                    CasterTransformByStringEffect delusion = ScriptableObject.CreateInstance<CasterTransformByStringEffect>();
+                    delusion.enemy = "Delusion_EN";
+                    delusion._maintainTimelineAbilities = false;
+                    delusion._fullyHeal = false;
+                    delusion._maintainMaxHealth = true;
+                    delusion.MaintainHealthColor = true;
+
+                    SpawnEnemyStringBasedHealth visuals = ScriptableObject.CreateInstance<SpawnEnemyStringBasedHealth>();
+                    visuals.enemyID = "Visual_EN";
+
                     _swapSupport = new Ability("Salt_SwapSupport_A")
                     {
                         Name = "Lucidity",
-                        Description = "Swap this enemy to a Supportive State and spawn a copy of this enemy with maximum health equal to this enemy's missing health.",
-                        Rarity = Rarity.CreateAndAddCustomRarityToPool("Delusion_4", 4),
+                        Description = "Swap this enemy to a Supportive State. \nspawn a Visual with health equal to this enemy's missing health.",
+                        Rarity = Rarity.Uncommon,
                         Effects = new EffectInfo[]
                         {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ResetCasterAbilitiesToDefaultEffect>(), 1, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ResetCasterPassivesToDefaultEffect>(), 1, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(BasicEffects.SetStoreValue(State), 2, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnEnemyCopyBasedOffMissingHealth>(), 1, Targeting.Slot_SelfSlot)
+                            Effects.GenerateEffect(delusion, 1, Targeting.Slot_SelfSlot),
+                            Effects.GenerateEffect(visuals, 1, Targeting.Slot_SelfSlot)
                         },
                         Visuals = CustomVisuals.GetVisuals("Salt/Cube"),
                         AnimationTarget = Targeting.Slot_SelfSlot,
@@ -423,17 +439,26 @@ namespace SaltEnemies_Reseasoned
                     {
                         Passives.Skittish, Passives.Formless
                     };
+
+                    CasterTransformByStringEffect delusion = ScriptableObject.CreateInstance<CasterTransformByStringEffect>();
+                    delusion.enemy = "DelusionAngry_EN";
+                    delusion._maintainTimelineAbilities = false;
+                    delusion._fullyHeal = false;
+                    delusion._maintainMaxHealth = true;
+                    delusion.MaintainHealthColor = true;
+
+                    SpawnEnemyStringBasedHealth visuals = ScriptableObject.CreateInstance<SpawnEnemyStringBasedHealth>();
+                    visuals.enemyID = "Visual_EN";
+
                     _resetDefault = new Ability("Salt_ResetDefault_A")
                     {
                         Name = "Enrage",
-                        Description = "Swap this enemy to an Offense State and spawn a copy of this enemy with maximum health equal to this enemy's missing health.",
-                        Rarity = Rarity.CreateAndAddCustomRarityToPool("Delusion_1", 1),
+                        Description = "Become Enraged. \nspawn a Visual with health equal to this enemy's missing health.",
+                        Rarity = Rarity.GetCustomRarity("rarity5"),
                         Effects = new EffectInfo[]
                         {
-                            Effects.GenerateEffect(abili, 1, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(passi, 1, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(BasicEffects.SetStoreValue(State), 1, Targeting.Slot_SelfSlot),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<SpawnEnemyCopyBasedOffMissingHealth>(), 1, Targeting.Slot_SelfSlot)
+                            Effects.GenerateEffect(delusion, 1, Targeting.Slot_SelfSlot),
+                            Effects.GenerateEffect(visuals, 1, Targeting.Slot_SelfSlot)
                         },
                         Visuals = CustomVisuals.GetVisuals("Salt/Notif"),
                         AnimationTarget = Targeting.Slot_SelfSlot,
@@ -542,6 +567,39 @@ namespace SaltEnemies_Reseasoned
             for (int i = 0; i < entryVariable; i++)
             {
                 CombatManager.Instance.AddSubAction(new SpawnEnemyAction(enemy, -1, givesExperience, trySpawnAnyways: false, _spawnTypeID, Math.Max(1, caster.MaximumHealth - caster.CurrentHealth)));
+            }
+
+            exitAmount = entryVariable;
+            return true;
+        }
+    }
+    public class SpawnEnemyStringBasedHealth : EffectSO
+    {
+        public bool useCurrentInstead;
+
+        public string enemyID;
+        public EnemySO enemy;
+
+        public bool givesExperience;
+
+        [CombatIDsEnumRef]
+        public string _spawnTypeID = "";
+
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            if (_spawnTypeID == "") _spawnTypeID = CombatType_GameIDs.Spawn_Basic.ToString();
+
+            int amt = caster.MaximumHealth - caster.CurrentHealth;
+            if (useCurrentInstead) amt = caster.CurrentHealth;
+
+            //if (caster is EnemyCombat en) enemy = en.Enemy;
+            //else return false;
+            if (Check.EnemyExist(enemyID)) enemy = LoadedAssetsHandler.GetEnemy(enemyID);
+            if (amt <= 0) return false;
+            for (int i = 0; i < entryVariable; i++)
+            {
+                CombatManager.Instance.AddSubAction(new SpawnEnemyAction(enemy, -1, givesExperience, trySpawnAnyways: false, _spawnTypeID, Math.Max(1, amt)));
             }
 
             exitAmount = entryVariable;

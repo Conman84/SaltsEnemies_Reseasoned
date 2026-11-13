@@ -250,4 +250,58 @@ namespace SaltEnemies_Reseasoned
             base.OnPassiveDisconnected(unit);
         }
     }
+
+    public class Targeting_ByField_Side : BaseCombatTargettingSO
+    {
+        public string FieldID = StatusField_GameIDs.OnFire_ID.ToString();
+
+        public bool getAllies;
+        public bool getAllSides;
+        public override bool AreTargetAllies => getAllies;
+        public override bool AreTargetSlots => true;
+
+        public override TargetSlotInfo[] GetTargets(SlotsCombat slots, int casterSlotID, bool isCasterCharacter)
+        {
+            List<TargetSlotInfo> ret = [];
+
+            if (getAllies == isCasterCharacter || getAllSides)
+            {
+                foreach (CombatSlot slot in slots._characterSlots)
+                {
+                    if (slot.ContainsFieldEffect(FieldID)) ret.Add(slot.TargetSlotInformation);
+                }
+            }
+            else if (getAllies != isCasterCharacter || getAllSides)
+            {
+                foreach (CombatSlot slot in slots._enemySlots)
+                {
+                    if (slot.ContainsFieldEffect(FieldID)) ret.Add(slot.TargetSlotInformation);
+                }
+            }
+
+            return ret.ToArray();
+        }
+    }
+    public class NotAtFullHealthEffectCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            return caster.CurrentHealth < caster.MaximumHealth;
+        }
+    }
+    public class NoFireAnywhereCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            foreach (CombatSlot slot in CombatManager.Instance._stats.combatSlots.CharacterSlots)
+            {
+                if (slot.ContainsFieldEffect(StatusField_GameIDs.OnFire_ID.ToString())) return false;
+            }
+            foreach (CombatSlot slot in CombatManager.Instance._stats.combatSlots.EnemySlots)
+            {
+                if (slot.ContainsFieldEffect(StatusField_GameIDs.OnFire_ID.ToString())) return false;
+            }
+            return true;
+        }
+    }
 }

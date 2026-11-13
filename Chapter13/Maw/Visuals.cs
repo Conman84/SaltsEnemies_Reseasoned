@@ -65,9 +65,9 @@ namespace SaltsEnemies_Reseasoned
             visuals.AddPassives(new BasePassiveAbilitySO[] { jitter, rupture, fluids, Passives.Withering });
             visuals.CombatEnterEffects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterGainTurnIfNoTurnsEnemyEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsPlayerTurnEffectCondition>())];
 
-            SpawnEnemyByStringNameEffect spawn = ScriptableObject.CreateInstance<SpawnEnemyByStringNameEffect>();
-            spawn.enemyName = "Visual_EN";
-            spawn._spawnTypeID = "Spawn_Basic";
+            SpawnEnemyStringBasedHealth spawn = ScriptableObject.CreateInstance<SpawnEnemyStringBasedHealth>();
+            spawn.enemyID = "Visual_EN";
+            spawn.useCurrentInstead = true;
 
             Ability clone = new Ability("Salt_WatchesYou_A");
             clone.Name = "Hurts You and Watches You";

@@ -64,35 +64,50 @@ namespace SaltsEnemies_Reseasoned
             combative.specialStoredData = Passives.Fleeting3.specialStoredData;
             combative.fleeting_USD = "FleetingPA";
 
-            firebird.AddPassives(new BasePassiveAbilitySO[] { pheonix, burning, Passives.Fleeting4, Passives.Skittish });
+            firebird.AddPassives(new BasePassiveAbilitySO[] { Passives.Slippery, pheonix, burning, Passives.FleetingGenerator(2) });
             firebird.AddUnitType("Bird");
 
             //singeing claws
             Ability claws = new Ability("SingeingClaws_A")
             {
                 Name = "Singeing Claws",
-                Description = "Deal a Painful amount of damage to the Opposing party member. Inflict Fire on the Opposing position for the amount of damage not dealt.",
+                Description = "Move Left, Right, or stay in place, then inflict 3 Fire on the Opposing position.\nIf there is no Opposing party member, instantly die.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<SingeClawsEffect>(), 4, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self, Effects.ChanceCondition(60)),
+                    Effects.GenerateEffect(BasicEffects.GetVisuals("Talons_A", false, Slots.Front), 0, null, IsFrontTargetCondition.Create(true)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 3, Slots.Front),
+                    Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Ash", false, Slots.Self), 0, null, IsFrontTargetCondition.Create(false)),
+                    Effects.GenerateEffect(BasicEffects.Die(), 1, Slots.Self, IsFrontTargetCondition.Create(false))
                 },
-                Visuals = LoadedAssetsHandler.GetEnemyAbility("Talons_A").visuals,
+                Visuals = null,
                 AnimationTarget = Slots.Front,
             };
-            claws.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Field_Fire.ToString()]);
+            claws.AddIntentsToTarget(Slots.Self, ["Swap_Sides"]);
+            claws.AddIntentsToTarget(Slots.Front, ["Field_Fire"]);
+            claws.AddIntentsToTarget(Slots.Self, ["Damage_Death"]);
+
+            Targeting_ByField_Side fire_enemies = ScriptableObject.CreateInstance<Targeting_ByField_Side>();
+            fire_enemies.getAllies = false;
+            Targeting_ByField_Side fire_allies = ScriptableObject.CreateInstance<Targeting_ByField_Side>();
+            fire_allies.getAllies = true;
+            Targeting_ByField_Side fire_all = ScriptableObject.CreateInstance<Targeting_ByField_Side>();
+            fire_all.getAllSides = true;
 
             //fiery veins
             Ability veins = new Ability("Fiery Veins", "FieryVeins_A");
-            veins.Description = "If this enemy is standing in fire, deal a Painful amount of damage to the Left and Right party members.";
+            veins.Description = "Deals a Painful amount of damage to all party members and enemies in Fire.\nIf there is no Fire on the field, instantly dies.";
             veins.Rarity = claws.Rarity;
-            veins.Effects = new EffectInfo[2];
-            veins.Effects[0] = Effects.GenerateEffect(BasicEffects.GetVisuals("Sear_1_A", true, Slots.LeftRight), 0, null, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.OnFire_ID.ToString(), 0, true, true));
-            veins.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, Slots.LeftRight, HasFieldAmountEffectCondition.Create(StatusField_GameIDs.OnFire_ID.ToString(), 0, true, true));
-            veins.AddIntentsToTarget(Targeting.Slot_SelfAll, [IntentType_GameIDs.Misc_Hidden.ToString()]);
-            veins.AddIntentsToTarget(Slots.LeftRight, [IntentType_GameIDs.Damage_3_6.ToString()]);
-            veins.Visuals = null;
-            veins.AnimationTarget = Slots.Self;
+            veins.Effects = new EffectInfo[3];
+            veins.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 6, fire_all);
+            veins.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Ash", false, Slots.Self), 0, null, ScriptableObject.CreateInstance<NoFireAnywhereCondition>());
+            veins.Effects[2] = Effects.GenerateEffect(BasicEffects.Die(), 1, Slots.Self, ScriptableObject.CreateInstance<NoFireAnywhereCondition>());
+            veins.AddIntentsToTarget(Targetting.Everything(false), ["Damage_3_6"]);
+            veins.AddIntentsToTarget(Targetting.Everything(true), ["Damage_3_6"]);
+            veins.AddIntentsToTarget(Slots.Self, ["Damage_Death"]);
+            veins.Visuals = Visuals.Burn;
+            veins.AnimationTarget = fire_all;
 
             //flaming death
             ApplyFireSlotEffect random = ScriptableObject.CreateInstance<ApplyFireSlotEffect>();
@@ -100,20 +115,19 @@ namespace SaltsEnemies_Reseasoned
             Ability death = new Ability("FlamingDeath_A")
             {
                 Name = "Flaming Death",
-                Description = "Instantly kill this enemy. Inflict 1-2 Fire on every party member position. This ability can only be selected if this enemy is below it's original health value.",
+                Description = "Inflict 1 Fire on all party member positions.\nIf this enemy is not at full health, it instantly dies.",
                 Priority = Priority.VeryFast,
-                Rarity = Rarity.CreateAndAddCustomRarityToPool("firebirdHigh", 8),
+                Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Slots.Self),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ExtraVariableForNextEffect>(), 1),
-                    Effects.GenerateEffect(random, 2, Targeting.GenerateSlotTarget(new int[]{-4, -3, -2, -1, 0, 1, 2, 3, 4 }, false)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFireSlotEffect>(), 1, Targeting.GenerateSlotTarget(new int[]{-4, -3, -2, -1, 0, 1, 2, 3, 4 }, false)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<NotAtFullHealthEffectCondition>()),
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Ash"),
                 AnimationTarget = Slots.Self,
             };
-            death.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_Death.ToString()]);
             death.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, false), [IntentType_GameIDs.Field_Fire.ToString()]);
+            death.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_Death.ToString()]);
 
 
             //ADD ENEMY

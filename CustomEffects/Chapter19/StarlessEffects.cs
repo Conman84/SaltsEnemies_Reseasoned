@@ -112,10 +112,19 @@ namespace SaltEnemies_Reseasoned
     public class CasterTransformByStringEffect : CasterTransformationEffect
     {
         public string enemy;
+        public bool MaintainHealthColor;
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
+            ManaColorSO mana = caster.HealthColor;
             if (!caster.IsUnitCharacter) _enemyTransformation = LoadedAssetsHandler.GetEnemy(enemy);
-            return base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+            bool ret = base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
+            if (MaintainHealthColor)
+            {
+                bool had = caster.TryRemovePassiveAbility(PassiveType_GameIDs.Pure.ToString());
+                caster.ChangeHealthColor(mana);
+                if (had) caster.AddPassiveAbility(Passives.Pure);
+            }
+            return ret;
         }
     }
     public class StarlessPassiveAbility : PerformEffectPassiveAbility

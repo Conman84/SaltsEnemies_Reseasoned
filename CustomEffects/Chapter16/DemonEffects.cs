@@ -66,6 +66,7 @@ namespace SaltEnemies_Reseasoned
     }
     public class RandomizeTargetHealthColorEffect : EffectSO
     {
+        public bool NotGrey;
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             exitAmount = 0;
@@ -78,6 +79,8 @@ namespace SaltEnemies_Reseasoned
                     if (unit is EnemyCombat enemy && !colors.Contains(enemy.Enemy.healthColor)) colors.Add(enemy.Enemy.healthColor);
                     else if (unit is CharacterCombat chara && !colors.Contains(chara.Character.healthColor)) colors.Add(chara.Character.healthColor);
                     if (colors.Contains(unit.HealthColor)) colors.Remove(unit.HealthColor);
+                    if (NotGrey && colors.Contains(Pigments.Grey)) colors.Remove(Pigments.Grey);
+                    if (colors.Count <= 0) continue;
                     if (unit.ChangeHealthColor(colors.GetRandom())) exitAmount++;
                 }
             }
