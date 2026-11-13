@@ -82,7 +82,7 @@ namespace SaltsEnemies_Reseasoned
             illusion.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
                 prickle.GenerateEnemyAbility(true),
-                IllusionHandler.Gnaw.GenerateEnemyAbility(true),
+                IllusionHandler.Gnaw.GenerateEnemyAbility(),
                 IllusionHandler.Drain.GenerateEnemyAbility(true),
                 IllusionHandler.SwapSupport.GenerateEnemyAbility(false)
             });
