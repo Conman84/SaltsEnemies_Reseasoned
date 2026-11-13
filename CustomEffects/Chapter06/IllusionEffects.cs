@@ -306,15 +306,19 @@ namespace SaltEnemies_Reseasoned
             {
                 if (_haunt == null)
                 {
+                    ApplyMutedChanceEffect mute = ScriptableObject.CreateInstance<ApplyMutedChanceEffect>();
+                    mute.chance = 50;
+                    mute.OnlyIfNone = true;
+
                     _haunt = new Ability("Salt_Haunting_A")
                     {
                         Name = "Haunting",
-                        Description = "Inflict 15 Pale on the Left, Right, and Opposing party members. Inflict 1 Muted on all party members not in the Left, Right, or Opposing positions.",
+                        Description = "Inflict 15 Pale on the Left, Right, and Opposing party members. Inflict 0-1 Muted on all party members not in the Left, Right, or Opposing positions.",
                         Rarity = Rarity.CreateAndAddCustomRarityToPool("haunt15", 15),
                         Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleEffect>(), 15, Slots.FrontLeftRight),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 1, Slots.SlotTarget([-4, -3, -2, 2, 3, 4], false)),
+                            Effects.GenerateEffect(mute, 1, Slots.SlotTarget([-4, -3, -2, 2, 3, 4], false)),
                         },
                         Visuals = CustomVisuals.GetVisuals("Salt/Claws"),
                         AnimationTarget = Slots.FrontLeftRight
@@ -603,6 +607,27 @@ namespace SaltEnemies_Reseasoned
 
             exitAmount = entryVariable;
             return true;
+        }
+    }
+
+    public class ApplyMutedChanceEffect : ApplyMutedEffect
+    {
+        public int chance;
+        public bool OnlyIfNone;
+
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            List<TargetSlotInfo> ret = [];
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (UnityEngine.Random.Range(0, 100) >= chance) continue;
+
+                if (OnlyIfNone && target.HasUnit && target.Unit.ContainsStatusEffect(Muted.StatusID)) continue;
+
+                ret.Add(target);
+            }
+
+            return base.PerformEffect(stats, caster, ret.ToArray(), areTargetSlots, entryVariable, out exitAmount);
         }
     }
 }
