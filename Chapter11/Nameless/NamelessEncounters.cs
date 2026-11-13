@@ -58,7 +58,7 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddGroup(1, "WindSong_EN", 1, "Nameless_EN", 3, "MusicMan_EN");
 
             AddTo hard = new AddTo(Orph.H.Tortoise.Hard);
-            hard.AddRandomGroup("StalwartTortoise_EN", "Nameless_EN", Flower.Purple);
+            hard.AddRandomGroup("StalwartTortoise_EN", "Nameless_EN", "MusicMan_EN");
 
             med = new AddTo(Orph.H.MusicMan.Med);
             med.SimpleAddGroup(4, "MusicMan_EN", 1, "Nameless_EN");
