@@ -46,7 +46,7 @@ namespace SaltEnemies_Reseasoned
             escape._passiveName = "Diviner";
             escape.passiveIcon = ResourceLoader.LoadSprite("DivinerPassive.png");
             escape.m_PassiveID = "Diviner_PA";
-            escape._enemyDescription = "On being directly damaged, even if the damage was fatal, move to a random unoccupied position.";
+            escape._enemyDescription = "On being directly damaged, even if the damage was fatal, move to a random unoccupied position if possible.";
             escape._characterDescription = escape._enemyDescription;
             escape._triggerOn = [TriggerCalls.OnDirectDamaged];
             escape.conditions = [];
