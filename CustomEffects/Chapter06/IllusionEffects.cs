@@ -307,13 +307,13 @@ namespace SaltEnemies_Reseasoned
                 if (_haunt == null)
                 {
                     ApplyMutedChanceEffect mute = ScriptableObject.CreateInstance<ApplyMutedChanceEffect>();
-                    mute.chance = 50;
+                    mute.chance = 100;
                     mute.OnlyIfNone = true;
 
                     _haunt = new Ability("Salt_Haunting_A")
                     {
                         Name = "Haunting",
-                        Description = "Inflict 15 Pale on the Left, Right, and Opposing party members. Inflict 0-1 Muted on all party members not in the Left, Right, or Opposing positions.",
+                        Description = "Inflict 15 Pale on the Left, Right, and Opposing party members. \nInflict 1 Muted on all party members not in the Left, Right, or Opposing positions if they have none.",
                         Rarity = Rarity.CreateAndAddCustomRarityToPool("haunt15", 15),
                         Effects = new EffectInfo[]
                         {
