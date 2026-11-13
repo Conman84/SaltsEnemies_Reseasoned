@@ -645,7 +645,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SeekingPassive.png"), "Seeking", "On using an ability, move in front of the closest opponent.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MimicPassive.png"), "33", "On entering combat, gain Focus.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ProductionPassive.png"), "Production", "On any infantile enemy being damaged, spawn a specific enemy.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AnnouncementPassive.png"), "Announcement", "Upon being removed from combat by any means, deal a certain amount of damage to the Opposing position.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AnnouncementPassive.png"), "Announcement", "Upon being removed from combat by any means, including dying or fleeing, inflict a slew of Negative Status Effects on the Opposing target.");
 
             //CH22
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("LovelyPassive.png"), "Lovely", "This enemy will use all of its abilities every round.");

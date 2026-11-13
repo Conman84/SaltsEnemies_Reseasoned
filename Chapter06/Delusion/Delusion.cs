@@ -72,7 +72,7 @@ namespace SaltsEnemies_Reseasoned
             prickle.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 7, Slots.Front),
-                            Effects.GenerateEffect(random, 3, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(random, 3, Targeting.Slot_SelfSlot),
                 ];
             prickle.AddIntentsToTarget(Slots.Front, ["Damage_7_10", "Heal_5_10"]);
             prickle.AddIntentsToTarget(Slots.Self, ["Mana_Generate"]);

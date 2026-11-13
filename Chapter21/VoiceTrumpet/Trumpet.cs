@@ -25,45 +25,65 @@ namespace SaltEnemies_Reseasoned
 
             //announcement
             Connection_PerformEffectPassiveAbility announce = ScriptableObject.CreateInstance<Connection_PerformEffectPassiveAbility>();
-            announce._passiveName = "Announcement (7)";
+            announce._passiveName = "Announcement";
             announce.passiveIcon = ResourceLoader.LoadSprite("AnnouncementPassive.png");
             announce.m_PassiveID = "Announcement_PA";
-            announce.name = "Announcement_7_PA";
-            announce._enemyDescription = "Upon being removed from combat by any means, deal an Agonizing amount of damage to the Opposing party member.";
-            announce._characterDescription = "Upon being removed from combat by any means, deal 7 damage to the Opposing enemy.";
+            announce.name = "Announcement_PA";
+            announce._enemyDescription = "Upon being removed from combat by any means, including dying or fleeing, inflict a slew of Negative Status Effects on the Opposing party member.";
+            announce._characterDescription = "Upon being removed from combat by any means, including dying or fleeing, inflict a slew of Negative Status Effects on the Opposing enemy.";
             announce.doesPassiveTriggerInformationPanel = false;
             announce._triggerOn = [TriggerCalls.Count];
             announce.connectionEffects = [];
             announce.disconnectionEffects = new EffectInfo[3];
             announce.disconnectionEffects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<AnnouncementPassiveEffect>(), 7);
             announce.disconnectionEffects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Bellow_A", false, Slots.Front));
-            announce.disconnectionEffects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front);
+            announce.disconnectionEffects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SlewStatusEffect>(), 1, Slots.Front);
             announce.AddToPassiveDatabase();
 
-            trumpet.AddPassives(new BasePassiveAbilitySO[] { announce, Passives.Fleeting3, Passives.Formless });
+            //diviner
+            PerformEffectPassiveAbility escape = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            escape.name = "Diviner_PA";
+            escape._passiveName = "Diviner";
+            escape.passiveIcon = ResourceLoader.LoadSprite("DivinerPassive.png");
+            escape.m_PassiveID = "Diviner_PA";
+            escape._enemyDescription = "On being directly damaged, even if the damage was fatal, move to a random unoccupied position.";
+            escape._characterDescription = escape._enemyDescription;
+            escape._triggerOn = [TriggerCalls.OnDirectDamaged];
+            escape.conditions = [];
+            escape.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToRandomEmptyTileEffect>(), 1, Slots.Self)];
+            escape.AddToPassiveDatabase();
+
+            trumpet.AddPassives(new BasePassiveAbilitySO[] { announce, Passives.Fleeting3, Passives.Formless, escape });
 
             Ability first = new Ability("First", "First_A");
-            first.Description = "Apply 3 Shield to this enemy's position and to its Left and Right.";
-            first.Rarity = Rarity.GetCustomRarity("rarity5");
-            first.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 3, Targeting.Slot_SelfAll_AndSides).SelfArray();
+            first.Description = "Applies 2 Shield to this enemy's position and to its Left and Right.";
+            first.Rarity = Rarity.Uncommon;
+            first.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 2, Targeting.Slot_SelfAll_AndSides).SelfArray();
             first.AddIntentsToTarget(Targeting.Slot_SelfAll_AndSides, [IntentType_GameIDs.Field_Shield.ToString()]);
             first.Visuals = LoadedAssetsHandler.GetEnemyAbility("Rupture_A").visuals;
             first.AnimationTarget = Slots.Self;
 
+
+            GenerateRandomManaBetweenEffect random = ScriptableObject.CreateInstance<GenerateRandomManaBetweenEffect>();
+            random.possibleMana = new ManaColorSO[] { Pigments.Red, Pigments.Blue, Pigments.Yellow, Pigments.Purple };
             Ability third = new Ability("Third", "Third_A");
-            third.Description = "Deal a Barely Painful amount of damage to the Opposing party member and inflict 2 Frail on them.";
-            third.Rarity = Rarity.GetCustomRarity("rarity5");
-            third.Effects = new EffectInfo[2];
-            third.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 3, Slots.Front);
-            third.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 2, Slots.Front);
-            third.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Damage_3_6.ToString(), IntentType_GameIDs.Status_Frail.ToString()]);
+            third.Description = "Generates 3 random Pigment.";
+            third.Rarity = Rarity.Common;
+            third.Effects = new EffectInfo[1];
+            third.Effects[0] = Effects.GenerateEffect(random, 3, Targeting.Slot_SelfSlot);
+            third.AddIntentsToTarget(Slots.Self, ["Mana_Generate"]);
             third.Visuals = LoadedAssetsHandler.GetEnemyAbility("Rupture_A").visuals;
             third.AnimationTarget = Slots.Self;
 
             Ability seventh = new Ability("Seventh", "Seventh_A");
-            seventh.Description = "Instantly kill this enemy.";
+            seventh.Description = "Deals an Agonizing amount of damage to the Opposing party member.\nInstantly kills this enemy.";
             seventh.Rarity = Rarity.GetCustomRarity("rarity5");
-            seventh.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Slots.Self).SelfArray();
+            seventh.Effects = [
+                Effects.GenerateEffect(BasicEffects.GetVisuals("Rupture_A", false, Slots.Front), 0, null, IsFrontTargetCondition.Create(true)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Slots.Self)
+                ];
+            seventh.AddIntentsToTarget(Slots.Front, ["Damage_7_10"]);
             seventh.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Damage_Death.ToString()]);
             seventh.Visuals = null;
             seventh.AnimationTarget = Slots.Self;
@@ -77,7 +97,7 @@ namespace SaltEnemies_Reseasoned
                 seventh.GenerateEnemyAbility(true)
             });
             trumpet.AddEnemy(true);
-            trumpet.enemy.AddToSynodPool();
+            //trumpet.enemy.AddToSynodPool();
             trumpet.enemy.AddToEcstasyPool();
         }
     }

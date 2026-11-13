@@ -481,6 +481,7 @@
 	  <None Remove="Chapter21\DeadOrAlive\CorpseWorld.png" />
 	  <None Remove="Chapter21\DeadOrAlive\ProductionPassive.png" />
 	  <None Remove="Chapter21\VoiceTrumpet\AnnouncementPassive.png" />
+	  <None Remove="Chapter21\VoiceTrumpet\DivinerPassive.png" />
 	  <None Remove="Chapter21\VoiceTrumpet\TrumpetDead.png" />
 	  <None Remove="Chapter21\VoiceTrumpet\TrumpetIcon.png" />
 	  <None Remove="Chapter21\VoiceTrumpet\TrumpetWorld.png" />
@@ -1135,6 +1136,7 @@
 	  <EmbeddedResource Include="Chapter21\DeadOrAlive\CorpseWorld.png" />
 	  <EmbeddedResource Include="Chapter21\DeadOrAlive\ProductionPassive.png" />
 	  <EmbeddedResource Include="Chapter21\VoiceTrumpet\AnnouncementPassive.png" />
+	  <EmbeddedResource Include="Chapter21\VoiceTrumpet\DivinerPassive.png" />
 	  <EmbeddedResource Include="Chapter21\VoiceTrumpet\TrumpetDead.png" />
 	  <EmbeddedResource Include="Chapter21\VoiceTrumpet\TrumpetIcon.png" />
 	  <EmbeddedResource Include="Chapter21\VoiceTrumpet\TrumpetWorld.png" />
