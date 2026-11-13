@@ -58,7 +58,7 @@ namespace SaltsEnemies_Reseasoned
             };
             illusion.PrepareEnemyPrefab("Assets/group4/Illusion/Enraged_Enemy.prefab", SaltsReseasoned.Group4, LoadedAssetsHandler.GetEnemy("Delusion_EN").enemyTemplate.m_Data.m_Gibs);
 
-            illusion.AddPassives(new BasePassiveAbilitySO[] { Passives.Formless, Passives.Forgetful });
+            illusion.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, Passives.Formless });
 
             //Rarity.CreateAndAddCustomRarityToPool("Delusion_5", 5);
 
