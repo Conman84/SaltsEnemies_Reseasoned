@@ -100,48 +100,40 @@ namespace SaltEnemies_Reseasoned
                         list.Add(targetSlotInfo);
                 }
             }
-            bool flag = list.Count <= 0;
-            bool result;
-            if (flag)
-            {
-                result = false;
-                return result;
-            }
-            else
-            {
-                int index = UnityEngine.Random.Range(0, list.Count);
-                TargetSlotInfo targetSlotInfo2 = list[index];
-                areTargetSlots = true;
-                int targetSlotOffset = areTargetSlots ? (targetSlotInfo2.SlotID - targetSlotInfo2.Unit.SlotID) : -1;
 
-                int hitHere = targetSlotInfo2.SlotID - caster.SlotID;
+            if (list.Count <= 0) return false;
 
-                List<int> target_slots = [];
-                for (int i = 0; i < targetSlotInfo2.Unit.Size; i++) target_slots.Add(targetSlotInfo2.Unit.SlotID + i);
+            int index = UnityEngine.Random.Range(0, list.Count);
+            TargetSlotInfo targetSlotInfo2 = list[index];
+            areTargetSlots = true;
+            int targetSlotOffset = areTargetSlots ? (targetSlotInfo2.SlotID - targetSlotInfo2.Unit.SlotID) : -1;
 
-                AnimationVisualsEffect animIS = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
-                animIS._animationTarget = MultiTargetting.Create(Slots.Front, Targeting.GenerateGenericTarget(target_slots.ToArray(), true));
-                //animIS._visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
-                animIS._visuals = CustomVisuals.GetVisuals("Salt/Class");
-                EffectInfo animYAY = Effects.GenerateEffect(animIS, 1, Targeting.Slot_SelfAll);
+            int hitHere = targetSlotInfo2.SlotID - caster.SlotID;
 
-                RandomizeTargetHealthColorEffect greyYAY = ScriptableObject.CreateInstance<RandomizeTargetHealthColorEffect>();
-                greyYAY.NotGrey = true; ;
-                RemovePassiveEffect noPure = ScriptableObject.CreateInstance<RemovePassiveEffect>();
-                noPure.m_PassiveID = Passives.Pure.m_PassiveID;
+            List<int> target_slots = [];
+            for (int i = 0; i < targetSlotInfo2.Unit.Size; i++) target_slots.Add(targetSlotInfo2.Unit.SlotID + i);
 
-                EffectInfo front = Effects.GenerateEffect(RandomStatusEffect.Create(true), 3, Slots.Front);
-                EffectInfo unPure = Effects.GenerateEffect(noPure, 1, Targeting.GenerateSlotTarget(new int[1] { hitHere }, true));
-                EffectInfo grayify = Effects.GenerateEffect(greyYAY, 1, Targeting.GenerateSlotTarget(new int[1] { hitHere }, true));
+            AnimationVisualsEffect animIS = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
+            animIS._animationTarget = MultiTargetting.Create(Slots.Front, Targeting.GenerateGenericTarget(target_slots.ToArray(), true));
+            //animIS._visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
+            animIS._visuals = CustomVisuals.GetVisuals("Salt/Class");
+            EffectInfo animYAY = Effects.GenerateEffect(animIS, 1, Targeting.Slot_SelfAll);
+
+            RandomizeTargetHealthColorEffect greyYAY = ScriptableObject.CreateInstance<RandomizeTargetHealthColorEffect>();
+            greyYAY.NotGrey = true; ;
+            RemovePassiveEffect noPure = ScriptableObject.CreateInstance<RemovePassiveEffect>();
+            noPure.m_PassiveID = Passives.Pure.m_PassiveID;
+
+            EffectInfo front = Effects.GenerateEffect(RandomStatusEffect.Create(true), 3, Slots.Front);
+            EffectInfo unPure = Effects.GenerateEffect(noPure, 1, Targeting.GenerateSlotTarget(new int[1] { hitHere }, true));
+            EffectInfo grayify = Effects.GenerateEffect(greyYAY, 1, Targeting.GenerateSlotTarget(new int[1] { hitHere }, true));
 
 
-                CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(new EffectInfo[] { animYAY, front, unPure, grayify }, caster));
+            CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(new EffectInfo[] { animYAY, front, unPure, grayify }, caster));
 
 
-                exitAmount = entryVariable;
-                result = (exitAmount > 0);
-            }
-            return result;
+            exitAmount = entryVariable;
+            return true;
         }
 
         // Token: 0x04000022 RID: 34
