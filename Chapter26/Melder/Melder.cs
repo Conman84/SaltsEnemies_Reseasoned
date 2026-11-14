@@ -68,6 +68,7 @@ namespace SaltsEnemies_Reseasoned
             drama.AddIntentsToTarget(Slots.FrontLeftRight, ["Misc_Hidden"]);
             drama.AddIntentsToTarget(Slots.Front, ["Melded_PA"]);
             drama.AddIntentsToTarget(Slots.FrontLeftRight, [IntentType_GameIDs.Swap_Mass.ToString()]);
+            drama.AddIntentsToTarget(Slots.Self, ["Damage_3_6"]);
 
             CheckPassiveAbilityEffect melding = ScriptableObject.CreateInstance<CheckPassiveAbilityEffect>();
             melding.m_PassiveID = "Melded_PA";
