@@ -458,15 +458,10 @@ namespace SaltEnemies_Reseasoned
             exitAmount = 0;
             foreach (TargetSlotInfo target in targets)
             {
-                List<EffectSO> list = new List<EffectSO>(Array);
+                List<EffectSO> list = [..Array];
                 int picking = UnityEngine.Random.Range(0, list.Count);
                 EffectSO first = list[picking];
-                int choosing = UnityEngine.Random.Range(0, list.Count);
-                while (choosing == picking)
-                {
-                    choosing = UnityEngine.Random.Range(0, list.Count);
-                }
-                EffectSO second = list[choosing];
+                list.RemoveAt(picking);
                 for (int i = 0; i < entryVariable; i++)
                 {
                     first.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, 1, out int exiting);
@@ -474,8 +469,11 @@ namespace SaltEnemies_Reseasoned
 
                     picking = UnityEngine.Random.Range(0, list.Count);
                     first = list[picking];
+                    list.RemoveAt(picking);
                 }
                 if (UnityEngine.Random.Range(0, 100) < 50 || use_entry) continue;
+                int choosing = UnityEngine.Random.Range(0, list.Count);
+                EffectSO second = list[choosing];
                 second.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, 1, out int grah);
                 exitAmount += grah;
             }
