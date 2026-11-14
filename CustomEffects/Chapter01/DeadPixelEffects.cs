@@ -130,7 +130,7 @@ namespace SaltEnemies_Reseasoned
                 EffectInfo grayify = Effects.GenerateEffect(greyYAY, 1, Targeting.GenerateSlotTarget(new int[1] { hitHere }, true));
 
 
-                CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { animYAY, unPure, grayify }, caster));
+                CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(new EffectInfo[] { animYAY, unPure, grayify }, caster));
 
 
                 exitAmount = entryVariable;
