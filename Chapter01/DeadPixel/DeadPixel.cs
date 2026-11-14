@@ -94,16 +94,29 @@ namespace SaltsEnemies_Reseasoned
             didThat.wasSuccessful = true;
 
             Ability theStatic = new Ability("Static", "Salt_Static_A");
-            theStatic.Description = "Randomizes another enemy's health color. If that enemy had Pure as a passive, removes it.\nIf this is the only Dead Pixel in combat, instantly dies.";
+            theStatic.Description = "Inflict 3 randomly selected Negative Status Effects on the Opposing party member.\nRandomize another enemy's health color.\nIf this is the only Dead Pixel in combat, instantly dies.";
             theStatic.Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity4", 4);
             theStatic.Priority = Priority.VeryFast;
             theStatic.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeHealthColorTargetRandomEffect>(), 4, allAlly),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DeadPixelStaticEffect>(), 1, allAlly),
                 Effects.GenerateEffect(BasicEffects.Die(), 1, Slots.Self, ScriptableObject.CreateInstance<DeadPixelDeathCondition>())
             };
             theStatic.Visuals = null;
-            theStatic.AnimationTarget = Targeting.Slot_SelfSlot;
+            theStatic.AnimationTarget = Slots.Front;
+            theStatic.AddIntentsToTarget(Slots.Front, [
+                FallColor.Intent,
+                "Status_Scars",
+                "Status_Frail",
+                "Status_OilSlicked",
+                "Status_Left",
+                Pimples.Intent,
+                "Status_Linked",
+                "Status_Gutted",
+                "Status_Ruptured",
+                DivineSacrifice.Intent,
+                Magnetism.Intent,
+                Pale.Intent,]);
             theStatic.AddIntentsToTarget(allAlly, new string[]
             {
                 "Mana_Modify"
@@ -153,7 +166,7 @@ namespace SaltsEnemies_Reseasoned
             IncreaseStatusEffectsEffect increaseAllStatus2 = ScriptableObject.CreateInstance<IncreaseStatusEffectsEffect>();
             increaseAllStatus2._increasePositives = false;
             Ability interference = new Ability("Signal Interference", "Salt_SignalInterference_A");
-            interference.Description = "Increase the status and field effects of all enemies and party members by 1. Apply 1-2 randomly selected negative status effects to all party members.";
+            interference.Description = "Increase the status and field effects of all enemies and party members by 1. Apply 1-2 randomly selected Negative Status Effects to all party members.";
             interference.Rarity = Rarity.GetCustomRarity("rarity3");
             interference.Effects = new EffectInfo[]
             {
@@ -182,8 +195,8 @@ namespace SaltsEnemies_Reseasoned
                 "Status_Gutted",
                 "Status_Ruptured",
                 DivineSacrifice.Intent,
-                //Magnetism.Intent,
-                //Pale.Intent,
+                Magnetism.Intent,
+                Pale.Intent,
             });
 
             //Add

@@ -80,7 +80,7 @@ namespace SaltEnemies_Reseasoned
         // Token: 0x04000025 RID: 37
         public int _scars;
     }
-    public class RandomizeHealthColorTargetRandomEffect : EffectSO
+    public class DeadPixelStaticEffect : EffectSO
     {
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
@@ -115,8 +115,12 @@ namespace SaltEnemies_Reseasoned
                 int targetSlotOffset = areTargetSlots ? (targetSlotInfo2.SlotID - targetSlotInfo2.Unit.SlotID) : -1;
 
                 int hitHere = targetSlotInfo2.SlotID - caster.SlotID;
+
+                List<int> target_slots = [];
+                for (int i = 0; i < targetSlotInfo2.Unit.Size; i++) target_slots.Add(targetSlotInfo2.Unit.SlotID + i);
+
                 AnimationVisualsEffect animIS = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
-                animIS._animationTarget = Targeting.GenerateSlotTarget(new int[1] { hitHere }, true);
+                animIS._animationTarget = MultiTargetting.Create(Slots.Front, Targeting.GenerateGenericTarget(target_slots.ToArray(), true));
                 //animIS._visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
                 animIS._visuals = CustomVisuals.GetVisuals("Salt/Class");
                 EffectInfo animYAY = Effects.GenerateEffect(animIS, 1, Targeting.Slot_SelfAll);
@@ -126,11 +130,12 @@ namespace SaltEnemies_Reseasoned
                 RemovePassiveEffect noPure = ScriptableObject.CreateInstance<RemovePassiveEffect>();
                 noPure.m_PassiveID = Passives.Pure.m_PassiveID;
 
+                EffectInfo front = Effects.GenerateEffect(RandomStatusEffect.Create(true), 3, Slots.Front);
                 EffectInfo unPure = Effects.GenerateEffect(noPure, 1, Targeting.GenerateSlotTarget(new int[1] { hitHere }, true));
                 EffectInfo grayify = Effects.GenerateEffect(greyYAY, 1, Targeting.GenerateSlotTarget(new int[1] { hitHere }, true));
 
 
-                CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(new EffectInfo[] { animYAY, unPure, grayify }, caster));
+                CombatManager.Instance.ProcessImmediateAction(new ImmediateEffectAction(new EffectInfo[] { animYAY, front, unPure, grayify }, caster));
 
 
                 exitAmount = entryVariable;
@@ -454,7 +459,7 @@ namespace SaltEnemies_Reseasoned
                 return _magnet;
             }
         }
-        public static EffectSO[] Array => new EffectSO[] { Oil, Left, Frail, Scar, Pimples, Linked, Gutted, Ruptured, Oil, Left, Frail, Pimples, Gutted, Linked, Oil, Left, Frail, Pimples, Scar, Sacrifice, /*Magnet, Left, Pale, Pale*/ };
+        public static EffectSO[] Array => new EffectSO[] { Oil, Left, Frail, Scar, Pimples, Linked, Gutted, Ruptured, Oil, Left, Frail, Pimples, Gutted, Linked, Oil, Left, Frail, Pimples, Scar, Sacrifice, Magnet, Left, Pale, Pale };
 
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
@@ -470,13 +475,24 @@ namespace SaltEnemies_Reseasoned
                     choosing = UnityEngine.Random.Range(0, list.Count);
                 }
                 EffectSO second = list[choosing];
-                first.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, 1, out int exiting);
-                exitAmount += exiting;
-                if (UnityEngine.Random.Range(0, 100) < 50) continue;
+                for (int i = 0; i < entryVariable; i++)
+                {
+                    first.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, 1, out int exiting);
+                    exitAmount += exiting;
+                }
+                if (UnityEngine.Random.Range(0, 100) < 50 || use_entry) continue;
                 second.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, 1, out int grah);
                 exitAmount += grah;
             }
             return exitAmount > 0;
+        }
+
+        public bool use_entry;
+        public static RandomStatusEffect Create(bool entry)
+        {
+            RandomStatusEffect ret = ScriptableObject.CreateInstance<RandomStatusEffect>();
+            ret.use_entry = entry;
+            return ret;
         }
     }
     public class ApplyPaleByTenEffect : ApplyPaleEffect
