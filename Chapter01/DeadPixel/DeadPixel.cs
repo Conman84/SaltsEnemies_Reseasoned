@@ -69,7 +69,7 @@ namespace SaltsEnemies_Reseasoned
                 Passives.Forgetful,
                 jumpy,
                 numb,
-                Passives.Fleeting4,
+                Passives.Fleeting6,
             });
 
             //Enter Effects
@@ -95,11 +95,12 @@ namespace SaltsEnemies_Reseasoned
             didThat.wasSuccessful = true;
 
             Ability theStatic = new Ability("Static", "Salt_Static_A");
-            theStatic.Description = "Randomize another enemy's health color. If that enemy had Pure as a passive, remove it.";
+            theStatic.Description = "Randomizes another enemy's health color. If that enemy had Pure as a passive, removes it.\nIf all enemies and party members have Status Effects, or this is the only Dead Pixel in combat, instantly dies.";
             theStatic.Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity4", 4);
             theStatic.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeHealthColorTargetRandomEffect>(), 4, allAlly),
+                Effects.GenerateEffect(BasicEffects.Die(), 1, Slots.Self, ScriptableObject.CreateInstance<DeadPixelDeathCondition>())
             };
             theStatic.Visuals = null;
             theStatic.AnimationTarget = Targeting.Slot_SelfSlot;
@@ -107,6 +108,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 "Mana_Modify"
             });
+            theStatic.AddIntentsToTarget(Slots.Self, ["Damage_Death"]);
             
 
             //Multicolors

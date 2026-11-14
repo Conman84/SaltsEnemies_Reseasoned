@@ -927,4 +927,34 @@ namespace SaltEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
+
+    public class DeadPixelDeathCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            if (caster.EntityID == "DeadPixel_EN")
+            {
+                bool alone = true;
+                foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+                {
+                    if (enemy.EntityID == "DeadPixel_EN")
+                    {
+                        alone = false;
+                        break;
+                    }
+                }
+                if (alone) return true;
+            }
+
+            foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
+            {
+                if (enemy.StatusEffectCount <= 0) return false;
+            }
+            foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
+            {
+                if (chara.StatusEffectCount <= 0) return false;
+            }
+            return true;
+        }
+    }
 }
