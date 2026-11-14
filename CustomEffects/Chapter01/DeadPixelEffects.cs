@@ -499,7 +499,7 @@ namespace SaltEnemies_Reseasoned
                     mana = Pigments.Blue;
                 else if (choosing < 75)
                     mana = Pigments.Yellow;
-                else if (choosing < 97)
+                else if (choosing < 98)
                     mana = Pigments.Purple;
                 else if (choosing < 100)
                     mana = Pigments.Green;
