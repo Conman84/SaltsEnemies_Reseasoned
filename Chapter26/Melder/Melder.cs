@@ -77,14 +77,15 @@ namespace SaltsEnemies_Reseasoned
             Ability metal = new Ability("Melder_Metallurgy_A")
             {
                 Name = "Metallurgy",
-                Description = "If this enemy is not Melded with any targets, reset it's Fleeting.\nDeal an Agonizing amount of damage to the Opposing party member if they are at full health.",
+                Description = "If this enemy is not Melded with any targets, reset it's Fleeting.\nDeal an Agonizing amount of damage to the Opposing party member if they are at full health.\nTake a Painful amount of damage.",
                 Rarity = Rarity.Rare,
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(melding, 1, Slots.Self),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ResetFleetingEffect>(), 0, Slots.Self, BasicEffects.DidThat(false)),
                     Effects.GenerateEffect(BasicEffects.GetVisuals("Purify_1_A", true, Slots.Front)),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<FullHealthDamageEffect>(), 8, Slots.Front)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<FullHealthDamageEffect>(), 8, Slots.Front),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Self),
                 },
                 Visuals = null,
                 AnimationTarget = Slots.Front,
