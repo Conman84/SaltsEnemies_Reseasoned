@@ -94,7 +94,7 @@ namespace SaltsEnemies_Reseasoned
             didThat.wasSuccessful = true;
 
             Ability theStatic = new Ability("Static", "Salt_Static_A");
-            theStatic.Description = "Inflict 3 randomly selected Negative Status Effects on the Opposing party member.\nRandomize another enemy's health color.\nIf this is the only Dead Pixel in combat, instantly dies.";
+            theStatic.Description = "Inflicts 3 randomly selected Negative Status Effects on the Opposing party member.\nRandomizes another enemy's health color.\nIf this is the only Dead Pixel in combat, instantly dies.";
             theStatic.Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity4", 4);
             theStatic.Priority = Priority.VeryFast;
             theStatic.Effects = new EffectInfo[]
