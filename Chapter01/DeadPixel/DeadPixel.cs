@@ -94,7 +94,7 @@ namespace SaltsEnemies_Reseasoned
             didThat.wasSuccessful = true;
 
             Ability theStatic = new Ability("Static", "Salt_Static_A");
-            theStatic.Description = "Randomizes another enemy's health color. If that enemy had Pure as a passive, removes it.\nIf all enemies and party members have Status Effects, or this is the only Dead Pixel in combat, instantly dies.";
+            theStatic.Description = "Randomizes another enemy's health color. If that enemy had Pure as a passive, removes it.\nIf this is the only Dead Pixel in combat, instantly dies.";
             theStatic.Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity4", 4);
             theStatic.Priority = Priority.VeryFast;
             theStatic.Effects = new EffectInfo[]

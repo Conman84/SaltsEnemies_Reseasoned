@@ -952,6 +952,7 @@ namespace SaltEnemies_Reseasoned
                     if (enemy.EntityID == "DeadPixel_EN")
                     {
                         alone = false;
+                        return false;
                         break;
                     }
                 }
