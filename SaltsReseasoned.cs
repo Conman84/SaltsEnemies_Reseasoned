@@ -670,6 +670,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PawsomePassive.png"), "Pawsome", "On any party member manually moving, this enemy will change its health color from Red to Purple or vice versa.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MeldedPassive.png"), "Melded", "On fleeing, halve the target unit's current health and inflict a slew of Negative Status Effects on them.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("NonomnumuburamumaPassive.png"), "Nonomnumuburamuma", "This enemy will perform 0 actions per turn by default.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ApostlePassive.png"), "Apostle", "On any other enemy being directly damaged, prematurely perform this enemy's next action on the timeline.");
 
 
             //BOSSES
@@ -677,7 +678,6 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("RadicalPassive.png"), "Radical", "On being damaged, Adjust All Lights.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SystemicPassive.png"), "Systemic", "When this enemy is damaged a certain amount of times, queue a specific ability.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ActingPassive.png"), "Acting", "On being damaged, perform this enemy's next ability on the timeline and queue another one.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ApostlePassive.png"), "Apostle", "On any other enemy being directly damaged, prematurely perform this enemy's next action on the timeline.");
 
             //EXTRA
             PCall(Tweak.Setup);
