@@ -23,7 +23,7 @@ namespace SaltsEnemies_Reseasoned
             easy = new AddTo(Shore.H.Colophon.Blue.Easy);
             if (SaltsReseasoned.trolling < 50) easy.AddRandomGroup(Colophon.Blue, "Wall_EN", "Wall_EN");
             //if (SaltsReseasoned.trolling > 50) easy.AddRandomGroup(Colophon.Blue, "Wall_EN");
-            easy.SimpleAddGroup(1, Colophon.Red, 2, "Waltz_EN");
+            easy.SimpleAddGroup(1, Colophon.Blue, 2, "Waltz_EN");
 
             med = new AddTo(Shore.H.Colophon.Red.Med);
             med.AddRandomGroup(Colophon.Red, Colophon.Blue, "Wall_EN");
