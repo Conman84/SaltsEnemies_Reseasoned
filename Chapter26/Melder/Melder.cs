@@ -92,7 +92,7 @@ namespace SaltsEnemies_Reseasoned
             };
             metal.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.PA_Fleeting.ToString()]);
             metal.AddIntentsToTarget(Slots.Front, ["Damage_7_10"]);
-            drama.AddIntentsToTarget(Slots.Self, ["Damage_7_10"]);
+            metal.AddIntentsToTarget(Slots.Self, ["Damage_7_10"]);
 
 
 
