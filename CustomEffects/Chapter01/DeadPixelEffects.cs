@@ -80,6 +80,80 @@ namespace SaltEnemies_Reseasoned
         // Token: 0x04000025 RID: 37
         public int _scars;
     }
+    public class RandomizeHealthColorTargetRandomEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            bool usePreviousExitValue = this._usePreviousExitValue;
+            if (usePreviousExitValue)
+            {
+                entryVariable *= base.PreviousExitValue;
+            }
+            exitAmount = 0;
+            List<TargetSlotInfo> list = new List<TargetSlotInfo>();
+            foreach (TargetSlotInfo targetSlotInfo in targets)
+            {
+                bool hasUnit = targetSlotInfo.HasUnit;
+                if (hasUnit)
+                {
+                    if (targetSlotInfo.Unit.ID != caster.ID)
+                        list.Add(targetSlotInfo);
+                }
+            }
+            bool flag = list.Count <= 0;
+            bool result;
+            if (flag)
+            {
+                result = false;
+                return result;
+            }
+            else
+            {
+                int index = UnityEngine.Random.Range(0, list.Count);
+                TargetSlotInfo targetSlotInfo2 = list[index];
+                areTargetSlots = true;
+                int targetSlotOffset = areTargetSlots ? (targetSlotInfo2.SlotID - targetSlotInfo2.Unit.SlotID) : -1;
+
+                int hitHere = targetSlotInfo2.SlotID - caster.SlotID;
+                AnimationVisualsEffect animIS = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
+                animIS._animationTarget = Targeting.GenerateSlotTarget(new int[1] { hitHere }, true);
+                //animIS._visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
+                animIS._visuals = CustomVisuals.GetVisuals("Salt/Class");
+                EffectInfo animYAY = Effects.GenerateEffect(animIS, 1, Targeting.Slot_SelfAll);
+
+                RandomizeTargetHealthColorEffect greyYAY = ScriptableObject.CreateInstance<RandomizeTargetHealthColorEffect>();
+                greyYAY.NotGrey = true; ;
+                RemovePassiveEffect noPure = ScriptableObject.CreateInstance<RemovePassiveEffect>();
+                noPure.m_PassiveID = Passives.Pure.m_PassiveID;
+
+                EffectInfo unPure = Effects.GenerateEffect(noPure, 1, Targeting.GenerateSlotTarget(new int[1] { hitHere }, true));
+                EffectInfo grayify = Effects.GenerateEffect(greyYAY, 1, Targeting.GenerateSlotTarget(new int[1] { hitHere }, true));
+
+
+                CombatManager.Instance.AddSubAction(new EffectAction(new EffectInfo[] { animYAY, unPure, grayify }, caster));
+
+
+                exitAmount = entryVariable;
+                result = (exitAmount > 0);
+            }
+            return result;
+        }
+
+        // Token: 0x04000022 RID: 34
+        [SerializeField]
+        public bool _usePreviousExitValue;
+
+        // Token: 0x04000023 RID: 35
+        [SerializeField]
+        public bool _ignoreShield;
+
+        // Token: 0x04000024 RID: 36
+        [SerializeField]
+        public bool _indirect = false;
+
+        // Token: 0x04000025 RID: 37
+        public int _scars;
+    }
     public class TurnGreyTargetRandomAndHitEffect : EffectSO
     {
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
