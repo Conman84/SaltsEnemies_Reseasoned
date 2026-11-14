@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -33,6 +34,7 @@ namespace SaltEnemies_Reseasoned
                     target.ApplyStatusEffect(StatusField.Frail, 2);
                     target.ApplyStatusEffect(Pimples.Object, 2);
                     target.ApplyStatusEffect(StatusField.OilSlicked, 3);
+                    target.ApplyStatusEffect(Magnetism.Object, 2);
                     exitAmount++;
                 }
             }
