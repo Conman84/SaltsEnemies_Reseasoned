@@ -105,7 +105,7 @@ namespace SaltsEnemies_Reseasoned
             theStatic.AnimationTarget = Targeting.Slot_SelfSlot;
             theStatic.AddIntentsToTarget(allAlly, new string[]
             {
-                "Misc"
+                "Mana_Modify"
             });
             
 
