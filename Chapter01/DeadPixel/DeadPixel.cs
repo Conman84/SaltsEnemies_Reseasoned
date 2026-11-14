@@ -137,7 +137,7 @@ namespace SaltsEnemies_Reseasoned
             multicolors.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
                 "Mana_Generate",
-                "Misc"
+                "Mana_Modify"
             });
 
             //interference
