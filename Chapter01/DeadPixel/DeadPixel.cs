@@ -100,7 +100,7 @@ namespace SaltsEnemies_Reseasoned
             theStatic.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DeadPixelStaticEffect>(), 1, allAlly),
-                Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Static", false, Slots.Front), 0, null, BasicEffects.DidThat(false)),
+                Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Class", false, Slots.Front), 0, null, BasicEffects.DidThat(false)),
                 Effects.GenerateEffect(RandomStatusEffect.Create(true), 3, Slots.Front, BasicEffects.DidThat(false, 2)),
                 Effects.GenerateEffect(BasicEffects.Die(), 1, Slots.Self, ScriptableObject.CreateInstance<DeadPixelDeathCondition>())
             };
