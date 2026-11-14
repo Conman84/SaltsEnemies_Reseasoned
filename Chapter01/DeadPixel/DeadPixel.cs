@@ -69,7 +69,7 @@ namespace SaltsEnemies_Reseasoned
                 Passives.Forgetful,
                 jumpy,
                 numb,
-                Passives.Fleeting6,
+                Passives.Fleeting4,
             });
 
             //Enter Effects

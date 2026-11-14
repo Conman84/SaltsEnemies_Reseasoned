@@ -63,7 +63,7 @@ namespace SaltsEnemies_Reseasoned
             scary.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.Front).SelfArray();
             scary._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
 
-            eclipse.AddPassives(new BasePassiveAbilitySO[] { jitter, scary });
+            eclipse.AddPassives(new BasePassiveAbilitySO[] { jitter, scary, Passives.FleetingGenerator(10) });
 
             CasterAddExtraAbilitySetFromPreviousEffect random_set = ScriptableObject.CreateInstance<CasterAddExtraAbilitySetFromPreviousEffect>();
             IntListWrapper a = new IntListWrapper() { list = { } };
@@ -107,7 +107,7 @@ namespace SaltsEnemies_Reseasoned
             fantastic._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };
             fantastic.AddToPassiveDatabase();
 
-            awake.AddPassives([jitter, scary, fantastic, bonusattack]);
+            awake.AddPassives([jitter, Passives.FleetingGenerator(10, true), fantastic, bonusattack]);
 
             Ability second = new Ability("Second Pain", "Eclipse2_A");
             second.Description = "Inflict 4 Slip on the Left and Right enemy positions then a Little damage to all enemies in Slip.\nRemove this ability from this enemy's moveset.";

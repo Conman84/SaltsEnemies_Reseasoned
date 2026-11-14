@@ -36,7 +36,7 @@ namespace SaltsEnemies_Reseasoned
             jitter._triggerOn = new TriggerCalls[] { JitteryHandler.Call };
             jitter.conditions = new EffectorConditionSO[0];
 
-            ufo.AddPassives(new BasePassiveAbilitySO[] { jitter });
+            ufo.AddPassives(new BasePassiveAbilitySO[] { jitter, Passives.Fleeting6 });
 
             //laser
             Ability laser = new Ability("UFO_Laser_A")
