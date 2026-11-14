@@ -68,7 +68,6 @@ namespace SaltsEnemies_Reseasoned
             drama.AddIntentsToTarget(Slots.FrontLeftRight, ["Misc_Hidden"]);
             drama.AddIntentsToTarget(Slots.Front, ["Melded_PA"]);
             drama.AddIntentsToTarget(Slots.FrontLeftRight, [IntentType_GameIDs.Swap_Mass.ToString()]);
-            drama.AddIntentsToTarget(Slots.Self, ["Damage_3_6"]);
 
             CheckPassiveAbilityEffect melding = ScriptableObject.CreateInstance<CheckPassiveAbilityEffect>();
             melding.m_PassiveID = "Melded_PA";
@@ -92,9 +91,10 @@ namespace SaltsEnemies_Reseasoned
                 AnimationTarget = Slots.Front,
             };
             metal.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.PA_Fleeting.ToString()]);
-            metal.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_7_10"]);
+            metal.AddIntentsToTarget(Slots.Front, ["Damage_7_10"]);
+            drama.AddIntentsToTarget(Slots.Self, ["Damage_3_6"]);
 
-            
+
 
             //thauma
             Ability thauma = new Ability("Melder_Thaumaturgy_A")
