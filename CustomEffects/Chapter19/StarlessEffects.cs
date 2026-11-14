@@ -118,7 +118,7 @@ namespace SaltEnemies_Reseasoned
             ManaColorSO mana = caster.HealthColor;
             if (!caster.IsUnitCharacter) _enemyTransformation = LoadedAssetsHandler.GetEnemy(enemy);
             bool ret = base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out exitAmount);
-            if (MaintainHealthColor)
+            if (MaintainHealthColor && caster.HealthColor != mana)
             {
                 bool had = caster.TryRemovePassiveAbility(PassiveType_GameIDs.Pure.ToString());
                 caster.ChangeHealthColor(mana);

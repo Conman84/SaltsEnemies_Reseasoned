@@ -1,4 +1,5 @@
-﻿using SaltEnemies_Reseasoned;
+﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +15,14 @@ namespace SaltsEnemies_Reseasoned
         {
             IUnit caster = sender as IUnit;
             if (caster.IsUnitCharacter || !caster.IsAlive) return;
+            ManaColorSO mana = caster.HealthColor;
             CombatManager.Instance._stats.TryTransformEnemy(caster.ID, LoadedAssetsHandler.GetEnemy("Wall_2_EN"), false, false, true, false);
+            if (caster.HealthColor != mana)
+            {
+                bool had = caster.TryRemovePassiveAbility(PassiveType_GameIDs.Pure.ToString());
+                caster.ChangeHealthColor(mana);
+                if (had) caster.AddPassiveAbility(Passives.Pure);
+            }
             //if (CombatManager.Instance._stats.timeline.IsConfused) return;
             //CombatManager.Instance.AddUIAction(new FixCasterTImelineIntentsUIAction(caster));
         }
