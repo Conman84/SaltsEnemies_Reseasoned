@@ -454,7 +454,7 @@ namespace SaltEnemies_Reseasoned
                 return _magnet;
             }
         }
-        public static EffectSO[] Array => new EffectSO[] { Oil, Left, Frail, Scar, Pimples, Linked, Gutted, Ruptured, Oil, Left, Frail, Pimples, Gutted, Linked, Oil, Left, Frail, Pimples, Scar, Sacrifice, Magnet, Left, Pale, Pale };
+        public static EffectSO[] Array => new EffectSO[] { Oil, Left, Frail, Scar, Pimples, Linked, Gutted, Ruptured, Oil, Left, Frail, Pimples, Gutted, Linked, Oil, Left, Frail, Pimples, Scar, Sacrifice, /*Magnet, Left, Pale, Pale*/ };
 
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {

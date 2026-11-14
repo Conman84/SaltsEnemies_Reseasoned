@@ -182,8 +182,8 @@ namespace SaltsEnemies_Reseasoned
                 "Status_Gutted",
                 "Status_Ruptured",
                 DivineSacrifice.Intent,
-                Magnetism.Intent,
-                Pale.Intent,
+                //Magnetism.Intent,
+                //Pale.Intent,
             });
 
             //Add
