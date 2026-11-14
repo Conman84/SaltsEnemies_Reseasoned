@@ -94,7 +94,7 @@ namespace SaltsEnemies_Reseasoned
             didThat.wasSuccessful = true;
 
             Ability theStatic = new Ability("Static", "Salt_Static_A");
-            theStatic.Description = "Inflicts 3 randomly selected Negative Status Effects on the Opposing party member.\nRandomizes another enemy's health color.\nIf this is the only Dead Pixel in combat, instantly dies.";
+            theStatic.Description = "Inflicts 3 randomly selected Negative Status Effects on the Opposing party member.\nRandomizes another enemy's health color.\nIf this is the only Dead Pixel in combat, instantly dies of loneliness.";
             theStatic.Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity4", 4);
             theStatic.Priority = Priority.VeryFast;
             theStatic.Effects = new EffectInfo[]
@@ -104,6 +104,11 @@ namespace SaltsEnemies_Reseasoned
             };
             theStatic.Visuals = null;
             theStatic.AnimationTarget = Slots.Front;
+            theStatic.AddIntentsToTarget(allAlly, new string[]
+            {
+                "Mana_Modify"
+            });
+            theStatic.AddIntentsToTarget(Slots.Self, ["Damage_Death"]);
             theStatic.AddIntentsToTarget(Slots.Front, [
                 FallColor.Intent,
                 "Status_Scars",
@@ -117,11 +122,6 @@ namespace SaltsEnemies_Reseasoned
                 DivineSacrifice.Intent,
                 Magnetism.Intent,
                 Pale.Intent,]);
-            theStatic.AddIntentsToTarget(allAlly, new string[]
-            {
-                "Mana_Modify"
-            });
-            theStatic.AddIntentsToTarget(Slots.Self, ["Damage_Death"]);
 
             AbilitySelector_Heaven dontinstadie = ScriptableObject.CreateInstance<AbilitySelector_Heaven>();
             dontinstadie._ComeHomeAbility = "Salt_Static_A";
