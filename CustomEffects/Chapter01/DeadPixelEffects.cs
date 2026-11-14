@@ -949,7 +949,7 @@ namespace SaltEnemies_Reseasoned
                 bool alone = true;
                 foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
                 {
-                    if (enemy.EntityID == "DeadPixel_EN")
+                    if (enemy.EntityID == "DeadPixel_EN" && enemy.ID != caster.ID)
                     {
                         alone = false;
                         return false;
