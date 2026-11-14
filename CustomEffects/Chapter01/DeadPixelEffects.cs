@@ -467,11 +467,12 @@ namespace SaltEnemies_Reseasoned
                     first.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, 1, out int exiting);
                     exitAmount += exiting;
 
+                    if (list.Count <= 0) break;
                     picking = UnityEngine.Random.Range(0, list.Count);
                     first = list[picking];
                     list.RemoveAt(picking);
                 }
-                if (UnityEngine.Random.Range(0, 100) < 50 || use_entry) continue;
+                if (UnityEngine.Random.Range(0, 100) < 50 || use_entry || list.Count <= 0) continue;
                 int choosing = UnityEngine.Random.Range(0, list.Count);
                 EffectSO second = list[choosing];
                 second.PerformEffect(stats, caster, target.SelfArray(), areTargetSlots, 1, out int grah);
