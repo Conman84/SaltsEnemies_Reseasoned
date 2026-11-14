@@ -109,7 +109,12 @@ namespace SaltsEnemies_Reseasoned
                 "Mana_Modify"
             });
             theStatic.AddIntentsToTarget(Slots.Self, ["Damage_Death"]);
-            
+
+            AbilitySelector_Heaven dontinstadie = ScriptableObject.CreateInstance<AbilitySelector_Heaven>();
+            dontinstadie._ComeHomeAbility = "Salt_Static_A";
+            dontinstadie._useAfterTurns = 1;
+            DeadPixel.AbilitySelector = dontinstadie;
+
 
             //Multicolors
             CustomChangeToRandomHealthColorEffect randomize = ScriptableObject.CreateInstance<CustomChangeToRandomHealthColorEffect>();

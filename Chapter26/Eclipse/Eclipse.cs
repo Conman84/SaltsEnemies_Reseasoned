@@ -79,7 +79,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability fate = new Ability("Invisible Fates", "InvisibleFate_A");
             fate.Description = "If the Opposing party member is Cursed, deal an Agonizing amount of damage to them.";
-            fate.Rarity = Rarity.CreateAndAddCustomRarityToPool("knight_20", 20);
+            fate.Rarity = Rarity.CreateAndAddCustomRarityToPool("knight_15", 15);
             fate.Priority = Priority.Fast;
             StatusEffectCheckerEffect has_curse = ScriptableObject.CreateInstance<StatusEffectCheckerEffect>();
             has_curse._status = StatusField.Cursed;
