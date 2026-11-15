@@ -482,6 +482,16 @@ namespace SaltsEnemies_Reseasoned
                 public static string Med => "FF_Teratoma_MediumBundle";
             }
 
+            //IT.
+            public static class Gizo
+            {
+                public static string Med => "GizoMedium";
+                public static string Hard => "GizoHard";
+            }
+            public static class Ophanim
+            {
+                public static string Hard => "OphanimHard";
+            }
         }
     }
 }

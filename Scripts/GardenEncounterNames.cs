@@ -429,6 +429,20 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Hard => "LossPortrait_HardBundle";
             }
+
+            //revelry
+            public static class Allusion
+            {
+                public static string Easy => "RR_Zone02_Allusion_Easy_EnemyBundle";
+                public static string Med => "RR_Zone02_Allusion_Medium_EnemyBundle";
+            }
+
+            //IT.
+            public static class Leviat
+            {
+                public static string Med => "SterileBudMedium";
+                public static string Hard => "SterileBudHard";
+            }
         }
     }
 }

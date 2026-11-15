@@ -126,8 +126,51 @@ namespace SaltsEnemies_Reseasoned
             unmask._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged };
             unmask._floorVal = 23;
 
+            Passives.PanicAttack._enemyDescription = "On receiving direct damage, reset all bonuses on this enemy for \"Punch\" and \"Tears.\"";
+
+            //Freakout
+            PerformEffectPassiveAbility freakout = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            freakout._passiveName = "Freak Out";
+            freakout.m_PassiveID = "FreakOut_PA";
+            freakout.name = "FreakOut_1_PA";
+            freakout.passiveIcon = ResourceLoader.LoadSprite("Freakout.png");
+            freakout._enemyDescription = "Upon receiving any damage, apply 0-1 Power to all allies that aren't Lost Sheep.";
+            freakout._characterDescription = "Upon receiving any damage, apply 0-1 Power to all allies that aren't Lost Sheep.";
+            freakout.doesPassiveTriggerInformationPanel = true;
+            UnitSideNotLostSheep allAlly = ScriptableObject.CreateInstance<UnitSideNotLostSheep>();
+            allAlly.getAllies = true;
+            allAlly.getAllUnitSlots = false;
+            freakout.effects = new EffectInfo[]
+            {
+                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerRangePlusOneEffect>(), 0, allAlly)
+            };
+            freakout._triggerOn = new TriggerCalls[] { TriggerCalls.OnDamaged };
+
+            //LAZY
+            PerformEffectPassiveAbility lazy = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            lazy._passiveName = "Lazy (2)";
+            lazy.passiveIcon = ResourceLoader.LoadSprite("Lazy.png");
+            lazy._enemyDescription = "When fleeing, this enemy will return after 2 rounds if combat hasn't ended.";
+            lazy._characterDescription = "When fleeing, this character will return at the end of the next 2 rounds if combat hasn't ended.";
+            lazy.m_PassiveID = ButterflyUnboxer.SkyloftPassive;
+            lazy.doesPassiveTriggerInformationPanel = true;
+            lazy._triggerOn = new TriggerCalls[] { TriggerCalls.OnFleeting };
+            lazy.effects = new EffectInfo[0];
+            lazy.conditions = new EffectorConditionSO[] { ScriptableObject.CreateInstance<NotFlitheringCondition>() };
+
+            PerformEffectPassiveAbility altruistic = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            altruistic.name = "Altruistic_1_PA";
+            altruistic._passiveName = "Altruistic (1)";
+            altruistic.m_PassiveID = "Altruistic_PA";
+            altruistic.passiveIcon = ResourceLoader.LoadSprite("AltruisticPassive.png");
+            altruistic._enemyDescription = "On being directly damaged, apply 1 Determined to the Opposing party member.";
+            altruistic._characterDescription = "On being directly damaged, apply 1 Determined to the Opposing enemy.";
+            altruistic.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDeterminedEffect>(), 1, Slots.Front)];
+            altruistic._triggerOn = [TriggerCalls.OnDirectDamaged];
+            altruistic.conditions = [];
+
             //addpassives
-            yin.AddPassives(new BasePassiveAbilitySO[] { Passives.PanicAttack, Passives.Pure, Passives.Transfusion, Passives.Leaky3, Passives.Unstable, Passives.Slippery, Passives.Infantile, Violent.Generate(5), noOver, Passives.Forgetful, fluids, splatter, Passives.FleetingGenerator(10), disabled, substitute, Passives.Focus, Passives.Anointed1, Passives.Delicate, Passives.EssenceBlue, unmask, transform });
+            yin.AddPassives(new BasePassiveAbilitySO[] { Passives.PanicAttack, Passives.Pure, Passives.Transfusion, Passives.Leaky3, Passives.Unstable, Passives.Slippery, Passives.Infantile, Violent.Generate(5), noOver, Passives.Forgetful, fluids, splatter, Passives.FleetingGenerator(10), disabled, substitute, Passives.Focus, Passives.Anointed1, Passives.Delicate, Passives.EssenceBlue, unmask, Passives.Dying, freakout, lazy, altruistic, transform });
             yin.AddUnitType("FemaleID");
 
             //cruel

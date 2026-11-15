@@ -266,5 +266,7 @@ namespace SaltsEnemies_Reseasoned
         public static string Portrait => "PortraitLoss_EN";
         public static string Penguin => "AlbinoPenguin_EN";
         public static string Cthonian => "Chthonian_EN";
+        public static string Screaming => "ScreamingHomunculus_EN";
+        public static string Leviat => "SterileBud_EN";
     }
 }
