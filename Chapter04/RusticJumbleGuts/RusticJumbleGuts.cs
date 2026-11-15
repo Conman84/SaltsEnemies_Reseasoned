@@ -45,7 +45,7 @@ namespace SaltsEnemies_Reseasoned
             melt.Rarity = Rarity.GetCustomRarity("rarity5");
             melt.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(BasicEffects.ShieldPierce, 11, Targeting.Slot_Front),
+                Effects.GenerateEffect(BasicEffects.ShieldBlocked, 11, Targeting.Slot_Front),
             };
             melt.Visuals = LoadedAssetsHandler.GetEnemyAbility("Boil_A").visuals;
             melt.AnimationTarget = Targeting.Slot_Front;
