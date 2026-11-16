@@ -86,15 +86,15 @@ namespace SaltsEnemies_Reseasoned
             //pigs in blue
             Ability blue = new Ability("PigsInBlue_A");
             blue.Name = "Pigs in Blue";
-            blue.Description = "If any enemies share this enemy's health color, deal a Little damage to their Opposing positions.\nInflict 1 Constricted on the Opposing position.";
+            blue.Description = "If any enemies share this enemy's health color, deal a Painful amount of damage to their Opposing positions.\nInflict 1 Constricted on the Opposing position.";
             blue.Rarity = Rarity.GetCustomRarity("rarity5");
             blue.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Targetting.Reverse(targettingCasterColor)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Targetting.Reverse(targettingCasterColor)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyConstrictedSlotEffect>(), 1, Slots.Front)
             };
             blue.AddIntentsToTarget(allEnemy, new string[] { IntentType_GameIDs.Misc_Hidden.ToString() });
-            blue.AddIntentsToTarget(Targetting.Reverse(targettingCasterColor), new string[] { IntentType_GameIDs.Damage_1_2.ToString() });
+            blue.AddIntentsToTarget(Targetting.Reverse(targettingCasterColor), new string[] { IntentType_GameIDs.Damage_3_6.ToString() });
             blue.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Field_Constricted.ToString()]);
             blue.Visuals = CustomVisuals.GetVisuals("Salt/Gaze");
             blue.AnimationTarget = Targetting.Reverse(targettingCasterColor);
@@ -121,17 +121,18 @@ namespace SaltsEnemies_Reseasoned
             Ability pinch = new Ability("EyePalm_Pinch_A")
             {
                 Name = "Pinch",
-                Description = "Deal an Agonizing amount of damage to the Opposing party member. Change this enemy's health color between Red and Blue.",
+                Description = "Deal an Agonizing amount of damage to the Opposing party member, then Heal them. Change this enemy's health color between Red and Blue.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Targeting.Slot_Front),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 7, Slots.Front),
                             Effects.GenerateEffect(effect, 1, Targeting.Slot_SelfSlot)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Class"),
                 AnimationTarget = Targeting.Slot_Front,
             };
-            pinch.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Damage_7_10.ToString() });
+            pinch.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Damage_7_10.ToString(), "Heal_5_10" });
             pinch.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { IntentType_GameIDs.Mana_Modify.ToString() });
             pinch.Priority = Priority.Slow;
 
