@@ -131,7 +131,7 @@ namespace SaltsEnemies_Reseasoned
                             Effects.GenerateEffect(onlyIfAlive, 7, Slots.Front),
                             Effects.GenerateEffect(effect, 1, Targeting.Slot_SelfSlot)
                 },
-                Visuals = CustomVisuals.GetVisuals("Salt/Class"),
+                Visuals = Visuals.Poke,
                 AnimationTarget = Targeting.Slot_Front,
             };
             pinch.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Damage_7_10.ToString(), "Heal_5_10" });
