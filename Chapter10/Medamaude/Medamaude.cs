@@ -118,15 +118,17 @@ namespace SaltsEnemies_Reseasoned
             ChangeCasterHealthColorBetweenColorsEffect effect = ScriptableObject.CreateInstance<ChangeCasterHealthColorBetweenColorsEffect>();
             effect._color1 = Pigments.Red;
             effect._color2 = Pigments.Blue;
+            HealEffect onlyIfAlive = ScriptableObject.CreateInstance<HealEffect>();
+            onlyIfAlive._onlyIfHasHealthOver0 = true;
             Ability pinch = new Ability("EyePalm_Pinch_A")
             {
                 Name = "Pinch",
-                Description = "Deal an Agonizing amount of damage to the Opposing party member, then Heal them. Change this enemy's health color between Red and Blue.",
+                Description = "Deal an Agonizing amount of damage to the Opposing party member, then Heal them if they survive. Change this enemy's health color between Red and Blue.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Targeting.Slot_Front),
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 7, Slots.Front),
+                            Effects.GenerateEffect(onlyIfAlive, 7, Slots.Front),
                             Effects.GenerateEffect(effect, 1, Targeting.Slot_SelfSlot)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Class"),
