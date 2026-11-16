@@ -321,6 +321,7 @@ namespace SaltEnemies_Reseasoned
             PCall(OrphCrossovers.Gizo);
             PCall(OrphCrossovers.Ophanim);
             PCall(GardenCrossovers.Leviat);
+            PCall(GardenCrossovers.Screamer);
         }
     }
 }
