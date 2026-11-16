@@ -43,9 +43,9 @@ namespace SaltsEnemies_Reseasoned
             radial._enemyDescription = "If an infantile enemy receives direct damage, this enemy will perform \"Radial Dichotomy\" in retribution.";
             Ability parental = new Ability("RadialDichotomy_A");
             parental.Name = "Radial Dichotomy";
-            parental.Description = "Inflict 0 or 10 Slip on all party member and enemy positions.";
+            parental.Description = "Inflict 0 or 2 Slip on all party member and enemy positions.";
             parental.Effects = new EffectInfo[1];
-            parental.Effects[0] = Effects.GenerateEffect(ZeroOrEntryEffect.Create(ScriptableObject.CreateInstance<ApplySlipSlotEffect>()), 10, MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false)));
+            parental.Effects[0] = Effects.GenerateEffect(ZeroOrEntryEffect.Create(ScriptableObject.CreateInstance<ApplySlipSlotEffect>()), 2, MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false)));
             parental.AddIntentsToTarget(Targetting.Everything(true), [Slip.Intent]);
             parental.AddIntentsToTarget(Targetting.Everything(false), [Slip.Intent]);
             parental.Visuals = CustomVisuals.GetVisuals("Salt/Wheel");
