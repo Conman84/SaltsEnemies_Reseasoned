@@ -316,6 +316,10 @@ namespace SaltEnemies_Reseasoned
             //fishy
             PCall(Fishy_ShoreAndOrph_First.Add);
             PCall(Fishy_Garden_First.Add);
+
+            //IT.
+            PCall(OrphCrossovers.Gizo);
+            PCall(OrphCrossovers.Ophanim);
         }
     }
 }
