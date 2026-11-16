@@ -320,6 +320,7 @@ namespace SaltEnemies_Reseasoned
             //IT.
             PCall(OrphCrossovers.Gizo);
             PCall(OrphCrossovers.Ophanim);
+            PCall(GardenCrossovers.Leviat);
         }
     }
 }

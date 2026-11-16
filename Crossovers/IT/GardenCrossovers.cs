@@ -57,7 +57,68 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Garden.H.Hunter.Med);
             med.AddRandomGroup("Hunter_EN", Enemies.Leviat, "EyePalm_EN", "EyePalm_EN");
 
+            med = new AddTo(Garden.H.Firebird.Med);
+            med.AddRandomGroup("Firebird_EN", Enemies.Leviat, "EyePalm_EN", "EyePalm_EN");
 
+            med = new AddTo(Garden.H.YNL.Med);
+            med.AddRandomGroup("YNL_EN", Enemies.Leviat, "Grandfather_EN");
+            med.AddRandomGroup("YNL_EN", Enemies.Leviat, "WindSong_EN");
+
+            med = new AddTo(Garden.H.Ode.Med);
+            med.AddRandomGroup("OdeToHumanity_EN", Enemies.Leviat, Enemies.Shivering, Enemies.Shivering);
+            med.AddRandomGroup("OdeToHumanity_EN", Enemies.Leviat, "Yang_EN");
+            med.AddRandomGroup("OdeToHumanity_EN", Enemies.Leviat, "Attrition_EN");
+
+            med = new AddTo(Garden.H.PersonalAngel.Med);
+            med.AddRandomGroup("PersonalAngel_EN", Enemies.Leviat, "EyePalm_EN", "EyePalm_EN");
+
+            med = new AddTo(Garden.H.Starless.Med);
+            med.AddRandomGroup("Starless_EN", Enemies.Leviat, Enemies.Leviat);
+            med.AddRandomGroup("Starless_EN", Enemies.Leviat, "Vivarium_EN", "Vivarium_EN", "Vivarium_EN");
+
+            med = new AddTo(Garden.H.Stoplight.Med);
+            med.AddRandomGroup("Stoplight_EN", Enemies.Leviat, "PawnA_EN");
+
+            hard = new AddTo(Garden.H.Stoplight.Hard);
+            hard.AddRandomGroup("Stoplight_EN", Enemies.Leviat, Bots.Grey);
+
+            med = new AddTo(Garden.H.GreyBot.Med);
+            med.AddRandomGroup(Bots.Grey, Enemies.Leviat, "Yang_EN");
+
+            hard = new AddTo(Garden.H.Eyeless.Hard);
+            hard.AddRandomGroup("Eyeless_EN", Enemies.Leviat, Enemies.Leviat);
+            hard.AddRandomGroup("Eyeless_EN", "Starless_EN", Enemies.Leviat);
+
+            med = new AddTo(Garden.H.Yang.Med);
+            med.SimpleAddGroup(2, "Yang_EN", 1, Enemies.Leviat);
+            med.AddRandomGroup("Yang_EN", Enemies.Leviat, "PawnA_EN", "PawnA_EN");
+
+            hard = new AddTo(Garden.H.Yin.Hard);
+            hard.AddRandomGroup("Yang_EN", "Yin_EN", Enemies.Leviat);
+
+            med = new AddTo(Garden.H.Dark.Med);
+            med.AddRandomGroup("InTheDark_EN", Enemies.Leviat, Flower.Blue);
+            med.AddRandomGroup("InTheDark_EN", Enemies.Leviat, "Bonsai_EN");
+
+            hard = new AddTo(Garden.H.Dark.Hard);
+            hard.SimpleAddGroup(2, "InTheDark_EN", 1, Enemies.Leviat);
+
+            med = new AddTo(Garden.H.Lunoscope.Med);
+            med.AddRandomGroup("Lunoscope_EN", Enemies.Leviat, "EggKeeper_EN");
+            med.AddRandomGroup("Lunoscope_EN", Enemies.Leviat, "MiniReaper_EN");
+
+            hard = new AddTo(Garden.H.Lunoscope.Hard);
+            hard.AddRandomGroup("Lunoscope_EN", Enemies.Leviat, "ChoirBoy_EN");
+
+            med = new AddTo(Garden.H.Ecstasy99.Med);
+            med.SimpleAddGroup(3, Ecstasy.Gray, 1, Enemies.Leviat);
+
+            med = new AddTo(Garden.H.Eclipse.Med);
+            med.AddRandomGroup(Enemies.Eclipse, Enemies.Leviat, Enemies.Leviat);
+            med.AddRandomGroup(Enemies.Eclipse, Enemies.Leviat, "ChoirBoy_EN");
+
+            hard = new AddTo(Garden.H.Eclipse.Hard);
+            hard.AddRandomGroup(Enemies.Eclipse, Enemies.Eclipse, Enemies.Leviat);
         }
     }
 }
