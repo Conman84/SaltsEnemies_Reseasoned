@@ -519,7 +519,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Jumpy.png"), "Jumpy", "Upon being damaged, move to a random position. Upon performing an ability, move to a random position.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Lightweight.png"), "Lightweight", "Upon moving, 50% chance to move Left or Right.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Unmasking.png"), "Unmasking", "Upon taking a certain amount of direct damage or higher, remove Confusion and Obscured as passives from this unit.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Desperate.png"), "Desperate", "On taking any damage, 33% chance to apply a certain amount of Determined to self.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Desperate.png"), "Desperate", "On being directly damaged, gain a certain amount of Determined.");
 
             //CH2
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Fishing.png"), "Fishing", "Upon taking direct damage, spawn a \"Fish.\" The weight of the fish spawned increases upon taking more damage.");

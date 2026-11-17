@@ -25,7 +25,7 @@ namespace SaltsEnemies_Reseasoned
                 2
             });
             mainEncounters.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector("Salt_DeadGod_Orpheum_Bundle", 3, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector("Salt_DeadGod_Orpheum_Bundle", 5, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Hard);
         }
     }
 }

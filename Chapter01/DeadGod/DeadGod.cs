@@ -25,24 +25,18 @@ namespace SaltsEnemies_Reseasoned
 
             //Desperate
             PerformEffectImmediatePassiveAbility desperate = ScriptableObject.CreateInstance<PerformEffectImmediatePassiveAbility>();
-            desperate._passiveName = "Desperate (3)";
+            desperate._passiveName = "Desperate (2)";
+            desperate.name = "Desparate_2_PA";
             desperate.m_PassiveID = "Desperate_PA";
             desperate.passiveIcon = ResourceLoader.LoadSprite("Desperate.png");
-            desperate._characterDescription = "On taking any damage, 33% chance to apply 3 Determined to self.";
-            desperate._enemyDescription = "On taking any damage, 33% chance to apply 3 Determined to self.";
+            desperate._characterDescription = "On being directy damaged, gain 2 Determined.";
+            desperate._enemyDescription = "On being directly damaged, gain 2 Determined.";
             desperate.doesPassiveTriggerInformationPanel = true;
-            PercentageEffectorCondition desperateChance = ScriptableObject.CreateInstance<PercentageEffectorCondition>();
-            desperateChance.triggerPercentage = 33;
-            desperate.conditions = new EffectorConditionSO[1]
-            {
-                desperateChance
-            };
             desperate.effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDeterminedEffect>(), 3, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDeterminedEffect>(), 2, Targeting.Slot_SelfSlot),
             };
-            desperate._triggerOn = new TriggerCalls[] { TriggerCalls.OnBeingDamaged };
-            desperate.name = "Desperate_3_PA";
+            desperate._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged };
             desperate.AddToPassiveDatabase();
 
             //Enemy Code
@@ -69,23 +63,27 @@ namespace SaltsEnemies_Reseasoned
 
             DeadGod.AddLootData(new EnemyLootItemProbability[] { new EnemyLootItemProbability() { isItemTreasure = false, amount = 3, probability = 100 } });
 
+            AddPassiveEffect confuse = ScriptableObject.CreateInstance<AddPassiveEffect>();
+            confuse._passiveToAdd = Passives.Confusion;
+
             //Faith
             PreviousEffectCondition didntThat = ScriptableObject.CreateInstance<PreviousEffectCondition>();
             didntThat.wasSuccessful = false;
 
             Ability faith = new Ability("Forgotten Faith", "Salt_ForgottenFaith_A");
-            faith.Description = "Apply 1-2 Power to this enemy.";
-            faith.Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity8", 8);
+            faith.Description = "Apply 1-2 Power to this enemy.\nGain \"Confusion\" as a passive.";
+            faith.Rarity = Rarity.Common;
             faith.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 1, Targeting.Slot_SelfSlot),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 1, Targeting.Slot_SelfSlot, Effects.ChanceCondition(66)),
+                Effects.GenerateEffect(confuse, 1, Slots.Self),
             };
             faith.Visuals = LoadedAssetsHandler.GetEnemyAbility("UglyOnTheInside_A").visuals;
             faith.AnimationTarget = Targeting.Slot_SelfSlot;
             faith.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
-                "Status_Power"
+                "Status_Power", IntentType_GameIDs.PA_Confusion.ToString(),
             });
 
             //Left Hand
@@ -101,8 +99,8 @@ namespace SaltsEnemies_Reseasoned
             directHit._usePreviousExitValue = false;
 
             Ability left = new Ability("Left Hand", "Salt_LeftHand_A");
-            left.Description = "Move left and apply 1 Power to this enemy. Deal a little bit of damage to the right party member.";
-            left.Rarity = Rarity.GetCustomRarity("rarity7");
+            left.Description = "Move left and apply 1 Power to this enemy. Deal a Little damage to the right party member.";
+            left.Rarity = Rarity.CreateAndAddCustomRarityToPool("DG_15", 15);
             left.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(goLeft, 1, Targeting.Slot_SelfSlot),
@@ -132,8 +130,8 @@ namespace SaltsEnemies_Reseasoned
             didThat.wasSuccessful = true;
 
             Ability right = new Ability("Right Hand", "Salt_RightHand_A");
-            right.Description = "Move right and deal a painful amount of damage to the left party member. If damage was dealt, apply 1 Power to this enemy.";
-            right.Rarity = Rarity.GetCustomRarity("rarity8");
+            right.Description = "Move right and deal a Painful amount of damage to the left party member. If damage was dealt, apply 1 Power to this enemy.";
+            right.Rarity = Rarity.GetCustomRarity("DG_15");
             right.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(goRight, 1, Targeting.Slot_SelfSlot),
@@ -162,13 +160,13 @@ namespace SaltsEnemies_Reseasoned
             shieldPierce._indirect = false;
 
             Ability promised = new Ability("Broken Promise", "Salt_BrokenPromise_A");
-            promised.Description = "Apply 1-2 Power to self. Deal a little bit of damage to the opposing party member. This attack ignores shield. Apply 3 Ruptured to this enemy.";
-            promised.Rarity = Rarity.GetCustomRarity("rarity7");
+            promised.Description = "Apply 1-2 Power to self. Deal a Little damage to the opposing party member, this attack is fully blocked by Shield. \nInflict 3 Ruptured on this enemy.";
+            promised.Rarity = Rarity.Common;
             promised.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 1, Targeting.Slot_SelfSlot),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 1, Targeting.Slot_SelfSlot, Effects.ChanceCondition(60)),
-                Effects.GenerateEffect(shieldPierce, 2, Targeting.Slot_Front),
+                Effects.GenerateEffect(BasicEffects.ShieldBlocked, 2, Targeting.Slot_Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 3, Targeting.Slot_SelfSlot),
             };
             promised.Visuals = LoadedAssetsHandler.GetEnemyAbility("RingABell_A").visuals;
@@ -185,41 +183,51 @@ namespace SaltsEnemies_Reseasoned
 
             //Apparition
             Ability apparition = new Ability("Divine Apparition", "Salt_DivineApparition_A");
-            apparition.Description = "Move to a random position. Apply 1 fire to self, and 1-10 fire to the opposing party member. 33% chance to apply 1 Frail to self.";
-            apparition.Rarity = Rarity.GetCustomRarity("rarity3");
+            apparition.Description = "Move to a random position. Inflict 1 Fire on this enemy, and 1-10 Fire on the Opposing position. \nInflict 2 Frail on this enemy and gain \"Confusion\" as a Passive.";
+            apparition.Rarity = Rarity.CreateAndAddCustomRarityToPool("DG_5", 5);
+            apparition.Priority = Priority.Slow;
             apparition.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapRandomZoneEffectHideIntent>(), 1, Targeting.Slot_SelfSlot),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<CustomApplyFireSlotEffect>(), 1, Targeting.Slot_Front),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 1, Targeting.Slot_SelfSlot, Effects.ChanceCondition(33)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 2, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(confuse, 1, Slots.Self)
             };
             apparition.AnimationTarget = Targeting.Slot_SelfSlot;
             apparition.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
                 "Swap_Mass",
-                "Status_Frail",
             });
             apparition.AddIntentsToTarget(Targeting.Slot_Front, new string[]
             {
                 "Field_Fire",
             });
+            apparition.AddIntentsToTarget(Slots.Self, ["Status_Frail", IntentType_GameIDs.PA_Confusion.ToString()]);
 
             //World
+            StatusEffectCheckerEffect has_det = ScriptableObject.CreateInstance<StatusEffectCheckerEffect>();
+            has_det._status = Determined.Object;
+            has_det._allTargetsHaveStatusEffect = false;
             Ability world = new Ability("A Godless World", "Salt_AGodlessWorld_A");
-            world.Description = "70% chance to give this enemy an additional turn. Apply 1 Power and 1 Scar to this enemy.";
-            world.Rarity = Rarity.GetCustomRarity("rarity4");
+            world.Description = "If this enemy is Determined, deal Almost No damage to all party members, this damage is fully blocked by Shield.\nInflict 1-2 Scars on this enemy and gain \"Confusion\" as a Passive.";
+            world.Rarity = Rarity.GetCustomRarity("DG_5");
+            world.Priority = Priority.Fast;
             world.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<CustomAddTurnToTimelineEffect>(), 1, Targeting.Slot_SelfSlot),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Slot_SelfSlot),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 1, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(has_det, 1, Slots.Self),
+                Effects.GenerateEffect(BasicEffects.GetVisuals("Clobber_1_A", true, Targeting.Unit_AllOpponents), 0, null, BasicEffects.DidThat(true)),
+                Effects.GenerateEffect(BasicEffects.ShieldBlocked, 1, Targeting.Unit_AllOpponents, BasicEffects.DidThat(true, 2)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Slots.Self, Effects.ChanceCondition(50)),
+                Effects.GenerateEffect(confuse, 1, Slots.Self)
             };
             world.AnimationTarget = Targeting.Slot_SelfSlot;
+            world.Visuals = null;
+            world.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Damage_1_2"]);
             world.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
-                "Misc",
                 "Status_Scars",
-                "Status_Power",
+                IntentType_GameIDs.PA_Confusion.ToString(),
             });
 
             //Blind
@@ -243,13 +251,13 @@ namespace SaltsEnemies_Reseasoned
             //Add
             DeadGod.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                faith.GenerateEnemyAbility(true),
                 left.GenerateEnemyAbility(true),
+                faith.GenerateEnemyAbility(true),
                 right.GenerateEnemyAbility(true),
                 promised.GenerateEnemyAbility(true),
                 apparition.GenerateEnemyAbility(true),
                 world.GenerateEnemyAbility(true),
-                blind.GenerateEnemyAbility(true),
+                //blind.GenerateEnemyAbility(true),
             });
             DeadGod.AddEnemy(true);
         }
