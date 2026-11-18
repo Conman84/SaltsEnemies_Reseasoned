@@ -76,11 +76,11 @@ namespace YourNamespace
 
                     if (current_alpha > health_percent)
                     {
-                        current_alpha = Math.Max(health_percent, current_alpha - DecaySpd);
+                        Image.color = new Color(Image.color.r, Image.color.g, Image.color.b, Math.Max(health_percent, current_alpha - DecaySpd));
                     }
                     else if (current_alpha < health_percent)
                     {
-                        current_alpha = Math.Min(health_percent, current_alpha + DecaySpd);
+                        Image.color = new Color(Image.color.r, Image.color.g, Image.color.b, Math.Min(health_percent, current_alpha + DecaySpd));
                     }
                     
                     break;
