@@ -93,7 +93,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability paranoia = new Ability("Paranoia", "Paranoia_A");
             paranoia.Description = "Inflict 3 Frail on the Left or Right party members.\nThis ability assumes the grid loops around.";
-            paranoia.Rarity = Rarity.CreateAndAddCustomRarityToPool("enigma_11", 11);
+            paranoia.Rarity = Rarity.CreateAndAddCustomRarityToPool("enigma_13", 13);
             paranoia.Effects = new EffectInfo[]
             {
                 //Effects.GenerateEffect(headshot, 1, Targeting.GenerateSlotTarget(new int[]{1, -4}, false), Effects.ChanceCondition(50)),
