@@ -113,7 +113,7 @@ namespace SaltsEnemies_Reseasoned
 
             //Paradox
             Ability paradox = new Ability("Paradox", "Paradox_A");
-            paradox.Description = "If both the Left and Right party members are frailed, deal an Agonizing amount of damage to the Opposing party member. \nThis ability assumes the grid loops around.";
+            paradox.Description = "If both the Left and Right party members are Frailed, deal an Agonizing amount of damage to the Opposing party member. \nThis ability assumes the grid loops around.";
             paradox.Rarity = Rarity.GetCustomRarity("rarity6");
             paradox.Effects = new EffectInfo[]
             {
