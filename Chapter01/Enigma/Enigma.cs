@@ -58,9 +58,11 @@ namespace SaltsEnemies_Reseasoned
             didnt2That.wasSuccessful = false;
             didnt2That.previousAmount = 2;
 
+            Rarity.CreateAndAddCustomRarityToPool("rarity3", 3);
+
             Ability terrorize = new Ability("Terrorize", "Salt_Terrorize_A");
             terrorize.Description = "Deal a Painful amount of damage to either the Left or Right party members.\nThis ability assumes the grid loops around.";
-            terrorize.Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity3", 3);
+            terrorize.Rarity = Rarity.CreateAndAddCustomRarityToPool("enigma5", 5);
             terrorize.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(talons, 1, Targeting.GenerateSlotTarget(new int[]{1, -4}, false), Effects.ChanceCondition(50)),
@@ -87,9 +89,11 @@ namespace SaltsEnemies_Reseasoned
             allAlly.getAllUnitSlots = false;
             allAlly.getAllies = true;
 
+            Rarity.CreateAndAddCustomRarityToPool("rarity6", 6);
+
             Ability paranoia = new Ability("Paranoia", "Paranoia_A");
             paranoia.Description = "Inflict 3 Frail on the Left or Right party members.\nThis ability assumes the grid loops around.";
-            paranoia.Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity6", 6);
+            paranoia.Rarity = Rarity.CreateAndAddCustomRarityToPool("enigma_11", 11);
             paranoia.Effects = new EffectInfo[]
             {
                 //Effects.GenerateEffect(headshot, 1, Targeting.GenerateSlotTarget(new int[]{1, -4}, false), Effects.ChanceCondition(50)),
@@ -106,6 +110,7 @@ namespace SaltsEnemies_Reseasoned
 
             AnimationVisualsEffect paradox_anim = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
             paradox_anim._visuals = LoadedAssetsHandler.GetEnemy("TriggerFingers_BOSS").abilities[0].ability.visuals;
+            paradox_anim._animationTarget = Slots.Front;
 
             //Paradox
             Ability paradox = new Ability("Paradox", "Paradox_A");

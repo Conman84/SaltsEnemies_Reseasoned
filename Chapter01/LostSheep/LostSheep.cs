@@ -120,14 +120,14 @@ namespace SaltsEnemies_Reseasoned
             panicAnim.firstTargetting = weakest;
             panicAnim.secondTargetting = Targeting.Slot_SelfSlot;
             Ability panic = new Ability("Panic", "Salt_Panic_A");
-            panic.Description = "Apply 1-4 Power to the enemy with the lowest health other than this one.\nInflict 1 Pimples and 1 Scar on this enemy.";
+            panic.Description = "Apply 1-4 Power to the enemy with the lowest health other than this one.\nInflict 2 Pimples and 1 Scar on this enemy.";
             panic.Rarity = Rarity.GetCustomRarity("rarity5");
             panic.Effects = new EffectInfo[]
             {
                 //Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Targeting.Slot_SelfSlot),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerRangePlusThreeEffect>(), 1, weakest),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPimplesEffect>(), 2, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Slot_SelfSlot),
-                Effects.GenerateEffect(CasterRootActionEffect.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPimplesEffect>(), 1, Slots.Self)]))
             };
             panic.Visuals = LoadedAssetsHandler.GetEnemy("TriggerFingers_BOSS").abilities[0].ability.visuals;
             panic.AnimationTarget = panicAnim;
