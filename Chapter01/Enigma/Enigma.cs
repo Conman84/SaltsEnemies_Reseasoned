@@ -70,11 +70,7 @@ namespace SaltsEnemies_Reseasoned
             };
             terrorize.Visuals = null;
             terrorize.AnimationTarget = Targeting.Slot_SelfSlot;
-            terrorize.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[] { -1, 4 }, false), new string[]
-            {
-                "Damage_3_6"
-            });
-            terrorize.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[] { 1, -4 }, false), new string[]
+            terrorize.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[] { 4, 1, -1, -4 }, false), new string[]
             {
                 "Damage_3_6"
             });
