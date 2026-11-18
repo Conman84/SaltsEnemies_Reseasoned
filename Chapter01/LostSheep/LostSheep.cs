@@ -60,7 +60,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 freakout,
                 Passives.Withering,
-                Passives.Dying,
+                //Passives.Dying,
                 Passives.Delicate,
             });
 
@@ -70,11 +70,12 @@ namespace SaltsEnemies_Reseasoned
             PreviousEffectCondition didntThat = ScriptableObject.CreateInstance<PreviousEffectCondition>();
             didntThat.wasSuccessful = false;
             Ability adrenaline = new Ability("Adrenaline Rush", "Salt_AdrenalineRush_A");
-            adrenaline.Description = "Apply 2-3 Power to the closest Left and Right enemies. \nInflict 1 Scar on this enemy.";
+            adrenaline.Description = "Apply 2-3 Power to the closest Left and Right enemies. \nHeal and inflict 1 Scar on this enemy.";
             adrenaline.Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity5", 5);
             adrenaline.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerRangePlusOneEffect>(), 2, closestAlly),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 8, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Slot_SelfSlot),
             };
             adrenaline.Visuals = LoadedAssetsHandler.GetCharacterAbility("WholeAgain_1_A").visuals;
@@ -85,16 +86,18 @@ namespace SaltsEnemies_Reseasoned
             });
             adrenaline.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
+                "Heal_5_10",
                 "Status_Scars"
             });
 
             //Reflex
             Ability reflex = new Ability("Autonomous Reflex", "Salt_AutonomousReflex_A");
-            reflex.Description = "Apply 0-1 Power to all other enemies. \nInflict 1 Scar on this enemy.";
+            reflex.Description = "Apply 0-1 Power to all other enemies. \nBleed 2 Pigment of this enemy's health color and inflict 1 Scar on this enemy.";
             reflex.Rarity = Rarity.GetCustomRarity("rarity5");
             reflex.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerRangePlusOneEffect>(), 0, Targeting.Unit_OtherAllies),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateTargetHealthManaEffect>(), 2, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Slot_SelfSlot),
             };
             reflex.Visuals = LoadedAssetsHandler.GetCharacterAbility("Quills_1_A").visuals;
@@ -105,6 +108,7 @@ namespace SaltsEnemies_Reseasoned
             });
             reflex.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
+                "Mana_Generate",
                 "Status_Scars"
             });
 
@@ -116,13 +120,14 @@ namespace SaltsEnemies_Reseasoned
             panicAnim.firstTargetting = weakest;
             panicAnim.secondTargetting = Targeting.Slot_SelfSlot;
             Ability panic = new Ability("Panic", "Salt_Panic_A");
-            panic.Description = "Apply 1-4 Power to the enemy with the lowest health other than this one.\nInflict 1 Scar on this enemy.";
+            panic.Description = "Apply 1-4 Power to the enemy with the lowest health other than this one.\nInflict 1 Pimples and 1 Scar on this enemy.";
             panic.Rarity = Rarity.GetCustomRarity("rarity5");
             panic.Effects = new EffectInfo[]
             {
                 //Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Targeting.Slot_SelfSlot),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerRangePlusThreeEffect>(), 1, weakest),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(CasterRootActionEffect.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPimplesEffect>(), 1, Slots.Self)]))
             };
             panic.Visuals = LoadedAssetsHandler.GetEnemy("TriggerFingers_BOSS").abilities[0].ability.visuals;
             panic.AnimationTarget = panicAnim;
@@ -132,6 +137,7 @@ namespace SaltsEnemies_Reseasoned
             });
             panic.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
+                Pimples.Intent,
                 "Status_Scars"
             });
 
