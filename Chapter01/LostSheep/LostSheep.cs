@@ -20,15 +20,15 @@ namespace SaltsEnemies_Reseasoned
             freakout.m_PassiveID = "FreakOut_PA";
             freakout.name = "FreakOut_1_PA";
             freakout.passiveIcon = ResourceLoader.LoadSprite("Freakout.png");
-            freakout._enemyDescription = "Upon receiving any damage, apply 0-1 Power to all allies that aren't Lost Sheep.";
-            freakout._characterDescription = "Upon receiving any damage, apply 0-1 Power to all allies that aren't Lost Sheep.";
+            freakout._enemyDescription = "Upon receiving any damage, apply 0-1 Power to all other enemies.";
+            freakout._characterDescription = "Upon receiving any damage, apply 0-1 Power to all other party members.";
             freakout.doesPassiveTriggerInformationPanel = true;
             UnitSideNotLostSheep allAlly = ScriptableObject.CreateInstance<UnitSideNotLostSheep>();
             allAlly.getAllies = true;
             allAlly.getAllUnitSlots = false;
             freakout.effects = new EffectInfo[]
             {
-                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerRangePlusOneEffect>(), 0, allAlly)
+                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerRangePlusOneEffect>(), 0, Targeting.Unit_OtherAllies)
             };
             freakout._triggerOn = new TriggerCalls[] { TriggerCalls.OnDamaged };
             Passives.AddCustomPassiveToPool(freakout.name, "Freak Out", freakout);
@@ -65,17 +65,17 @@ namespace SaltsEnemies_Reseasoned
             });
 
             //Adrenaline
-            TargettingClosestNotLostSheep closestAlly = ScriptableObject.CreateInstance<TargettingClosestNotLostSheep>();
+            TargettingClosestUnits closestAlly = ScriptableObject.CreateInstance<TargettingClosestUnits>();
             closestAlly.getAllies = true;
             PreviousEffectCondition didntThat = ScriptableObject.CreateInstance<PreviousEffectCondition>();
             didntThat.wasSuccessful = false;
             Ability adrenaline = new Ability("Adrenaline Rush", "Salt_AdrenalineRush_A");
-            adrenaline.Description = "Apply 2-3 Power to the closest left and right enemies that aren't Lost Sheep. Apply 0-1 Scars to self.";
+            adrenaline.Description = "Apply 2-3 Power to the closest Left and Right enemies. \nInflict 1 Scar on this enemy.";
             adrenaline.Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity5", 5);
             adrenaline.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerRangePlusOneEffect>(), 2, closestAlly),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Slot_SelfSlot, Effects.ChanceCondition(50)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Slot_SelfSlot),
             };
             adrenaline.Visuals = LoadedAssetsHandler.GetCharacterAbility("WholeAgain_1_A").visuals;
             adrenaline.AnimationTarget = closestAlly;
@@ -90,40 +90,39 @@ namespace SaltsEnemies_Reseasoned
 
             //Reflex
             Ability reflex = new Ability("Autonomous Reflex", "Salt_AutonomousReflex_A");
-            reflex.Description = "Apply 0-1 Power to all enemies that aren't Lost Sheep. Deal a little bit of damage to self.";
+            reflex.Description = "Apply 0-1 Power to all other enemies. \nInflict 1 Scar on this enemy.";
             reflex.Rarity = Rarity.GetCustomRarity("rarity5");
             reflex.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerRangePlusOneEffect>(), 0, allAlly),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerRangePlusOneEffect>(), 0, Targeting.Unit_OtherAllies),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Slot_SelfSlot),
             };
             reflex.Visuals = LoadedAssetsHandler.GetCharacterAbility("Quills_1_A").visuals;
             reflex.AnimationTarget = Targeting.Slot_SelfSlot;
-            reflex.AddIntentsToTarget(allAlly, new string[]
+            reflex.AddIntentsToTarget(Targeting.Unit_OtherAllies, new string[]
             {
                 "Status_Power"
             });
             reflex.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
-                "Damage_1_2"
+                "Status_Scars"
             });
 
             //Panic
-            TargettingWeakestNotLostSheep weakest = ScriptableObject.CreateInstance<TargettingWeakestNotLostSheep>();
+            TargettingWeakestUnit weakest = ScriptableObject.CreateInstance<TargettingWeakestUnit>();
             weakest.getAllies = true;
             weakest.ignoreCastSlot = true;
             DoubleTargetting panicAnim = ScriptableObject.CreateInstance<DoubleTargetting>();
             panicAnim.firstTargetting = weakest;
             panicAnim.secondTargetting = Targeting.Slot_SelfSlot;
             Ability panic = new Ability("Panic", "Salt_Panic_A");
-            panic.Description = "Deal a little bit of damage and apply 1 Scar to self. Apply 1-4 Power to the enemy with the lowest health that isn't a Lost Sheep.";
+            panic.Description = "Apply 1-4 Power to the enemy with the lowest health other than this one.\nInflict 1 Scar on this enemy.";
             panic.Rarity = Rarity.GetCustomRarity("rarity5");
             panic.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Targeting.Slot_SelfSlot),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Slot_SelfSlot),
+                //Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Targeting.Slot_SelfSlot),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerRangePlusThreeEffect>(), 1, weakest),
-                
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Slot_SelfSlot),
             };
             panic.Visuals = LoadedAssetsHandler.GetEnemy("TriggerFingers_BOSS").abilities[0].ability.visuals;
             panic.AnimationTarget = panicAnim;
@@ -133,7 +132,6 @@ namespace SaltsEnemies_Reseasoned
             });
             panic.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
-                "Damage_1_2",
                 "Status_Scars"
             });
 

@@ -134,15 +134,15 @@ namespace SaltsEnemies_Reseasoned
             freakout.m_PassiveID = "FreakOut_PA";
             freakout.name = "FreakOut_1_PA";
             freakout.passiveIcon = ResourceLoader.LoadSprite("Freakout.png");
-            freakout._enemyDescription = "Upon receiving any damage, apply 0-1 Power to all allies that aren't Lost Sheep.";
-            freakout._characterDescription = "Upon receiving any damage, apply 0-1 Power to all allies that aren't Lost Sheep.";
+            freakout._enemyDescription = "Upon receiving any damage, apply 0-1 Power to all other enemies.";
+            freakout._characterDescription = "Upon receiving any damage, apply 0-1 Power to all other party members.";
             freakout.doesPassiveTriggerInformationPanel = true;
             UnitSideNotLostSheep allAlly = ScriptableObject.CreateInstance<UnitSideNotLostSheep>();
             allAlly.getAllies = true;
             allAlly.getAllUnitSlots = false;
             freakout.effects = new EffectInfo[]
             {
-                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerRangePlusOneEffect>(), 0, allAlly)
+                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerRangePlusOneEffect>(), 0, Targeting.Unit_OtherAllies)
             };
             freakout._triggerOn = new TriggerCalls[] { TriggerCalls.OnDamaged };
 
