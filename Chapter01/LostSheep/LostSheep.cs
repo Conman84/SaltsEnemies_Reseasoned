@@ -79,7 +79,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyScarsEffect>(), 1, Targeting.Slot_SelfSlot),
             };
             adrenaline.Visuals = LoadedAssetsHandler.GetCharacterAbility("WholeAgain_1_A").visuals;
-            adrenaline.AnimationTarget = closestAlly;
+            adrenaline.AnimationTarget = MultiTargetting.Create(closestAlly, Slots.Self);
             adrenaline.AddIntentsToTarget(closestAlly, new string[]
             {
                 "Status_Power"
