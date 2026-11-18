@@ -92,25 +92,24 @@ namespace SaltsEnemies_Reseasoned
             allAlly.getAllies = true;
 
             Ability paranoia = new Ability("Paranoia", "Paranoia_A");
-            paranoia.Description = "Apply 6 Frail to either the Left or Right party members.\nThis ability assumes the grid loops around.";
+            paranoia.Description = "Inflict 3 Frail on the Left or Right party members.\nThis ability assumes the grid loops around.";
             paranoia.Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity6", 6);
             paranoia.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(headshot, 1, Targeting.GenerateSlotTarget(new int[]{1, -4}, false), Effects.ChanceCondition(50)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 6, Targeting.GenerateSlotTarget(new int[]{1, -4}, false), didThat),
-                Effects.GenerateEffect(headshot2, 1, Targeting.GenerateSlotTarget(new int[]{-1, 4}, false), didnt2That),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 6, Targeting.GenerateSlotTarget(new int[]{-1, 4}, false), didThat),
+                //Effects.GenerateEffect(headshot, 1, Targeting.GenerateSlotTarget(new int[]{1, -4}, false), Effects.ChanceCondition(50)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 3, Targeting.GenerateSlotTarget(new int[]{4, 1, -1, -4}, false)),
+                //Effects.GenerateEffect(headshot2, 1, Targeting.GenerateSlotTarget(new int[]{-1, 4}, false), didnt2That),
+                //Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFrailEffect>(), 3, Targeting.GenerateSlotTarget(new int[]{-1, 4}, false)),
             };
-            paranoia.Visuals = null;
-            paranoia.AnimationTarget = Targeting.Slot_SelfSlot;
-            paranoia.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[] { -1, 4 }, false), new string[]
+            paranoia.Visuals = CustomVisuals.GetVisuals("Salt/Gaze");
+            paranoia.AnimationTarget = Targeting.GenerateSlotTarget(new int[] { 4, 1, -1, -4 }, false);
+            paranoia.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[] { 4, 1, -1, -4 }, false), new string[]
             {
                 "Status_Frail"
             });
-            paranoia.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[] { 1, -4 }, false), new string[]
-            {
-                "Status_Frail"
-            });
+
+            AnimationVisualsEffect paradox_anim = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
+            paradox_anim._visuals = LoadedAssetsHandler.GetEnemy("TriggerFingers_BOSS").abilities[0].ability.visuals;
 
             //Paradox
             Ability paradox = new Ability("Paradox", "Paradox_A");
@@ -119,9 +118,11 @@ namespace SaltsEnemies_Reseasoned
             paradox.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<IsFrailEffect>(), 2, Targeting.GenerateSlotTarget(new int[4] {-4, -1, 1, 4}, false)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Targeting.Slot_Front, didThat),
+                Effects.GenerateEffect(paradox_anim, 0, null, BasicEffects.DidThat(true)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Targeting.Slot_Front, BasicEffects.DidThat(true, 2)),
             };
-            paradox.Visuals = LoadedAssetsHandler.GetEnemy("TriggerFingers_BOSS").abilities[0].ability.visuals;
+            //paradox.Visuals = LoadedAssetsHandler.GetEnemy("TriggerFingers_BOSS").abilities[0].ability.visuals;
+            paradox.Visuals = null;
             paradox.AnimationTarget = Targeting.Slot_Front;
             paradox.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[4] { -4, -1, 1, 4 }, false), new string[]
             {

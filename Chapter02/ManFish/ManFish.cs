@@ -48,7 +48,7 @@ namespace SaltsEnemies_Reseasoned
             //Slap
             Ability slap = new Ability("Slap", "Salt_Slap_A");
             slap.Description = "Deal 1 damage to the opposing party member.";
-            slap.Rarity = Rarity.GetCustomRarity("rarity8");
+            slap.Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity8", 8);
             slap.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 1, Targeting.Slot_Front),
