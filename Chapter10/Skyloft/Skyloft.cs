@@ -89,20 +89,22 @@ namespace SaltsEnemies_Reseasoned
             lose.AddIntentsToTarget(Slots.Front, SkyloftIntent.Intent.SelfArray());
 
             //sing
-            TargettingByHealthNotSkyloft lowest = ScriptableObject.CreateInstance<TargettingByHealthNotSkyloft>();
+            TargettingByHealthUnits lowest = ScriptableObject.CreateInstance<TargettingByHealthUnits>();
             lowest.Lowest = true;
             lowest.getAllies = true;
             lowest.ignoreCastSlot = true;
+            ApplySpotlightEffect spotlight_random = ScriptableObject.CreateInstance<ApplySpotlightEffect>();
+            spotlight_random._JustOneRandomTarget = true;
             Ability sing = new Ability("SingForMe_A")
             {
                 Name = "Sing for Me",
-                Description = "Apply Spotlight and 1 Haste to the enemy with the lowest health that isn't a Skyloft. \n\"Just so I know you're near\"",
+                Description = "Apply Spotlight and 1 Haste to the enemy with the lowest health other than this one. \n\"Just so I know you're near\"",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(BasicEffects.PlaySound("event:/Hawthorne/Hurt/BirdSound"), 1, lowest),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySpotlightEffect>(), 1, lowest),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyHasteEffect>(), 1, lowest)
+                    Effects.GenerateEffect(spotlight_random, 1, lowest),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyHasteEffect>(), 1, lowest),
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Spotlight"),
                 AnimationTarget = lowest,
@@ -113,16 +115,18 @@ namespace SaltsEnemies_Reseasoned
             Ability gone = new Ability("TooFarGone_A")
             {
                 Name = "Too Far Gone",
-                Description = "Instantly flee.",
-                Rarity = Rarity.CreateAndAddCustomRarityToPool("skyloft3", 3),
+                Description = "Deal an Agonizing amount of damage to the Opposing party member.\nInstantly flee.",
+                Rarity = Rarity.GetCustomRarity("rarity5"),
                 Priority = Priority.ExtremelyFast,
                 Effects = new EffectInfo[]
                 {
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<FleeTargetEffect>(), 1, Slots.Self),
                 },
-                Visuals = null,
+                Visuals = Visuals.HeartBreaker,
                 AnimationTarget = Slots.Self,
             };
+            gone.AddIntentsToTarget(Slots.Front, ["Damage_7_10"]);
             gone.AddIntentsToTarget(Slots.Self, IntentType_GameIDs.PA_Fleeting.ToString().SelfArray());
 
             EnemyAbilityInfo hearbreaker = new EnemyAbilityInfo()
@@ -137,7 +141,7 @@ namespace SaltsEnemies_Reseasoned
                 lose.GenerateEnemyAbility(true),
                 sing.GenerateEnemyAbility(true),
                 gone.GenerateEnemyAbility(true),
-                hearbreaker
+                //hearbreaker
             });
             skyloft.AddEnemy(true, true, false);
             skyloft.enemy.AddToToysPool();

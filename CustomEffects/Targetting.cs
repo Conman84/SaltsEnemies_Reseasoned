@@ -675,6 +675,7 @@ namespace SaltEnemies_Reseasoned
     public class TargettingWeakestUnit : BaseCombatTargettingSO
     {
         public bool getAllies;
+        public bool onlyOne;
 
         public bool ignoreCastSlot = true;
 
@@ -693,6 +694,7 @@ namespace SaltEnemies_Reseasoned
         public override TargetSlotInfo[] GetTargets(SlotsCombat slots, int casterSlotID, bool isCasterCharacter)
         {
             TargetSlotInfo weakest = null;
+            List<TargetSlotInfo> all_weakest = [];
             if ((getAllies && isCasterCharacter) || (!getAllies && !isCasterCharacter))
             {
                 foreach (CombatSlot slot in slots.CharacterSlots)
@@ -703,14 +705,19 @@ namespace SaltEnemies_Reseasoned
                         if (weakest == null)
                         {
                             weakest = targ;
+                            all_weakest.Clear();
+                            all_weakest.Add(targ);
                         }
                         else if (weakest.Unit.CurrentHealth > targ.Unit.CurrentHealth)
                         {
                             weakest = targ;
+                            all_weakest.Clear();
+                            all_weakest.Add(targ);
                         }
-                        else if (weakest.Unit.CurrentHealth == targ.Unit.CurrentHealth && UnityEngine.Random.Range(0, 100) < 50)
+                        else if (weakest.Unit.CurrentHealth == targ.Unit.CurrentHealth)
                         {
-                            weakest = targ;
+                            if (UnityEngine.Random.Range(0, 100) < 50) weakest = targ;
+                            all_weakest.Add(targ);
                         }
                     }
                 }
@@ -725,20 +732,26 @@ namespace SaltEnemies_Reseasoned
                         if (weakest == null)
                         {
                             weakest = targ;
+                            all_weakest.Clear();
+                            all_weakest.Add(targ);
                         }
                         else if (weakest.Unit.CurrentHealth > targ.Unit.CurrentHealth)
                         {
                             weakest = targ;
+                            all_weakest.Clear();
+                            all_weakest.Add(targ);
                         }
-                        else if (weakest.Unit.CurrentHealth == targ.Unit.CurrentHealth && UnityEngine.Random.Range(0, 100) < 50)
+                        else if (weakest.Unit.CurrentHealth == targ.Unit.CurrentHealth)
                         {
-                            weakest = targ;
+                            if (UnityEngine.Random.Range(0, 100) < 50) weakest = targ;
+                            all_weakest.Add(targ);
                         }
                     }
                 }
             }
             if (weakest == null) return new TargetSlotInfo[0];
-            return new TargetSlotInfo[] { weakest };
+            if (onlyOne) return [weakest];
+            return all_weakest.ToArray();
         }
     }
     public class TargettingWeakestNotLostSheep : BaseCombatTargettingSO
