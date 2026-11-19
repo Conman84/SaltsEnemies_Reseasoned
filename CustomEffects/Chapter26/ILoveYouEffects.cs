@@ -86,7 +86,7 @@ namespace SaltsEnemies_Reseasoned
             }
             foreach (TargetSlotInfo target in targets)
             {
-                if (target.HasUnit && target.Unit.SlotID != caster.SlotID && target.Unit.HealthColor == caster.HealthColor)
+                if (target.HasUnit && target.Unit.ID != caster.ID)
                 {
                     List<ManaColorSO> list = [.. options];
                     if (list.Contains(target.Unit.HealthColor)) list.Remove(target.Unit.HealthColor);
