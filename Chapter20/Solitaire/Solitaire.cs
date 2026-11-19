@@ -89,6 +89,7 @@ namespace SaltsEnemies_Reseasoned
             Ability radio = new Ability("Radio", "Radio_A");
             radio.Description = "Produce 1 random Pigment. Move to the Left or Right.";
             radio.Rarity = Rarity.GetCustomRarity("rarity5");
+            radio.Priority = Priority.ExtremelyFast;
             radio.Effects = new EffectInfo[2];
             radio.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<LoadIntoFutureEffect>(), 1, Slots.Self);
             radio.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);

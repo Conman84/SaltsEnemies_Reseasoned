@@ -23,6 +23,8 @@ namespace SaltsEnemies_Reseasoned
 
         public static DebugCommand ADDENCOUNTERRANDOM;
         public static DebugCommand ADDENCOUNTERSUITE;
+
+        public static DebugCommand TESTINGCOMMAND;
         public static void Add()
         {
             KILL = new DebugCommand("kill", "Instantly kill all enemies.", new List<DebugCommandArgument>(), delegate
@@ -37,8 +39,14 @@ namespace SaltsEnemies_Reseasoned
                 DebugController.Instance.WriteLine("Killing all enemies.");
             });
 
-            HEAL = new DebugCommand("fullheal", "set health max all party members.", new List<DebugCommandArgument>(), delegate
+            HEAL = new DebugCommand("fullheal", "set health max all party members.", new List<DebugCommandArgument>()
             {
+                new BoolCommandArgumnt("do", true)
+            }, delegate (List<FilledCommandArgument> args)
+            {
+                bool amount = false;
+                if (args[0].TryRead<bool>(out bool input)) amount = input;
+
                 if (CombatManager._instance == null || CombatManager._instance.Equals(null))
                 {
                     DebugController.Instance.WriteLine("FUCK YOU");
@@ -46,6 +54,26 @@ namespace SaltsEnemies_Reseasoned
                 }
                 CombatManager.Instance.AddPriorityRootAction(new PerformDelegateAction(delegate (CombatStats x)
                 {
+                    if (!amount)
+                    {
+                        foreach (CombatSlot slot in CombatManager.Instance._stats.combatSlots.CharacterSlots)
+                        {
+                            slot.ApplyFieldEffect(StatusField.OnFire, 99, 0);
+                            slot.ApplyFieldEffect(StatusField.Constricted, 99, 0);
+                            slot.ApplyFieldEffect(Slip.Object, 99, 0);
+                        }
+                        foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
+                        {
+                            chara.ApplyStatusEffect(StatusField.Ruptured, 99);
+                            chara.ApplyStatusEffect(Acid.Object, 99);
+                            chara.ApplyStatusEffect(Pimples.Object, 99);
+                            chara.ApplyStatusEffect(StatusField.OilSlicked, 99);
+                            chara.ApplyStatusEffect(StatusField.Frail, 99);
+                            //chara.ApplyStatusEffect(Muted.Object, 99);
+                            chara.ApplyStatusEffect(Magnetism.Object, 99);
+                        }
+                    }
+
                     foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
                     {
                         chara.SetHealthTo(chara.MaximumHealth);
@@ -300,6 +328,16 @@ namespace SaltsEnemies_Reseasoned
                 DebugController.Instance.WriteLine("resetfleeting all enemies.");
             });
 
+            TESTINGCOMMAND = new DebugCommand("saltenemiestesting", "debug command for testing shit. i dun gotta explain nuthin to yah", new List<DebugCommandArgument>(), delegate
+            {
+                CombatManager.Instance.AddPriorityRootAction(new PerformDelegateAction(delegate (CombatStats x)
+                {
+                    SolitaireHandler.DreamScanner = 0;
+                    CombatManager.Instance._informationHolder.Run.inGameData.SetIntData("DreamScanner", 0);
+                }));
+                DebugController.Instance.WriteLine("the command ran.");
+            });
+
             DebugController.Commands.children.Add(KILL);
             DebugController.Commands.children.Add(HEAL);
             DebugController.Commands.children.Add(CHANGEBOSS);
@@ -309,6 +347,7 @@ namespace SaltsEnemies_Reseasoned
             DebugController.Commands.children.Add(ADDENCOUNTERRANDOM);
             DebugController.Commands.children.Add(ADDENCOUNTERSUITE);
             DebugController.Commands.children.Add(RESETFLEETING);
+            DebugController.Commands.children.Add(TESTINGCOMMAND);
         }
 
         public static IEnumerable<string> LoadEnemiesEasy()

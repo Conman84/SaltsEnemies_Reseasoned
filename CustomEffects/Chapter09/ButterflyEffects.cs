@@ -1953,6 +1953,11 @@ namespace SaltEnemies_Reseasoned
                         Sprite[] icons = this.icons;
                         Color[] colors = this.colors;
                         int index = SolitaireHandler.DreamScanner;
+                        if (icons.Length <= 0 || colors.Length <= 0)
+                        {
+                            UnityEngine.Debug.LogWarning("null sprite array for intent sprite animator?");
+                            return;
+                        }
                         if (index > icons.Length) index = icons.Length - 1;
                         if (index > colors.Length) index = colors.Length - 1;
                         time = 0f;
