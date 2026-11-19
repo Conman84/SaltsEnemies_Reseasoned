@@ -92,7 +92,7 @@ namespace SaltsEnemies_Reseasoned
 
 
             hard.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.ILoveYou.Hard, 10, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.ILoveYou.Hard, 8, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Hard);
         }
         public static void Post()
         {
