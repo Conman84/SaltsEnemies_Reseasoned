@@ -1792,9 +1792,10 @@ namespace SaltEnemies_Reseasoned
                             //Debug.Log("target");
                         }
                     }
-                    catch
+                    catch (Exception ex)
                     {
-                        UnityEngine.Debug.LogError("intent icon sprite changer FUCKING BROKE");
+                        UnityEngine.Debug.LogError("intent icon sprite changer FUCKING BROKE - train edition i think");
+                        UnityEngine.Debug.LogError(ex.ToString());
                     }
                 }
             }
@@ -1955,7 +1956,7 @@ namespace SaltEnemies_Reseasoned
                         int index = SolitaireHandler.DreamScanner;
                         if (icons.Length <= 0 || colors.Length <= 0)
                         {
-                            UnityEngine.Debug.LogWarning("null sprite array for intent sprite animator?");
+                            UnityEngine.Debug.LogWarning("null sprite array for intent sprite animator? - solitaire edition i think");
                             return;
                         }
                         if (index > icons.Length) index = icons.Length - 1;
@@ -1971,9 +1972,11 @@ namespace SaltEnemies_Reseasoned
                             mutilate.SetInformation(icons[index], colors[index]);
                         }
                     }
-                    catch
+                    catch (Exception ex)
                     {
-                        UnityEngine.Debug.LogError("intent icon sprite changer FUCKING BROKE");
+                        UnityEngine.Debug.LogError("intent icon sprite changer FUCKING BROKE - solitaire edition i think");
+                        UnityEngine.Debug.LogError(ex.ToString());
+
                     }
                 }
             }
