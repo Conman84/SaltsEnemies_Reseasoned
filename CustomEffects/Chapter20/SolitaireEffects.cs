@@ -862,9 +862,13 @@ namespace SaltsEnemies_Reseasoned
                     }
                 }
 
-                if (counting >= num)
+                if (counting > num)
                 {
                     num = counting;
+                    usedType = type;
+                }
+                else if (counting == num)
+                {
                     if (UnityEngine.Random.Range(0, 100) < 40) usedType = type;
                 }
             }
