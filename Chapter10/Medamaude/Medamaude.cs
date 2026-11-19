@@ -127,8 +127,8 @@ namespace SaltsEnemies_Reseasoned
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Targeting.Slot_Front),
-                            Effects.GenerateEffect(onlyIfAlive, 7, Slots.Front),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Targeting.Slot_Front),
+                            Effects.GenerateEffect(onlyIfAlive, 10, Slots.Front),
                             Effects.GenerateEffect(effect, 1, Targeting.Slot_SelfSlot)
                 },
                 Visuals = Visuals.Poke,
