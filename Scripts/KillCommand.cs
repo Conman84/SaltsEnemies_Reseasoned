@@ -63,8 +63,10 @@ namespace SaltsEnemies_Reseasoned
                     DebugController.Instance.WriteLine("FUCK YOU");
                     //make it get overworld party data
 
-                    foreach (CharacterInGameData chara in LoadedDBsHandler.InfoHolder.Run.playerData.CharactersInParty)
+                    foreach (CharacterInGameData chara in LoadedDBsHandler.InfoHolder.Run.playerData._characterList)
                     {
+                        if (chara.Character == null || chara.Character.Equals(null)) return;
+
                         chara.CurrentHealth = chara.MaxHealth;
 
                         if (!amount)
