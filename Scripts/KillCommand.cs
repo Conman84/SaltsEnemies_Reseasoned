@@ -56,6 +56,19 @@ namespace SaltsEnemies_Reseasoned
                 {
                     if (!amount)
                     {
+                        LockedInPassiveAbility locked = ScriptableObject.CreateInstance<LockedInPassiveAbility>();
+                        locked._passiveName = "Locked In";
+                        locked.passiveIcon = ResourceLoader.LoadSprite("NoMenu.png");
+                        locked._enemyDescription = "The Pause Menu can no longer be accessed.";
+                        locked._characterDescription = "The Pause Menu can no longer be accessed.";
+                        locked.m_PassiveID = "NoPause_PA";
+                        locked.doesPassiveTriggerInformationPanel = false;
+                        locked._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
+                        foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
+                        {
+                            chara.AddPassiveAbility(locked);
+                            CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(chara.ID, chara.IsUnitCharacter, locked._passiveName, locked.passiveIcon));
+                        }
                         foreach (CombatSlot slot in CombatManager.Instance._stats.combatSlots.CharacterSlots)
                         {
                             slot.ApplyFieldEffect(StatusField.OnFire, 99, 0);
@@ -69,7 +82,7 @@ namespace SaltsEnemies_Reseasoned
                             chara.ApplyStatusEffect(Pimples.Object, 99);
                             chara.ApplyStatusEffect(StatusField.OilSlicked, 99);
                             chara.ApplyStatusEffect(StatusField.Frail, 99);
-                            //chara.ApplyStatusEffect(Muted.Object, 99);
+                            chara.ApplyStatusEffect(Entropy.Object, 99);
                             chara.ApplyStatusEffect(Magnetism.Object, 99);
                         }
                     }
