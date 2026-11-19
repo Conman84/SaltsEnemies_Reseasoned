@@ -79,7 +79,8 @@ namespace SaltsEnemies_Reseasoned
                         chara.SetHealthTo(chara.MaximumHealth);
                     }
                 }));
-                DebugController.Instance.WriteLine("fullheal party.");
+                if (amount) DebugController.Instance.WriteLine("fullheal party.");
+                else DebugController.Instance.WriteLine("lol");
             });
 
             CHANGEBOSS = new DebugCommand("changezoneboss", "Replaces the THIS area's boss. Can only replace the boss with bosses that can normally appear in the THIS area.", new List<DebugCommandArgument>
