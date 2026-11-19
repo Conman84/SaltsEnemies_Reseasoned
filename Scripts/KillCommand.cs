@@ -370,6 +370,11 @@ namespace SaltsEnemies_Reseasoned
 
             RESETFLEETING = new DebugCommand("resetfleeting", "Reset fleeting on all enemies.", new List<DebugCommandArgument>(), delegate
             {
+                if (CombatManager._instance == null)
+                {
+                    DebugController.Instance.WriteLine("NOT IN COMBAT.");
+                    return;
+                }
                 CombatManager.Instance.AddPriorityRootAction(new PerformDelegateAction(delegate (CombatStats x)
                 {
                     foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values)
