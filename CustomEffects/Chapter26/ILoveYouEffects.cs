@@ -43,6 +43,7 @@ namespace SaltsEnemies_Reseasoned
         public float maxscale = 0.5f;
         public void Update()
         {
+            if (CombatManager.Instance._pauseHandler.IsPauseActive) return;
             if (MouseSelected) Rage -= Time.deltaTime * 1.2f;
             else if (!CombatManager.Instance._stats.IsPlayerTurn) Rage -= Time.deltaTime * 0.5f;
             else Rage += Time.deltaTime / 2f;
