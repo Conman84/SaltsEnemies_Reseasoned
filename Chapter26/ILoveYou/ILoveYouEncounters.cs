@@ -66,16 +66,19 @@ namespace SaltsEnemies_Reseasoned
             hard.MusicEvent = "event:/Hawthorne/ILoveYouTheme";
             hard.RoarEvent = "event:/Hawthorne/Snound1/LullabyRoar";
 
-            hard.AddRandomEncounter("ILoveYou_EN", "ILoveYou_EN", Spoggle.Red, Spoggle.Purple);
+            hard.AddRandomEncounter("ILoveYou_EN", "ILoveYou_EN", Spoggle.Red);
+            hard.AddRandomEncounter("ILoveYou_EN", "ILoveYou_EN", Spoggle.Purple);
             hard.SimpleAddEncounter(1, "ILoveYou_EN", 3, "Scrungie_EN");
-            hard.SimpleAddEncounter(2, "ILoveYou_EN", 1, Jumble.Blue, 1, Jumble.Purple);
+            hard.SimpleAddEncounter(2, "ILoveYou_EN", 1, Jumble.Blue);
+            hard.SimpleAddEncounter(2, "ILoveYou_EN", 1, Jumble.Purple);
             hard.SimpleAddEncounter(2, "ILoveYou_EN", 1, Flower.Yellow, 1, Flower.Purple);
-            if (SaltsReseasoned.trolling <= 33) hard.SimpleAddEncounter(2, "ILoveYou_EN", 1, Bots.Blue, 1, Bots.Purple);
-            else if (SaltsReseasoned.trolling <= 67) hard.SimpleAddEncounter(2, "ILoveYou_EN", 1, Bots.Blue, 1, Bots.Yellow);
-            else hard.SimpleAddEncounter(2, "ILoveYou_EN", 1, Bots.Yellow, 1, Bots.Purple);
+            if (SaltsReseasoned.trolling <= 33) hard.SimpleAddEncounter(2, "ILoveYou_EN", 1, Bots.Blue);
+            else if (SaltsReseasoned.trolling <= 67) hard.SimpleAddEncounter(2, "ILoveYou_EN", 1, Bots.Yellow);
+            else hard.SimpleAddEncounter(2, "ILoveYou_EN", 1, Bots.Purple);
             hard.SimpleAddEncounter(2, "ILoveYou_EN", 1, "Evileye_EN");
             hard.SimpleAddEncounter(3, "ILoveYou_EN", 2, Enemies.Suckle);
-            hard.SimpleAddEncounter(2, "ILoveYou_EN", 1, "Freud_EN", 1, "TheCrow_EN");
+            hard.SimpleAddEncounter(2, "ILoveYou_EN", 1, "Freud_EN");
+            hard.SimpleAddEncounter(2, "ILoveYou_EN", 1, "TheCrow_EN");
             hard.SimpleAddEncounter(1, "ILoveYou_EN", 3, Enemies.Camera);
             hard.SimpleAddEncounter(2, "ILoveYou_EN", 1, "WindSong_EN");
             //hard.SimpleAddEncounter(2, "ILoveYou_EN", 1, "YellowAngel_EN");
