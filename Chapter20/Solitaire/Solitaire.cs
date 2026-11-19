@@ -108,21 +108,23 @@ namespace SaltsEnemies_Reseasoned
 
             //entropy
             Ability entropy = new Ability("Entropic Measurement", "EntropicMeasurement_A");
-            entropy.Description = "This enemy chooses a random Pigment color. \nUntil this enemy changes its color or leaves combat, party members using this Pigment color inflict 1 random Status Effect on themselves.";
+            entropy.Description = "Inflict 10 Pale on the Left, Right, and Opposing party members per each of the most common Pigment in the Pigment tray.";
             entropy.Rarity = radio.Rarity;
             entropy.Effects = new EffectInfo[1];
-            entropy.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<LoadIntoPresentEffect>(), 1, Slots.Self);
+            //entropy.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<LoadIntoPresentEffect>(), 1, Slots.Self);
             Intents.CreateAndAddCustom_Basic_IntentToPool("Misc_Red", Intents.GetInGame_IntentInfo(IntentType_GameIDs.Misc)._sprite, Color.red);
             Intents.CreateAndAddCustom_Basic_IntentToPool("Misc_Blue", Intents.GetInGame_IntentInfo(IntentType_GameIDs.Misc)._sprite, Color.blue);
             Intents.CreateAndAddCustom_Basic_IntentToPool("Misc_Yellow", Intents.GetInGame_IntentInfo(IntentType_GameIDs.Misc)._sprite, Color.yellow);
             Intents.CreateAndAddCustom_Basic_IntentToPool("Misc_Purple", Intents.GetInGame_IntentInfo(IntentType_GameIDs.Misc)._sprite, Color.magenta);
-            entropy.AddIntentsToTarget(Slots.Self, [FallColor.Intent3, "Misc_Red", "Misc_Blue", "Misc_Yellow", "Misc_Purple"]);
+            //entropy.AddIntentsToTarget(Slots.Self, [FallColor.Intent3, "Misc_Red", "Misc_Blue", "Misc_Yellow", "Misc_Purple"]);
+            entropy.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<NewEntropyEffect>(), 1, Slots.FrontLeftRight);
+            entropy.AddIntentsToTarget(Slots.FrontLeftRight, [Pale.Intent]);
             entropy.Visuals = CustomVisuals.GetVisuals("Salt/Censor");
             entropy.AnimationTarget = Slots.Self;
 
             //scanner
             Ability scanner = new Ability("Dream Scanner", "DreamScanner_A");
-            scanner.Description = "Deal damage to the Opposing party member equal to the total damage any Solitaire has taken this run.";
+            scanner.Description = "Deal damage to the Opposing party member equal to the total damage, direct or indirect, that any Solitaire has taken this run.";
             scanner.Rarity = radio.Rarity;
             scanner.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<DreamScannerEffect>(), 1, Slots.Front).SelfArray();
             scanner.AddIntentsToTarget(Slots.Front, new string[]

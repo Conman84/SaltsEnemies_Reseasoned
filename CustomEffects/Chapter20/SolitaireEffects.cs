@@ -821,4 +821,59 @@ namespace SaltsEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
+
+    public class NewEntropyEffect : ApplyPaleByTenEffect
+    {
+        public void HandlePigment(IUnit caster, string type)
+        {
+            if (type == "") return;
+            if (Pigments.Red.ContainsPigment([type])) CombatManager.Instance.AddUIAction(new LoadIntoPresentAction(caster.ID, Color.red));
+            else if (Pigments.Blue.ContainsPigment([type])) CombatManager.Instance.AddUIAction(new LoadIntoPresentAction(caster.ID, Color.blue));
+            else if (Pigments.Yellow.ContainsPigment([type])) CombatManager.Instance.AddUIAction(new LoadIntoPresentAction(caster.ID, Color.yellow));
+            else if (Pigments.Purple.ContainsPigment([type])) CombatManager.Instance.AddUIAction(new LoadIntoPresentAction(caster.ID, Color.magenta));
+        }
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            int num = 0;
+            string usedType = "";
+            List<string> pigments = [];
+            foreach (ManaBarSlot slot in stats.MainManaBar.ManaBarSlots)
+            {
+                if (slot.IsEmpty) continue;
+                else
+                {
+                    foreach (string type in slot.ManaColor.pigmentTypes)
+                    {
+                        if (!pigments.Contains(type)) pigments.Add(type);
+                    }
+                }
+            }
+
+            foreach (string type in pigments)
+            {
+                int counting = 0;
+
+                foreach (ManaBarSlot slot in stats.MainManaBar.ManaBarSlots)
+                {
+                    if (slot.IsEmpty) continue;
+                    else
+                    {
+                        if (slot.ManaColor.ContainsPigment([type])) counting++;
+                    }
+                }
+
+                if (counting >= num)
+                {
+                    num = counting;
+                    if (UnityEngine.Random.Range(0, 100) < 40) usedType = type;
+                }
+            }
+
+            bool ret = base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable * num, out exitAmount);
+
+            HandlePigment(caster, usedType);
+
+            return ret;
+        }
+    }
 }
