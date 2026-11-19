@@ -85,6 +85,8 @@ namespace SaltsEnemies_Reseasoned
                             chara.WearableModifiers.AddExtraPassive(Violent.Generate(3));
 
                             foreach (BasePassiveAbilitySO passive in EvilPassives) chara.WearableModifiers.AddExtraPassive(passive);
+
+                            chara.UpdateCurrentPassives();
                         }
                     }
 
