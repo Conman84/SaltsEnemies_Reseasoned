@@ -13,6 +13,7 @@ namespace SaltsEnemies_Reseasoned
     public static class KillCommand
     {
         public static List<BasePassiveAbilitySO> EvilPassives = [];
+        public static int ThisValue1;
 
         public static DebugCommand KILL;
         public static DebugCommand CHANGEBOSS;
@@ -43,11 +44,14 @@ namespace SaltsEnemies_Reseasoned
 
             HEAL = new DebugCommand("fullheal", "set health max all party members.", new List<DebugCommandArgument>()
             {
-                new BoolCommandArgumnt("do", true)
+                //new BoolCommandArgumnt("do", true)
             }, delegate (List<FilledCommandArgument> args)
             {
-                bool amount = false;
-                if (args[0].TryRead<bool>(out bool input)) amount = input;
+                //int val = LoadedDBsHandler.InfoHolder.Run.inGameData.GetIntData("youareafuckingTROGLODITE!!!!!");
+                ThisValue1++;
+                bool amount = ThisValue1 <= 2;
+                //LoadedDBsHandler.InfoHolder.Run.inGameData.SetIntData("youareafuckingTROGLODITE!!!!!", val);
+                //if (args[0].TryRead<bool>(out bool input)) amount = input;
 
                 LockedInPassiveAbility locked = ScriptableObject.CreateInstance<LockedInPassiveAbility>();
                 locked._passiveName = "Locked In";
@@ -60,37 +64,38 @@ namespace SaltsEnemies_Reseasoned
 
                 if (CombatManager._instance == null || CombatManager._instance.Equals(null))
                 {
-                    DebugController.Instance.WriteLine("FUCK YOU");
-                    //make it get overworld party data
+                    if (!amount) DebugController.Instance.WriteLine("FUCK YOU");
+                    else DebugController.Instance.WriteLine("fulheal party");
+                        //make it get overworld party data
 
                     foreach (CharacterInGameData chara in LoadedDBsHandler.InfoHolder.Run.playerData._characterList)
-                    {
-                        if (chara.Character == null || chara.Character.Equals(null)) return;
-
-                        chara.CurrentHealth = chara.MaxHealth;
-
-                        if (!amount)
                         {
-                            chara.WearableModifiers.AddExtraPassive(locked);
-                            chara.WearableModifiers.AddExtraPassive(Passives.Slippery);
-                            chara.WearableModifiers.AddExtraPassive(Passives.Skittish);
-                            chara.WearableModifiers.AddExtraPassive(Passives.Inferno);
-                            chara.WearableModifiers.AddExtraPassive(Passives.Dying);
-                            chara.WearableModifiers.AddExtraPassive(Passives.Delicate);
-                            chara.WearableModifiers.AddExtraPassive(Passives.Leaky3);
-                            chara.WearableModifiers.AddExtraPassive(Passives.Confusion);
-                            chara.WearableModifiers.AddExtraPassive(Passives.Enfeebled);
-                            chara.WearableModifiers.AddExtraPassive(Passives.Immortal);
-                            chara.WearableModifiers.AddExtraPassive(Passives.Anointed2);
-                            chara.WearableModifiers.AddExtraPassive(Passives.FleetingGenerator(10));
-                            chara.WearableModifiers.AddExtraPassive(Passives.Absorb);
-                            chara.WearableModifiers.AddExtraPassive(Violent.Generate(3));
+                            if (chara.Character == null || chara.Character.Equals(null)) return;
 
-                            foreach (BasePassiveAbilitySO passive in EvilPassives) chara.WearableModifiers.AddExtraPassive(passive);
-                            
-                            chara.UpdateCurrentPassives();
+                            chara.CurrentHealth = chara.MaxHealth;
+
+                            if (!amount)
+                            {
+                                chara.WearableModifiers.AddExtraPassive(locked);
+                                chara.WearableModifiers.AddExtraPassive(Passives.Slippery);
+                                chara.WearableModifiers.AddExtraPassive(Passives.Skittish);
+                                chara.WearableModifiers.AddExtraPassive(Passives.Inferno);
+                                chara.WearableModifiers.AddExtraPassive(Passives.Dying);
+                                chara.WearableModifiers.AddExtraPassive(Passives.Delicate);
+                                chara.WearableModifiers.AddExtraPassive(Passives.Leaky3);
+                                chara.WearableModifiers.AddExtraPassive(Passives.Confusion);
+                                chara.WearableModifiers.AddExtraPassive(Passives.Enfeebled);
+                                chara.WearableModifiers.AddExtraPassive(Passives.Immortal);
+                                chara.WearableModifiers.AddExtraPassive(Passives.Anointed2);
+                                chara.WearableModifiers.AddExtraPassive(Passives.FleetingGenerator(10));
+                                chara.WearableModifiers.AddExtraPassive(Passives.Absorb);
+                                chara.WearableModifiers.AddExtraPassive(Violent.Generate(3));
+
+                                foreach (BasePassiveAbilitySO passive in EvilPassives) chara.WearableModifiers.AddExtraPassive(passive);
+
+                                chara.UpdateCurrentPassives();
+                            }
                         }
-                    }
 
                     return;
                 }
@@ -376,7 +381,10 @@ namespace SaltsEnemies_Reseasoned
                 DebugController.Instance.WriteLine("resetfleeting all enemies.");
             });
 
-            TESTINGCOMMAND = new DebugCommand("saltenemiestesting", "debug command for testing shit. i dun gotta explain nuthin to yah", new List<DebugCommandArgument>(), delegate
+            TESTINGCOMMAND = new DebugCommand("saltenemiestesting", "debug command for testing shit. i dun gotta explain nuthin to yah", new List<DebugCommandArgument>()
+            {
+                new NumericalCommandArgument("value1", null, null, true)
+            }, delegate
             {
                 if (CombatManager._instance == null)
                 {
