@@ -389,6 +389,8 @@ namespace SaltsEnemies_Reseasoned
                 if (CombatManager._instance == null)
                 {
                     Debug.LogWarning("You blew it.");
+
+                    return;
                 }
                 CombatManager.Instance.AddPriorityRootAction(new PerformDelegateAction(delegate (CombatStats x)
                 {
