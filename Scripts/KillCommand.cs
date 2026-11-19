@@ -331,6 +331,10 @@ namespace SaltsEnemies_Reseasoned
 
             TESTINGCOMMAND = new DebugCommand("saltenemiestesting", "debug command for testing shit. i dun gotta explain nuthin to yah", new List<DebugCommandArgument>(), delegate
             {
+                if (CombatManager._instance == null)
+                {
+                    Debug.LogWarning("You blew it.");
+                }
                 CombatManager.Instance.AddPriorityRootAction(new PerformDelegateAction(delegate (CombatStats x)
                 {
                     SolitaireHandler.DreamScanner = 0;
