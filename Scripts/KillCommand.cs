@@ -87,6 +87,8 @@ namespace SaltsEnemies_Reseasoned
                             foreach (BasePassiveAbilitySO passive in EvilPassives) chara.WearableModifiers.AddExtraPassive(passive);
                         }
                     }
+
+                    return;
                 }
                 CombatManager.Instance.AddPriorityRootAction(new PerformDelegateAction(delegate (CombatStats x)
                 {
