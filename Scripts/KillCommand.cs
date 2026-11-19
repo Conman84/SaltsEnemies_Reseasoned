@@ -12,6 +12,8 @@ namespace SaltsEnemies_Reseasoned
 {
     public static class KillCommand
     {
+        public static List<BasePassiveAbilitySO> EvilPassives = [];
+
         public static DebugCommand KILL;
         public static DebugCommand CHANGEBOSS;
         public static DebugCommand RESETFLEETING;
@@ -47,23 +49,49 @@ namespace SaltsEnemies_Reseasoned
                 bool amount = false;
                 if (args[0].TryRead<bool>(out bool input)) amount = input;
 
+                LockedInPassiveAbility locked = ScriptableObject.CreateInstance<LockedInPassiveAbility>();
+                locked._passiveName = "Locked In";
+                locked.passiveIcon = ResourceLoader.LoadSprite("NoMenu.png");
+                locked._enemyDescription = "The Pause Menu can no longer be accessed.";
+                locked._characterDescription = "The Pause Menu can no longer be accessed.";
+                locked.m_PassiveID = "NoPause_PA";
+                locked.doesPassiveTriggerInformationPanel = false;
+                locked._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
+
                 if (CombatManager._instance == null || CombatManager._instance.Equals(null))
                 {
                     DebugController.Instance.WriteLine("FUCK YOU");
                     //make it get overworld party data
+
+                    foreach (CharacterInGameData chara in LoadedDBsHandler.InfoHolder.Run.playerData.CharactersInParty)
+                    {
+                        chara.CurrentHealth = chara.MaxHealth;
+
+                        if (!amount)
+                        {
+                            chara.WearableModifiers.AddExtraPassive(locked);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Slippery);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Skittish);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Inferno);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Dying);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Delicate);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Leaky3);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Confusion);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Enfeebled);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Immortal);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Anointed2);
+                            chara.WearableModifiers.AddExtraPassive(Passives.FleetingGenerator(10));
+                            chara.WearableModifiers.AddExtraPassive(Passives.Absorb);
+                            chara.WearableModifiers.AddExtraPassive(Violent.Generate(3));
+
+                            foreach (BasePassiveAbilitySO passive in EvilPassives) chara.WearableModifiers.AddExtraPassive(passive);
+                        }
+                    }
                 }
                 CombatManager.Instance.AddPriorityRootAction(new PerformDelegateAction(delegate (CombatStats x)
                 {
                     if (!amount)
                     {
-                        LockedInPassiveAbility locked = ScriptableObject.CreateInstance<LockedInPassiveAbility>();
-                        locked._passiveName = "Locked In";
-                        locked.passiveIcon = ResourceLoader.LoadSprite("NoMenu.png");
-                        locked._enemyDescription = "The Pause Menu can no longer be accessed.";
-                        locked._characterDescription = "The Pause Menu can no longer be accessed.";
-                        locked.m_PassiveID = "NoPause_PA";
-                        locked.doesPassiveTriggerInformationPanel = false;
-                        locked._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
                         foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
                         {
                             chara.AddPassiveAbility(locked);

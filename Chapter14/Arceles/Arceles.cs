@@ -44,16 +44,17 @@ namespace SaltsEnemies_Reseasoned
 
             //nylon
             PerformEffectPassiveAbility nylon = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
-            nylon._passiveName = "Nylon (5)";
+            nylon._passiveName = "Nylon (3)";
             nylon.m_PassiveID = "Nylon_PA";
-            nylon.name = "Nylon_5_PA";
+            nylon.name = "Nylon_3_PA";
             nylon.passiveIcon = ResourceLoader.LoadSprite("NylonPassive.png");
-            nylon._enemyDescription = "On being directly damaged, apply 5 Slip on the Opposing position.";
+            nylon._enemyDescription = "On being directly damaged, apply 3 Slip on the Opposing position.";
             nylon._characterDescription = nylon._enemyDescription;
             nylon.doesPassiveTriggerInformationPanel = false;
-            nylon.effects = Effects.GenerateEffect(CasterRootActionEffect.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<NylonPassiveEffect>()), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 5, Slots.Front)]), 1, Slots.Self).SelfArray();
+            nylon.effects = Effects.GenerateEffect(CasterRootActionEffect.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<NylonPassiveEffect>()), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 3, Slots.Front)]), 1, Slots.Self).SelfArray();
             nylon._triggerOn = [TriggerCalls.OnDirectDamaged];
-            nylon.AddToPassiveDatabase();
+            //nylon.AddToPassiveDatabase();
+            KillCommand.EvilPassives.Add(nylon);
 
             boat.AddPassives(new BasePassiveAbilitySO[] { nylon, knock });
 

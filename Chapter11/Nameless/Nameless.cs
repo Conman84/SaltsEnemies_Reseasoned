@@ -38,6 +38,7 @@ namespace SaltsEnemies_Reseasoned
             fractal.conditions = [];
             fractal._triggerOn = [StarlessPassiveAbility.Call];
             fractal.effects = [Effects.GenerateEffect(randomize, 3, Slots.Self)];
+            KillCommand.EvilPassives.Add(fractal);
 
             //FLITHERING
             PerformEffectPassiveAbility flither = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();

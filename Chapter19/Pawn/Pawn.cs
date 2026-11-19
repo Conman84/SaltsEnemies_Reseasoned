@@ -36,6 +36,7 @@ namespace SaltsEnemies_Reseasoned
             traitor.conditions = [ScriptableObject.CreateInstance<TraitorCondition>()];
             traitor._triggerOn = [TriggerCalls.OnDirectDamaged];
             traitor.effects = new EffectInfo[0];
+            KillCommand.EvilPassives.Add(traitor);
 
             //parental
             ParentalPassiveAbility baseParent = LoadedAssetsHandler.GetEnemy("Flarb_EN").passiveAbilities[1] as ParentalPassiveAbility;

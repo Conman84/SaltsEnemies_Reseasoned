@@ -34,6 +34,7 @@ namespace SaltsEnemies_Reseasoned
             altruistic.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDeterminedEffect>(), 1, Slots.Front)];
             altruistic._triggerOn = [TriggerCalls.OnDirectDamaged];
             altruistic.conditions = [];
+            KillCommand.EvilPassives.Add(altruistic);
 
             dark.AddPassives(new BasePassiveAbilitySO[] { altruistic, Passives.Forgetful, Passives.Fleeting4});
 

@@ -164,6 +164,7 @@ namespace SaltEnemies_Reseasoned
             if (call == TriggerCalls.TimelineEndReached.ToString() && sender == null)
             {
                 foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values) CombatManager.Instance.PostNotification(Call.ToString(), enemy, new TurnFinishedReference(false));
+                foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values) CombatManager.Instance.PostNotification(Call.ToString(), chara, new TurnFinishedReference(chara.HasManuallySwappedThisTurn));
             }
         }
         static bool Set;

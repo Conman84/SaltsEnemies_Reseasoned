@@ -37,6 +37,7 @@ namespace SaltsEnemies_Reseasoned
             warp._triggerOn = new TriggerCalls[1] { TriggerCalls.Count };
             warp.conditions = new EffectorConditionSO[0];
             warp.AddToPassiveDatabase();
+            KillCommand.EvilPassives.Add(warp);
 
             //nylon
             PerformEffectPassiveAbility nylon = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();

@@ -39,6 +39,7 @@ namespace SaltsEnemies_Reseasoned
             m._justCheckAbility = true;
             auto.conditions = new EffectorConditionSO[] { m };
             auto.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<PerformRandomAbilityEffect>(), 1, Slots.Self).SelfArray();
+            KillCommand.EvilPassives.Add(auto);
 
             windle.AddPassive(auto);
             windle.AddPassive(Passives.Slippery);
