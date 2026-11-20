@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Tools;
 using UnityEngine;
 
 namespace YourNamespace
@@ -66,4 +67,6 @@ namespace YourNamespace
             return false;
         }
     }
+
+
 }
