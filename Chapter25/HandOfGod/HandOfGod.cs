@@ -40,7 +40,7 @@ namespace SaltsEnemies_Reseasoned
                 ];
             acting.conditions = new List<EffectorConditionSO>(Passives.Slippery.conditions) { ScriptableObject.CreateInstance<HasTurnsCondition>() }.ToArray();
 
-            hand.AddPassives(new BasePassiveAbilitySO[] { Passives.Infantile, acting });
+            hand.AddPassives(new BasePassiveAbilitySO[] { Passives.Infantile, acting, Passives.Skittish });
 
             BaseCombatTargettingSO left = Targeting.BigEnemy_Front_Offset_0;
             BaseCombatTargettingSO right = Targeting.BigEnemy_Front_Offset_1;

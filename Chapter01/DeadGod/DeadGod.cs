@@ -211,7 +211,7 @@ namespace SaltsEnemies_Reseasoned
             Ability world = new Ability("A Godless World", "Salt_AGodlessWorld_A");
             world.Description = "If this enemy is Determined, deal Almost No damage to all party members, this damage is fully blocked by Shield.\nInflict 1-2 Scars on this enemy and gain \"Confusion\" as a Passive.";
             world.Rarity = Rarity.GetCustomRarity("DG_5");
-            world.Priority = Priority.Fast;
+            world.Priority = Priority.ExtremelySlow;
             world.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(has_det, 1, Slots.Self),
