@@ -121,11 +121,11 @@ namespace SaltsEnemies_Reseasoned
             effect._color2 = Pigments.Blue;
             HealEffect onlyIfAlive = ScriptableObject.CreateInstance<HealEffect>();
             onlyIfAlive._onlyIfHasHealthOver0 = true;
-            onlyIfAlive._directHeal = false;
+            onlyIfAlive._directHeal = true;
             Ability pinch = new Ability("EyePalm_Pinch_A")
             {
                 Name = "Pinch",
-                Description = "Deal an Agonizing amount of damage to the Opposing party member, then indirectly Heal them if they survive (indirect Healing is not transmitted through Linked.) Change this enemy's health color between Red and Blue.",
+                Description = "Deal an Agonizing amount of damage to the Opposing party member, then Heal them if they survive. Change this enemy's health color between Red and Blue.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
