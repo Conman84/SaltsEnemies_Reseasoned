@@ -161,6 +161,35 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Garden.H.Ecstasy99.Med);
             med.SimpleAddGroup(3, Ecstasy.Gray, 1, "Drippings_EN");
+            med.SimpleAddGroup(2, Ecstasy.Gray, 1, "Drippings_EN", 1, "EvilDog_EN");
+            med.SimpleAddGroup(2, Ecstasy.Gray, 1, "Drippings_EN", 1, "Attrition_EN");
+            med.SimpleAddGroup(2, Ecstasy.Gray, 1, "Drippings_EN", 1, "Yang_EN");
+
+            med = new AddTo(Garden.H.Eclipse.Med);
+            med.AddRandomGroup(Enemies.Eclipse, "Drippings_EN", Enemies.Shivering, Enemies.Shivering);
+            med.AddRandomGroup(Enemies.Eclipse, "Drippings_EN", "PawnA_EN", "PawnA_EN");
+            med.AddRandomGroup(Enemies.Eclipse, "Drippings_EN", "EyePalm_EN", "EyePalm_EN");
+
+            hard = new AddTo(Garden.H.Eclipse.Hard);
+            hard.AddRandomGroup(Enemies.Eclipse, Enemies.Eclipse, "Drippings_EN");
+            hard.AddRandomGroup(Enemies.Eclipse, "Drippings_EN", Spoggle.Grey);
+            hard.AddRandomGroup(Enemies.Eclipse, "Drippings_EN", "WindSong_EN");
+
+            med = new AddTo(Garden.H.Celebration.Med);
+            med.SimpleAddGroup(2, "Celebration_EN", 1, "Drippings_EN");
+            med.AddRandomGroup("Celebration_EN", "Drippings_EN", Jumble.Mythos);
+            med.AddRandomGroup("Celebration_EN", "Drippings_EN", "Ascendant_EN");
+            med.AddRandomGroup("Celebration_EN", "Drippings_EN", "BlackStar_EN", "BlackStar_EN");
+
+            hard = new AddTo(Garden.H.Celebration.Hard);
+            hard.AddRandomGroup("Celebration_EN", "Celebration_EN", "Drippings_EN", "Drippings_EN");
+            hard.SimpleAddGroup(1, "Celebration_EN", 2, "InHerImage_EN", 1, "Drippings_EN");
+            hard.SimpleAddGroup(1, "Celebration_EN", 2, "EvilDog_EN", 1, "Drippings_EN");
+
+            med = new AddTo(Garden.H.Lightbulbkin.Med);
+            med.AddRandomGroup("Lightbulbkin_EN", "Lightbulbkin_EN", "Drippings_EN");
+            med.AddRandomGroup("Lightbulbkin_EN", "Drippings_EN", Enemies.Shivering, Enemies.Shivering);
+            med.AddRandomGroup("Lightbulbkin_EN", "Drippings_EN", "Hauntling_EN", "Hauntling_EN");
         }
     }
 }
