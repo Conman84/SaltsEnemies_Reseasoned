@@ -568,6 +568,7 @@
 	  <None Remove="Chapter24\Nume\NumeDead.png" />
 	  <None Remove="Chapter24\Nume\NumeIcon.png" />
 	  <None Remove="Chapter24\Nume\NumeWorld.png" />
+	  <None Remove="Chapter24\Panopticon\MFYellowPassive.png" />
 	  <None Remove="Chapter24\Panopticon\PanopticonDead.png" />
 	  <None Remove="Chapter24\Panopticon\PanopticonIcon.png" />
 	  <None Remove="Chapter24\Panopticon\PanopticonWorld.png" />
@@ -1632,6 +1633,7 @@
 	  <EmbeddedResource Include="Chapter24\Nume\NumeDead.png" />
 	  <EmbeddedResource Include="Chapter24\Nume\NumeIcon.png" />
 	  <EmbeddedResource Include="Chapter24\Nume\NumeWorld.png" />
+	  <EmbeddedResource Include="Chapter24\Panopticon\MFYellowPassive.png" />
 	  <EmbeddedResource Include="Chapter24\Panopticon\PanopticonDead.png" />
 	  <EmbeddedResource Include="Chapter24\Panopticon\PanopticonIcon.png" />
 	  <EmbeddedResource Include="Chapter24\Panopticon\PanopticonWorld.png" />

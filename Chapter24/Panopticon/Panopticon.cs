@@ -47,6 +47,21 @@ namespace SaltsEnemies_Reseasoned
                         TriggerCalls.OnDamaged
             };
 
+            //misfaced
+            ChangeCasterHealthColorBetweenColorsEffect redyellow = ScriptableObject.CreateInstance<ChangeCasterHealthColorBetweenColorsEffect>();
+            redyellow._color1 = Pigments.Yellow;
+            redyellow._color2 = Pigments.Red;
+            PerformEffectPassiveAbility mf = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            mf._locID = "";
+            mf.passiveIcon = ResourceLoader.LoadSprite("MFYellowPassive.png");
+            mf.name = "MissFaced_RedYellow";
+            mf._passiveName = "Miss-Faced";
+            mf._enemyDescription = "On being direct damaged and at the end of each round, this unit's health color changes between Red and Yellow.";
+            mf.m_PassiveID = "MissFaced_PA";
+            mf._characterDescription = mf._enemyDescription;
+            mf.effects = [Effects.GenerateEffect(redyellow)];
+            mf._triggerOn = new List<TriggerCalls>(Passives.TwoFaced._triggerOn) { TriggerCalls.OnRoundFinished }.ToArray();
+
             //commissioner
             PerformEffectPassiveAbility commissioner = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             commissioner.name = "Commissioner_PA";
@@ -78,7 +93,7 @@ namespace SaltsEnemies_Reseasoned
             escape.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToRandomEmptyTileEffect>(), 1, Slots.Self)];
             //escape.AddToPassiveDatabase();
 
-            panopticon.AddPassives([colors, commissioner, escape]);
+            panopticon.AddPassives([mf, commissioner, escape]);
 
 
             Ability left = new Ability("Escapee On The West Side Of The Gate", "Panopticon_Left_A");

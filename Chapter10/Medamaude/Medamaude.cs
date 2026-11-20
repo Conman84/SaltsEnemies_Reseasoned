@@ -24,6 +24,7 @@ namespace SaltsEnemies_Reseasoned
             //miss faced
             BasePassiveAbilitySO mf = ScriptableObject.Instantiate(Passives.TwoFaced);
             mf._locID = "";
+            mf.name = "MissFaced_RedBlue";
             mf.passiveIcon = ResourceLoader.LoadSprite("MissFaced.png");
             mf._passiveName = "Miss-Faced";
             mf._enemyDescription = "On being direct damaged and at the end of each round, this unit's health color changes between Red and Blue.";
