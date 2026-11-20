@@ -81,11 +81,6 @@ namespace SaltsEnemies_Reseasoned
             mainEncounters.CreateNewEnemyEncounterData(new string[]
             {
                 "RealisticTank_EN",
-                "ClockTower_EN",
-            }, null);
-            mainEncounters.CreateNewEnemyEncounterData(new string[]
-            {
-                "RealisticTank_EN",
                 "LittleAngel_EN",
             }, null);
             mainEncounters.CreateNewEnemyEncounterData(new string[]

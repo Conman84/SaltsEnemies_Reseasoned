@@ -173,8 +173,12 @@ namespace SaltsEnemies_Reseasoned
             EnemyEncounterUtils.AddEncounterToZoneSelector("H_Zone03_TheEndOfTime_Hard_EnemyBundle", 10 * April.Mod, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
 
             //Secondary
-            AddTo bundle1 = new AddTo("H_Zone03_SkinningHomunculus_Hard_EnemyBundle");
-            bundle1.AddRandomGroup("SkinningHomunculus_EN", "SkinningHomunculus_EN", "ClockTower_EN");
+            //AddTo bundle1 = new AddTo("H_Zone03_SkinningHomunculus_Hard_EnemyBundle");
+            //bundle1.AddRandomGroup("SkinningHomunculus_EN", "SkinningHomunculus_EN", "ClockTower_EN");
+
+            AddTo hard = new AddTo(Garden.H.ClockTower.Hard);
+            hard.SimpleAddGroup(1, "ClockTower_EN", 2, Enemies.Skinning);
+            hard.AddRandomGroup("ClockTower_EN", Enemies.Tank);
 
         }
     }
