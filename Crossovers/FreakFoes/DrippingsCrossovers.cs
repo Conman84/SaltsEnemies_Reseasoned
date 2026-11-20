@@ -158,6 +158,9 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddGroup(2, "Panopticon_EN", 1, "Drippings_EN", 1, "Vivarium_EN");
             med.SimpleAddGroup(2, "Panopticon_EN", 1, "Drippings_EN", 1, "Bonsai_EN");
             med.SimpleAddGroup(2, "Panopticon_EN", 1, "Drippings_EN", 1, "EvilDog_EN");
+
+            med = new AddTo(Garden.H.Ecstasy99.Med);
+            med.SimpleAddGroup(3, Ecstasy.Gray, 1, "Drippings_EN");
         }
     }
 }

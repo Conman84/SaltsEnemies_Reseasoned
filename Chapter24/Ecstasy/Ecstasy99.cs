@@ -50,11 +50,13 @@ namespace SaltsEnemies_Reseasoned
             ecstasy.AddPassives(new BasePassiveAbilitySO[] { missdose });
 
             Ability bless = new Ability("1000 Blessings", "1000Blessings_A");
-            bless.Description = "Invert the health of the Left, Right, and Opposing party members and apply 1 Determined on them.";
+            bless.Description = "Invert the health of the Left, Right, and Opposing party members and apply 1 Determined on them.\nGenerate 3 Red Pigment.";
             bless.Rarity = Rarity.GetCustomRarity("rarity5");
             bless.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<InvertTargetHealthEffect>(), 0, Slots.FrontLeftRight),
-            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDeterminedEffect>(), 1, Slots.FrontLeftRight)];
+            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDeterminedEffect>(), 1, Slots.FrontLeftRight),
+            Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Red), 3, Slots.Self)];
             bless.AddIntentsToTarget(Slots.FrontLeftRight, [IntentType_GameIDs.Other_MaxHealth_Alt.ToString(), Determined.Intent]);
+            bless.AddIntentsToTarget(Slots.Self, ["Mana_Generate"]);
             bless.Visuals = Visuals.Providence;
             bless.AnimationTarget = Slots.FrontLeftRight;
 
@@ -63,21 +65,33 @@ namespace SaltsEnemies_Reseasoned
             hit._visuals = Visuals.Scales;
 
             Ability pray = new Ability("1000 Prayers", "1000Prayers_A");
-            pray.Description = "Revive as many party members as possible at 1 health.\nIf the Left, Right, or Opposing party members are below half health, deal an Impossible amount of damage to them.";
+            pray.Description = "Revive as many party members as possible at 1 health.\nIf the Left, Right, or Opposing party members are below half health, deal an Impossible amount of damage to them.\nGenerate 3 Red Pigment.";
             pray.Rarity = Rarity.GetCustomRarity("rarity5");
             pray.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ResurrectEffect>(), 1, Targetting.Everything(false)),
                 Effects.GenerateEffect(hit, 0, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageIfUnderHalfEffect>(), 1000, Slots.FrontLeftRight),
+                Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Red), 3, Slots.Self),
                 ];
             pray.AddIntentsToTarget(Targetting.Everything(false), [IntentType_GameIDs.Other_Resurrect.ToString()]);
             pray.AddIntentsToTarget(Slots.FrontLeftRight, ["Misc_Hidden", "Damage_Death"]);
+            pray.AddIntentsToTarget(Slots.Self, ["Mana_Generate"]);
 
+
+            GenerateRandomManaBetweenEffect randomize = ScriptableObject.CreateInstance<GenerateRandomManaBetweenEffect>();
+            randomize.possibleMana = new ManaColorSO[]
+            {
+                Pigments.Blue,
+                Pigments.Yellow,
+                Pigments.Purple
+            };
             Ability death = new Ability("1000 Burials", "1000Deaths_A");
-            death.Description = "Inflict 1000 Pale on the Opposing party member.";
+            death.Description = "Inflict 1000 Pale on the Opposing party member.\nGenerate 3 Non-Red Pigment.";
             death.Rarity = Rarity.GetCustomRarity("rarity5");
-            death.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleByTenEffect>(), 100, Slots.Front)];
+            death.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleByTenEffect>(), 100, Slots.Front),
+                Effects.GenerateEffect(randomize, 3, Slots.Self)];
             death.AddIntentsToTarget(Slots.Front, [Pale.Intent]);
+            death.AddIntentsToTarget(Slots.Self, ["Mana_Generate"]);
             death.Visuals = CustomVisuals.GetVisuals("Salt/Hung");
             death.AnimationTarget = Slots.Front;
 
