@@ -43,6 +43,7 @@ namespace SaltsEnemies_Reseasoned
             Ability melt = new Ability("Melting Point", "Salt_MeltingPoint_A");
             melt.Description = "Deals a Deadly amount of damage to the Opposing party member.\nThis damage is fully blocked by Shield.";
             melt.Rarity = Rarity.GetCustomRarity("rarity5");
+            melt.Priority = Priority.VeryFast;
             melt.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(BasicEffects.ShieldBlocked, 11, Targeting.Slot_Front),
