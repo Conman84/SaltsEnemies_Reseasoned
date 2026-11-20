@@ -52,8 +52,19 @@ namespace SaltsEnemies_Reseasoned
             nylon._triggerOn = [TriggerCalls.OnDirectDamaged];
             nylon.AddToPassiveDatabase();
 
+            //miss faced
+            BasePassiveAbilitySO mf = ScriptableObject.Instantiate(Passives.TwoFaced);
+            mf._locID = "";
+            mf.name = "MissFaced_RedBlue";
+            mf.passiveIcon = ResourceLoader.LoadSprite("MissFaced.png");
+            mf._passiveName = "Miss-Faced";
+            mf._enemyDescription = "On being direct damaged and at the end of each round, this unit's health color changes between Red and Blue.";
+            mf.m_PassiveID = "MissFaced_PA";
+            mf._characterDescription = mf._enemyDescription;
+            mf._triggerOn = new List<TriggerCalls>(Passives.TwoFaced._triggerOn) { TriggerCalls.OnRoundFinished }.ToArray();
+
             //addpassives
-            dog.AddPassives(new BasePassiveAbilitySO[] { Passives.TwoFaced, warp, Passives.Slippery, nylon });
+            dog.AddPassives(new BasePassiveAbilitySO[] { mf, warp, Passives.Slippery, nylon });
 
             //ringer
             Ability ringer = new Ability("Ringer", "Ringer_A");
