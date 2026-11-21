@@ -625,6 +625,9 @@
 	  <None Remove="Chapter26\Vivarium\VivariumEmptyWorld.png" />
 	  <None Remove="Chapter26\Vivarium\VivariumIcon.png" />
 	  <None Remove="Chapter26\Vivarium\VivariumWorld.png" />
+	  <None Remove="Chapter27\NeverMind\NeverMindDead.png" />
+	  <None Remove="Chapter27\NeverMind\NeverMindIcon.png" />
+	  <None Remove="Chapter27\NeverMind\NeverMindWorld.png" />
 	  <None Remove="Chapter27\Trollers\HelpDead.png" />
 	  <None Remove="Chapter27\Trollers\HelpIcon.png" />
 	  <None Remove="Chapter27\Trollers\HelpWorld.png" />
@@ -1699,6 +1702,9 @@
 	  <EmbeddedResource Include="Chapter26\Vivarium\VivariumEmptyWorld.png" />
 	  <EmbeddedResource Include="Chapter26\Vivarium\VivariumIcon.png" />
 	  <EmbeddedResource Include="Chapter26\Vivarium\VivariumWorld.png" />
+	  <EmbeddedResource Include="Chapter27\NeverMind\NeverMindDead.png" />
+	  <EmbeddedResource Include="Chapter27\NeverMind\NeverMindIcon.png" />
+	  <EmbeddedResource Include="Chapter27\NeverMind\NeverMindWorld.png" />
 	  <EmbeddedResource Include="Chapter27\Trollers\HelpDead.png" />
 	  <EmbeddedResource Include="Chapter27\Trollers\HelpIcon.png" />
 	  <EmbeddedResource Include="Chapter27\Trollers\HelpWorld.png" />
@@ -2431,7 +2437,6 @@
 
 	<ItemGroup>
 	  <Folder Include="Chapter24\Hydra\" />
-	  <Folder Include="Chapter27\NeverMind\" />
 	  <Folder Include="Chapter27\SevenSins\" />
 	  <Folder Include="Crossovers\Dude...IDK\" />
 	  <Folder Include="CustomEffects\Chapter06\" />

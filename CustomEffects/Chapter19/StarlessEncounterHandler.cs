@@ -21,6 +21,24 @@ namespace SaltsEnemies_Reseasoned
                 return false;
             }
 
+            if (randomEnemyGroup.EnemyNames.Contains(Enemies.Help) || randomEnemyGroup.EnemyNames.Contains(Enemies.Reckoner))
+            {
+                bool evenSlot = SaveDataManager_2024.SaveSlot % 2 == 0;
+                for (int i = 0; i < randomEnemyGroup._enemyNames.Length; i++)
+                {
+                    if (evenSlot && randomEnemyGroup._enemyNames[i] == Enemies.Reckoner)
+                    {
+                        if (UnityEngine.Random.Range(0, 100) < 20) continue;
+                        randomEnemyGroup._enemyNames[i] = Enemies.Help;
+                    }
+                    else if (!evenSlot && randomEnemyGroup._enemyNames[i] == Enemies.Help)
+                    {
+                        if (UnityEngine.Random.Range(0, 100) < 20) continue;
+                        randomEnemyGroup._enemyNames[i] = Enemies.Reckoner;
+                    }
+                }
+            }
+
             if (!randomEnemyGroup.EnemyNames.Contains("Starless_EN")) return orig(self, index, bundleDifficulty, roomPrefabName, out combatBundle);
 
             List <EnemySO> list = new List<EnemySO>();
