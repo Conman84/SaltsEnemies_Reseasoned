@@ -24,8 +24,16 @@ namespace SaltsEnemies_Reseasoned
             for (int i = 0; i < 9999; i++)
             {
                 bool evenSlot = SaveDataManager_2024.SaveSlot % 2 == 0;
-                if (evenSlot && ret.SignID == "Salt_HelpEncounter_Sign") continue;
-                if (!evenSlot && ret.SignID == "Salt_ReckonerEncounter_Sign") continue;
+                if (evenSlot && ret.SignID == "Salt_HelpEncounter_Sign")
+                {
+                    ret = orig(self);
+                    continue;
+                }
+                if (!evenSlot && ret.SignID == "Salt_ReckonerEncounter_Sign")
+                {
+                    ret = orig(self);
+                    continue;
+                }
 
                 bool safe = true;
 
