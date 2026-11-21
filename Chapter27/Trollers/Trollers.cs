@@ -66,7 +66,7 @@ namespace SaltsEnemies_Reseasoned
             gravi.Description = "Generate 3 Pigment of this enemy's health color.\nInflict 5 Magnetism and 2 Dodge on this enemy.";
             gravi.Rarity = Rarity.Common;
             gravi.Effects = [
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetGeneratePigmentEffect>(), 3, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateTargetHealthManaEffect>(), 3, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMagnetismEffect>(), 5, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDodgeEffect>(), 2, Slots.Self),
                 ];
@@ -150,7 +150,7 @@ namespace SaltsEnemies_Reseasoned
             gravi.Description = "Generate 3 Pigment of the Opposing party member's health color.\nInflict 5 Magnetism and 2 Dodge on the Opposing party member.";
             gravi.Rarity = Rarity.Common;
             gravi.Effects = [
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetGeneratePigmentEffect>(), 3, Slots.Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateTargetHealthManaEffect>(), 3, Slots.Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMagnetismEffect>(), 5, Slots.Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDodgeEffect>(), 2, Slots.Front),
                 ];
