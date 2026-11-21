@@ -63,14 +63,14 @@ namespace SaltsEnemies_Reseasoned
             emuls.Visuals = Visuals.Intrusion;
 
             Ability gravi = new Ability("Gravipulsion", "Troller_Gravipulsion_A");
-            gravi.Description = "Generate 3 Pigment of this enemy's health color.\nInflict 5 Magnetism and 2 Dodge on this enemy.";
+            gravi.Description = "Consume 3 Pigment of this enemy's health color.\nInflict 5 Magnetism and 2 Dodge on this enemy.";
             gravi.Rarity = Rarity.Common;
             gravi.Effects = [
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateTargetHealthManaEffect>(), 3, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeAllTargetHealthManaEffect>(), 3, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMagnetismEffect>(), 5, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDodgeEffect>(), 2, Slots.Self),
                 ];
-            gravi.AddIntentsToTarget(Slots.Self, ["Mana_Generate", Magnetism.Intent, Dodge.Intent]);
+            gravi.AddIntentsToTarget(Slots.Self, ["Mana_Consume", Magnetism.Intent, Dodge.Intent]);
             gravi.AnimationTarget = Slots.Self;
             gravi.Visuals = Visuals.Crush;
 
@@ -147,14 +147,14 @@ namespace SaltsEnemies_Reseasoned
             emuls.Visuals = Visuals.Intrusion;
 
             Ability gravi = new Ability("Gravipulation", "Troller_Gravipulation_A");
-            gravi.Description = "Generate 3 Pigment of the Opposing party member's health color.\nInflict 5 Magnetism and 2 Dodge on the Opposing party member.";
+            gravi.Description = "Consume 3 Pigment of the Opposing party member's health color.\nInflict 5 Magnetism and 2 Dodge on the Opposing party member.";
             gravi.Rarity = Rarity.Common;
             gravi.Effects = [
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateTargetHealthManaEffect>(), 3, Slots.Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeAllTargetHealthManaEffect>(), 3, Slots.Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMagnetismEffect>(), 5, Slots.Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDodgeEffect>(), 2, Slots.Front),
                 ];
-            gravi.AddIntentsToTarget(Slots.Front, ["Mana_Generate", Magnetism.Intent, Dodge.Intent]);
+            gravi.AddIntentsToTarget(Slots.Front, ["Mana_Consume", Magnetism.Intent, Dodge.Intent]);
             gravi.AnimationTarget = Slots.Front;
             gravi.Visuals = Visuals.Crush;
 
