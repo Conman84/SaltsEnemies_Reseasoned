@@ -632,6 +632,7 @@
 	  <None Remove="Chapter27\Trollers\ReckonerDead.png" />
 	  <None Remove="Chapter27\Trollers\ReckonerIcon.png" />
 	  <None Remove="Chapter27\Trollers\ReckonerWorld.png" />
+	  <None Remove="Chapter27\Trollers\VivaciousPassive.png" />
 	  <None Remove="CustomPassives\Chapter02\Decay.png" />
 	  <None Remove="CustomPassives\Chapter03\DontTouchMe.png" />
 	  <None Remove="CustomPassives\Chapter03\StarPassive.png" />
@@ -1705,6 +1706,7 @@
 	  <EmbeddedResource Include="Chapter27\Trollers\ReckonerDead.png" />
 	  <EmbeddedResource Include="Chapter27\Trollers\ReckonerIcon.png" />
 	  <EmbeddedResource Include="Chapter27\Trollers\ReckonerWorld.png" />
+	  <EmbeddedResource Include="Chapter27\Trollers\VivaciousPassive.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter01\Desperate.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Decay.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Fishing.png" />

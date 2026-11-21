@@ -677,6 +677,9 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("NonomnumuburamumaPassive.png"), "Nonomnumuburamuma", "This enemy will perform 0 actions per turn by default.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ApostlePassive.png"), "Apostle", "On any other enemy being directly damaged, prematurely perform this enemy's next action on the timeline.");
 
+            //CH27
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("VivaciousPassive.png"), "Vivacious", "At the end of the round, move Left or Right.");
+
 
             //BOSSES
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SunkPassive.png"), "Sunk", "All positions are in permenant Deep Water.");
