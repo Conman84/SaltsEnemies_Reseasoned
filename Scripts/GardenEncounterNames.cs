@@ -294,6 +294,19 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Hard => "THEFREAKINGMOON";
             }
+            public static class Troller
+            {
+                public static class Help
+                {
+                    public static string Easy => "H_Zone03_THEHELP_Easy_EnemyBundle";
+                    public static string Med => "H_Zone03_THEHELP_Medium_EnemyBundle";
+                }
+                public static class Reckoner
+                {
+                    public static string Easy => "H_Zone03_RECKONER_Easy_EnemyBundle";
+                    public static string Med => "H_Zone03_RECKONER_Medium_EnemyBundle";
+                }
+            }
 
             //marmo
             public static class Git

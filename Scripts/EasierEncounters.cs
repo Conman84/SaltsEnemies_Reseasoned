@@ -268,5 +268,7 @@ namespace SaltsEnemies_Reseasoned
         public static string Cthonian => "Chthonian_EN";
         public static string Screaming => "ScreamingHomunculus_EN";
         public static string Leviat => "SterileBud_EN";
+        public static string Help => "Help_Troller_EN";
+        public static string Reckoner => "Reckoner_Troller_EN";
     }
 }

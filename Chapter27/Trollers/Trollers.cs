@@ -109,7 +109,7 @@ namespace SaltsEnemies_Reseasoned
                 gravi.GenerateEnemyAbility(true),
                 neru.GenerateEnemyAbility(true),
             });
-            troller.AddEnemy(true, true);
+            troller.SilentAddEnemy(true, true);
             troller.enemy.AddToEcstasyPool();
             troller.enemy.AddToToysPool();
         }
@@ -208,7 +208,7 @@ namespace SaltsEnemies_Reseasoned
                 gravi.GenerateEnemyAbility(true),
                 neru.GenerateEnemyAbility(true),
             });
-            troller.AddEnemy(true, true);
+            troller.SilentAddEnemy(true, true);
             troller.enemy.AddToEcstasyPool();
             troller.enemy.AddToToysPool();
         }
