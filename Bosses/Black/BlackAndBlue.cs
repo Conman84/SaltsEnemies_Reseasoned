@@ -40,12 +40,12 @@ namespace SaltsEnemies_Reseasoned
             rem_drown._status = Drowning.Object;
 
             Ability bb = new Ability("Hoist", "BlackAndBlue_A");
-            bb.Description = "Deal an Agonizing amount of damage to the Opposing party member.\nRemove all Drowning from the Left, Right, and Opposing party members.";
+            bb.Description = "Deal a Painful amount of damage to the Opposing party member.\nRemove all Drowning from the Left, Right, and Opposing party members.";
             bb.Rarity = Rarity.Common;
             bb.Effects = new EffectInfo[2];
-            bb.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front);
+            bb.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Front);
             bb.Effects[1] = Effects.GenerateEffect(rem_drown, 1, Slots.FrontLeftRight);
-            bb.AddIntentsToTarget(Slots.Front, ["Damage_7_10"]);
+            bb.AddIntentsToTarget(Slots.Front, ["Damage_3_6"]);
             bb.AddIntentsToTarget(Slots.FrontLeftRight, ["Rem_Status_Drowning"]);
             bb.Visuals = CustomVisuals.GetVisuals("Salt/Anchoring");
             bb.AnimationTarget = Slots.Front;
