@@ -66,6 +66,7 @@ namespace SaltsEnemies_Reseasoned
 
             easy = new AddTo(Garden.H.ChoirBoy.Easy);
             easy.AddRandomGroup("ChoirBoy_EN", "Vivarium_EN", "NextOfKin_EN", "NextOfKin_EN");
+            easy.SimpleAddGroup(1, "ChoirBoy_EN", 4, "Vivarium_EN");
 
             med = new AddTo(Garden.H.EggKeeper.Med);
             med.AddRandomGroup("ChoirBoy_EN", "EggKeeper_EN", "Vivarium_EN", "ChoirBoy_EN", "Vivarium_EN");
