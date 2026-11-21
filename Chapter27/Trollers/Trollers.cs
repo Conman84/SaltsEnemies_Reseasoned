@@ -72,7 +72,7 @@ namespace SaltsEnemies_Reseasoned
                 ];
             gravi.AddIntentsToTarget(Slots.Self, ["Mana_Generate", Magnetism.Intent, Dodge.Intent]);
             gravi.AnimationTarget = Slots.Self;
-            emuls.Visuals = Visuals.Crush;
+            gravi.Visuals = Visuals.Crush;
 
             Ability neru = new Ability("Nerulsion", "Troller_Nerulsion_A");
             neru.Description = "Deal a Little damage to this and the Left and Right enemies.\nInflict 2 Ruptured on the Left, Right, and Opposing party members.";
@@ -156,7 +156,7 @@ namespace SaltsEnemies_Reseasoned
                 ];
             gravi.AddIntentsToTarget(Slots.Front, ["Mana_Generate", Magnetism.Intent, Dodge.Intent]);
             gravi.AnimationTarget = Slots.Front;
-            emuls.Visuals = Visuals.Crush;
+            gravi.Visuals = Visuals.Crush;
 
             Ability neru = new Ability("Nerulation", "Troller_Nerulation_A");
             neru.Description = "Deal a Little damage to the Left, Right, and Opposing party members.\nInflict 2 Ruptured on the this and the Left and Right enemies.";
