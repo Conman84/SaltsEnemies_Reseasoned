@@ -625,6 +625,13 @@
 	  <None Remove="Chapter26\Vivarium\VivariumEmptyWorld.png" />
 	  <None Remove="Chapter26\Vivarium\VivariumIcon.png" />
 	  <None Remove="Chapter26\Vivarium\VivariumWorld.png" />
+	  <None Remove="Chapter27\Trollers\HelpDead.png" />
+	  <None Remove="Chapter27\Trollers\HelpIcon.png" />
+	  <None Remove="Chapter27\Trollers\HelpWorld.png" />
+	  <None Remove="Chapter27\Trollers\RebornRedPurplePassive.png" />
+	  <None Remove="Chapter27\Trollers\ReckonerDead.png" />
+	  <None Remove="Chapter27\Trollers\ReckonerIcon.png" />
+	  <None Remove="Chapter27\Trollers\ReckonerWorld.png" />
 	  <None Remove="CustomPassives\Chapter02\Decay.png" />
 	  <None Remove="CustomPassives\Chapter03\DontTouchMe.png" />
 	  <None Remove="CustomPassives\Chapter03\StarPassive.png" />
@@ -1691,6 +1698,13 @@
 	  <EmbeddedResource Include="Chapter26\Vivarium\VivariumEmptyWorld.png" />
 	  <EmbeddedResource Include="Chapter26\Vivarium\VivariumIcon.png" />
 	  <EmbeddedResource Include="Chapter26\Vivarium\VivariumWorld.png" />
+	  <EmbeddedResource Include="Chapter27\Trollers\HelpDead.png" />
+	  <EmbeddedResource Include="Chapter27\Trollers\HelpIcon.png" />
+	  <EmbeddedResource Include="Chapter27\Trollers\HelpWorld.png" />
+	  <EmbeddedResource Include="Chapter27\Trollers\RebornRedPurplePassive.png" />
+	  <EmbeddedResource Include="Chapter27\Trollers\ReckonerDead.png" />
+	  <EmbeddedResource Include="Chapter27\Trollers\ReckonerIcon.png" />
+	  <EmbeddedResource Include="Chapter27\Trollers\ReckonerWorld.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter01\Desperate.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Decay.png" />
 	  <EmbeddedResource Include="CustomPassives\Chapter02\Fishing.png" />
@@ -2416,7 +2430,6 @@
 	<ItemGroup>
 	  <Folder Include="Chapter24\Hydra\" />
 	  <Folder Include="Chapter27\NeverMind\" />
-	  <Folder Include="Chapter27\Trollers\" />
 	  <Folder Include="Chapter27\SevenSins\" />
 	  <Folder Include="Crossovers\Dude...IDK\" />
 	  <Folder Include="CustomEffects\Chapter06\" />

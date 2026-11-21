@@ -315,6 +315,11 @@ namespace SaltsEnemies_Reseasoned
             PCall(Melder.Add);
             PCall(Vivarium.Add);
 
+            //CH27 Enemies
+            //sevensins
+            //nevermind
+            PCall(Trollers.Add);
+
             //BOSSES
             //shore
             PCall(Smilers.Add);
