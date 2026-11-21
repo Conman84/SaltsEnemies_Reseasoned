@@ -148,7 +148,22 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<FixCasterTimelineIntentsEffect>(), 1, Slots.Self),
                 ];
 
-            troller.AddPassives(new BasePassiveAbilitySO[] { reborn, Passives.Skittish2, Passives.Absorb });
+            //vivacious
+            PerformEffectPassiveAbility viv = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            viv.name = "Vivacious_2_PA";
+            viv._passiveName = "Vivacious (2)";
+            viv.m_PassiveID = "Vivacious_PA";
+            viv.passiveIcon = ResourceLoader.LoadSprite("VivaciousPassive.png");
+            viv._characterDescription = "At the end of each round, move Left or Right twice.";
+            viv._enemyDescription = viv._characterDescription;
+            viv.conditions = [];
+            viv._triggerOn = [TriggerCalls.OnRoundFinished];
+            viv.effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self),
+                ];
+
+            troller.AddPassives(new BasePassiveAbilitySO[] { reborn, viv, Passives.Absorb });
 
             Ability emuls = new Ability("Emulation", "Troller_Emulation_A");
             emuls.Description = "Deals a Painful amount of damage and inflicts 2 Magnetism on the Left and Right party members.";
