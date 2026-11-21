@@ -391,6 +391,9 @@ namespace SaltsEnemies_Reseasoned
                 new NumericalCommandArgument("value1", null, null, true)
             }, delegate
             {
+                Debug.Log("CURRENT SAVE FILE SLOTID: " + SaveDataManager_2024.CURRENTSLOTID);
+                Debug.Log("CURRENT SAVE FILE SLOT NUM: " + SaveDataManager_2024.SaveSlot.ToString());
+
                 if (CombatManager._instance == null)
                 {
                     Debug.LogWarning("You blew it.");
