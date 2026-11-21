@@ -49,7 +49,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<FixCasterTimelineIntentsEffect>(), 1, Slots.Self),
                 ];
 
-            troller.AddPassives(new BasePassiveAbilitySO[] { reborn, Passives.Skittish2 });
+            troller.AddPassives(new BasePassiveAbilitySO[] { reborn, Passives.Skittish2, Passives.Absorb });
 
             Ability emuls = new Ability("Emulsion", "Troller_Emulsion_A");
             emuls.Description = "Deals a Painful amount of damage and inflicts 2 Magnetism on the Left and Right enemies.";
@@ -133,7 +133,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<FixCasterTimelineIntentsEffect>(), 1, Slots.Self),
                 ];
 
-            troller.AddPassives(new BasePassiveAbilitySO[] { reborn, Passives.Skittish2 });
+            troller.AddPassives(new BasePassiveAbilitySO[] { reborn, Passives.Skittish2, Passives.Absorb });
 
             Ability emuls = new Ability("Emulation", "Troller_Emulation_A");
             emuls.Description = "Deals a Painful amount of damage and inflicts 2 Magnetism on the Left and Right party members.";
