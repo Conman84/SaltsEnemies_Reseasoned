@@ -2415,6 +2415,7 @@
 
 	<ItemGroup>
 	  <Folder Include="Chapter24\Hydra\" />
+	  <Folder Include="Chapter27\NeverMind\" />
 	  <Folder Include="Crossovers\Dude...IDK\" />
 	  <Folder Include="CustomEffects\Chapter06\" />
 	  <Folder Include="CustomEffects\Chapter12\" />
