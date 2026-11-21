@@ -450,6 +450,14 @@ namespace SaltsEnemies_Reseasoned
                 public static string Med => "RR_Zone02_Allusion_Medium_EnemyBundle";
             }
 
+            //freaks
+            public static class Idiotware
+            {
+                public static string Easy => "FF_Idiotware_EasyBundle";
+
+                public static string Med => "FF_Idiotware_MediumBundle";
+            }
+
             //IT.
             public static class Leviat
             {
