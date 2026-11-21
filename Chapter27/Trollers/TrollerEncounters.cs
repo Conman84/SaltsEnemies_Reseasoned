@@ -54,5 +54,10 @@ namespace SaltsEnemies_Reseasoned
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Troller.Reckoner.Med, 10, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
         }
+
+        public static void Post()
+        {
+
+        }
     }
 }
