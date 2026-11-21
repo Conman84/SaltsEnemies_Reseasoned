@@ -512,7 +512,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(Defacer.Add);
 
             //moving the passives glossary here.
-
+            
             //CH1
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Freakout.png"), "Freak Out", "Upon receiving any damage, apply 0-1 Power to all allies.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Anesthetics.png"), "Numb", "Apply a certain amount of Anesthetics to this enemy at the start of each turn.");

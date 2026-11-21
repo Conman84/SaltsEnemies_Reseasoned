@@ -12,6 +12,7 @@ namespace SaltEnemies_Reseasoned
     {
         public static string StatusID => "Drowning_ID";
         public static string Intent => "Status_Drowning";
+        public static string Rem_Intent => "Rem_Status_Drowning";
         public static DrowningSE_SO Object;
         public static void Add()
         {

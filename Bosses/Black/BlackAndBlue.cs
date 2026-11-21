@@ -34,15 +34,19 @@ namespace SaltsEnemies_Reseasoned
             sunk.connectionEffects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<PermenantApplyWaterEffect>(), 1, MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false)))];
             sunk.disconnectionEffects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveRestrictorWaterEffect>(), 1, MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false)), ScriptableObject.CreateInstance<EnemiesAliveEffectCondition>())];
             
-            template.AddPassives(new BasePassiveAbilitySO[] { sunk, Passives.Skittish, Passives.Constricting });
+            template.AddPassives(new BasePassiveAbilitySO[] { sunk, Passives.Skittish, Passives.Slippery, Passives.Constricting });
+
+            RemoveStatusEffectEffect rem_drown = ScriptableObject.CreateInstance<RemoveStatusEffectEffect>();
+            rem_drown._status = Drowning.Object;
 
             Ability bb = new Ability("Hoist", "BlackAndBlue_A");
-            bb.Description = "Deal a Painful amount of damage to the Opposing party member.\nRemove all Status Effects from them.";
+            bb.Description = "Deal an Agonizing amount of damage to the Opposing party member.\nRemove all Drowning from the Left, Right, and Opposing party members.";
             bb.Rarity = Rarity.Common;
             bb.Effects = new EffectInfo[2];
-            bb.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Front);
-            bb.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveAllStatusEffectsEffect>(), 1, Slots.Front);
-            bb.AddIntentsToTarget(Slots.Front, ["Damage_3_6", "Misc"]);
+            bb.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front);
+            bb.Effects[1] = Effects.GenerateEffect(rem_drown, 1, Slots.FrontLeftRight);
+            bb.AddIntentsToTarget(Slots.Front, ["Damage_7_10"]);
+            bb.AddIntentsToTarget(Slots.FrontLeftRight, ["Rem_Status_Drowning"]);
             bb.Visuals = CustomVisuals.GetVisuals("Salt/Anchoring");
             bb.AnimationTarget = Slots.Front;
 

@@ -81,7 +81,7 @@ namespace SaltsEnemies_Reseasoned
         public bool ShouldBeIgnored(CombatAbility ability, IUnit unit)
         {
             string name = ability.ability.name;
-            return (unit.GetStatusAmount("Drowning_ID") <= 4 && name == submerge) || (unit.GetStatusAmount("Drowning_ID") >= 6 && name == hoist);
+            return (unit.GetStatusAmount("Drowning_ID", true) <= 2 && name == submerge) || (unit.GetStatusAmount("Drowning_ID", true) >= 5 && name == hoist);
         }
     }
     public class EnemiesAliveEffectCondition : EffectConditionSO
