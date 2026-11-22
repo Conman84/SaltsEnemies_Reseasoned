@@ -53,6 +53,7 @@ namespace SaltEnemies_Reseasoned
             hard.AddRandomEncounter("Tripod_EN", "AFlower_EN", "FlaMinGoa_EN", "Skyloft_EN");
             hard.AddRandomEncounter("Tripod_EN", Enemies.Camera, "FlaMinGoa_EN", "LostSheep_EN");
             hard.AddRandomEncounter("Tripod_EN", Enemies.Camera, "AFlower_EN", "LostSheep_EN");
+            hard.SimpleAddEncounter(2, "Tripod_EN", 1, "Wringle_EN");
 
             hard.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Shore.H.Tripod.Hard, 10, ZoneType_GameIDs.FarShore_Hard, BundleDifficulty.Hard);
