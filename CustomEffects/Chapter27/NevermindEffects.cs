@@ -246,4 +246,28 @@ namespace SaltsEnemies_Reseasoned
             return [];
         }
     }
+    public class ScaleMaxHealthTargetEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+
+            float multi = (float)(100 + entryVariable) / 100f;
+
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit)
+                {
+                    int orig = target.Unit.MaximumHealth;
+
+                    target.Unit.MaximizeHealth((int)Math.Ceiling(target.Unit.MaximumHealth * multi));
+
+                    int final = target.Unit.MaximumHealth;
+
+                    exitAmount += final - orig;
+                }
+            }
+            return exitAmount > 0;
+        }
+    }
 }

@@ -102,7 +102,22 @@ namespace SaltsEnemies_Reseasoned
             revenge._triggerOn = new TriggerCalls[] { TriggerCalls.OnDirectDamaged };
             revenge.conditions = Passives.Slippery.conditions;
 
-            nevermind.AddPassives(new BasePassiveAbilitySO[] { emptiness, Passives.Enfeebled, revenge, Passives.Slippery });
+            //vivacious
+            PerformEffectPassiveAbility viv = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            viv.name = "Vivacious_1_PA";
+            viv._passiveName = "Vivacious (1)";
+            viv.m_PassiveID = "Vivacious_PA";
+            viv.passiveIcon = ResourceLoader.LoadSprite("VivaciousPassive.png");
+            viv._characterDescription = "At the end of each round, move Left or Right.";
+            viv._enemyDescription = viv._characterDescription;
+            viv.conditions = [];
+            viv._triggerOn = [TriggerCalls.OnRoundFinished];
+            viv.effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self),
+                ];
+
+            nevermind.AddPassives(new BasePassiveAbilitySO[] { emptiness, revenge, viv });
 
             DamageByAmountsEffect low = ScriptableObject.CreateInstance<DamageByAmountsEffect>();
             low.Amounts = [1, 2, 3, 4, 5, 6, 7, 9, 10, 11];
@@ -110,12 +125,12 @@ namespace SaltsEnemies_Reseasoned
             high.Amounts = [10, 12, 13, 14, 15, 16, 17, 18, 20];
 
             Ability unthoughts = new Ability("Unthoughts", "NM_Unthoughts_A");
-            unthoughts.Description = "Halve this enemy's current and maximum health.\nDouble the maximum healths of the Left, Right, and Opposing party members and apply Favor to one of them.\nDeal 1, 2, 3, 4, 5, 6, 7, 9, 10, or 11 damage to the Opposing party member.";
+            unthoughts.Description = "Halve this enemy's current and maximum health.\nIncrease the maximum healths of the Left, Right, and Opposing party members by 35% and apply Favor to one of them.\nDeal 1, 2, 3, 4, 5, 6, 7, 9, 10, or 11 damage to the Opposing party member.";
             unthoughts.Rarity = Rarity.Common;
             unthoughts.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<HalveCurrentAndMaxHealthEffect>(), 1, Slots.Self),
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Boil_A", false, Slots.FrontLeftRight)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DoubleMaxHealthTargetEffect>(), 1, Slots.FrontLeftRight),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ScaleMaxHealthTargetEffect>(), 35, Slots.FrontLeftRight),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFavorSingleEffect>(), 1, Slots.FrontLeftRight),
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Wrath_1_A", true, Slots.Front)),
                 Effects.GenerateEffect(low, 1, Slots.Front),
