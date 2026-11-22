@@ -120,7 +120,30 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self),
                 ];
 
-            nevermind.AddPassives(new BasePassiveAbilitySO[] { emptiness, revenge, viv });
+
+            //parental
+            ParentalPassiveAbility baseParent = LoadedAssetsHandler.GetEnemy("Flarb_EN").passiveAbilities[1] as ParentalPassiveAbility;
+            ParentalPassiveAbility unfeeling = ScriptableObject.Instantiate<ParentalPassiveAbility>(baseParent);
+            unfeeling._passiveName = "Parental";
+            unfeeling._enemyDescription = "If an infantile enemy receives direct damage, this enemy will perform \"Unfeeling\" in retribution.";
+            Ability parental = new Ability("NM_Unfeeling_A");
+            parental.Name = "Unfeeling";
+            parental.Description = "Halve this enemy's current and maximum health.\nRandomize this enemy's health color and generate 3 Pigment of it.";
+            parental.Rarity = Rarity.Impossible;
+            parental.Effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<HalveCurrentAndMaxHealthEffect>(), 1, Slots.Self),
+                Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Whisper", false, Slots.Self)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeTargetHealthColorEffect>(), 1, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateTargetHealthManaEffect>(), 3, Slots.Self),
+                ];
+            parental.AddIntentsToTarget(Slots.Self, ["Other_MaxHealth_Alt", "Mana_Modify", "Mana_Generate"]);
+            parental.AnimationTarget = Slots.Self;
+            parental.Visuals = null;
+
+            AbilitySO ability = parental.GenerateEnemyAbility(true).ability;
+            unfeeling._parentalAbility.ability = ability;
+
+            nevermind.AddPassives(new BasePassiveAbilitySO[] { emptiness, revenge, viv, unfeeling });
 
             DamageByAmountsEffect low = ScriptableObject.CreateInstance<DamageByAmountsEffect>();
             low.Amounts = [1, 2, 3, 4, 4, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 9, 11];

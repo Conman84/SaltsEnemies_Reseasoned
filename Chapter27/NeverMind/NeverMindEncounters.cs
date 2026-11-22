@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,6 +11,7 @@ namespace SaltsEnemies_Reseasoned
         public static void Add()
         {
             Add_Med();
+            Add_Hard();
         }
         public static void Add_Med()
         {
@@ -17,8 +19,10 @@ namespace SaltsEnemies_Reseasoned
             med.MusicEvent = "event:/Hawthorne/NeverMindSong";
             med.RoarEvent = "event:/Hawthorne/Surround/CNSRoar";
 
+            med.SimpleAddEncounter(2, "NeverMind_EN");
+
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.NeverMind.Med, 10, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.NeverMind.Med, 9, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
         }
         public static void Add_Hard()
         {
@@ -26,8 +30,11 @@ namespace SaltsEnemies_Reseasoned
             med.MusicEvent = "event:/Hawthorne/NeverMindSong";
             med.RoarEvent = "event:/Hawthorne/Surround/CNSRoar";
 
+            med.SimpleAddEncounter(3, "NeverMind_EN");
+            med.SimpleAddEncounter(2, "NeverMind_EN", 1, Spoggle.Grey);
+
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.NeverMind.Hard, 8, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.NeverMind.Hard, 10, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
         }
     }
 }
