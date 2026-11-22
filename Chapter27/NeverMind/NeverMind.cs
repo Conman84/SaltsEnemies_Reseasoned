@@ -114,7 +114,6 @@ namespace SaltsEnemies_Reseasoned
             viv._triggerOn = [TriggerCalls.OnRoundFinished];
             viv.effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self),
                 ];
 
             nevermind.AddPassives(new BasePassiveAbilitySO[] { emptiness, revenge, viv });
