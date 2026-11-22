@@ -147,15 +147,15 @@ namespace SaltsEnemies_Reseasoned
             mostest.Lowest = false;
             mostest.getAllies = false;
             TargettingUnitsMaxHealth other = ScriptableObject.CreateInstance<TargettingUnitsMaxHealth>();
-            mostest.GetAllUnits = true;
-            mostest.Lowest = false;
-            mostest.getAllies = true;
-            mostest.OnlyReturnEnemySide = true;
+            other.GetAllUnits = true;
+            other.Lowest = false;
+            other.getAllies = true;
+            other.OnlyReturnEnemySide = true;
             TargettingUnitsMaxHealth other2 = ScriptableObject.CreateInstance<TargettingUnitsMaxHealth>();
-            mostest.GetAllUnits = true;
-            mostest.Lowest = false;
-            mostest.getAllies = false;
-            mostest.OnlyReturnCharaSide = true;
+            other2.GetAllUnits = true;
+            other2.Lowest = false;
+            other2.getAllies = false;
+            other2.OnlyReturnCharaSide = true;
 
             Ability unpersons = new Ability("Unpersons", "NM_Unpersons_A");
             unpersons.Description = "Halve this enemy's current and maximum health.\nDeal 10, 12, 13, 14, 15, 16, 17, 18, or 20 damage to the enemy or party member with the most maximum health.\nInstantly kill all enemies and party members with over a thousand maximum health.";
