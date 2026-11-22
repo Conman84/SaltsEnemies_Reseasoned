@@ -262,7 +262,7 @@ namespace SaltsEnemies_Reseasoned
             decay.m_PassiveID = "Decay_PA";
             decay.passiveIcon = ResourceLoader.LoadSprite("Decay.png");
             decay._characterDescription = "shouldnt be on a character. idk what it'd do. fuck you up, maybe?";
-            decay._enemyDescription = "Upon dying, this enemy decays into 3-5 Derogatories.";
+            decay._enemyDescription = "Upon dying, this enemy decays into several to a handful of Derogatories.";
             decay.doesPassiveTriggerInformationPanel = true;
             SpawnEnemyAnywhereEffect spawnDerogatory = ScriptableObject.CreateInstance<SpawnEnemyAnywhereEffect>();
             spawnDerogatory.enemy = LoadedAssetsHandler.GetEnemy("Derogatory_EN");
