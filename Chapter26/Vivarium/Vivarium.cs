@@ -92,7 +92,7 @@ namespace SaltsEnemies_Reseasoned
             torii.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDivineProtectionIfNoneEffect>(), 3, Slots.Front),
                 Effects.GenerateEffect(exhaust, 1, Slots.Front, BasicEffects.DidThat(true)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front, BasicEffects.DidThat(false)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front, BasicEffects.DidThat(false, 2)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyOilSlickedEffect>(), 6, Slots.Self)
                 ];
             torii.AddIntentsToTarget(Slots.Front, ["Status_DivineProtection", "Misc", "Damage_7_10"]);
