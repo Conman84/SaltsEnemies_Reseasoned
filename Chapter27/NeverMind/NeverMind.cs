@@ -149,7 +149,7 @@ namespace SaltsEnemies_Reseasoned
             high.Amounts = [1, 3, 4, 4, 5, 5, 5, 8, 8, 8, 8, 9, 9, 9, 13, 16];
 
             Ability unthoughts = new Ability("Unthoughts", "NM_Unthoughts_A");
-            unthoughts.Description = "Halve this enemy's current and maximum health.\nIncrease the maximum healths of the Left, Right, and Opposing party members by 35% and apply Favor to one of them.\nDeal 1, 2, 3, 4, 5, 6, 7, 9, or 11 damage to the Opposing party member.";
+            unthoughts.Description = "Halve this enemy's current and maximum health.\nIncrease the maximum healths of the Left, Right, and Opposing party members by 35% and Favorite one of them.\nDeal 1, 2, 3, 4, 5, 6, 7, 9, or 11 damage to the Opposing party member.";
             unthoughts.Rarity = Rarity.Common;
             unthoughts.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<HalveCurrentAndMaxHealthEffect>(), 1, Slots.Self),

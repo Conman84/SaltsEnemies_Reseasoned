@@ -31,7 +31,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability pray = new Ability("Pray", "FakeAngel_Pray_A")
             {
-                Description = "Apply Favor on the Opposing Party Member and generate 3 pigment of their health color.",
+                Description = "Favorite the Opposing Party Member and generate 3 pigment of their health color.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
