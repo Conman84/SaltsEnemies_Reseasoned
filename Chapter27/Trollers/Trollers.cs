@@ -111,6 +111,7 @@ namespace SaltsEnemies_Reseasoned
             });
             troller.SilentAddEnemy(true, true);
             troller.enemy.AddToEcstasyPool();
+            troller.enemy.AddToSynodPool();
             troller.enemy.AddToToysPool();
         }
         public static void Add_Reckoner()
@@ -210,6 +211,7 @@ namespace SaltsEnemies_Reseasoned
             });
             troller.SilentAddEnemy(true, true);
             troller.enemy.AddToEcstasyPool();
+            troller.enemy.AddToSynodPool();
             troller.enemy.AddToToysPool();
         }
     }
