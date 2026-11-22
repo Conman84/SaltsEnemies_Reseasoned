@@ -269,4 +269,22 @@ namespace SaltEnemies_Reseasoned
             return base.PerformEffect(stats, caster, ret.ToArray(), areTargetSlots, entryVariable, out exitAmount);
         }
     }
+    public class MultiDamageEffect : DamageEffect
+    {
+        public DamageEffect first_effect;
+        public BaseCombatTargettingSO first_targets;
+        public int first_entry;
+
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            first_effect.PerformEffect(stats, caster, first_targets.GetTargets(stats.combatSlots, caster.SlotID, caster.IsUnitCharacter), first_targets.AreTargetSlots, first_entry, out int ex1);
+            exitAmount += ex1;
+
+            base.PerformEffect(stats, caster, targets, areTargetSlots, entryVariable, out int exi);
+            exitAmount += exi;
+
+            return exitAmount > 0;
+        }
+    }
 }

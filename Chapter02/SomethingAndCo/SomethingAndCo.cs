@@ -305,14 +305,20 @@ namespace SaltsEnemies_Reseasoned
             WasteTimeEffect boreTalk = ScriptableObject.CreateInstance<WasteTimeEffect>();
             boreTalk._text = new string[3] { "...", "...", "..." };
 
+            MultiDamageEffect bore_dam = ScriptableObject.CreateInstance<MultiDamageEffect>();
+            bore_dam.first_effect = ScriptableObject.CreateInstance<DamageEffect>();
+            bore_dam.first_targets = Slots.Front;
+            bore_dam.first_entry = 6;
+
             Ability bore = new Ability("Bore", "Salt_Bore_A");
-            bore.Description = "Deal a Painful amount of damage to the Opposing Party Member. \nIf no damage is dealt, Invoke all Derogatories in combat.";
+            bore.Description = "Deal a Painful amount of damage to the Opposing party members and Almost No damage to all other party members, then heal all party members 1 health.\nIf damage is dealt, Invoke all Derogatories in combat.";
             bore.Rarity = Rarity.GetCustomRarity("rarity10");
             bore.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(boreTalk, 3, Targeting.Slot_Front),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Targeting.Slot_Front),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveWitheringFromDerogatoriesEffect>(), 1, Targeting.Slot_SelfSlot, didntThat),
+                Effects.GenerateEffect(bore_dam, 1, Slots.SlotTarget([-4, -3, -2, -1, 1, 2, 3, 4], false)),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 1, Targeting.Unit_AllOpponents),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveWitheringFromDerogatoriesEffect>(), 1, Targeting.Slot_SelfSlot, BasicEffects.DidThat(true, 2)),
             };
             bore.Visuals = null;
             bore.AnimationTarget = Targeting.Slot_Front;
@@ -320,6 +326,8 @@ namespace SaltsEnemies_Reseasoned
             {
                 "Damage_3_6"
             });
+            bore.AddIntentsToTarget(Slots.SlotTarget([-4, -3, -2, -1, 1, 2, 3, 4], false), ["Damage_1_2"]);
+            bore.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Heal_1_4"]);
             bore.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[]
             {
                 "Misc"
@@ -328,7 +336,7 @@ namespace SaltsEnemies_Reseasoned
             //Affectionate
             Ability affectionate = new Ability("Affectionate", "Salt_Affectionate_A");
             affectionate.Description = "Attempt to spawn a Derogatory.";
-            affectionate.Rarity = Rarity.GetCustomRarity("rarity5");
+            affectionate.Rarity = Rarity.CreateAndAddCustomRarityToPool("something25", 25);
             affectionate.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(spawnDerogatory, 1, Targeting.Slot_SelfSlot),
