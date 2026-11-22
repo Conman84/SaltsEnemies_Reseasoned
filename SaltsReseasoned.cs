@@ -319,6 +319,7 @@ namespace SaltsEnemies_Reseasoned
             //sevensins
             //nevermind
             PCall(Trollers.Add);
+            PCall(NeverMind.Add);
 
             //BOSSES
             //shore

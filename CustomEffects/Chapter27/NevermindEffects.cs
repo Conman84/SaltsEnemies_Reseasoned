@@ -97,6 +97,8 @@ namespace SaltsEnemies_Reseasoned
     public class TargettingUnitsMaxHealth : TargettingByHealthUnits
     {
         public bool GetAllUnits;
+        public bool OnlyReturnEnemySide;
+        public bool OnlyReturnCharaSide;
         public override TargetSlotInfo[] GetTargets(SlotsCombat slots, int casterSlotID, bool isCasterCharacter)
         {
             List<TargetSlotInfo> targets = new List<TargetSlotInfo>();
@@ -151,6 +153,8 @@ namespace SaltsEnemies_Reseasoned
             }
             foreach (CombatSlot slot in opinion)
             {
+                if (OnlyReturnCharaSide && !slot.IsCharacter) continue;
+                if (OnlyReturnEnemySide && slot.IsCharacter) continue;
                 targets.Add(slot.TargetSlotInformation);
             }
             return targets.ToArray();

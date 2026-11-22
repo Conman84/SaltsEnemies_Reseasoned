@@ -146,9 +146,16 @@ namespace SaltsEnemies_Reseasoned
             mostest.GetAllUnits = true;
             mostest.Lowest = false;
             mostest.getAllies = false;
-            EmptyTargetting other = ScriptableObject.CreateInstance<EmptyTargetting>();
-            other.getAllies = true;
-            other.getSlots = false;
+            TargettingUnitsMaxHealth other = ScriptableObject.CreateInstance<TargettingUnitsMaxHealth>();
+            mostest.GetAllUnits = true;
+            mostest.Lowest = false;
+            mostest.getAllies = true;
+            mostest.OnlyReturnEnemySide = true;
+            TargettingUnitsMaxHealth other2 = ScriptableObject.CreateInstance<TargettingUnitsMaxHealth>();
+            mostest.GetAllUnits = true;
+            mostest.Lowest = false;
+            mostest.getAllies = false;
+            mostest.OnlyReturnCharaSide = true;
 
             Ability unpersons = new Ability("Unpersons", "NM_Unpersons_A");
             unpersons.Description = "Halve this enemy's current and maximum health.\nDeal 10, 12, 13, 14, 15, 16, 17, 18, or 20 damage to the enemy or party member with the most maximum health.\nInstantly kill all enemies and party members with over a thousand maximum health.";
@@ -162,7 +169,7 @@ namespace SaltsEnemies_Reseasoned
             unpersons.AddIntentsToTarget(Slots.Self, ["Other_MaxHealth_Alt"]);
             unpersons.AddIntentsToTarget(Targeting.Unit_AllAllies, ["Misc_Hidden"]);
             unpersons.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
-            unpersons.AddIntentsToTarget(mostest, [
+            unpersons.AddIntentsToTarget(other2, [
                 FallColor.Intent,
                 "Damage_7_10",
                 "Damage_11_15",
@@ -182,11 +189,13 @@ namespace SaltsEnemies_Reseasoned
             //ADD ENEMY
             nevermind.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                test.GenerateEnemyAbility(true),
+                unthoughts.GenerateEnemyAbility(true),
+                unbothered.GenerateEnemyAbility(true),
+                unpersons.GenerateEnemyAbility(true),
             });
             nevermind.AddEnemy(true);
-            nevermind.enemy.AddToSynodPool(true);
-            nevermind.enemy.AddToEcstasyPool(true);
+            nevermind.enemy.AddToSynodPool();
+            nevermind.enemy.AddToEcstasyPool();
         }
     }
 }
