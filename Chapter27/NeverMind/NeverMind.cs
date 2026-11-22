@@ -128,15 +128,13 @@ namespace SaltsEnemies_Reseasoned
             unfeeling._enemyDescription = "If an infantile enemy receives direct damage, this enemy will perform \"Unfeeling\" in retribution.";
             Ability parental = new Ability("NM_Unfeeling_A");
             parental.Name = "Unfeeling";
-            parental.Description = "Halve this enemy's current and maximum health.\nRandomize this enemy's health color and generate 3 Pigment of it.";
+            parental.Description = "Randomize this enemy's health color.";
             parental.Rarity = Rarity.Impossible;
             parental.Effects = [
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<HalveCurrentAndMaxHealthEffect>(), 1, Slots.Self),
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Whisper", false, Slots.Self)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<RandomizeTargetHealthColorEffect>(), 1, Slots.Self),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateTargetHealthManaEffect>(), 3, Slots.Self),
                 ];
-            parental.AddIntentsToTarget(Slots.Self, ["Other_MaxHealth_Alt", "Mana_Modify", "Mana_Generate"]);
+            parental.AddIntentsToTarget(Slots.Self, ["Mana_Modify"]);
             parental.AnimationTarget = Slots.Self;
             parental.Visuals = null;
 
