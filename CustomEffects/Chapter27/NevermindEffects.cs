@@ -61,6 +61,8 @@ namespace SaltsEnemies_Reseasoned
             {
                 if (value.directDamage && value.damagedUnit != null && value.possibleSourceUnit != null)
                 {
+                    if (value.damagedUnit == value.possibleSourceUnit) return false;
+
                     if (passive != null)
                     {
                         CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(effector.ID, effector.IsUnitCharacter, passive._passiveName, passive.passiveIcon));
