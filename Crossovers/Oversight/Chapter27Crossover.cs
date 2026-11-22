@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SaltEnemies_Reseasoned;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -53,6 +54,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("NeverMind_EN", Enemies.Polyp, "NextOfKin_EN", "NextOfKin_EN");
             med.AddRandomGroup("NeverMind_EN", Jumble.Mythos, Jumble.Mythos);
             med.AddRandomGroup("NeverMind_EN", Spoggle.Mythos, Spoggle.Mythos);
+            med.AddRandomGroup("NeverMind_EN", "Beakart_EN", "Indicator_EN");
 
             hard = new AddTo(Garden.H.NeverMind.Hard);
             hard.AddRandomGroup("NeverMind_EN", "SomeoneSister_EN", "SomeoneSister_EN");
@@ -69,6 +71,10 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("NeverMind_EN", Enemies.Polyp, Enemies.Polyp);
             hard.AddRandomGroup("NeverMind_EN", Enemies.Polyp, "PawnA_EN", "PawnA_EN");
             hard.SimpleAddGroup(2, "NeverMind_EN", 1, Enemies.Polyp);
+            hard.SimpleAddGroup(1, "NeverMind_EN", 3, "Bonsai_EN");
+            hard.SimpleAddGroup(2, "NeverMind_EN", 2, "Bonsai_EN");
+            hard.SimpleAddGroup(2, "NeverMind_EN", 1, "Bonsai_EN");
+            hard.SimpleAddGroup(2, "NeverMind_EN", 1, "Beakart_EN");
 
 
             hard = new AddTo(Garden.H.Portrait.Hard);
@@ -87,6 +93,29 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddGroup(3, Enemies.Reckoner, 1, "Allusion_EN");
             med.SimpleAddGroup(3, Enemies.Reckoner, 1, Jumble.Mythos);
             med.SimpleAddGroup(3, Enemies.Reckoner, 1, Spoggle.Mythos);
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, Jumble.Mythos, 1, "Surrogate_EN");
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, Spoggle.Mythos, 1, "Surrogate_EN");
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, "Attrition_EN", 1, "Git_EN");
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, "Attrition_EN", 1, Jumble.Mythos);
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, "Attrition_EN", 1, Spoggle.Mythos);
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, "Attrition_EN", 1, "EggKeeper_EN");
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, "Attrition_EN", 1, "Drippings_EN");
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, "Bonsai_EN", 1, "Git_EN");
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, "Bonsai_EN", 1, "GlassFigurine_EN");
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, "Bonsai_EN", 1, "Indicator_EN");
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, "Bonsai_EN", 1, "PawnA_EN");
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, "Bonsai_EN", 1, Enemies.Prior);
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, "Allusion_EN", 1, "Damocles_EN");
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, "Allusion_EN", 1, "MiniReaper_EN");
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, "Allusion_EN", 1, "BlackStar_EN");
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, "Allusion_EN", 1, "Drippings_EN");
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, "Allusion_EN", 1, "Surrogate_EN");
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, Enemies.Prior, 1, Spoggle.Mythos);
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, Enemies.Prioress, 1, Jumble.Mythos);
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, Enemies.Prior, 1, "Vivarium_EN");
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, Enemies.Prioress, 1, "LittleAngel_EN");
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, Enemies.Prior, 1, "Git_EN");
+            med.SimpleAddGroup(2, Enemies.Reckoner, 1, Enemies.Prioress, 1, "Drippings_EN");
             med = new AddTo(Garden.H.Troller.Help.Med);
             med.SimpleAddGroup(3, Enemies.Help, 1, Enemies.Prior);
             med.SimpleAddGroup(3, Enemies.Help, 1, Enemies.Prioress);
@@ -99,6 +128,29 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddGroup(3, Enemies.Help, 1, "Allusion_EN");
             med.SimpleAddGroup(3, Enemies.Help, 1, Jumble.Mythos);
             med.SimpleAddGroup(3, Enemies.Help, 1, Spoggle.Mythos);
+            med.SimpleAddGroup(2, Enemies.Help, 1, Jumble.Mythos, 1, "Surrogate_EN");
+            med.SimpleAddGroup(2, Enemies.Help, 1, Spoggle.Mythos, 1, "Surrogate_EN");
+            med.SimpleAddGroup(2, Enemies.Help, 1, "Attrition_EN", 1, "Git_EN");
+            med.SimpleAddGroup(2, Enemies.Help, 1, "Attrition_EN", 1, Jumble.Mythos);
+            med.SimpleAddGroup(2, Enemies.Help, 1, "Attrition_EN", 1, Spoggle.Mythos);
+            med.SimpleAddGroup(2, Enemies.Help, 1, "Attrition_EN", 1, "EggKeeper_EN");
+            med.SimpleAddGroup(2, Enemies.Help, 1, "Attrition_EN", 1, "Drippings_EN");
+            med.SimpleAddGroup(2, Enemies.Help, 1, "Bonsai_EN", 1, "Git_EN");
+            med.SimpleAddGroup(2, Enemies.Help, 1, "Bonsai_EN", 1, "GlassFigurine_EN");
+            med.SimpleAddGroup(2, Enemies.Help, 1, "Bonsai_EN", 1, "Indicator_EN");
+            med.SimpleAddGroup(2, Enemies.Help, 1, "Bonsai_EN", 1, "PawnA_EN");
+            med.SimpleAddGroup(2, Enemies.Help, 1, "Bonsai_EN", 1, Enemies.Prior);
+            med.SimpleAddGroup(2, Enemies.Help, 1, "Allusion_EN", 1, "Damocles_EN");
+            med.SimpleAddGroup(2, Enemies.Help, 1, "Allusion_EN", 1, "MiniReaper_EN");
+            med.SimpleAddGroup(2, Enemies.Help, 1, "Allusion_EN", 1, "BlackStar_EN");
+            med.SimpleAddGroup(2, Enemies.Help, 1, "Allusion_EN", 1, "Drippings_EN");
+            med.SimpleAddGroup(2, Enemies.Help, 1, "Allusion_EN", 1, "Surrogate_EN");
+            med.SimpleAddGroup(2, Enemies.Help, 1, Enemies.Prior, 1, Spoggle.Mythos);
+            med.SimpleAddGroup(2, Enemies.Help, 1, Enemies.Prioress, 1, Jumble.Mythos);
+            med.SimpleAddGroup(2, Enemies.Help, 1, Enemies.Prior, 1, "Vivarium_EN");
+            med.SimpleAddGroup(2, Enemies.Help, 1, Enemies.Prioress, 1, "LittleAngel_EN");
+            med.SimpleAddGroup(2, Enemies.Help, 1, Enemies.Prior, 1, "Git_EN");
+            med.SimpleAddGroup(2, Enemies.Help, 1, Enemies.Prioress, 1, "Drippings_EN");
 
             med = new AddTo(Garden.H.Leviat.Med);
             med.AddRandomGroup(Enemies.Leviat, Enemies.Troller, Enemies.Troller);
@@ -110,6 +162,50 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Garden.H.Shambler.Med);
             med.AddRandomGroup(Enemies.Shambler, Enemies.Troller, Enemies.Troller);
+            med.AddRandomGroup(Enemies.Shambler, "NeverMind_EN", Enemies.Shivering);
+            med.AddRandomGroup(Enemies.Shambler, Enemies.Troller, Enemies.Polyp);
+
+            hard = new AddTo(Garden.H.Shambler.Hard);
+            hard.AddRandomGroup(Enemies.Shambler, Enemies.Troller, "Ascendant_EN");
+            hard.AddRandomGroup(Enemies.Shambler, "NeverMind_EN", Enemies.Troller);
+            hard.AddRandomGroup(Enemies.Shambler, "NeverMind_EN", "PawnA_EN", "PawnA_EN");
+
+            hard = new AddTo(Garden.H.Cthonian.Hard);
+            hard.SimpleAddGroup(1, Enemies.Cthonian, 2, Enemies.Troller);
+            hard.AddRandomGroup(Enemies.Cthonian, Enemies.Troller, Enemies.Troller, "Ascendant_EN");
+            hard.AddRandomGroup(Enemies.Cthonian, Enemies.Troller, Enemies.Troller, "Vivarium_EN");
+
+            med = new AddTo(Garden.H.Beakart.Med);
+            med.SimpleAddGroup(1, "Beakart_EN", 2, Enemies.Troller);
+
+            AddTo easy = new AddTo(Garden.H.Idiotware.Easy);
+            easy.AddRandomGroup("Idiotware_EN", Enemies.Troller);
+            easy.AddRandomGroup("Idiotware_EN", Enemies.Troller, "GlassFigurine_EN");
+            easy.AddRandomGroup("Idiotware_EN", Enemies.Troller, "BlackStar_EN");
+            med = new AddTo(Garden.H.Idiotware.Med);
+            med.SimpleAddGroup(1, "Idiotware_EN", 2, Enemies.Troller);
+            med.SimpleAddGroup(1, "Idiotware_EN", 2, Enemies.Troller, 1, "Vivarium_EN");
+
+            easy = new AddTo(Garden.H.Attrition.Easy);
+            easy.SimpleAddGroup(2, "Attrition_EN", 1, Enemies.Troller);
+            easy = new AddTo(Garden.H.Git.Easy)l;
+            easy.SimpleAddGroup(2, "Git_EN", 1, Enemies.Troller);
+            easy = new AddTo(Garden.H.Bonsai.Easy);
+            easy.SimpleAddGroup(2, "Bonsai_EN", 1, Enemies.Troller);
+
+            med = new AddTo(Garden.H.Attrition.Med);
+            med.SimpleAddGroup(3, "Attrition_EN", 1, Enemies.Troller);
+            med.SimpleAddGroup(2, "Attrition_EN", 2, Enemies.Troller);
+            med.SimpleAddGroup(2, "Attrition_EN", 1, Enemies.Troller, 1, "Surrogate_EN");
+            med = new AddTo(Garden.H.Git.Med);
+            med.SimpleAddGroup(3, "Git_EN", 1, Enemies.Troller);
+            med.SimpleAddGroup(2, "Git_EN", 2, Enemies.Troller);
+            med.SimpleAddGroup(2, "Git_EN", 1, Enemies.Troller, 1, "Romantic_EN");
+            med = new AddTo(Garden.H.Bonsai.Med);
+            med.SimpleAddGroup(3, "Bonsai_EN", 1, Enemies.Troller);
+            med.SimpleAddGroup(2, "Bonsai_EN", 2, Enemies.Troller);
+            med.SimpleAddGroup(2, "Bonsai_EN", 1, Enemies.Troller, 1, "Surrogate_EN");
+
         }
     }
 }

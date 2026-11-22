@@ -210,8 +210,6 @@ namespace SaltEnemies_Reseasoned
             //marmo & eggkeeper massive lump
             PCall(Crossovers_Marmo_EggKeeper_6_7_8.Add);
 
-            PCall(MiscCrossovers.Add);
-
             //Round
             PCall(RoundCrossovers.Shufflers_1_4);
             PCall(RoundCrossovers.Shufflers_5_10);
@@ -321,6 +319,10 @@ namespace SaltEnemies_Reseasoned
             //fishy
             PCall(Fishy_ShoreAndOrph_First.Add);
             PCall(Fishy_Garden_First.Add);
+
+            //mass everything dump
+            PCall(MiscCrossovers.Add);
+            PCall(Chapter27Crossover.Add);
 
             //IT.
             PCall(OrphCrossovers.Gizo);
