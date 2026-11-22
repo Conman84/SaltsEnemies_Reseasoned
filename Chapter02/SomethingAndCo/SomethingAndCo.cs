@@ -311,13 +311,13 @@ namespace SaltsEnemies_Reseasoned
             bore_dam.first_entry = 6;
 
             Ability bore = new Ability("Bore", "Salt_Bore_A");
-            bore.Description = "Deal a Painful amount of damage to the Opposing party members and Almost No damage to all other party members, then heal all party members 1 health.\nIf damage is dealt, Invoke all Derogatories in combat.";
+            bore.Description = "Deal a Painful amount of damage to the Opposing party members and Almost No damage to all other party members.\nIf damage is dealt, heal all party members 1 health and Invoke all Derogatories in combat.";
             bore.Rarity = Rarity.GetCustomRarity("rarity10");
             bore.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(boreTalk, 3, Targeting.Slot_Front),
                 Effects.GenerateEffect(bore_dam, 1, Slots.SlotTarget([-4, -3, -2, -1, 1, 2, 3, 4], false)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 1, Targeting.Unit_AllOpponents),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 1, Targeting.Unit_AllOpponents, BasicEffects.DidThat(true)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveWitheringFromDerogatoriesEffect>(), 1, Targeting.Slot_SelfSlot, BasicEffects.DidThat(true, 2)),
             };
             bore.Visuals = null;
