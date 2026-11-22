@@ -225,7 +225,7 @@ namespace SaltsEnemies_Reseasoned
                 unbothered.GenerateEnemyAbility(true),
                 unpersons.GenerateEnemyAbility(true),
             });
-            nevermind.AddEnemy(true);
+            nevermind.SilentAddEnemy(true);
             nevermind.enemy.AddToSynodPool();
             nevermind.enemy.AddToEcstasyPool();
         }
