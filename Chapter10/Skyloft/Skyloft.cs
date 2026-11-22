@@ -124,7 +124,7 @@ namespace SaltsEnemies_Reseasoned
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<FleeTargetEffect>(), 1, Slots.Self),
                 },
                 Visuals = Visuals.HeartBreaker,
-                AnimationTarget = Slots.Self,
+                AnimationTarget = Slots.Front,
             };
             gone.AddIntentsToTarget(Slots.Front, ["Damage_7_10"]);
             gone.AddIntentsToTarget(Slots.Self, IntentType_GameIDs.PA_Fleeting.ToString().SelfArray());
