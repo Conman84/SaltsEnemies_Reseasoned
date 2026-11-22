@@ -41,13 +41,15 @@ namespace SaltsEnemies_Reseasoned
             //addiction
             Ability addi = new Ability("Addiction", "Addiction_A");
             addi.Description = "Curse the Opposing party member.";
-            addi.Rarity = hallu.Rarity;
+            addi.Rarity = Rarity.Uncommon;
             addi.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyCursedEffect>(), 1, Slots.Front).SelfArray();
             addi.AddIntentsToTarget(Slots.Front, ["Status_Cursed"]);
             addi.Visuals = CustomVisuals.GetVisuals("Salt/Shush");
             addi.AnimationTarget = Slots.Front;
 
-            EnemyAbilityInfo[] abilities = [hallu.GenerateEnemyAbility(true), addi.GenerateEnemyAbility(true)];
+            EnemyAbilityInfo nibble = new EnemyAbilityInfo() { ability = LoadedAssetsHandler.GetEnemyAbility("Nibble_A"), rarity = Rarity.Uncommon };
+
+            EnemyAbilityInfo[] abilities = [hallu.GenerateEnemyAbility(true), addi.GenerateEnemyAbility(true), nibble];
 
             //generate default
             Generate("TortureMeNot_EN", "ForgetWorld.png", forget, abilities);
