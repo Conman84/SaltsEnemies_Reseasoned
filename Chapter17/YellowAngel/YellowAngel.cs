@@ -74,8 +74,8 @@ namespace SaltsEnemies_Reseasoned
                 Visuals = CustomVisuals.GetVisuals("Salt/Cannon"),
                 AnimationTarget = Targeting.GenerateSlotTarget(new int[] { -3, 3 }, false),
             };
-            sight.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
-            sight.AddIntentsToTarget(oneside, [IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Swap_Sides.ToString()]);
+            //sight.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
+            sight.AddIntentsToTarget(Targeting.GenerateSlotTarget(new int[] { -3, 3 }, false), ["Misc_Hidden", IntentType_GameIDs.Damage_7_10.ToString(), IntentType_GameIDs.Swap_Sides.ToString()]);
 
             Ability track = new Ability("TrackThePrints_A")
             {
@@ -109,7 +109,8 @@ namespace SaltsEnemies_Reseasoned
                 Visuals = CustomVisuals.GetVisuals("Salt/Gunshot"),
                 AnimationTarget = oneside,
             };
-            mark.AddIntentsToTarget(oneside, IntentType_GameIDs.Damage_7_10.ToString().SelfArray());
+            mark.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
+            mark.AddIntentsToTarget(oneside, ["Damage_7_10"]);
             mark.AddIntentsToTarget(Targeting.Unit_AllOpponents, IntentType_GameIDs.Status_Frail.ToString().SelfArray());
 
             //ADD ENEMY
