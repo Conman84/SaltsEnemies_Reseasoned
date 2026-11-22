@@ -187,7 +187,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup(Flower.Red, Flower.Blue, Troller, Troller);
             med.AddRandomGroup(Flower.Red, Flower.Yellow, Troller, Troller);
             med.AddRandomGroup(Flower.Red, Flower.Purple, Troller, Troller);
-            AddTo easy = new AddTo(Garden.H.Flower.Blue.Easy);
+            easy = new AddTo(Garden.H.Flower.Blue.Easy);
             easy.AddRandomGroup(Flower.Blue, Troller, Flower.Yellow);
             easy.AddRandomGroup(Flower.Blue, Troller, Flower.Purple);
             easy.AddRandomGroup(Flower.Blue, Troller, Enemies.Shivering);
@@ -336,6 +336,73 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("PersonalAngel_EN", Troller, "PawnA_EN", "PawnA_EN");
             med.AddRandomGroup("PersonalAngel_EN", Troller, "Children6_EN");
 
+            med = new AddTo(Garden.H.Starless.Med);
+            med.SimpleAddGroup(1, "Starless_EN", 3, Troller);
+            med.AddRandomGroup("Starless_EN", Troller, Troller);
+            med.AddRandomGroup("Starless_EN", Troller, Troller, "Vivarium_EN");
+            med.SimpleAddGroup(1, "Starless_EN", 2, Troller, 1, "GlassFigurine_EN");
+            med.AddRandomGroup("Starless_EN", Troller, "PawnA_EN", "PawnA_EN");
+            med.AddRandomGroup("Starless_EN", Troller, "EvilDog_EN");
+            med.AddRandomGroup("Starless_EN", Troller, "Insider_EN");
+
+            hard = new AddTo(Garden.H.Eyeless.Hard);
+            hard.AddRandomGroup("Eyeless_EN", Troller, Troller, Troller);
+            hard.SimpleAddGroup(1, "Eyeless_EN", 2, Troller);
+            hard.SimpleAddGroup(1, "Eyeless_EN", 2, Troller, 1, "BlackStar_EN");
+            hard.SimpleAddGroup(1, "Eyeless_EN", 2, Troller, 1, "Grandfather_EN");
+            hard.SimpleAddGroup(1, "Eyeless_EN", 2, Troller, 1, "PawnA_EN");
+            hard.AddRandomGroup("Eyeless_EN", Troller, "ChoirBoy_EN");
+            hard.AddRandomGroup("Eyeless_EN", Troller, Enemies.Foundling);
+
+            easy = new AddTo(Garden.H.Pawn.Easy);
+            easy.SimpleAddGroup(2, "PawnA_EN", 1, Troller);
+            med = new AddTo(Garden.H.Pawn.Med);
+            med.SimpleAddGroup(3, "PawnA_EN", 1, Troller);
+
+            med = new AddTo(Garden.H.Yang.Med);
+            med.SimpleAddGroup(1, "Yang_EN", 2, Troller, 1, "PawnA_EN");
+           // med.SimpleAddGroup(2, "Yang_EN", 2, Troller);
+            med.SimpleAddGroup(2, "Yang_EN", 1, Troller, 1, "BlackStar_EN");
+            med.SimpleAddGroup(2, "Yang_EN", 1, Troller, 1, "GlassFigurine_EN");
+            med.SimpleAddGroup(1, "Yang_EN", 2, Troller, 1, "Vivarium_EN");
+            med.SimpleAddGroup(1, "Yang_EN", 2, Troller, 1, Jumble.Gray);
+
+            hard = new AddTo(Garden.H.Yang.Hard);
+            hard.SimpleAddGroup(3, "Yang_EN", 1, Troller);
+            hard.SimpleAddGroup(2, "Yang_EN", 2, Troller);
+            hard.SimpleAddGroup(2, "Yang_EN", 1, Troller, 2, "PawnA_EN");
+
+            hard = new AddTo(Garden.H.Yin.Hard);
+            hard.AddRandomGroup("Yang_EN", "Yin_EN", Troller);
+            hard.AddRandomGroup("Yin_EN", "Yin_EN", Troller);
+            hard.AddRandomGroup("Yin_EN", Troller, Troller);
+
+            med = new AddTo(Garden.H.CorpseChan.Med);
+            med.AddRandomGroup("CorpseChan_EN", Troller, Troller);
+            med.AddRandomGroup("CorpseChan_EN", Troller, "LittleAngel_EN");
+            med.AddRandomGroup("CorpseChan_EN", Troller, "PawnA_EN", "PawnA_EN");
+            med.AddRandomGroup("CorpseChan_EN", Troller, Flower.Blue);
+            med.AddRandomGroup("CorpseChan_EN", Troller, Flower.Red);
+
+            med = new AddTo(Garden.H.Dark.Med);
+            med.SimpleAddGroup(1, "InTheDark_EN", 2, Troller);
+            med.AddRandomGroup("InTheDark_EN", Troller, "ChoirBoy_EN");
+
+            med = new AddTo(Garden.H.Lunoscope.Med);
+            med.AddRandomGroup("Lunoscope_EN", Troller, Troller);
+            med.AddRandomGroup("Lunoscope_EN", Troller, "PawnA_EN", "PawnA_EN");
+            med.AddRandomGroup("Lunoscope_EN", Troller, "EyePalm_EN", "EyePalm_EN");
+            med.AddRandomGroup("Lunoscope_EN", Troller, Troller, "Damocles_EN");
+
+            hard = new AddTo(Garden.H.Lunoscope.Hard);
+            hard.SimpleAddGroup(1, "Lunoscope_EN", 3, Troller);
+            hard.AddRandomGroup("Lunoscope_EN", Troller, Troller, Ecstasy.Gray);
+            hard.AddRandomGroup("Lunoscope_EN", Troller, Troller, "Vivarium_EN", "Vivarium_EN");
+            hard.AddRandomGroup("Lunoscope_EN", Troller, "OdeToHumanity_EN");
+            hard.AddRandomGroup("Lunoscope_EN", Troller, "Starless_EN");
+            hard.AddRandomGroup("Lunoscope_EN", Troller, Bots.Grey);
+
+            med = new AddTo(Garden.H.Panopticon.Med);
         }
     }
 }

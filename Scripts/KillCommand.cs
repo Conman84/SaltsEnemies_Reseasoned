@@ -69,33 +69,33 @@ namespace SaltsEnemies_Reseasoned
                         //make it get overworld party data
 
                     foreach (CharacterInGameData chara in LoadedDBsHandler.InfoHolder.Run.playerData._characterList)
+                    {
+                        if (chara.Character == null || chara.Character.Equals(null)) return;
+
+                        chara.CurrentHealth = chara.MaxHealth;
+
+                        if (!amount)
                         {
-                            if (chara.Character == null || chara.Character.Equals(null)) return;
+                            chara.WearableModifiers.AddExtraPassive(locked);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Slippery);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Skittish);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Inferno);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Dying);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Delicate);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Leaky3);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Confusion);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Enfeebled);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Immortal);
+                            chara.WearableModifiers.AddExtraPassive(Passives.Anointed2);
+                            chara.WearableModifiers.AddExtraPassive(Passives.FleetingGenerator(10));
+                            chara.WearableModifiers.AddExtraPassive(Passives.Absorb);
+                            chara.WearableModifiers.AddExtraPassive(Violent.Generate(3));
 
-                            chara.CurrentHealth = chara.MaxHealth;
+                            foreach (BasePassiveAbilitySO passive in EvilPassives) chara.WearableModifiers.AddExtraPassive(passive);
 
-                            if (!amount)
-                            {
-                                chara.WearableModifiers.AddExtraPassive(locked);
-                                chara.WearableModifiers.AddExtraPassive(Passives.Slippery);
-                                chara.WearableModifiers.AddExtraPassive(Passives.Skittish);
-                                chara.WearableModifiers.AddExtraPassive(Passives.Inferno);
-                                chara.WearableModifiers.AddExtraPassive(Passives.Dying);
-                                chara.WearableModifiers.AddExtraPassive(Passives.Delicate);
-                                chara.WearableModifiers.AddExtraPassive(Passives.Leaky3);
-                                chara.WearableModifiers.AddExtraPassive(Passives.Confusion);
-                                chara.WearableModifiers.AddExtraPassive(Passives.Enfeebled);
-                                chara.WearableModifiers.AddExtraPassive(Passives.Immortal);
-                                chara.WearableModifiers.AddExtraPassive(Passives.Anointed2);
-                                chara.WearableModifiers.AddExtraPassive(Passives.FleetingGenerator(10));
-                                chara.WearableModifiers.AddExtraPassive(Passives.Absorb);
-                                chara.WearableModifiers.AddExtraPassive(Violent.Generate(3));
-
-                                foreach (BasePassiveAbilitySO passive in EvilPassives) chara.WearableModifiers.AddExtraPassive(passive);
-
-                                chara.UpdateCurrentPassives();
-                            }
+                            chara.UpdateCurrentPassives();
                         }
+                    }
 
                     return;
                 }

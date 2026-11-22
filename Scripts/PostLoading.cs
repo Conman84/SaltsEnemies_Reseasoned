@@ -162,6 +162,8 @@ namespace SaltEnemies_Reseasoned
             PCall(LightbulbkinEncounters.Post);
             PCall(MelderEncounters.Post);
             PCall(VivariumEncounters.Post);
+            PCall(TrollerEncounters.Post);
+            PCall(NeverMindEncounters.Post);
 
             //basegame
             PCall(FoundlingEncounters.Post);

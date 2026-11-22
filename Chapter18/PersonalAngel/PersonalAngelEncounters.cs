@@ -17,7 +17,7 @@ namespace SaltsEnemies_Reseasoned
             med.RoarEvent = "event:/Hawthorne/Noisy/PA_Roar";
 
             med.AddRandomEncounter("PersonalAngel_EN", "LittleAngel_EN", "Grandfather_EN");
-            med.SimpleAddEncounter(1, "PersonalAngel_EN", 3, "InHisImage_EN");
+            med.SimpleAddEncounter(1, "PersonalAngel_EN", 2, "InHisImage_EN");
             med.SimpleAddEncounter(1, "PersonalAngel_EN", 3, Enemies.Shivering);
             med.AddRandomEncounter("PersonalAngel_EN", "ChoirBoy_EN", "Shua_EN");
             med.AddRandomEncounter("PersonalAngel_EN", Enemies.Minister, "Damocles_EN");
@@ -26,14 +26,14 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomEncounter("PersonalAngel_EN", Jumble.Grey, Enemies.Minister);
             med.AddRandomEncounter("PersonalAngel_EN", Spoggle.Grey, "Grandfather_EN");
             med.AddRandomEncounter("PersonalAngel_EN", "OdeToHumanity_EN", "Grandfather_EN");
-            med.AddRandomEncounter("PersonalAngel_EN", "WindSong_EN", "EvilDog_EN", "EvilDog_EN");
+            med.AddRandomEncounter("PersonalAngel_EN", "EvilDog_EN", "EvilDog_EN");
             med.AddRandomEncounter("PersonalAngel_EN", "InHisImage_EN", "InHisImage_EN", "LittleAngel_EN");
-            med.AddRandomEncounter("PersonalAngel_EN", "InHisImage_EN", "InHisImage_EN", "MiniReaper_EN");
-            med.AddRandomEncounter("PersonalAngel_EN", "InHisImage_EN", "InHisImage_EN", "Indicator_EN");
+            med.AddRandomEncounter("PersonalAngel_EN", "EvilDog_EN", "MiniReaper_EN");
+            med.AddRandomEncounter("PersonalAngel_EN", "EvilDog_EN", "Indicator_EN");
             med.AddRandomEncounter("PersonalAngel_EN", "BlackStar_EN", "EvilDog_EN", "EvilDog_EN");
             med.AddRandomEncounter("PersonalAngel_EN", Bots.Grey, Enemies.Shivering);
             med.AddRandomEncounter("PersonalAngel_EN", "YNL_EN", "Firebird_EN");
-            med.AddRandomEncounter("PersonalAngel_EN", "Hunter_EN", "Grandfather_EN", "Children6_EN");
+            med.AddRandomEncounter("PersonalAngel_EN", "Hunter_EN", "Children6_EN");
 
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.PersonalAngel.Med, 7, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
