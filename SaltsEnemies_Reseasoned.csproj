@@ -625,6 +625,10 @@
 	  <None Remove="Chapter26\Vivarium\VivariumEmptyWorld.png" />
 	  <None Remove="Chapter26\Vivarium\VivariumIcon.png" />
 	  <None Remove="Chapter26\Vivarium\VivariumWorld.png" />
+	  <None Remove="Chapter27\NeverMind\CensorDead.png" />
+	  <None Remove="Chapter27\NeverMind\CensorIcon.png" />
+	  <None Remove="Chapter27\NeverMind\CensorWorld.png" />
+	  <None Remove="Chapter27\NeverMind\EmptinessPassive.png" />
 	  <None Remove="Chapter27\NeverMind\NeverMindDead.png" />
 	  <None Remove="Chapter27\NeverMind\NeverMindIcon.png" />
 	  <None Remove="Chapter27\NeverMind\NeverMindWorld.png" />
@@ -1702,6 +1706,10 @@
 	  <EmbeddedResource Include="Chapter26\Vivarium\VivariumEmptyWorld.png" />
 	  <EmbeddedResource Include="Chapter26\Vivarium\VivariumIcon.png" />
 	  <EmbeddedResource Include="Chapter26\Vivarium\VivariumWorld.png" />
+	  <EmbeddedResource Include="Chapter27\NeverMind\CensorDead.png" />
+	  <EmbeddedResource Include="Chapter27\NeverMind\CensorIcon.png" />
+	  <EmbeddedResource Include="Chapter27\NeverMind\CensorWorld.png" />
+	  <EmbeddedResource Include="Chapter27\NeverMind\EmptinessPassive.png" />
 	  <EmbeddedResource Include="Chapter27\NeverMind\NeverMindDead.png" />
 	  <EmbeddedResource Include="Chapter27\NeverMind\NeverMindIcon.png" />
 	  <EmbeddedResource Include="Chapter27\NeverMind\NeverMindWorld.png" />

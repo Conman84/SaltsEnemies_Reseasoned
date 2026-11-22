@@ -679,6 +679,7 @@ namespace SaltsEnemies_Reseasoned
 
             //CH27
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("VivaciousPassive.png"), "Vivacious", "At the end of the round, move Left or Right.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("EmptinessPassive.png"), "Emptiness", "On being directly damaged, swap missing healths with the attacker.");
 
 
             //BOSSES
