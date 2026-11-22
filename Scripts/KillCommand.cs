@@ -389,8 +389,14 @@ namespace SaltsEnemies_Reseasoned
             TESTINGCOMMAND = new DebugCommand("saltenemiestesting", "debug command for testing shit. i dun gotta explain nuthin to yah", new List<DebugCommandArgument>()
             {
                 new NumericalCommandArgument("value1", null, null, true)
-            }, delegate
+            }, delegate (List<FilledCommandArgument> args)
             {
+                int amount = -1;
+                if (args[0].TryRead<int>(out int input)) amount = input;
+
+                if (amount == 301) NeverMind.ForceCensor(false);
+                if (amount == 300) NeverMind.ForceCensor(true);
+
                 Debug.Log("CURRENT SAVE FILE SLOTID: " + SaveDataManager_2024.CURRENTSLOTID);
                 Debug.Log("CURRENT SAVE FILE SLOT NUM: " + SaveDataManager_2024.SaveSlot.ToString());
 

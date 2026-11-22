@@ -177,6 +177,7 @@ namespace SaltsEnemies_Reseasoned
                 "Damage_Death",
             ]);
             unpersons.AddIntentsToTarget(other, [
+                FallColor.Intent,
                 "Damage_7_10",
                 "Damage_11_15",
                 "Damage_16_20",
