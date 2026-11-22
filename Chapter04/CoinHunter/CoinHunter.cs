@@ -68,19 +68,35 @@ namespace SaltsEnemies_Reseasoned
                 Priority = BrutalAPI.Priority.GetCustomPriority("priority0"),
                 CombatSprite = ResourceLoader.LoadSprite("ShinyIcon.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("ShinyDead.png", new Vector2(0.5f, 0f), 32),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("ShinyIcon.png", new Vector2(0.5f, 0f), 32),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("ShinyWorld.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = "event:/Hawthorne/Nois2/CrowHurt",
                 DeathSound = "event:/Hawthorne/Nois2/CrowDie",
             };
             CoinHunter.PrepareEnemyPrefab("assets/Blunder/Shiny_Enemy.prefab", SaltsReseasoned.saltsAssetBundle, SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("assets/Blunder/Shiny_Gibs.prefab").GetComponent<ParticleSystem>());
 
+            PerformEffectPassiveAbility Apostle = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            Apostle.name = "Apostle_PA";
+            Apostle._passiveName = "Apostle";
+            Apostle.passiveIcon = ResourceLoader.LoadSprite("ApostlePassive.png");
+            Apostle._enemyDescription = "On any other enemy being directly damaged, prematurely perform this enemy's next action on the timeline.";
+            //ch desc
+            Apostle.m_PassiveID = "Apostle_PA";
+            Apostle.doesPassiveTriggerInformationPanel = true;
+            Apostle._triggerOn = [AnyOtherAllyDamagedHandler.Trigger];
+            Apostle.effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<TargetForceFirstActionEffect>(), 1, Slots.Self),
+                ];
+            Apostle.conditions = [ScriptableObject.CreateInstance<HasTurnsCondition>()];
+
             CoinHunter.AddPassives(new BasePassiveAbilitySO[]
             {
-                Passives.FleetingGenerator(2), 
+                //Passives.FleetingGenerator(2), 
+                Passives.Slippery, 
                 lightweight, 
                 revenge, 
-                Passives.Skittish, 
-                pocket
+                Apostle,
+                //Passives.Skittish, 
+                //pocket
             });
             CoinHunter.UnitTypes = new List<string>
             {

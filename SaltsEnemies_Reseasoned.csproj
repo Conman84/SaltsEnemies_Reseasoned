@@ -60,6 +60,7 @@
 	  <None Remove="Bosses\Tv\MegalaniaPortal.png" />
 	  <None Remove="Bosses\Tv\RadicalPassive.png" />
 	  <None Remove="Bosses\Tv\TvWorld.png" />
+	  <None Remove="Chapter04\CoinHunter\ShinyWorld.png" />
 	  <None Remove="Chapter07\Postmodern\Passive_Silence.png" />
 	  <None Remove="Chapter08\RealisticTank\BacklashPassive.png" />
 	  <None Remove="Chapter08\Sigil\SigilP_Green.png" />
@@ -1131,6 +1132,7 @@
 	  <EmbeddedResource Include="Bosses\Tv\MegalaniaPortal.png" />
 	  <EmbeddedResource Include="Bosses\Tv\RadicalPassive.png" />
 	  <EmbeddedResource Include="Bosses\Tv\TvWorld.png" />
+	  <EmbeddedResource Include="Chapter04\CoinHunter\ShinyWorld.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\GraspingPassive.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\ScramblePassive.png" />
 	  <EmbeddedResource Include="Chapter11\Nameless\FractalPassive.png" />

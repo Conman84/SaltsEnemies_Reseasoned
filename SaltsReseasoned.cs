@@ -540,7 +540,7 @@ namespace SaltsEnemies_Reseasoned
             
             //CH4
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Revenge.png"), "Revenge", "On taking direct damage, give this unit another action.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PickPocket.png"), "Pick-Pocket", "On Fleeing, steal a certain amount of coins.");
+            //AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PickPocket.png"), "Pick-Pocket", "On Fleeing, steal a certain amount of coins.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DivineSacrifice.png"), "Substitute", "Permanently applies Divine Sacrifice to this unit.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("InspirationIcon.png"), "Inspired", "This unit is Inspired.");
 

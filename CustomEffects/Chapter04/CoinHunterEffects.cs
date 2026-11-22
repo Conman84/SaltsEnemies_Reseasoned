@@ -14,9 +14,31 @@ namespace SaltEnemies_Reseasoned
     {
         public static bool added = false;
         public static bool enteredCombat = false;
+
+        public static string InRunData => "SpawnedCoinHunter";
         public static void Setup()
         {
-            IDetour ForOnTurnStartIDetour = new Hook(typeof(CombatStats).GetMethod(nameof(CombatStats.PlayerTurnStart), ~BindingFlags.Default), typeof(ShinyHandler).GetMethod(nameof(ForOnTurnStart), ~BindingFlags.Default));
+            IDetour hook = new Hook(typeof(GameInformationHolder).GetMethod(nameof(GameInformationHolder.PostCombatProcess), ~BindingFlags.Default), typeof(ShinyHandler).GetMethod(nameof(GameInformationHolder_PostCombatProcess), ~BindingFlags.Default));
+        }
+
+        public static CombatResultsInformation GameInformationHolder_PostCombatProcess(Func<GameInformationHolder, CombatResultsInformation> orig, GameInformationHolder self)
+        {
+            CombatResultsInformation ret = orig(self);
+
+            if (self.Run.PlayerCurrency >= 60 && self.Run.CurrentZoneDB.ZoneName == ZoneNames_GameIDs.Orpheum.ToString() && !self.Run.inGameData.GetBoolData(InRunData))
+            {
+                RunZoneData runZoneData = self.Run.zoneData[self.Run.CurrentZoneID];
+                ZoneDataBaseSO zoneDataBaseSO = runZoneData.LoadZoneDB();
+                if (zoneDataBaseSO is ZoneBGDataBaseSO zone)
+                {
+                    zone._zoneData = runZoneData;
+                    zone.GenerateSpecificEnemyCard("hard", Orph.H.Shiny.Hard);
+                }
+
+                self.Run.inGameData.SetBoolData(InRunData, true);
+            }
+
+            return ret;
         }
 
         public static int chance()
