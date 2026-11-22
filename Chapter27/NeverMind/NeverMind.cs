@@ -175,14 +175,16 @@ namespace SaltsEnemies_Reseasoned
             muted.getAllies = false;
             muted.targetStatus = Muted.StatusID;
             Intents.CreateAndAddCustom_Basic_IntentToPool("Slap_A", LoadedAssetsHandler.GetCharacterAbility("Slap_A").abilitySprite, UnityEngine.Color.white);
+            ApplyMutedMoreMaxHealthCasterTargetsEffect onlyIfNone = ScriptableObject.CreateInstance<ApplyMutedMoreMaxHealthCasterTargetsEffect>();
+            onlyIfNone.OnlyIfNone = true;
 
             Ability unbothered = new Ability("Unbothered", "NM_Unbothered_A");
-            unbothered.Description = "Halve this enemy's current and maximum health.\nInflict 1 Muted on all party members with more maximum health than this enemy. Force all Muted party members to perform \"Slap.\"";
+            unbothered.Description = "Halve this enemy's current and maximum health.\nInflict 1 Muted on all party members with more maximum health than this enemy if they have no Muted. Force all Muted party members to perform \"Slap.\"";
             unbothered.Rarity = Rarity.GetCustomRarity("rarity5");
             unbothered.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<HalveCurrentAndMaxHealthEffect>(), 1, Slots.Self),
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Unlock", false, Slots.Self)),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedMoreMaxHealthCasterTargetsEffect>(), 1, Targeting.Unit_AllOpponents),
+                Effects.GenerateEffect(onlyIfNone, 1, Targeting.Unit_AllOpponents),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ForceTargetsUseSlapEffect>(), 1, muted),
                 ];
             unbothered.AddIntentsToTarget(Slots.Self, ["Other_MaxHealth_Alt"]);

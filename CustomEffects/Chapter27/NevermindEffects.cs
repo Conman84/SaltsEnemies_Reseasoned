@@ -184,6 +184,7 @@ namespace SaltsEnemies_Reseasoned
 
     public class ApplyMutedMoreMaxHealthCasterTargetsEffect : EffectSO
     {
+        public bool OnlyIfNone;
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             exitAmount = 0;
@@ -191,6 +192,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 if (target.HasUnit && target.Unit.MaximumHealth > caster.MaximumHealth)
                 {
+                    if (OnlyIfNone && target.Unit.ContainsStatusEffect(Muted.StatusID)) continue;
                     if (target.Unit.ApplyStatusEffect(Muted.Object, entryVariable)) exitAmount += entryVariable;
                 }
             }
