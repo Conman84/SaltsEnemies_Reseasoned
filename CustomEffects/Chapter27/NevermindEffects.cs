@@ -211,7 +211,7 @@ namespace SaltsEnemies_Reseasoned
                     if (target.Unit.CurrentHealth <= 1)
                     {
                         target.Unit.DirectDeath(caster, false, out int number);
-                        exitAmount += number;
+                        exitAmount ++;
                         target.Unit.MaximizeHealth(newmax);
                         continue;
                     }
