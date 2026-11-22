@@ -207,12 +207,15 @@ namespace SaltsEnemies_Reseasoned
             other2.getAllies = false;
             other2.OnlyReturnCharaSide = true;
 
+            AnimationVisualsByTargetEffect visuals = ScriptableObject.CreateInstance<AnimationVisualsByTargetEffect>();
+            visuals._visuals = CustomVisuals.GetVisuals("Salt/Censor");
+
             Ability unpersons = new Ability("Unpersons", "NM_Unpersons_A");
             unpersons.Description = "Halve this enemy's current and maximum health.\nDeal 1, 3, 4, 5, 8, 9, 13, or 16 damage to the enemy or party member with the most maximum health.\nInstantly kill all enemies and party members with over a thousand maximum health.";
             unpersons.Rarity = Rarity.Uncommon;
             unpersons.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<HalveCurrentAndMaxHealthEffect>(), 1, Slots.Self),
-                Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Censor", false, mostest)),
+                Effects.GenerateEffect(visuals, 1, mostest),
                 Effects.GenerateEffect(high, 1, mostest),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<KillAllTargetsMaxHealthThresholdEffect>(), 1000, Targeting.AllUnits)
                 ];
