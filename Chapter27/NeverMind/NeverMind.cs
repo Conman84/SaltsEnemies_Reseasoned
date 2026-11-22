@@ -17,6 +17,7 @@ namespace SaltsEnemies_Reseasoned
                 Self.enemySprite = ResourceLoader.LoadSprite("NeverMindIcon.png");
                 Self.enemyOverworldSprite = ResourceLoader.LoadSprite("NeverMindWorld.png", new Vector2(0.5f, 0f), 32);
                 Self.enemyOWCorpseSprite = ResourceLoader.LoadSprite("NeverMindDead.png", new Vector2(0.5f, 0f), 32);
+                LoadedDBsHandler.PortalDB.m_PortalData["Salt_NeverMindEncounter_Sign"].portalIcon = ResourceLoader.LoadSprite("NeverMindWorld.png");
 
                 //Debug.Log("icons");
 
@@ -38,6 +39,7 @@ namespace SaltsEnemies_Reseasoned
                 Self.enemySprite = ResourceLoader.LoadSprite("CensorIcon.png");
                 Self.enemyOverworldSprite = ResourceLoader.LoadSprite("CensorWorld.png", new Vector2(0.5f, 0f), 32);
                 Self.enemyOWCorpseSprite = ResourceLoader.LoadSprite("CensorDead.png", new Vector2(0.5f, 0f), 32);
+                LoadedDBsHandler.PortalDB.m_PortalData["Salt_NeverMindEncounter_Sign"].portalIcon = ResourceLoader.LoadSprite("CensorWorld.png");
 
                 //Debug.Log("icons");
 
@@ -57,6 +59,8 @@ namespace SaltsEnemies_Reseasoned
         }
         public static void Add()
         {
+            Portals.AddPortalSign("Salt_NeverMindEncounter_Sign", ResourceLoader.LoadSprite("NeverMindWorld.png"), Portals.EnemyIDColor);
+
             Enemy nevermind = new Enemy("Never-Mind", "NeverMind_EN")
             {
                 Health = 301,
