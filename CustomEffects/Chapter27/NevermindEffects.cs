@@ -235,7 +235,7 @@ namespace SaltsEnemies_Reseasoned
         }
     }
 
-    public class EmptyTargetting : BaseCombatTargettingSO
+    public class TrulyEmptyTargetting : BaseCombatTargettingSO
     {
         public bool getAllies;
         public override bool AreTargetAllies => getAllies;
