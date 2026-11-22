@@ -62,7 +62,9 @@ namespace SaltsEnemies_Reseasoned
                     if (enemy.Enemy.name == Ecstasy.Blue) AddKill("Ecstasy_EN", reference.witheringDeath);
                     if (enemy.Enemy.name == Ecstasy.Yellow) AddKill("Ecstasy_EN", reference.witheringDeath);
                     if (enemy.Enemy.name == Ecstasy.Purple) AddKill("Ecstasy_EN", reference.witheringDeath);
+
                     if (enemy.Enemy.name == "EclipseRising_EN" || enemy.Enemy.name == "EclipseAwakened_EN") AddKill("Eclipse_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == Enemies.Help || enemy.Enemy.name == Enemies.Reckoner) AddKill("Troller_EN", reference.witheringDeath);
 
                     if (enemy.Enemy.name == "Smiler_Corpse_BOSS") AddKill("Smilers_BOSS", reference.witheringDeath);
                     if (enemy.Enemy.name == "RedSky_BOSS") AddKill("BlueSky_BOSS", reference.witheringDeath);
@@ -248,6 +250,7 @@ namespace SaltsEnemies_Reseasoned
             "Lightbulbkin_EN",
             "Melder_EN",
             "Vivarium_EN",
+            "NeverMind_EN",
             "Smilers_BOSS",
             "CrowChild_BOSS",
             "BlackAndBlue_BOSS",
