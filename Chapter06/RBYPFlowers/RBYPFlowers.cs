@@ -137,18 +137,19 @@ namespace SaltsEnemies_Reseasoned
             //RED SPECIAL
             Ability loveu = new Ability("Love for You", "Love4U_A")
             {
-                Description = "If the Opposing party member has Power, deal an Agonizing amount of damage to them. Apply 5 Power on the Opposing party member.\nApply 1 Photosynthesis to this enemy.",
+                Description = "If the Opposing party member has Power, deal an Agonizing amount of damage to them. Apply 1 Power to all party members.\nApply 1 Photosynthesis to this enemy.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<KillIfPowerEffect>(), 10, Slots.Front),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 5, Targeting.Slot_Front, BasicEffects.DidThat(false)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 1, Targeting.Unit_AllOpponents),
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPhotoSynthesisEffect>(), 1, Targeting.Slot_SelfSlot)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Snap"),
                 AnimationTarget = Targeting.Slot_Front
             };
-            loveu.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Damage_7_10.ToString(), Power.Intent });
+            loveu.AddIntentsToTarget(Targeting.Slot_Front, new string[] { IntentType_GameIDs.Damage_7_10.ToString() });
+            loveu.AddIntentsToTarget(Targeting.Unit_AllOpponents, [Power.Intent]);
             loveu.AddIntentsToTarget(Targeting.Slot_SelfSlot, new string[] { Photo.Intent });
 
             //RED ADD
