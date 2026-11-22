@@ -26,6 +26,9 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup(mainlogos, "Lightbulbkin_EN", "NextOfKin_EN", "NextOfKin_EN");
             med.AddRandomGroup(mainlogos, "Yang_EN", "PawnA_EN");
             med.AddRandomGroup(mainlogos, "Shua_EN", "EyePalm_EN");
+            //ch27 new
+            med.AddRandomGroup(mainlogos, Enemies.Troller, Enemies.Troller);
+            med.AddRandomGroup(mainlogos, "NeverMind_EN");
 
             AddTo hard = new AddTo(hard_enc);
             hard.AddRandomGroup(mainlogos, "Satyr_EN", "Indicator_EN");
@@ -46,6 +49,8 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup(mainlogos, "InTheDark_EN", "BlackStar_EN");
             hard.AddRandomGroup(mainlogos, "Lunoscope_EN", "EyePalm_EN");
             hard.AddRandomGroup(mainlogos, "CorpseChan_EN", "WindSong_EN");
+            //ch27
+            hard.AddRandomGroup(mainlogos, "NeverMind_EN", "Indicator_EN");
         }
         public static void AddLogos()
         {
