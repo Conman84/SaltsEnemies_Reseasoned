@@ -141,7 +141,7 @@ namespace SaltsEnemies_Reseasoned
             });
             lullaby.SilentAddEnemy(true, true);//SILENT!!
             lullaby.enemy.AddToToysPool();
-            lullaby.enemy.AddToEcstasyPool();
+            //lullaby.enemy.AddToEcstasyPool();
         }
     }
 }

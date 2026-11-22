@@ -51,6 +51,8 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup(mainlogos, "CorpseChan_EN", "WindSong_EN");
             //ch27
             hard.AddRandomGroup(mainlogos, "NeverMind_EN", "Indicator_EN");
+
+            EcstasyPool.Add(mainlogos);
         }
         public static void AddLogos()
         {
@@ -131,6 +133,9 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Shore.H.Jabber.Med);
             med.SimpleAddGroup(1, "Jabberwocky_EN", 3, "TangledGuests_EN");
+
+            EcstasyPool.Add("TangledGuests_EN");
+            EcstasyPool.Add("GuestColony_EN");
         }
         public static void AddOrph()
         {

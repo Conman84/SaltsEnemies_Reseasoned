@@ -190,6 +190,8 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Lightbulbkin_EN", "Lightbulbkin_EN", "Drippings_EN");
             med.AddRandomGroup("Lightbulbkin_EN", "Drippings_EN", Enemies.Shivering, Enemies.Shivering);
             med.AddRandomGroup("Lightbulbkin_EN", "Drippings_EN", "Hauntling_EN", "Hauntling_EN");
+
+            EcstasyPool.Add("Drippings_EN");
         }
     }
 }

@@ -119,6 +119,8 @@ namespace SaltsEnemies_Reseasoned
 
             hard = new AddTo(Garden.H.Eclipse.Hard);
             hard.AddRandomGroup(Enemies.Eclipse, Enemies.Eclipse, Enemies.Leviat);
+
+            EcstasyPool.Add(Enemies.Leviat);
         }
 
         public static void Screamer()
@@ -333,6 +335,8 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup(Enemies.Skinning, Enemies.Screaming, "Starless_EN");
             hard.AddRandomGroup(Enemies.Skinning, Enemies.Screaming, "Hunter_EN");
             hard.AddRandomGroup(Enemies.Skinning, Enemies.Screaming, "OdeToHumanity_EN");
+
+            EcstasyPool.Add(Enemies.Screaming);
         }
     }
 }

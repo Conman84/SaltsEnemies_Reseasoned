@@ -58,6 +58,8 @@ namespace SaltsEnemies_Reseasoned
 
             hard = new AddTo(Orph.H.Dragon.Hard);
             hard.AddRandomGroup("TheDragon_EN", "Clergy_EN", "Clergy_EN");
+
+            EcstasyPool.Add("Clergy_EN");
         }
     }
 }

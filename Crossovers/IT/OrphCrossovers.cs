@@ -59,6 +59,9 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Orph.H.Shooter.Med);
             med.SimpleAddGroup(2, Enemies.Shooter, 1, "NakedGizo_EN");
+
+            EcstasyPool.Add("Gizo_EN");
+            EcstasyPool.Add("NakedGizo_EN");
         }
 
         public static void Ophanim()
@@ -71,6 +74,8 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("Ophanim_EN", "Rabies_EN");
             hard.AddRandomGroup("Ophanim_EN", "TheWhale_EN");
             hard.AddRandomGroup("Ophanim_EN", "ILoveYou_EN");
+
+            EcstasyPool.Add("Ophanim_EN");
         }
     }
 }

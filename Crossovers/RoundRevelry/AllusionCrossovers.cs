@@ -191,7 +191,7 @@ namespace SaltsEnemies_Reseasoned
             med.AddRandomGroup("Lightbulbkin_EN", "Allusion_EN", Enemies.Shivering, Enemies.Shivering);
             med.AddRandomGroup("Lightbulbkin_EN", "Allusion_EN", "EyePalm_EN", "EyePalm_EN");
 
-
+            EcstasyPool.Add("Allusion_EN");
         }
     }
 }

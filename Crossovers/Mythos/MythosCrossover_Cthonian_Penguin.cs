@@ -97,6 +97,9 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup(Enemies.Cthonian, Enemies.Eclipse, Enemies.Eclipse);
             hard.AddRandomGroup(Enemies.Cthonian, "Celebration_EN", Spoggle.Mythos);
             hard.AddRandomGroup(Enemies.Cthonian, "Celebration_EN", Jumble.Mythos);
+
+            EcstasyPool.Add(Enemies.Penguin);
+            EcstasyPool.Add(Enemies.Cthonian);
         }
     }
 }

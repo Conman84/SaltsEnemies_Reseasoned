@@ -122,6 +122,8 @@ namespace SaltsEnemies_Reseasoned
             hard = new AddTo(Orph.H.ILoveYou.Hard);
             hard.AddRandomGroup("ILoveYou_EN", "ILoveYou_EN", "Teratoma_EN");
             hard.AddRandomGroup("ILoveYou_EN", "Teratoma_EN", Enemies.Camera, Enemies.Camera);
+
+            EcstasyPool.Add("Teratoma_EN");
         }
     }
 }

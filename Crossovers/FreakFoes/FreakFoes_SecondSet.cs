@@ -150,6 +150,10 @@ namespace SaltsEnemies_Reseasoned
             med = new AddTo(Shore.H.Papereater.Med);
             med.AddRandomGroup("Papereater_EN", "Papereater_EN", "Misnomer_EN");
             med.AddRandomGroup("Papereater_EN", "Papereater_EN", "Misnomer_EN", "Misnomer_EN");
+
+            EcstasyPool.Add("Bullet_EN");
+            EcstasyPool.Add("Misnomer_EN");
+            EcstasyPool.Add("HatTrick_EN");
         }
         public static void AddOrph()
         {
@@ -298,6 +302,10 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("Tableau_EN", "ILoveYou_EN", "Foxtrot_EN", "Foxtrot_EN");
             if (SaltsReseasoned.rando > 50) hard.AddRandomGroup("Tableau_EN", "MusicMan_EN", "MusicMan_EN", "WindSong_EN");
             else hard.AddRandomGroup("Tableau_EN", "MusicMan_EN", "MusicMan_EN", "Melder_EN");
+
+            EcstasyPool.Add("Showstopper_EN");
+            EcstasyPool.Add("Tableau_EN");
+            EcstasyPool.Add("Paparazzi_EN");
         }
     }
 }

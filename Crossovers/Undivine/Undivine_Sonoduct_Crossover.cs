@@ -39,6 +39,8 @@ namespace SaltsEnemies_Reseasoned
             if (SaltsReseasoned.trolling > 25 && SaltsReseasoned.trolling < 50) hard.AddRandomGroup("Sonoduct_EN", "Solitaire_EN", "Solitaire_EN");
             if (SaltsReseasoned.trolling > 50 && SaltsReseasoned.trolling < 75) hard.AddRandomGroup("Sonoduct_EN", "Author_EN", "Author_EN");
             if (SaltsReseasoned.trolling > 75) hard.AddRandomGroup("Sonoduct_EN", "Enigma_EN", "Enigma_EN");
+
+            EcstasyPool.Add("Sonoduct_EN");
         }
     }
 }

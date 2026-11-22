@@ -157,6 +157,8 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("Celebration_EN", "Idiotware_EN", "EyePalm_EN", "EyePalm_EN");
             hard.AddRandomGroup("Celebration_EN", "Idiotware_EN", "PawnA_EN", "PawnA_EN");
             hard.AddRandomGroup("Celebration_EN", "Idiotware_EN", Enemies.Shivering, Enemies.Shivering);
+
+            EcstasyPool.Add("Idiotware_EN");
         }
     }
 }

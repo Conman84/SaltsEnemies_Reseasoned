@@ -39,6 +39,9 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("Sonoduct_EN", "Melder_EN", Enemies.Suckle, Enemies.Suckle);
             hard.AddRandomGroup("Sonoduct_EN", "TheWhale_EN", Enemies.Suckle, Enemies.Suckle);
             hard.AddRandomGroup("Sonoduct_EN", "ILoveYou_EN");
+
+            EcstasyPool.Add("ClayChild_EN");
+            EcstasyPool.Add("ClayChildSleep_EN");
         }
     }
 }
