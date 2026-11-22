@@ -18,14 +18,20 @@ namespace SaltsEnemies_Reseasoned
                 Self.enemyOverworldSprite = ResourceLoader.LoadSprite("NeverMindWorld.png", new Vector2(0.5f, 0f), 32);
                 Self.enemyOWCorpseSprite = ResourceLoader.LoadSprite("NeverMindDead.png", new Vector2(0.5f, 0f), 32);
 
-                Self.enemyTemplate.transform.Find("Censor").gameObject.SetActive(false);
-                Self.enemyTemplate.transform.Find("AltCensor").gameObject.SetActive(false);
-                Self.enemyTemplate.transform.Find("ThirdCensor").gameObject.SetActive(false);
+                //Debug.Log("icons");
+
+                Self.enemyTemplate.m_Data.m_Locator.transform.parent.Find("Censor").gameObject.SetActive(false);
+                Self.enemyTemplate.m_Data.m_Locator.transform.parent.Find("AltCensor").gameObject.SetActive(false);
+                Self.enemyTemplate.m_Data.m_Locator.transform.parent.Find("ThirdAltCensor").gameObject.SetActive(false);
+
+                //Debug.Log("prefab");
 
                 Self.enemyTemplate.m_Data.m_Gibs.transform.Find("Censor_Front").gameObject.SetActive(false);
                 Self.enemyTemplate.m_Data.m_Gibs.transform.Find("Censor_Back").gameObject.SetActive(false);
                 Self.enemyTemplate.m_Data.m_Gibs.transform.Find("CensorMain").gameObject.SetActive(false);
                 Self.enemyTemplate.m_Data.m_Gibs.transform.Find("CensorFloor").gameObject.SetActive(false);
+
+                //Debug.Log("gibs");
             }
             else
             {
@@ -33,14 +39,20 @@ namespace SaltsEnemies_Reseasoned
                 Self.enemyOverworldSprite = ResourceLoader.LoadSprite("CensorWorld.png", new Vector2(0.5f, 0f), 32);
                 Self.enemyOWCorpseSprite = ResourceLoader.LoadSprite("CensorDead.png", new Vector2(0.5f, 0f), 32);
 
-                Self.enemyTemplate.transform.Find("Censor").gameObject.SetActive(true);
-                Self.enemyTemplate.transform.Find("AltCensor").gameObject.SetActive(true);
-                Self.enemyTemplate.transform.Find("ThirdCensor").gameObject.SetActive(true);
+                //Debug.Log("icons");
+
+                Self.enemyTemplate.m_Data.m_Locator.transform.parent.Find("Censor").gameObject.SetActive(true);
+                Self.enemyTemplate.m_Data.m_Locator.transform.parent.Find("AltCensor").gameObject.SetActive(true);
+                Self.enemyTemplate.m_Data.m_Locator.transform.parent.Find("ThirdAltCensor").gameObject.SetActive(true);
+
+                //Debug.Log("prefab");
 
                 Self.enemyTemplate.m_Data.m_Gibs.transform.Find("Censor_Front").gameObject.SetActive(true);
                 Self.enemyTemplate.m_Data.m_Gibs.transform.Find("Censor_Back").gameObject.SetActive(true);
                 Self.enemyTemplate.m_Data.m_Gibs.transform.Find("CensorMain").gameObject.SetActive(true);
                 Self.enemyTemplate.m_Data.m_Gibs.transform.Find("CensorFloor").gameObject.SetActive(true);
+
+                //Debug.Log("gibs");
             }
         }
         public static void Add()
@@ -58,10 +70,7 @@ namespace SaltsEnemies_Reseasoned
             };
             nevermind.PrepareEnemyPrefab("Assets/ch_27/NeverMind_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/ch_27/NeverMind_Gibs.prefab").GetComponent<ParticleSystem>());
             Self = nevermind.enemy;
-            if (GeneralConfig.PossibleNeverMindArachnophobiaCensor.Value)
-            {
-                ForceCensor(true);
-            }
+            ForceCensor(GeneralConfig.PossibleNeverMindArachnophobiaCensor.Value);
 
             //empty
             PerformEffectPassiveAbility emptiness = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
