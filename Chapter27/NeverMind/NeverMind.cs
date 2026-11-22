@@ -119,12 +119,12 @@ namespace SaltsEnemies_Reseasoned
             nevermind.AddPassives(new BasePassiveAbilitySO[] { emptiness, revenge, viv });
 
             DamageByAmountsEffect low = ScriptableObject.CreateInstance<DamageByAmountsEffect>();
-            low.Amounts = [1, 2, 3, 4, 5, 6, 7, 9, 10, 11];
+            low.Amounts = [1, 2, 3, 4, 5, 6, 7, 9, 11];
             DamageByAmountsEffect high = ScriptableObject.CreateInstance<DamageByAmountsEffect>();
-            high.Amounts = [10, 12, 13, 14, 15, 16, 17, 18, 20];
+            high.Amounts = [1, 3, 4, 5, 8, 9, 13, 16];
 
             Ability unthoughts = new Ability("Unthoughts", "NM_Unthoughts_A");
-            unthoughts.Description = "Halve this enemy's current and maximum health.\nIncrease the maximum healths of the Left, Right, and Opposing party members by 35% and apply Favor to one of them.\nDeal 1, 2, 3, 4, 5, 6, 7, 9, 10, or 11 damage to the Opposing party member.";
+            unthoughts.Description = "Halve this enemy's current and maximum health.\nIncrease the maximum healths of the Left, Right, and Opposing party members by 35% and apply Favor to one of them.\nDeal 1, 2, 3, 4, 5, 6, 7, 9, or 11 damage to the Opposing party member.";
             unthoughts.Rarity = Rarity.Common;
             unthoughts.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<HalveCurrentAndMaxHealthEffect>(), 1, Slots.Self),
@@ -181,7 +181,7 @@ namespace SaltsEnemies_Reseasoned
             other2.OnlyReturnCharaSide = true;
 
             Ability unpersons = new Ability("Unpersons", "NM_Unpersons_A");
-            unpersons.Description = "Halve this enemy's current and maximum health.\nDeal 10, 12, 13, 14, 15, 16, 17, 18, or 20 damage to the enemy or party member with the most maximum health.\nInstantly kill all enemies and party members with over a thousand maximum health.";
+            unpersons.Description = "Halve this enemy's current and maximum health.\nDeal 1, 3, 4, 5, 8, 9, 13, or 16 damage to the enemy or party member with the most maximum health.\nInstantly kill all enemies and party members with over a thousand maximum health.";
             unpersons.Rarity = Rarity.Uncommon;
             unpersons.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<HalveCurrentAndMaxHealthEffect>(), 1, Slots.Self),
@@ -194,6 +194,8 @@ namespace SaltsEnemies_Reseasoned
             unpersons.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
             unpersons.AddIntentsToTarget(other2, [
                 FallColor.Intent,
+                "Damage_1_2",
+                "Damage_3_6",
                 "Damage_7_10",
                 "Damage_11_15",
                 "Damage_16_20",
@@ -201,6 +203,8 @@ namespace SaltsEnemies_Reseasoned
             ]);
             unpersons.AddIntentsToTarget(other, [
                 FallColor.Intent,
+                "Damage_1_2",
+                "Damage_3_6",
                 "Damage_7_10",
                 "Damage_11_15",
                 "Damage_16_20",
