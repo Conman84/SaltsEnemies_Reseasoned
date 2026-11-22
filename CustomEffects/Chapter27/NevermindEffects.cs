@@ -208,6 +208,14 @@ namespace SaltsEnemies_Reseasoned
                     int newhealth = (int)Math.Ceiling((float)target.Unit.CurrentHealth / 2f);
                     int newmax = Math.Max(newhealth, (int)Math.Ceiling((float)target.Unit.MaximumHealth / 2f));
 
+                    if (target.Unit.CurrentHealth <= 1)
+                    {
+                        target.Unit.DirectDeath(caster, false, out int number);
+                        exitAmount += number;
+                        target.Unit.MaximizeHealth(newmax);
+                        continue;
+                    }
+
                     if (newhealth != target.Unit.CurrentHealth) exitAmount++;
 
                     target.Unit.SetHealthTo(newhealth);
