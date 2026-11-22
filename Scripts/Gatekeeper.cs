@@ -211,7 +211,7 @@ namespace SaltsEnemies_Reseasoned
             if (enemy == "Vivarium_EN" && !Tracker.Track(["Wall_EN", "TheDragon_EN", "2009_EN"])) return false;
             if (enemy == Enemies.Help && !Tracker.Track([Jumble.Grey, "Ecstasy_EN"])) return false;
             if (enemy == Enemies.Reckoner && !Tracker.Track([Jumble.Grey, "Ecstasy_EN"])) return false;
-            if (enemy == "NeverMind_EN" && !Tracker.Track([Jumble.Grey, Spoggle.Grey])) return false;
+            if (enemy == "NeverMind_EN" && !Tracker.Track([Jumble.Grey, Spoggle.Grey, "EvilDog_EN", "Panopticon_EN"])) return false;
             if (enemy == "ReverseFalseHydra_EN" && !Tracker.Track("TortureMeNot_EN")) return false;
 
             return true;
