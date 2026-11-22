@@ -188,7 +188,7 @@ namespace SaltsEnemies_Reseasoned
 
             easy = new AddTo(Garden.H.Attrition.Easy);
             easy.SimpleAddGroup(2, "Attrition_EN", 1, Enemies.Troller);
-            easy = new AddTo(Garden.H.Git.Easy)l;
+            easy = new AddTo(Garden.H.Git.Easy);
             easy.SimpleAddGroup(2, "Git_EN", 1, Enemies.Troller);
             easy = new AddTo(Garden.H.Bonsai.Easy);
             easy.SimpleAddGroup(2, "Bonsai_EN", 1, Enemies.Troller);
