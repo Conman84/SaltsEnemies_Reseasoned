@@ -403,6 +403,142 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup("Lunoscope_EN", Troller, Bots.Grey);
 
             med = new AddTo(Garden.H.Panopticon.Med);
+            med.SimpleAddGroup(3, "Panopticon_EN", 1, Troller);
+            med.SimpleAddGroup(2, "Panopticon_EN", 2, Troller);
+            med.SimpleAddGroup(2, "Panpoticon_EN", 1, Troller, 1, "GlassFigurine_EN");
+            med.SimpleAddGroup(2, "Panpoticon_EN", 1, Troller, 1, "BlackStar_EN");
+            med.SimpleAddGroup(2, "Panpoticon_EN", 1, Troller, 1, "Vivarium_EN");
+            med.SimpleAddGroup(2, "Panpoticon_EN", 1, Troller, 1, "Damocles_EN");
+
+            med = new AddTo(Garden.H.Ecstasy99.Med);
+            med.SimpleAddGroup(3, Ecstasy.Gray, 1, Troller);
+            med.SimpleAddGroup(2, Ecstasy.Gray, 2, Troller);
+            med.SimpleAddGroup(2, Ecstasy.Gray, 1, Troller, 1, "PawnA_EN");
+            med.SimpleAddGroup(2, Ecstasy.Gray, 1, Troller, 1, Enemies.Shivering);
+            med.SimpleAddGroup(2, Ecstasy.Gray, 1, Troller, 1, "Indicator_EN");
+
+            med = new AddTo(Garden.H.Eclipse.Med);
+            med.SimpleAddGroup(1, Enemies.Eclipse, 2, Troller);
+            med.AddRandomGroup(Enemies.Eclipse, Troller, "PawnA_EN", "PawnA_EN");
+            med.AddRandomGroup(Enemies.Eclipse, Troller, "Panopticon_EN");
+            med.AddRandomGroup(Enemies.Eclipse, Troller, "Yang_EN");
+            med.AddRandomGroup(Enemies.Eclipse, Troller, "Celebration_EN");
+
+            hard = new AddTo(Garden.H.Eclipse.Hard);
+            hard.AddRandomGroup(Enemies.Eclipse, Enemies.Eclipse, Troller);
+            hard.SimpleAddGroup(1, Enemies.Eclipse, 3, Troller);
+            hard.AddRandomGroup(Enemies.Eclipse, Troller, "ChoirBoy_EN");
+            hard.AddRandomGroup(Enemies.Eclipse, Troller, Troller, "Vivarium_EN", "Vivarium_EN");
+
+            med = new AddTo(Garden.H.Celebration.Med);
+            med.SimpleAddGroup(1, "Celebration_EN", 2, Troller);
+            med.AddRandomGroup("Celebration_EN", Troller, "PawnA_EN", "PawnA_EN");
+            med.AddRandomGroup("Celebration_EN", Troller, "Panopticon_EN");
+            med.AddRandomGroup("Celebration_EN", Troller, "EvilDog_EN");
+            med.AddRandomGroup("Celebration_EN", Troller, Bots.Grey);
+
+            hard = new AddTo(Garden.H.Celebration.Hard);
+            hard.SimpleAddGroup(2, "Celebration_EN", 1, Troller);
+            hard.SimpleAddGroup(1, "Celebration_EN", 3, Troller);
+            hard.AddRandomGroup("Celebration_EN", Troller, Troller, "BlackStar_EN");
+            hard.AddRandomGroup("Celebration_EN", Troller, Troller, "PawnA_EN");
+            hard.AddRandomGroup("Celebration_EN", Troller, Troller, "WindSong_EN");
+
+            med = new AddTo(Garden.H.Lightbulbkin.Med);
+            med.SimpleAddGroup(2, "Lightbulbkin_EN", 1, Troller, 1, "BlackStar_EN");
+
+            //basegame!???
+            easy = new AddTo(Garden.H.InHerImage.Easy);
+            easy.SimpleAddGroup(2, "InHerImage_EN", 1, Troller);
+            easy = new AddTo(Garden.H.InHisImage.Easy);
+            easy.SimpleAddGroup(2, "InHisImage_EN", 1, Troller);
+
+            Image_Med(new AddTo(Garden.H.InHisImage.Med), "InHisImage_EN");
+            Image_Med(new AddTo(Garden.H.InHerImage.Med), "InHerImage_EN");
+
+            med = new AddTo(Garden.H.Skinning.Med);
+            med.AddRandomGroup(Enemies.Skinning, Troller, Troller);
+            med.AddRandomGroup(Enemies.Skinning, Troller, Enemies.Shivering);
+            med.AddRandomGroup(Enemies.Skinning, Troller,  "PawnA_EN");
+            med.AddRandomGroup(Enemies.Skinning, Troller, Troller, "BlackStar_EN");
+            med.AddRandomGroup(Enemies.Skinning, Troller, Troller, "Vivarium_EN");
+            med.AddRandomGroup(Enemies.Skinning, Troller, "Panopticon_EN");
+
+            hard = new AddTo(Garden.H.Skinning.Hard);
+            hard.AddRandomGroup(Enemies.Skinning, Troller, Troller, Troller);
+            hard.SimpleAddGroup(1, Enemies.Skinning, 1, Troller, 2, Enemies.Shivering);
+            hard.SimpleAddGroup(1, Enemies.Skinning, 1, Troller, 2, "PawnA_EN");
+            hard.AddRandomGroup(Enemies.Skinning, Troller, "Lunoscope_EN");
+            hard.AddRandomGroup(Enemies.Skinning, Troller, "ChoirBoy_EN");
+            hard.AddRandomGroup(Enemies.Skinning, "Satyr_EN", Troller);
+
+            easy = new AddTo(Garden.H.ChoirBoy.Easy);
+            easy.SimpleAddGroup(1, "ChoirBoy_EN", 2, Troller);
+
+            easy = new AddTo(Garden.H.Minister.Easy);
+            easy.AddRandomGroup(Enemies.Minister, Troller, Enemies.Shivering);
+            easy.AddRandomGroup(Enemies.Minister, Troller, "PawnA_EN");
+
+            med = new AddTo(Garden.H.Minister.Med);
+            med.SimpleAddGroup(1, Enemies.Minister, 2, Troller);
+            med.SimpleAddGroup(1, Enemies.Minister, 1, Troller, 1, "Indicator_EN");
+            med.SimpleAddGroup(1, Enemies.Minister, 2, Troller, 1, "Vivarium_EN");
+            med.AddRandomGroup(Enemies.Minister, Enemies.Troller, "PawnA_EN", "PawnA_EN");
+            med.AddRandomGroup(Enemies.Minister, Enemies.Troller, "BlackStar_EN", "BlackStar_EN");
+            med.AddRandomGroup(Enemies.Minister, Enemies.Troller, "Damocles_EN", "Damocles_EN");
+
+            hard = new AddTo(Garden.H.Minister.Hard);
+            hard.SimpleAddGroup(1, Enemies.Minister, 3, Troller);
+            hard.SimpleAddGroup(2, Enemies.Minister, 1, Troller);
+            hard.AddRandomGroup(Enemies.Minister, Troller, Troller, "ChoirBoy_EN");
+            hard.AddRandomGroup(Enemies.Minister, Troller, Troller, "Yang_EN");
+            hard.AddRandomGroup(Enemies.Minister, Troller, Troller, "Indicator_EN");
+            hard.AddRandomGroup(Enemies.Minister, Troller, Troller, "Shua_EN");
+
+            med = new AddTo(Garden.H.Foundling.Med);
+            med.AddRandomGroup(Enemies.Foundling, Troller, Troller);
+            med.AddRandomGroup(Enemies.Foundling, Enemies.Foundling, Troller);
+            med.AddRandomGroup(Enemies.Foundling, Troller, Flower.Red);
+            med.AddRandomGroup(Enemies.Foundling, Troller, Flower.Blue);
+            med.AddRandomGroup(Enemies.Foundling, Troller, "EyePalm_EN", "EyePalm_EN");
+            med.AddRandomGroup(Enemies.Foundling, Troller, "CorpseChan_EN");
+
+            hard = new AddTo(Garden.H.Foundling.Hard);
+            hard.SimpleAddGroup(1, Enemies.Foundling, 3, Troller);
+            hard.SimpleAddGroup(3, Enemies.Foundling, 1, Troller);
+            hard.SimpleAddGroup(2, Enemies.Foundling, 2, Troller);
+            hard.AddRandomGroup(Enemies.Foundling, Troller, Troller, "ChoirBoy_EN");
+            hard.AddRandomGroup(Enemies.Foundling, Troller, "Sundowner_EN", "Sundowner_EN");
+            hard.AddRandomGroup(Enemies.Foundling, Troller, Troller, "Celebration_EN");
+            hard.AddRandomGroup(Enemies.Foundling, Troller, "Starless_EN");
+        }
+
+        public static void Image_Med(AddTo med, string main)
+        {
+            med.SimpleAddGroup(2, main, 2, Troller);
+            med.SimpleAddGroup(3, main, 1, Troller);
+            med.SimpleAddGroup(2, main, 1, Troller, 2, "NextOfKin_EN");
+            med.SimpleAddGroup(2, main, 1, Troller, 1, "Panopticon_EN");
+            med.SimpleAddGroup(2, main, 1, Troller, 1, Ecstasy.Gray);
+            med.SimpleAddGroup(2, main, 1, Troller, 1, Flower.Red);
+            med.SimpleAddGroup(2, main, 1, Troller, 1, Flower.Blue);
+            med.SimpleAddGroup(2, main, 1, Troller, 1, "WindSong_EN");
+            med.SimpleAddGroup(2, main, 1, Troller, 1, "EvilDog_EN");
+            med.SimpleAddGroup(2, main, 1, Troller, 1, "MiniReaper_EN");
+            med.SimpleAddGroup(2, main, 1, Troller, 1, "GlassFigurine_EN");
+            med.SimpleAddGroup(2, main, 1, Troller, 1, "Damocles_EN");
+            med.SimpleAddGroup(2, main, 1, Troller, 1, Jumble.Gray);
+            med.SimpleAddGroup(2, main, 1, Troller, 1, Enemies.Camera);
+            med.SimpleAddGroup(2, main, 1, Troller, 1, "Indicator_EN");
+            med.SimpleAddGroup(2, main, 1, Troller, 1, "Children6_EN");
+            med.SimpleAddGroup(2, main, 1, Troller, 1, "BlackStar_EN");
+            med.SimpleAddGroup(2, main, 1, Troller, 2, "TortureMeNot_EN");
+            med.SimpleAddGroup(2, main, 1, Troller, 1, "PawnA_EN");
+            med.SimpleAddGroup(2, main, 1, Troller, 1, "EyePalm_EN");
+            med.SimpleAddGroup(2, main, 1, Troller, 1, "Vivarium_EN");
+            med.SimpleAddGroup(2, main, 1, Troller, 1, "Lightbulbkin_EN");
+            med.SimpleAddGroup(2, main, 1, Troller, 1, "Insider_EN");
+            med.SimpleAddGroup(2, main, 1, Troller, 1, "LittleAngel_EN");
         }
     }
 }
