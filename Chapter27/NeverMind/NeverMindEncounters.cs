@@ -20,9 +20,12 @@ namespace SaltsEnemies_Reseasoned
             med.RoarEvent = "event:/Hawthorne/Surround/CNSRoar";
 
             med.SimpleAddEncounter(2, "NeverMind_EN");
+            med.SimpleAddEncounter(1, "NeverMind_EN", 3, Enemies.Shivering);
+            med.AddRandomEncounter("NeverMind_EN", Enemies.Help, Enemies.Help);
+            med.AddRandomEncounter("NeverMind_EN", "OdeToHumanity_EN", "Indicator_EN");
 
             med.AddEncounterToDataBases();
-            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.NeverMind.Med, 9, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.NeverMind.Med, 8, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
         }
         public static void Add_Hard()
         {
@@ -32,9 +35,16 @@ namespace SaltsEnemies_Reseasoned
 
             med.SimpleAddEncounter(3, "NeverMind_EN");
             med.SimpleAddEncounter(2, "NeverMind_EN", 1, Spoggle.Grey);
+            med.SimpleAddEncounter(2, "NeverMind_EN", 1, Enemies.Foundling);
+            med.SimpleAddEncounter(1, "NeverMind_EN", 3, "InHerImage_EN");
 
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.NeverMind.Hard, 10, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
+        }
+
+        public static void Post()
+        {
+
         }
     }
 }

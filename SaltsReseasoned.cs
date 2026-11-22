@@ -495,6 +495,11 @@ namespace SaltsEnemies_Reseasoned
             PCall(MelderEncounters.Add);
             PCall(VivariumEncounters.Add);
 
+            //CH27 Encounters
+            PCall(NeverMindEncounters.Add);
+            //seven sins
+            PCall(TrollerEncounters.Add);
+
             //BOSSES
             //shore
             PCall(SmilerEncounter.Add);
