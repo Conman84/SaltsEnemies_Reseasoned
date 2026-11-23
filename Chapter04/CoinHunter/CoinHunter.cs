@@ -211,11 +211,11 @@ namespace SaltsEnemies_Reseasoned
             
 
             Ability midas = new Ability("Midas", "Shiny_Midas_A");
-            midas.Description = "Steal 16 Coins.\nIf less than 20 Coins were stolen, turn all Favored party members into gold and destroy them.\nIf no party members are Favored, takes a Little damage.";
+            midas.Description = "Steal 16 Coins.\nIf less than 16 Coins were stolen, turn all Favored party members into gold and destroy them.\nIf no party members are Favored, takes a Little damage.";
             midas.Rarity = Rarity.GetCustomRarity("rarity5");
             midas.Effects = [
                 Effects.GenerateEffect(steal, 16, Slots.Self),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<PrevExitMeetsEntryEffect>(), 20),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<PrevExitMeetsEntryEffect>(), 16),
                 Effects.GenerateEffect(turngold, 0, null, BasicEffects.DidThat(false)),
                 Effects.GenerateEffect(cashout, 1, isfavor, BasicEffects.DidThat(false, 2)),
                 Effects.GenerateEffect(damage, 16, isfavor, BasicEffects.DidThat(false, 3)),
