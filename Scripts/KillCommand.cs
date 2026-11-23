@@ -70,7 +70,8 @@ namespace SaltsEnemies_Reseasoned
 
                     foreach (CharacterInGameData chara in LoadedDBsHandler.InfoHolder.Run.playerData._characterList)
                     {
-                        if (chara.Character == null || chara.Character.Equals(null)) return;
+                        if (chara == null || chara.Equals(null)) continue;
+                        if (chara.Character == null || chara.Character.Equals(null)) continue;
 
                         chara.CurrentHealth = chara.MaxHealth;
 
