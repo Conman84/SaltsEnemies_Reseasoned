@@ -23,7 +23,7 @@ namespace SaltEnemies_Reseasoned
             SlipInfo.icon = ResourceLoader.LoadSprite("SlipIcon.png");
             SlipInfo._fieldName = "Slip";
             SlipInfo._description = "On moving into Slip, decrease Slip by 1 and move again in the same direction.";
-            SlipInfo._applied_SE_Event = "event:/Hawthorne/Misc4/Slip_Apply"t;
+            SlipInfo._applied_SE_Event = "event:/Hawthorne/Misc4/Slip_Apply";
             SlipInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             SlipInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 
