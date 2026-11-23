@@ -50,7 +50,7 @@ namespace SaltsEnemies_Reseasoned
                 int val = LoadedDBsHandler.InfoHolder.Run.inGameData.GetIntData("youareafuckingTROGLODITE!!!!!");
                 ThisValue1++;
                 val++;
-                bool amount = ThisValue1 <= 2 && val <= 5;
+                bool amount = ThisValue1 <= 5 && val <= 5;
                 LoadedDBsHandler.InfoHolder.Run.inGameData.SetIntData("youareafuckingTROGLODITE!!!!!", val);
                 //if (args[0].TryRead<bool>(out bool input)) amount = input;
 
