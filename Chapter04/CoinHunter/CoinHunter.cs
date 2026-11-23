@@ -239,12 +239,12 @@ namespace SaltsEnemies_Reseasoned
             peck.Rarity = Rarity.Common;
             peck.Effects = new EffectInfo[]
             {
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<CoinFlipDeathWithRerollEffect>(), 1, Targeting.Slot_Front),
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Gaze", false, Slots.Self), 0, null, nofront),
                 Effects.GenerateEffect(favor, 1, Targeting.Unit_AllOpponents, nofront),
                 Effects.GenerateEffect(damage, 2, Slots.Self, nofront),
                 Effects.GenerateEffect(damage, 2, Slots.Self, peckcon),
                 Effects.GenerateEffect(damage, 2, Slots.Self, peckcon),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<CoinFlipDeathWithRerollEffect>(), 1, Targeting.Slot_Front),
             };
             peck.Visuals = null;
             peck.AnimationTarget = Targeting.Slot_Front;
