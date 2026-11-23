@@ -17,7 +17,7 @@ namespace SaltEnemies_Reseasoned
             PimplesInfo.icon = ResourceLoader.LoadSprite("PimplesIcon.png");
             PimplesInfo._statusName = "Pimples";
             PimplesInfo._description = "On a unit moving in front of this unit, generate 1 pigment of this unit's health color.\nReduce by 1 on turn end.";
-            PimplesInfo._applied_SE_Event = "event:/Hawthorne/Misc4/Pimples_Apply"t;
+            PimplesInfo._applied_SE_Event = "event:/Hawthorne/Misc4/Pimples_Apply";
             PimplesInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Ruptured_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             PimplesInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Ruptured_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 
