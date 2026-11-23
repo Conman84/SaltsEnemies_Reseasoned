@@ -275,7 +275,7 @@ namespace SaltsEnemies_Reseasoned
             clone.passiveAbilities.Add(Passives.Withering);
             clone.passiveAbilities.Add(Passives.Fleeting4);
 
-            LoadedAssetsHandler.LoadedEnemies.Add("Shiny_MoneyPile_EN", clone);
+            LoadedDBsHandler.EnemyDB.AddNewEnemy("Shiny_MoneyPile_EN", clone);
         }
     }
 }
