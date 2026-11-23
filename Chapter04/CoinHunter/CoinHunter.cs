@@ -230,21 +230,22 @@ namespace SaltsEnemies_Reseasoned
 
             IsFrontTargetCondition nofront = IsFrontTargetCondition.Create(false);
             DoubleEffectCondition peckcon = ScriptableObject.CreateInstance<DoubleEffectCondition>();
+            peckcon.And = true;
             peckcon.first = isplayer;
             peckcon.second = nofront;
 
             //Peck
             Ability peck = new Ability("Peck", "Salt_Peck_A");
             peck.Description = "Flip a Coin. If unsuccessful, instantly kill the Opposing party member.\nTake as many tries as you can afford.\nIf there is no Opposing party member, Favorite a random party member and takes a Little damage. If it is also currently the Player's turn, takes a Little damage another two times.";
-            peck.Rarity = Rarity.Common;
+            peck.Rarity = Rarity.GetCustomRarity("rarity5");
             peck.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<CoinFlipDeathWithRerollEffect>(), 1, Targeting.Slot_Front),
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Gaze", false, Slots.Self), 0, null, nofront),
                 Effects.GenerateEffect(favor, 1, Targeting.Unit_AllOpponents, nofront),
                 Effects.GenerateEffect(damage, 2, Slots.Self, nofront),
                 Effects.GenerateEffect(damage, 2, Slots.Self, peckcon),
                 Effects.GenerateEffect(damage, 2, Slots.Self, peckcon),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<CoinFlipDeathWithRerollEffect>(), 1, Targeting.Slot_Front),
             };
             peck.Visuals = null;
             peck.AnimationTarget = Targeting.Slot_Front;
