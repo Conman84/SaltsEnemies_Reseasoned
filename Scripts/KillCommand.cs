@@ -397,14 +397,23 @@ namespace SaltsEnemies_Reseasoned
                 int amount = -1;
                 if (args[0].TryRead<int>(out int input)) amount = input;
 
+                if (amount == -1)
+                {
+                    Debug.Log("CURRENT SAVE FILE SLOTID: " + SaveDataManager_2024.CURRENTSLOTID);
+                    Debug.Log("CURRENT SAVE FILE SLOT NUM: " + SaveDataManager_2024.SaveSlot.ToString());
+                }
+
                 if (amount == 65) LoadedDBsHandler.InfoHolder.Run.inGameData.SetBoolData(ShinyHandler.InRunData, false);
                 if (amount == 99) Legacy.Update();
 
                 if (amount == 301) NeverMind.ForceCensor(false);
                 if (amount == 300) NeverMind.ForceCensor(true);
 
-                Debug.Log("CURRENT SAVE FILE SLOTID: " + SaveDataManager_2024.CURRENTSLOTID);
-                Debug.Log("CURRENT SAVE FILE SLOT NUM: " + SaveDataManager_2024.SaveSlot.ToString());
+                if (amount == 365)
+                {
+                    SolitaireHandler.DreamScanner = 0;
+                    CombatManager.Instance._informationHolder.Run.inGameData.SetIntData("DreamScanner", 0);
+                }
 
                 if (CombatManager._instance == null)
                 {
@@ -412,11 +421,6 @@ namespace SaltsEnemies_Reseasoned
 
                     return;
                 }
-                CombatManager.Instance.AddPriorityRootAction(new PerformDelegateAction(delegate (CombatStats x)
-                {
-                    SolitaireHandler.DreamScanner = 0;
-                    CombatManager.Instance._informationHolder.Run.inGameData.SetIntData("DreamScanner", 0);
-                }));
                 DebugController.Instance.WriteLine("the command ran.");
             });
 
