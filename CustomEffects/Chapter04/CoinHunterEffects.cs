@@ -137,4 +137,33 @@ namespace SaltEnemies_Reseasoned
             return false;
         }
     }
+
+    public class StealCoinsFromTargetEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+            foreach (TargetSlotInfo target in targets)
+            {
+                if (target.HasUnit)
+                {
+                    int num = stats.TryLoseCurrency(entryVariable, true);
+                    CombatManager.Instance.AddUIAction(new PlayCurrencyEffectUIAction(target.Unit.ID, target.Unit.IsUnitCharacter, -num, isMultiplier: false));
+                    exitAmount += num;
+                }
+            }
+            return exitAmount > 0;
+        }
+    }
+    public class NoPartyFavoredEffectCondition : EffectConditionSO
+    {
+        public override bool MeetCondition(IUnit caster, EffectInfo[] effects, int currentIndex)
+        {
+            foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values)
+            {
+                if (chara.ContainsStatusEffect(Favor.StatusID)) return false;
+            }
+            return true;
+        }
+    }
 }

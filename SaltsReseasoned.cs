@@ -355,6 +355,7 @@ namespace SaltsEnemies_Reseasoned
             MechanicalLensEncounters.Add();
             MortalSpoggleEncounters.Add();
             RusticJumbleGutsEncounter.Add();
+            PCall(ShinyEncounters.Add);
 
             //CH6 Encounters
             DelusionEncounters.Add();

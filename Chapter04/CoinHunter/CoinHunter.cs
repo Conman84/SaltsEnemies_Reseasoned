@@ -105,7 +105,7 @@ namespace SaltsEnemies_Reseasoned
 
             CoinHunter.CombatEnterEffects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Targeting.Slot_SelfSlot),
+                //Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Targeting.Slot_SelfSlot),
             };
 
             CoinHunter.AddLootData(new EnemyLootItemProbability[2]
@@ -124,6 +124,14 @@ namespace SaltsEnemies_Reseasoned
                 }
             });
 
+            DamageEffect damage = ScriptableObject.CreateInstance<DamageEffect>();
+            StealCoinsFromTargetEffect steal = ScriptableObject.CreateInstance<StealCoinsFromTargetEffect>();
+            IsPlayerTurnEffectCondition isplayer = ScriptableObject.CreateInstance<IsPlayerTurnEffectCondition>();
+            ApplyFavorSingleEffect favor = ScriptableObject.CreateInstance<ApplyFavorSingleEffect>();
+            TargettingByStatusEffect isfavor = TargettingByStatusEffect.Create(Targeting.Unit_AllOpponents, Favor.StatusID, true);
+            AddPassiveWithDisplayEffect cashout = ScriptableObject.CreateInstance<AddPassiveWithDisplayEffect>();
+            cashout.passive = Passives.Cashout;
+
             //Emission
             Ability emission = new Ability("Volatile Emission", "Salt_VolatileEmission_A");
             emission.Description = "Inflict 1 Fire on the Left, Right, and Opposing party member spaces.";
@@ -139,30 +147,100 @@ namespace SaltsEnemies_Reseasoned
                 "Field_Fire"
             });
 
+            Ability pyramid = new Ability("Pyramid Scheme", "Shiny_Pyramid_A");
+            pyramid.Description = "Steal 5 Coins from all party members.\nIf no Coins were stolen, deal a Painful amount of damage to all party members and Favorite the Opposing party member.\nIf it is currently the Player's turn, takes a Little damage.";
+            pyramid.Rarity = Rarity.CreateAndAddCustomRarityToPool("shiny_7", 7);
+            pyramid.Effects = [
+                Effects.GenerateEffect(steal, 5, Targeting.Unit_AllOpponents),
+                Effects.GenerateEffect(BasicEffects.GetVisuals("Talons_A", false, Targeting.Unit_AllOpponents), 0, null, BasicEffects.DidThat(false)),
+                Effects.GenerateEffect(damage, 4, Targeting.Unit_AllOpponents, BasicEffects.DidThat(false, 2)),
+                Effects.GenerateEffect(favor, 1, Slots.Front, BasicEffects.DidThat(false, 3)),
+                Effects.GenerateEffect(damage, 2, Slots.Self, isplayer)
+                ];
+            pyramid.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Currency", "Damage_3_6"]);
+            pyramid.AddIntentsToTarget(Slots.Front, ["Status_Favor"]);
+            pyramid.AddIntentsToTarget(Slots.Self, ["Damage_1_2"]);
+            pyramid.Visuals = Visuals.Slap;
+            pyramid.AnimationTarget = Targeting.Unit_AllOpponents;
+
             //Wingbeat
             Ability wingbeat = new Ability("Wingbeat", "Salt_Wingbeat_A");
-            wingbeat.Description = "Deal a painful amount of damage to the Left and Right party members. Apply Favor to one of them.";
-            wingbeat.Rarity = Rarity.GetCustomRarity("rarity5");
+            wingbeat.Description = "Deal an Agonizing amount of damage to the Left and Right party members and Favorite one of them.\nIf it is currently the Player's turn, takes a Little damage three times.";
+            wingbeat.Rarity = Rarity.GetCustomRarity("shiny_7");
             wingbeat.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Targeting.Slot_OpponentSides),
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFavorSingleEffect>(), 1, Targeting.Slot_OpponentSides),
+                Effects.GenerateEffect(damage, 8, Slots.LeftRight),
+                Effects.GenerateEffect(favor, 1, Slots.LeftRight),
+                Effects.GenerateEffect(damage, 2, Slots.Self, isplayer),
+                Effects.GenerateEffect(damage, 2, Slots.Self, isplayer),
+                Effects.GenerateEffect(damage, 2, Slots.Self, isplayer),
+
             };
-            wingbeat.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
+            wingbeat.Visuals = CustomVisuals.GetVisuals("Salt/Nailing");
             wingbeat.AnimationTarget = Targeting.Slot_OpponentSides;
             wingbeat.AddIntentsToTarget(Targeting.Slot_OpponentSides, new string[]
             {
-                "Damage_3_6",
+                "Damage_7_10",
                 "Status_Favor"
             });
+            wingbeat.AddIntentsToTarget(Slots.Self, ["Damage_1_2", "Damage_1_2", "Damage_1_2"]);
+
+            Ability pick = new Ability("Pick-Pocket", "Shiny_Pocket_A");
+            pick.Description = "Steal 10 Coins from the Left, Right, and Opposing party members.\nIf no Coins were stolen deal a Deadly amount of damage to the Opposing party member and Favorite one of the Left, Right, or Opposing party members.\nIf it is currently the Player's turn, takes a Little damage.";
+            pick.Rarity = Rarity.GetCustomRarity("shiny_7");
+            pick.Effects = [
+                Effects.GenerateEffect(steal, 10, Slots.FrontLeftRight),
+                Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Hunt", false, Slots.Front), 0, null, BasicEffects.DidThat(false)),
+                Effects.GenerateEffect(damage, 12, Slots.Front, BasicEffects.DidThat(false, 2)),
+                Effects.GenerateEffect(favor, 1, Slots.FrontLeftRight, BasicEffects.DidThat(false, 3)),
+                Effects.GenerateEffect(damage, 2, Slots.Self, isplayer)
+                ];
+            pick.AddIntentsToTarget(Slots.FrontLeftRight, ["Misc_Currency"]);
+            pick.AddIntentsToTarget(Slots.Front, ["Damage_11_15"]);
+            pick.AddIntentsToTarget(Slots.FrontLeftRight, [Favor.Intent]);
+            pick.AddIntentsToTarget(Slots.Self, ["Damage_1_2"]);
+            pick.Visuals = Visuals.Slap;
+            pick.AnimationTarget = Slots.FrontLeftRight;
+
+            AnimationVisualsEffect turngold = ScriptableObject.CreateInstance<AnimationVisualsEffect>();
+            turngold._visuals = LoadedAssetsHandler.GetEnemy("UnfinishedHeir_BOSS").abilities[2].ability.visuals;
+            //turngold._visuals = Visuals.Scales;
+            turngold._animationTarget = isfavor;
+
+            
+
+            Ability midas = new Ability("Midas", "Shiny_Midas_A");
+            midas.Description = "Steal 20 Coins.\nIf less than 20 Coins were stolen, turn all Favored party members into gold and destroy them.\nIf no party members are Favored, takes a Little damage.";
+            midas.Rarity = Rarity.GetCustomRarity("rarity5");
+            midas.Effects = [
+                Effects.GenerateEffect(steal, 20, Slots.Self),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<PrevExitMeetsEntryEffect>(), 20),
+                Effects.GenerateEffect(turngold, 0, null, BasicEffects.DidThat(false)),
+                Effects.GenerateEffect(cashout, 1, isfavor, BasicEffects.DidThat(false, 2)),
+                Effects.GenerateEffect(damage, 16, isfavor, BasicEffects.DidThat(false, 3)),
+                Effects.GenerateEffect(damage, 2, Slots.Self, ScriptableObject.CreateInstance<NoPartyFavoredEffectCondition>())
+                ];
+            midas.AddIntentsToTarget(Slots.Self, ["Misc_Currency"]);
+            midas.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Misc_Hidden"]);
+            midas.AddIntentsToTarget(isfavor, ["Damage_16_20"]);
+            midas.AddIntentsToTarget(Slots.Self, ["Damage_1_2"]);
+            midas.Visuals = Visuals.Scales;
+            midas.AnimationTarget = Slots.Self;
+
+            IsFrontTargetCondition nofront = IsFrontTargetCondition.Create(false);
 
             //Peck
             Ability peck = new Ability("Peck", "Salt_Peck_A");
-            peck.Description = "Flip a coin. If unsuccessful, instantly kill the Opposing party member.";
-            peck.Rarity = Rarity.GetCustomRarity("rarity5");
+            peck.Description = "Flip a Coin. If unsuccessful, instantly kill the Opposing party member.\nTake as many tries as you can afford.\nFavorite a random party member and takes a Little damage three times if there is no Opposing party member.";
+            peck.Rarity = Rarity.CreateAndAddCustomRarityToPool("shiny_15", 15);
             peck.Effects = new EffectInfo[]
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<CoinFlipDeathWithRerollEffect>(), 1, Targeting.Slot_Front),
+                Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Gaze", false, Slots.Self), 0, null, nofront),
+                Effects.GenerateEffect(favor, 1, Targeting.Unit_AllOpponents, nofront),
+                Effects.GenerateEffect(damage, 2, Slots.Self, nofront),
+                Effects.GenerateEffect(damage, 2, Slots.Self, nofront),
+                Effects.GenerateEffect(damage, 2, Slots.Self, nofront),
             };
             peck.Visuals = null;
             peck.AnimationTarget = Targeting.Slot_Front;
@@ -171,15 +249,20 @@ namespace SaltsEnemies_Reseasoned
                 "Misc_Currency",
                 "Damage_Death"
             });
+            peck.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Status_Favor"]);
+            peck.AddIntentsToTarget(Slots.Self, ["Damage_1_2", "Damage_1_2", "Damage_1_2"]);
 
             //Add
             CoinHunter.AddEnemyAbilities(new EnemyAbilityInfo[]
             {
-                emission.GenerateEnemyAbility(true),
+                //emission.GenerateEnemyAbility(true),
+                pyramid.GenerateEnemyAbility(true),
                 wingbeat.GenerateEnemyAbility(true),
+                pick.GenerateEnemyAbility(true),
+                midas.GenerateEnemyAbility(true),
                 peck.GenerateEnemyAbility(true),
             });
-            CoinHunter.AddEnemy(false, false, false);
+            CoinHunter.AddEnemy(true, false, false);
         }
     }
 }
