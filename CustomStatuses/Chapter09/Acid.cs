@@ -28,14 +28,14 @@ namespace SaltEnemies_Reseasoned
             if (LoadedDBsHandler.CombatDB.m_TxtColorPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_TxtColorPool[DamageType] = acidGradient;
             else LoadedDBsHandler.CombatDB.AddNewTextColor(DamageType, acidGradient);
 
-            if (LoadedDBsHandler.CombatDB.m_SoundPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_SoundPool[DamageType] = LoadedDBsHandler.CombatDB.m_SoundPool[CombatType_GameIDs.Dmg_Ruptured.ToString()];
-            else LoadedDBsHandler.CombatDB.AddNewSound(DamageType, LoadedDBsHandler.CombatDB.m_SoundPool[CombatType_GameIDs.Dmg_Ruptured.ToString()]);
+            if (LoadedDBsHandler.CombatDB.m_SoundPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_SoundPool[DamageType] = "event:/Hawthorne/Misc4/Acid_Dmg";
+            else LoadedDBsHandler.CombatDB.AddNewSound(DamageType, "event:/Hawthorne/Misc4/Acid_Dmg");
 
             StatusEffectInfoSO AcidInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             AcidInfo.icon = ResourceLoader.LoadSprite("Acid.png");
             AcidInfo._statusName = "Acid";
             AcidInfo._description = "On using an ability, take 3 indirect damage. Reduce Acid by 1 at the end of each turn.";
-            AcidInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Ruptured_ID.ToString()]._EffectInfo._applied_SE_Event;
+            AcidInfo._applied_SE_Event = "event:/Hawthorne/Misc4/Acid_Apply";
             AcidInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Ruptured_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             AcidInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Ruptured_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 

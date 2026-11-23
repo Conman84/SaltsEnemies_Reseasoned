@@ -46,7 +46,7 @@ namespace SaltEnemies_Reseasoned
             WaterInfo.icon = ResourceLoader.LoadSprite("DeepFieldIcon.png");
             WaterInfo._fieldName = "Deep Water";
             WaterInfo._description = "On moving into Deep Water, inflict 1 Drowning on this unit. Double all Drowning on this unit at the end of each round. \nDecreases by 1 at the end of each turn.";
-            WaterInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo._applied_SE_Event;
+            WaterInfo._applied_SE_Event = "event:/Hawthorne/Misc4/DpWater_Apply";
             WaterInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             WaterInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
             

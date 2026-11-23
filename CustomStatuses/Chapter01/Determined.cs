@@ -34,7 +34,7 @@ namespace SaltEnemies_Reseasoned
             DeterminedInfo.icon = ResourceLoader.LoadSprite("Determined.png");
             DeterminedInfo._statusName = "Determined";
             DeterminedInfo._description = "Upon dying, prevent death and indirectly heal this character however many stacks of Determined they have. Remove all Determined. Decreases by 1 at the start of each turn. Does not work on Cursed, Dying or Inanimate units.";
-            DeterminedInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo._applied_SE_Event;
+            DeterminedInfo._applied_SE_Event = "event:/Hawthorne/Misc4/Det_Apply";
             DeterminedInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             DeterminedInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 

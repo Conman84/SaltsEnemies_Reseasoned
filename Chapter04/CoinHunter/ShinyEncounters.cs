@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
             Portals.AddPortalSign("Salt_ShinyEncounter_Sign", ResourceLoader.LoadSprite("ShinyWorld.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Orph.H.Shiny.Hard, "Salt_ShinyEncounter_Sign");
-            med.MusicEvent = "event:/Hawthorne/NewCoffinTheme";
+            med.MusicEvent = "event:/Hawthorne/ShinySong";
             med.RoarEvent = "event:/Hawthorne/Nois2/CrowRoar";
 
             med.SimpleAddEncounter(1, "CoinHunter_EN", 4, "Bronzo_MoneyPile_EN");

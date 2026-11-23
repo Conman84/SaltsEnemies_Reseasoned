@@ -27,7 +27,7 @@ namespace SaltEnemies_Reseasoned
             InspireInfo.icon = ResourceLoader.LoadSprite("InspirationIcon");
             InspireInfo._statusName = "Inspiration";
             InspireInfo._description = "On taking damage, transfer Inspiration to the attacker and give them another action.\nOn dealing damage, transfer Inspiration to the target and give them another action.";//note: i changed it. cuz the old way it decreased sucked
-            InspireInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo._applied_SE_Event;
+            InspireInfo._applied_SE_Event = "event:/Hawthorne/Misc4/Inspiration_Apply";
             InspireInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             InspireInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Focused_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 

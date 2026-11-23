@@ -14,6 +14,7 @@ namespace SaltsEnemies_Reseasoned
         public static string StatusID => "Magnetism_ID";
         public static string Intent => "Status_Magnetism";
         public static StatusEffect_SO Object;
+        public static StatusEffect_SO Alt;
 
         public static string DamageType => "Damage_Magnetism";
 
@@ -28,14 +29,14 @@ namespace SaltsEnemies_Reseasoned
             if (LoadedDBsHandler.CombatDB.m_TxtColorPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_TxtColorPool[DamageType] = gradient;
             else LoadedDBsHandler.CombatDB.AddNewTextColor(DamageType, gradient);
 
-            if (LoadedDBsHandler.CombatDB.m_SoundPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_SoundPool[DamageType] = "event:/Hawthorne/Misc3/KarmaDamage";
-            else LoadedDBsHandler.CombatDB.AddNewSound(DamageType, "event:/Hawthorne/Misc3/KarmaDamage");
+            if (LoadedDBsHandler.CombatDB.m_SoundPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_SoundPool[DamageType] = "event:/Hawthorne/Misc4/Magnet_Dmg";
+            else LoadedDBsHandler.CombatDB.AddNewSound(DamageType, "event:/Hawthorne/Misc4/Magnet_Dmg");
 
             StatusEffectInfoSO magnetismInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             magnetismInfo.icon = ResourceLoader.LoadSprite("MagnetismIcon.png");
             magnetismInfo._statusName = "Magnetism";
             magnetismInfo._description = "At the end of the player's turn, take direct damage equal to Magnetism.\nAll Magnetism is transferred to the target upon attacking.\nAll Magnetism is transferred to the attacker upon being damaged, if the attacker did not already have Magnetism.";
-            magnetismInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo._applied_SE_Event;
+            magnetismInfo._applied_SE_Event = "event:/Hawthorne/Misc4/Magnet_Apply";
             magnetismInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             magnetismInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 
@@ -45,6 +46,19 @@ namespace SaltsEnemies_Reseasoned
             Object = magnetismSO;
             if (LoadedDBsHandler.StatusFieldDB._StatusEffects.ContainsKey(StatusID)) LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusID] = magnetismSO;
             else LoadedDBsHandler.StatusFieldDB.AddNewStatusEffect(magnetismSO);
+
+            StatusEffectInfoSO altInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
+            altInfo.icon = ResourceLoader.LoadSprite("MagnetismIcon.png");
+            altInfo._statusName = "Magnetism";
+            altInfo._description = "At the end of the player's turn, take direct damage equal to Magnetism.\nAll Magnetism is transferred to the target upon attacking.\nAll Magnetism is transferred to the attacker upon being damaged, if the attacker did not already have Magnetism.";
+            altInfo._applied_SE_Event = "event:/Hawthorne/Misc4/Magnet_Transfer";
+            altInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo.RemovedSoundEvent;
+            altInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Linked_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
+
+            MagnetismSE_SO altSO = ScriptableObject.CreateInstance<MagnetismSE_SO>();
+            altSO._StatusID = StatusID;
+            altSO._EffectInfo = magnetismInfo;
+            Alt = altSO;
 
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
@@ -116,7 +130,7 @@ namespace SaltsEnemies_Reseasoned
         public override IEnumerator Execute(CombatStats stats)
         {
             source.TryRemoveStatusEffect(Magnetism.StatusID);
-            target.ApplyStatusEffect(Magnetism.Object, amt);
+            target.ApplyStatusEffect(Magnetism.Alt, amt);
             yield return null;
         }
     }
@@ -132,7 +146,7 @@ namespace SaltsEnemies_Reseasoned
 
         public override IEnumerator Execute(CombatStats stats)
         {
-            target.ApplyStatusEffect(Magnetism.Object, amt);
+            target.ApplyStatusEffect(Magnetism.Alt, amt);
             yield return null;
         }
     }

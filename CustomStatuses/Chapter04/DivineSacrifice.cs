@@ -18,7 +18,7 @@ namespace SaltEnemies_Reseasoned
             DivineSacrificeInfo.icon = ResourceLoader.LoadSprite("DivineSacrifice.png");
             DivineSacrificeInfo._statusName = "Divine Sacrifice";
             DivineSacrificeInfo._description = "Triple all Divine Protection damage this character takes. This character is temporarily immune to Divine Protection. Reduce by 1 at the end of each turn.";
-            DivineSacrificeInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Cursed_ID.ToString()]._EffectInfo.AppliedSoundEvent;
+            DivineSacrificeInfo._applied_SE_Event = "event:/Hawthorne/Misc4/DS_Apply";
             DivineSacrificeInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Cursed_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             DivineSacrificeInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Cursed_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 

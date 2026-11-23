@@ -19,7 +19,7 @@ namespace SaltEnemies_Reseasoned
             MoldInfo.icon = ResourceLoader.LoadSprite("MoldIcon.png");
             MoldInfo._fieldName = "Mold";
             MoldInfo._description = "While in mold, on being directly damaged or healed consume 1 pigment of this unit's health color and reduce Mold by the amount damaged or healed.\nOn using an ability while in Mold, randomize the unit's health color.";
-            MoldInfo._applied_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Scars_ID.ToString()]._EffectInfo._applied_SE_Event;
+            MoldInfo._applied_SE_Event = "event:/Hawthorne/Misc4/Mold_Apply";
             MoldInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Scars_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             MoldInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Scars_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
 
