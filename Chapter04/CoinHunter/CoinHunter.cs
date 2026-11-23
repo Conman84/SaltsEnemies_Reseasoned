@@ -149,10 +149,10 @@ namespace SaltsEnemies_Reseasoned
             });
 
             Ability pyramid = new Ability("Pyramid Scheme", "Shiny_Pyramid_A");
-            pyramid.Description = "Steal 5 Coins from all party members.\nIf no Coins were stolen, deal a Painful amount of damage to all party members and Favorite the Opposing party member.\nIf it is currently the Player's turn, takes a Little damage.";
+            pyramid.Description = "Steal 3 Coins from all party members.\nIf no Coins were stolen, deal a Painful amount of damage to all party members and Favorite the Opposing party member.\nIf it is currently the Player's turn, takes a Little damage.";
             pyramid.Rarity = Rarity.CreateAndAddCustomRarityToPool("shiny_7", 7);
             pyramid.Effects = [
-                Effects.GenerateEffect(steal, 5, Targeting.Unit_AllOpponents),
+                Effects.GenerateEffect(steal, 3, Targeting.Unit_AllOpponents),
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Talons_A", false, Targeting.Unit_AllOpponents), 0, null, BasicEffects.DidThat(false)),
                 Effects.GenerateEffect(damage, 4, Targeting.Unit_AllOpponents, BasicEffects.DidThat(false, 2)),
                 Effects.GenerateEffect(favor, 1, Slots.Front, BasicEffects.DidThat(false, 3)),
@@ -187,10 +187,10 @@ namespace SaltsEnemies_Reseasoned
             wingbeat.AddIntentsToTarget(Slots.Self, ["Damage_1_2", "Damage_1_2", "Damage_1_2"]);
 
             Ability pick = new Ability("Pick-Pocket", "Shiny_Pocket_A");
-            pick.Description = "Steal 10 Coins from the Left, Right, and Opposing party members.\nIf no Coins were stolen deal a Deadly amount of damage to the Opposing party member and Favorite one of the Left, Right, or Opposing party members.\nIf it is currently the Player's turn, takes a Little damage.";
+            pick.Description = "Steal 7 Coins from the Left, Right, and Opposing party members.\nIf no Coins were stolen deal a Deadly amount of damage to the Opposing party member and Favorite one of the Left, Right, or Opposing party members.\nIf it is currently the Player's turn, takes a Little damage.";
             pick.Rarity = Rarity.GetCustomRarity("shiny_7");
             pick.Effects = [
-                Effects.GenerateEffect(steal, 10, Slots.FrontLeftRight),
+                Effects.GenerateEffect(steal, 7, Slots.FrontLeftRight),
                 Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Hunt", false, Slots.Front), 0, null, BasicEffects.DidThat(false)),
                 Effects.GenerateEffect(damage, 12, Slots.Front, BasicEffects.DidThat(false, 2)),
                 Effects.GenerateEffect(favor, 1, Slots.FrontLeftRight, BasicEffects.DidThat(false, 3)),
@@ -211,10 +211,10 @@ namespace SaltsEnemies_Reseasoned
             
 
             Ability midas = new Ability("Midas", "Shiny_Midas_A");
-            midas.Description = "Steal 20 Coins.\nIf less than 20 Coins were stolen, turn all Favored party members into gold and destroy them.\nIf no party members are Favored, takes a Little damage.";
+            midas.Description = "Steal 16 Coins.\nIf less than 20 Coins were stolen, turn all Favored party members into gold and destroy them.\nIf no party members are Favored, takes a Little damage.";
             midas.Rarity = Rarity.GetCustomRarity("rarity5");
             midas.Effects = [
-                Effects.GenerateEffect(steal, 20, Slots.Self),
+                Effects.GenerateEffect(steal, 16, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<PrevExitMeetsEntryEffect>(), 20),
                 Effects.GenerateEffect(turngold, 0, null, BasicEffects.DidThat(false)),
                 Effects.GenerateEffect(cashout, 1, isfavor, BasicEffects.DidThat(false, 2)),
