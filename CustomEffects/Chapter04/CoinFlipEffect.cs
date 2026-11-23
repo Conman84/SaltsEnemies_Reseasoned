@@ -431,7 +431,7 @@ namespace SaltEnemies_Reseasoned
             if (questionGO != null)
             {
                 //Debug.Log("heads gameobject not null");
-                questionGO.transform.position += new Vector3(-1f, 1.2f, 0);
+                questionGO.transform.position += new Vector3(-1f, 0.9f, 0);
                 Vector3 newScale = questionGO.transform.localScale;
                 newScale.y *= 2f;
                 questionGO.transform.localScale = newScale;
@@ -707,7 +707,7 @@ namespace SaltEnemies_Reseasoned
                 {
                     CombatManager.Instance.AddUIAction(new PlayCurrencyEffectUIAction(_caster.ID, _caster.IsUnitCharacter, -cost, isMultiplier: false));
                 }
-                CombatManager.Instance.AddUIAction(new ShowCombatCurrencyEffectUIAction(false));
+                //CombatManager.Instance.AddUIAction(new ShowCombatCurrencyEffectUIAction(false));
                 CoinHunterCostHandler.increaseCostMod(10);
                 SecondChance.costMod = CoinHunterCostHandler.Numbah;
 

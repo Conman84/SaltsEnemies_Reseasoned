@@ -10,7 +10,7 @@ namespace SaltsEnemies_Reseasoned
     {
         public static void Add()
         {
-            Portals.AddPortalSign("Salt_ShinyEncounter_Sign", ResourceLoader.LoadSprite("ShinyWorld.png"), Portals.EnemyIDColor);
+            Portals.AddPortalSign("Salt_ShinyEncounter_Sign", ResourceLoader.LoadSprite("ShinyIcon.png"), Portals.EnemyIDColor);
 
             EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Orph.H.Shiny.Hard, "Salt_ShinyEncounter_Sign");
             med.MusicEvent = "event:/Hawthorne/ShinySong";

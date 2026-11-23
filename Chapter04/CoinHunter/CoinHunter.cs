@@ -106,6 +106,7 @@ namespace SaltsEnemies_Reseasoned
             CoinHunter.CombatEnterEffects = new EffectInfo[]
             {
                 //Effects.GenerateEffect(ScriptableObject.CreateInstance<AddTurnCasterToTimelineEffect>(), 1, Targeting.Slot_SelfSlot),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ShowPlayerCurrencyEffect>()),
             };
 
             CoinHunter.AddLootData(new EnemyLootItemProbability[2]
@@ -251,6 +252,8 @@ namespace SaltsEnemies_Reseasoned
             });
             peck.AddIntentsToTarget(Targeting.Unit_AllOpponents, ["Status_Favor"]);
             peck.AddIntentsToTarget(Slots.Self, ["Damage_1_2", "Damage_1_2", "Damage_1_2"]);
+
+            
 
             //Add
             CoinHunter.AddEnemyAbilities(new EnemyAbilityInfo[]
