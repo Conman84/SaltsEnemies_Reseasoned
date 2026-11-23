@@ -78,7 +78,7 @@ namespace SaltsEnemies_Reseasoned
             sawblade.UsesSpecialUnlockText = false;
             sawblade.SpecialUnlockID = UILocID.None;
             sawblade.item._ItemTypeIDs = ["Knife"];
-            sawblade.item.AddBlueSkyUnlock("BAB_CH", "locked_sawblade.png", "ach_sawblade.png");
+            sawblade.item.AddBlueSkyUnlock("Limbus_CH", "locked_sawblade.png", "ach_sawblade.png");
 
             MultiPerformEffectItem blood = new MultiPerformEffectItem("Salt_BloodSword_SW", []);
             blood.Name = "Blood Sword";
@@ -101,7 +101,7 @@ namespace SaltsEnemies_Reseasoned
             blood.SpecialUnlockID = UILocID.None;
             blood.item._ItemTypeIDs = ["Knife", "Meat"];
             blood.AddEffectTrigger(new EffectTrigger([Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeItemEffect>(), 1, Slots.Self)], [TriggerCalls.OnDeath], [], false));
-            blood.item.AddBlueSkyUnlock("Otto_CH", "locked_bloodsword.png", "ach_bloodsword.png");
+            blood.item.AddBlueSkyUnlock("Myydom_CH", "locked_bloodsword.png", "ach_bloodsword.png");
 
             PerformEffect_Item tacks = new PerformEffect_Item("Salt_BluntTacks_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.Sides)]);
             tacks.Name = "Blunt Tacks";
@@ -123,7 +123,7 @@ namespace SaltsEnemies_Reseasoned
             tacks.UsesSpecialUnlockText = false;
             tacks.SpecialUnlockID = UILocID.None;
             tacks.item._ItemTypeIDs = [];
-            tacks.item.AddBlueSkyUnlock("Class1_CH", "locked_blunttacks.png", "ach_blunttacks.png");
+            tacks.item.AddBlueSkyUnlock("Class100_CH", "locked_blunttacks.png", "ach_blunttacks.png");
 
             PerformEffect_Item tears = new PerformEffect_Item("Salt_TearDrops_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<DecreaseLuckyBluePercentageEffect>(), 3, Slots.Self)]);
             tears.Name = "Tear Drops";
