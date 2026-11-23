@@ -122,7 +122,8 @@ namespace SaltsEnemies_Reseasoned
                             chara.ApplyStatusEffect(StatusField.OilSlicked, 99);
                             chara.ApplyStatusEffect(StatusField.Frail, 99);
                             chara.ApplyStatusEffect(Entropy.Object, 99);
-                            chara.ApplyStatusEffect(Magnetism.Object, 99);
+                            chara.ApplyStatusEffect(Left.Object, 99);
+                            chara.ApplyStatusEffect(Drowning.Object, 99);
                         }
                     }
 
