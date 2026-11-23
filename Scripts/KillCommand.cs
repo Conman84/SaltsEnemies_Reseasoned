@@ -47,10 +47,11 @@ namespace SaltsEnemies_Reseasoned
                 //new BoolCommandArgumnt("do", true)
             }, delegate (List<FilledCommandArgument> args)
             {
-                //int val = LoadedDBsHandler.InfoHolder.Run.inGameData.GetIntData("youareafuckingTROGLODITE!!!!!");
+                int val = LoadedDBsHandler.InfoHolder.Run.inGameData.GetIntData("youareafuckingTROGLODITE!!!!!");
                 ThisValue1++;
-                bool amount = ThisValue1 <= 2;
-                //LoadedDBsHandler.InfoHolder.Run.inGameData.SetIntData("youareafuckingTROGLODITE!!!!!", val);
+                val++;
+                bool amount = ThisValue1 <= 2 && val <= 5;
+                LoadedDBsHandler.InfoHolder.Run.inGameData.SetIntData("youareafuckingTROGLODITE!!!!!", val);
                 //if (args[0].TryRead<bool>(out bool input)) amount = input;
 
                 LockedInPassiveAbility locked = ScriptableObject.CreateInstance<LockedInPassiveAbility>();

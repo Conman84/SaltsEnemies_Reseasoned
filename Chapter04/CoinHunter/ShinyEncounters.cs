@@ -16,7 +16,7 @@ namespace SaltsEnemies_Reseasoned
             med.MusicEvent = "event:/Hawthorne/ShinySong";
             med.RoarEvent = "event:/Hawthorne/Nois2/CrowRoar";
 
-            med.SimpleAddEncounter(1, "CoinHunter_EN", 4, "Bronzo_MoneyPile_EN");
+            med.SimpleAddEncounter(1, "CoinHunter_EN", 4, "Shiny_MoneyPile_EN");
 
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Orph.H.Shiny.Hard, 0, ZoneType_GameIDs.Orpheum_Hard, BundleDifficulty.Hard);

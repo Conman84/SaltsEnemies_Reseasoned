@@ -229,19 +229,22 @@ namespace SaltsEnemies_Reseasoned
             midas.AnimationTarget = Slots.Self;
 
             IsFrontTargetCondition nofront = IsFrontTargetCondition.Create(false);
+            DoubleEffectCondition peckcon = ScriptableObject.CreateInstance<DoubleEffectCondition>();
+            peckcon.first = isplayer;
+            peckcon.second = nofront;
 
             //Peck
             Ability peck = new Ability("Peck", "Salt_Peck_A");
-            peck.Description = "Flip a Coin. If unsuccessful, instantly kill the Opposing party member.\nTake as many tries as you can afford.\nFavorite a random party member and takes a Little damage three times if there is no Opposing party member.";
+            peck.Description = "Flip a Coin. If unsuccessful, instantly kill the Opposing party member.\nTake as many tries as you can afford.\nFavorite a random party member and takes a Little damage three times if there is no Opposing party member and it is currently the Player's turn.";
             peck.Rarity = Rarity.CreateAndAddCustomRarityToPool("shiny_15", 15);
             peck.Effects = new EffectInfo[]
             {
+                Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Gaze", false, Slots.Self), 0, null, peckcon),
+                Effects.GenerateEffect(favor, 1, Targeting.Unit_AllOpponents, peckcon),
+                Effects.GenerateEffect(damage, 2, Slots.Self, peckcon),
+                Effects.GenerateEffect(damage, 2, Slots.Self, peckcon),
+                Effects.GenerateEffect(damage, 2, Slots.Self, peckcon),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<CoinFlipDeathWithRerollEffect>(), 1, Targeting.Slot_Front),
-                Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Gaze", false, Slots.Self), 0, null, nofront),
-                Effects.GenerateEffect(favor, 1, Targeting.Unit_AllOpponents, nofront),
-                Effects.GenerateEffect(damage, 2, Slots.Self, nofront),
-                Effects.GenerateEffect(damage, 2, Slots.Self, nofront),
-                Effects.GenerateEffect(damage, 2, Slots.Self, nofront),
             };
             peck.Visuals = null;
             peck.AnimationTarget = Targeting.Slot_Front;
@@ -266,6 +269,13 @@ namespace SaltsEnemies_Reseasoned
                 peck.GenerateEnemyAbility(true),
             });
             CoinHunter.AddEnemy(true, false, false);
+
+            EnemySO clone = ScriptableObject.Instantiate(LoadedAssetsHandler.GetEnemy("Bronzo_MoneyPile_EN"));
+            clone.passiveAbilities = [.. clone.passiveAbilities];
+            clone.passiveAbilities.Add(Passives.Withering);
+            clone.passiveAbilities.Add(Passives.Fleeting4);
+
+            LoadedAssetsHandler.LoadedEnemies.Add("Shiny_MoneyPile_EN", clone);
         }
     }
 }
