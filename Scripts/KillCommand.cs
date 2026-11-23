@@ -398,6 +398,7 @@ namespace SaltsEnemies_Reseasoned
                 if (args[0].TryRead<int>(out int input)) amount = input;
 
                 if (amount == 65) LoadedDBsHandler.InfoHolder.Run.inGameData.SetBoolData(ShinyHandler.InRunData, false);
+                if (amount == 99) Legacy.Update();
 
                 if (amount == 301) NeverMind.ForceCensor(false);
                 if (amount == 300) NeverMind.ForceCensor(true);

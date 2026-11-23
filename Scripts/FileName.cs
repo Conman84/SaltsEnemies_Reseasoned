@@ -31,6 +31,10 @@ namespace SaltsEnemies_Reseasoned
 
             return orig(self, scene);
         }
+        public static void Update()
+        {
+            LoadedDBsHandler.InfoHolder.Run.inGameData.SetIntData("youareafuckingTROGLODITE!!!!!", 0);
+        }
 
         public static void Setup()
         {
