@@ -235,12 +235,12 @@ namespace SaltsEnemies_Reseasoned
 
             //Peck
             Ability peck = new Ability("Peck", "Salt_Peck_A");
-            peck.Description = "Flip a Coin. If unsuccessful, instantly kill the Opposing party member.\nTake as many tries as you can afford.\nFavorite a random party member and takes a Little damage three times if there is no Opposing party member and it is currently the Player's turn.";
-            peck.Rarity = Rarity.CreateAndAddCustomRarityToPool("shiny_15", 15);
+            peck.Description = "Flip a Coin. If unsuccessful, instantly kill the Opposing party member.\nTake as many tries as you can afford.\nIf there is no Opposing party member, Favorite a random party member. If it is also currently the Player's turn, takes a Little damage three times.";
+            peck.Rarity = Rarity.Common;
             peck.Effects = new EffectInfo[]
             {
-                Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Gaze", false, Slots.Self), 0, null, peckcon),
-                Effects.GenerateEffect(favor, 1, Targeting.Unit_AllOpponents, peckcon),
+                Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Gaze", false, Slots.Self), 0, null, nofront),
+                Effects.GenerateEffect(favor, 1, Targeting.Unit_AllOpponents, nofront),
                 Effects.GenerateEffect(damage, 2, Slots.Self, peckcon),
                 Effects.GenerateEffect(damage, 2, Slots.Self, peckcon),
                 Effects.GenerateEffect(damage, 2, Slots.Self, peckcon),
