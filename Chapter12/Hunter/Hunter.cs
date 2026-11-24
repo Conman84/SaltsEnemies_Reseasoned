@@ -28,8 +28,8 @@ namespace SaltsEnemies_Reseasoned
             hunter._passiveName = "Horrifying (13)";
             hunter.passiveIcon = ResourceLoader.LoadSprite("hunterpassive.png");
             hunter.m_PassiveID = "Horrifying_PA";
-            hunter._enemyDescription = "At the end of each round, if the Opposing party member has Terror deal an Deadly amount of damage to them.\nOn being directly damaged, inflict Terror on the Opposing party member.";
-            hunter._characterDescription = "At the end of each round, if the Opposing enemy has Terror deal 15 damage to them.\nOn being directly damaged, inflict Terror on the Opposing enemy.";
+            hunter._enemyDescription = "At the end of each round, if the Opposing party member has Terror deal an Deadly amount of damage to them.\nOn being directly damaged, Terrorize the Opposing party member.";
+            hunter._characterDescription = "At the end of each round, if the Opposing enemy has Terror deal 15 damage to them.\nOn being directly damaged, Terrorize the Opposing enemy.";
             hunter.doesPassiveTriggerInformationPanel = true;
             hunter.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyTerrorEffect>(), 1, Slots.Front).SelfArray();
             hunter._triggerOn = new TriggerCalls[1] { TriggerCalls.OnDirectDamaged };

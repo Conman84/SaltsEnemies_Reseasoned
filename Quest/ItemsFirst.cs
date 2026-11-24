@@ -871,7 +871,7 @@ namespace SaltsEnemies_Reseasoned
             MultiPerformEffectItem knife = new MultiPerformEffectItem("Salt_Knife_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyTerrorEffect>(), 1, Targetting.Random(false))]);
             knife.Name = "Knife That Tells You To Do Things";
             knife.Flavour = "\"You should cut your face off.\"";
-            knife.Description = "At the start of each turn, apply Terror to a random enemy.\nDeal 40% more damage to enemies with Terror.\nOn using an ability, gain Terror.";
+            knife.Description = "At the start of each turn, Terrorize a random enemy.\nDeal 40% more damage to enemies with Terror.\nOn using an ability, become Terrorized.";
             knife.Icon = ResourceLoader.LoadSprite("Item_Knife.png");
             knife.EquippedModifiers = [];
             knife.TriggerOn = TriggerCalls.OnTurnStart;
