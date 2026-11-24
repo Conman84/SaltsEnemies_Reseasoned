@@ -108,7 +108,7 @@ namespace SaltsEnemies_Reseasoned
 
             //entropy
             Ability entropy = new Ability("Entropic Measurement", "EntropicMeasurement_A");
-            entropy.Description = "Inflict 10 Pale on the Left, Right, and Opposing party members per each of the most common Pigment in the Pigment tray.";
+            entropy.Description = "10 Pale comes for the Left, Right, and Opposing party members per each of the most common Pigment in the Pigment tray.";
             entropy.Rarity = radio.Rarity;
             entropy.Effects = new EffectInfo[1];
             //entropy.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<LoadIntoPresentEffect>(), 1, Slots.Self);

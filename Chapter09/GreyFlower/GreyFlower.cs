@@ -27,7 +27,7 @@ namespace SaltsEnemies_Reseasoned
             grow._passiveName = "Overgrowth";
             grow.m_PassiveID = "Flowers_Overgrowth_PA";
             grow.passiveIcon = ResourceLoader.LoadSprite("Overgrowth.png");
-            grow._enemyDescription = "On taking direct damage, inflict 3 Roots on the Opposing position.";
+            grow._enemyDescription = "On taking direct damage, grow 3 Roots in the Opposing position.";
             grow._characterDescription = grow._enemyDescription;
             grow.doesPassiveTriggerInformationPanel = true;
             grow.effects = new EffectInfo[] { Effects.GenerateEffect(CasterRootActionEffect.Create(new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRootsSlotEffect>(), 3, Targeting.Slot_Front) }), 1, Targeting.Slot_SelfSlot) };
@@ -75,7 +75,7 @@ namespace SaltsEnemies_Reseasoned
             Ability dieu = new Ability("Die4U_A")
             {
                 Name = "Die for You",
-                Description = "Deal a Lethal amount of damage to this enemy and generate 12 random pigment. Turn all pigment in the tray and in overflow grey. \nApply 1 Photosynthesis to this enemy.",
+                Description = "Deal a Lethal amount of damage to this enemy and generate 12 random pigment. Turn all pigment in the tray and in overflow grey. \nBegins to Photosynthesize.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {

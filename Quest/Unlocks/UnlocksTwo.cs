@@ -679,7 +679,7 @@ namespace SaltsEnemies_Reseasoned
             PerformEffect_Item ring = new PerformEffect_Item("Salt_TheRing_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleByTenEffect>(), 1, Slots.Front)]);
             ring.Name = "The Ring";
             ring.Flavour = "\"For whom?\"";
-            ring.Description = "On moving, inflict 10 Pale on the Opposing enemy.";
+            ring.Description = "On moving, 10 Pale comes for the Opposing enemy.";
             ring.Icon = ResourceLoader.LoadSprite("item_ring.png");
             ring.TriggerOn = TriggerCalls.OnMoved;
             ring.EquippedModifiers = [];

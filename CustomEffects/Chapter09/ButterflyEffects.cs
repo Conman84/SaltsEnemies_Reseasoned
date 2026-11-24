@@ -541,7 +541,7 @@ namespace SaltEnemies_Reseasoned
                             StringPairData abilityLocData = abilityBySlotID.GetAbilityLocData();
                             header = abilityLocData.text;
                             content = abilityLocData.description;
-                            if (FileExists) content = "Apply 50 Pale to all party members.";
+                            if (FileExists) content = "50 Pale comes for all party members.";
                             else content = "This ability is unable to be performed due to lacking file information.";
                             self._tooltip.DelayShow(content, header, "");
                             return;

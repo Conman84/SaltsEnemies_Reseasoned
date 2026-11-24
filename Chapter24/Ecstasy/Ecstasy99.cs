@@ -86,7 +86,7 @@ namespace SaltsEnemies_Reseasoned
                 Pigments.Purple
             };
             Ability death = new Ability("1000 Burials", "1000Deaths_A");
-            death.Description = "Inflict 1000 Pale on the Opposing party member.\nGenerate 3 Non-Red Pigment.";
+            death.Description = "1000 Pale comes for the Opposing party member.\nGenerate 3 Non-Red Pigment.";
             death.Rarity = Rarity.GetCustomRarity("rarity5");
             death.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleByTenEffect>(), 100, Slots.Front),
                 Effects.GenerateEffect(randomize, 3, Slots.Self)];

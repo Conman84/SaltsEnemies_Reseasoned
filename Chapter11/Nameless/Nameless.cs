@@ -68,7 +68,7 @@ namespace SaltsEnemies_Reseasoned
             Ability nameless = new Ability("TheVolumeOfABeatingHeart_A")
             {
                 Name = "The Volume of a Beating Heart",
-                Description = "If the file Desktop/Nameless/Nameless.txt exists, this enemy will apply 50 Pale to all party members. Otherwise, they will do nothing. \nYou can manually delete that file to disable this ability.",
+                Description = "If the file Desktop/Nameless/Nameless.txt exists, 50 Pale will come for all party members. Otherwise, nothing will happen. \nYou can manually delete that file to disable this ability.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {

@@ -193,7 +193,7 @@ namespace SaltsEnemies_Reseasoned
             PerformEffect_Item fossil = new PerformEffect_Item("Salt_UnknownFossil_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRootsSlotEffect>(), 3, Targetting.Everything(false))]);
             fossil.Name = "Unknown Fossil";
             fossil.Flavour = "\"Relic of meaningless value.\"";
-            fossil.Description = "At the start of every other turn, inflict 3 Roots on every enemy position.";
+            fossil.Description = "At the start of every other turn, grow 3 Roots in every enemy position.";
             fossil.Icon = ResourceLoader.LoadSprite("Item_UnknownFossil.png");
             fossil.EquippedModifiers = [];
             fossil.TriggerOn = TriggerCalls.OnTurnStart;
@@ -265,7 +265,7 @@ namespace SaltsEnemies_Reseasoned
                 ]);
             bell.Name = "Little Bell";
             bell.Flavour = "\"When it rings we all go to hell.\"";
-            bell.Description = "At the start of each turn, inflict 10 Pale on the highest health enemy and party member.";
+            bell.Description = "At the start of each turn, 10 Pale comes for the highest health enemy and party member.";
             bell.Icon = ResourceLoader.LoadSprite("Item_LittleBell.png");
             bell.EquippedModifiers = [];
             bell.TriggerOn = TriggerCalls.OnTurnStart;
@@ -749,7 +749,7 @@ namespace SaltsEnemies_Reseasoned
             PerformEffect_Item grudge = new PerformEffect_Item("Salt_Grudge_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleEffect>(), 5, Targeting.Unit_AllOpponents)]);
             grudge.Name = "Grudge";
             grudge.Flavour = "\"The little crow answered with its deepest, darkest desire.\"";
-            grudge.Description = "On taking any damage, inflict 5 Pale on all enemies.";
+            grudge.Description = "On taking any damage, 5 Pale comes for all enemies.";
             grudge.Icon = ResourceLoader.LoadSprite("Item_Grudge.png");
             grudge.EquippedModifiers = [];
             grudge.TriggerOn = TriggerCalls.OnDamaged;

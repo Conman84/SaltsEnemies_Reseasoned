@@ -28,7 +28,7 @@ namespace SaltsEnemies_Reseasoned
             punish._passiveName = "Punisher (7)";
             punish.m_PassiveID = "Punisher_PA";
             punish.passiveIcon = ResourceLoader.LoadSprite("PunisherPassive.png");
-            punish._enemyDescription = "On moving, inflict 7 Pale on the Opposing party member. \nIf they already had over 100 Pale, trigger it.";
+            punish._enemyDescription = "On moving, 7 Pale comes for the Opposing party member. \nIf they already had over 100 Pale, it takes them.";
             punish._characterDescription = punish._enemyDescription;
             punish.doesPassiveTriggerInformationPanel = true;
             punish.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<TryTriggerPaleEffect>(), 1, Slots.Front), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleEffect>(), 7, Slots.Front, BasicEffects.DidThat(false)), };
@@ -42,8 +42,8 @@ namespace SaltsEnemies_Reseasoned
             judgement._enemyDescription = "This enemy will peform the extra ability \"Judgement\" each turn.";
             Ability bonus = new Ability("Punisher_Judgement_A");
             bonus.Name = "Judgement";
-            bonus.Description = "Inflict 8 Pale on every party member.";
-            bonus.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleEffect>(), 8, Targetting.Everything(false)).SelfArray();
+            bonus.Description = "10 Pale comes for every party member.";
+            bonus.Effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleEffect>(), 10, Targetting.Everything(false)).SelfArray();
             bonus.AddIntentsToTarget(Targetting.Everything(false), [Pale.Intent]);
             bonus.Visuals = LoadedAssetsHandler.GetEnemyAbility("UglyOnTheInside_A").visuals;
             bonus.AnimationTarget = Targetting.Everything(false);
@@ -77,11 +77,11 @@ namespace SaltsEnemies_Reseasoned
             Ability hell = new Ability("CirclesOfHell_A")
             {
                 Name = "Circles of Hell",
-                Description = "Inflict 35 Pale on the Opposing party member.",
+                Description = "40 Pale comes for the Opposing party member.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleEffect>(), 35, Slots.Front)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleEffect>(), 40, Slots.Front)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Curse"),
                 AnimationTarget = Slots.Front,
