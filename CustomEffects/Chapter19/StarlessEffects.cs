@@ -129,6 +129,7 @@ namespace SaltEnemies_Reseasoned
     }
     public class StarlessPassiveAbility : PerformEffectPassiveAbility
     {
+        public static string Warning => "IF YOURE COPYING THIS HOOK, CHANGE THE FREAKING TRIGGER CALL NUMBER OTHERWISE IT WILL TRIGGER MY PASSIVES TWICE ASSHOLE";
         public static TriggerCalls Call => (TriggerCalls)38431355;
         public override bool IsPassiveImmediate => true;
         public override void TriggerPassive(object sender, object args)
