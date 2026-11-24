@@ -219,7 +219,7 @@ namespace SaltsEnemies_Reseasoned
             MultiPerformEffectItem challenger = new MultiPerformEffectItem("Salt_Challenger_SW", []);
             challenger.Name = "Challenger";
             challenger.Flavour = "\"1986\"";
-            challenger.Description = "Deal 60% more healing.\nGain 2 Slip on manually moving.";
+            challenger.Description = "Deal 60% more healing.\nSpill 2 Slip on this position upon manually moving.";
             challenger.Icon = ResourceLoader.LoadSprite("item_challenger.png");
             challenger.TriggerOn = TriggerCalls.OnWillApplyHeal;
             challenger.EquippedModifiers = [];
@@ -242,7 +242,7 @@ namespace SaltsEnemies_Reseasoned
             PerformEffect_Item plug = new PerformEffect_Item("Salt_ThePlug_SW", []);
             plug.Name = "The Plug";
             plug.Flavour = "\"Hole In The Wall\"";
-            plug.Description = "Damaged targets gain 10 Pale.";
+            plug.Description = "10 Pale comes for damaged targets.";
             plug.Icon = ResourceLoader.LoadSprite("item_theplug.png");
             plug.EquippedModifiers = [];
             plug.TriggerOn = AdvancedDamageTrigger.Dealt;
@@ -512,7 +512,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability panic = new Ability("Salt_Panic_A");
             panic.Name = "Panic";
-            panic.Description = "Apply 2 Slip to all party member positions.\nRefresh this party member's ability usage.";
+            panic.Description = "Spill 2 Slip to all party member positions.\nRefresh this party member's ability usage.";
             panic.AbilitySprite = ResourceLoader.LoadSprite("ability_panic.png");
             panic.Cost = [Pigments.Yellow];
             panic.Effects = [
@@ -531,7 +531,7 @@ namespace SaltsEnemies_Reseasoned
             PerformEffect_Item stop = new PerformEffect_Item("Salt_SecondStop_TW", []);
             stop.Name = "2nd Stop";
             stop.Flavour = "\"Between Here and Nowhere\"";
-            stop.Description = "While in Slip, damage dealt spreads indirectly Left and Right.\nAdds the extra ability \"Panic\" which can be used to apply Slip to the party members' side.";
+            stop.Description = "While in Slip, damage dealt spreads indirectly Left and Right.\nAdds the extra ability \"Panic\" which can be used to spill Slip to the party members' side.";
             stop.Icon = ResourceLoader.LoadSprite("item_secondstop.png");
             stop.TriggerOn = CascadingDamageItemHandler.Call;
             stop.EquippedModifiers = [add_panic];
@@ -551,7 +551,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability outpour = new Ability("Salt_Outpour_A");
             outpour.Name = "Outpour";
-            outpour.Description = "Inflict 2 Slip on all enemy positions.\n50% chance to refresh this party member's ability usage.";
+            outpour.Description = "Spill 2 Slip on all enemy positions.\n50% chance to refresh this party member's ability usage.";
             outpour.AbilitySprite = ResourceLoader.LoadSprite("ability_outpour.png");
             outpour.Cost = [Pigments.Grey, Pigments.Grey];
             outpour.Effects = [
@@ -571,7 +571,7 @@ namespace SaltsEnemies_Reseasoned
             Basic_Item bucket = new Basic_Item("Salt_Bucket_TW");
             bucket.Name = "Bucket";
             bucket.Flavour = "\"This... is a bucket.\"";
-            bucket.Description = "Adds the extra ability \"Outpour,\" a cheap, easily repeatable ability that inflicts Slip to all enemies.";
+            bucket.Description = "Adds the extra ability \"Outpour,\" a cheap, easily repeatable ability that spills Slip on all enemies.";
             bucket.Icon = ResourceLoader.LoadSprite("item_bucket.png");
             bucket.TriggerOn = TriggerCalls.Count;
             bucket.EquippedModifiers = [add_pour];

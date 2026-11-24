@@ -628,12 +628,12 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(FlutteryCondition.Icon, "Fluttery", "On moving, move again in the same direction.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CyclicalPassive.png"), "Cyclical", "This unit performs all of its abilities in numeric order.");
             AddPassivesToGlossary.AddPassive(WarpingHandler.Icon, "Warping", "Whenever anything damages this unit, move the attacker to the Left or Right.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("NylonPassive.png"), "Nylon", "On being directly damaged, inflict a certain amount of Slip to the Opposing position.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("NylonPassive.png"), "Nylon", "On being directly damaged, spill Slip on the Opposing position.");
 
             //CH18
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("LonelyIcon.png"), "Lonely", "On any ally moving, dying, fleeing, or spawning, if this unit is not next to another ally attempt to move until it is next to one, unless there are no other allied units in combat.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DivisibleIcon.png"), "Divisible", "On taking any damage, if there is available space split into 2 copies of this unit with half the health.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PunisherPassive.png"), "Punisher", "On moving, inflict a certain amount of Pale on the Opposing target. \nIf they already had over 100 Pale, trigger it.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PunisherPassive.png"), "Punisher", "On moving, a certain amount of Pale comes for the Opposing target. \nIf they already had over 100 Pale, it takes them.");
 
             //CH19
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("BacklashPassive.png"), "Backlash", "On taking direct damage, apply Shield to this unit's position for the amount of damage taken.");
@@ -647,7 +647,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("RotaryPassive.png"), "Rotary", "On being damaged, move all the way to the Left or Right.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("StealthPassive.png"), "Stealth Mechanics", "At the start of combat, instantly flee.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MarchingPassive.png"), "Marching", "On any ally without \"Marching\" as a passive moving, move Left or Right.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("FluidDynamicsPassive.png"), "Fluid Dynamics", "On death, inflict a certain amount of Slip to the Opposing position.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("FluidDynamicsPassive.png"), "Fluid Dynamics", "On death, spill Slip on the Opposing position.");
 
             //CH21
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ProphecyPassive.png"), "Prophecy", "On death, spawn a specific unit.\nIncrease the unit's health proportional to the amount of turns this unit has been in combat.\nTransfer all status effects from this unit to the spawned unit.");

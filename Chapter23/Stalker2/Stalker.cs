@@ -36,7 +36,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability safe = new Ability("SafeSpace_A");
             safe.Name = "Safe Space";
-            safe.Description = "Inflict 10 Slip and 4 Ruptured on the Opposing party member.";
+            safe.Description = "Inflict a lot Slip and Rupture the Opposing party member.";
             safe.Rarity = Rarity.Common;
             safe.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 10, Slots.Front),

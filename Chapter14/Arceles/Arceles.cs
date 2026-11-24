@@ -48,7 +48,7 @@ namespace SaltsEnemies_Reseasoned
             nylon.m_PassiveID = "Nylon_PA";
             nylon.name = "Nylon_3_PA";
             nylon.passiveIcon = ResourceLoader.LoadSprite("NylonPassive.png");
-            nylon._enemyDescription = "On being directly damaged, apply 3 Slip on the Opposing position.";
+            nylon._enemyDescription = "On being directly damaged, spill a lot of Slip on the Opposing position.";
             nylon._characterDescription = nylon._enemyDescription;
             nylon.doesPassiveTriggerInformationPanel = false;
             nylon.effects = Effects.GenerateEffect(CasterRootActionEffect.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<NylonPassiveEffect>()), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 3, Slots.Front)]), 1, Slots.Self).SelfArray();
@@ -62,7 +62,7 @@ namespace SaltsEnemies_Reseasoned
             Ability windy = new Ability("WindyDay_A")
             {
                 Name = "Windy Day",
-                Description = "Move to the Left or Right. Inflict 3 Slip on this enemy's position.",
+                Description = "Move to the Left or Right. Spill Slip on this enemy's position.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
@@ -78,7 +78,7 @@ namespace SaltsEnemies_Reseasoned
             Ability drift = new Ability("Adrift_A")
             {
                 Name = "Adrift",
-                Description = "Inflict 2 Slip on the Left and Right party member positions.",
+                Description = "Spill Slip on the Left and Right party member positions.",
                 Rarity = windy.Rarity,
                 Effects = new EffectInfo[]
                 {

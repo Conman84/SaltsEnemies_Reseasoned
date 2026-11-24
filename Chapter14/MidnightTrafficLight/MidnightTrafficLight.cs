@@ -108,7 +108,7 @@ namespace SaltsEnemies_Reseasoned
             Ability back = new Ability("Train_BackUp_A")
             {
                 Name = "Back Up",
-                Description = "If the Light phase is not Green, shift the Light phase down by one and inflict 2 Slip to the Opposing position.",
+                Description = "If the Light phase is not Green, shift the Light phase down by one and spill Slip on the Opposing position.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {

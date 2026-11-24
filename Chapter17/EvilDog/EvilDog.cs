@@ -45,7 +45,7 @@ namespace SaltsEnemies_Reseasoned
             nylon.m_PassiveID = "Nylon_PA";
             nylon.name = "Nylon_1_PA";
             nylon.passiveIcon = ResourceLoader.LoadSprite("NylonPassive.png");
-            nylon._enemyDescription = "On being directly damaged, apply 1 Slip on the Opposing position.";
+            nylon._enemyDescription = "On being directly damaged, spill Slip on the Opposing position.";
             nylon._characterDescription = nylon._enemyDescription;
             nylon.doesPassiveTriggerInformationPanel = false;
             nylon.effects = Effects.GenerateEffect(CasterRootActionEffect.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<NylonPassiveEffect>()), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.Front)]), 1, Slots.Self).SelfArray();
@@ -68,7 +68,7 @@ namespace SaltsEnemies_Reseasoned
 
             //ringer
             Ability ringer = new Ability("Ringer", "Ringer_A");
-            ringer.Description = "Apply 1 Slip on the Opposing position and take a Little indirect damage.\nIf there was already Slip on the Opposing position, queue the ability \"Flip Flop\" and move to the Left or Right.";
+            ringer.Description = "Spill Slip on the Opposing position and take a Little indirect damage.\nIf there was already Slip on the Opposing position, queue the ability \"Flip Flop\" and move to the Left or Right.";
             ringer.Rarity = Rarity.GetCustomRarity("rarity5");
             ringer.Priority = Priority.Fast;
             ringer.Effects = new EffectInfo[4];

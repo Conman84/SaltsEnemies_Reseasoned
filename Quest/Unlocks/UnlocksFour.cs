@@ -289,7 +289,7 @@ namespace SaltsEnemies_Reseasoned
             PerformEffect_Item gloves = new PerformEffect_Item("Salt_Antigloves_SW", []);
             gloves.Name = "Antigloves";
             gloves.Flavour = "\"From Antiworld.\"";
-            gloves.Description = "Apply 1 Slip to damaged targets.";
+            gloves.Description = "Spill 1 Slip on damaged targets.";
             gloves.Icon = ResourceLoader.LoadSprite("item_antigloves.png");
             gloves.EquippedModifiers = [];
             gloves.TriggerOn = AdvancedDamageTrigger.Dealt;

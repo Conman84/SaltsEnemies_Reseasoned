@@ -98,7 +98,7 @@ namespace SaltsEnemies_Reseasoned
             fools.getAllies = true;
 
             Ability mines = new Ability("Minesweeper", "Nine_Minsweeper_A");
-            mines.Description = "Apply 1 Slip to every unoccupied party member and enemy position.";
+            mines.Description = "Spill Slip on every unoccupied party member and enemy position.";
             mines.Rarity = Rarity.Common;
             mines.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, enemies),

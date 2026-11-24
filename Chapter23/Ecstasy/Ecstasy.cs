@@ -101,7 +101,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability philosophy = new Ability(special_base.ability, "ArtOfPhilosophy_A", [], Rarity.GetCustomRarity("rarity5"));
             philosophy.Name = "Art Of Philosophy";
-            philosophy.ability._description += "inflict 1-2 Slip to the Left, Right, and Opposing party members.";
+            philosophy.ability._description += "Spill Slip on the Left, Right, and Opposing party members.";
             philosophy.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Salt/Cube", false, Slots.FrontLeftRight), 0, null, BasicEffects.DidThat(false));
             philosophy.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipUpToPlusOneEffect>(), 1, Slots.FrontLeftRight, BasicEffects.DidThat(false, 2));
             philosophy.AddIntentsToTarget(Slots.FrontLeftRight, [Slip.Intent]);

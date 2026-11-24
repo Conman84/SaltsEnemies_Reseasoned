@@ -30,7 +30,7 @@ namespace SaltsEnemies_Reseasoned
             nylon.m_PassiveID = "Nylon_PA";
             nylon.name = "Nylon_3_PA";
             nylon.passiveIcon = ResourceLoader.LoadSprite("NylonPassive.png");
-            nylon._enemyDescription = "On being directly damaged, apply 3 Slip on the Opposing position.";
+            nylon._enemyDescription = "On being directly damaged, spill a lot of Slip on the Opposing position.";
             nylon._characterDescription = nylon._enemyDescription;
             nylon.doesPassiveTriggerInformationPanel = false;
             nylon.effects = Effects.GenerateEffect(CasterRootActionEffect.Create([Effects.GenerateEffect(ScriptableObject.CreateInstance<NylonPassiveEffect>()), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 3, Slots.Front)]), 1, Slots.Self).SelfArray();

@@ -106,7 +106,7 @@ namespace SaltsEnemies_Reseasoned
             PerformEffect_Item tacks = new PerformEffect_Item("Salt_BluntTacks_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.Sides)]);
             tacks.Name = "Blunt Tacks";
             tacks.Flavour = "\"You could maybe hurt someone with these if you tried really really hard\"";
-            tacks.Description = "At the start of each turn, inflict 1 Slip on the Left and Right allied positions.\nHeal 75% more to units in Slip.";
+            tacks.Description = "At the start of each turn, spill 1 Slip on the Left and Right allied positions.\nHeal 75% more to units in Slip.";
             tacks.Icon = ResourceLoader.LoadSprite("item_blunttacks.png");
             tacks.TriggerOn = TriggerCalls.OnTurnStart;
             tacks.EquippedModifiers = [];

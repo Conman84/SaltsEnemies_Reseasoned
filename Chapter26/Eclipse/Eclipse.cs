@@ -110,7 +110,7 @@ namespace SaltsEnemies_Reseasoned
             awake.AddPassives([jitter, Passives.FleetingGenerator(10, true), fantastic, bonusattack]);
 
             Ability second = new Ability("Second Pain", "Eclipse2_A");
-            second.Description = "Inflict 4 Slip on the Left and Right enemy positions then a Little damage to all enemies in Slip.\nRemove this ability from this enemy's moveset.";
+            second.Description = "Spill a lot of Slip on the Left and Right enemy positions then a Little damage to all enemies in Slip.\nRemove this ability from this enemy's moveset.";
             second.Rarity = Rarity.Common;
             second.Effects = new EffectInfo[3];
             second.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 4, Slots.Sides);
@@ -141,7 +141,7 @@ namespace SaltsEnemies_Reseasoned
             third.Effects[2] = Effects.GenerateEffect(remove_third);
 
             Ability fourth = new Ability("Fourth Pain", "Eclipse4_A");
-            fourth.Description = "Deal an Agonizing amount of damage to the Opposing party member and inflict 4 Slip on the Opposing position.\nRemove this ability from this enemy's moveset.";
+            fourth.Description = "Deal an Agonizing amount of damage to the Opposing party member and spill a lot of Slip on the Opposing position.\nRemove this ability from this enemy's moveset.";
             fourth.Rarity = Rarity.Common;
             fourth.Effects = new EffectInfo[3];
             fourth.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 8, Slots.Front);
@@ -156,7 +156,7 @@ namespace SaltsEnemies_Reseasoned
             fourth.Effects[2] = Effects.GenerateEffect(remove_fourth);
 
             Ability sixth = new Ability("Sixth Pain", "Eclipse6_A");
-            sixth.Description = "Inflict 4 Slip on the Opposing position, then Curse the Left, Right, an Opposing party members.\nRemove this ability from this enemy's moveset.";
+            sixth.Description = "Spill a lot of Slip on the Opposing position, then Curse the Left, Right, an Opposing party members.\nRemove this ability from this enemy's moveset.";
             sixth.Rarity = Rarity.CreateAndAddCustomRarityToPool("eclipse15", 15);
             sixth.Effects = new EffectInfo[3];
             sixth.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 4, Slots.Front);
@@ -172,7 +172,7 @@ namespace SaltsEnemies_Reseasoned
             sixth.Effects[2] = Effects.GenerateEffect(remove_sixth);
 
             Ability eighth = new Ability("Eighth Pain", "Eclipse8_A");
-            eighth.Description = "Inflict 2 Slip on the Left, Right, and Opposing positions.\nRemove this ability from this enemy's moveset.";
+            eighth.Description = "Spill Slip on the Left, Right, and Opposing positions.\nRemove this ability from this enemy's moveset.";
             eighth.Rarity = Rarity.Common;
             eighth.Effects = new EffectInfo[2];
             eighth.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Slots.FrontLeftRight);

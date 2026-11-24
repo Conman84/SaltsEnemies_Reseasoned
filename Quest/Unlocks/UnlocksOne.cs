@@ -37,7 +37,7 @@ namespace SaltsEnemies_Reseasoned
             PerformEffect_Item inkwell = new PerformEffect_Item("Salt_Inkwell_SW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Slots.Front)]);
             inkwell.Name = "Ink Well";
             inkwell.Flavour = "\"Gets messy fast\"";
-            inkwell.Description = "On using an ability, apply 2 Slip to the Opposing position.";
+            inkwell.Description = "On using an ability, spill 2 Slip on the Opposing position.";
             inkwell.Icon = ResourceLoader.LoadSprite("item_inkwell.png");
             inkwell.EquippedModifiers = [];
             inkwell.TriggerOn = TriggerCalls.OnAbilityUsed;

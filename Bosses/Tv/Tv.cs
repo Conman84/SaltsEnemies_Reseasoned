@@ -50,7 +50,7 @@ namespace SaltsEnemies_Reseasoned
             template.AbilitySelector = isolate;
 
             Ability wreck = new Ability("Wreck", "Tv_Wreck_A");
-            wreck.Description = "Deal an Agonizing amount of damage to the Opposing party member.\nSpill 1 Slip on the Opposing position.";
+            wreck.Description = "Deal an Agonizing amount of damage to the Opposing party member.\nSpill Slip on the Opposing position.";
             wreck.Rarity = Rarity.GetCustomRarity("rarity5");
             wreck.Effects = new EffectInfo[2];
             wreck.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 10, Slots.Front);

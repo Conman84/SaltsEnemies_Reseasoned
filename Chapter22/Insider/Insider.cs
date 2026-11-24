@@ -158,7 +158,7 @@ namespace SaltsEnemies_Reseasoned
 
             //beta
             Ability beta = new Ability("Insider", "InsiderB_A");
-            beta.Description = "Apply 2 Slip to the Left, Right, and Opposing party member positions.";
+            beta.Description = "Spill Slip to the Left, Right, and Opposing party member positions.";
             beta.Rarity = Rarity.Uncommon;
             beta.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Slots.FrontLeftRight)];
             beta.AddIntentsToTarget(Slots.FrontLeftRight, [Slip.Intent]);

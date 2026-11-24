@@ -107,7 +107,7 @@ namespace SaltsEnemies_Reseasoned
             Ability emotion = new Ability("TransmitEmotion_A")
             {
                 Name = "Transmit Emotion",
-                Description = "Inflict 4 Slip on the Opposing position.\nForce the Opposing party member to perform a random one of their abilities.",
+                Description = "Spill a lot of Slip on the Opposing position.\nForce the Opposing party member to perform a random one of their abilities.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                     {

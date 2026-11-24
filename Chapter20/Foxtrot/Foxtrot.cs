@@ -64,7 +64,7 @@ namespace SaltsEnemies_Reseasoned
             fluids.name = "FluidDynamics_3_PA";
             fluids.passiveIcon = ResourceLoader.LoadSprite("FluidDynamicsPassive.png");
             fluids.m_PassiveID = "FluidDynamics_PA";
-            fluids._enemyDescription = "On death, inflict 3 Slip to the Opposing position.";
+            fluids._enemyDescription = "On death, spill a lot of Slip to the Opposing position.";
             fluids._characterDescription = fluids._enemyDescription;
             fluids.doesPassiveTriggerInformationPanel = true;
             fluids.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 3, Slots.Front)];

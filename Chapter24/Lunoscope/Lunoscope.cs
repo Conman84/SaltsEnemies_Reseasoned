@@ -75,7 +75,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability geo = new Ability("GeometricSequence_A");
             geo.Name = "Geometric Sequence";
-            geo.Description = "Apply 1 Slip to the Left and Right party member positions.\nMove Left or Right.";
+            geo.Description = "Spill Slip on the Left and Right party member positions.\nMove Left or Right.";
             geo.Rarity = Rarity.GetCustomRarity("rarity5");
             geo.Effects = [Effects.GenerateEffect(BasicEffects.GetNormalVisuals("Wriggle_A", false), 0, Slots.LeftRight),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.LeftRight),

@@ -80,7 +80,7 @@ namespace SaltsEnemies_Reseasoned
             Ability track = new Ability("TrackThePrints_A")
             {
                 Name = "Track the Prints",
-                Description = "Apply 0-2 Slip to every party member position. \nMove Left or Right and gain another action.",
+                Description = "Might spill Slip on every party member position. \nMove Left or Right and gain another action.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Priority = Priority.Slow,
                 Effects = new EffectInfo[]

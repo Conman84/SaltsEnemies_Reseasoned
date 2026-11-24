@@ -41,7 +41,7 @@ namespace SaltsEnemies_Reseasoned
 
 
             Ability eat = new Ability("Eats Paper", "EatsPaper_A");
-            eat.Description = "Apply 2 Slip to the Opposing party member position.";
+            eat.Description = "Spill Slip to the Opposing party member position.";
             eat.Rarity = Rarity.Common;
             eat.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 2, Slots.Front)];
             eat.AddIntentsToTarget(Slots.Front, [Slip.Intent]);
@@ -49,7 +49,7 @@ namespace SaltsEnemies_Reseasoned
             eat.Visuals = CustomVisuals.GetVisuals("Salt/Ribbon");
 
             Ability hurter = new Ability("Hurter", "Hurter_A");
-            hurter.Description = "Deal a Little damage to the Opposing party member and apply 1 Slip to their position.";
+            hurter.Description = "Deal a Little damage to the Opposing party member and spill Slip to their position.";
             hurter.Rarity = Rarity.Common;
             hurter.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Front),
             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplySlipSlotEffect>(), 1, Slots.Front)];
