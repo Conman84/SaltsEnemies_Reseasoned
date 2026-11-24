@@ -72,7 +72,7 @@ namespace SaltsEnemies_Reseasoned
 
             //Dust
             Ability dust = new Ability("Dust to Dust", "Salt_DusttoDust_A");
-            dust.Description = "Gain 1 Magnetism.\nIf this enemy already had Magnetism, deal a Little damage to all party members.";
+            dust.Description = "This enemy becomes Magnetized.\nIf this enemy was already Magnetized, deals a Little damage to all party members.";
             dust.Rarity = Rarity.CreateAndAddCustomRarityToPool("rustic_7", 7);
             StatusEffectCheckerEffect hasmagnet = ScriptableObject.CreateInstance<StatusEffectCheckerEffect>();
             hasmagnet._status = Magnetism.Object;

@@ -78,7 +78,7 @@ namespace SaltsEnemies_Reseasoned
             AnglerCheckEffect angle = ScriptableObject.CreateInstance<AnglerCheckEffect>();
 
             Ability baiting = new Ability("Allure", "Salt_Allure_A");
-            baiting.Description = "Move all party members closer to this enemy. Apply 2 Constricted to the opposing position.";
+            baiting.Description = "Move all party members closer to this enemy. Constrict to the opposing position.";
             baiting.Rarity = Rarity.GetCustomRarity("rarity3");
             baiting.Effects = new EffectInfo[]
             {

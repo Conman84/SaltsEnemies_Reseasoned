@@ -89,7 +89,7 @@ namespace SaltsEnemies_Reseasoned
             allAlly.getAllies = true;
 
             Ability notLong = new Ability("Divine Inspiration", "Salt_DivineInspiration_A");
-            notLong.Description = "Apply 1 Inspiration to this enemy. \nIf this enemy already had Inspration, deal a Little damage to all party members.";
+            notLong.Description = "This enemy becomes Inspired.\nIf this enemy was already Inspired, deals a Little damage to all party members.";
             notLong.Rarity = Rarity.GetCustomRarity("rarity5");
             notLong.Effects = new EffectInfo[]
             {

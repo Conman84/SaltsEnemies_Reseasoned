@@ -27,7 +27,7 @@ namespace SaltsEnemies_Reseasoned
             grow._passiveName = "Overgrowth (3)";
             grow.m_PassiveID = "Flowers_Overgrowth_PA";
             grow.passiveIcon = ResourceLoader.LoadSprite("Overgrowth.png");
-            grow._enemyDescription = "On taking direct damage, inflict 3 Roots on the Opposing position.";
+            grow._enemyDescription = "On taking direct damage, grow 3 Roots on the Opposing position.";
             grow._characterDescription = grow._enemyDescription;
             grow.doesPassiveTriggerInformationPanel = true;
             grow.effects = new EffectInfo[] { Effects.GenerateEffect(CasterRootActionEffect.Create(new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRootsSlotEffect>(), 3, Targeting.Slot_Front) }), 1, Targeting.Slot_SelfSlot) };
@@ -54,7 +54,7 @@ namespace SaltsEnemies_Reseasoned
             Ability aroma_1 = new Ability("Flower_Aroma_A")
             {
                 Name = "Aroma",
-                Description = "Move the Left and Right party members closer to this enemy. \nIf the Opposing position has Roots, deal a Painful amount of damage to the Opposing party member. \nApply 3 Roots to the Opposing position.",
+                Description = "Move the Left and Right party members closer to this enemy. \nIf the Opposing position is overgrown with Roots, deal a Painful amount of damage to the Opposing party member. \nGrow 3 Roots on the Opposing position.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
@@ -79,7 +79,7 @@ namespace SaltsEnemies_Reseasoned
             Ability aroma_2 = new Ability("Flower_Bouquet_A")
             {
                 Name = "Bouquet",
-                Description = "Move the Left and Right party members closer to this enemy. \nIf the Opposing position has Roots, deal an Agonizing amount of damage to the Opposing party member. \nApply 3 Roots to the Opposing position.",
+                Description = "Move the Left and Right party members closer to this enemy. \nIf the Opposing position is overgrown with Roots, deal an Agonizing amount of damage to the Opposing party member. \nGrow 3 Roots in the Opposing position.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
