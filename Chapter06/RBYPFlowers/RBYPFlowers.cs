@@ -27,7 +27,7 @@ namespace SaltsEnemies_Reseasoned
             grow._passiveName = "Overgrowth (3)";
             grow.m_PassiveID = "Flowers_Overgrowth_PA";
             grow.passiveIcon = ResourceLoader.LoadSprite("Overgrowth.png");
-            grow._enemyDescription = "On taking direct damage, grow 3 Roots on the Opposing position.";
+            grow._enemyDescription = "On taking direct damage, grow Roots in the Opposing position.";
             grow._characterDescription = grow._enemyDescription;
             grow.doesPassiveTriggerInformationPanel = true;
             grow.effects = new EffectInfo[] { Effects.GenerateEffect(CasterRootActionEffect.Create(new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRootsSlotEffect>(), 3, Targeting.Slot_Front) }), 1, Targeting.Slot_SelfSlot) };
@@ -54,7 +54,7 @@ namespace SaltsEnemies_Reseasoned
             Ability aroma_1 = new Ability("Flower_Aroma_A")
             {
                 Name = "Aroma",
-                Description = "Move the Left and Right party members closer to this enemy. \nIf the Opposing position is overgrown with Roots, deal a Painful amount of damage to the Opposing party member. \nGrow 3 Roots on the Opposing position.",
+                Description = "Move the Left and Right party members closer to this enemy. \nIf the Opposing position is overgrown with Roots, deal a Painful amount of damage to the Opposing party member. \nGrow 3 Roots in the Opposing position.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
@@ -104,7 +104,7 @@ namespace SaltsEnemies_Reseasoned
             prevExit.usePreviousExitValue = true;
             Ability photosynthesize = new Ability("Photosynthesize", "Flowers_Photosynthesize_A")
             {
-                Description = "Consume all Pigment of this enemy's health color and apply double the amount of Pigment consumed as Roots, distributed among all occupied party member positions. \nApply 1 Photosynthesis to this enemy.",
+                Description = "Consumes all Pigment of this enemy's health color and grows double the amount of Pigment consumed as Roots, distributed amongst all occupied party member positions. \nBegins to Photosynthesize.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
@@ -137,7 +137,7 @@ namespace SaltsEnemies_Reseasoned
             //RED SPECIAL
             Ability loveu = new Ability("Love for You", "Love4U_A")
             {
-                Description = "If the Opposing party member has Power, deal an Agonizing amount of damage to them. Apply 1 Power to all party members.\nApply 1 Photosynthesis to this enemy.",
+                Description = "If the Opposing party member has Power, deal an Agonizing amount of damage to them. Apply 1 Power to all party members.\nBegins to Photosynthesize.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
@@ -180,7 +180,7 @@ namespace SaltsEnemies_Reseasoned
             //BLUE SPECIAL
             Ability cryu = new Ability("Cry for You", "Cry4U_A")
             {
-                Description = "Heal the Opposing party member a Little health. Deal an Agonizing amount of damage to the Opposing party member if they were not healed. \nApply 1 Photosynthesis to this enemy.",
+                Description = "Heal the Opposing party member a Little health. Deal an Agonizing amount of damage to the Opposing party member if they were not healed. \nBegins to Photosynthesize.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
@@ -227,7 +227,7 @@ namespace SaltsEnemies_Reseasoned
             allEnemy.getAllUnitSlots = false;
             Ability smileu = new Ability("Smile for You", "Smile4U_A")
             {
-                Description = "Apply Spotlight on the Opposing party member. Apply 1 Muted to a random party member. \nApply 1 Photosynthesis to this enemy.",
+                Description = "Apply Spotlight on the Opposing party member. Mute a random party member for the next turn. \nBegins to Photosynthesize.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
@@ -274,7 +274,7 @@ namespace SaltsEnemies_Reseasoned
             didThat.wasSuccessful = true;
             Ability lieu = new Ability("Lie for You", "Lie4U_A")
             {
-                Description = "Apply Confusion as a passive on the Opposing party member. If Confusion was applied, apply 12 Shield to all party member positions, otherwise, produce 4 Purple Pigment. \nApply 1 Photosynthesis to this enemy.",
+                Description = "Apply Confusion as a passive on the Opposing party member. If Confusion was applied, apply 12 Shield to all party member positions, otherwise, produce 4 Purple Pigment. \nBegins to Photosynthesize.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {

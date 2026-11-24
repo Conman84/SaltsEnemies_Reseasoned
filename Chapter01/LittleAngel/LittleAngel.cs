@@ -67,7 +67,7 @@ namespace SaltsEnemies_Reseasoned
             didThat.wasSuccessful = true;
 
             Ability kindness = new Ability("Kindness", "Salt_Kindness_A");
-            kindness.Description = "Heal the Opposing party member 30% of their max health and apply 50 Pale and 1 Ruptured to them. \nMove Left, Right, or stay in place.";
+            kindness.Description = "Heal the Opposing party member 30% of their max health. 50 Pale comes for the Opposing party member and they are Ruptured.\nMove Left, Right, or stay in place.";
             kindness.Rarity = Rarity.GetCustomRarity("rarity5");
             kindness.Effects = new EffectInfo[]
             {
@@ -91,7 +91,7 @@ namespace SaltsEnemies_Reseasoned
 
             //Tenderness
             Ability tenderness = new Ability("Tenderness", "Salt_Tenderness_A");
-            tenderness.Description = "Apply 10 Pale to the Opposing, Left, and Right party members. Apply 10 Pale to self and move Left or Right.";
+            tenderness.Description = "10 Pale comes for the Opposing, Left, and Right party members. \n10 Pale comes for this enemy and it moves Left or Right.";
             tenderness.Rarity = Rarity.CreateAndAddCustomRarityToPool("rarity7", 7);
             tenderness.Effects = new EffectInfo[]
             {
@@ -116,7 +116,7 @@ namespace SaltsEnemies_Reseasoned
             homonDomin._animationTarget = Targeting.Slot_Front;
             homonDomin._visuals = LoadedAssetsHandler.GetCharacterAbility("Expire_1_A").visuals;
             Ability devotion = new Ability("Devotion", "Salt_Devotion_A");
-            devotion.Description = "Move Left or Right. Apply 30 Pale to the Opposing party member and 30 Pale to self.";
+            devotion.Description = "Move Left or Right. \n30 Pale comes for Opposing party member and this enemy.";
             devotion.Rarity = Rarity.GetCustomRarity("rarity6");
             devotion.Effects = new EffectInfo[]
             {
@@ -139,7 +139,7 @@ namespace SaltsEnemies_Reseasoned
 
             //Adoration
             Ability adoration = new Ability("Adoration", "Salt_Adoration_A");
-            adoration.Description = "Apply 50 Pale to the Opposing party member and 50 Pale to self. Apply 2 Ruptured to self if this enemy applied Pale to the Opposing party member.";
+            adoration.Description = "50 Pale comes for Opposing party member and this enemy. \nRupture this enemy if Pale arrived.";
             adoration.Rarity = Rarity.GetCustomRarity("rarity5");
             adoration.Effects = new EffectInfo[]
             {

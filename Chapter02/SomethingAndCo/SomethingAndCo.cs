@@ -131,7 +131,7 @@ namespace SaltsEnemies_Reseasoned
             didThat.wasSuccessful = true;
 
             Ability convo = new Ability("Conversation", "Salt_Conversation_A");
-            convo.Description = "Inflict 1 Muted to the opposing party member. If successful, apply 2 Muted to self.";
+            convo.Description = "Mute the opposing party member for a turn. If successful, Mute this enemy.";
             convo.Rarity = Rarity.GetCustomRarity("rarity10");
             convo.Effects = new EffectInfo[]
             {
@@ -163,7 +163,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability interrupt = new Ability("Derogatory_Interrupt_A");
             interrupt.Name = "Interrupt";
-            interrupt.Description = "Move Left or Right and inflict 1 Muted on the Opposing party member. If the Opposing party member was already Muted, deal a Painful amount of damage to them instead.";
+            interrupt.Description = "Move Left or Right and Mute the Opposing party member for a turn. If the Opposing party member was already Muted, deal a Painful amount of damage to them instead.";
             interrupt.Rarity = Rarity.CreateAndAddCustomRarityToPool("Derogatory_5", 5);
             interrupt.Effects = new EffectInfo[]
             {

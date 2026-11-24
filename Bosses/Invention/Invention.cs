@@ -112,7 +112,7 @@ namespace SaltsEnemies_Reseasoned
             targeting_both.getAllies = false;
             targeting_both.getAllUnitSlots = false;
             Ability series = new Ability("Series", "Series_A");
-            series.Description = "Consume all Pigment.\nInflict 2 Magnetism on all party members that both manually moved and manually used an ability.";
+            series.Description = "Consume all Pigment.\nMagnetize all party members that both manually moved and manually used an ability.";
             series.Rarity = Rarity.Common;
             series.Effects = new EffectInfo[]
             {

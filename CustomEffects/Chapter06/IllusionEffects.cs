@@ -281,7 +281,7 @@ namespace SaltEnemies_Reseasoned
                     _drain = new Ability("Salt_Drowse_A")
                     {
                         Name = "Drowse",
-                        Description = "Inflict 35 Pale and 2 Muted on the Opposing party member.\nRandomize this enemy's health color and take a Little damage, ignoring Shield.",
+                        Description = "Deal 35 Pale damage to the Opposing party member and Mute them for 2 turns.\nRandomize this enemy's health color and take a Little damage, ignoring Shield.",
                         Rarity = Rarity.Common,
                         Effects = new EffectInfo[]
                         {
@@ -313,7 +313,7 @@ namespace SaltEnemies_Reseasoned
                     _haunt = new Ability("Salt_Haunting_A")
                     {
                         Name = "Haunting",
-                        Description = "Inflict 15 Pale on the Left, Right, and Opposing party members. \nInflict 1 Muted on all party members not in the Left, Right, or Opposing positions if they have none.",
+                        Description = "Inflict 15 Pale on the Left, Right, and Opposing party members. \nMute all party members not in the Left, Right, or Opposing positions for a turn if they are not already Muted.",
                         Rarity = Rarity.CreateAndAddCustomRarityToPool("haunt15", 15),
                         Effects = new EffectInfo[]
                         {

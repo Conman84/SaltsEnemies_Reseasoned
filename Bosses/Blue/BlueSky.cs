@@ -76,7 +76,7 @@ namespace SaltsEnemies_Reseasoned
             meet.AnimationTarget = Slots.Front;
 
             Ability seek = new Ability("Seeking You Out", "Skies_Seek_A");
-            seek.Description = "I will move Left or Right.\nIf the Opposing party member is Red, I will deal a Painful amount of damage to them.\nOtherwise, I will change their health color to Red and inflict 3 Ruptured on them.";
+            seek.Description = "I will move Left or Right.\nIf the Opposing party member is Red, I will deal a Painful amount of damage to them.\nOtherwise, I will change their health color to Red and Rupture them.";
             seek.Rarity = Rarity.GetCustomRarity("rarity5");
             seek.Effects = new EffectInfo[6];
             seek.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
@@ -103,7 +103,7 @@ namespace SaltsEnemies_Reseasoned
             immediate.Immediate = true;
 
             Ability please = new Ability("Please.", "Skies_Please_A");
-            please.Description = "I will move in front of the closest party member and inflict 1 Constricted and 2 Ruptured on them.";
+            please.Description = "I will move in front of the closest party member, then Constrict and Rupture them.";
             please.Rarity = Rarity.CreateAndAddCustomRarityToPool("skies_3", 3);
             please.Effects = new EffectInfo[4];
             please.Effects[0] = Effects.GenerateEffect(immediate, 1, Targeting.GenerateSlotTarget(new int[9] { -4, -3, -2, -1, 0, 1, 2, 3, 4 }, false));

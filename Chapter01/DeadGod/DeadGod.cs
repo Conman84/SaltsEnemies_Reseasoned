@@ -160,7 +160,7 @@ namespace SaltsEnemies_Reseasoned
             shieldPierce._indirect = false;
 
             Ability promised = new Ability("Broken Promise", "Salt_BrokenPromise_A");
-            promised.Description = "Apply 1-2 Power to self. Deal a Little damage to the opposing party member, this attack is fully blocked by Shield. \nInflict 3 Ruptured on this enemy.";
+            promised.Description = "Apply 1-2 Power to self. Deal a Little damage to the opposing party member, this attack is fully blocked by Shield. \nRupture this enemy.";
             promised.Rarity = Rarity.Common;
             promised.Effects = new EffectInfo[]
             {
