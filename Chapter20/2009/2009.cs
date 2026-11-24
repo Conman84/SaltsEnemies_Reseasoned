@@ -56,10 +56,10 @@ namespace SaltsEnemies_Reseasoned
             breaker.AnimationTarget = furthest;
 
             Ability classic = new Ability("The Classic", "TheClassic_A");
-            classic.Description = "Deal 6 damage to the Opposing party member. This ability has random critical hits.\nMove to the Left or Right 3 times.";
+            classic.Description = "Deal an Painful amount of damage to the Opposing party member. This ability has random critical hits.\nMove to the Left or Right 3 times.";
             classic.Rarity = Rarity.GetCustomRarity("rarity5");
             classic.Effects = new EffectInfo[4];
-            classic.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<CritDamageEffect>(), 6, Slots.Front);
+            classic.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<CritDamageEffect>(), 4, Slots.Front);
             classic.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
             classic.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
             classic.Effects[3] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self);
@@ -74,7 +74,7 @@ namespace SaltsEnemies_Reseasoned
             BaseCombatTargettingSO right = Slots.SlotTarget([0, 1, 2], false);
 
             Ability bart_l = new Ability("Bartimaeus Left", "BartimaeusLeft_A");
-            bart_l.Description = "Inflict 2 Ruptured on the Opposing, Left, and Far Left party members.\nIf they already were Ruptured, deal a Little damage to them.";
+            bart_l.Description = "Rupture Opposing, Left, and Far Left party members.\nIf they already were Ruptured, deal a Little damage to them.";
             bart_l.Rarity = Rarity.GetCustomRarity("rarity5");
             bart_l.Effects = new EffectInfo[1];
             bart_l.Effects[0] = Effects.GenerateEffect(rupture, 2, left);
@@ -83,7 +83,7 @@ namespace SaltsEnemies_Reseasoned
             bart_l.AnimationTarget = left;
 
             Ability bart_r = new Ability("Bartimaeus Right", "BartimaeusRight_A");
-            bart_r.Description = "Inflict 2 Ruptured on the Opposing, Right, and Far Right party members.\nIf they already were Ruptured, deal a Little damage to them.";
+            bart_r.Description = "Rupture the Opposing, Right, and Far Right party members.\nIf they already were Ruptured, deal a Little damage to them.";
             bart_r.Rarity = Rarity.GetCustomRarity("rarity5");
             bart_r.Effects = new EffectInfo[1];
             bart_r.Effects[0] = Effects.GenerateEffect(rupture, 2, right);
