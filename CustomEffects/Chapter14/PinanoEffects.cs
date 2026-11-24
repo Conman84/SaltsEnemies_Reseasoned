@@ -44,16 +44,17 @@ namespace SaltEnemies_Reseasoned
                     word = "Almost No";
                     break;
                 case 2:
-                    word = "A Little";
+                    word = "a Little";
                     break;
                 case 3:
+                    word = "a Barely Painful amount of";
                     break;
                 case 4:
-                    goto case 3;
+                    break;
                 case 5:
-                    goto case 3;
+                    goto case 4;
                 case 6:
-                    goto case 3;
+                    goto case 4;
                 case 7:
                     word = "an Agonizing amount of";
                     break;
