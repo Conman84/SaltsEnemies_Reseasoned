@@ -37,6 +37,9 @@ namespace SaltEnemies_Reseasoned
             string word = "a Painful amount of";
             switch (amount)
             {
+                case 0:
+                    word = "No";
+                    break;
                 case 1:
                     word = "Almost No";
                     break;
