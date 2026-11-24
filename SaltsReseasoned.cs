@@ -546,7 +546,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("InspirationIcon.png"), "Inspired", "This unit is Inspired.");
 
             //CH6
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("IllusionPassive.png"), "Delirium", "This unit has an Offense and a Supportive State and randomly picks between the two on entering battle.");
+           // AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("IllusionPassive.png"), "Delirium", "This unit has an Offense and a Supportive State and randomly picks between the two on entering battle.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("splatter.png"), "Splatter", "On death, produce a certain amount of Pigment of this unit's health color.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Overgrowth.png"), "Overgrowth", "On taking direct damage, inflict a certain amount of Roots on the Opposing position.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("EscapistPassive.png"), "Escapist", "On using an ability, move to a random unoccupied position.");
