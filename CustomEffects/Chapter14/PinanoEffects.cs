@@ -33,8 +33,60 @@ namespace SaltEnemies_Reseasoned
             PerformEffectPassiveAbility vil = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
             vil._passiveName = "Violent (" + amount.ToString() + ")";
             vil.passiveIcon = ResourceLoader.LoadSprite("ViolentPassive.png");
-            vil._enemyDescription = "On receiving direct damage, deal " + amount.ToString() + " damage to the Opposing position.\nThis passive does not trigger if the damage received kills.";
-            vil._characterDescription = vil._enemyDescription;
+            vil._characterDescription = "On receiving direct damage, deal " + amount.ToString() + " damage to the Opposing position.\nThis passive does not trigger if the damage was fatal.";
+            string word = "a Painful amount of";
+            switch (amount)
+            {
+                case 1:
+                    word = "Almost No";
+                    break;
+                case 2:
+                    word = "A Little";
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    goto case 3;
+                case 5:
+                    goto case 3;
+                case 6:
+                    goto case 3;
+                case 7:
+                    word = "an Agonizing amount of";
+                    break;
+                case 8:
+                    goto case 7;
+                case 9:
+                    goto case 7;
+                case 10:
+                    goto case 7;
+                case 11:
+                    word = "a Deadly amount of";
+                    break;
+                case 12:
+                    goto case 11;
+                case 13:
+                    goto case 11;
+                case 14:
+                    goto case 11;
+                case 15:
+                    goto case 11;
+                case 16:
+                    word = "a Lethal amount of";
+                    break;
+                case 17:
+                    goto case 16;
+                case 18:
+                    goto case 16;
+                case 19:
+                    goto case 16;
+                case 20:
+                    goto case 16;
+                default:
+                    word = "a Mortal amount of";
+                    break;
+            }
+            vil._characterDescription = "On receiving direct damage, deal " + word + " damage to the Opposing position.\nThis passive does not trigger if the damage was fatal.";
             vil.m_PassiveID = "Violent_PA";
             vil.name = "Violent_" + amount.ToString() + "_PA";
             vil.doesPassiveTriggerInformationPanel = false;

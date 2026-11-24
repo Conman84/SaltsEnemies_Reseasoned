@@ -608,7 +608,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WavesPassive.png"), "Waves", "On moving, submerge the Opposing position in Deep Water.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PracticalPassive.png"), "Practial", "On taking direct damage, shift one Light phase backwards.\nOn any ability being used other than by this unit, 50% chance to toggle the Crosswalk phase.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WileyPassive.png"), "Whimsy", "Most Status Effects and some Field Effects will no longer decrease while this unit is in combat.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ViolentPassive.png"), "Violent", "On receiving direct damage, deal a certain amount of damage to the Opposing position.\nThis passive does not trigger if the damage received kills.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ViolentPassive.png"), "Violent", "On receiving direct damage, deal a certain amount of damage to the Opposing position.\nThis passive does not trigger if the damage was fatal.");
 
             //CH15
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PillarPassive.png"), "Pillar", "On death, randomize the health color of all allies sharing this unit's health color.");
