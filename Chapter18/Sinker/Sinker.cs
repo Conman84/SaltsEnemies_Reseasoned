@@ -80,7 +80,7 @@ namespace SaltsEnemies_Reseasoned
             Ability alarm = new Ability("SinkerAlarm_A")
             {
                 Name = "Alarm",
-                Description = "Inflict 1 Ruptured on the Left, Right, and Opposing party members.\nIf this is the only enemy in combat, deal a Painful amount of damage to them as well.",
+                Description = "Rupture the Left, Right, and Opposing party members.\nIf this is the only enemy in combat, deal a Painful amount of damage to them as well.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
