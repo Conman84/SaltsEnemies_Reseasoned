@@ -631,7 +631,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("NylonPassive.png"), "Nylon", "On being directly damaged, inflict a certain amount of Slip to the Opposing position.");
 
             //CH18
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("LonelyIcon.png"), "Lonely", "On any ally moving, dying, or fleeing, if this unit is not next to another ally attempt to move until it is next to one, unless there are no other allied units in combat.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("LonelyIcon.png"), "Lonely", "On any ally moving, dying, fleeing, or spawning, if this unit is not next to another ally attempt to move until it is next to one, unless there are no other allied units in combat.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DivisibleIcon.png"), "Divisible", "On taking any damage, if there is available space split into 2 copies of this unit with half the health.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PunisherPassive.png"), "Punisher", "On moving, inflict a certain amount of Pale on the Opposing target. \nIf they already had over 100 Pale, trigger it.");
 

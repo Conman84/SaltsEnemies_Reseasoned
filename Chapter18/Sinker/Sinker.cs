@@ -28,7 +28,7 @@ namespace SaltsEnemies_Reseasoned
             lonely._passiveName = "Lonely";
             lonely.m_PassiveID = "Lonely_PA";
             lonely.passiveIcon = ResourceLoader.LoadSprite("LonelyIcon.png");
-            lonely._enemyDescription = "On any enemy moving, dying, or fleeing, if this enemy is not next to another enemy attempt to move until it is next to one, unless there are no other enemies in combat.";
+            lonely._enemyDescription = "On any enemy moving, dying, fleeing, or spawning, if this enemy is not next to another enemy attempt to move until it is next to one, unless there are no other enemies in combat.";
             lonely._characterDescription = lonely._enemyDescription;
             lonely.doesPassiveTriggerInformationPanel = true;
             lonely.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<LonelyEffect>(), 1, Slots.Self).SelfArray();

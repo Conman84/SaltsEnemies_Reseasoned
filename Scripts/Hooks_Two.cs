@@ -275,7 +275,7 @@ namespace SaltEnemies_Reseasoned
             }
             if (sender is IUnit uuu && !uuu.IsUnitCharacter)
             {
-                if (notificationName == TriggerCalls.OnDeath.ToString() || notificationName == TriggerCalls.OnFleetingEnd.ToString() || notificationName == TriggerCalls.OnMoved.ToString())
+                if (notificationName == TriggerCalls.OnDeath.ToString() || notificationName == TriggerCalls.OnFleetingEnd.ToString() || notificationName == TriggerCalls.OnMoved.ToString() || notificationName == TriggerCalls.OnFleeting.ToString() || notificationName == TriggerCalls.OnAllyHasSpawned.ToString())
                 {
                     CombatManager.Instance.AddSubAction(new LonelySubAction());
                 }
