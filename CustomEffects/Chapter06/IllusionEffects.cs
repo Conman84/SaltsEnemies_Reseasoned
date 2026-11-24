@@ -281,7 +281,7 @@ namespace SaltEnemies_Reseasoned
                     _drain = new Ability("Salt_Drowse_A")
                     {
                         Name = "Drowse",
-                        Description = "35 Pale comes for the Opposing party member and they are Muted them for 2 turns.\nRandomize this enemy's health color and take a Little damage, ignoring Shield.",
+                        Description = "35 Pale comes for the Opposing party member and they are Muted.\nRandomize this enemy's health color and take a Little damage, ignoring Shield.",
                         Rarity = Rarity.Common,
                         Effects = new EffectInfo[]
                         {

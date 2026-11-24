@@ -30,8 +30,8 @@ namespace SaltsEnemies_Reseasoned
             incomprehend._passiveName = "Incomprehensible";
             incomprehend.passiveIcon = ResourceLoader.LoadSprite("Incomprehensible.png");
             incomprehend.m_PassiveID = "Incomprehensible_PA";
-            incomprehend._enemyDescription = "When a party member moves in front of this enemy, inflict 1 Muted on them.";
-            incomprehend._characterDescription = "When an enemy moves in front of this party member, inflict 1 Muted on them.";
+            incomprehend._enemyDescription = "When a party member moves in front of this enemy, Mute them for a turn.";
+            incomprehend._characterDescription = "When an enemy moves in front of this party member, Mute them for a turn.";
             incomprehend.doesPassiveTriggerInformationPanel = true;
             incomprehend.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 1, Slots.Front).SelfArray();
             incomprehend._triggerOn = new TriggerCalls[1] { (TriggerCalls)AmbushManager.Patiently };

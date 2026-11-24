@@ -110,7 +110,7 @@ namespace SaltsEnemies_Reseasoned
             Ability illuminate = new Ability("Illuminate")
             {
                 Name = "Illuminate",
-                Description = "Remove all Status Effects from the Opposing party member. If no Status Effects were removed, inflict 3 Muted and deal a Painful amount of damage to them.",
+                Description = "Remove all Status Effects from the Opposing party member. If no Status Effects were removed, Mute them and deal a Painful amount of damage to them.",
                 Rarity = Rarity.Common,
                 Effects = new EffectInfo[]
                 {

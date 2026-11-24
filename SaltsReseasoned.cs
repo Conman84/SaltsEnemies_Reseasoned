@@ -576,7 +576,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MissFaced.png"), "Miss-Faced", "On being direct damaged and at the end of each round, this unit's health color changes between Red and Blue.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ScramblePassive.png"), "Scramble", "On any Infantile ally being directly damaged, randomly shuffle the positions of all allied units.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WellPreservedPassive.png"), "Well-Preserved", "This unit is immune to indirect damage and damage from its allies.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Incomprehensible.png"), "Incomprehensible", "When an opponent moves in front of this unit, inflict 1 Muted on them.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Incomprehensible.png"), "Incomprehensible", "When an opponent moves in front of this unit, Mute them for a turn.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Dodge.png"), "Evasive", "Permenantly applies Dodge to this unit.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Lazy.png"), "Lazy", "When fleeing, this enemy will return after a certain amount of rounds if combat hasn't ended.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("FlitheringIcon.png"), "Flithering", "On any ally dying, if there are no other allies without \"Withering\" or \"Flithering\" as passives, instantly flee.\nAt the start and end of this unit's portion of the turn, if there are no other allies without \"Cowardice\" or \"Flithering\" as passives, instantly flee.");

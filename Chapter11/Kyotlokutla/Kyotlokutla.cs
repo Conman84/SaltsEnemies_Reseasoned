@@ -43,7 +43,7 @@ namespace SaltsEnemies_Reseasoned
             Ability silence = new Ability("SilenceTheFoolish_A")
             {
                 Name = "Silence the Foolish",
-                Description = "Apply 2 Muted and 2 Fire to the last party member who dealt damage to this enemy. Produce 2 Red Pigment.",
+                Description = "Inflict 2 Fire and Mute the last party member who dealt damage to this enemy. Produce 2 Red Pigment.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
@@ -79,7 +79,7 @@ namespace SaltsEnemies_Reseasoned
             Ability suffocate = new Ability("SuffocateThePitiful_A")
             {
                 Name = "Suffocate the Pitiful",
-                Description = "Apply 1 Muted to all party members. Produce 2 Red Pigment.",
+                Description = "Mute to all party members for a turn. Produce 2 Red Pigment.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                         {

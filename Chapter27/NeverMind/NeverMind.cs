@@ -179,7 +179,7 @@ namespace SaltsEnemies_Reseasoned
             onlyIfNone.OnlyIfNone = true;
 
             Ability unbothered = new Ability("Unbothered", "NM_Unbothered_A");
-            unbothered.Description = "Halve this enemy's current and maximum health.\nInflict 1 Muted on all party members with more maximum health than this enemy if they have no Muted. Force all Muted party members to perform \"Slap.\"";
+            unbothered.Description = "Halve this enemy's current and maximum health.\nMute all party members with more maximum health than this enemy for a turn, if they are not already Muted. Force all Muted party members to perform \"Slap.\"";
             unbothered.Rarity = Rarity.GetCustomRarity("rarity5");
             unbothered.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<HalveCurrentAndMaxHealthEffect>(), 1, Slots.Self),
