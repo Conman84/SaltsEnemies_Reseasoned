@@ -55,7 +55,7 @@ namespace SaltsEnemies_Reseasoned
             Ability bloat = new Ability("Salt_Bloat_A")
             {
                 Name = "Bloat",
-                Description = "Inflict 1 Ruptured and 1 Frail on all party members.",
+                Description = "Rupture and Frail all party members.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
@@ -71,7 +71,7 @@ namespace SaltsEnemies_Reseasoned
             Ability gross = new Ability("Salt_Gross_A")
             {
                 Name = "Gross",
-                Description = "Deal an Agonizing amount of damage to the Left and Right party member positions. \nInflict 1 Ruptured on the Opposing party members.",
+                Description = "Deal an Agonizing amount of damage to the Left and Right party member positions. \nRupture the Opposing party members.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {

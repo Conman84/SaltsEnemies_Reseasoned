@@ -97,7 +97,7 @@ namespace SaltsEnemies_Reseasoned
 
 
             Ability left = new Ability("Escapee On The West Side Of The Gate", "Panopticon_Left_A");
-            left.Description = "Deal a Painful amount of damage to the Left party member.\nGain 1 Ruptured and consume 1 random Pigment.";
+            left.Description = "Deal a Painful amount of damage to the Left party member.\nRupture this enemy and consume 1 random Pigment.";
             left.Rarity = Rarity.GetCustomRarity("rarity5");
             left.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Left),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Self),
@@ -108,7 +108,7 @@ namespace SaltsEnemies_Reseasoned
             left.Visuals = Visuals.Takedown;
 
             Ability right = new Ability("Detainee On The East Side Of The Gate", "Panopticon_Right_A");
-            right.Description = "Gain 1 Ruptured.\nDeal a Painful amount of damage to the Right party member and consume 1 random Pigment.";
+            right.Description = "Rupture this enemy.\nDeal a Painful amount of damage to the Right party member and consume 1 random Pigment.";
             right.Rarity = left.Rarity;
             right.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Right),

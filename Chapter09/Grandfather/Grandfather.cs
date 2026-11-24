@@ -41,7 +41,7 @@ namespace SaltsEnemies_Reseasoned
             rupture._passiveName = "Enruptured";
             rupture.passiveIcon = ResourceLoader.LoadSprite("enrupture");
             rupture.m_PassiveID = "Enruptured_PA";
-            rupture._enemyDescription = "Permanently applies Ruptured to this enemy.";
+            rupture._enemyDescription = "This enemy is permanently Ruptured.";
             rupture._characterDescription = "Permanently applies Ruptured to this character.";
             rupture.doesPassiveTriggerInformationPanel = true;
             //rupture.connectionEffects = Effects.GenerateEffect(CasterSubActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPermanentRupturedEffect>(), 1, Slots.Self).SelfArray()), 1, Slots.Self).SelfArray();
@@ -54,7 +54,7 @@ namespace SaltsEnemies_Reseasoned
 
             //Rot
             Ability rot = new Ability("Rot", "Grandfather_Rot_A");
-            rot.Description = "Deal a Little damage to the Opposing party member and inflict 6 Ruptured on them.\nIf there is no Opposing party member, inflict 2 Ruptured on every party member.";
+            rot.Description = "Deal a Little damage to the Opposing party member and Heavily Rupture them.\nIf there is no Opposing party member, Rupture every party member.";
             rot.Rarity = Rarity.GetCustomRarity("rarity5");
             rot.Visuals = CustomVisuals.GetVisuals("Salt/Claws");
             rot.AnimationTarget = Slots.Front;
@@ -67,7 +67,7 @@ namespace SaltsEnemies_Reseasoned
 
             //Sink
             Ability sink = new Ability("Sink", "Grandfather_Sink_A");
-            sink.Description = "Deal a Little damage to every party member with Ruptured.";
+            sink.Description = "Deal a Little damage to every party member that is Ruptured.";
             sink.Rarity = rot.Rarity;
             sink.Visuals = CustomVisuals.GetVisuals("Salt/Claws");
             sink.AnimationTarget = Slots.Self;

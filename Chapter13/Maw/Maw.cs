@@ -81,7 +81,7 @@ namespace SaltsEnemies_Reseasoned
             Ability seek = new Ability("BadDog_Seek_A")
             {
                 Name = "Seek",
-                Description = "Move to the Left or Right 3 times. Deal an Agonizing amount of damage to the Opposing party member and inflict 3 Ruptured on them.",
+                Description = "Move to the Left or Right 3 times. Deal an Agonizing amount of damage to the Opposing party member and Rupture them.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
@@ -100,7 +100,7 @@ namespace SaltsEnemies_Reseasoned
 
             //STAY
             Ability stay = new Ability("Stay", "BadDog_Stay_A");
-            stay.Description = "Inflict 2 Constricted on the Opposing party member position.\nInflict 5 Ruptured on the Opposing party member.";
+            stay.Description = "Constrict and heavily Rupture the Opposing party member.";
             stay.Rarity = Rarity.GetCustomRarity("rarity5");
             stay.Effects = new EffectInfo[]
             {
@@ -113,7 +113,7 @@ namespace SaltsEnemies_Reseasoned
 
             //Play
             Ability play = new Ability("Play!!", "BadDog_Play_A");
-            play.Description = "Deal a Painful amount of damage to the Opposing party member and inflict 2 Ruptured on them.\nMove to the Left or Right.";
+            play.Description = "Deal a Painful amount of damage to the Opposing party member and Rupture on them.\nMove to the Left or Right.";
             play.Rarity = Rarity.GetCustomRarity("rarity5");
             play.Effects = new EffectInfo[3];
             play.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 5, Slots.Front);

@@ -29,7 +29,7 @@ namespace SaltsEnemies_Reseasoned
             sunk.name = "Sunk_PA";
             sunk._passiveName = "Sunk";
             sunk.passiveIcon = ResourceLoader.LoadSprite("SunkPassive.png");
-            sunk._enemyDescription = "All positions are in permenant Deep Water.";
+            sunk._enemyDescription = "All positions are permanently submerged in Deep Water.";
             sunk.m_PassiveID = "Sunk_PA";
             sunk.connectionEffects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<PermenantApplyWaterEffect>(), 1, MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false)))];
             sunk.disconnectionEffects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveRestrictorWaterEffect>(), 1, MultiTargetting.Create(Targetting.Everything(true), Targetting.Everything(false)), ScriptableObject.CreateInstance<EnemiesAliveEffectCondition>())];

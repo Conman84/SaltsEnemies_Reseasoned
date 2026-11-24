@@ -41,7 +41,7 @@ namespace SaltsEnemies_Reseasoned
             rupture._passiveName = "Enruptured";
             rupture.passiveIcon = ResourceLoader.LoadSprite("enrupture");
             rupture.m_PassiveID = "Enruptured_PA";
-            rupture._enemyDescription = "Permanently applies Ruptured to this enemy.";
+            rupture._enemyDescription = "This enemy is permanently Ruptured.";
             rupture._characterDescription = "Permanently applies Ruptured to this character.";
             rupture.doesPassiveTriggerInformationPanel = true;
             //rupture.connectionEffects = Effects.GenerateEffect(CasterSubActionEffect.Create(Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPermanentRupturedEffect>(), 1, Slots.Self).SelfArray()), 1, Slots.Self).SelfArray();

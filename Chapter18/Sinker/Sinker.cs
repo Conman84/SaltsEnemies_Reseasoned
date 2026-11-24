@@ -42,7 +42,7 @@ namespace SaltsEnemies_Reseasoned
             Ability nailing = new Ability("Nailing_A")
             {
                 Name = "Nailing",
-                Description = "Deal an Agonizing amount of damage to the Opposing party member and inflict 2 Ruptured and 2 Constricted on them.",
+                Description = "Deal an Agonizing amount of damage to the Opposing party member, then Rupture and Constrict them.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {

@@ -197,7 +197,7 @@ namespace SaltsEnemies_Reseasoned
             PerformEffect_Item ice = new PerformEffect_Item("Salt_BlackIce_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<PermenantApplyWaterEffect>(), 1, MultiTargetting.Create(Targetting.Everything(false), Targetting.Everything(true)))]);
             ice.Name = "Black Ice";
             ice.Flavour = "\"Frozen from somewhere\"";
-            ice.Description = "At the start of combat, permenantly apply Deep Water to all positions.";
+            ice.Description = "At the start of combat, permenantly submerges all positions in Deep Water.";
             ice.Icon = ResourceLoader.LoadSprite("item_blackice.png");
             ice.EquippedModifiers = [];
             ice.TriggerOn = TriggerCalls.OnCombatStart;

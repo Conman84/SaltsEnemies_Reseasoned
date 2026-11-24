@@ -54,7 +54,7 @@ namespace SaltsEnemies_Reseasoned
 
 
             Ability mars = new Ability("Mars", "Nume_Mars_A");
-            mars.Description = "Inflict 2 Ruptured to the Opposing party member.";
+            mars.Description = "Rupture the Opposing party member.";
             mars.Rarity = Rarity.CreateAndAddCustomRarityToPool("nume7", 7);
             mars.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Slots.Front)];
             mars.AddIntentsToTarget(Slots.Front, ["Status_Ruptured"]);

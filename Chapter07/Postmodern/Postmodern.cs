@@ -130,7 +130,7 @@ namespace SaltsEnemies_Reseasoned
             Ability splatter = new Ability("Splatter_Blood_A")
             {
                 Name = "Splatter Blood",
-                Description = "Inflict 3 Ruptured on the Left and Right party members and increase their Noise by 2. Move this enemy to the left or right.",
+                Description = "Rupture the Left and Right party members and increase their Noise by 2. Move this enemy to the left or right.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {

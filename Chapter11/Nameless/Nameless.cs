@@ -90,11 +90,11 @@ namespace SaltsEnemies_Reseasoned
             Ability nobody = new Ability("IfNobodyMoves_A")
             {
                 Name = "If Nobody Moves",
-                Description = "Inflict 1 Ruptured on every party member who moved since the start of the last turn.\n\"Nobody will get hurt\"",
+                Description = "Rupture every party member who moved since the start of the last turn.\n\"Nobody will get hurt\"",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Targetting_By_Moved.Create(false)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 2, Targetting_By_Moved.Create(false)),
                 },
                 Visuals = LoadedAssetsHandler.GetEnemyAbility("ThePact_A").visuals,
                 AnimationTarget = Targetting_By_Moved.Create(false),

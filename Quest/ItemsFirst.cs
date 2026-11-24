@@ -770,7 +770,7 @@ namespace SaltsEnemies_Reseasoned
             PerformEffect_Item bodybag = new PerformEffect_Item("Salt_Bodybag_TW", [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyWaterSlotEffect>(), 2, Slots.Front)]);
             bodybag.Name = "Bodybag";
             bodybag.Flavour = "\"Zip it up and dump it.\"";
-            bodybag.Description = "On moving, inflict 2 Deep Water on the Opposing position.";
+            bodybag.Description = "On moving, submerge the Opposing position in 2 Deep Water.";
             bodybag.Icon = ResourceLoader.LoadSprite("Item_Bodybag.png");
             bodybag.EquippedModifiers = [];
             bodybag.TriggerOn = TriggerCalls.OnMoved;

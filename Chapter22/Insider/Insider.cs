@@ -176,7 +176,7 @@ namespace SaltsEnemies_Reseasoned
 
             //delta
             Ability delta = new Ability("Insider", "InsiderD_A");
-            delta.Description = "Inflict 1 Ruptured on all units.";
+            delta.Description = "Rupture all enemies and party members.";
             delta.Rarity = Rarity.Rare;
             delta.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Targeting.AllUnits)];
             delta.AddIntentsToTarget(Targeting.Unit_AllAllies, ["Status_Ruptured"]);

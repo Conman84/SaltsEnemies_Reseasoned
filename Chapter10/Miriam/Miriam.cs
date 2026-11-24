@@ -45,7 +45,7 @@ namespace SaltsEnemies_Reseasoned
             Ability dreams = new Ability("SeeWhatIDream_A")
             {
                 Name = "See What I Dream",
-                Description = "Inflict 2 Ruptured and apply 3 Dodge on the Opposing party member. Move this enemy to the Left or Right.",
+                Description = "Rupture and apply 3 Dodge on the Opposing party member. Move this enemy to the Left or Right.",
                 Rarity = Rarity.CreateAndAddCustomRarityToPool("miriam4", 4),
                 Effects = new EffectInfo[]
                 {

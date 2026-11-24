@@ -34,7 +34,7 @@ namespace SaltsEnemies_Reseasoned
             freed.AnimationTarget = Slots.Self;
 
             Ability bleed = new Ability("Might Bleed", "MightBleed_A");
-            bleed.Description = "Inflict 0-6 Ruptured to the Opposing party member.\nTake 2 damage.";
+            bleed.Description = "Variably Rupture the Opposing party member.\nTake a Little damage.";
             bleed.Rarity = Rarity.GetCustomRarity("rarity5");
             bleed.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.Front, Effects.ChanceCondition(80)),

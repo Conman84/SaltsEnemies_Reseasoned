@@ -90,7 +90,7 @@ namespace SaltsEnemies_Reseasoned
             Ability bloodletting = new Ability("Salt_Bloodletting_A")
             {
                 Name = "Bloodletting",
-                Description = "Clumsily deals a Little damage and inflict 1 Ruptured to this enemy.",
+                Description = "Clumsily takes a Little damage and Ruptures this enemy.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                         {

@@ -28,7 +28,7 @@ namespace SaltsEnemies_Reseasoned
             waves.m_PassiveID = "Waves_PA";
             waves.name = "Waves_2_PA";
             waves.passiveIcon = ResourceLoader.LoadSprite("WavesPassive.png");
-            waves._enemyDescription = "On moving, inflict 2 Deep Water on the Opposing position.";
+            waves._enemyDescription = "On moving, submerge the Opposing position in Deep Water.";
             waves._characterDescription = waves._enemyDescription;
             waves.doesPassiveTriggerInformationPanel = true;
             waves.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyWaterSlotEffect>(), 2, Slots.Front).SelfArray();
@@ -41,7 +41,7 @@ namespace SaltsEnemies_Reseasoned
             Ability underwater = new Ability("HoldMeUnderwater_A")
             {
                 Name = "Hold Me Underwater",
-                Description = "Inflict 2 Constricted and 3 Deep Water on the Opposing position.",
+                Description = "Constrict and submerge the Opposing position in Deep Water.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
@@ -56,7 +56,7 @@ namespace SaltsEnemies_Reseasoned
             Ability love = new Ability("LostWithoutYourLove_A")
             {
                 Name = "Lost without Your Love",
-                Description = "Inflict 4 Deep Water on the Opposing position. \nIf there is no Opposing party member, move to the Left or Right, then apply 3 Deep Water on self.",
+                Description = "Submerge the Opposing position in Deep Water. \nIf there is no Opposing party member, move to the Left or Right, then submerge this enemy in Deep Water.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
@@ -76,7 +76,7 @@ namespace SaltsEnemies_Reseasoned
             Ability tail = new Ability("TailToHead_A")
             {
                 Name = "Tail to Head",
-                Description = "Remove all Deep Water from the Opposing position. Inflict half the amount to every other party member tile.\nMove the Opposing party member to the Left or Right.",
+                Description = "Remove all Deep Water from the Opposing position. Submerge every other party member position with half the amount removed.\nMove the Opposing party member to the Left or Right.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {

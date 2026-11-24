@@ -80,7 +80,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability agony = new Ability(special_base.ability, "ArtOfAgony_A", [], Rarity.GetCustomRarity("rarity5"));
             agony.Name = "Art Of Agony";
-            agony.ability._description += "inflict 4 Ruptured to the Left, Right, and Opposing party members.";
+            agony.ability._description += "Heavily Rupture to the Left, Right, and Opposing party members.";
             agony.Effects[1] = Effects.GenerateEffect(BasicEffects.GetVisuals("Quills_1_A", true, Slots.FrontLeftRight), 0, null, BasicEffects.DidThat(false));
             agony.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 4, Slots.FrontLeftRight, BasicEffects.DidThat(false, 2));
             agony.AddIntentsToTarget(Slots.FrontLeftRight, ["Status_Ruptured"]);

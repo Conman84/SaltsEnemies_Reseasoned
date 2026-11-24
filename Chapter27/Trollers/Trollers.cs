@@ -78,7 +78,7 @@ namespace SaltsEnemies_Reseasoned
             emuls.Visuals = Visuals.Intrusion;
 
             Ability gravi = new Ability("Gravipulsion", "Troller_Gravipulsion_A");
-            gravi.Description = "Consume 3 Pigment of this enemy's health color.\nInflict 5 Magnetism and 2 Dodge on this enemy.";
+            gravi.Description = "Consume 3 Pigment of this enemy's health color.\nMagnetize and apply 2 Dodge on this enemy.";
             gravi.Rarity = Rarity.Common;
             gravi.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeAllTargetHealthManaEffect>(), 3, Slots.Self),
@@ -90,7 +90,7 @@ namespace SaltsEnemies_Reseasoned
             gravi.Visuals = Visuals.Crush;
 
             Ability neru = new Ability("Nerulsion", "Troller_Nerulsion_A");
-            neru.Description = "Deal a Little damage to this and the Left and Right enemies.\nInflict 2 Ruptured on the Left, Right, and Opposing party members.";
+            neru.Description = "Deal a Little damage to this and the Left and Right enemies.\nRupture the Left, Right, and Opposing party members.";
             neru.Rarity = Rarity.Common;
             neru.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Targeting.Slot_SelfAndSides),
@@ -178,7 +178,7 @@ namespace SaltsEnemies_Reseasoned
             emuls.Visuals = Visuals.Intrusion;
 
             Ability gravi = new Ability("Gravipulation", "Troller_Gravipulation_A");
-            gravi.Description = "Consume 3 Pigment of the Opposing party member's health color.\nInflict 5 Magnetism and 2 Dodge on the Opposing party member.";
+            gravi.Description = "Consume 3 Pigment of the Opposing party member's health color.\nMagnetize and apply 2 Dodge on the Opposing party member.";
             gravi.Rarity = Rarity.Common;
             gravi.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ConsumeAllTargetHealthManaEffect>(), 3, Slots.Front),
@@ -190,7 +190,7 @@ namespace SaltsEnemies_Reseasoned
             gravi.Visuals = Visuals.Crush;
 
             Ability neru = new Ability("Nerulation", "Troller_Nerulation_A");
-            neru.Description = "Deal a Little damage to the Left, Right, and Opposing party members.\nInflict 2 Ruptured on the this and the Left and Right enemies.";
+            neru.Description = "Deal a Little damage to the Left, Right, and Opposing party members.\nRupture this and the Left and Right enemies.";
             neru.Rarity = Rarity.Common;
             neru.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.FrontLeftRight),

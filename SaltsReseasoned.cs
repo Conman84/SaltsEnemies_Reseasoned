@@ -568,7 +568,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Ethereal.png"), "Ethereal", "On taking any damage, instantly flee. When fleeing, this unit will return at the end of the timeline if combat hasn't ended.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Hemochromia.png"), "Heterochromia", "Upon receiving any kind of damage, randomize this unit's health colour.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DisabledIcon.png"), "Disabled", "On receiving any damage over a certain amount, cancel one of this unit's actions.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("enrupture"), "Enruptured", "Permenantly inflicts Ruptured on this unit.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("enrupture"), "Enruptured", "This unit is permanently Ruptured.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("heavily_armored"), "Heavily Armored", "If this unit's positions have no Shield, apply a certain amount of Shield there.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("algophobia"), "Algophobia", "Taking a certain amount of damage or more in one turn will make this unit instantly flee.");
 
@@ -605,7 +605,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("SkinPeelingPassive.png"), "Skinning", "On being directly damaged, spawn as many of a specific enemy as possible.");
 
             //CH14
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WavesPassive.png"), "Waves", "On moving, inflict a certain amount of Deep Water on the Opposing position.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WavesPassive.png"), "Waves", "On moving, submerge the Opposing position in Deep Water.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PracticalPassive.png"), "Practial", "On taking direct damage, shift one Light phase backwards.\nOn any ability being used other than by this unit, 50% chance to toggle the Crosswalk phase.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WileyPassive.png"), "Whimsy", "Most Status Effects and some Field Effects will no longer decrease while this unit is in combat.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ViolentPassive.png"), "Violent", "On receiving direct damage, deal a certain amount of damage to the Opposing position.\nThis passive does not trigger if the damage received kills.");

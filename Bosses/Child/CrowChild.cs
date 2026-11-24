@@ -38,7 +38,7 @@ namespace SaltsEnemies_Reseasoned
             template.AddUnitType("Bird");
 
             Ability first = new Ability("Masquerade", "CC_Masquerade_A");
-            first.Description = "Inflict 1 Ruptured and 1 Frail to the Left and Right party members.";
+            first.Description = "Rupture and Frail to the Left and Right party members.";
             first.Rarity = Rarity.GetCustomRarity("rarity5");
             first.Effects = new EffectInfo[2];
             first.Effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyRupturedEffect>(), 1, Slots.LeftRight);

@@ -61,7 +61,7 @@ namespace SaltsEnemies_Reseasoned
             Ability screech = new Ability("Scarecrow_HellScreech_A")
             {
                 Name = "Hell Screech",
-                Description = "Deal a Little bit of damage and inflict 2 Ruptured on every party member.",
+                Description = "Deals a Little bit of damage to and Ruptures every party member.",
                 Rarity = Rarity.GetCustomRarity("rarity5"),
                 Effects = new EffectInfo[]
                 {
