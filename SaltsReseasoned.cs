@@ -541,6 +541,7 @@ namespace SaltsEnemies_Reseasoned
             
             //CH4
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Revenge.png"), "Revenge", "On taking direct damage, give this unit another action.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ApostlePassive.png"), "Apostle", "On any other enemy being directly damaged, prematurely perform this enemy's next action on the timeline.");
             //AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PickPocket.png"), "Pick-Pocket", "On Fleeing, steal a certain amount of coins.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DivineSacrifice.png"), "Substitute", "Permanently applies Divine Sacrifice to this unit.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("InspirationIcon.png"), "Inspired", "This unit is Inspired.");
@@ -562,7 +563,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("CodaIcon.png"), "Coda", "On death, apply 3 Dodge, 3 Haste, and 3 Power to all allies.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("sigilPassive.png"), "Sigil", "At the start of each turn, reset this unit's Sigil.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("WarningPassive.png"), "Warning", "On receiving direct damage, increase all Negative Status and Field Effects on the Opposing targets.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ParanoidSpeed.png"), "Acceleration", "If the opponent's portion of the turn takes longer than 60 seconds, apply 6 Entropy to all opponents.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ParanoidSpeed.png"), "Acceleration", "If the opponent's portion of the turn takes longer than 60 seconds, inflict Entropy to all opponents.");
 
             //CH9
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Ethereal.png"), "Ethereal", "On taking any damage, instantly flee. When fleeing, this unit will return at the end of the timeline if combat hasn't ended.");
@@ -681,7 +682,6 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("PawsomePassive.png"), "Pawsome", "On any party member manually moving, this enemy will change its health color from Red to Purple or vice versa.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("MeldedPassive.png"), "Melded", "On fleeing, halve the target unit's current health and inflict a slew of Negative Status Effects on them.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("NonomnumuburamumaPassive.png"), "Nonomnumuburamuma", "This enemy will perform 0 actions per turn by default.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ApostlePassive.png"), "Apostle", "On any other enemy being directly damaged, prematurely perform this enemy's next action on the timeline.");
 
             //CH27
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("VivaciousPassive.png"), "Vivacious", "At the end of the round, move Left or Right.");

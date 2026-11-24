@@ -37,7 +37,7 @@ namespace SaltsEnemies_Reseasoned
             hauntling.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, Passives.Slippery, Passives.Infantile, Passives.Leaky3 });
 
             Ability antisoftlock = new Ability("Antisoftlock", "Antisoftlock_A");
-            antisoftlock.Description = "Inflict 11 Entropy to the Opposing party member and this enemy.";
+            antisoftlock.Description = "Inflict a Deadly amount of Entropy on the Opposing party member and this enemy.";
             antisoftlock.Rarity = Rarity.Common;
             antisoftlock.Effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyEntropyEffect>(), 11, MultiTargetting.Create(Slots.Front, Slots.Self))];
             antisoftlock.AddIntentsToTarget(Slots.Front, [Entropy.Intent]);
