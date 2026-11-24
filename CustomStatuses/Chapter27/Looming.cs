@@ -1,9 +1,12 @@
 ﻿using BrutalAPI;
+using HarmonyLib;
 using SaltEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -69,6 +72,17 @@ namespace SaltsEnemies_Reseasoned
             reminfo._sprite = ResourceLoader.LoadSprite("SlipIcon.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Rem_Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Rem_Intent] = reminfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Rem_Intent, reminfo);*/
+
+            NotificationHook.AddAction(NotifCheck);
+        }
+
+        public static void NotifCheck(string name, object sender, object args)
+        {
+            if (name == TriggerCalls.OnAbilityUsed.ToString() || name == TriggerCalls.OnTurnStart.ToString() || name == TriggerCalls.TimelineEndReached.ToString() || name == TriggerCalls.OnPlayerTurnEnd_ForEnemy.ToString() || name == TriggerCalls.OnMiscPlayerTurnStart.ToString() || name == TriggerCalls.OnDeath.ToString() || name == TriggerCalls.OnFleetingEnd.ToString())
+            {
+                foreach (CombatSlot slot in CombatManager.Instance._stats.combatSlots.CharacterSlots)
+                    CombatManager.Instance.PostNotification(Trigger, slot, null);
+            }
         }
     }
 
@@ -76,59 +90,62 @@ namespace SaltsEnemies_Reseasoned
     public class LoomingFE_SO : FieldEffect_SO
     {
         public bool isCharaSide;
+        public EnemySO[] Spawns;
         public override bool IsPositive => !isCharaSide;
         public override void OnSlotEffectorTriggerAttached(FieldEffect_Holder holder)
         {
-            if (holder.Effector is CombatSlot slot && slot.HasUnit) Roots.IgnoreSet[holder.SlotID] = true;
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_03, TriggerCalls.OnTurnFinished.ToString(), holder.Effector);
+            CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnFinished.ToString(), holder.Effector);
+            CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, Looming.Trigger, holder.Effector);
         }
         public override void OnSlotEffectorTriggerDettached(FieldEffect_Holder holder)
         {
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_03, TriggerCalls.OnTurnFinished.ToString(), holder.Effector);
+            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, TriggerCalls.OnTurnFinished.ToString(), holder.Effector);
+            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, Looming.Trigger, holder.Effector);
         }
         public override void OnTriggerAttached(FieldEffect_Holder holder, IUnit caller)
         {
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_01, Roots.SubTrigger, caller);
-            CombatManager.Instance.AddObserver(holder.OnEventTriggered_02, Roots.Trigger, caller);
-            if (Roots.IgnoreSet[holder.SlotID])
-            {
-                Roots.IgnoreSet[holder.SlotID] = false;
-                return;
-            }
-            CombatManager.Instance.AddSubAction(new PerformSlotStatusEffectAction(holder, caller, null, true));
+            CombatManager.Instance.AddObserver(holder.OnEventTriggered_03, TriggerCalls.OnDirectDamaged.ToString(), caller);
+            if (caller.IsUnitCharacter) CombatManager.Instance.AddObserver(holder.OnEventTriggered_03, TriggerCalls.OnAbilityUsed.ToString(), caller);
         }
         public override void OnTriggerDettached(FieldEffect_Holder holder, IUnit caller)
         {
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_01, Roots.SubTrigger, caller);
-            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_02, Roots.Trigger, caller);
+            CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_03, TriggerCalls.OnDirectDamaged.ToString(), caller);
+            if (caller.IsUnitCharacter) CombatManager.Instance.RemoveObserver(holder.OnEventTriggered_03, TriggerCalls.OnAbilityUsed.ToString(), caller);
         }
         public override void OnEventCall_01(FieldEffect_Holder holder, object sender, object args)
         {
-            if (sender is IUnit unit)
-            {
-                CombatManager.Instance.AddSubAction(new RootsDamageAction(UnityEngine.Random.Range(2, 4), unit, holder.SlotID));
-            }
+            if (holder.IsCharacterSlot && CombatManager.Instance._stats.combatSlots.CharacterSlots[holder.SlotID].HasUnit) IncreaseDuration(holder, 1);
+            if (!holder.IsCharacterSlot && CombatManager.Instance._stats.combatSlots.EnemySlots[holder.SlotID].HasUnit) IncreaseDuration(holder, 1);
+            else IncreaseDuration(holder, 2);
+            CombatManager.Instance.PostNotification(Looming.Trigger, holder.Effector, null);
         }
         public override void OnEventCall_02(FieldEffect_Holder holder, object sender, object args)
         {
-            if (args is int slot && slot == holder.SlotID)
-                ReduceDuration(holder);
+            TriggerLooming(holder);
         }
         public override void OnEventCall_03(FieldEffect_Holder holder, object sender, object args)
         {
             ReduceDuration(holder);
         }
-        public override void OnSubActionTrigger(FieldEffect_Holder holder, object sender, object args, bool stateCheck)
-        {
-            ForceReduceDuration(holder);
-        }
-        public void ForceReduceDuration(FieldEffect_Holder holder)
+        public void IncreaseDuration(FieldEffect_Holder holder, int amt)
         {
             int contentMain = holder.m_ContentMain;
-            holder.m_ContentMain = Mathf.Max(0, contentMain - 1);
+            holder.m_ContentMain = Mathf.Max(0, contentMain + amt);
             if (!TryRemoveFieldEffect(holder) && contentMain != holder.m_ContentMain)
             {
                 holder.Effector.FieldEffectValuesChanged(_FieldID, useSpecialSound: false, holder.m_ContentMain - contentMain);
+            }
+        }
+
+        public void TriggerLooming(FieldEffect_Holder holder)
+        {
+            if (Spawns == null || Spawns.Length <= 0) return;
+            if (CombatManager.Instance._stats.EnemiesOnField.Count <= 0) return;
+            if (CombatManager.Instance._stats.GetRandomEnemySlot(1) < 0) return;
+            if (holder.m_ContentMain + holder.Restrictor >= 10)
+            {
+                CombatManager.Instance.AddSubAction(new SpawnEnemyAction(Spawns.GetRandom(), holder.SlotID, false, true, CombatType_GameIDs.Spawn_Basic.ToString()));
+                holder.JustRemoveAllContent();
             }
         }
     }
