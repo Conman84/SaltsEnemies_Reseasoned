@@ -675,7 +675,7 @@
 	  <None Remove="CustomStatuses\Chapter14\Drowning.png" />
 	  <None Remove="CustomStatuses\Chapter14\SlipIcon.png" />
 	  <None Remove="CustomStatuses\Chapter14\WaterRemove.png" />
-	  <None Remove="CustomStatuses\Chapter27\LoomingIcon.png" />
+	  <None Remove="CustomStatuses\Chapter27\LoomingIcon2.png" />
 	  <None Remove="CustomStatuses\Determined.png" />
 	  <None Remove="CustomStatuses\Inverted.png" />
 	  <None Remove="CustomStatuses\Left.png" />
@@ -1764,7 +1764,7 @@
 	  <EmbeddedResource Include="CustomStatuses\Chapter14\Drowning.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter14\SlipIcon.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter14\WaterRemove.png" />
-	  <EmbeddedResource Include="CustomStatuses\Chapter27\LoomingIcon.png" />
+	  <EmbeddedResource Include="CustomStatuses\Chapter27\LoomingIcon2.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\BBAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\BSAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\CoinAch.png" />

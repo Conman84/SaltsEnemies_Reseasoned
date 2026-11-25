@@ -21,7 +21,7 @@ namespace SaltsEnemies_Reseasoned
         public static void Add()
         {
             SlotStatusEffectInfoSO LoomingInfo = ScriptableObject.CreateInstance<SlotStatusEffectInfoSO>();
-            LoomingInfo.icon = ResourceLoader.LoadSprite("LoomingIcon.png");
+            LoomingInfo.icon = ResourceLoader.LoadSprite("LoomingIcon2.png");
             LoomingInfo._fieldName = "Looming";
             LoomingInfo._description = "Looming increases by 1 on turn end, and by 2 if the position is unoccupied.\nLooming reduces by 1 on anything being directly damaged while in Looming, and when a party member manually performs an ability while in Looming.\nIf Looming reaches 10 or higher, summon a Seventh Sin and remove Looming from this position.";
             LoomingInfo._applied_SE_Event = "event:/Hawthorne/Misc2/ApplyTerror";//change to unique when possible
@@ -59,7 +59,7 @@ namespace SaltsEnemies_Reseasoned
 
             IntentInfoBasic intentinfo = new IntentInfoBasic();
             intentinfo._color = Color.white;
-            intentinfo._sprite = ResourceLoader.LoadSprite("LoomingIcon.png");
+            intentinfo._sprite = ResourceLoader.LoadSprite("LoomingIcon2.png");
             if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent] = intentinfo;
             else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent, intentinfo);
 
