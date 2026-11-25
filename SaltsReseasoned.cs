@@ -132,6 +132,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(Red.Add);
             PCall(Blue.Add);
             PCall(Magnetism.Add);
+            PCall(Looming.Add);
 
             //CH1 Enemies
             LostSheep.Add();
