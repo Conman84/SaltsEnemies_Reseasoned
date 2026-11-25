@@ -163,6 +163,8 @@ namespace SaltsEnemies_Reseasoned
         }
         public override IEnumerator Execute(CombatStats stats)
         {
+            if (holder.m_ContentMain + holder.Restrictor < 10) yield break;
+
             EnemySO _enemy = LoomingFE_SO.Spawns.GetRandom();
             //CombatManager.Instance.AddSubAction(new SpawnEnemyAction(Spawns.GetRandom(), holder.SlotID, false, true, CombatType_GameIDs.Spawn_Basic.ToString()));
             int num = stats.GetRandomEnemySlot(_enemy.size);
