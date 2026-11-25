@@ -649,6 +649,9 @@
 	  <None Remove="Chapter27\SevenSins\SinWrath_Icon.png" />
 	  <None Remove="Chapter27\SevenSins\SinWrath_World.png" />
 	  <None Remove="Chapter27\Slave\SchizophrenicPassive.png" />
+	  <None Remove="Chapter27\Slave\SlaveDead.png" />
+	  <None Remove="Chapter27\Slave\SlaveIcon.png" />
+	  <None Remove="Chapter27\Slave\SlaveWorld.png" />
 	  <None Remove="Chapter27\Trollers\HelpDead.png" />
 	  <None Remove="Chapter27\Trollers\HelpIcon.png" />
 	  <None Remove="Chapter27\Trollers\HelpWorld.png" />
@@ -1753,6 +1756,9 @@
 	  <EmbeddedResource Include="Chapter27\SevenSins\SinWrath_Icon.png" />
 	  <EmbeddedResource Include="Chapter27\SevenSins\SinWrath_World.png" />
 	  <EmbeddedResource Include="Chapter27\Slave\SchizophrenicPassive.png" />
+	  <EmbeddedResource Include="Chapter27\Slave\SlaveDead.png" />
+	  <EmbeddedResource Include="Chapter27\Slave\SlaveIcon.png" />
+	  <EmbeddedResource Include="Chapter27\Slave\SlaveWorld.png" />
 	  <EmbeddedResource Include="Chapter27\Trollers\HelpDead.png" />
 	  <EmbeddedResource Include="Chapter27\Trollers\HelpIcon.png" />
 	  <EmbeddedResource Include="Chapter27\Trollers\HelpWorld.png" />
