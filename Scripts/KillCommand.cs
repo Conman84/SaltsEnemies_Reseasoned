@@ -423,12 +423,12 @@ namespace SaltsEnemies_Reseasoned
                     return;
                 }
 
-                CombatManager.Instance.AddPriorityRootAction(new PerformDelegateAction(delegate (CombatStats x)
+                CombatManager.Instance.AddPriorityRootAction(new PerformDelegateAction(delegate (CombatStats stats)
                 {
                     if (amount == 66)
                     {
-                        foreach (CombatSlot slot in CombatManager.Instance._stats.combatSlots.EnemySlots) slot.ApplyFieldEffect(Looming.EnemyObject, 1, 0);
-                        foreach (CombatSlot slot in CombatManager.Instance._stats.combatSlots.CharacterSlots) slot.ApplyFieldEffect(Looming.CharaObject, 1, 0);
+                        foreach (stats.combatSlots.EnemySlots) slot.ApplyFieldEffect(Looming.EnemyObject, 1, 0);
+                        foreach (stats.combatSlots.CharacterSlots) slot.ApplyFieldEffect(Looming.CharaObject, 1, 0);
                     }
                 }));
                 DebugController.Instance.WriteLine("the command ran.");
