@@ -61,6 +61,9 @@ namespace SaltsEnemies_Reseasoned
 
             template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Withering });
 
+            template.CombatEnterEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), 1)];
+            template.CombatExitEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), -1)];
+
             Ability test = new Ability("Wrath_Kill_A");
             test.Name = "Wrath Kills";
             test.Priority = Priority.Fast;
@@ -117,6 +120,9 @@ namespace SaltsEnemies_Reseasoned
             template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
 
             template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Withering });
+
+            template.CombatEnterEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), 1)];
+            template.CombatExitEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), -1)];
 
             Ability test = new Ability("Pride_Kill_A");
             test.Name = "Pride Kills";
@@ -176,6 +182,9 @@ namespace SaltsEnemies_Reseasoned
 
             template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Withering });
 
+            template.CombatEnterEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), 1)];
+            template.CombatExitEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), -1)];
+
             Ability test = new Ability("Lust_Kill_A");
             test.Name = "Lust Kills";
             test.Priority = Priority.Fast;
@@ -230,6 +239,9 @@ namespace SaltsEnemies_Reseasoned
             template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
 
             template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Withering });
+
+            template.CombatEnterEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), 1)];
+            template.CombatExitEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), -1)];
 
             Ability test = new Ability("Envy_Kill_A");
             test.Name = "Envy Kills";
@@ -292,6 +304,9 @@ namespace SaltsEnemies_Reseasoned
 
             template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Withering });
 
+            template.CombatEnterEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), 1)];
+            template.CombatExitEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), -1)];
+
             Ability test = new Ability("Greed_Kill_A");
             test.Name = "Greed Kills";
             test.Priority = Priority.Fast;
@@ -350,6 +365,9 @@ namespace SaltsEnemies_Reseasoned
             template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
 
             template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Withering });
+
+            template.CombatEnterEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), 1)];
+            template.CombatExitEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), -1)];
 
             Ability test = new Ability("Sloth_Kill_A");
             test.Name = "Sloth Kills";
@@ -419,6 +437,9 @@ namespace SaltsEnemies_Reseasoned
             template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
 
             template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Withering });
+
+            template.CombatEnterEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), 1)];
+            template.CombatExitEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), -1)];
 
             Ability test = new Ability("Gluttony_Kill_A");
             test.Name = "Gluttony Kills";
