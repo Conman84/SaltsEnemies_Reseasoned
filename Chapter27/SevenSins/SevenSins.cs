@@ -10,6 +10,7 @@ namespace SaltsEnemies_Reseasoned
     public static class SevenSins
     {
         public static List<EnemySO> Sins = [];
+        public static ParticleSystem Gibs;
         public static void Add()
         {
             PerformEffectPassiveAbility overdose = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
@@ -32,6 +33,8 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(overdose_effect, 1, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<FixCasterTimelineIntentsEffect>())
                 ];
+
+            Gibs = SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Sins/Sins_Gibs.prefab").GetComponent<ParticleSystem>();
 
             Wrath(overdose);
             Pride(overdose);
@@ -58,7 +61,7 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = LoadedAssetsHandler.GetCharacter("Agon_CH").deathSound,
                 UnitTypes = ["Sin"]
             };
-            template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.PrepareEnemyPrefab("Assets/Sins/Sin_Wrath_Enemy.prefab", SaltsReseasoned.Meow, Gibs);
 
             template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Theophobia, Passives.Withering });
 
@@ -125,7 +128,7 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = LoadedAssetsHandler.GetCharacter("Burnout_CH").deathSound,
                 UnitTypes = ["Sin"]
             };
-            template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.PrepareEnemyPrefab("Assets/Sins/Sin_Pride_Enemy.prefab", SaltsReseasoned.Meow, Gibs);
 
             template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Theophobia, Passives.Withering });
 
@@ -197,7 +200,7 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = LoadedAssetsHandler.GetCharacter("ShellyK_CH").deathSound,
                 UnitTypes = ["Sin"]
             };
-            template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.PrepareEnemyPrefab("Assets/Sins/Sin_Lust_Enemy.prefab", SaltsReseasoned.Meow, Gibs);
 
             template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Theophobia, Passives.Withering });
 
@@ -255,7 +258,7 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = LoadedAssetsHandler.GetCharacter("CorpseChan_EN").deathSound,
                 UnitTypes = ["Sin"]
             };
-            template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.PrepareEnemyPrefab("Assets/Sins/Sin_Envy_Enemy.prefab", SaltsReseasoned.Meow, Gibs);
 
             template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Theophobia, Passives.Withering });
 
@@ -333,7 +336,7 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = LoadedAssetsHandler.GetCharacter("Mordrake_CH").deathSound,
                 UnitTypes = ["Sin"]
             };
-            template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.PrepareEnemyPrefab("Assets/Sins/Sin_Greed_Enemy.prefab", SaltsReseasoned.Meow, Gibs);
 
             template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Theophobia, Passives.Withering });
 
@@ -395,7 +398,7 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = LoadedAssetsHandler.GetCharacter("Bimini_CH").deathSound,
                 UnitTypes = ["Sin"]
             };
-            template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.PrepareEnemyPrefab("Assets/Sins/Sin_Sloth_Enemy.prefab", SaltsReseasoned.Meow, Gibs);
 
             template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Theophobia, Passives.Withering });
 
@@ -467,7 +470,7 @@ namespace SaltsEnemies_Reseasoned
                 DeathSound = LoadedAssetsHandler.GetEnemy("Delusion_EN").deathSound,
                 UnitTypes = ["Sin"]
             };
-            template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
+            template.PrepareEnemyPrefab("Assets/Sins/Sin_Gluttony_Enemy.prefab", SaltsReseasoned.Meow, Gibs);
 
             template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Theophobia, Passives.Withering });
 
