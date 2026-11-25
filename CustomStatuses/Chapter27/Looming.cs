@@ -115,7 +115,7 @@ namespace SaltsEnemies_Reseasoned
         public override void OnEventCall_01(FieldEffect_Holder holder, object sender, object args)
         {
             if (holder.IsCharacterSlot && CombatManager.Instance._stats.combatSlots.CharacterSlots[holder.SlotID].HasUnit) IncreaseDuration(holder, 1);
-            if (!holder.IsCharacterSlot && CombatManager.Instance._stats.combatSlots.EnemySlots[holder.SlotID].HasUnit) IncreaseDuration(holder, 1);
+            else if (!holder.IsCharacterSlot && CombatManager.Instance._stats.combatSlots.EnemySlots[holder.SlotID].HasUnit) IncreaseDuration(holder, 1);
             else IncreaseDuration(holder, 2);
             CombatManager.Instance.PostNotification(Looming.Trigger, holder.Effector, null);
         }
