@@ -82,6 +82,8 @@ namespace SaltsEnemies_Reseasoned
             {
                 foreach (CombatSlot slot in CombatManager.Instance._stats.combatSlots.CharacterSlots)
                     CombatManager.Instance.PostNotification(Trigger, slot, null);
+                foreach (CombatSlot slot in CombatManager.Instance._stats.combatSlots.EnemySlots)
+                    CombatManager.Instance.PostNotification(Trigger, slot, null);
             }
         }
     }
