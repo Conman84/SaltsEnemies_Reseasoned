@@ -169,7 +169,7 @@ namespace SaltsEnemies_Reseasoned
             byExit._usePreviousExitValue = true;
             spawn.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<FullyHealSinsEffect>(), 1, Targeting.Unit_AllAllies),
-                Effects.GenerateEffect(byExit, 1, Slots.Self, BasicEffects.DidThat(false)),
+                Effects.GenerateEffect(byExit, 1, Slots.Self, BasicEffects.DidThat(true)),
                 ];
             spawn.AddIntentsToTarget(Targeting.Unit_AllAllies, ["Misc_Hidden", IntentType_GameIDs.Heal_11_20.ToString()]);
             spawn.AddIntentsToTarget(Slots.Self, ["Damage_21"]);
@@ -255,7 +255,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldAliveSprite = ResourceLoader.LoadSprite("SinEnvy_World.png", new Vector2(0.5f, 0f), 32),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("SinSeven_Dead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("CorpseChan_EN").damageSound,
-                DeathSound = LoadedAssetsHandler.GetCharacter("CorpseChan_EN").deathSound,
+                DeathSound = LoadedAssetsHandler.GetEnemy("CorpseChan_EN").deathSound,
                 UnitTypes = ["Sin"]
             };
             template.PrepareEnemyPrefab("Assets/Sins/Sin_Envy_Enemy.prefab", SaltsReseasoned.Meow, Gibs);
@@ -459,7 +459,7 @@ namespace SaltsEnemies_Reseasoned
         }
         public static void Gluttony(BasePassiveAbilitySO overdose)
         {
-            Enemy template = new Enemy("Seventh Sin of Gluttony", "Sin_Wrath_EN")
+            Enemy template = new Enemy("Seventh Sin of Gluttony", "Sin_Gluttony_EN")
             {
                 Health = 48,
                 HealthColor = Pigments.Red,

@@ -2,10 +2,12 @@
 using HarmonyLib;
 using SaltEnemies_Reseasoned;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using static SaltsEnemies_Reseasoned.Garden.H;
 using static UnityEngine.EventSystems.EventTrigger;
 
 namespace SaltsEnemies_Reseasoned
@@ -144,10 +146,37 @@ namespace SaltsEnemies_Reseasoned
             if (CombatManager.Instance._stats.GetRandomEnemySlot(1) < 0) return;
             if (holder.m_ContentMain + holder.Restrictor >= 10)
             {
-                CombatManager.Instance.AddSubAction(new SpawnEnemyAction(Spawns.GetRandom(), holder.SlotID, false, true, CombatType_GameIDs.Spawn_Basic.ToString()));
-                holder.JustRemoveAllContent();
-                TryRemoveFieldEffect(holder);
+                CombatManager.Instance.AddRootAction(new LoomingTriggerAction(holder, this));
+                
             }
+        }
+    }
+
+    public class LoomingTriggerAction : CombatAction
+    {
+        public LoomingFE_SO field;
+        public FieldEffect_Holder holder;
+        public LoomingTriggerAction(FieldEffect_Holder holder, LoomingFE_SO field)
+        {
+            this.holder = holder;
+            this.field = field;
+        }
+        public override IEnumerator Execute(CombatStats stats)
+        {
+            EnemySO _enemy = LoomingFE_SO.Spawns.GetRandom();
+            //CombatManager.Instance.AddSubAction(new SpawnEnemyAction(Spawns.GetRandom(), holder.SlotID, false, true, CombatType_GameIDs.Spawn_Basic.ToString()));
+            int num = stats.GetRandomEnemySlot(_enemy.size);
+
+            if (num != -1)
+            {
+                if (stats.AddNewEnemy(_enemy, num, false, "Spawn_Basic", _enemy.health))
+                {
+                    holder.JustRemoveAllContent();
+                    field.TryRemoveFieldEffect(holder);
+                }
+            }
+
+            yield break;
         }
     }
 
