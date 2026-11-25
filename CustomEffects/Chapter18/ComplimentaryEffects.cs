@@ -100,6 +100,7 @@ namespace SaltEnemies_Reseasoned
                                     CombatManager.Instance.AddSubAction(new ApplyStoredValuesAction(newborn, data));
                                 }
                                 if (healthColor != null && !healthColor.Equals(null)) CombatManager.Instance.AddSubAction(new ApplyHealthColorAction(healthColor, unit));
+                                unit.SimpleSetStoredValue(Inspiration.Prevent, 1);
                                 foreach (IStatusEffect effect in status)
                                 {
                                     try
@@ -115,6 +116,7 @@ namespace SaltEnemies_Reseasoned
                                         Debug.LogError(ex.ToString());
                                     }
                                 }
+                                unit.SimpleSetStoredValue(Inspiration.Prevent, 0);
                                 foreach (BasePassiveAbilitySO passive in passives)
                                 {
                                     try
