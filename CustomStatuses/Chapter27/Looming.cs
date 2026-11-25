@@ -23,7 +23,7 @@ namespace SaltsEnemies_Reseasoned
             SlotStatusEffectInfoSO LoomingInfo = ScriptableObject.CreateInstance<SlotStatusEffectInfoSO>();
             LoomingInfo.icon = ResourceLoader.LoadSprite("LoomingIcon.png");
             LoomingInfo._fieldName = "Looming";
-            LoomingInfo._description = "Looming increases by 1 on turn end, and by 2 if the position is unoccupied.\nLooming reduces by 1 on anything being directly damaged while in Looming, and when a party member manually performs an ability while in Looming.\nIf Looming reaches 10 or higher, summon a Seventh Sin and remove Looming from this position.";
+            LoomingInfo._description = "Looming increases by 1 on turn end, or by 2 if the position is unoccupied.\nLooming reduces by 1 on anything being directly damaged while in Looming, and when a party member manually performs an ability while in Looming.\nIf Looming reaches 10 or higher, summon a Seventh Sin and remove Looming from this position.";
             LoomingInfo._applied_SE_Event = "event:/Hawthorne/Misc2/ApplyTerror";//change to unique when possible
             LoomingInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             LoomingInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
