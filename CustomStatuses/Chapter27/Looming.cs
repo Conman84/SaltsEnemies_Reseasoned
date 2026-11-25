@@ -90,7 +90,7 @@ namespace SaltsEnemies_Reseasoned
     public class LoomingFE_SO : FieldEffect_SO
     {
         public bool isCharaSide;
-        public static EnemySO[] Spawns;
+        public static List<EnemySO> Spawns => SevenSins.Sins;
         public override bool IsPositive => !isCharaSide;
         public override void OnSlotEffectorTriggerAttached(FieldEffect_Holder holder)
         {
@@ -139,7 +139,7 @@ namespace SaltsEnemies_Reseasoned
 
         public void TriggerLooming(FieldEffect_Holder holder)
         {
-            if (Spawns == null || Spawns.Length <= 0) return;
+            if (Spawns == null || Spawns.Count <= 0) return;
             if (CombatManager.Instance._stats.EnemiesOnField.Count <= 0) return;
             if (CombatManager.Instance._stats.GetRandomEnemySlot(1) < 0) return;
             if (holder.m_ContentMain + holder.Restrictor >= 10)
