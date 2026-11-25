@@ -66,6 +66,14 @@ namespace SaltsEnemies_Reseasoned
                     if (enemy.Enemy.name == "EclipseRising_EN" || enemy.Enemy.name == "EclipseAwakened_EN") AddKill("Eclipse_EN", reference.witheringDeath);
                     if (enemy.Enemy.name == Enemies.Help || enemy.Enemy.name == Enemies.Reckoner) AddKill("Troller_EN", reference.witheringDeath);
 
+                    if (enemy.Enemy.name == "Sin_Wrath_EN") AddKill("SeventhSin_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "Sin_Pride_EN") AddKill("SeventhSin_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "Sin_Lust_EN") AddKill("SeventhSin_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "Sin_Envy_EN") AddKill("SeventhSin_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "Sin_Greed_EN") AddKill("SeventhSin_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "Sin_Sloth_EN") AddKill("SeventhSin_EN", reference.witheringDeath);
+                    if (enemy.Enemy.name == "Sin_Gluttony_EN") AddKill("SeventhSin_EN", reference.witheringDeath);
+
                     if (enemy.Enemy.name == "Smiler_Corpse_BOSS") AddKill("Smilers_BOSS", reference.witheringDeath);
                     if (enemy.Enemy.name == "RedSky_BOSS") AddKill("BlueSky_BOSS", reference.witheringDeath);
 
@@ -251,6 +259,7 @@ namespace SaltsEnemies_Reseasoned
             "Melder_EN",
             "Vivarium_EN",
             "NeverMind_EN",
+            "Slave_EN",
             "Smilers_BOSS",
             "CrowChild_BOSS",
             "BlackAndBlue_BOSS",
