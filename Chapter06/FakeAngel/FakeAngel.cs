@@ -14,7 +14,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy angel = new Enemy("Fake Angel", "FakeAngel_EN")
             {
-                Health = 20,
+                Health = 27,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("AngelIcon.png"),
                 OverworldDeadSprite = ResourceLoader.LoadSprite("AngelDead.png", new Vector2(0.5f, 0f), 32),
