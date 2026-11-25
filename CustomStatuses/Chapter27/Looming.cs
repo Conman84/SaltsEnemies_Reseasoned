@@ -37,7 +37,7 @@ namespace SaltsEnemies_Reseasoned
             LayoutFool.m_Animators = [Fool.GetComponent<Animator>()];
             LoomingInfo.m_CharacterLayoutTemplate = LayoutFool;
 
-            GameObject Enemy = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/SlipEnemy.prefab");
+            GameObject Enemy = SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Looming/LoomingEnemy.prefab");
             GameObject_EFE_Layout LayoutEnemy = Enemy.AddComponent<GameObject_EFE_Layout>();
             LayoutEnemy.m_Objects = new GameObject[] { Enemy };
             LoomingInfo.m_EnemyLayoutTemplate = LayoutEnemy;

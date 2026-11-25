@@ -404,6 +404,7 @@ namespace SaltsEnemies_Reseasoned
                 }
 
                 if (amount == 65) LoadedDBsHandler.InfoHolder.Run.inGameData.SetBoolData(ShinyHandler.InRunData, false);
+
                 if (amount == 99) Legacy.Update();
 
                 if (amount == 301) NeverMind.ForceCensor(false);
@@ -421,6 +422,15 @@ namespace SaltsEnemies_Reseasoned
 
                     return;
                 }
+
+                CombatManager.Instance.AddPriorityRootAction(new PerformDelegateAction(delegate (CombatStats x)
+                {
+                    if (amount == 66)
+                    {
+                        foreach (CombatSlot slot in CombatManager.Instance._stats.combatSlots.EnemySlots) slot.ApplyFieldEffect(Looming.EnemyObject, 1, 0);
+                        foreach (CombatSlot slot in CombatManager.Instance._stats.combatSlots.CharacterSlots) slot.ApplyFieldEffect(Looming.CharaObject, 1, 0);
+                    }
+                }));
                 DebugController.Instance.WriteLine("the command ran.");
             });
 
