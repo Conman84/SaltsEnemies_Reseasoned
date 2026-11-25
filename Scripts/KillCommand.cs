@@ -413,7 +413,7 @@ namespace SaltsEnemies_Reseasoned
                 if (amount == 365)
                 {
                     SolitaireHandler.DreamScanner = 0;
-                    CombatManager.Instance._informationHolder.Run.inGameData.SetIntData("DreamScanner", 0);
+                    LoadedDBsHandler.InfoHolder.Run.inGameData.SetIntData("DreamScanner", 0);
                 }
 
                 if (CombatManager._instance == null)
