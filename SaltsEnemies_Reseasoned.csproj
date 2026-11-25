@@ -1074,6 +1074,10 @@
 	  <None Remove="SpecialIcons\counticon.png" />
 	  <None Remove="SpecialIcons\defenseicon.png" />
 	  <None Remove="SpecialIcons\downicon.png" />
+	  <None Remove="SpecialIcons\Entropy_10_12.png" />
+	  <None Remove="SpecialIcons\Entropy_1_3.png" />
+	  <None Remove="SpecialIcons\Entropy_4_6.png" />
+	  <None Remove="SpecialIcons\Entropy_7_9.png" />
 	  <None Remove="SpecialIcons\FavoritePicture.png" />
 	  <None Remove="SpecialIcons\idk.png" />
 	  <None Remove="SpecialIcons\mindicon.png" />
@@ -2139,6 +2143,10 @@
 	  <EmbeddedResource Include="SpecialIcons\counticon.png" />
 	  <EmbeddedResource Include="SpecialIcons\defenseicon.png" />
 	  <EmbeddedResource Include="SpecialIcons\downicon.png" />
+	  <EmbeddedResource Include="SpecialIcons\Entropy_10_12.png" />
+	  <EmbeddedResource Include="SpecialIcons\Entropy_1_3.png" />
+	  <EmbeddedResource Include="SpecialIcons\Entropy_4_6.png" />
+	  <EmbeddedResource Include="SpecialIcons\Entropy_7_9.png" />
 	  <EmbeddedResource Include="SpecialIcons\FavoritePicture.png" />
 	  <EmbeddedResource Include="SpecialIcons\idk.png" />
 	  <EmbeddedResource Include="SpecialIcons\mindicon.png" />

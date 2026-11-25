@@ -257,4 +257,12 @@ namespace SaltsEnemies_Reseasoned
             return sins <= 1;
         }
     }
+    public class ReturnExitZeroToEntryEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = UnityEngine.Random.Range(0, entryVariable + 1);
+            return true;
+        }
+    }
 }

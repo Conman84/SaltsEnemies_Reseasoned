@@ -70,7 +70,7 @@ namespace SaltsEnemies_Reseasoned
 
             Ability bonus = new Ability("Trolley_Problem_A");
             bonus.Name = "Trolley";
-            bonus.Description = "If the Light phase is Green, deal maybe a Little or a Lot of damage to either all enemies or all party members.";
+            bonus.Description = "If the Light phase is Green, deal a Variable amount of damage to either all enemies or all party members.";
             bonus.Effects = new EffectInfo[4];
             bonus.Effects[1] = Effects.GenerateEffect(trainrun, 0, TrainTargetting.Create(true), ScriptableObject.CreateInstance<SecondTrainCondition>());
             bonus.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ExtraVariableForNextEffect>(), 0, TrainTargetting.Create(true));

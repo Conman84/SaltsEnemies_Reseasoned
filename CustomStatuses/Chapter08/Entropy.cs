@@ -15,6 +15,10 @@ namespace SaltEnemies_Reseasoned
     {
         public static string StatusID => "Salt_Entropy_ID";
         public static string Intent => "Status_Salt_Entropy";
+        public static string Intent_1_3 => "Entropy_1_3";
+        public static string Intent_4_6 => "Entropy_4_6";
+        public static string Intent_7_9 => "Entropy_7_9";
+        public static string Intent_10_12 => "Entropy_10_12";
         public static string Limit => "Salt_Entropy_SE_Internal";
         public static string TriggerCall => "Entropy_Trigger";
         public static EntropySE_SO Object;
@@ -61,6 +65,33 @@ namespace SaltEnemies_Reseasoned
 
             if (LoadedDBsHandler.CombatDB.m_SoundPool.ContainsKey(DamageType)) LoadedDBsHandler.CombatDB.m_SoundPool[DamageType] = "event:/Hawthorne/Misc/EntropyDmg";
             else LoadedDBsHandler.CombatDB.AddNewSound(DamageType, "event:/Hawthorne/Misc/EntropyDmg");
+        }
+        public static void AddIntents()
+        {
+            IntentInfoBasic dawn = new IntentInfoBasic();
+            dawn._color = Color.white;
+            dawn._sprite = ResourceLoader.LoadSprite("Entropy_1_3.png");
+            if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent_1_3)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent_1_3] = dawn;
+            else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent_1_3, dawn);
+
+            IntentInfoBasic noon = new IntentInfoBasic();
+            noon._color = Color.white;
+            noon._sprite = ResourceLoader.LoadSprite("Entropy_4_6.png");
+            if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent_4_6)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent_4_6] = noon;
+            else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent_4_6, noon);
+
+            IntentInfoBasic dusk = new IntentInfoBasic();
+            dusk._color = Color.white;
+            dusk._sprite = ResourceLoader.LoadSprite("Entropy_7_9.png");
+            if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent_7_9)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent_7_9] = dusk;
+            else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent_7_9, dusk);
+
+            IntentInfoBasic midnight = new IntentInfoBasic();
+            midnight._color = Color.white;
+            midnight._sprite = ResourceLoader.LoadSprite("Entropy_10_12.png");
+            if (LoadedDBsHandler.IntentDB.m_IntentBasicPool.ContainsKey(Intent_10_12)) LoadedDBsHandler.IntentDB.m_IntentBasicPool[Intent_10_12] = midnight;
+            else LoadedDBsHandler.IntentDB.AddNewBasicIntent(Intent_10_12, midnight);
+
         }
 
 

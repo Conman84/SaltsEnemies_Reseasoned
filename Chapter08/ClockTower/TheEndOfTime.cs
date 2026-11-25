@@ -31,7 +31,7 @@ namespace SaltsEnemies_Reseasoned
             ClockTowerPassive acceleration = ScriptableObject.CreateInstance<ClockTowerPassive>();
             acceleration._passiveName = "Acceleration (6)";
             acceleration.passiveIcon = ResourceLoader.LoadSprite("ParanoidSpeed.png");
-            acceleration._enemyDescription = "If the player's portion of the turn takes longer than 60 seconds, inflict a Painful amount of Entropy to all party members.";
+            acceleration._enemyDescription = "If the player's portion of the turn takes longer than 60 seconds, inflict a Noon of Entropy to all party members.";
             acceleration._characterDescription = "Doesn't work. I didnt bother setting up the hooks for this.";
             acceleration.m_PassiveID = ClockTowerManager.Acceleration;
             acceleration.doesPassiveTriggerInformationPanel = true;
@@ -61,28 +61,28 @@ namespace SaltsEnemies_Reseasoned
             movement.damage_if_used = false;
 
             Ability cbt = new Ability("Cognitive Behavioral Therapy", "Salt_CBT_A");
-            cbt.Description = "Inflict a Painful amount of Entropy on all party members that did not manually use an ability this turn.\nIf unsuccessful, gain a Deadly amount of Entropy.\nGenerate 3 Red Pigment.";
+            cbt.Description = "Inflict a Noon of Entropy on all party members that did not manually use an ability this turn.\nIf unsuccessful, gain a Midnight of Entropy.\nGenerate 3 Red Pigment.";
             cbt.Rarity = Rarity.GetCustomRarity("rarity5");
             cbt.Effects = [
                 Effects.GenerateEffect(abilities, 6, Targeting.Unit_AllOpponents),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyEntropyEffect>(), 12, Slots.Self, BasicEffects.DidThat(false)),
                 Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Red), 3)
                 ];
-            cbt.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Other_Refresh.ToString(), Entropy.Intent]);
-            cbt.AddIntentsToTarget(Slots.Self, [Entropy.Intent, "Mana_Generate"]);
+            cbt.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Other_Refresh.ToString(), Entropy.Intent_4_6]);
+            cbt.AddIntentsToTarget(Slots.Self, [Entropy.Intent_10_12, "Mana_Generate"]);
             cbt.Visuals = Visuals.Scales;
             cbt.AnimationTarget = Slots.Self;
 
             Ability prb = new Ability("Physical Rehabilitation Therapy", "Salt_PRB_A");
-            prb.Description = "Inflict a Painful amount of Entropy on all party members that did not manually use their movement this turn.\nIf unsuccessful, gain a Deadly amount of Entropy.\nGenerate 3 Red Pigment.";
+            prb.Description = "Inflict a Noon of Entropy on all party members that did not manually use their movement this turn.\nIf unsuccessful, gain a Midnight of Entropy.\nGenerate 3 Red Pigment.";
             prb.Rarity = Rarity.GetCustomRarity("rarity5");
             prb.Effects = [
                 Effects.GenerateEffect(movement, 6, Targeting.Unit_AllOpponents),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyEntropyEffect>(), 12, Slots.Self, BasicEffects.DidThat(false)),
                 Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Red), 3)
                 ];
-            prb.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Swap_Mass.ToString(), Entropy.Intent]);
-            prb.AddIntentsToTarget(Slots.Self, [Entropy.Intent, "Mana_Generate"]);
+            prb.AddIntentsToTarget(Targeting.Unit_AllOpponents, [IntentType_GameIDs.Swap_Mass.ToString(), Entropy.Intent_4_6]);
+            prb.AddIntentsToTarget(Slots.Self, [Entropy.Intent_10_12, "Mana_Generate"]);
             prb.Visuals = Visuals.Scales;
             prb.AnimationTarget = Slots.Self;
 
@@ -92,16 +92,16 @@ namespace SaltsEnemies_Reseasoned
             has_entropy.origin = Targeting.Unit_AllOpponents;
 
             Ability teb = new Ability("Trauma Exposure Therapy", "Salt_TEB_A");
-            teb.Description = "Inflict a Deadly amount of Entropy on the Opposing party member.\nIf there is no Opposing party member, inflict a Painful amount of Entropy on all party members with Entropy.\nGain a Deadly amount of Entropy.";
+            teb.Description = "Inflict a Midnight of Entropy on the Opposing party member.\nIf there is no Opposing party member, inflict a Noon of Entropy on all party members with Entropy.\nGain a Midnight of Entropy.";
             teb.Rarity = Rarity.CreateAndAddCustomRarityToPool("clock_low", 3);
             teb.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyEntropyEffect>(), 12, Slots.Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyEntropyEffect>(), 6, has_entropy, IsFrontTargetCondition.Create(false)),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyEntropyEffect>(), 12, Slots.Self),
                 ];
-            teb.AddIntentsToTarget(Slots.Front, [Entropy.Intent]);
-            teb.AddIntentsToTarget(Targeting.Unit_AllOpponents, [Entropy.Intent]);
-            teb.AddIntentsToTarget(Slots.Self, [Entropy.Intent]);
+            teb.AddIntentsToTarget(Slots.Front, [Entropy.Intent_10_12]);
+            teb.AddIntentsToTarget(Targeting.Unit_AllOpponents, [Entropy.Intent_4_6]);
+            teb.AddIntentsToTarget(Slots.Self, [Entropy.Intent_10_12]);
             teb.Visuals = Visuals.Womb;
             teb.AnimationTarget = Slots.Front;
 

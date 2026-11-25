@@ -68,15 +68,22 @@ namespace SaltsEnemies_Reseasoned
             test.Name = "Wrath Kills";
             test.Priority = Priority.Fast;
             test.Rarity = Rarity.Common;
-            test.Description = "Deal a Lethal amount of damage to the Opposing party member.\nDamage this enemy for the amount dealt.";
+            test.Description = "Deal a Lethal amount of damage to the Opposing party member, damage spreads indirectly to adjacent party members.\nDamage this enemy for the amount dealt.";
+            DamageOnDoubleCascadeEffect damage = ScriptableObject.CreateInstance<DamageOnDoubleCascadeEffect>();
+            damage._decreaseAsPercentage = true;
+            damage._cascadeDecrease = 50;
+            damage._cascadeIsIndirect = true;
             DamageEffect byExit = ScriptableObject.CreateInstance<DamageEffect>();
             byExit._usePreviousExitValue = true;
             test.Effects = [
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 20, Slots.Front),
+                Effects.GenerateEffect(damage, 20, Targeting.Slot_Front_ThenAllRights_ThenAllLefts),
                 Effects.GenerateEffect(byExit, 1, Slots.Self),
                 ];
             test.AddIntentsToTarget(Slots.Front, ["Damage_16_20"]);
-            test.AddIntentsToTarget(Slots.Self, ["Damage_16_20"]);
+            test.AddIntentsToTarget(Slots.LeftRight, ["Damage_7_10"]);
+            test.AddIntentsToTarget(Slots.SlotTarget([-2, 2], false), ["Damage_3_6"]);
+            test.AddIntentsToTarget(Slots.SlotTarget([-3, 3], false), ["Damage_1_2"]);
+            test.AddIntentsToTarget(Slots.Self, ["Damage_21"]);
             test.Visuals = Visuals.SliceAndDice;
             test.AnimationTarget = Slots.Front;
 
@@ -128,13 +135,24 @@ namespace SaltsEnemies_Reseasoned
             test.Name = "Pride Kills";
             test.Priority = Priority.Fast;
             test.Rarity = Rarity.Common;
-            test.Description = "If the Opposing party member has less health than this enemy, deal an Agonizing amount of damage to them.";
+            test.Description = "If the Opposing party member has less health than this enemy, deal a Variable amount of damage to them.";
             DamageCompareHealthToCasterEffect less = ScriptableObject.CreateInstance<DamageCompareHealthToCasterEffect>();
             less.More = false;
+            less._usePreviousExitValue = true;
             test.Effects = [
-                Effects.GenerateEffect(less, 10, Slots.Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ReturnExitZeroToEntryEffect>(), 17),
+                Effects.GenerateEffect(less, 1, Slots.Front),
                 ];
-            test.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_7_10"]);
+            test.AddIntentsToTarget(Slots.Front, ["Misc_Hidden"]);
+            test.AddIntentsToTarget(Slots.Front, new string[]
+            {
+                FallColor.Intent,
+                "Damage_1_2",
+                "Damage_3_6",
+                "Damage_7_10",
+                "Damage_11_15",
+                "Damage_16_20",
+            });
             test.Visuals = Visuals.Clobber_Left;
             test.AnimationTarget = Slots.Front;
 
@@ -247,13 +265,24 @@ namespace SaltsEnemies_Reseasoned
             test.Name = "Envy Kills";
             test.Priority = Priority.Fast;
             test.Rarity = Rarity.Common;
-            test.Description = "If the Opposing party member has more health than this enemy, deal an Agonizing amount of damage to them.";
+            test.Description = "If the Opposing party member has more health than this enemy, deal a Variable amount of damage to them.";
             DamageCompareHealthToCasterEffect less = ScriptableObject.CreateInstance<DamageCompareHealthToCasterEffect>();
             less.More = true;
+            less._usePreviousExitValue = true;
             test.Effects = [
-                Effects.GenerateEffect(less, 10, Slots.Front),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ReturnExitZeroToEntryEffect>(), 17),
+                Effects.GenerateEffect(less, 1, Slots.Front),
                 ];
-            test.AddIntentsToTarget(Slots.Front, ["Misc_Hidden", "Damage_7_10"]);
+            test.AddIntentsToTarget(Slots.Front, ["Misc_Hidden"]);
+            test.AddIntentsToTarget(Slots.Front, new string[]
+            {
+                FallColor.Intent,
+                "Damage_1_2",
+                "Damage_3_6",
+                "Damage_7_10",
+                "Damage_11_15",
+                "Damage_16_20",
+            });
             test.Visuals = Visuals.Clobber_Right;
             test.AnimationTarget = Slots.Front;
 
@@ -272,7 +301,10 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(copy, 10, Slots.Self, front),
                 ];
             spawn.AddIntentsToTarget(Targeting.Unit_AllAllies, ["Misc_Hidden"]);
-            spawn.AddIntentsToTarget(Slots.SlotTarget([-4, -3, -2, -1, 1, 2, 3, 4], true), ["Other_Spawn"]);
+            spawn.AddIntentsToTarget(Slots.SlotTarget([-4, 4], true), ["Other_Spawn"]);
+            spawn.AddIntentsToTarget(Slots.SlotTarget([-3, 3], true), ["Other_Spawn"]);
+            spawn.AddIntentsToTarget(Slots.SlotTarget([-2, 2], true), ["Other_Spawn"]);
+            spawn.AddIntentsToTarget(Slots.SlotTarget([-1, 1], true), ["Other_Spawn"]);
             spawn.Visuals = Visuals.Weep;
             spawn.AnimationTarget = Targeting.Unit_AllAllies;
 
@@ -406,7 +438,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ReviveSinWithSelfHealthEffect>(), 1, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 30, Slots.Self, BasicEffects.DidThat(false))
                 ];
-            spawn.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Other_Spawn.ToString(), "Damage_21"]);
+            spawn.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Other_Resurrect.ToString(), "Damage_21"]);
             spawn.Visuals = Visuals.Excommunicate;
             spawn.AnimationTarget = Slots.Self;
 
@@ -445,12 +477,12 @@ namespace SaltsEnemies_Reseasoned
             test.Name = "Gluttony Kills";
             test.Priority = Priority.Fast;
             test.Rarity = Rarity.Common;
-            test.Description = "Deal a Deadly amount of damage to the Left, Right, and Opposing party members.\nInstantly kill this enemy.";
+            test.Description = "100 Pale comes for the Left, Right, and Opposing party members.\nInstantly kill this enemy.";
             test.Effects = [
-                Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 15, Slots.FrontLeftRight),
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleByTenEffect>(), 10, Slots.FrontLeftRight),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DirectDeathEffect>(), 1, Slots.Self),
                 ];
-            test.AddIntentsToTarget(Slots.FrontLeftRight, ["Damage_11_15"]);
+            test.AddIntentsToTarget(Slots.FrontLeftRight, [Pale.Intent]);
             test.AddIntentsToTarget(Slots.Self, ["Damage_Death"]);
             test.Visuals = CustomVisuals.GetVisuals("Salt/StarBomb");
             test.AnimationTarget = Slots.FrontLeftRight;
