@@ -49,7 +49,7 @@ namespace SaltEnemies_Reseasoned
             WaterInfo._applied_SE_Event = "event:/Hawthorne/Misc4/DpWater_Apply";
             WaterInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             WaterInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.OilSlicked_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
-            
+
             GameObject Fool = SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Water/Test.prefab").gameObject;
             GameObject[] FoolParts = new GameObject[]
             {

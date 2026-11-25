@@ -30,13 +30,11 @@ namespace SaltsEnemies_Reseasoned
 
             LoadedDBsHandler.GlossaryDB.AddNewFieldID(LoomingInfo);
 
-            GameObject Fool = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/SlipChara2.prefab").gameObject;
-            GameObject FoolPart = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/SlipChara3.prefab").gameObject;
-            FoolPart.transform.SetParent(Fool.transform);
-            GameObject_CFE_Layout LayoutFool = Fool.AddComponent<GameObject_CFE_Layout>();
-            LayoutFool.m_Swap = new RectTransform[] { FoolPart.GetComponent<RectTransform>() };
-            LayoutFool.m_Back = new RectTransform[] { Fool.GetComponent<RectTransform>() };
-            LayoutFool.m_Objects = new GameObject[] { Fool, FoolPart };
+            GameObject Fool = SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/Looming/LoomingCharacter.prefab").gameObject;
+            Animator_CFE_Layout LayoutFool = Fool.AddComponent<Animator_CFE_Layout>();
+            LayoutFool.m_Front = [];
+            LayoutFool.m_Back = [Fool.GetComponent<RectTransform>()];
+            LayoutFool.m_Animators = [Fool.GetComponent<Animator>()];
             LoomingInfo.m_CharacterLayoutTemplate = LayoutFool;
 
             GameObject Enemy = SaltsReseasoned.saltsAssetBundle.LoadAsset<GameObject>("Assets/train/SlipEnemy.prefab");
