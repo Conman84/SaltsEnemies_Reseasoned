@@ -67,11 +67,11 @@ namespace SaltEnemies_Reseasoned
 
             GameObject Enemy = SaltsReseasoned.Group4.LoadAsset<GameObject>("Assets/Water/FishEnemy.prefab");
             Particle_EFE_Layout LayoutEnemy = Enemy.AddComponent<Water_EFE_Layout>();
-            LayoutEnemy.m_FieldParticles = new ParticleSystem[] 
-            { 
-                Enemy.transform.GetChild(0).GetComponent<ParticleSystem>(), 
-                Enemy.transform.GetChild(1).GetComponent<ParticleSystem>(), 
-                Enemy.transform.GetChild(2).GetComponent<ParticleSystem>(), 
+            LayoutEnemy.m_FieldParticles = new ParticleSystem[]
+            {
+                Enemy.transform.GetChild(0).GetComponent<ParticleSystem>(),
+                Enemy.transform.GetChild(1).GetComponent<ParticleSystem>(),
+                Enemy.transform.GetChild(2).GetComponent<ParticleSystem>(),
                 Enemy.transform.GetChild(3).GetComponent<ParticleSystem>(),
                 Enemy.transform.GetChild(4).GetComponent<ParticleSystem>(),
                 Enemy.transform.GetChild(5).GetComponent<ParticleSystem>(),
