@@ -57,14 +57,14 @@ namespace SaltsEnemies_Reseasoned
 
             Ability atrophy = new Ability("DivineAtrophy_A");
             atrophy.Name = "Divine Atrophy";
-            atrophy.Description = "Bless the Opposing party member with 3 Divine Protection and 13 Entropy.\nGain 13 Shield.";
+            atrophy.Description = "Bless the Opposing party member with 3 Divine Protection and a Post-Dawn of Entropy.\nGain 13 Shield.";
             atrophy.Rarity = Rarity.Common;
             atrophy.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyDivineProtectionEffect>(), 3, Slots.Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyEntropyEffect>(), 13, Slots.Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyShieldSlotEffect>(), 13, Slots.Self),
                 ];
-            atrophy.AddIntentsToTarget(Slots.Front, ["Status_DivineProtection", Entropy.Intent]);
+            atrophy.AddIntentsToTarget(Slots.Front, ["Status_DivineProtection", Entropy.Intent_1_3]);
             atrophy.AddIntentsToTarget(Slots.Self, ["Field_Shield"]);
             atrophy.Visuals = Visuals.Excommunicate;
             atrophy.AnimationTarget = Slots.Front;
