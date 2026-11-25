@@ -23,6 +23,7 @@ namespace SaltsEnemies_Reseasoned
                 }
                 else if (caster is EnemyCombat enemy)
                 {
+                    if (ByColor && option.enemyTransformation.healthColor == enemy.Enemy.healthColor) continue;
                     if (option.enemyTransformation.name != enemy.Enemy.name) ret.Add(option);
                 }
             }

@@ -26,6 +26,7 @@ namespace SaltsEnemies_Reseasoned
             overdose_effect._maintainMaxHealth = true;
             overdose_effect._fullyHeal = false;
             overdose_effect._maintainTimelineAbilities = true;
+            overdose_effect.ByColor = true;
 
             overdose.effects = [
                 Effects.GenerateEffect(overdose_effect, 1, Slots.Self),
