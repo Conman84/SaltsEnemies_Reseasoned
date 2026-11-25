@@ -8,6 +8,7 @@ namespace SaltsEnemies_Reseasoned
     public class RandomTransformationNotSelfEffect : CasterRandomTransformationEffect
     {
         public List<TransformOption> _allTransforms;
+        public bool ByColor;
         public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
         {
             exitAmount = 0;

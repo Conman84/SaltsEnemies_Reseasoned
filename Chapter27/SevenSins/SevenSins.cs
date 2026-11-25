@@ -50,16 +50,16 @@ namespace SaltsEnemies_Reseasoned
             {
                 Health = 48,
                 HealthColor = Pigments.Red,
-                CombatSprite = ResourceLoader.LoadSprite("ReplaceIcon.png"),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("ReplaceWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("ReplaceDead.png", new Vector2(0.5f, 0f), 32),
+                CombatSprite = ResourceLoader.LoadSprite("SinWrath_Icon.png"),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("SinWrath_World.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("SinSeven_Dead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetCharacter("Agon_CH").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("Agon_CH").deathSound,
                 UnitTypes = ["Sin"]
             };
             template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Withering });
+            template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Theophobia, Passives.Withering });
 
             template.CombatEnterEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), 1)];
             template.CombatExitEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), -1)];
@@ -117,16 +117,16 @@ namespace SaltsEnemies_Reseasoned
             {
                 Health = 48,
                 HealthColor = Pigments.Yellow,
-                CombatSprite = ResourceLoader.LoadSprite("ReplaceIcon.png"),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("ReplaceWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("ReplaceDead.png", new Vector2(0.5f, 0f), 32),
+                CombatSprite = ResourceLoader.LoadSprite("SinPride_Icon.png"),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("SinPride_World.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("SinSeven_Dead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetCharacter("Burnout_CH").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("Burnout_CH").deathSound,
                 UnitTypes = ["Sin"]
             };
             template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Withering });
+            template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Theophobia, Passives.Withering });
 
             template.CombatEnterEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), 1)];
             template.CombatExitEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), -1)];
@@ -189,16 +189,16 @@ namespace SaltsEnemies_Reseasoned
             {
                 Health = 48,
                 HealthColor = Pigments.Blue,
-                CombatSprite = ResourceLoader.LoadSprite("ReplaceIcon.png"),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("ReplaceWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("ReplaceDead.png", new Vector2(0.5f, 0f), 32),
+                CombatSprite = ResourceLoader.LoadSprite("SinLust_Icon.png"),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("SinLust_World.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("SinSeven_Dead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetCharacter("ShellyK_CH").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("ShellyK_CH").deathSound,
                 UnitTypes = ["Sin"]
             };
             template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Withering });
+            template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Theophobia, Passives.Withering });
 
             template.CombatEnterEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), 1)];
             template.CombatExitEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), -1)];
@@ -247,16 +247,16 @@ namespace SaltsEnemies_Reseasoned
             {
                 Health = 48,
                 HealthColor = Pigments.Yellow,
-                CombatSprite = ResourceLoader.LoadSprite("ReplaceIcon.png"),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("ReplaceWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("ReplaceDead.png", new Vector2(0.5f, 0f), 32),
+                CombatSprite = ResourceLoader.LoadSprite("SinEnvy_Icon.png"),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("SinEnvy_World.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("SinSeven_Dead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("CorpseChan_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("CorpseChan_EN").deathSound,
                 UnitTypes = ["Sin"]
             };
             template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Withering });
+            template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Theophobia, Passives.Withering });
 
             template.CombatEnterEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), 1)];
             template.CombatExitEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), -1)];
@@ -325,16 +325,16 @@ namespace SaltsEnemies_Reseasoned
             {
                 Health = 48,
                 HealthColor = Pigments.Blue,
-                CombatSprite = ResourceLoader.LoadSprite("ReplaceIcon.png"),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("ReplaceWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("ReplaceDead.png", new Vector2(0.5f, 0f), 32),
+                CombatSprite = ResourceLoader.LoadSprite("SinGreed_Icon.png"),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("SinGreed_World.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("SinSeven_Dead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetCharacter("Mordrake_CH").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("Mordrake_CH").deathSound,
                 UnitTypes = ["Sin"]
             };
             template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Withering });
+            template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Theophobia, Passives.Withering });
 
             template.CombatEnterEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), 1)];
             template.CombatExitEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), -1)];
@@ -387,16 +387,16 @@ namespace SaltsEnemies_Reseasoned
             {
                 Health = 48,
                 HealthColor = Pigments.Purple,
-                CombatSprite = ResourceLoader.LoadSprite("ReplaceIcon.png"),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("ReplaceWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("ReplaceDead.png", new Vector2(0.5f, 0f), 32),
+                CombatSprite = ResourceLoader.LoadSprite("SinSloth_Icon.png"),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("SinSloth_World.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("SinSeven_Dead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetCharacter("Bimini_CH").damageSound,
                 DeathSound = LoadedAssetsHandler.GetCharacter("Bimini_CH").deathSound,
                 UnitTypes = ["Sin"]
             };
             template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Withering });
+            template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Theophobia, Passives.Withering });
 
             template.CombatEnterEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), 1)];
             template.CombatExitEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), -1)];
@@ -459,16 +459,16 @@ namespace SaltsEnemies_Reseasoned
             {
                 Health = 48,
                 HealthColor = Pigments.Red,
-                CombatSprite = ResourceLoader.LoadSprite("ReplaceIcon.png"),
-                OverworldAliveSprite = ResourceLoader.LoadSprite("ReplaceWorld.png", new Vector2(0.5f, 0f), 32),
-                OverworldDeadSprite = ResourceLoader.LoadSprite("ReplaceDead.png", new Vector2(0.5f, 0f), 32),
+                CombatSprite = ResourceLoader.LoadSprite("SinGluttony_Icon.png"),
+                OverworldAliveSprite = ResourceLoader.LoadSprite("SinGluttony_World.png", new Vector2(0.5f, 0f), 32),
+                OverworldDeadSprite = ResourceLoader.LoadSprite("SinSeven_Dead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy("Delusion_EN").damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy("Delusion_EN").deathSound,
                 UnitTypes = ["Sin"]
             };
             template.PrepareEnemyPrefab("assets/group4/Replace/Replace_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Replace/Replace_Gibs.prefab").GetComponent<ParticleSystem>());
 
-            template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Withering });
+            template.AddPassives(new BasePassiveAbilitySO[] { overdose, Passives.Slippery, Passives.Theophobia, Passives.Withering });
 
             template.CombatEnterEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), 1)];
             template.CombatExitEffects = [Effects.GenerateEffect(SetMusicParameterByStringEffect.Create("Sin"), -1)];
