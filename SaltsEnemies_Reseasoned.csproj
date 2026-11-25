@@ -633,6 +633,7 @@
 	  <None Remove="Chapter27\NeverMind\NeverMindDead.png" />
 	  <None Remove="Chapter27\NeverMind\NeverMindIcon.png" />
 	  <None Remove="Chapter27\NeverMind\NeverMindWorld.png" />
+	  <None Remove="Chapter27\Slave\SchizophrenicPassive.png" />
 	  <None Remove="Chapter27\Trollers\HelpDead.png" />
 	  <None Remove="Chapter27\Trollers\HelpIcon.png" />
 	  <None Remove="Chapter27\Trollers\HelpWorld.png" />
@@ -675,6 +676,7 @@
 	  <None Remove="CustomStatuses\Chapter14\Drowning.png" />
 	  <None Remove="CustomStatuses\Chapter14\SlipIcon.png" />
 	  <None Remove="CustomStatuses\Chapter14\WaterRemove.png" />
+	  <None Remove="CustomStatuses\Chapter27\LoomingIcon.png" />
 	  <None Remove="CustomStatuses\Chapter27\LoomingIcon2.png" />
 	  <None Remove="CustomStatuses\Determined.png" />
 	  <None Remove="CustomStatuses\Inverted.png" />
@@ -1716,6 +1718,7 @@
 	  <EmbeddedResource Include="Chapter27\NeverMind\NeverMindDead.png" />
 	  <EmbeddedResource Include="Chapter27\NeverMind\NeverMindIcon.png" />
 	  <EmbeddedResource Include="Chapter27\NeverMind\NeverMindWorld.png" />
+	  <EmbeddedResource Include="Chapter27\Slave\SchizophrenicPassive.png" />
 	  <EmbeddedResource Include="Chapter27\Trollers\HelpDead.png" />
 	  <EmbeddedResource Include="Chapter27\Trollers\HelpIcon.png" />
 	  <EmbeddedResource Include="Chapter27\Trollers\HelpWorld.png" />
@@ -1764,6 +1767,7 @@
 	  <EmbeddedResource Include="CustomStatuses\Chapter14\Drowning.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter14\SlipIcon.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter14\WaterRemove.png" />
+	  <EmbeddedResource Include="CustomStatuses\Chapter27\LoomingIcon.png" />
 	  <EmbeddedResource Include="CustomStatuses\Chapter27\LoomingIcon2.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\BBAch.png" />
 	  <EmbeddedResource Include="Quest\Sprites\Achievements\BSAch.png" />
