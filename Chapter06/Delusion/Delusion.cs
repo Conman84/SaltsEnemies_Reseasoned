@@ -22,6 +22,7 @@ namespace SaltsEnemies_Reseasoned
             };
             illusion.PrepareEnemyPrefab("assets/group4/Illusion/Illusion_Enemy.prefab", SaltsReseasoned.Group4, SaltsReseasoned.Group4.LoadAsset<GameObject>("assets/group4/Illusion/Illusion_Gibs.prefab").GetComponent<ParticleSystem>());
 
+
             illusion.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, Passives.Forgetful });
 
             Rarity.CreateAndAddCustomRarityToPool("Delusion_5", 5);
@@ -58,7 +59,22 @@ namespace SaltsEnemies_Reseasoned
             };
             illusion.PrepareEnemyPrefab("Assets/group4/Illusion/Enraged_Enemy.prefab", SaltsReseasoned.Group4, LoadedAssetsHandler.GetEnemy("Delusion_EN").enemyTemplate.m_Data.m_Gibs);
 
-            illusion.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, Passives.Formless });
+
+            //schizic
+            PerformEffectPassiveAbility schizic = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            schizic._passiveName = "Neurotic";
+            schizic.name = "Neurotic_PA";
+            schizic.passiveIcon = ResourceLoader.LoadSprite("SchizophrenicPassive.png");
+            schizic.m_PassiveID = "Neurotic_PA";
+            schizic._enemyDescription = "Upon any party member manually moving, reroll one of this enemy's actions on the timeline.";
+            schizic._characterDescription = "wont work lol";
+            schizic.conditions = [];
+            schizic.doesPassiveTriggerInformationPanel = true;
+            schizic.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ReRollTargetTimelineAbilityEffect>(), 1, Slots.Self)];
+            schizic._triggerOn = [JitteryHandler.Call];
+            schizic.AddToPassiveDatabase();
+
+            illusion.AddPassives(new BasePassiveAbilitySO[] { Passives.Skittish, schizic });
 
             //Rarity.CreateAndAddCustomRarityToPool("Delusion_5", 5);
 
