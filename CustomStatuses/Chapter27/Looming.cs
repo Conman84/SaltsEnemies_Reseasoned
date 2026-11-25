@@ -90,7 +90,7 @@ namespace SaltsEnemies_Reseasoned
     public class LoomingFE_SO : FieldEffect_SO
     {
         public bool isCharaSide;
-        public EnemySO[] Spawns;
+        public static EnemySO[] Spawns;
         public override bool IsPositive => !isCharaSide;
         public override void OnSlotEffectorTriggerAttached(FieldEffect_Holder holder)
         {
