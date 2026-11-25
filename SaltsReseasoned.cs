@@ -663,7 +663,7 @@ namespace SaltsEnemies_Reseasoned
 
             //CH22
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("LovelyPassive.png"), "Lovely", "This enemy will use all of its abilities every round.");
-            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("HomunculusPassive.png"), "Homunculus", "After this unit has used all of its actions, deal a certain amount of damage to the Opposing position.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("HomunculusPassive.png"), "Homunculus", "At the end of the timeline, deal a certain amount of damage to the Opposing position.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("ObserverPassive.png"), "Observer", "Whenever a unit moves in front of this unit, perform a certain ability.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("AltruisticPassive.png"), "Altruistic", "On being directly damaged, apply a certain amount of Determined to the Opposing unit.");
 
