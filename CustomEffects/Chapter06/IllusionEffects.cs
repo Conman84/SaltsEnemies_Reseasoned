@@ -281,19 +281,21 @@ namespace SaltEnemies_Reseasoned
                     _drain = new Ability("Salt_Drowse_A")
                     {
                         Name = "Drowse",
-                        Description = "35 Pale comes for the Opposing party member and they are Muted.\nRandomize this enemy's health color and take a Little damage, ignoring Shield.",
+                        Description = "35 Pale comes for the Opposing party member and they are Favorited and Muted.\nRandomize this enemy's health color and take a Little damage, ignoring Shield.",
+                        Priority = Priority.Fast,
                         Rarity = Rarity.Common,
                         Effects = new EffectInfo[]
                         {
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleEffect>(), 35, Slots.Front),
                             Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMutedEffect>(), 2, Slots.Front),
+                            Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyFavorEffect>(), 1, Slots.Front),
                             Effects.GenerateEffect(rand, 1, Slots.Self),
                             Effects.GenerateEffect(BasicEffects.ShieldPierce, 2, Slots.Self)
                         },
                         Visuals = CustomVisuals.GetVisuals("Salt/Pop"),
                         AnimationTarget = Slots.Front
                     };
-                    _drain.AddIntentsToTarget(Slots.Front, [Pale.Intent, Muted.Intent]);
+                    _drain.AddIntentsToTarget(Slots.Front, [Pale.Intent, Muted.Intent, Favor.Intent]);
                     _drain.AddIntentsToTarget(Targeting.Slot_SelfSlot, ["Mana_Modify", "Damage_1_2"]);
                 }
                 return _drain;

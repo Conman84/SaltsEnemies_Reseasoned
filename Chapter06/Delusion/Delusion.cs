@@ -85,6 +85,7 @@ namespace SaltsEnemies_Reseasoned
             Ability prickle = new Ability("Prickle", "Delusion_Prickle_A");
             prickle.Description = "Deal an Agonizing amount of damage to the Opposing party member, then Heal them.\nGenerate 3 random Pigment.";
             prickle.Rarity = Rarity.Common;
+            prickle.Priority = Priority.Slow;
             prickle.Effects = [
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 7, Slots.Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<HealEffect>(), 7, Slots.Front),
