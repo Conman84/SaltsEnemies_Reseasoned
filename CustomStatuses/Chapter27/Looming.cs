@@ -146,6 +146,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 CombatManager.Instance.AddSubAction(new SpawnEnemyAction(Spawns.GetRandom(), holder.SlotID, false, true, CombatType_GameIDs.Spawn_Basic.ToString()));
                 holder.JustRemoveAllContent();
+                TryRemoveFieldEffect(holder);
             }
         }
     }
