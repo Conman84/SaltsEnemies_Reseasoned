@@ -60,7 +60,7 @@ namespace SaltsEnemies_Reseasoned
             scramble.effects = Effects.GenerateEffect(ScriptableObject.CreateInstance<MassSwapZoneEffect>(), 1, Targetting.AllAlly).SelfArray();
             scramble._triggerOn = [ClownPassiveAbility.Trigger];
 
-            PerformEffectPassiveAbility grasp = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            PerformEffectImmediaterPassiveAbility grasp = ScriptableObject.CreateInstance<PerformEffectImmediaterPassiveAbility>();
             grasp._passiveName = "Grasping";
             grasp.passiveIcon = ResourceLoader.LoadSprite("GraspingPassive.png");
             grasp.m_PassiveID = "Grasping_PA";

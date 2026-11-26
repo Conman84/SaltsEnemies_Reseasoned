@@ -13,7 +13,7 @@ namespace SaltsEnemies_Reseasoned
         {
             Enemy slave = new Enemy("Slave", "Slave_EN")
             {
-                Health = 30,
+                Health = 38,
                 HealthColor = Pigments.Red,
                 CombatSprite = ResourceLoader.LoadSprite("SlaveIcon.png"),
                 OverworldAliveSprite = ResourceLoader.LoadSprite("SlaveWorld.png", new Vector2(0.5f, 0f), 32),
@@ -37,7 +37,7 @@ namespace SaltsEnemies_Reseasoned
             schizic.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<ReRollTargetTimelineAbilityEffect>(), 1, Slots.Self)];
             schizic._triggerOn = [JitteryHandler.Call];
 
-            PerformEffectPassiveAbility grasp = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            PerformEffectImmediaterPassiveAbility grasp = ScriptableObject.CreateInstance<PerformEffectImmediaterPassiveAbility>();
             grasp._passiveName = "Grasping";
             grasp.passiveIcon = ResourceLoader.LoadSprite("GraspingPassive.png");
             grasp.m_PassiveID = "Grasping_PA";
