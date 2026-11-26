@@ -316,6 +316,7 @@ namespace SaltsEnemies_Reseasoned
             {
                 public static string Med => "H_Zone03_Slave_Medium_EnemyBundle";
                 public static string Hard => "H_Zone03_Slave_Hard_EnemyBundle";
+                public static string Special => "H_Zone03_Slave_Hard_Special_EnemyBundle";
             }
 
             //marmo
