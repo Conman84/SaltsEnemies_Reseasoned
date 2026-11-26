@@ -312,6 +312,11 @@ namespace SaltsEnemies_Reseasoned
                 public static string Med => "H_Zone03_NeverMind_Medium_EnemyBundle";
                 public static string Hard => "H_Zone03_NeverMind_Hard_EnemyBundle";
             }
+            public static class Slave
+            {
+                public static string Med => "H_Zone03_Slave_Medium_EnemyBundle";
+                public static string Hard => "H_Zone03_Slave_Hard_EnemyBundle";
+            }
 
             //marmo
             public static class Git

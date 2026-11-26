@@ -320,6 +320,7 @@ namespace SaltsEnemies_Reseasoned
             PCall(SevenSins.Add);
             PCall(NeverMind.Add);
             PCall(Trollers.Add);
+            PCall(Slave.Add);
 
             //BOSSES
             //shore
@@ -497,9 +498,9 @@ namespace SaltsEnemies_Reseasoned
             PCall(VivariumEncounters.Add);
 
             //CH27 Encounters
-            //seven sins
             PCall(NeverMindEncounters.Add);
             PCall(TrollerEncounters.Add);
+            PCall(SlaveEncounters.Add);
 
             //BOSSES
             //shore
