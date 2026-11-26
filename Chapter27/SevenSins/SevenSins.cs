@@ -216,7 +216,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<TempRankDownEffect>(), 1, Slots.Front),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 15, Slots.Front, BasicEffects.DidThat(false)),
                 ];
-            test.AddIntentsToTarget(Slots.Front, ["Misc", "Damage_11_15"]);
+            test.AddIntentsToTarget(Slots.Front, [IntentType_GameIDs.Misc_State_Sit.ToString(), "Damage_11_15"]);
             test.Visuals = CustomVisuals.GetVisuals("Salt/Curse");
             test.AnimationTarget = Slots.Front;
 
