@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SaltsEnemies_Reseasoned
 {
@@ -24,7 +25,7 @@ namespace SaltsEnemies_Reseasoned
             devil.PrepareEnemyPrefab("assets/enemie/Personal_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("assets/giblets/Personal_Gibs.prefab").GetComponent<ParticleSystem>());
 
             //punisher
-            PerformEffectPassiveAbility punish = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            PerformEffectImmediaterPassiveAbility punish = ScriptableObject.CreateInstance<PerformEffectImmediaterPassiveAbility>();
             punish._passiveName = "Punisher (7)";
             punish.m_PassiveID = "Punisher_PA";
             punish.passiveIcon = ResourceLoader.LoadSprite("PunisherPassive.png");
@@ -33,7 +34,7 @@ namespace SaltsEnemies_Reseasoned
             punish.doesPassiveTriggerInformationPanel = true;
             punish.effects = new EffectInfo[] { Effects.GenerateEffect(ScriptableObject.CreateInstance<TryTriggerPaleEffect>(), 1, Slots.Front), Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleEffect>(), 7, Slots.Front, BasicEffects.DidThat(false)), };
             punish._triggerOn = new TriggerCalls[1] { TriggerCalls.OnMoved };
-            punish.conditions = new EffectorConditionSO[0];
+            punish.conditions = [ScriptableObject.CreateInstance<FrontExistEffectorCondition>()];
 
             //judgement
             ExtraAttackPassiveAbility baseExtra = LoadedAssetsHandler.GetEnemy("Xiphactinus_EN").passiveAbilities[1] as ExtraAttackPassiveAbility;
@@ -52,36 +53,37 @@ namespace SaltsEnemies_Reseasoned
             judgement._extraAbility.ability = ability;
 
             //add the pasis
-            devil.AddPassives(new BasePassiveAbilitySO[] { Passives.SlipperyGenerator(2), punish, judgement });
+            devil.AddPassives(new BasePassiveAbilitySO[] { Passives.SlipperyGenerator(2), punish, Passives.Forgetful });
             devil.UnitTypes = new List<string> { "FemaleID", "Angel" };
 
             //heaven
+            MoveToClosestTargetEffect imm = ScriptableObject.CreateInstance<MoveToClosestTargetEffect>();
+            imm.Immediate = true;
             Ability heaven = new Ability("GatesOfHeaven_A")
             {
                 Name = "Gates of Heaven",
-                Description = "Move in front of the nearest party member.",
-                Rarity = Rarity.GetCustomRarity("rarity5"),
+                Description = "10 Pale comes for every party member.\nMove in front of the nearest party member.",
+                Rarity = Rarity.Common,
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(CasterSubActionEffect.Create(new EffectInfo[]
-                    {
-                        Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToClosestTargetEffect>(), 1, Slots.SlotTarget(new int[9] {-4, -3, -2, -1, 0, 1, 2, 3, 4}, false))
-                    }), 1, Slots.Self)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleByTenEffect>(), 1, Targeting.Unit_AllOpponents),
+                    Effects.GenerateEffect(imm, 1, Slots.SlotTarget(new int[9] {-4, -3, -2, -1, 0, 1, 2, 3, 4}, false)),
                 },
-                Visuals = CustomVisuals.GetVisuals("Salt/Door"),
-                AnimationTarget = Slots.Self,
+                Visuals = Visuals.UglyOnTheInside,
+                AnimationTarget = Targetting.Everything(false),
             };
+            heaven.AddIntentsToTarget(Targetting.Everything(false), [Pale.Intent]);
             heaven.AddIntentsToTarget(Slots.Self, [IntentType_GameIDs.Swap_Sides.ToString()]);
 
             //hell
             Ability hell = new Ability("CirclesOfHell_A")
             {
                 Name = "Circles of Hell",
-                Description = "40 Pale comes for the Opposing party member.",
-                Rarity = Rarity.GetCustomRarity("rarity5"),
+                Description = "50 Pale comes for the Opposing party member.",
+                Rarity = Rarity.Uncommon,
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleEffect>(), 40, Slots.Front)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleByTenEffect>(), 5, Slots.Front)
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Curse"),
                 AnimationTarget = Slots.Front,

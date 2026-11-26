@@ -27,4 +27,25 @@ namespace SaltEnemies_Reseasoned
             return exitAmount > 0;
         }
     }
+    public class FrontExistEffectorCondition : EffectorConditionSO
+    {
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (effector.IsUnitCharacter)
+            {
+                for (int i = effector.SlotID; i < effector.SlotID + (effector as IUnit).Size; i++)
+                {
+                    if (CombatManager.Instance._stats.combatSlots.EnemySlots[i].HasUnit) return true;
+                }
+            }
+            else
+            {
+                for (int i = effector.SlotID; i < effector.SlotID + (effector as IUnit).Size; i++)
+                {
+                    if (CombatManager.Instance._stats.combatSlots.CharacterSlots[i].HasUnit) return true;
+                }
+            }
+            return false;
+        }
+    }
 }
