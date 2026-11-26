@@ -20,6 +20,7 @@ namespace SaltsEnemies_Reseasoned
                 OverworldDeadSprite = ResourceLoader.LoadSprite("SlaveDead.png", new Vector2(0.5f, 0f), 32),
                 DamageSound = LoadedAssetsHandler.GetEnemy(Jumble.Yellow).damageSound,
                 DeathSound = LoadedAssetsHandler.GetEnemy(Jumble.Yellow).deathSound,
+                UnitTypes = ["Alien"],
             };
             slave.PrepareEnemyPrefab("Assets/ch_27/Slave_Enemy.prefab", SaltsReseasoned.Meow, SaltsReseasoned.Meow.LoadAsset<GameObject>("Assets/ch_27/Slave_Gibs.prefab").GetComponent<ParticleSystem>());
 
