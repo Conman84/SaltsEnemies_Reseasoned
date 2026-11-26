@@ -117,7 +117,7 @@ namespace SaltsEnemies_Reseasoned
                 fam.GenerateEnemyAbility(true),
                 oca.GenerateEnemyAbility(true),
             });
-            slave.AddEnemy(true, true);
+            slave.SilentAddEnemy(true, true);
             slave.enemy.AddToSynodPool();
             slave.enemy.AddToEcstasyPool();
             slave.enemy.AddToToysPool();
