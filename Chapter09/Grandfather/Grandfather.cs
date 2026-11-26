@@ -50,7 +50,23 @@ namespace SaltsEnemies_Reseasoned
             rupture._triggerOn = new TriggerCalls[] { TriggerCalls.Count };
             rupture.AddToPassiveDatabase();
 
-            coffin.AddPassives(new BasePassiveAbilitySO[] { disabled, Passives.LeakyGenerator(8), rupture });
+            //undone
+            UndoneHandler.Setup();
+            PerformEffectPassiveAbility undone = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
+            undone._passiveName = "UNDONE.";
+            undone.name = "Undone_1_PA";
+            undone.m_PassiveID = "Undone_PA";
+            undone.passiveIcon = ResourceLoader.LoadSprite("UndonePassive.png");
+            undone._enemyDescription = "On any party member or enemy receiving Pigment related damage, generate 1 Pigment of this enemy's health color.";
+            undone._characterDescription = "On any party member or enemy receiving Pigment related damage, generate 1 Pigment of this enemy's health color.";
+            undone.doesPassiveTriggerInformationPanel = true;
+            undone._triggerOn = [UndoneHandler.Call];
+            undone.conditions = [];
+            undone.effects = [
+                Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateCasterHealthManaEffect>(), 1, Slots.Self)
+                ];
+
+            coffin.AddPassives(new BasePassiveAbilitySO[] { disabled, Passives.LeakyGenerator(4), undone, rupture });
 
             //Rot
             Ability rot = new Ability("Rot", "Grandfather_Rot_A");
@@ -75,9 +91,11 @@ namespace SaltsEnemies_Reseasoned
             sink.AddIntentsToTarget(Targeting.Unit_AllOpponents, new string[] { IntentType_GameIDs.Misc_Hidden.ToString() });
             sink.AddIntentsToTarget(TargettingByStatusEffect.Create(Targeting.Unit_AllOpponents, StatusField_GameIDs.Ruptured_ID.ToString()), IntentType_GameIDs.Damage_1_2.ToString().SelfArray());
 
+            ChangeHealthColorEffect turn_red = ScriptableObject.CreateInstance<ChangeHealthColorEffect>();
+            turn_red.color = Pigments.Red;
             //writhe
             Ability writhe = new Ability("Writhe", "Grandfather_Write_A");
-            writhe.Description = "Deal a Little damage to this enemy twice.";
+            writhe.Description = "Deal a Little damage to this enemy twice.\nChange this enemy's health color to Red.";
             writhe.Rarity = rot.Rarity;
             writhe.Visuals = LoadedAssetsHandler.GetEnemyAbility("Wriggle_A").visuals;
             writhe.AnimationTarget = Slots.Self;
@@ -85,8 +103,9 @@ namespace SaltsEnemies_Reseasoned
             {
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Self),
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 2, Slots.Self),
+                Effects.GenerateEffect(turn_red, 1, Slots.Self)
             };
-            writhe.AddIntentsToTarget(Slots.Self, new string[] { IntentType_GameIDs.Damage_1_2.ToString(), IntentType_GameIDs.Damage_1_2.ToString() });
+            writhe.AddIntentsToTarget(Slots.Self, new string[] { IntentType_GameIDs.Damage_1_2.ToString(), IntentType_GameIDs.Damage_1_2.ToString(), "Mana_Modify" });
 
             //ADD ENEMY
             coffin.AddEnemyAbilities(new EnemyAbilityInfo[]

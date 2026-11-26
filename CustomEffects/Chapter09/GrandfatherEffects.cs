@@ -1,4 +1,5 @@
 ﻿using BrutalAPI;
+using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -125,6 +126,24 @@ namespace SaltEnemies_Reseasoned
                     return true;
             }
             return false;
+        }
+    }
+
+    public class UndoneHandler
+    {
+        public static TriggerCalls Call => (TriggerCalls)389462950;
+        public static void NotifCheck(string name, object sender, object args)
+        {
+            if (name == TriggerCalls.OnDamaged.ToString() && args is IntegerReference_Damage value && value.damageTypeID == CombatType_GameIDs.Dmg_Pigment.ToString())
+            {
+                foreach (EnemyCombat enemy in CombatManager.Instance._stats.EnemiesOnField.Values) enemy.TriggerNotification(Call.ToString(), args);
+                foreach (CharacterCombat chara in CombatManager.Instance._stats.CharactersOnField.Values) chara.TriggerNotification(Call.ToString(), args);
+            }
+        }
+
+        public static void Setup()
+        {
+            NotificationHook.AddAction(NotifCheck);
         }
     }
 }

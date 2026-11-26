@@ -77,6 +77,7 @@
 	  <None Remove="Chapter09\Grandfather\CoffinWorld.png" />
 	  <None Remove="Chapter09\Grandfather\DisabledIcon.png" />
 	  <None Remove="Chapter09\Grandfather\enrupture.png" />
+	  <None Remove="Chapter09\Grandfather\UndonePassive.png" />
 	  <None Remove="Chapter09\GreyFlower\GreyFlowerDead.png" />
 	  <None Remove="Chapter09\GreyFlower\GreyFlowerIcon.png" />
 	  <None Remove="Chapter09\GreyFlower\GreyFlowerWorld.png" />
@@ -1158,6 +1159,7 @@
 	  <EmbeddedResource Include="Bosses\Tv\RadicalPassive.png" />
 	  <EmbeddedResource Include="Bosses\Tv\TvWorld.png" />
 	  <EmbeddedResource Include="Chapter04\CoinHunter\ShinyWorld.png" />
+	  <EmbeddedResource Include="Chapter09\Grandfather\UndonePassive.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\GraspingPassive.png" />
 	  <EmbeddedResource Include="Chapter10\Medamaude\ScramblePassive.png" />
 	  <EmbeddedResource Include="Chapter11\Nameless\FractalPassive.png" />

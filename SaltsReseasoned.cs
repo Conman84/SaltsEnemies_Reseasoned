@@ -572,6 +572,7 @@ namespace SaltsEnemies_Reseasoned
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("Hemochromia.png"), "Heterochromia", "Upon receiving any kind of damage, randomize this unit's health colour.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("DisabledIcon.png"), "Disabled", "On receiving any damage over a certain amount, cancel one of this unit's actions.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("enrupture"), "Enruptured", "This unit is permanently Ruptured.");
+            AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("UndonePassive.png"), "Undone", "On any party member or enemy receiving Pigment related damage, generate 1 Pigment of this unit's health color.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("heavily_armored"), "Heavily Armored", "If this unit's positions have no Shield, apply a certain amount of Shield there.");
             AddPassivesToGlossary.AddPassive(ResourceLoader.LoadSprite("algophobia"), "Algophobia", "Taking a certain amount of damage or more in one turn will make this unit instantly flee.");
 
