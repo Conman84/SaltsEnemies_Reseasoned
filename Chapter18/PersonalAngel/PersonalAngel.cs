@@ -79,16 +79,18 @@ namespace SaltsEnemies_Reseasoned
             Ability hell = new Ability("CirclesOfHell_A")
             {
                 Name = "Circles of Hell",
-                Description = "50 Pale comes for the Opposing party member.",
+                Description = "50 Pale comes for the Opposing party member.\nBleed 3 Red Pigment.",
                 Rarity = Rarity.Uncommon,
                 Effects = new EffectInfo[]
                 {
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleByTenEffect>(), 5, Slots.Front)
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPaleByTenEffect>(), 5, Slots.Front),
+                    Effects.GenerateEffect(BasicEffects.GenPigment(Pigments.Red), 3, Slots.Self),
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Curse"),
                 AnimationTarget = Slots.Front,
             };
             hell.AddIntentsToTarget(Slots.Front, [Pale.Intent]);
+            hell.AddIntentsToTarget(Slots.Self, ["Mana_Generate"]);
 
             //ADD ENEMY
             devil.AddEnemyAbilities(new EnemyAbilityInfo[]
