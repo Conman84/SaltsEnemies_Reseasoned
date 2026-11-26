@@ -70,13 +70,22 @@ namespace SaltsEnemies_Reseasoned
         }
         public static void Add_Hard()
         {
-            EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Garden.H.Slave.Hard, "Salt_SlaveEncounter_Sign");
-            med.MusicEvent = "event:/Hawthorne/SlaveTheme";
-            med.RoarEvent = LoadedAssetsHandler.GetEnemyBundle(Shore.H.Jumble.Yellow.Med)._roarReference.roarEvent;
+            EnemyEncounter_API hard = new EnemyEncounter_API(EncounterType.Random, Garden.H.Slave.Hard, "Salt_SlaveEncounter_Sign");
+            hard.MusicEvent = "event:/Hawthorne/SlaveTheme";
+            hard.RoarEvent = LoadedAssetsHandler.GetEnemyBundle(Shore.H.Jumble.Yellow.Med)._roarReference.roarEvent;
 
-            med.SimpleAddEncounter(2, "Slave_EN", 1, Enemies.Eclipse);
+            hard.SimpleAddEncounter(2, "Slave_EN", 1, Enemies.Eclipse);
+            hard.SimpleAddEncounter(3, "Slave_EN", 1, "LittleAngel_EN");
+            hard.SimpleAddEncounter(2, "Slave_EN", 1, Flower.Grey);
+            hard.SimpleAddEncounter(3, "Slave_EN", 1, Jumble.Gray);
+            hard.SimpleAddEncounter(3, "Slave_EN", 1, "Grandfather_EN");
+            hard.SimpleAddEncounter(3, "Slave_EN", 1, "Merced_EN");
+            hard.SimpleAddEncounter(3, "Slave_EN", 1, "Skyloft_EN");
+            hard.SimpleAddEncounter(3, "Slave_EN", 1, "Damocles_EN");
+            hard.SimpleAddEncounter(3, "Slave_EN", 1, "GlassFigurine_EN");
+            hard.SimpleAddEncounter(3, "Slave_EN", 1, "Indicator_EN");
 
-            med.AddEncounterToDataBases();
+            hard.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Slave.Hard, 5, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
         }
         public static void Add_Special()
@@ -139,6 +148,14 @@ namespace SaltsEnemies_Reseasoned
             med.SimpleAddGroup(1, "Hunter_EN", 2, "Slave_EN");
             med.AddRandomGroup("Hunter_EN", "Slave_EN", "Firebird_EN");
 
+            med = new AddTo(Garden.H.Stoplight.Med);
+            med.AddRandomGroup("Stoplight_EN", "Slave_EN", "EvilDog_EN");
+            med.AddRandomGroup("Stoplight_EN", "Slave_EN", "BlackStar_EN");
+
+            hard = new AddTo(Garden.H.Stoplight.Hard);
+            hard.AddRandomGroup("Stoplight_EN", "Slave_EN", "Slave_EN");
+            hard.AddRandomGroup("Stoplight_EN", "Slave_EN", Enemies.Minister);
+
             med = new AddTo(Garden.H.Ode.Med);
             med.SimpleAddGroup(1, "OdeToHumanity_EN", 2, "Slave_EN");
             med.AddRandomGroup("OdeToHumanity_EN", "Slave_EN", "Git_EN");
@@ -152,30 +169,53 @@ namespace SaltsEnemies_Reseasoned
 
             med = new AddTo(Garden.H.Starless.Med);
             med.SimpleAddGroup(1, "Starless_EN", 2, "Slave_EN");
+            med.AddRandomGroup("Starless_EN", "Slave_EN", "EyePalm_EN");
 
             hard = new AddTo(Garden.H.Eyeless.Hard);
             hard.SimpleAddGroup(1, "Eyeless_EN", 2, "Slave_EN");
+            hard.AddRandomGroup("Eyeless_EN", "Slave_EN", "Celebration_EN");
+
+            med = new AddTo(Garden.H.Yang.Med);
+            med.AddRandomGroup("Yang_EN", "Slave_EN", "PawnA_EN", "PawnA_EN");
+
+            hard = new AddTo(Garden.H.Yang.Hard);
+            hard.SimpleAddGroup(2, "Yang_EN", 1, "Slave_EN", 1, "PawnA_EN");
 
             hard = new AddTo(Garden.H.Yin.Hard);
             hard.SimpleAddGroup(2, "Yin_EN", 1, "Slave_EN");
+            hard.AddRandomGroup("Yin_EN", "Yang_EN", "Slave_EN");
 
             med = new AddTo(Garden.H.CorpseChan.Med);
             med.SimpleAddGroup(1, "CorpseChan_EN", 2, "Slave_EN");
+            med.AddRandomGroup("CorpseChan_EN", "Slave_EN", "Firebird_EN");
 
             med = new AddTo(Garden.H.Dark.Med);
             med.AddRandomGroup("InTheDark_EN", "Slave_EN", "NextOfKin_EN", "NextOfKin_EN");
+            med.AddRandomGroup("InTheDark_EN", "Slave_EN", "GlassFigurine_EN");
 
             hard = new AddTo(Garden.H.Dark.Hard);
             hard.SimpleAddGroup(1, "InTheDark_EN", 2, "Slave_EN");
+            hard.SimpleAddGroup(2, "InTheDark_EN", 1, "Slave_EN");
 
             med = new AddTo(Garden.H.Lunoscope.Med);
             med.AddRandomGroup("Lunoscope_EN", "Slave_EN", "Skyloft_EN");
+            med.AddRandomGroup("Lunoscope_EN", "Slave_EN", "Damocles_EN");
 
             hard = new AddTo(Garden.H.Lunoscope.Hard);
             hard.SimpleAddGroup(1, "Lunoscope_EN", 2, "Slave_EN");
+            hard.AddRandomGroup("Lunoscope_EN", "Slave_EN", "YNL_EN");
 
             hard = new AddTo(Garden.H.Eclipse.Hard);
             hard.SimpleAddGroup(2, Enemies.Eclipse, 1, "Slave_EN");
+            hard.AddRandomGroup(Enemies.Eclipse, "Slave_EN", "Celebration_EN");
+
+            med = new AddTo(Garden.H.NeverMind.Med);
+            med.AddRandomGroup("NeverMind_EN", "Slave_EN", "Insider_EN");
+            med.AddRandomGroup("NeverMind_EN", "Attrition_EN", "Slave_EN");
+
+            hard = new AddTo(Garden.H.NeverMind.Hard);
+            hard.SimpleAddGroup(1, "NeverMind_EN", 2, "Slave_EN");
+            hard.SimpleAddGroup(2, "NeverMind_EN", 1, "Slave_EN");
 
             //minibosses
             hard = new AddTo(Garden.H.Miriam.Hard);
