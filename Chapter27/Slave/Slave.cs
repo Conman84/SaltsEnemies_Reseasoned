@@ -60,7 +60,7 @@ namespace SaltsEnemies_Reseasoned
             escape.conditions = [];
             escape.effects = [Effects.GenerateEffect(ScriptableObject.CreateInstance<MoveToRandomEmptyTileEffect>(), 1, Slots.Self)];
 
-            slave.AddPassives(new BasePassiveAbilitySO[] { schizic, Passives.Formless, grasp, escape });
+            slave.AddPassives(new BasePassiveAbilitySO[] { schizic, grasp, escape, Passives.LeakyGenerator(2) });
 
             Ability sac = new Ability("Ritualistic Sacrifice", "Slave_Sac_A");
             sac.Description = "Deal a Lethal amount of damage to the Opposing party member.";
