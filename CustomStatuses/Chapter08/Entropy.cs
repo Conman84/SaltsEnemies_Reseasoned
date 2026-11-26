@@ -48,6 +48,8 @@ namespace SaltEnemies_Reseasoned
             AddDamageType();
 
             Setup();
+
+            AddIntents();
         }
 
         public static string DamageType => "Dmg_Entropy";
