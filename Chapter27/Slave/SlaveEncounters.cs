@@ -11,6 +11,7 @@ namespace SaltsEnemies_Reseasoned
         public static void Add()
         {
             Add_Med();
+            Add_Hard();
         }
         public static void Add_Med()
         {
@@ -28,6 +29,19 @@ namespace SaltsEnemies_Reseasoned
 
             med.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Slave.Med, 8, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Medium);
+        }
+        public static void Add_Hard()
+        {
+            Portals.AddPortalSign("Salt_SlaveEncounter_Sign", ResourceLoader.LoadSprite("SlaveWorld.png"), Portals.EnemyIDColor);
+
+            EnemyEncounter_API med = new EnemyEncounter_API(EncounterType.Random, Garden.H.Slave.Hard, "Salt_SlaveEncounter_Sign");
+            med.MusicEvent = "event:/Hawthorne/SlaveTheme";
+            med.RoarEvent = LoadedAssetsHandler.GetEnemyBundle(Shore.H.Jumble.Yellow.Med)._roarReference.roarEvent;
+
+            med.SimpleAddEncounter(4, "Slave_EN");
+
+            med.AddEncounterToDataBases();
+            EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Slave.Hard, 10, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
         }
 
         public static void Post()
