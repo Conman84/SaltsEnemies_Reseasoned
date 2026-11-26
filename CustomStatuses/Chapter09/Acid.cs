@@ -34,7 +34,7 @@ namespace SaltEnemies_Reseasoned
             StatusEffectInfoSO AcidInfo = ScriptableObject.CreateInstance<StatusEffectInfoSO>();
             AcidInfo.icon = ResourceLoader.LoadSprite("Acid.png");
             AcidInfo._statusName = "Acid";
-            AcidInfo._description = "On using an ability, take 3 indirect damage. Reduce Acid by 1 at the end of each turn.";
+            AcidInfo._description = "On using an ability, take 3 indirect damage. Reduce Acid by 1 at the end of each turn, and on activation for party members.";
             AcidInfo._applied_SE_Event = "event:/Hawthorne/Misc4/Acid_Apply";
             AcidInfo._removed_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Ruptured_ID.ToString()]._EffectInfo.RemovedSoundEvent;
             AcidInfo._updated_SE_Event = LoadedDBsHandler.StatusFieldDB._StatusEffects[StatusField_GameIDs.Ruptured_ID.ToString()]._EffectInfo.UpdatedSoundEvent;
@@ -82,6 +82,7 @@ namespace SaltEnemies_Reseasoned
                 return;
             }
             CombatManager.Instance.AddSubAction(new AcidDamageAction(sender as IUnit));
+            if ((sender as IUnit).IsUnitCharacter) ReduceDuration(holder, sender as IStatusEffector);
         }
         public override void OnEventCall_02(StatusEffect_Holder holder, object sender, object args)
         {
