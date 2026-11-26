@@ -115,8 +115,8 @@ namespace SaltsEnemies_Reseasoned
                 Effects = new EffectInfo[]
                 {
                     Effects.GenerateEffect(ScriptableObject.CreateInstance<RemoveAllStatusEffectsByAmountEffect>(), 3, Slots.Front),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 4, Slots.Front, BasicEffects.DidThat(false)),
-                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMagnetismEffect>(), 4, Slots.Front, BasicEffects.DidThat(false, 2)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<DamageEffect>(), 3, Slots.Front, BasicEffects.DidThat(false)),
+                    Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyMagnetismEffect>(), 5, Slots.Front, BasicEffects.DidThat(false, 2)),
                 },
                 Visuals = CustomVisuals.GetVisuals("Salt/Spotlight"),
                 AnimationTarget = Slots.Front,
