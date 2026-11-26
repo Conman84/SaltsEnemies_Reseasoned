@@ -84,6 +84,26 @@ namespace SaltsEnemies_Reseasoned
             hard.SimpleAddEncounter(3, "Slave_EN", 1, "Damocles_EN");
             hard.SimpleAddEncounter(3, "Slave_EN", 1, "GlassFigurine_EN");
             hard.SimpleAddEncounter(3, "Slave_EN", 1, "Indicator_EN");
+            hard.AddRandomEncounter("Slave_EN", "Slave_EN", Flower.Red, Flower.Blue);
+            hard.SimpleAddEncounter(2, "Slave_EN", 2, "EvilDog_EN");
+            hard.SimpleAddEncounter(3, "Slave_EN", 1, "EvilDog_EN");
+            hard.SimpleAddEncounter(2, "Slave_EN", 2, "InHerImage_EN");
+            hard.SimpleAddEncounter(2, "Slave_EN", 2, "InHisImage_EN");
+            hard.SimpleAddEncounter(3, "Slave_EN", 1, "YNL_EN");
+            hard.SimpleAddEncounter(3, "Slave_EN", 1, "Yang_EN");
+            hard.SimpleAddEncounter(2, "Slave_EN", 3, "PawnA_EN");
+            hard.SimpleAddEncounter(3, "Slave_EN", 2, "Hauntling_EN");
+            hard.SimpleAddEncounter(2, "Slave_EN", 2, "Insider_EN");
+            hard.SimpleAddEncounter(3, "Slave_EN", 1, "Insider_EN");
+            hard.SimpleAddEncounter(2, "Slave_EN", 2, "Panopticon_EN");
+            hard.SimpleAddEncounter(3, "Slave_EN", 1, "Panopticon_EN");
+            hard.SimpleAddEncounter(2, "Slave_EN", 2, Ecstasy.Gray);
+            hard.SimpleAddEncounter(3, "Slave_EN", 1, Ecstasy.Gray);
+            hard.SimpleAddEncounter(3, "Slave_EN", 1, "Celebration_EN");
+            hard.SimpleAddEncounter(3, "Slave_EN", 1, "Lightbulbkin_EN");
+            hard.SimpleAddEncounter(3, "Slave_EN", 1, "Vivarium_EN");
+            hard.SimpleAddEncounter(2, "Slave_EN", 2, Enemies.Troller);
+            hard.SimpleAddEncounter(3, "Slave_EN", 1, Enemies.Troller);
 
             hard.AddEncounterToDataBases();
             EnemyEncounterUtils.AddEncounterToZoneSelector(Garden.H.Slave.Hard, 5, ZoneType_GameIDs.Garden_Hard, BundleDifficulty.Hard);
@@ -224,6 +244,100 @@ namespace SaltsEnemies_Reseasoned
             hard.SimpleAddGroup(1, "SnakeGod_EN", 1, "Slave_EN");
             hard = new AddTo(Garden.H.GlassedSun.Hard);
             hard.SimpleAddGroup(3, "GlassedSun_EN", 1, "Slave_EN");
+
+            //mods
+            med = new AddTo(Garden.H.Slave.Med);
+            med.AddRandomGroup("Slave_EN", Enemies.MainSister, "Damocles_EN");
+            med.SimpleAddGroup(2, "Slave_EN", 1, "EggKeeper_EN");
+            med.SimpleAddGroup(2, "Slave_EN", 1, Enemies.Prior);
+            med.SimpleAddGroup(2, "Slave_EN", 1, Enemies.Prioress);
+            med.SimpleAddGroup(2, "Slave_EN", 1, "Drippings_EN");
+            med.SimpleAddGroup(2, "Slave_EN", 1, Noses.Red);
+            med.SimpleAddGroup(2, "Slave_EN", 1, Noses.Blue);
+            med.SimpleAddGroup(2, "Slave_EN", 1, Noses.Yellow);
+            med.SimpleAddGroup(2, "Slave_EN", 1, Noses.Purple);
+            med.SimpleAddGroup(2, "Slave_EN", 1, Noses.Gray);
+            med.SimpleAddGroup(2, "Slave_EN", 1, Enemies.Leviat);
+            med.SimpleAddGroup(2, "Slave_EN", 1, Enemies.Screaming);
+            med.SimpleAddGroup(2, "Slave_EN", 1, "Bonsai_EN");
+            med.SimpleAddGroup(2, "Slave_EN", 1, "Attrition_EN");
+            med.SimpleAddGroup(2, "Slave_EN", 1, "Git_EN");
+            med.SimpleAddGroup(2, "Slave_EN", 2, "Romantic_EN");
+            med.SimpleAddGroup(2, "Slave_EN", 1, "Surrogate_EN");
+            med.SimpleAddGroup(2, "Slave_EN", 1, Jumble.Mythos);
+            med.SimpleAddGroup(2, "Slave_EN", 1, Spoggle.Mythos);
+            med.SimpleAddGroup(2, "Slave_EN", 1, Enemies.Polyp);
+            med.SimpleAddGroup(2, "Slave_EN", 1, "Allusion_EN");
+
+            hard = new AddTo(Garden.H.Slave.Hard);
+            hard.SimpleAddGroup(2, "Slave_EN", 1, Enemies.MainSister);
+            hard.SimpleAddGroup(3, "Slave_EN", 1, "EggKeeper_EN");
+            hard.SimpleAddGroup(3, "Slave_EN", 1, Enemies.Prior);
+            hard.SimpleAddGroup(3, "Slave_EN", 1, Enemies.Prioress);
+            hard.SimpleAddGroup(2, "Slave_EN", 1, Enemies.Prior, 1, Enemies.Prioress);
+            hard.SimpleAddGroup(3, "Slave_EN", 1, "Drippings_EN");
+            hard.SimpleAddGroup(2, "Slave_EN", 1, "Idiotware_EN");
+            hard.SimpleAddGroup(3, "Slave_EN", 1, Noses.Red);
+            hard.SimpleAddGroup(3, "Slave_EN", 1, Noses.Blue);
+            hard.SimpleAddGroup(3, "Slave_EN", 1, Noses.Yellow);
+            hard.SimpleAddGroup(3, "Slave_EN", 1, Noses.Purple);
+            hard.SimpleAddGroup(3, "Slave_EN", 1, Noses.Gray);
+            hard.SimpleAddGroup(3, "Slave_EN", 1, Enemies.Screaming);
+            hard.SimpleAddGroup(2, "Slave_EN", 2, "Bonsai_EN");
+            hard.SimpleAddGroup(3, "Slave_EN", 1, "Bonsai_EN");
+            hard.SimpleAddGroup(2, "Slave_EN", 2, "Attrition_EN");
+            hard.SimpleAddGroup(3, "Slave_EN", 1, "Attrition_EN");
+            hard.SimpleAddGroup(2, "Slave_EN", 2, "Git_EN");
+            hard.SimpleAddGroup(3, "Slave_EN", 1, "Git_EN");
+            hard.SimpleAddGroup(3, "Slave_EN", 1, "Romantic_EN");
+            hard.SimpleAddGroup(3, "Slave_EN", 1, "Surrogate_EN");
+            hard.SimpleAddGroup(2, "Slave_EN", 1, "Ascendant_EN");
+            hard.SimpleAddGroup(3, "Slave_EN", 1, Jumble.Mythos);
+            hard.SimpleAddGroup(3, "Slave_EN", 1, Spoggle.Mythos);
+            hard.SimpleAddGroup(3, "Slave_EN", 1, Enemies.Polyp);
+            hard.SimpleAddGroup(3, "Slave_EN", 1, "Allusion_EN");
+
+            med = new AddTo(Garden.H.Vessel.Med);
+            med.AddRandomGroup(Enemies.Vessel, "Slave_EN");
+            med.AddRandomGroup(Enemies.Vessel, "Slave_EN", Enemies.Spirit);
+
+            hard = new AddTo(Garden.H.Vessel.Med);
+            hard.SimpleAddGroup(1, Enemies.Vessel, 2, "Slave_EN");
+            hard.SimpleAddGroup(1, Enemies.Vessel, 2, "Slave_EN", 1, Enemies.Spirit);
+
+            hard = new AddTo(Garden.H.Sisters.Hard);
+            hard.AddRandomGroup(Enemies.MainSister, Enemies.SubSister, "Slave_EN");
+
+            med = new AddTo(Garden.H.Phobia.Med);
+            med.AddRandomGroup(Enemies.Phobia, "Slave_EN", "Vivarium_EN");
+            med.AddRandomGroup(Enemies.Phobia, "Slave_EN");
+
+            hard = new AddTo(Garden.H.Phobia.Hard);
+            hard.SimpleAddGroup(1, Enemies.Phobia, 2, "Slave_EN");
+            hard.SimpleAddGroup(2, Enemies.Phobia, 1, "Slave_EN");
+
+            hard = new AddTo(Garden.H.Portrait.Hard);
+            hard.AddRandomGroup(Enemies.Portrait, "Slave_EN", "NextOfKin_EN", "NextOfKin_EN");
+            hard.SimpleAddGroup(1, Enemies.Portrait, 2, "Slave_EN");
+
+            med = new AddTo(Garden.H.Idiotware.Med);
+            med.AddRandomGroup("Idiotware_EN", "Slave_EN");
+
+            med = new AddTo(Garden.H.Shambler.Med);
+            med.AddRandomGroup(Enemies.Shambler, "Slave_EN", Enemies.Shivering);
+            med.AddRandomGroup(Enemies.Shivering, "Slave_EN", "Indicator_EN");
+
+            hard = new AddTo(Garden.H.Shambler.Hard);
+            hard.AddRandomGroup(Enemies.Shambler, "Slave_EN", "Slave_EN");
+            hard.AddRandomGroup(Enemies.Shambler, "Slave_EN", "EvilDog_EN");
+
+            med = new AddTo(Garden.H.Beakart.Med);
+            med.AddRandomGroup("Beakart_EN", "Slave_EN", "Slave_EN");
+            med.AddRandomGroup("Beakart_EN", "Slave_EN", "Celebration_EN");
+
+            
+
+
         }
     }
 }

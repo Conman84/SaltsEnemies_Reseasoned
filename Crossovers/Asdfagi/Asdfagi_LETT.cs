@@ -29,6 +29,7 @@ namespace SaltsEnemies_Reseasoned
             //ch27 new
             med.AddRandomGroup(mainlogos, Enemies.Troller, Enemies.Troller);
             med.AddRandomGroup(mainlogos, "NeverMind_EN");
+            med.AddRandomGroup(mainlogos, "Slave_EN");
 
             AddTo hard = new AddTo(hard_enc);
             hard.AddRandomGroup(mainlogos, "Satyr_EN", "Indicator_EN");
@@ -51,6 +52,7 @@ namespace SaltsEnemies_Reseasoned
             hard.AddRandomGroup(mainlogos, "CorpseChan_EN", "WindSong_EN");
             //ch27
             hard.AddRandomGroup(mainlogos, "NeverMind_EN", "Indicator_EN");
+            hard.AddRandomGroup(mainlogos, "Slave_EN", "Slave_EN");
 
             EcstasyPool.Add(mainlogos);
         }
