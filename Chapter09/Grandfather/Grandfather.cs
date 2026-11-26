@@ -57,7 +57,7 @@ namespace SaltsEnemies_Reseasoned
             undone.name = "Undone_1_PA";
             undone.m_PassiveID = "Undone_PA";
             undone.passiveIcon = ResourceLoader.LoadSprite("UndonePassive.png");
-            undone._enemyDescription = "On any party member or enemy receiving Pigment related damage, generate 1 Pigment of this enemy's health color.";
+            undone._enemyDescription = "On any party member or enemy receiving Pigment related damage, generate 1 Pigment of this enemy's health color.\"UNMAKE ME.\"";
             undone._characterDescription = "On any party member or enemy receiving Pigment related damage, generate 1 Pigment of this enemy's health color.";
             undone.doesPassiveTriggerInformationPanel = true;
             undone._triggerOn = [UndoneHandler.Call];
