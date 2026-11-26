@@ -66,7 +66,7 @@ namespace SaltsEnemies_Reseasoned
                 Effects.GenerateEffect(ScriptableObject.CreateInstance<GenerateCasterHealthManaEffect>(), 1, Slots.Self)
                 ];
 
-            coffin.AddPassives(new BasePassiveAbilitySO[] { disabled, Passives.LeakyGenerator(4), undone, rupture });
+            coffin.AddPassives(new BasePassiveAbilitySO[] { disabled, Passives.LeakyGenerator(5), undone, rupture });
 
             //Rot
             Ability rot = new Ability("Rot", "Grandfather_Rot_A");
