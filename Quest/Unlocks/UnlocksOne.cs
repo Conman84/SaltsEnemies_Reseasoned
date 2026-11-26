@@ -283,7 +283,7 @@ namespace SaltsEnemies_Reseasoned
             BaseCombatTargettingSO right = Targeting.GenerateSlotTarget(new int[] { 1, -4 }, true);
 
             Ability apotheosis = new Ability("Process Towards Apotheosis", "Salt_Apotheosis_A");
-            apotheosis.Description = "Fully heal the Right ally and inflict Acid on them equal to the health healed. This ability assumes the grid loops around.\nRemove this ability from this party member.";
+            apotheosis.Description = "Fully heal the Right ally and Acidize them equal to the health healed. This ability assumes the grid loops around.\nRemove this ability from this party member.";
             apotheosis.AbilitySprite = ResourceLoader.LoadSprite("ability_apotheosis.png");
             apotheosis.Cost = [Pigments.Blue];
             apotheosis.Effects = new EffectInfo[3];
