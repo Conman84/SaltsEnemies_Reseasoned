@@ -54,7 +54,7 @@ namespace SaltsEnemies_Reseasoned
             march._characterDescription = "On any party member without \"Marching\" as a passive moving, move Left or Right.\nThis passive triggers up to 6 times per round.";
             march.doesPassiveTriggerInformationPanel = false;
             march.effects = new EffectInfo[2];
-            march.effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<MarchingEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsAliveEffectCondition>());
+            march.effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<MarchingEffect>(), 6, Slots.Self, ScriptableObject.CreateInstance<IsAliveEffectCondition>());
             march.effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsAliveEffectCondition>());
             march.conditions = [ScriptableObject.CreateInstance<TriggerPerTurnEffectorCondition>(), ScriptableObject.CreateInstance<IsAliveEffectorCondition>()];
             march._triggerOn = [MarchingHandler.Call];
