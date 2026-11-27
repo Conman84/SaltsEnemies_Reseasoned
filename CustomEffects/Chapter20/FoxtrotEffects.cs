@@ -126,33 +126,51 @@ namespace SaltEnemies_Reseasoned
 
     public class TriggerPerTurnEffectorCondition : EffectorConditionSO
     {
-        public string TurnKeep = "Marching_Turn_PA";
-        public string TimesTriggered = "Marching_Trigger_PA";
+        //public string TurnKeep = "Marching_Turn_PA";
+        public static string TimesTriggered => "Marching_Trigger_PA";
 
-        public int cap = 6;
+        public int cap = 3;
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
             if (effector is IUnit unit)
             {
-                if (unit.SimpleGetStoredValue(TurnKeep) == CombatManager.Instance._stats.TurnsPassed)
-                {
-                    int num = unit.SimpleGetStoredValue(TimesTriggered);
-                    if (num >= cap) return false;
-                    num++;
-                    unit.SimpleSetStoredValue(TimesTriggered, num);
-                    return true;
-                }
-                else
-                {
-                    unit.SimpleSetStoredValue(TurnKeep, CombatManager.Instance._stats.TurnsPassed);
-                    int num = 0;
-                    if (num >= cap) return false;
-                    num++;
-                    unit.SimpleSetStoredValue(TimesTriggered, num);
-                    return true;
-                }
+                int num = unit.SimpleGetStoredValue(TimesTriggered);
+                if (num >= cap) return false;
+                num++;
+                unit.SimpleSetStoredValue(TimesTriggered, num);
+                return true;
             }
             return false;
+        }
+        public static void NotifCheck(string name, object sender, object args)
+        {
+            if (name == StarlessPassiveAbility.Call.ToString() && sender is IUnit unit) unit.SimpleSetStoredValue(TimesTriggered, 0);
+        }
+        public static void Setup()
+        {
+            NotificationHook.AddAction(NotifCheck);
+        }
+    }
+    public class CasterAllPassivesRemovedRemovedEffect : EffectSO
+    {
+        public override bool PerformEffect(CombatStats stats, IUnit caster, TargetSlotInfo[] targets, bool areTargetSlots, int entryVariable, out int exitAmount)
+        {
+            exitAmount = 0;
+
+            List<BasePassiveAbilitySO> passives = [];
+            if (caster is CharacterCombat chara) passives = [.. chara.PassiveAbilities];
+            if (caster is EnemyCombat enemy) passives = [.. enemy.PassiveAbilities];
+
+            for (int i = 0; i < passives.Count; i++)
+            {
+                if (caster.TryRemovePassiveAbility(passives[i].m_PassiveID))
+                {
+                    exitAmount++;
+                    CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, false, passives[i]._passiveName + " Removed", passives[i].passiveIcon));
+                }
+            }
+
+            return exitAmount > 0;
         }
     }
 }

@@ -45,16 +45,17 @@ namespace SaltsEnemies_Reseasoned
 
             //Marching
             MarchingHandler.Setup();
+            TriggerPerTurnEffectorCondition.Setup();
             PerformEffectPassiveAbility march = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
-            march._passiveName = "Marching (6)";
-            march.name = "Marching_6_PA";
+            march._passiveName = "Marching (3)";
+            march.name = "Marching_3_PA";
             march.passiveIcon = ResourceLoader.LoadSprite("MarchingPassive.png");
             march.m_PassiveID = MarchingHandler.Passive;
-            march._enemyDescription = "On any enemy without \"Marching\" as a passive moving, move Left or Right.\nThis passive triggers up to 6 times per round.";
-            march._characterDescription = "On any party member without \"Marching\" as a passive moving, move Left or Right.\nThis passive triggers up to 6 times per round.";
+            march._enemyDescription = "On any enemy without \"Marching\" as a passive moving, move Left or Right.\nThis passive triggers up to 3 times per round.";
+            march._characterDescription = "On any party member without \"Marching\" as a passive moving, move Left or Right.\nThis passive triggers up to 3 times per round.";
             march.doesPassiveTriggerInformationPanel = false;
             march.effects = new EffectInfo[2];
-            march.effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<MarchingEffect>(), 6, Slots.Self, ScriptableObject.CreateInstance<IsAliveEffectCondition>());
+            march.effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<MarchingEffect>(), 3, Slots.Self, ScriptableObject.CreateInstance<IsAliveEffectCondition>());
             march.effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsAliveEffectCondition>());
             march.conditions = [ScriptableObject.CreateInstance<TriggerPerTurnEffectorCondition>(), ScriptableObject.CreateInstance<IsAliveEffectorCondition>()];
             march._triggerOn = [MarchingHandler.Call];
@@ -72,7 +73,7 @@ namespace SaltsEnemies_Reseasoned
             fluids.conditions = [];
             fluids._triggerOn = [TriggerCalls.OnDeath];
 
-            foxtrot.AddPassives(new BasePassiveAbilitySO[] { march, fluids });
+            foxtrot.AddPassives(new BasePassiveAbilitySO[] { march, rupture, fluids });
             AbilitySelector_Foxtrot selector = ScriptableObject.CreateInstance<AbilitySelector_Foxtrot>();
             selector._passive = MarchingHandler.Passive;
             selector._hasPassive = "TakeRoot_A";
@@ -96,14 +97,14 @@ namespace SaltsEnemies_Reseasoned
             //root
             //can only be used when has "marching" passive
             Ability root = new Ability("Take Root", "TakeRoot_A");
-            root.Description = "Remove \"Marching\" as a passive from this enemy.\nApply 6 Power to this enemy.";
+            root.Description = "Remove all Passives from this enemy.\nApply 6 Power to this enemy.";
             root.Rarity = Rarity.CreateAndAddCustomRarityToPool("fox_low", 5);
             root.Effects = new EffectInfo[5];
             root.Priority = Priority.Slow;
             RemovePassiveEffect anti = ScriptableObject.CreateInstance<RemovePassiveEffect>();
             anti.m_PassiveID = MarchingHandler.Passive;
-            root.Effects[0] = Effects.GenerateEffect(anti, 1, Slots.Self);
-            root.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<MarchingRemovedEffect>(), 1, Slots.Self);
+            root.Effects[0] = Effects.GenerateEffect(BasicEffects.Empty, 1, Slots.Self);
+            root.Effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<CasterAllPassivesRemovedRemovedEffect>(), 1, Slots.Self);
             root.Effects[2] = Effects.GenerateEffect(ScriptableObject.CreateInstance<ApplyPowerEffect>(), 6, Slots.Self);
             root.Effects[3] = Effects.GenerateEffect(foxtrotsong, 1, Slots.Self);
             root.Effects[4] = Effects.GenerateEffect(foxtrotter, 1, Slots.Self);
