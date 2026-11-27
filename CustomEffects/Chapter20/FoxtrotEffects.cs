@@ -129,7 +129,7 @@ namespace SaltEnemies_Reseasoned
         public string TurnKeep = "Marching_Turn_PA";
         public string TimesTriggered = "Marching_Trigger_PA";
 
-        public int cap;
+        public int cap = 6;
         public override bool MeetCondition(IEffectorChecks effector, object args)
         {
             if (effector is IUnit unit)
