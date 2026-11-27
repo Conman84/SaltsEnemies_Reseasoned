@@ -109,7 +109,7 @@ namespace SaltsEnemies_Reseasoned
             root.Effects[3] = Effects.GenerateEffect(foxtrotsong, 1, Slots.Self);
             root.Effects[4] = Effects.GenerateEffect(foxtrotter, 1, Slots.Self);
             Intents.CreateAndAddCustom_Basic_IntentToPool("Marching_PA", ResourceLoader.LoadSprite("MarchingPassive.png"), Color.white);
-            root.AddIntentsToTarget(Slots.Self, ["Marching_PA", Power.Intent]);
+            root.AddIntentsToTarget(Slots.Self, ["Misc", Power.Intent]);
             root.Visuals = LoadedAssetsHandler.GetCharacterAbility("Thorns_1_A").visuals;
             root.AnimationTarget = Slots.Self;
 
