@@ -2,6 +2,7 @@
 using SaltsEnemies_Reseasoned;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Text;
 using UnityEngine;
 
@@ -120,6 +121,38 @@ namespace SaltEnemies_Reseasoned
             CombatManager.Instance.AddUIAction(new ShowPassiveInformationUIAction(caster.ID, false, "Marching", ResourceLoader.LoadSprite("MarchingPassive.png")));
             exitAmount = 0;
             return true;
+        }
+    }
+
+    public class TriggerPerTurnEffectorCondition : EffectorConditionSO
+    {
+        public string TurnKeep = "Marching_Turn_PA";
+        public string TimesTriggered = "Marching_Trigger_PA";
+
+        public int cap;
+        public override bool MeetCondition(IEffectorChecks effector, object args)
+        {
+            if (effector is IUnit unit)
+            {
+                if (unit.SimpleGetStoredValue(TurnKeep) == CombatManager.Instance._stats.TurnsPassed)
+                {
+                    int num = unit.SimpleGetStoredValue(TimesTriggered);
+                    if (num >= cap) return false;
+                    num++;
+                    unit.SimpleSetStoredValue(TimesTriggered, num);
+                    return true;
+                }
+                else
+                {
+                    unit.SimpleSetStoredValue(TurnKeep, CombatManager.Instance._stats.TurnsPassed);
+                    int num = 0;
+                    if (num >= cap) return false;
+                    num++;
+                    unit.SimpleSetStoredValue(TimesTriggered, num);
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

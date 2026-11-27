@@ -46,16 +46,17 @@ namespace SaltsEnemies_Reseasoned
             //Marching
             MarchingHandler.Setup();
             PerformEffectPassiveAbility march = ScriptableObject.CreateInstance<PerformEffectPassiveAbility>();
-            march._passiveName = "Marching";
+            march._passiveName = "Marching (6)";
+            march.name = "Marching_6_PA";
             march.passiveIcon = ResourceLoader.LoadSprite("MarchingPassive.png");
             march.m_PassiveID = MarchingHandler.Passive;
-            march._enemyDescription = "On any enemy without \"Marching\" as a passive moving, move Left or Right.";
-            march._characterDescription = "On any party member without \"Marching\" as a passive moving, move Left or Right.";
+            march._enemyDescription = "On any enemy without \"Marching\" as a passive moving, move Left or Right.\nThis passive triggers up to 6 times per round.";
+            march._characterDescription = "On any party member without \"Marching\" as a passive moving, move Left or Right.\nThis passive triggers up to 6 times per round.";
             march.doesPassiveTriggerInformationPanel = false;
             march.effects = new EffectInfo[2];
             march.effects[0] = Effects.GenerateEffect(ScriptableObject.CreateInstance<MarchingEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsAliveEffectCondition>());
             march.effects[1] = Effects.GenerateEffect(ScriptableObject.CreateInstance<SwapToSidesEffect>(), 1, Slots.Self, ScriptableObject.CreateInstance<IsAliveEffectCondition>());
-            march.conditions = [ScriptableObject.CreateInstance<IsAliveEffectorCondition>()];
+            march.conditions = [ScriptableObject.CreateInstance<TriggerPerTurnEffectorCondition>(), ScriptableObject.CreateInstance<IsAliveEffectorCondition>()];
             march._triggerOn = [MarchingHandler.Call];
 
             //fluid dynamics
