@@ -90,7 +90,7 @@ namespace SaltEnemies_Reseasoned
                     word = "a Mortal amount of";
                     break;
             }
-            vil._characterDescription = "On receiving direct damage, deal " + word + " damage to the Opposing position.\nThis passive does not trigger if the damage was fatal.";
+            vil._enemyDescription = "On receiving direct damage, deal " + word + " damage to the Opposing position.\nThis passive does not trigger if the damage was fatal.";
             vil.m_PassiveID = "Violent_PA";
             vil.name = "Violent_" + amount.ToString() + "_PA";
             vil.doesPassiveTriggerInformationPanel = false;
